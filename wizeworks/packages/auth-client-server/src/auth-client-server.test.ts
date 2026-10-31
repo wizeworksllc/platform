@@ -11,6 +11,7 @@ const {
   fetchApiToken,
   proxyAuthRequest,
   proxiedPath,
+  ORIGINAL_FETCH_MODE,
   forwardAccountOperation,
   accountOperationPath,
   signOutSession,
@@ -176,6 +177,32 @@ describe('the /api/auth proxy', () => {
     );
     expect(res.status).toBe(404);
     expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  // fetch() replaces sec-fetch-mode with its own `cors`, and Better Auth then
+  // answered a page the browser OPENED with JSON: connecting an AI tool showed
+  // raw text where the consent screen belonged.
+  it("carries the browser's sec-fetch-mode past fetch()", async () => {
+    const fetchImpl = fakeFetch(Response.json({}));
+    await proxyAuthRequest(
+      new Request('https://getpiggles.com/api/auth/oauth2/authorize?client_id=a', {
+        headers: { 'sec-fetch-mode': 'navigate' },
+      }),
+      fetchImpl
+    );
+    const sent = new Headers(fetchImpl.mock.calls[0]![1]?.headers);
+    expect(sent.get(ORIGINAL_FETCH_MODE)).toBe('navigate');
+  });
+
+  it('never forwards a carried fetch mode the browser did not send', async () => {
+    const fetchImpl = fakeFetch(Response.json({}));
+    await proxyAuthRequest(
+      new Request('https://getpiggles.com/api/auth/oauth2/authorize?client_id=a', {
+        headers: { [ORIGINAL_FETCH_MODE]: 'navigate' },
+      }),
+      fetchImpl
+    );
+    expect(new Headers(fetchImpl.mock.calls[0]![1]?.headers).get(ORIGINAL_FETCH_MODE)).toBeNull();
   });
 
   it('passes a redirect through instead of following it', async () => {

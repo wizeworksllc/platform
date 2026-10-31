@@ -137,13 +137,28 @@ export async function submitMcpConsent(args: {
   scope?: string;
   headers: Headers;
 }): Promise<string> {
+  // An approval finishes inside the provider's authorize step, which refuses
+  // to run without a request object ("request not found", 401, an error with
+  // an empty message). Called from server code there is none, so every
+  // "Authorize" click said the connection could not be completed. Give it one,
+  // asking for JSON so the redirect to the assistant comes back as a value
+  // instead of being thrown.
+  const headers = new Headers(args.headers);
+  headers.set('accept', 'application/json');
+  const request = new Request(new URL('/api/auth/oauth2/consent', auth.options.baseURL), {
+    method: 'POST',
+    headers,
+  });
   const result = await auth.api.oauth2Consent({
     body: {
       accept: args.accept,
       oauth_query: args.oauthQuery,
       ...(args.accept && args.scope ? { scope: args.scope } : {}),
     },
-    headers: args.headers,
+    headers,
+    request,
+    // Handed a request, the call answers with a Response unless told not to.
+    asResponse: false,
   });
   return result.url;
 }
