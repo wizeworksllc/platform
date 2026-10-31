@@ -53,7 +53,13 @@ import { runAsBrand } from '@wizeworks/brand-core/request-scope';
 import { env } from '../../env.js';
 import platformBusinessRoutes from './platform-business.js';
 import platformFlowRoutes from './platform-flows.js';
-import { HOP_BY_HOP, jsonBody, requestHeaders, servedBrand } from './platform-scope.js';
+import {
+  HOP_BY_HOP,
+  jsonBody,
+  requestHeaders,
+  restoreFetchMode,
+  servedBrand,
+} from './platform-scope.js';
 
 /** Better Auth's own mount point under each brand's base URL. */
 const BETTER_AUTH_BASE_PATH = '/api/auth';
@@ -310,6 +316,7 @@ const brandAuthRoutes: FastifyPluginAsync = async (app) => {
           const url = betterAuthUrl(baseURL, (request.params as { '*': string })['*'], request.url);
           const headers = requestHeaders(request);
           headers.set('host', new URL(baseURL).host);
+          restoreFetchMode(headers);
           const response = await handler(
             new Request(url, {
               method: request.method,

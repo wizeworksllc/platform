@@ -42,6 +42,17 @@ export function proxiedPath(url: URL): string {
   return `${rest}${url.search}`;
 }
 
+/**
+ * Carries the browser's `sec-fetch-mode` to api-rest, which puts it back
+ * (`restoreFetchMode` in api-rest's routes/auth/platform-scope.ts).
+ *
+ * fetch() replaces that header with its own `cors`, so every page the browser
+ * OPENED reached Better Auth looking like a script's request. Better Auth
+ * answers a script's authorize with JSON instead of a redirect, so connecting
+ * an AI tool showed a page of raw text where the consent screen belonged.
+ */
+export const ORIGINAL_FETCH_MODE = 'x-original-sec-fetch-mode';
+
 /** Also true for a spelling that only decodes to `/platform` (`/%70latform`),
  *  and for a path that will not decode at all. */
 function isPlatformPath(path: string): boolean {
@@ -69,6 +80,10 @@ export async function proxyAuthRequest(
   request.headers.forEach((value, key) => {
     if (!HOP_BY_HOP.has(key.toLowerCase())) headers.append(key, value);
   });
+  // Only the browser's own value crosses, never one a caller wrote itself.
+  headers.delete(ORIGINAL_FETCH_MODE);
+  const fetchMode = request.headers.get('sec-fetch-mode');
+  if (fetchMode) headers.set(ORIGINAL_FETCH_MODE, fetchMode);
   const method = request.method.toUpperCase();
   const body = method === 'GET' || method === 'HEAD' ? undefined : await request.arrayBuffer();
 

@@ -2,7 +2,7 @@
 
 export { getSession, readSession, requireSession, type SparxSession } from './session';
 export { fetchApiToken, type ApiToken } from './api-token';
-export { authProxyHandlers, proxyAuthRequest, proxiedPath } from './proxy';
+export { authProxyHandlers, ORIGINAL_FETCH_MODE, proxyAuthRequest, proxiedPath } from './proxy';
 export {
   accountOperationHandlers,
   accountOperationPath,

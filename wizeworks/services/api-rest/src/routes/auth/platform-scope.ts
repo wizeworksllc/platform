@@ -33,6 +33,24 @@ export function requestHeaders(request: FastifyRequest): Headers {
   return headers;
 }
 
+/** Set by the apps' `/api/auth` proxy (ORIGINAL_FETCH_MODE in @wizeworks/auth-client-server). */
+const ORIGINAL_FETCH_MODE = 'x-original-sec-fetch-mode';
+
+/**
+ * Gives Better Auth the browser's own `sec-fetch-mode` back.
+ *
+ * The app proxy forwards with fetch(), which replaces the header with `cors`.
+ * Better Auth reads `cors` as "a script asked", and answers an authorize with
+ * JSON rather than a redirect, so an AI tool's sign-in showed raw text instead
+ * of the consent screen. With no carried value the header stays as it came:
+ * an app still on the old proxy keeps the answers it already gets.
+ */
+export function restoreFetchMode(headers: Headers): void {
+  const original = headers.get(ORIGINAL_FETCH_MODE);
+  headers.delete(ORIGINAL_FETCH_MODE);
+  if (original) headers.set('sec-fetch-mode', original);
+}
+
 /** A parsed JSON body as a plain record; anything else reads as empty. */
 export function jsonBody(request: FastifyRequest): Record<string, unknown> {
   const body = request.body;

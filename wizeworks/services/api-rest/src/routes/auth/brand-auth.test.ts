@@ -256,3 +256,27 @@ describe('the routes', () => {
     ]);
   });
 });
+
+// The apps' proxy forwards with fetch(), which replaces sec-fetch-mode with
+// `cors`; the browser's own value rides in a header of its own. Without it put
+// back, Better Auth answered a page the browser opened with JSON, so
+// connecting an AI tool showed raw text instead of the consent screen.
+describe('restoreFetchMode', () => {
+  it("puts the browser's value back and drops the carrier", async () => {
+    const { restoreFetchMode } = await import('./platform-scope.js');
+    const headers = new Headers({
+      'sec-fetch-mode': 'cors',
+      'x-original-sec-fetch-mode': 'navigate',
+    });
+    restoreFetchMode(headers);
+    expect(headers.get('sec-fetch-mode')).toBe('navigate');
+    expect(headers.has('x-original-sec-fetch-mode')).toBe(false);
+  });
+
+  it('leaves the header as it came when nothing was carried', async () => {
+    const { restoreFetchMode } = await import('./platform-scope.js');
+    const headers = new Headers({ 'sec-fetch-mode': 'cors' });
+    restoreFetchMode(headers);
+    expect(headers.get('sec-fetch-mode')).toBe('cors');
+  });
+});
