@@ -663,6 +663,9 @@ export interface EmailSendPayload {
    *  and Reply-To. For a publisher that cannot resolve them itself (the dropship
    *  worker mailing a supplier an order, sparx persona issue 171). */
   sendAs?: 'tenant';
+  /** The product this send is for, when there is no tenant to read it from (a
+   *  sign-in code to an address with no account yet). A tenant's brand wins. */
+  platformBrand?: string;
   /** Optional header bag (X-Tenant-Id, List-Unsubscribe, etc.). */
   headers?: Record<string, string>;
 }
