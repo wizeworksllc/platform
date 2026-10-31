@@ -65,3 +65,24 @@ describe('publishAuthEmail on a transport that discards', () => {
     });
   }
 });
+
+describe('publishAuthEmail names the product it is sending for', () => {
+  // A sign-in code goes to an address that may have no account, so the worker
+  // has no tenant to read the brand from. Without this, a Piggles code arrived
+  // dressed as sparx (email-worker __tests__/no-business-send.test.ts).
+  it('stamps the brand this process is serving', async () => {
+    const savedBrand = process.env.PLATFORM_BRAND;
+    process.env.PLATFORM_BRAND = 'piggles';
+    try {
+      await publishAuthEmail({ ...email('new-device-signin'), tenantId: '' });
+      const logged = vi
+        .mocked(console.log)
+        .mock.calls.map((call) => String(call[0]))
+        .join('\n');
+      expect(logged).toContain('"platformBrand":"piggles"');
+    } finally {
+      if (savedBrand === undefined) delete process.env.PLATFORM_BRAND;
+      else process.env.PLATFORM_BRAND = savedBrand;
+    }
+  });
+});

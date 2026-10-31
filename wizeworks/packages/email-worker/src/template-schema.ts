@@ -42,6 +42,10 @@ export const TemplateMeta = {
   // Go out from the business rather than the platform: this worker fills the
   // From and Reply-To (see send-as.ts). For a publisher that cannot resolve them.
   sendAs: z.literal('tenant').optional(),
+  // The product a send is for, when it belongs to no business and so has no
+  // tenant row to read that from: a sign-in code to a Piggles address must not
+  // arrive dressed as sparx. A tenant's own brand wins when there is one.
+  platformBrand: z.string().optional(),
 };
 
 // Back-compat: `storeName` was renamed to `siteName` (store→site rename).

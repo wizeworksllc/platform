@@ -1475,8 +1475,9 @@ it needs the pipeline, or a local `migrate dev`. A look's history is empty until
    querying the database, and every one of them passed all three checks first.
 
    What to check, in the order it can go wrong: the furnish call returns at all
-   (it needs `PIGGLES_API_REST_URL` + `SPARX_INTERNAL_FURNISH_TOKEN` matching
-   api-rest's, or onboarding refuses to finish and says so); all fifteen modules
+   (since docs/154 it is api-rest's `/platform/business/furnish`, called as the
+   signed-in owner, so api-rest must be running with `PLATFORM_AUTH_BRANDS` set,
+   or onboarding refuses to finish and says so); all fifteen modules
    read as on; the CRM has a **pipeline** (its absence is what silently empties
    the Deals board); the chosen template's pages exist on the site; the shop
    holds the six Rowan goods. Then open the site and confirm the theme is

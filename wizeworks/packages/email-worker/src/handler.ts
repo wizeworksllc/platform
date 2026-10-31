@@ -73,7 +73,11 @@ const RawSendSchema = z.object({
 
 const EmailSendEvent = z.object({
   type: z.literal('email.send'),
-  tenantId: z.string().min(1),
+  // Empty for a send that belongs to no business: the sign-in code and the
+  // sign-in link go to an address that may have no account yet. Requiring a
+  // value dropped both, so passwordless sign-in sent nothing at all
+  // (__tests__/no-business-send.test.ts).
+  tenantId: z.string(),
   actorId: z.string().nullable(),
   occurredAt: z.string(),
   data: z.union([RawSendSchema, TemplateSendSchema]),
@@ -96,17 +100,21 @@ export interface HandleOutcome {
  * no tenant context — the same property that lets a Stripe webhook resolve a
  * tenant. Best-effort: a failed lookup speaks as the default brand rather than
  * dropping the mail, because a queue that stops is worse than a wrong word.
+ *
+ * A send with no tenant names its product itself (`sentFor`), because there is
+ * no row to read it from.
  */
-async function platformIdentity(tenantId: string, logger: Logger) {
+async function platformIdentity(tenantId: string, sentFor: string | undefined, logger: Logger) {
+  if (!tenantId) return platformBrandIdentity(sentFor ?? null);
   try {
     const row = await prisma.tenant.findUnique({
       where: { id: tenantId },
       select: { platformBrand: true },
     });
-    return platformBrandIdentity(row?.platformBrand);
+    return platformBrandIdentity(row?.platformBrand ?? sentFor ?? null);
   } catch (err) {
     logger.warn({ err }, 'platform brand lookup failed: speaking as the default brand');
-    return platformBrandIdentity(null);
+    return platformBrandIdentity(sentFor ?? null);
   }
 }
 
@@ -215,8 +223,12 @@ export async function handle(event: EmailSendEvent, logger: Logger): Promise<Han
     // Resolved ONCE per send: the From's display name, the fallback chrome and
     // the footer's legal line all state the same thing, and three lookups that
     // could disagree is three ways for one email to name two companies.
-    const identity = await platformIdentity(event.tenantId, childLog);
+    const sentFor = 'kind' in data ? undefined : data.platformBrand;
+    const identity = await platformIdentity(event.tenantId, sentFor, childLog);
     const palette = platformPalette(identity, childLog);
+    // A send with no tenant (a sign-in code) has no business brand, sender
+    // settings, sending domain or stats row to look up, so it skips all four.
+    const hasTenant = event.tenantId !== '';
 
     let rendered;
     if ('kind' in data) {
@@ -240,16 +252,18 @@ export async function handle(event: EmailSendEvent, logger: Logger): Promise<Han
       // Best-effort: a brand failure must not block delivery.
       let brand = null;
       try {
-        brand = await brandService.resolveEmailBrand(
-          { tenantId: event.tenantId },
-          data.propertyId ?? null
-        );
+        if (hasTenant) {
+          brand = await brandService.resolveEmailBrand(
+            { tenantId: event.tenantId },
+            data.propertyId ?? null
+          );
+        }
       } catch (brandErr) {
         childLog.warn({ err: brandErr }, 'brand resolution failed: rendering with defaults');
       }
       // From the business, when the send asks and did not say who itself.
       const input =
-        data.sendAs === 'tenant' && !data.from
+        hasTenant && data.sendAs === 'tenant' && !data.from
           ? asTheBusiness(
               data,
               await settingsService.senderHeaders(
@@ -279,10 +293,12 @@ export async function handle(event: EmailSendEvent, logger: Logger): Promise<Han
     // domain rather than not sending, which is the pre-existing behavior.
     let senderDomain: string | null = null;
     try {
-      senderDomain = await domainService.signingDomainFor(
-        { tenantId: event.tenantId },
-        senderDomainOf(rendered.from)
-      );
+      if (hasTenant) {
+        senderDomain = await domainService.signingDomainFor(
+          { tenantId: event.tenantId },
+          senderDomainOf(rendered.from)
+        );
+      }
     } catch (domainErr) {
       childLog.warn({ err: domainErr }, 'sending-domain lookup failed: relaying via the default');
     }
@@ -291,7 +307,7 @@ export async function handle(event: EmailSendEvent, logger: Logger): Promise<Han
       ...(senderDomain ? { senderDomain } : {}),
       variables: {
         ...data.variables,
-        tenant_id: event.tenantId,
+        ...(hasTenant ? { tenant_id: event.tenantId } : {}),
         ...(propertyId ? { property_id: propertyId } : {}),
       },
     });
@@ -302,17 +318,19 @@ export async function handle(event: EmailSendEvent, logger: Logger): Promise<Han
     // (`get_email_stats`) reliable; the webhook still supplies delivered/opened/clicked.
     // BEST-EFFORT: a bookkeeping failure must never fail (and re-deliver) a sent email.
     const vars = data.variables ?? {};
-    await analyticsService
-      .recordAccepted({
-        tenantId: event.tenantId,
-        recipient: data.to,
-        messageId: result.id,
-        propertyId,
-        broadcastId: vars.broadcast_id ?? null,
-        automationKey: vars.automation_key ?? null,
-        customerId: vars.customer_id ?? null,
-      })
-      .catch((err: unknown) => childLog.warn({ err }, 'recordAccepted failed: stat row skipped'));
+    if (hasTenant) {
+      await analyticsService
+        .recordAccepted({
+          tenantId: event.tenantId,
+          recipient: data.to,
+          messageId: result.id,
+          propertyId,
+          broadcastId: vars.broadcast_id ?? null,
+          automationKey: vars.automation_key ?? null,
+          customerId: vars.customer_id ?? null,
+        })
+        .catch((err: unknown) => childLog.warn({ err }, 'recordAccepted failed: stat row skipped'));
+    }
 
     return {
       status: 'sent',

@@ -7,6 +7,7 @@
 // uses console as a minimal shim. The actual rendering + send happens
 // inside email-worker, which has its own pino logger.
 
+import { currentPlatformBrand } from '@wizeworks/brand-core';
 import {
   createPublisher,
   publishEvent,
@@ -104,6 +105,9 @@ export async function publishAuthEmail(input: PublishAuthEmailInput): Promise<vo
     props: input.props,
     from: input.from,
     replyTo: input.replyTo,
+    // Every auth email says which product sent it. A sign-in code has no tenant
+    // for the worker to read that from, and api-rest answers for every brand.
+    platformBrand: currentPlatformBrand(),
   };
 
   await publishEvent(publisher, 'email.send', input.tenantId, input.actorId, payload, logger);
