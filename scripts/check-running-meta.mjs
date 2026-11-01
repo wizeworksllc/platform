@@ -56,13 +56,14 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
 /** The trees this scans. Each one is ASSERTED to exist: a check that silently
  *  scans nothing after a directory move prints a green tick over no work at
  *  all, which is worse than no check. */
-const TREES = ['piggles/apps/workbench', 'sparx/apps/workbench'];
+const TREES = present(['piggles/apps/workbench', 'sparx/apps/workbench']);
 
 const missing = TREES.filter((t) => !existsSync(join(ROOT, t)));
 if (missing.length > 0) {

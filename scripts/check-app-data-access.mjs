@@ -54,10 +54,11 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = process.cwd();
 
-const APP_ROOTS = ['wizeworks/apps', 'sparx/apps', 'piggles/apps'];
+const APP_ROOTS = present(['wizeworks/apps', 'sparx/apps', 'piggles/apps']);
 
 /** The workbench and account apps of both brands, and the marketing sites. */
 const FEWEST_APPS = 3;
@@ -75,7 +76,7 @@ const PURE_ENTRIES = new Set([
   '@wizeworksllc/social/cadence',
 ]);
 
-const PACKAGE_ROOTS = ['wizeworks/packages', 'sparx/packages', 'piggles/packages'];
+const PACKAGE_ROOTS = present(['wizeworks/packages', 'sparx/packages', 'piggles/packages']);
 const DATABASE_PACKAGES = ['@wizeworksllc/db', '@prisma/client'];
 
 const SKIP_DIRS = new Set(['node_modules', '.next', '.turbo', 'dist', 'coverage', 'public']);

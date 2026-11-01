@@ -82,6 +82,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { HAS_PIGGLES, present } from './lib/piggles.mjs';
 
 // Resolved from this file, never by counting '..' from the cwd -- a check that
 // guesses its own root is one move away from scanning nothing and printing OK.
@@ -107,10 +108,13 @@ const SCAN_ROOTS = ['wizeworks/packages'];
 // per piggles/CLAUDE.md they must NOT be "fixed": renaming another product's
 // marketplace to Piggles' invents something nobody can sign up for, which is
 // worse than the leak because nothing looks wrong any more.
-const BRAND_TREES = [
-  { dir: 'piggles', foreign: 'sparx' },
-  { dir: 'sparx', foreign: 'piggles' },
-];
+const BRAND_TREES = present(
+  [
+    { dir: 'piggles', foreign: 'sparx' },
+    { dir: 'sparx', foreign: 'piggles' },
+  ],
+  (t) => t.dir
+);
 const FOREIGN_DEBT_FILE_NAME = 'foreign-brand-debt.txt';
 
 const BRANDS = ['sparx', 'piggles'];
@@ -300,7 +304,8 @@ function scanForeign() {
       }
     }
   }
-  // Both trees are expected. One means a rename made this pass blind.
+  // Every listed tree is expected: sparx's, and Piggles' when it is checked out
+  // here (scripts/lib/piggles.mjs). One missing means a rename made this pass blind.
   if (trees < BRAND_TREES.length) {
     console.error('\nBrand check FAILED: found ' + trees + ' of ' + BRAND_TREES.length + ' brand');
     console.error('  trees. A moved or renamed tree makes the foreign-name pass blind.\n');
@@ -318,11 +323,19 @@ const FOREIGN_DEBT_FILE = join(ROOT, 'scripts', FOREIGN_DEBT_FILE_NAME);
 
 if (process.argv.includes('--update')) {
   writeFileSync(DEBT_FILE, unique.join('\n') + '\n', 'utf8');
-  writeFileSync(FOREIGN_DEBT_FILE, foreignUnique.join('\n') + '\n', 'utf8');
   console.log('Wrote ' + unique.length + ' known string(s) to ' + relative(ROOT, DEBT_FILE));
-  console.log(
-    'Wrote ' + foreignUnique.length + ' known string(s) to ' + relative(ROOT, FOREIGN_DEBT_FILE)
-  );
+  // Its entries are Piggles' strings, so without the Piggles checkout an update
+  // would empty it and Piggles' CI would then fail on every one of them.
+  if (HAS_PIGGLES) {
+    writeFileSync(FOREIGN_DEBT_FILE, foreignUnique.join('\n') + '\n', 'utf8');
+    console.log(
+      'Wrote ' + foreignUnique.length + ' known string(s) to ' + relative(ROOT, FOREIGN_DEBT_FILE)
+    );
+  } else {
+    console.log(
+      'Left ' + relative(ROOT, FOREIGN_DEBT_FILE) + ' alone: Piggles is not checked out here.'
+    );
+  }
   process.exit(0);
 }
 
@@ -380,7 +393,9 @@ const foreignDebt = existsSync(FOREIGN_DEBT_FILE)
   : new Set();
 
 const foreignFresh = foreign.found.filter((f) => !foreignDebt.has(f.lit));
-const foreignFixed = [...foreignDebt].filter((d) => !foreignUnique.includes(d));
+// The known strings name sparx inside Piggles, so they can only be judged gone
+// where Piggles is checked out (scripts/lib/piggles.mjs).
+const foreignFixed = HAS_PIGGLES ? [...foreignDebt].filter((d) => !foreignUnique.includes(d)) : [];
 
 console.log(
   'Foreign-brand check: ' +

@@ -11,9 +11,10 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
-const CONSOLES = ['sparx/apps/workbench', 'piggles/apps/workbench'];
+const CONSOLES = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
 const SCAN = ['surfaces', 'components'];
 
 /** Full-window places, where the window's width IS the width. */
@@ -26,11 +27,11 @@ const WINDOW_LEVEL = [
 
 /** Piggles files over its 250-line rule, left until each is split (the owner's
  *  choice for this kind of sweep, 2026-10-13). An entry that no longer offends fails. */
-const PIGGLES_DEBT = [
+const PIGGLES_DEBT = present([
   'piggles/apps/workbench/surfaces/social/inbox.tsx',
   'piggles/apps/workbench/surfaces/social/composer.tsx',
   'piggles/apps/workbench/surfaces/commerce/product-trade-pricing.tsx',
-];
+]);
 
 const WINDOW_VARIANT = /(^|[\s"'`{(])(sm|md|lg|xl|2xl):[a-z[-]/g;
 

@@ -50,12 +50,13 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SCAN_ROOTS = [
+const SCAN_ROOTS = present([
   ['sparx', join(ROOT, 'sparx', 'apps', 'workbench')],
   ['piggles', join(ROOT, 'piggles', 'apps', 'workbench')],
-];
+], ([, dir]) => dir);
 
 /**
  * Places that may still say the sentence outside the two doors, each with its
@@ -442,7 +443,7 @@ for (const [name, scanRoot] of SCAN_ROOTS) {
 }
 
 const stale = EXCEPTIONS.filter((entry) => !excepted.has(entry));
-const paidDebt = ALL_DEBT.filter((rel) => !debtSeen.has(rel));
+const paidDebt = present(ALL_DEBT).filter((rel) => !debtSeen.has(rel));
 
 if (noError.length > 0 || strays.length > 0 || stale.length > 0 || paidDebt.length > 0) {
   if (noError.length > 0) {
@@ -477,7 +478,7 @@ if (noError.length > 0 || strays.length > 0 || stale.length > 0 || paidDebt.leng
 }
 
 console.log(
-  `${String(files)} files, ${String(boxes)} load-error boxes across both consoles: every one outside the Piggles debt lists is handed its error, and no screen blames the connection by hand.`
+  `${String(files)} files, ${String(boxes)} load-error boxes across ${String(SCAN_ROOTS.length)} console(s): every one outside the Piggles debt lists is handed its error, and no screen blames the connection by hand.`
 );
 console.log(
   `${String(PIGGLES_DEBT.length)} Piggles file(s) over 250 lines left as debt, ${String(PIGGLES_DEBT_HELD_BY_PARENT.length)} held by one, ${String(EXCEPTIONS.length)} exception(s).`

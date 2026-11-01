@@ -18,14 +18,15 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import ts from 'typescript';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
-const CONSOLES = ['sparx/apps/workbench', 'piggles/apps/workbench'];
+const CONSOLES = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
 const SCAN = ['surfaces', 'components'];
 
 /** Piggles files over its 250-line rule, left until each is split (the owner's
  *  choice for this kind of sweep, 2026-10-13). An entry that no longer offends fails. */
-const PIGGLES_DEBT = [
+const PIGGLES_DEBT = present([
   'piggles/apps/workbench/components/launcher-rows.tsx',
   'piggles/apps/workbench/surfaces/ai-connections/ai-connections.tsx',
   'piggles/apps/workbench/surfaces/automations/automations-reports.tsx',
@@ -59,7 +60,7 @@ const PIGGLES_DEBT = [
   'piggles/apps/workbench/surfaces/social/composer.tsx',
   'piggles/apps/workbench/surfaces/social/connections.tsx',
   'piggles/apps/workbench/surfaces/social/insights.tsx',
-];
+]);
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir)) {

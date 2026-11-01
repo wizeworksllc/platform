@@ -90,15 +90,16 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
 
 import { BRITISH_WORDS } from './british-words.mjs';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const TREES = [
+const TREES = present([
   'wizeworks/packages',
   'wizeworks/services',
   'piggles/apps',
   'piggles/packages',
   'sparx/apps',
-];
+]);
 
 const missing = TREES.filter((t) => !existsSync(join(ROOT, t)));
 if (missing.length > 0) {

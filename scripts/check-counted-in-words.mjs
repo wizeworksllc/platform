@@ -51,6 +51,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
@@ -61,12 +62,12 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
  * nothing and prints a green tick over no work at all, which is worse than
  * having no check: five of them did exactly that in one tree move.
  */
-const TREES = [
+const TREES = present([
   'piggles/apps/workbench',
   'sparx/apps/workbench',
   'wizeworks/packages',
   'wizeworks/services',
-];
+]);
 
 /**
  * Not copy.

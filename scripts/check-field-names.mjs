@@ -33,13 +33,14 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Where console forms live. A tree added outside this list is invisible here,
  *  which is why the counts are printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
-const ROOTS = ['piggles/apps/workbench', 'sparx/apps/workbench'];
+const ROOTS = present(['piggles/apps/workbench', 'sparx/apps/workbench']);
 
 const CONTROL =
   /<(Input|Textarea|Select|NativeSelect|MultiSelect|Combobox|Autocomplete|SearchInput|TagInput|MoneyInput|MoneyTextInput|DayInput|DateInput|DateTimeInput|TimeInput|PhoneInput|PasswordInput|NumberField)\b/;

@@ -120,14 +120,14 @@ Deployment maps its own key to `WIZELENS_HUB_TOKEN`:
 
 ```bash
 az keyvault secret set --vault-name kv-sparx-prod-cus --name wizelens-key-api-rest --value <wl_ik_…>
-# … and likewise for api-graphql, api-mcp, mcp-site, admin, site, web, workbench,
-#    market, piggles-web, piggles-account, piggles-console
+# … and likewise for api-graphql, api-mcp, mcp-site, site, web, workbench, market
 ```
 
 The key reference is `optional`: a missing key leaves the app running, and only
 its traces are refused by the cloud. Projects: `wizeworks` (api-rest,
-api-graphql, api-mcp, mcp-site, admin, site), `sparx` (web, workbench, market),
-`piggles` (piggles-web, piggles-account, piggles-console).
+api-graphql, api-mcp, mcp-site, site) and `sparx` (web, workbench, market).
+The admin console's key now belongs to the wizeworks repository, and Piggles'
+three keys to wizeworksllc/piggles (docs/153, Phase 4).
 
 ### Migrating, and rolling back
 

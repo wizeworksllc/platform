@@ -24,6 +24,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
+import { HAS_PIGGLES, present } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -34,20 +35,20 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 // with no address at all. Nothing failed: an unaddressed pane just falls back to `/`,
 // so the bar goes blank when you focus it and a link to a page editor cannot be sent.
 // A check that covers one of two apps reads exactly like a check that covers both.
-const CATALOG_DIRS = [
+const CATALOG_DIRS = present([
   'sparx/apps/workbench/lib/surfaces/catalog',
   'piggles/apps/workbench/lib/surfaces/catalog',
-];
+]);
 const ROUTES_FILE = 'wizeworks/packages/links/src/routes.ts';
 
 // Registrations that live OUTSIDE the catalog directories. `piggles.home` is one:
 // its own file, because it is the Piggles console's answer to "what do I look at
 // first" and deliberately not sparx's `workbench.home`. A registry read that
 // misses it reports a key nothing registers, which is worse than not checking.
-const EXTRA_REGISTRY_FILES = ['piggles/apps/workbench/lib/surfaces/piggles-catalog.ts'];
+const EXTRA_REGISTRY_FILES = present(['piggles/apps/workbench/lib/surfaces/piggles-catalog.ts']);
 
 // Where a surface is OPENED from. Both consoles, same reason as CATALOG_DIRS.
-const SURFACE_ROOTS = ['sparx/apps/workbench', 'piggles/apps/workbench'];
+const SURFACE_ROOTS = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
 
 // A surface key: lowercase segments, at least one dot. Tight on purpose — the
 // scan reads every `.open('…')` in both apps, and `window.open('/pricing')` or
@@ -195,7 +196,11 @@ const stale = [...KNOWN_DEAD_OPENS].filter(
 const unaddressed = [...surfaces]
   .filter((key) => !routed.has(key) && !NO_ADDRESS_YET.has(key))
   .sort();
-const orphaned = [...routed].filter((key) => !surfaces.has(key)).sort();
+// The route table serves both consoles, and some routes name a surface only
+// Piggles registers (its studio panes, `piggles.home`). Without the Piggles
+// checkout those read as orphaned here, so this direction runs where both
+// consoles are: Piggles' CI (scripts/lib/piggles.mjs).
+const orphaned = HAS_PIGGLES ? [...routed].filter((key) => !surfaces.has(key)).sort() : [];
 
 if (unaddressed.length > 0) {
   console.error(

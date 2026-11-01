@@ -59,13 +59,14 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SCHEMA_DIR = join(ROOT, 'wizeworks', 'packages', 'db', 'prisma', 'schema');
 
 /** Scan roots. Every one is asserted to exist — a check that quietly scans
  *  nothing prints green forever. */
-const SOURCE_ROOTS = [
+const SOURCE_ROOTS = present([
   'wizeworks/packages',
   'wizeworks/services',
   'wizeworks/apps',
@@ -73,7 +74,7 @@ const SOURCE_ROOTS = [
   'sparx/packages',
   'piggles/apps',
   'piggles/packages',
-];
+]);
 
 /* ── 1. The schema: model → fields, and which of them are relations ───────── */
 

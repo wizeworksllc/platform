@@ -286,32 +286,6 @@ jobs:
                     - { name: web, dockerfile: sparx/apps/web/Dockerfile, actions_key: NEXT_ACTIONS_KEY_WEB }
                     - { name: site, dockerfile: wizeworks/apps/site/Dockerfile, actions_key: NEXT_ACTIONS_KEY_SITE }
                     - { name: market, dockerfile: sparx/apps/market/Dockerfile, actions_key: NEXT_ACTIONS_KEY_MARKET }
-                    # Piggles — the sister brand's three surfaces (k8s/apps). Separate
-                    # images because they are separate applications: piggles/CLAUDE.md
-                    # RULE #0 says either product must be deletable tomorrow without
-                    # affecting the other, and sharing an image is sharing a build.
-                    #
-                    # `piggles-web` is the only one that stands alone. The account app
-                    # before the console gives a live signup funnel with a dead end at the
-                    # far side of the handoff, so those two ship together or not at all.
-                    - {
-                          name: piggles-web,
-                          dockerfile: piggles/apps/web/Dockerfile,
-                          actions_key: NEXT_ACTIONS_KEY_PIGGLES_WEB,
-                      }
-                    - {
-                          name: piggles-account,
-                          dockerfile: piggles/apps/account/Dockerfile,
-                          actions_key: NEXT_ACTIONS_KEY_PIGGLES_ACCOUNT,
-                      }
-                    # Directory `sparx/apps/workbench`, image `piggles-console`: the console is a
-                    # workbench-shaped app, but "workbench" is a sparx word and nothing an
-                    # operator reads should carry it (RULE #3).
-                    - {
-                          name: piggles-console,
-                          dockerfile: piggles/apps/workbench/Dockerfile,
-                          actions_key: NEXT_ACTIONS_KEY_PIGGLES_CONSOLE,
-                      }
                     # Workers (k8s/self-hosted/workers.yaml). THREE images, not fourteen:
                     # twelve of them were the same container with a different WORKDIR, and
                     # are now handler libraries under packages/*-worker running inside
@@ -408,8 +382,9 @@ jobs:
                       WIZELENS_RELEASE=${{ github.sha }}
                   # next_actions_key: the app's next-actions-key-* vault value, so server-action ids survive rebuilds (SI-2).
                   # A BuildKit secret, never a build-arg: an arg stays readable in the
-                  # image's layer history. Only the three Piggles Dockerfiles mount it —
-                  # for the other nineteen it is declared and never materialised.
+                  # image's layer history. A Dockerfile that does not mount it never
+                  # materialises it. (The three Piggles images that did now build in
+                  # wizeworksllc/piggles, with the same key from their own vault.)
                   secrets: |
                       fontawesome_npm_token=${{ secrets.FONTAWESOME_NPM_TOKEN }}
                       next_actions_key=${{ env.NEXT_ACTIONS_KEY }}
@@ -1083,7 +1058,7 @@ jobs:
                   # that is not there — so a rename turns this gate from "did the
                   # runtime change" into "no", silently, and the release goes green
                   # having deployed nothing. Every path is named once, here.
-                  ROLL_PATHS='wizeworks sparx piggles k8s pnpm-lock.yaml pnpm-workspace.yaml marketplace-catalog'
+                  ROLL_PATHS='wizeworks sparx k8s pnpm-lock.yaml pnpm-workspace.yaml marketplace-catalog'
                   for p in $ROLL_PATHS; do
                     if [ ! -e "$p" ]; then
                       echo "::error::rollout gate names '$p', which does not exist in this tree." \
@@ -1126,10 +1101,10 @@ jobs:
                       # while the thing it exists to do does not happen. The guard above
                       # this line is why it cannot come back.
                       elif git diff --quiet "$DEPLOYED" '${{ github.sha }}' -- \
-                             wizeworks sparx piggles k8s pnpm-lock.yaml pnpm-workspace.yaml \
+                             wizeworks sparx k8s pnpm-lock.yaml pnpm-workspace.yaml \
                              marketplace-catalog; then
                         roll=false
-                        reason="nothing under wizeworks/ sparx/ piggles/ k8s/ changed since ${DEPLOYED:0:12}"
+                        reason="nothing under wizeworks/ sparx/ k8s/ changed since ${DEPLOYED:0:12}"
                       else
                         reason="runtime paths changed since ${DEPLOYED:0:12}"
                       fi ;;
@@ -1217,8 +1192,34 @@ jobs:
                   # A resource removed from the overlay is pruned on the NEXT release
                   # after the one that first labelled it — the label has to exist on the
                   # live object before a selector can match it.
+                  #
+                  # THE KINDS ARE LISTED, because kubectl's default prune list leaves
+                  # PodDisruptionBudgets out: a PDB dropped from the overlay stayed in
+                  # the namespace for good. That happened when the Piggles apps moved to
+                  # their own namespace (docs/153, Phase 4) and their Deployments were
+                  # pruned but `piggles-account`'s PDB was not. The list is kubectl's
+                  # default plus PodDisruptionBudget, less Endpoints (deprecated since
+                  # v1.33, and only a Service makes them, never this overlay).
+                  # The selector above still scopes every kind, so naming a kind makes
+                  # only THIS overlay's labelled objects of that kind candidates.
                   kubectl apply -k "$OVERLAY/apps" \
-                    --prune --selector app.kubernetes.io/managed-by=sparx-release-apps
+                    --prune --selector app.kubernetes.io/managed-by=sparx-release-apps \
+                    --prune-allowlist=core/v1/ConfigMap \
+                    --prune-allowlist=core/v1/Namespace \
+                    --prune-allowlist=core/v1/PersistentVolumeClaim \
+                    --prune-allowlist=core/v1/PersistentVolume \
+                    --prune-allowlist=core/v1/Pod \
+                    --prune-allowlist=core/v1/ReplicationController \
+                    --prune-allowlist=core/v1/Secret \
+                    --prune-allowlist=core/v1/Service \
+                    --prune-allowlist=batch/v1/Job \
+                    --prune-allowlist=batch/v1/CronJob \
+                    --prune-allowlist=networking.k8s.io/v1/Ingress \
+                    --prune-allowlist=apps/v1/DaemonSet \
+                    --prune-allowlist=apps/v1/Deployment \
+                    --prune-allowlist=apps/v1/ReplicaSet \
+                    --prune-allowlist=apps/v1/StatefulSet \
+                    --prune-allowlist=policy/v1/PodDisruptionBudget
 
             - name: Wait for rollout
               if: steps.changed.outputs.value == 'true'
@@ -1448,8 +1449,8 @@ jobs:
     # ---------------------------------------------------------------------------
     # THE PACKAGES. Published after the containers, before the tag.
     #
-    # sparx and Piggles leave this repository and install the platform packages
-    # from GitHub Packages (docs/153, D2). A package that changed is published at
+    # Each brand installs the platform packages from GitHub Packages once it
+    # leaves this repository, and Piggles already has (docs/153, D2). A package that changed is published at
     # the version this release is about to tag, so `@wizeworksllc/links@1.262.0`
     # is links as it shipped in v1.262.0 and always matches a deployed API. The
     # rules (what counts as changed, why a dependent moves with its dependency,

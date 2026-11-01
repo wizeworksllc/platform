@@ -81,14 +81,6 @@ COPY --chown=node:node sparx/apps/market/package.json ./sparx/apps/market/
 COPY --chown=node:node sparx/apps/web/package.json ./sparx/apps/web/
 COPY --chown=node:node sparx/apps/workbench/package.json ./sparx/apps/workbench/
 COPY --chown=node:node sparx/packages/brand/package.json ./sparx/packages/brand/
-COPY --chown=node:node piggles/apps/account/package.json ./piggles/apps/account/
-COPY --chown=node:node piggles/apps/web/package.json ./piggles/apps/web/
-COPY --chown=node:node piggles/apps/workbench/package.json ./piggles/apps/workbench/
-COPY --chown=node:node piggles/packages/auth-handoff/package.json ./piggles/packages/auth-handoff/
-COPY --chown=node:node piggles/packages/brand/package.json ./piggles/packages/brand/
-COPY --chown=node:node piggles/packages/config/package.json ./piggles/packages/config/
-COPY --chown=node:node piggles/packages/mascot/package.json ./piggles/packages/mascot/
-COPY --chown=node:node piggles/packages/ui/package.json ./piggles/packages/ui/
 
 COPY --chown=node:node wizeworks/packages ./wizeworks/packages
 COPY --chown=node:node wizeworks/services ./wizeworks/services

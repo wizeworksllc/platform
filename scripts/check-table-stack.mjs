@@ -15,9 +15,10 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
-const CONSOLES = ['sparx/apps/workbench', 'piggles/apps/workbench'];
+const CONSOLES = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
 const SCAN = ['surfaces', 'components'];
 const WRAPPER = 'components/table.tsx';
 

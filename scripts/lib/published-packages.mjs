@@ -1,5 +1,5 @@
-// Which platform packages publish to GitHub Packages, and what sparx and Piggles
-// need from them (docs/153, D2 and Phase 3).
+// Which platform packages publish to GitHub Packages, and what sparx needs from
+// them (docs/153, D2 and Phase 3).
 //
 // A package publishes when its package.json says so: `publishConfig.registry` is
 // the GitHub Packages npm registry. There is no list here to keep in step. The two
@@ -21,12 +21,12 @@ const WORKSPACE_GROUPS = [
   'wizeworks/services',
   'sparx/apps',
   'sparx/packages',
-  'piggles/apps',
-  'piggles/packages',
 ];
 
-/** The trees that consume published packages once they leave this repository. */
-export const CONSUMER_GROUPS = ['sparx/apps', 'sparx/packages', 'piggles/apps', 'piggles/packages'];
+/** The trees that consume published packages once they leave this repository.
+ *  Piggles left first (docs/153, Phase 4): its own repository installs the
+ *  published versions, and its CI builds every image from them. */
+export const CONSUMER_GROUPS = ['sparx/apps', 'sparx/packages'];
 
 /** name → { dir, json } for every workspace package. Throws on a missing group,
  *  so a moved tree fails here rather than scanning less and passing. */
@@ -77,7 +77,7 @@ export function packageClosure(pkgs, name) {
   return [...seen].filter((dep) => dep.startsWith(SCOPE));
 }
 
-/** Every platform package sparx and Piggles install, directly or through another
+/** Every platform package sparx installs, directly or through another
  *  platform package. A consumer's devDependencies count, because the consumer
  *  installs them; a platform package's do not, because they are stripped. */
 export function consumerClosure(pkgs) {

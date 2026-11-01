@@ -30,18 +30,19 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Where console screens live. A tree added outside this list is invisible
  *  here, which is why the file count is printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
-const ROOTS = [
+const ROOTS = present([
   'piggles/apps/workbench/surfaces',
   'piggles/apps/workbench/components',
   'sparx/apps/workbench/surfaces',
   'sparx/apps/workbench/components',
-];
+]);
 
 /** A mutation whose name says it takes something away. */
 const DESTRUCTIVE = /\b((?:delete|remove|destroy)[A-Z]\w*)\.mutate(?:Async)?\(/;
@@ -121,7 +122,7 @@ for (const root of ROOTS) {
 
 /** An allowance over a file that no longer has a destructive call is a
  *  permission nobody is watching. [[feedback_structural_checks_go_blind]] */
-const stale = Object.keys(ALLOWED).filter((key) => !seen.has(key));
+const stale = present(Object.keys(ALLOWED)).filter((key) => !seen.has(key));
 if (stale.length > 0) {
   die([
     `✖ ${String(stale.length)} entr(ies) in ALLOWED no longer have a destructive call:`,

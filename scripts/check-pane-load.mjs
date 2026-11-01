@@ -44,14 +44,15 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { present } from './lib/piggles.mjs';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Both consoles. The rule is about data loading, so it holds identically. */
-const ROOTS = [
+const ROOTS = present([
   join(REPO, 'piggles', 'apps', 'workbench', 'surfaces'),
   join(REPO, 'sparx', 'apps', 'workbench', 'surfaces'),
-];
+]);
 
 // Resolved from the repo root and asserted, never counted in `..`s: a check that
 // scans a directory which has moved reports zero problems in green.

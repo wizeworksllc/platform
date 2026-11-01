@@ -59,7 +59,7 @@ jobs:
       # this failed loudly rather than quietly linting zero packages, which is
       # the one mercy in it.
       #
-      # `./*/apps/*` covers wizeworks/, sparx/ and piggles/ apps in one shard;
+      # `./*/apps/*` covers the wizeworks/ and sparx/ apps in one shard;
       # the platform's packages and services are big enough to want their own.
       matrix:
         include:
@@ -67,7 +67,6 @@ jobs:
           - { name: platform-services, scope: './wizeworks/services/*' }
           - { name: apps, scope: './*/apps/*' }
           - { name: sparx-packages, scope: './sparx/packages/*' }
-          - { name: piggles-packages, scope: './piggles/packages/*' }
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-workspace
@@ -327,9 +326,11 @@ jobs:
     name: Brand isolation
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    # Piggles and sparx are two applications and neither may import the other
-    # (piggles/CLAUDE.md RULE #0). Pure Node, no install, so it fails in seconds
-    # rather than after a build.
+    # Piggles and sparx are two applications and neither may import the other.
+    # Piggles lives in its own repository (wizeworksllc/piggles), and its CI
+    # runs the cross-console checks below with both consoles side by side; here
+    # they read sparx's half (scripts/lib/piggles.mjs). Pure Node, no install,
+    # so it fails in seconds rather than after a build.
     steps:
       - uses: actions/checkout@v4
 
@@ -337,8 +338,8 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      # Neither product may import the other's app code, AND piggles' use of the
-      # retiring `@sparx/*` scope may only fall (piggles/docs/migration, A0).
+      # Neither product may import the other's app code, and the platform may
+      # import neither brand.
       - name: Check the product boundaries hold
         run: node scripts/check-boundaries.mjs
 
@@ -347,34 +348,28 @@ jobs:
       - name: Check apps off the database stay off it
         run: node scripts/check-app-data-access.mjs
 
-      # The same promise one level down: every platform package sparx and
-      # Piggles install must publish, and none that publishes may carry the
-      # database (docs/153, Phase 3). The workspace hides a gap here until the
-      # day a brand moves to its own repository.
+      # The same promise one level down: every platform package sparx installs
+      # must publish, and none that publishes may carry the database (docs/153,
+      # Phase 3). The workspace hides a gap here until the day sparx moves to its
+      # own repository, as Piggles already has.
       - name: Check the packages the brands install all publish
         run: node scripts/check-publishable.mjs
-
-      # The boundary check reads source text, so it catches the import somebody
-      # WROTE. This walks the dependency closure and catches the one four
-      # packages down — which is the one that actually put sparx's mascot in the
-      # Piggles image while the text scan stayed green.
-      - name: Check sparx could be deleted without breaking Piggles
-        run: node scripts/check-deletability.mjs
-
-      # Isolation stops Piggles IMPORTING sparx; this stops it SOUNDING like
-      # sparx. The surfaces are a fork of sparx's catalog, so every new screen
-      # arrives wearing sparx's words and keeps them until somebody looks —
-      # "Modules" reached the rail of a product that has no module pricing.
-      - name: Check no sparx vocabulary reaches the Piggles nav
-        run: node piggles/scripts/check-nav-vocabulary.mjs
 
       # The two consoles are the same product shape under two brands, and almost
       # everything that holds them up — toasts, confirms, crash reporting, deep
       # links, the guide — is furniture nobody asks for by name and everybody
       # notices missing. A capability added to one and forgotten in the other
-      # must turn this red rather than be found by a customer.
+      # must turn this red rather than be found by a customer. Here it prints
+      # that it skipped, because the Piggles console is not checked out in this
+      # repository. Piggles' CI checks out both and runs it for real.
       - name: Check the two consoles have not drifted apart
         run: node scripts/check-console-parity.mjs
+
+      # The shared seed packages write sentences into rows that both consoles
+      # show (the Add palette, the AI prompt library, the built-in reports, the
+      # demo business). Piggles' em-dash check read them while it lived here.
+      - name: Check seeded copy has no em dash where a word belongs
+        run: node scripts/check-seed-dashes.mjs
 
       # A seeded saved view carries a TARGET, and a target is a screen pathname
       # that has to match the string a pane registers. They are two literals in
@@ -543,7 +538,3 @@ jobs:
 
       - name: Check every Next app builds and runs with one server-action key
         run: node scripts/check-next-actions-key.mjs
-
-      # kubectl ships on the hosted runner; `kustomize` here renders only, it talks to no cluster.
-      - name: Check the rendered Azure overlays keep their availability rules
-        run: node scripts/check-k8s-overlays.mjs

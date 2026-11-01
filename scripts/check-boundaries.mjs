@@ -20,6 +20,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { HAS_PIGGLES } from './lib/piggles.mjs';
 
 const ROOT = process.cwd();
 const SKIP_DIRS = new Set([
@@ -671,10 +672,14 @@ function checkRatchet(counts, update, banned) {
 }
 
 const update = process.argv.includes('--update-baseline');
-const { counts, banned } = countScopeUsage();
+// The Piggles rules read the Piggles tree, which lives in its own repository
+// since docs/153 Phase 4. They run where its CI checks this repository out
+// around its own (scripts/lib/piggles.mjs); alone, sparx has only its own rules.
+const { counts, banned } = HAS_PIGGLES ? countScopeUsage() : { counts: {}, banned: [] };
 
 let failures = 0;
-failures += scan('piggles', PIGGLES_TO_SPARX, 'piggles/ reaches into a sparx APP');
+if (HAS_PIGGLES) failures += scan('piggles', PIGGLES_TO_SPARX, 'piggles/ reaches into a sparx APP');
+else console.log('- the Piggles rules: skipped, the Piggles console is not checked out at piggles/ here');
 failures += scan('sparx', SPARX_TO_PIGGLES, 'sparx/ reaches into piggles/');
 failures += scan(
   'wizeworks',
@@ -688,9 +693,11 @@ failures += scan(
 failures += checkBanned(banned);
 failures += checkBrandProse();
 failures += checkZoneProse();
-failures += checkOperatorInConsole();
-failures += checkOtherBrandProse(countOtherBrandProse(), update);
-failures += checkRatchet(counts, update, banned);
+if (HAS_PIGGLES) {
+  failures += checkOperatorInConsole();
+  failures += checkOtherBrandProse(countOtherBrandProse(), update);
+  failures += checkRatchet(counts, update, banned);
+}
 
 // Rule 1 (WIZEWORKS_TO_BRAND) and rule 3 (checkBrandProse) are both LIVE. The
 // hex rule the same paragraph claimed is NOT, and the inventory is why: 1,049

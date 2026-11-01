@@ -43,7 +43,7 @@
  *   3. Every WORKDIR naming a product tree is a path something was copied to.
  *
  * Pure Node, no install. Same family as check:events / check:routes /
- * check:docker / check:boundaries / check:deletability.
+ * check:docker / check:boundaries.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -61,8 +61,11 @@ function repoRoot() {
 }
 
 const ROOT = repoRoot();
-const TREES = ['wizeworks', 'sparx', 'piggles'];
-const SKIP = new Set(['node_modules', '.git', '.next', '.turbo', 'dist', 'build']);
+const TREES = ['wizeworks', 'sparx'];
+// `piggles` is skipped too. Piggles' CI checks its own repository out at
+// `piggles/` inside this one, and its Dockerfiles are written for that
+// repository's layout, not this one's. Its own release checks them.
+const SKIP = new Set(['node_modules', '.git', '.next', '.turbo', 'dist', 'build', 'piggles']);
 
 /** Every Dockerfile in the repo. */
 function dockerfiles() {

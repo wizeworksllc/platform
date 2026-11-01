@@ -104,8 +104,9 @@ spec:
             # sparx-app-env / sparx-app-secrets (BETTER_AUTH_SECRET,
             # BETTER_AUTH_URL, GOOGLE_CLIENT_*). Piggles reads PIGGLES_*: its
             # secret and Google client are keys in sparx-app-secrets; the three
-            # plain values are here because piggles-app-env cannot be loaded
-            # into this pod (it overrides shared names with Piggles values).
+            # plain values are here because the Piggles apps' config
+            # (piggles-app-env in wizeworksllc/piggles) overrides shared names
+            # with Piggles values, so it cannot be loaded into this pod.
             #
             # A brand with no secret or URL stops the pod at boot, on purpose.
             - name: PLATFORM_AUTH_BRANDS
@@ -114,10 +115,10 @@ spec:
             # must throw, never answer as the default brand.
             - name: PLATFORM_BRAND_SOURCE
               value: request
-            # Same as piggles-account's BETTER_AUTH_URL.
+            # Same as the Piggles account app's BETTER_AUTH_URL (wizeworksllc/piggles).
             - name: PIGGLES_BETTER_AUTH_URL
               value: https://getpiggles.com
-            # Same as piggles-app-env.
+            # Same as piggles-app-env in wizeworksllc/piggles.
             - name: PIGGLES_BETTER_AUTH_APP_NAME
               value: Piggles
             - name: PIGGLES_BETTER_AUTH_COOKIE_PREFIX

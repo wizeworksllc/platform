@@ -41,6 +41,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -52,7 +53,7 @@ const SLUGS = ['b2b-quotes', 'customer-estimates'];
 
 /** Where to look. Each must exist — a scan root that moved would make this
  *  check pass over nothing and print green. [[feedback_structural_checks_go_blind]] */
-const ROOTS = ['wizeworks', 'piggles', 'sparx'];
+const ROOTS = present(['wizeworks', 'piggles', 'sparx']);
 
 const SKIP_DIRS = new Set(['node_modules', '.next', 'dist', 'build', '.turbo', 'coverage']);
 const CODE = /\.(ts|tsx|mjs|js)$/;
