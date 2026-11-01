@@ -17,7 +17,7 @@ There are four, and each is a different KIND of thing:
 
 ```
 push to main
-  build            16 images → ghcr.io/<repo>/<image>:<sha>
+  build            12 images → ghcr.io/<repo>/<image>:<sha>
   1 infrastructure namespace + secrets (Key Vault) → hand the ingress over
                    → k8s/azure/infra (sparx-app-env, media volume, Typesense,
                    PgBouncer)
@@ -29,6 +29,12 @@ push to main
     tag            cut the v* tag — only if the release (and its packages) shipped
   4 cleanup        prune old image versions + obsolete workflow-run history
 ```
+
+Piggles' three images (piggles-web, piggles-account, piggles-console) are not
+built here. They build and deploy from wizeworksllc/piggles into the `piggles`
+namespace (docs/153, Phase 4). The first sparx release after that move pruned
+the old copies from `sparx-prod`, because the label-based prune deletes any
+Deployment that `k8s/apps` no longer lists.
 
 That is the whole deployment of sparx, in the order it has to happen, in one file.
 

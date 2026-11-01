@@ -50,13 +50,14 @@ import { dirname, join, relative } from 'node:path';
 // it, and knowing which `/*` is inside a comment IS the parse — see the
 // module's own header for the two ways this check got that wrong.
 import { stripComments } from './lib/strip-comments.mjs';
+import { present } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Both consoles. A tree added outside this list is invisible here, which is why
  *  the file count is printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
-const ROOTS = ['sparx/apps/workbench', 'piggles/apps/workbench'];
+const ROOTS = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
 
 /**
  * Exports that genuinely have no caller in their own console, with the reason.

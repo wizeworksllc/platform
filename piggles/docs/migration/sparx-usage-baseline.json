@@ -1,5 +1,0 @@
-{
-  "note": "Ratchet for piggles/docs/migration phase A0. Counts of `@sparx/*` references under piggles/, comments excluded. These may only go DOWN. Regenerate with `pnpm check:boundaries --update-baseline` after a phase lands.",
-  "total": 0,
-  "packages": {}
-}

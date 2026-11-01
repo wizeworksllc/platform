@@ -31,6 +31,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -39,10 +40,10 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
  *  other. An app added outside this list is invisible here, which is why the
  *  counts are printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
-const APPS = [
+const APPS = present([
   { root: 'piggles/apps/workbench', css: 'piggles/apps/workbench/app/globals.css' },
   { root: 'sparx/apps/workbench', css: 'sparx/apps/workbench/app/globals.css' },
-];
+], (a) => a.root);
 
 /**
  * Literals that are not silica color names, with the reason.

@@ -32,6 +32,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 // Resolved from THIS file, never by counting `..` from the shell's cwd — a
 // check that resolves its roots by accident scans nothing after a tree move and
@@ -40,10 +41,10 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
 const SITE_CONTENT = join(ROOT, 'wizeworks/apps/site/lib/content.ts');
 const SITE_KIND_READ = join(ROOT, 'wizeworks/apps/site/lib/kind-pieces.ts');
-const CONSOLES = [
+const CONSOLES = present([
   join(ROOT, 'piggles/apps/workbench/surfaces/cms/routable.ts'),
   join(ROOT, 'sparx/apps/workbench/surfaces/cms/routable.ts'),
-];
+]);
 
 let failed = false;
 const fail = (message) => {

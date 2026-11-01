@@ -34,11 +34,6 @@ export default tseslint.config(
       // resolve them and every typed rule errors. wrangler typechecks and
       // bundles these on deploy.
       'cloudflare/**',
-      // Piggles' product-screenshot capture tool. Node CLI scripts outside the
-      // Next app's tsconfig, and they resolve Playwright from a GLOBAL install
-      // on purpose (see public/product/README.md) — so it types as `any` and
-      // every typed rule errors on it. Prettier still formats them.
-      'piggles/apps/web/scripts/**',
     ],
   },
   js.configs.recommended,

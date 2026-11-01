@@ -43,6 +43,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { present } from './lib/piggles.mjs';
 
 function die(lines) {
   console.error(lines.join('\n'));
@@ -61,7 +62,7 @@ function repoRoot() {
 }
 
 const ROOT = repoRoot();
-const CONSOLES = ['piggles', 'sparx'].map((brand) => ({
+const CONSOLES = present(['piggles', 'sparx']).map((brand) => ({
   brand,
   surfaces: join(ROOT, brand, 'apps', 'workbench', 'surfaces'),
   nav: join(ROOT, brand, 'apps', 'workbench', 'lib', 'surfaces', 'nav.ts'),
@@ -185,7 +186,7 @@ if (offenders.length > 0) {
 }
 
 console.log(
-  `✓ app names: ${String(scanned)} surface files across both consoles, and not one of them ` +
+  `✓ app names: ${String(scanned)} surface files across ${String(CONSOLES.length)} console(s), and not one of them ` +
     `keeps its own table of what the apps are called (${String(exempt)} table(s) named as ` +
     `something else).`
 );

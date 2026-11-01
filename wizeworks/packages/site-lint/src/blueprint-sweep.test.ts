@@ -74,7 +74,7 @@ function grade(slug: string): SiteLintReport {
  *   set white on purpose because it reads better in practice, and the blueprint
  *   follows the brand rather than correcting it. A theme-token decision, like the
  *   ember allowance below — not an authoring defect, and not this sweep's to
- *   overrule. See piggles/packages/brand/src/theme.css.
+ *   overrule. See packages/brand/src/theme.css in wizeworksllc/piggles.
  */
 const BRAND_CONTRAST_ACCEPTED = new Set(['piggles-starter']);
 

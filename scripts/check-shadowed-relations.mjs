@@ -80,6 +80,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CLIENT = 'wizeworks/packages/db/src/client.ts';
@@ -88,7 +89,7 @@ const SCHEMA_DIR = 'wizeworks/packages/db/prisma/schema';
 /** Where platform queries and the screens over them live. Every root is
  *  asserted to exist, and the file count is printed, so a moved tree cannot
  *  turn this into a clean pass over nothing. */
-const SOURCE_ROOTS = [
+const SOURCE_ROOTS = present([
   'wizeworks/packages',
   'wizeworks/services',
   'wizeworks/apps',
@@ -96,7 +97,7 @@ const SOURCE_ROOTS = [
   'sparx/packages',
   'piggles/apps',
   'piggles/packages',
-];
+]);
 
 /**
  * Selects on the shadowed model that this check cannot read, each checked by a

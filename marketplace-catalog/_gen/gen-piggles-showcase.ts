@@ -99,7 +99,7 @@ const DEMO_TAGLINE = 'Made well, sold simply, booked easily.';
 const DEMO_SHORT = 'Rowan';
 const DEMO_SLUG = 'rowan';
 
-// ── Piggles' measured palette (piggles/packages/brand/src/theme.css) ────────
+// ── Piggles' measured palette (packages/brand/src/theme.css in wizeworksllc/piggles) ────────
 // Copied as VALUES, not imported: this file is run by tsx from a directory with
 // no node_modules, and a blueprint bundle must stay pure data besides. The
 // source of truth is that stylesheet — re-copy from it, never re-pick by eye.
@@ -279,7 +279,7 @@ async function main(): Promise<void> {
         colors: {
             primary: LIGHT['--color-primary'],
             // WHITE, DELIBERATELY — matching `--color-primary-content` in
-            // piggles/packages/brand/src/theme.css. That file's own comment argues for
+            // packages/brand/src/theme.css in wizeworksllc/piggles. That file's own comment argues for
             // the charcoal ink on a contrast measurement; the white was chosen ON
             // PURPOSE afterwards, by Brandon, because it reads better in practice, and
             // a ratio that wins on paper is worth nothing if the label is harder to

@@ -33,9 +33,10 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SOURCE_ROOTS = [
+const SOURCE_ROOTS = present([
   'wizeworks/packages',
   'wizeworks/services',
   'wizeworks/apps',
@@ -43,7 +44,7 @@ const SOURCE_ROOTS = [
   'sparx/packages',
   'piggles/apps',
   'piggles/packages',
-];
+]);
 const IGNORE_DIR = new Set([
   'node_modules',
   'dist',

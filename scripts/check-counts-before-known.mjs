@@ -39,6 +39,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { present } from './lib/piggles.mjs';
 
 function repoRoot() {
   let dir = dirname(fileURLToPath(import.meta.url));
@@ -57,10 +58,10 @@ function die(lines) {
 }
 
 const ROOT = repoRoot();
-const CONSOLES = [
+const CONSOLES = present([
   join(ROOT, 'piggles', 'apps', 'workbench', 'surfaces'),
   join(ROOT, 'sparx', 'apps', 'workbench', 'surfaces'),
-];
+]);
 
 function files(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -134,19 +135,21 @@ for (const root of CONSOLES) {
   }
 }
 
-if (scanned < 150) {
+// Floors per console, so the check holds whether Piggles is checked out here or
+// not (scripts/lib/piggles.mjs). sparx alone had 71 toolbars and Piggles about as many.
+if (scanned < 60 * CONSOLES.length) {
   die([
     `✖ counts: only ${String(scanned)} toolbars with a status slot were found.`,
     '',
-    '   There were 225 when this check was written. Either the trees moved or',
+    '   There were 225 across two consoles when this check was written. Either the trees moved or',
     '   the parse is broken. Fix it rather than believing the tick.',
   ]);
 }
-if (counting < 30) {
+if (counting < 15 * CONSOLES.length) {
   die([
     `✖ counts: only ${String(counting)} of them print a count off an array that starts empty.`,
     '',
-    '   There were 43. The shape this check exists for has stopped being',
+    '   There were 43 across two consoles. The shape this check exists for has stopped being',
     '   recognised, which is not the same as it having stopped happening.',
   ]);
 }
@@ -170,5 +173,5 @@ if (offenders.length > 0) {
 
 console.log(
   `✓ counts: ${String(counting)} toolbars print a count that starts empty, and all ` +
-    `${String(guarded)} of them wait until it is known (${String(scanned)} status slots across both consoles).`
+    `${String(guarded)} of them wait until it is known (${String(scanned)} status slots across ${String(CONSOLES.length)} console(s)).`
 );

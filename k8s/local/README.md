@@ -107,6 +107,11 @@ meetpiggles.com  getpiggles.com  mypiggles.com                          (+ www)
 api.mypiggles.com  mcp.mypiggles.com  piggles.site                      (+ www)
 ```
 
+The three Piggles app hosts (meetpiggles.com, getpiggles.com, mypiggles.com)
+route to the `piggles` namespace, which this stack does not create: those apps
+ship from wizeworksllc/piggles (docs/153, Phase 4). On a workstation they have
+no pod behind them.
+
 The two `*.mypiggles.com` API hosts reach the SAME api-rest and api-mcp pods the
 sparx hosts do. They exist because a Piggles customer READS them — the console
 hands `api.mypiggles.com` to their browser, and the console tells them to copy

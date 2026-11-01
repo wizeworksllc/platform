@@ -1,13 +1,14 @@
 #!/usr/bin/env node
-// Every platform package sparx and Piggles install must be one that publishes,
+// Every platform package sparx installs must be one that publishes,
 // and nothing that publishes may carry the database (docs/153, D2 and D3).
 //
 // ── WHY THIS EXISTS ─────────────────────────────────────────────────────────
 //
-// sparx and Piggles leave this repository and install platform packages from
-// GitHub Packages instead of linking them. A package they install that is not
-// published installs fine today, because the workspace links it, and fails the
-// day the brand moves out. The check makes that day today.
+// Each brand leaves this repository and installs platform packages from GitHub
+// Packages instead of linking them. Piggles already has (docs/153, Phase 4), and
+// its own CI builds from the published versions. A package sparx installs that
+// is not published installs fine today, because the workspace links it, and
+// fails the day sparx moves out. The check makes that day today.
 //
 // The database half matters as much. Five packages the apps used carried
 // @wizeworksllc/db for code the apps never ran, and publishing any of them would
@@ -24,7 +25,7 @@
 //      the tarball holds what its exports point at.
 //   5. Every published package has a `repository`, which is what links it to
 //      this repository on GitHub and lets the release's token publish it.
-//   6. Every Next.js app in sparx and Piggles lists every platform package it
+//   6. Every Next.js app in sparx lists every platform package it
 //      installs in `transpilePackages`. Packages publish as TypeScript source,
 //      and Next.js compiles a dependency in node_modules only when it is listed.
 //      The workspace hides a gap here: a linked package resolves outside
@@ -54,7 +55,7 @@ const published = [...pkgs].filter(([, p]) => isPublishable(p.json));
 const problems = [];
 
 if (need.size === 0) {
-  console.error('\nx check-publishable found no platform package in sparx or piggles.');
+  console.error('\nx check-publishable found no platform package in sparx.');
   console.error('  Either the trees moved or the scan broke; it would pass blind.\n');
   process.exit(1);
 }
@@ -117,7 +118,7 @@ for (const [name, { dir }] of pkgs) {
     }
   }
 }
-if (apps === 0) problems.push('found no Next.js app in sparx or piggles; the transpile scan saw nothing');
+if (apps === 0) problems.push('found no Next.js app in sparx; the transpile scan saw nothing');
 
 function exportTargets(value) {
   if (typeof value === 'string') return [value];
@@ -133,6 +134,6 @@ if (problems.length > 0) {
 }
 
 console.log(
-  `✓ publishable: sparx and piggles install ${need.size} platform package(s); ` +
+  `✓ publishable: sparx installs ${need.size} platform package(s); ` +
     `${published.length} publish, none carries the database; ${apps} app(s) transpile all of theirs`
 );

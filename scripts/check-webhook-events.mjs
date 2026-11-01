@@ -37,6 +37,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { HAS_PIGGLES } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (rel) => readFileSync(join(repoRoot, rel), 'utf8');
@@ -74,7 +75,9 @@ function catalogSources() {
       found.push({ brand: entry.name, label: file, files: [file] });
     }
   }
-  if (found.length < 2) {
+  // One per brand console: two when Piggles is checked out beside sparx (as in
+  // Piggles' CI), one when sparx stands alone (scripts/lib/piggles.mjs).
+  if (found.length < (HAS_PIGGLES ? 2 : 1)) {
     throw new Error(
       `check-webhook-events: found ${found.length} event picker(s) under */${CMS_DIR} — expected one per brand console. A moved directory makes this check scan nothing and pass.`
     );

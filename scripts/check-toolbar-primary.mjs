@@ -44,6 +44,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -61,7 +62,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
  * platform and printing green is the same failure at half the volume.
  * [[feedback_structural_checks_go_blind]]
  */
-const TREES = ['piggles/apps/workbench/surfaces', 'sparx/apps/workbench/surfaces'];
+const TREES = present(['piggles/apps/workbench/surfaces', 'sparx/apps/workbench/surfaces']);
 
 const missingTrees = TREES.filter((t) => !existsSync(join(ROOT, t)));
 if (missingTrees.length > 0) {

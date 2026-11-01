@@ -62,12 +62,13 @@
 //    both is not proof both READ it; that is still a human's job.
 //
 // Pure Node, no dependencies. Same family as check:events / check:routes /
-// check:docker / check:boundaries / check:deletability.
+// check:docker / check:boundaries.
 
 import fs from 'node:fs';
 import path from 'node:path';
 
 import { selfTest, shapesIn } from './lib/interface-shapes.mjs';
+import { HAS_PIGGLES } from './lib/piggles.mjs';
 
 /** Resolve the repo root by its marker, never by counting `..` up from here. */
 function repoRoot() {
@@ -87,6 +88,17 @@ const CONSOLES = {
   sparx: { dir: 'sparx/apps/workbench', label: 'sparx workbench' },
   piggles: { dir: 'piggles/apps/workbench', label: 'Piggles console' },
 };
+
+// A comparison of two consoles needs both. Piggles lives in its own repository
+// (docs/153, Phase 4), and its CI checks this one out around its own and runs
+// this check there. Here, alone, there is nothing to compare it with.
+if (!HAS_PIGGLES) {
+  console.log(
+    'check:console-parity — skipped: the Piggles console is not checked out at piggles/ here. ' +
+      "Piggles' CI runs this check with both consoles side by side."
+  );
+  process.exit(0);
+}
 
 /**
  * The same thing under two names.

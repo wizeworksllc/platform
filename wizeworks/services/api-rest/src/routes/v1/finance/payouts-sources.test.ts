@@ -6,7 +6,7 @@
 // the one in `@wizeworksllc/payments`, and each console's "source" filter offers the
 // same set.
 
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
@@ -17,9 +17,15 @@ const read = (relative: string) =>
   readFileSync(fileURLToPath(new URL(relative, import.meta.url)), 'utf8');
 
 const ROOT = '../../../../../../../';
+// Piggles lives in its own repository (docs/153, Phase 4). Its console is read
+// only where it is checked out at `piggles/` inside this one, the layout its CI
+// builds; here alone there is only sparx's.
+const HAS_PIGGLES = existsSync(
+  fileURLToPath(new URL(`${ROOT}piggles/apps/workbench`, import.meta.url))
+);
 const CONSOLES = [
   `${ROOT}sparx/apps/workbench/surfaces/finance/payouts-list.tsx`,
-  `${ROOT}piggles/apps/workbench/surfaces/finance/payouts-list.tsx`,
+  ...(HAS_PIGGLES ? [`${ROOT}piggles/apps/workbench/surfaces/finance/payouts-list.tsx`] : []),
 ];
 
 /** The values in a console's PROCESSOR_FILTERS, without "all". */

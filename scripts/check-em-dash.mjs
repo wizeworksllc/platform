@@ -8,8 +8,9 @@
 // not. A dash standing alone as an empty value ('—') is a different thing and is
 // allowed: the rule is about a dash BETWEEN words.
 //
-// The sparx twin of piggles/scripts/check-em-dashes.mjs, which covers the Piggles
-// console and the shared seed packages; this console had no check at all.
+// The sparx twin of the Piggles console's check-em-dashes (wizeworksllc/piggles).
+// The shared seed packages, which that check also read while both brands lived
+// here, are covered in this repository by check-seed-dashes.mjs.
 //
 // Fails on any hit, and when it scans fewer than 100 files (a moved folder must
 // not turn this into a check that reads nothing and passes).

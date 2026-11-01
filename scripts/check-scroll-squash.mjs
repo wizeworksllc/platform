@@ -32,18 +32,19 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { present } from './lib/piggles.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..').split('\\').join('/');
-const ROOTS = [`${ROOT}/piggles/apps/workbench`, `${ROOT}/sparx/apps/workbench`];
+const ROOTS = present([`${ROOT}/piggles/apps/workbench`, `${ROOT}/sparx/apps/workbench`]);
 
 /** Columns whose child is meant to fill them, by file and the line it starts on. */
-const A_CHILD_FILLS_IT = [
+const A_CHILD_FILLS_IT = present([
   'piggles/apps/workbench/surfaces/crm/mailboxes-list.tsx',
   'piggles/apps/workbench/surfaces/crm/phone-systems-list.tsx',
   'sparx/apps/workbench/surfaces/crm/mailboxes-list.tsx',
   'sparx/apps/workbench/surfaces/crm/phone-systems-list.tsx',
-];
+]);
 
 for (const path of ROOTS) {
   if (!existsSync(path)) {

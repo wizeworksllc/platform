@@ -61,8 +61,6 @@ const WORKSPACE_GLOBS = [
   'wizeworks/apps',
   'sparx/packages',
   'sparx/apps',
-  'piggles/apps',
-  'piggles/packages',
 ];
 
 const SKIP_DIRS = new Set([

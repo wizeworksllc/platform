@@ -84,13 +84,14 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
 /** The trees this scans. Each one is ASSERTED to exist: a check that silently
  *  scans nothing after a directory move prints a green tick over no work at
  *  all, which is worse than no check. */
-const TREES = ['piggles/apps/workbench', 'sparx/apps/workbench'];
+const TREES = present(['piggles/apps/workbench', 'sparx/apps/workbench']);
 
 /** Where the guarding lives, so it is the one place allowed to call the raw
  *  constructor. Relative to a tree root. */
@@ -144,7 +145,8 @@ const WALL_EXEMPT = new Set(['lib/today.ts', 'lib/wall-clock.ts', 'lib/publish-c
  * scheduling: a discount's start, a post's send time, a task's due time. This
  * list may only SHRINK. A file that stops offending must come off it.
  */
-const WALL_DEBT = new Set([
+const WALL_DEBT = new Set(
+  present([
   'piggles/apps/workbench/surfaces/cms/schema-form.tsx',
   'piggles/apps/workbench/surfaces/commerce/discount-form-limits.tsx',
   'piggles/apps/workbench/surfaces/commerce/product-attributes.tsx',
@@ -157,17 +159,18 @@ const WALL_DEBT = new Set([
   'sparx/apps/workbench/surfaces/crm/custom-properties-panel.tsx',
   'sparx/apps/workbench/surfaces/crm/task-detail.tsx',
   'sparx/apps/workbench/surfaces/partner/bootcamp-detail.tsx',
-]);
+])
+);
 
 /* ── Rule 3: no computer's clock where a booking's time lives ───────────── */
 
 /** Where a booking's time is typed or shown. Each is ASSERTED to exist. */
-const BOOKING_TREES = [
+const BOOKING_TREES = present([
   'piggles/apps/workbench/surfaces/scheduling',
   'sparx/apps/workbench/surfaces/scheduling',
   'wizeworks/apps/site/components/booking',
   'wizeworks/apps/site/components/account',
-];
+]);
 
 /** The site's booking clock is where the zone arithmetic lives, including its
  *  one deliberate fallback to the reader's midnight when a business has no zone. */

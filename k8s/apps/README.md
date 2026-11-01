@@ -5,45 +5,32 @@ the list that ships; a manifest not named there is not deployed, and — because
 the release prunes on its ownership label — removing a name from that list is
 how an app is actually deleted rather than silently left running.
 
-| Manifest               | Serves                                     | Notes                                                                                                                                  |
-| ---------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `api-rest.yaml`        | api.sparx.works                            | Fastify REST API. 2 replicas; `strategy: Recreate` on AKS                                                                              |
-| `api-graphql.yaml`     | graphql.sparx.works                        | Pothos + Mercurius                                                                                                                     |
-| `api-mcp.yaml`         | mcp.sparx.works + mcp.mypiggles.com        | The staff/agent MCP plane. One pod, one host PER BRAND — discovery runs before any token exists, so the host is what carries the brand |
-| `mcp-site.yaml`        | mcp.sparx.zone                             | The shopper-facing MCP plane                                                                                                           |
-| `workbench.yaml`       | app.sparx.works                            | The operator app. Replaced the removed `dashboard`                                                                                     |
-| `web.yaml`             | sparx.works + the module marketing domains | One Next.js app reading the Host header                                                                                                |
-| `site.yaml`            | every tenant storefront                    | Multi-tenant; hostname resolved per request                                                                                            |
-| `market.yaml`          | sparx.market                               | The marketplace                                                                                                                        |
-| `piggles-web.yaml`     | meetpiggles.com                            | **Piggles.** Marketing. No database, no auth, no api-rest                                                                              |
-| `piggles-account.yaml` | getpiggles.com                             | **Piggles.** The auth authority + platform billing                                                                                     |
-| `piggles-console.yaml` | mypiggles.com                              | **Piggles.** The operating console. No sign-in UI at all                                                                               |
+| Manifest           | Serves                                     | Notes                                                                                                                                  |
+| ------------------ | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `api-rest.yaml`    | api.sparx.works                            | Fastify REST API. 2 replicas; `strategy: Recreate` on AKS                                                                              |
+| `api-graphql.yaml` | graphql.sparx.works                        | Pothos + Mercurius                                                                                                                     |
+| `api-mcp.yaml`     | mcp.sparx.works + mcp.mypiggles.com        | The staff/agent MCP plane. One pod, one host PER BRAND — discovery runs before any token exists, so the host is what carries the brand |
+| `mcp-site.yaml`    | mcp.sparx.zone                             | The shopper-facing MCP plane                                                                                                           |
+| `workbench.yaml`   | app.sparx.works                            | The operator app. Replaced the removed `dashboard`                                                                                     |
+| `web.yaml`         | sparx.works + the module marketing domains | One Next.js app reading the Host header                                                                                                |
+| `site.yaml`        | every tenant storefront                    | Multi-tenant; hostname resolved per request                                                                                            |
+| `market.yaml`      | sparx.market                               | The marketplace                                                                                                                        |
 
 Replica counts live in the overlay (`k8s/azure/apps/kustomization.yaml`), not
 here — the same base runs on a laptop and on a one-node cluster.
 
 ## Piggles
 
-Three of these belong to the sister brand. They share this NAMESPACE, the
-database, api-rest and the secret store; they share no application code
-(`piggles/CLAUDE.md` RULE #0 — either product must be deletable tomorrow without
-affecting the other). Sharing a database is not sharing an application: the
-database is a service both speak to.
+Piggles' three apps (meetpiggles.com, getpiggles.com, mypiggles.com) are not
+here. They moved to their own repository, `wizeworksllc/piggles`, and their own
+namespace, `piggles`, in docs/153 Phase 4. Their manifests, their image builds
+and their `piggles-app-env` ConfigMap all ship from that repository's release.
 
-They differ from their sparx siblings in exactly one structural way, and it is
-worth knowing before editing one:
-
-```yaml
-envFrom:
-  - configMapRef: { name: sparx-app-env } # the platform
-  - configMapRef: { name: piggles-app-env } # ← the brand, and it wins
-```
-
-**Later entries override earlier ones.** That ordering is what keeps one origin
-in one place — see `k8s/azure/infra/piggles-app-env.env`, whose header records
-what each value is and which of them has already caused an outage. Piggles'
-sign-in origin (`PIGGLES_BETTER_AUTH_URL`) is set on api-rest, which runs both
-brands' Better Auth instances (docs/154).
+They still use this namespace's api-rest and api-mcp. api-rest runs both
+brands' Better Auth instances (docs/154), so Piggles' sign-in origin
+(`PIGGLES_BETTER_AUTH_URL`) and its other `PIGGLES_*` values stay on api-rest
+here, and its `PIGGLES_*` secrets stay in `sparx-app-secrets`. Do not remove
+them: Piggles' sign-in stops working without them.
 
 ## Adding a new app
 
@@ -68,8 +55,7 @@ brands' Better Auth instances (docs/154).
 
 - **`sparx-app-env`** — non-secret runtime config. Generated per overlay
   (`k8s/azure/infra/app-env-configmap.env`, `k8s/local/app-env-configmap.env`).
-- **`piggles-app-env`** — the Piggles brand's overrides, same generators.
-- **`sparx-app-secrets`** — every credential, including the `PIGGLES_*` keys.
+- **`sparx-app-secrets`** — every credential, including the `PIGGLES_*` keys api-rest reads.
   Applied by the release from `SPARX_APP_SECRETS_ENV` (or Key Vault);
   `k8s/local/secrets.example.env` is the documented key list. Only the backend
   services load it whole (`envFrom`). The Next.js apps hold no database and no

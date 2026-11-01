@@ -28,6 +28,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { present } from './lib/piggles.mjs';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -44,12 +45,12 @@ const SAFELISTED = new Set([
 
 const ALLOWLIST_FILE = 'wizeworks/services/api-rest/src/lib/exposed-headers.ts';
 
-const SCAN_ROOTS = [
+const SCAN_ROOTS = present([
   'piggles/apps/workbench/surfaces',
   'piggles/apps/workbench/lib',
   'sparx/apps/workbench/surfaces',
   'sparx/apps/workbench/lib',
-];
+]);
 
 function must(rel) {
   const abs = join(REPO, rel);

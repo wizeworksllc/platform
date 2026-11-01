@@ -3,7 +3,9 @@
 Guidance for Claude Code when working anywhere under `wizeworks/`. This file is
 **binding** for shared-layer work. It sits between the root [CLAUDE.md](../CLAUDE.md)
 (ownership model + universal rules) and the two brand files
-([sparx/CLAUDE.md](../sparx/CLAUDE.md), [piggles/CLAUDE.md](../piggles/CLAUDE.md)).
+([sparx/CLAUDE.md](../sparx/CLAUDE.md), and Piggles' own `CLAUDE.md` in
+[wizeworksllc/piggles](https://github.com/wizeworksllc/piggles), which left this
+repository in docs/153 Phase 4).
 
 This is the platform: everything both products run on and neither product owns.
 It is the largest tree in the repo and the only one where a mistake is paid for
@@ -20,6 +22,12 @@ from them.
 
 The brands depend on the platform. The platform depends on nothing above it, and
 the brands never see each other.
+
+Piggles now lives in its own repository (docs/153, Phase 4), so rules 2 and 3 are
+mostly kept by the repository line itself. Piggles' CI checks this repository
+out with Piggles at `piggles/` inside it and runs the cross-console checks there,
+which is why many scripts still name `piggles/...` paths. Those checks skip the
+Piggles half when no `piggles/` folder is present (`scripts/lib/piggles.mjs`).
 
 **Corollaries that are the same rule wearing different clothes:**
 
@@ -99,8 +107,8 @@ apps under `services/` and `apps/`, which do not publish. New packages take
 
 A package publishes when its `package.json` has `publishConfig.registry` set to
 `https://npm.pkg.github.com`; the release's `publish` job does the rest
-(`scripts/publish-packages.mjs`). Everything sparx and Piggles install must
-publish, and nothing that publishes may depend on `@wizeworksllc/db`:
+(`scripts/publish-packages.mjs`). Everything sparx installs must publish (Piggles
+already installs only published versions), and nothing that publishes may depend on `@wizeworksllc/db`:
 `check:publishable` enforces both. When a frontend needs a pure part of a
 database-backed package, split that part into its own package and re-export it
 from the original (`auth-client` from `auth`, `module-roster` from `modules`,
@@ -256,10 +264,13 @@ leaving them in a file that will read as sparx's would have been misleading.
 
 The three RULE #0 rules ship as a pure-Node structural check alongside
 `check:events`, `check:routes`, and `check:docker`, running in CI and in the
-pre-push guard. It fails on:
+pre-push guard. The two rules marked **(Piggles checkout only)** run only when
+Piggles is checked out at `piggles/` here; in this repository alone they print
+that they skipped. It fails on:
 
 - an import from `wizeworks/**` reaching into `sparx/**` or `piggles/**`
-- an import crossing between `sparx/**` and `piggles/**`
+- an import crossing between `sparx/**` and `piggles/**` (the `piggles/**` side
+  only with a Piggles checkout)
 - a **brand name in a sentence** under `wizeworks/**` — the brand standing as
   its own word inside a string of four words or more. That is the shape of
   "sparx cannot read balances from Xero yet" and not the shape of the hostname
@@ -285,7 +296,7 @@ pre-push guard. It fails on:
   exception list, and it should stay empty** — a sentence that genuinely needs a
   zone has a host or a tenant nearby to read one from. It prints its denominator
   on success and fails outright if its scan ever returns no files.
-- **the operator's name inside a console** — `WizeWorks`, written as the brand is
+- **the operator's name inside a console** (Piggles checkout only) — `WizeWorks`, written as the brand is
   written when it is shown to somebody, in any string under
   `piggles/apps/workbench/**`. A third gap that neither rule above could see:
   the brand-prose rule walks `wizeworks/` only, and the `@sparx/*` companion
@@ -303,7 +314,7 @@ pre-push guard. It fails on:
   has nothing to do at any length. Prints its denominator on success and fails
   outright if the console ever moves out from under it.
 - `@sparx/*` usage under `piggles/` growing past its baseline, and any use of
-  `@sparx/brand` there at all
+  `@sparx/brand` there at all (Piggles checkout only)
 
 **This paragraph used to claim a fourth rule and a different third one, and the
 check ran green on both because neither existed.** "Sent with sparx" reached the
@@ -323,8 +334,8 @@ trusted green; reverting `packages/email/src/silica/frame.ts`'s credit line to
 "Sent with sparx" is the ready-made red case for the brand-prose rule, putting
 `sparx.zone` back into any refusal in `routes/v1/domains.ts` is the one for the
 zone rule, and restoring `placeholder="WizeWorks"` on the Business name field in
-`piggles/apps/workbench/surfaces/business-details-columns.tsx` is the one for the
-operator rule. All three were run red before this paragraph was written.
+`piggles/apps/workbench/surfaces/business-details-columns.tsx` (in a Piggles
+checkout) is the one for the operator rule. All three were run red before this paragraph was written.
 
 ## Environment
 

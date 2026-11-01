@@ -27,13 +27,14 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
+import { present } from './lib/piggles.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Both consoles. A tree added outside this list is invisible here, which is why
  *  the file count is printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
-const ROOTS = ['sparx/apps/workbench/surfaces/automations', 'piggles/apps/workbench/surfaces/automations'];
+const ROOTS = present(['sparx/apps/workbench/surfaces/automations', 'piggles/apps/workbench/surfaces/automations']);
 
 /**
  * Screens that name the SWITCH rather than the health, with the reason.

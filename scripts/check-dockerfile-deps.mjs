@@ -30,16 +30,10 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
  * Every directory `pnpm-workspace.yaml` globs, in the order the rest of this
  * file walks them.
  *
- * `piggles/*` IS PART OF THIS, and its absence was a live trap rather than an
- * oversight waiting to happen. Piggles' three apps are separate Next.js images
- * that hand-list their dependency closure exactly like sparx's five — including
- * ~30 `@sparx/*` packages in the console's case — so they can drift in precisely
- * the way this check exists to catch. Before they were listed here the script
- * reported "5 hand-listed images" and was structurally blind to them: their
- * packages were not in the workspace map (so every closure came back empty) and
- * their Dockerfiles were not in the scan (so they were not even reported as
- * orphans). It would have passed, in green, while an image built without code it
- * imports.
+ * A brand tree is part of this for as long as its images build here. Piggles'
+ * were, until its three apps moved to wizeworksllc/piggles (docs/153, Phase 4):
+ * before they were listed, this reported "5 hand-listed images" and was blind to
+ * theirs, passing in green while an image built without code it imported.
  *
  * If a third brand ever appears, it goes here in the same edit as its first
  * Dockerfile.
@@ -50,8 +44,6 @@ const WORKSPACE_GROUPS = [
   'wizeworks/packages',
   'sparx/apps',
   'sparx/packages',
-  'piggles/apps',
-  'piggles/packages',
 ];
 
 /** Read every workspace package: name → { dir, workspace deps }. */
