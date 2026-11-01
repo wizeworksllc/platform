@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/brand-core",
   "version": "0.0.0",
-  "private": true,
   "description": "The platform's brand CONTRACT — which brands exist and what identity each must supply. Brand-blind by construction: it declares the shape and resolves values from configuration, and states none of its own.",
   "type": "module",
   "exports": {
@@ -15,8 +14,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/brand-core"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

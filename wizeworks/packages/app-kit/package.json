@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/app-kit",
   "version": "0.0.0",
-  "private": true,
   "description": "Framework glue every sparx Next.js app needs and no app should own a copy of — starting with stale-build (chunk-load) detection and recovery. Not a design library: nothing here renders anything a designer would style. @wizeworksllc/ui is the composition layer; this is the layer beneath it that keeps a tab alive across a deploy.",
   "type": "module",
   "exports": {
@@ -31,8 +30,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/app-kit"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

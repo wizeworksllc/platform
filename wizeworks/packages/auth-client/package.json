@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/auth-client",
   "version": "0.0.0",
-  "private": true,
   "description": "What a frontend needs from staff auth, with no server and no database: the Better Auth browser client, the org role and module/property access vocabularies, the MCP scope list, the friendly-slug helpers and the shared user fields. @wizeworksllc/auth re-exports all of it.",
   "type": "module",
   "exports": {
@@ -39,8 +38,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/auth-client"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

@@ -97,6 +97,15 @@ public npm scope (silicaui, the wizelens SDKs) and the name of the services and
 apps under `services/` and `apps/`, which do not publish. New packages take
 `@wizeworksllc/*` from the start.
 
+A package publishes when its `package.json` has `publishConfig.registry` set to
+`https://npm.pkg.github.com`; the release's `publish` job does the rest
+(`scripts/publish-packages.mjs`). Everything sparx and Piggles install must
+publish, and nothing that publishes may depend on `@wizeworksllc/db`:
+`check:publishable` enforces both. When a frontend needs a pure part of a
+database-backed package, split that part into its own package and re-export it
+from the original (`auth-client` from `auth`, `module-roster` from `modules`,
+`usage-meters` from `usage`), never add the database package to the frontend.
+
 A platform package still named `@sparx/*` is a rename pending, not a boundary
 violation.
 

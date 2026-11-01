@@ -347,6 +347,13 @@ jobs:
       - name: Check apps off the database stay off it
         run: node scripts/check-app-data-access.mjs
 
+      # The same promise one level down: every platform package sparx and
+      # Piggles install must publish, and none that publishes may carry the
+      # database (docs/153, Phase 3). The workspace hides a gap here until the
+      # day a brand moves to its own repository.
+      - name: Check the packages the brands install all publish
+        run: node scripts/check-publishable.mjs
+
       # The boundary check reads source text, so it catches the import somebody
       # WROTE. This walks the dependency closure and catches the one four
       # packages down — which is the one that actually put sparx's mascot in the

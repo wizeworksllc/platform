@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/links",
   "version": "0.0.0",
-  "private": true,
   "description": "The one address table. Maps a readable path to a workbench surface and back, so emails, notifications, universal search and the address bar all agree on where a thing lives. Pure data with zero dependencies — importable from a Node service, an edge route, or the browser bundle.",
   "type": "module",
   "exports": {
@@ -15,8 +14,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/links"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

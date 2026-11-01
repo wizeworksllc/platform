@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/builder-schemas",
   "version": "0.0.0",
-  "private": true,
   "description": "sparx Builder — the canonical node-tree + page Zod schemas and curated starter pages, shared by the service, REST, and the /builder editor. The serializable contract the backend matches (docs/41-builder-page-model.md).",
   "type": "module",
   "exports": {
@@ -11,8 +10,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/builder-schemas"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

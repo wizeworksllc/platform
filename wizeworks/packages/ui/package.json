@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/ui",
   "version": "0.0.0",
-  "private": true,
   "description": "sparx compositions over silicaui (Tailwind v4).",
   "type": "module",
   "sideEffects": [
@@ -19,8 +18,18 @@
     "./tokens.css": "./src/tokens.css"
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/ui"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

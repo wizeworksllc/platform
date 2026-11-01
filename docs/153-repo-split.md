@@ -183,7 +183,20 @@ Done 2026-10-31.
   resolve outside `node_modules`, so Next.js compiles them without the list.
   When an app switches to published versions, every `@wizeworksllc` package it
   uses must go on its `transpilePackages` list in the same change.
-- Changesets and a publish job in the release.
+- Done 2026-10-31: the release publishes. The 28 platform packages sparx and
+  Piggles install carry `publishConfig` for GitHub Packages, and the `publish`
+  job (after `containers`, before `tag`) runs `scripts/publish-packages.mjs`.
+  A package that changed since the previous release tag is published at the
+  version the tag is about to cut; one that did not keeps its last version. A
+  dependent moves with its dependency, because `workspace:*` publishes as an
+  exact version. The tag waits for the job, so a tag means its packages exist.
+  This replaced the Changesets plan: Changesets versions through a pull request
+  a bot opens, and this repository has none. `check:publishable` (push gate and
+  CI) fails when a brand installs a package that does not publish, or when a
+  published package depends on the database. A full set is about 1 MB.
+- **Before the first publish:** in the wizeworksllc org settings, Packages must
+  allow members to publish private packages, or the first `publish` job fails
+  and the tag is held back (the containers will already be live).
 - sparx and Piggles switch from `workspace:*` to published versions **while
   still in this repository**, so the switch is proven before anything moves.
 

@@ -111,6 +111,7 @@
     "check:calendar-dates": "node scripts/check-calendar-dates.mjs",
     "check:american-spelling": "node scripts/check-american-spelling.mjs",
     "check:deletability": "node scripts/check-deletability.mjs",
+    "check:publishable": "node scripts/check-publishable.mjs",
     "check:deletability:build": "node scripts/check-deletability.mjs --build"
   },
   "devDependencies": {

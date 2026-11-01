@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/silica-catalog",
   "version": "0.0.0",
-  "private": true,
   "description": "sparx's silica-native domain catalog — the commerce/CRM composites silica's shipped block library doesn't cover (product grid/card, buy-box, featured, collection header, signup), authored as id-free @wizeworks/silicaui-html Node factories + the grouped palette metadata the dashboard host merges into silica's Insert palette via mergeCatalog. Also home to the tenant theme projections the storefront needs at render time (resolveSparxTheme, buildCustomColorCss). React-free (imports only silicaui-html and the @wizeworks/silicaui Tailwind plugin, the latter invoked as a rule-map builder, never a compile) so both the editor host and the storefront render can consume it.",
   "type": "module",
   "exports": {
@@ -12,8 +11,18 @@
     "./builder-vocabulary.css": "./src/builder-vocabulary.css"
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/silica-catalog"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

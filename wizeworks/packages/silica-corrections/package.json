@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/silica-corrections",
   "version": "0.0.0",
-  "private": true,
   "description": "Platform-level corrections to silicaui — written against silica's own classes and custom properties, so they inherit whatever a brand's tokens set. Brand-blind by construction: every brand imports these, none of them may state a value.",
   "type": "module",
   "sideEffects": [
@@ -16,8 +15,18 @@
     "./toast.css": "./src/toast.css"
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/silica-corrections"
+  },
   "scripts": {
     "clean": "rm -rf .turbo *.tsbuildinfo",
     "lint": "eslint .",

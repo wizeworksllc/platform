@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/auth-client-server",
   "version": "0.0.0",
-  "private": true,
   "description": "Server-side sign-in for a Next.js app that holds no database and no auth instance: reads the session, fetches the API token, and proxies the app's /api/auth/* to api-rest, all over HTTP.",
   "type": "module",
   "exports": {
@@ -11,8 +10,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/auth-client-server"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

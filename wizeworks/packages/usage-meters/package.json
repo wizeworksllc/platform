@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/usage-meters",
   "version": "0.0.0",
-  "private": true,
   "description": "The capacity vocabulary with no database behind it: the meters, how a reading is judged against its limit, and the capacity report shape. @wizeworksllc/usage measures tenants and re-exports it.",
   "type": "module",
   "exports": {
@@ -11,8 +10,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/usage-meters"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

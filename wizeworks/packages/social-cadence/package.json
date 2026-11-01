@@ -1,7 +1,6 @@
 {
   "name": "@wizeworksllc/social-cadence",
   "version": "0.0.0",
-  "private": true,
   "description": "Posting cadence: turning a recurring local time (\"Tuesdays at 9am\" in a timezone) into the real instants it lands on. Pure, Intl only, so the calendar and the slot filler share it; @wizeworksllc/social re-exports it.",
   "type": "module",
   "exports": {
@@ -11,8 +10,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/social-cadence"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
