@@ -47,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wizeworksllc/sparx.git",
+    "url": "https://github.com/wizeworksllc/platform.git",
     "directory": "wizeworks/packages/auth-client"
   },
   "scripts": {
