@@ -17,8 +17,15 @@
  * wordmark that is simply the previous version of the logo, on every tenant site
  * the platform serves, and nothing anywhere reports a problem.
  *
- * So: the brand's own file is the source, the ConfigMap holds the serialisation,
- * and this compares them. `--update` rewrites the ConfigMap from the art.
+ * So the platform keeps the art in its brand registry
+ * (`wizeworks/packages/brand-registry/brands/<brand>/wordmark.json`), the
+ * ConfigMap holds its serialisation, and this compares them. `--update` rewrites
+ * the ConfigMap from the registry.
+ *
+ * This check used to read the brand's own drawing (`piggles/packages/brand`)
+ * instead, which it cannot do once a brand has its own repository (docs/153,
+ * Phase 2). The other half, that the brand's drawing equals the registry, is the
+ * brand's own test: `piggles/packages/config/src/platform-registry.test.ts`.
  *
  * ─── WHAT IT REFUSES TO DO ──────────────────────────────────────────────────
  *
@@ -45,7 +52,7 @@ const BRANDS = [
   {
     key: 'piggles',
     envVar: 'PIGGLES_BRAND_WORDMARK',
-    source: 'piggles/packages/brand/src/marks.ts',
+    source: 'wizeworks/packages/brand-registry/brands/piggles/wordmark.json',
     /** Asserted, so a re-drawn logo with a different number of letterforms is a
      *  deliberate edit here rather than a silent change in what ships. */
     expectPaths: 7,
@@ -62,30 +69,29 @@ function fail(...lines) {
   process.exit(1);
 }
 
-/** Pull the geometry out of the brand's own file. Pure text, no TS toolchain —
- *  same family as every other check here — but every match is asserted. */
+/** Read the geometry out of the brand registry. Every field is asserted. */
 function readArt(brand) {
   const abs = join(ROOT, brand.source);
   if (!existsSync(abs)) {
     fail(
       brand.source + ' does not exist.',
-      'A moved or renamed marks file makes this check blind. Fix the path.'
+      'A moved or renamed registry file makes this check blind. Fix the path.'
     );
   }
-  const src = readFileSync(abs, 'utf8');
+  let art;
+  try {
+    art = JSON.parse(readFileSync(abs, 'utf8'));
+  } catch (err) {
+    fail(brand.source + ' is not valid JSON: ' + err.message);
+  }
+  const { viewBox, paths, accentPath = null } = art ?? {};
 
-  const viewBox = /WORDMARK_VIEWBOX\s*=\s*'([^']+)'/.exec(src)?.[1];
-  const block = /export const WORDMARK_LETTER_PATHS = \[([\s\S]*?)\n\] as const;/.exec(src)?.[1];
-  const accentPath = /WORDMARK_DOT_PATH\s*=\s*\n?\s*'([^']+)'/.exec(src)?.[1] ?? null;
-
-  if (!viewBox || !block) {
+  if (typeof viewBox !== 'string' || !Array.isArray(paths)) {
     fail(
-      brand.source + ' no longer declares WORDMARK_VIEWBOX / WORDMARK_LETTER_PATHS',
-      'in the shape this check reads. Update the patterns rather than deleting the check —',
-      'a wordmark that cannot be read here is a wordmark nothing is comparing.'
+      brand.source + ' has no viewBox / paths in the shape the badge reads',
+      '({ viewBox: string, paths: string[], accentPath: string | null }).'
     );
   }
-  const paths = [...block.matchAll(/'([^']+)'/g)].map((m) => m[1]);
 
   if (paths.length !== brand.expectPaths) {
     fail(
@@ -95,7 +101,7 @@ function readArt(brand) {
     );
   }
   if (brand.expectAccent && !accentPath) {
-    fail(brand.key + ': WORDMARK_DOT_PATH is missing — the accent shape is the mark.');
+    fail(brand.key + ': accentPath is missing — the accent shape is the mark.');
   }
 
   return JSON.stringify({ viewBox, paths, accentPath });
@@ -144,7 +150,7 @@ for (const brand of BRANDS) {
         found[1].length +
         ' configured bytes vs ' +
         art.length +
-        ' drawn).'
+        ' in the registry).'
     );
   }
 }
@@ -163,8 +169,8 @@ if (drifted.length > 0) {
   fail(
     ...drifted,
     '',
-    'The drawing is the source. Run `pnpm check:brand-wordmark --update` to rewrite',
-    'the ConfigMap from it, and update the local .env files the same way.'
+    'The brand registry is the source. Run `pnpm check:brand-wordmark --update` to',
+    'rewrite the ConfigMap from it, and update the local .env files the same way.'
   );
 }
-console.log('OK: every configured wordmark matches the art it was drawn from.');
+console.log('OK: every configured wordmark matches the brand registry.');

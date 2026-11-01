@@ -1,6 +1,7 @@
 // The price, in exactly one place. Exported from `@piggles/config/pricing` and
 // NOT the package index, because the console never knows a price (RULE #2).
-// A price change is this file plus `piggles/config/billing-plan.json`.
+// A price change is this file plus the plan in @wizeworks/brand-registry
+// (brands/piggles/billing-plan.json); platform-registry.test.ts holds them equal.
 
 import { apiOrigin, cachedWithTimeout } from './api-origin';
 import { fetchHeaderNotice, type HeaderNotice, type NoticeSurface } from './notice';

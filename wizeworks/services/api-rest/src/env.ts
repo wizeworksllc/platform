@@ -176,8 +176,8 @@ const EnvSchema = z
     //   A plan says how a tenant's bill is SHAPED and which Stripe ACCOUNT it is
     //   raised in. The platform ships one built-in (`modules`, per active module out
     //   of STRIPE_SECRET_KEY); every other plan is brand policy and arrives here as
-    //   configuration, authored in the brand's own tree
-    //   (e.g. piggles/config/billing-plan.json).
+    //   configuration, kept in the platform's brand registry
+    //   (wizeworks/packages/brand-registry/brands/<brand>/billing-plan.json).
     //
     //   Unset is a valid, complete configuration for a single-brand deployment. It is
     //   NOT valid once a tenant row carries a `billing_plan` this process cannot

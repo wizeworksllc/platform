@@ -32,6 +32,7 @@ COPY piggles/apps/web/package.json piggles/apps/web/
 # The whole closure, and it is three packages.
 COPY wizeworks/packages/app-kit/package.json wizeworks/packages/app-kit/
 COPY wizeworks/packages/attribution/package.json wizeworks/packages/attribution/
+COPY wizeworks/packages/brand-registry/package.json wizeworks/packages/brand-registry/
 COPY wizeworks/packages/legal/package.json wizeworks/packages/legal/
 COPY piggles/packages/brand/package.json piggles/packages/brand/
 COPY piggles/packages/config/package.json piggles/packages/config/
@@ -51,6 +52,7 @@ RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
 # just the manifest.
 COPY wizeworks/packages/app-kit wizeworks/packages/app-kit
 COPY wizeworks/packages/attribution wizeworks/packages/attribution
+COPY wizeworks/packages/brand-registry wizeworks/packages/brand-registry
 COPY wizeworks/packages/legal wizeworks/packages/legal
 COPY piggles/packages/brand piggles/packages/brand
 COPY piggles/packages/config piggles/packages/config

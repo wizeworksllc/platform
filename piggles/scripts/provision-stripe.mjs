@@ -1,4 +1,5 @@
-// Provision the Piggles Stripe account from config/billing-plan.json.
+// Provision the Piggles Stripe account from the billing plan in
+// @wizeworks/brand-registry (brands/piggles/billing-plan.json).
 //   PIGGLES_STRIPE_SECRET_KEY=sk_test_… node piggles/scripts/provision-stripe.mjs [--dry-run]
 // api-rest reads the same plan file (BILLING_PLANS), so the two cannot disagree.
 
@@ -28,7 +29,7 @@ function printEnv(plan, envOut, webhookSecret) {
   if (webhookSecret) log(`${plan.webhookSecretEnv}=${webhookSecret}`);
   else log(`# ${plan.webhookSecretEnv}: copy the endpoint secret from the Dashboard.`);
   log('\n# And the plan itself, which api-rest reads to know this account exists:');
-  log(`BILLING_PLANS=[<contents of piggles/config/billing-plan.json>]`);
+  log('BILLING_PLANS=<the line `node scripts/check-billing-plans.mjs --print` prints>');
   log('─────────────────────────────────────────────────────────────');
 }
 

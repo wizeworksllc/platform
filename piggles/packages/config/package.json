@@ -17,6 +17,7 @@
   ],
   "devDependencies": {
     "@types/node": "^25.9.1",
+    "@wizeworks/brand-registry": "workspace:*",
     "typescript": "^6.0.3",
     "vitest": "^4.1.12"
   },

@@ -457,6 +457,9 @@ importers:
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
+      '@wizeworks/brand-registry':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/brand-registry
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -1463,6 +1466,8 @@ importers:
       vitest:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
+  wizeworks/packages/brand-registry: {}
 
   wizeworks/packages/builder:
     dependencies:

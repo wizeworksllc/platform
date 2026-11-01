@@ -47,6 +47,7 @@ COPY wizeworks/packages/attribution/package.json wizeworks/packages/attribution/
 COPY wizeworks/packages/auth/package.json wizeworks/packages/auth/
 COPY wizeworks/packages/auth-client-server/package.json wizeworks/packages/auth-client-server/
 COPY wizeworks/packages/brand-core/package.json wizeworks/packages/brand-core/
+COPY wizeworks/packages/brand-registry/package.json wizeworks/packages/brand-registry/
 COPY wizeworks/packages/client-ip/package.json wizeworks/packages/client-ip/
 # The address table. The invite + consent pages build absolute links
 # through it (accountOrigin/appOrigin), during the SERVER render.
@@ -101,6 +102,7 @@ COPY wizeworks/packages/attribution wizeworks/packages/attribution
 COPY wizeworks/packages/auth wizeworks/packages/auth
 COPY wizeworks/packages/auth-client-server wizeworks/packages/auth-client-server
 COPY wizeworks/packages/brand-core wizeworks/packages/brand-core
+COPY wizeworks/packages/brand-registry wizeworks/packages/brand-registry
 COPY wizeworks/packages/client-ip wizeworks/packages/client-ip
 COPY wizeworks/packages/links wizeworks/packages/links
 COPY wizeworks/packages/usage wizeworks/packages/usage
