@@ -1146,6 +1146,15 @@ jobs:
                   #      was no fallback — only an unpinned deploy that exits 0.
                   sed -i "s|^\( *newTag: \)latest$|\1$SHA|" "$OVERLAY/apps/kustomization.yaml"
 
+                  # And the registry path, from THIS repository's name. The images are
+                  # pushed as ghcr.io/<owner>/<repo>/<service> (the build stage names them
+                  # from github.repository), so the overlay's newName must follow the same
+                  # name or a renamed repository deploys a path it never pushed to. That
+                  # rename is docs/153 Phase 5: wizeworksllc/sparx became
+                  # wizeworksllc/platform. Only our own ghcr.io/<owner>/<repo>/ entries
+                  # match; no third-party image in the overlay has a newName of this shape.
+                  sed -i "s|^\( *newName: \)ghcr\.io/[^/]*/[^/]*/|\1$REPO/|" "$OVERLAY/apps/kustomization.yaml"
+
                   # Prove the pin landed before applying. A silent no-op here is
                   # invisible until someone wonders why a rollback did nothing.
                   #
@@ -1713,8 +1722,11 @@ jobs:
                     ROOT="/users/$OWNER"
                   fi
 
-                  # Packages are named `sparx/<service>` because the images are pushed
-                  # as ghcr.io/<owner>/sparx/<service>. The API wants that slash encoded.
+                  # Packages are named `<repo>/<service>` because the images are pushed
+                  # as ghcr.io/<owner>/<repo>/<service>. The API wants that slash encoded.
+                  # <repo> is this repository's name, not a literal: it was `sparx`
+                  # until docs/153 Phase 5 renamed the repository `platform`.
+                  NAME='${{ github.event.repository.name }}'
                   #
                   # Captured, not piped: a 401/403 here must not be mistaken for an
                   # empty registry.
@@ -1727,14 +1739,14 @@ jobs:
                     exit 1
                   fi
 
-                  PACKAGES=$(printf '%s\n' "$listing" | grep '^sparx/' || true)
+                  PACKAGES=$(printf '%s\n' "$listing" | grep "^$NAME/" || true)
 
                   if [ -z "$PACKAGES" ]; then
                     # Reachable and genuinely empty — the token worked and there is
-                    # nothing named sparx/*. That is a real anomaly on a repo that just
+                    # nothing named $NAME/*. That is a real anomaly on a repo that just
                     # pushed images, so it is a warning rather than silence.
                     echo "::warning::Listed $OWNER's packages successfully but found no \
-                  sparx/* containers. Did the image naming change?"
+                  $NAME/* containers. Did the image naming change?"
                     exit 0
                   fi
 
