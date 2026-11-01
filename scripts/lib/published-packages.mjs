@@ -59,6 +59,24 @@ export function runtimeWorkspaceDeps(json) {
     .map(([name]) => name);
 }
 
+/** The platform packages one consumer installs, directly or through another
+ *  package (its own devDependencies count; a dependency's do not). */
+export function packageClosure(pkgs, name) {
+  const seen = new Set();
+  const visit = (dep) => {
+    if (seen.has(dep)) return;
+    seen.add(dep);
+    const pkg = pkgs.get(dep);
+    if (pkg) for (const next of runtimeWorkspaceDeps(pkg.json)) visit(next);
+  };
+  const { json } = pkgs.get(name);
+  const deps = { ...json.dependencies, ...json.devDependencies, ...json.peerDependencies };
+  for (const [dep, range] of Object.entries(deps)) {
+    if (String(range).startsWith('workspace:')) visit(dep);
+  }
+  return [...seen].filter((dep) => dep.startsWith(SCOPE));
+}
+
 /** Every platform package sparx and Piggles install, directly or through another
  *  platform package. A consumer's devDependencies count, because the consumer
  *  installs them; a platform package's do not, because they are stripped. */

@@ -32,6 +32,14 @@ const config = {
     '@wizeworksllc/app-kit',
     '@wizeworksllc/auth-client',
     '@wizeworks/silicaui-react',
+    // Every platform package this app installs, so it still compiles once they
+    // come from GitHub Packages as TypeScript source (docs/153, Phase 3).
+    '@wizeworksllc/attribution',
+    '@wizeworksllc/auth-client-server',
+    '@wizeworksllc/brand-core',
+    '@wizeworksllc/links',
+    '@wizeworksllc/module-roster',
+    '@wizeworksllc/usage-meters',
   ],
   typedRoutes: true,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.

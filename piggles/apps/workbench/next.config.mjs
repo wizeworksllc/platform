@@ -94,6 +94,22 @@ const config = {
     '@wizeworksllc/silica-catalog',
     '@wizeworksllc/site-themes',
     '@wizeworksllc/social-cadence',
+    // Every platform package this app installs, so it still compiles once they
+    // come from GitHub Packages as TypeScript source (docs/153, Phase 3).
+    '@wizeworksllc/attribution',
+    '@wizeworksllc/auth-client',
+    '@wizeworksllc/auth-client-server',
+    '@wizeworksllc/automation-schemas',
+    '@wizeworksllc/brand-core',
+    '@wizeworksllc/commerce-schemas',
+    '@wizeworksllc/crm-schemas',
+    '@wizeworksllc/email-sequence-schemas',
+    '@wizeworksllc/field-schema',
+    '@wizeworksllc/links',
+    '@wizeworksllc/migration',
+    '@wizeworksllc/module-roster',
+    '@wizeworksllc/query',
+    '@wizeworksllc/story-schemas',
   ],
   typedRoutes: false,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.

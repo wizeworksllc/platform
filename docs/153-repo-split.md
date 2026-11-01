@@ -1,6 +1,6 @@
 # Splitting the platform, sparx and Piggles into three repositories
 
-**Version:** 0.5
+**Version:** 0.6
 **Author:** Brandon Korous
 **Last Updated:** 2026-10-31
 
@@ -95,9 +95,15 @@ Measured at `58e3d13c5`.
   read access, or `GITHUB_TOKEN` cannot install it. Docker builds receive the
   token as a build secret, never a build argument, so it never lands in an
   image layer.
-- **Versioning.** Changesets in the platform repository. The platform release
-  publishes after its containers deploy, so a published version always matches
-  a deployed API.
+- **Versioning.** A changed package publishes at the version the platform
+  release tags (see Phase 3). The release publishes after its containers
+  deploy, so a published version always matches a deployed API. The first
+  publish was `v1.262.0`, 28 packages, on 2026-10-31.
+- **Who switches, and when.** sparx and Piggles keep `workspace:*` while they
+  live in this repository, so a platform change and the app change that uses it
+  still land in one pull request. Each brand switches to published versions in
+  its own repository (Phases 4 and 5), together with the `.npmrc` scope line,
+  the CI token and the Docker build secret.
 
 ## The plan
 
@@ -194,11 +200,12 @@ Done 2026-10-31.
   a bot opens, and this repository has none. `check:publishable` (push gate and
   CI) fails when a brand installs a package that does not publish, or when a
   published package depends on the database. A full set is about 1 MB.
-- **Before the first publish:** in the wizeworksllc org settings, Packages must
-  allow members to publish private packages, or the first `publish` job fails
-  and the tag is held back (the containers will already be live).
-- sparx and Piggles switch from `workspace:*` to published versions **while
-  still in this repository**, so the switch is proven before anything moves.
+- Confirmed 2026-10-31: wizeworksllc members may publish public and private
+  packages, so the first `publish` job is not blocked by org settings.
+- Done 2026-10-31: every Next.js app in sparx and Piggles lists every platform
+  package it installs in `transpilePackages`. Today the workspace links compile
+  anyway; published versions compile only when listed. `check:publishable`
+  holds the lists complete.
 
 ### Phase 4. Piggles moves to `wizeworksllc/piggles`
 
