@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/domain-worker",
+  "name": "@wizeworksllc/domain-worker",
   "version": "0.0.0",
   "private": true,
   "description": "Cloud Run worker subscribed to domain.purchased. Retries DNS configuration, polls CNAME propagation, marks domains active, and sends renewal reminder emails (docs/64 Module 1 Ph3).",
@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/links": "workspace:*",
-    "@wizeworks/brand-core": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/links": "workspace:*",
+    "@wizeworksllc/brand-core": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

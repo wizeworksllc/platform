@@ -2,9 +2,9 @@
 // domains that consume this engine call it the same way:
 //
 //   - api-rest validates a `content_entries.body` on every POST/PATCH to
-//     /v1/content/entries (via @wizeworks/cms-schemas).
+//     /v1/content/entries (via @wizeworksllc/cms-schemas).
 //   - the commerce product service validates a `commerce_products.attributes`
-//     bag against its product type on write (via @wizeworks/commerce-schemas).
+//     bag against its product type on write (via @wizeworksllc/commerce-schemas).
 //
 // Two key conventions:
 //   - Unknown body keys are *stripped* (z.object().strip()), not rejected.

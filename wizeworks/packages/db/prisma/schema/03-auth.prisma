@@ -29,7 +29,7 @@ model User {
   //
   // The default is what every account provisioned before the split carries, and
   // it is the safe direction: it is the answer this table gave for its whole
-  // life. Reads go through the brand-scoped client in @wizeworks/auth, never by
+  // life. Reads go through the brand-scoped client in @wizeworksllc/auth, never by
   // hand — an unfiltered `findFirst` on email is how the wrong brand's row gets
   // returned.
   platformBrand String @default("sparx") @map("platform_brand") @db.VarChar(20)
@@ -123,7 +123,7 @@ model User {
   // a session, not a row.
   //
   // This is also the backstop for the application-level partition: the brand
-  // filter lives in @wizeworks/auth's brand-scoped client, and if a call site
+  // filter lives in @wizeworksllc/auth's brand-scoped client, and if a call site
   // ever escapes it, the database still cannot let two brands collide on one
   // address.
   //

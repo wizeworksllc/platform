@@ -1,11 +1,11 @@
 // Iterate Commerce-active tenants.
 //
-// Mirrors @wizeworks/crm's listCrmActiveTenants — the same module-gate rule
+// Mirrors @wizeworksllc/crm's listCrmActiveTenants — the same module-gate rule
 // applies here: disabled tenants do zero scheduled work. The reservation
 // reaper (and any future inventory scheduler) calls this to enumerate
 // tenants worth processing.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 import { LOOKBACK_DAYS as REPEAT_LOOKBACK_DAYS } from '../services/repeat-start-service';
 

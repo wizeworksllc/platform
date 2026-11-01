@@ -1,7 +1,7 @@
 // Operator billing-ops endpoints (docs/apps/admin/build-plan.md §5 Slice 4). The
 // cross-tenant billing surface — failed-payment queue, coupons, the Stripe event
 // log, per-tenant charges, refunds, and enterprise invoices — all through the
-// existing `@wizeworks/billing` substrate (the platform Stripe account), never a
+// existing `@wizeworksllc/billing` substrate (the platform Stripe account), never a
 // parallel engine. Same Layer-5 shared-secret auth as the other operator routes;
 // the admin app is the capability gate (billing:read / billing:act) + audit writer.
 //
@@ -10,7 +10,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import {
   listPlatformStripeEvents,
   listTenantCharges,
@@ -23,8 +23,8 @@ import {
   refundCharge,
   createEnterpriseInvoice,
   getBillingState,
-} from '@wizeworks/billing';
-import type { OperatorTenantBillingView } from '@wizeworks/operator';
+} from '@wizeworksllc/billing';
+import type { OperatorTenantBillingView } from '@wizeworksllc/operator';
 
 import { authorizeOperator, badRequest, notFound } from './operator-internal.js';
 import { TENANT_LIST_SELECT, toTenantListItem } from './operator.js';

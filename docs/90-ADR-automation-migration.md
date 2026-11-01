@@ -21,7 +21,7 @@ real tenants. The cost of doing it now is only engineering time.
 Delete these completely. No stubs. No soft deprecation. No "deprecated" comments.
 
 ```
-@wizeworks/email-platform:
+@wizeworksllc/email-platform:
   → DEFAULT_AUTOMATIONS constant / catalog
   → evaluateTrigger() engine and all its callsites
   → The seeding logic that installs these rows on email activation
@@ -414,7 +414,7 @@ the tenant's choices:
 - **The tenant can take the newer version.** The re-sync writes the held-back
   document beside the flag (`platform_document`, refreshed every pass and
   cleared with the flag), because the API cannot load the seed catalog in
-  `@wizeworks/automation-actions`. `POST /v1/automations/:id/take-platform-version`
+  `@wizeworksllc/automation-actions`. `POST /v1/automations/:id/take-platform-version`
   (editor role; MCP `take_platform_version`) publishes it as the next version
   with `takePlatformVersion`: the name and status stay the tenant's, their
   version stays in the history (snapshotted first if it never was), and the
@@ -493,7 +493,7 @@ Do not build these as part of this slice. They are separate work:
 This slice is complete when:
 
 ```
-✅ Legacy @wizeworks/email-platform automations code deleted
+✅ Legacy @wizeworksllc/email-platform automations code deleted
 ✅ Legacy email automations dashboard page removed
 ✅ All 14 Builder-email templates provisioned on email activation
 ✅ Nightly reconcile provisions templates for existing tenants

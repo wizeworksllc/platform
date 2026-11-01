@@ -18,7 +18,7 @@ import {
   BuilderBehaviors,
   BuilderRuntimeProvider,
   type BuilderRuntime,
-} from '@wizeworks/builder-render';
+} from '@wizeworksllc/builder-render';
 
 import { useCart } from './cart-provider';
 import { useCustomer } from './customer-provider';

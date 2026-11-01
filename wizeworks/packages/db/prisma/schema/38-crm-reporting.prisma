@@ -33,7 +33,7 @@ model CrmReport {
   // invent it. Not an enum for exactly that reason.
   objectKey String @map("object_key") @db.VarChar(63)
 
-  // ConditionGroup (@wizeworks/automation-schemas). Empty group = no filter.
+  // ConditionGroup (@wizeworksllc/automation-schemas). Empty group = no filter.
   filters  Json  @default("{\"logic\":\"AND\",\"conditions\":[]}")
   // { field } for a property, or { field, bucket: day|week|month|quarter|year }
   // for a date. Null = one row, which is how a plain "how many?" is expressed.

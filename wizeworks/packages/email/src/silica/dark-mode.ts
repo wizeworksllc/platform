@@ -16,7 +16,7 @@
 // the green "Confirmed" cue survive; only surfaces, body text, and borders flip.
 //
 // This aligns the email's dark mode to the tenant's SITE dark theme (the dark map is
-// resolved from the same `@wizeworks/site-themes` tokens the storefront uses). Gmail and
+// resolved from the same `@wizeworksllc/site-themes` tokens the storefront uses). Gmail and
 // Outlook.com ignore `color-scheme` and force-invert regardless — treat this as
 // progressive enhancement for the clients that honour it, never a guaranteed design.
 

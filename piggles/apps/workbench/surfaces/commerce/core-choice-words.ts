@@ -2,7 +2,7 @@
 // (sparx persona issue 057). The deposit comes from the store's WORDS, so each row
 // shows today's prices beside the new ones.
 
-import type { CoreChoiceCandidate } from '@wizeworks/commerce-schemas';
+import type { CoreChoiceCandidate } from '@wizeworksllc/commerce-schemas';
 import { formatMoney } from './data';
 
 /** What the owner has typed on one row. Money in cents; undefined = blank. */

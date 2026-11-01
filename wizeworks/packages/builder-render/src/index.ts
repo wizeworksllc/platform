@@ -1,9 +1,9 @@
-// @wizeworks/builder-render — the single Builder render path (docs/builder/02).
+// @wizeworksllc/builder-render — the single Builder render path (docs/builder/02).
 //
 // The per-type leaf map, the interactive islands, and the edit-mode runtime that
 // the live storefront renderer (wizeworks/apps/site) and the dashboard editor canvas
 // (apps/dashboard) both consume — so "the canvas IS production" is literally true.
-// Zero server-only deps (no @wizeworks/db, no next/headers): presentational + injected
+// Zero server-only deps (no @wizeworksllc/db, no next/headers): presentational + injected
 // data, with the genuinely-interactive atoms as 'use client' islands.
 
 // The unified leaf render + the host-shared predicates/helpers.
@@ -89,4 +89,4 @@ export {
 // bridge). Pulling react-dom/server into those graphs is a hard Turbopack build
 // error ("importing a component that imports react-dom/server"). The serializer is
 // a dashboard-only "View HTML" affordance, so it lives behind the dedicated
-// `@wizeworks/builder-render/serialize` subpath that only that consumer imports.
+// `@wizeworksllc/builder-render/serialize` subpath that only that consumer imports.

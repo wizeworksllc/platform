@@ -5,7 +5,7 @@
 // console's global-error): a token cannot resolve without its stylesheet.
 
 import { useEffect, type CSSProperties } from 'react';
-import { useStaleBuildRecovery } from '@wizeworks/app-kit';
+import { useStaleBuildRecovery } from '@wizeworksllc/app-kit';
 
 // @piggles/brand light ramp, as in piggles/apps/workbench/app/global-error.tsx.
 const INK = '#202631';

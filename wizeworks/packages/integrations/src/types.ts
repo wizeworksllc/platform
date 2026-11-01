@@ -5,7 +5,7 @@
 // Payments, shipping, tax, sales channels, social accounts, dropship suppliers and
 // AI accounts each grew their own registry, their own catalog shape and their own
 // bootstrap. Five of those registries are the same forty lines of `Map` + accessors,
-// copied one from the next — the source comments say so ("Mirrors @wizeworks/channels'
+// copied one from the next — the source comments say so ("Mirrors @wizeworksllc/channels'
 // registry"). The copies then drifted: three of them independently invented an
 // `availability`/`isConfigured` concept and the provider framework never got one,
 // which is why four finished bundles (paypal, easypost, taxjar, avalara) shipped
@@ -25,7 +25,7 @@
 //     common; merging them yields either forty optional fields or an untyped
 //     `dispatch(kind, op, …)`. That merge was already attempted once — the provider
 //     framework's `ProviderBundle.payment` claims a payment contract that nothing
-//     dispatches, while every real payment goes through `@wizeworks/payments` — and the
+//     dispatches, while every real payment goes through `@wizeworksllc/payments` — and the
 //     duplicate abstraction is the result. Each domain keeps its own typed adapter
 //     and its own dispatch; only the descriptor is common.
 //

@@ -1,4 +1,4 @@
-// @wizeworks/social — public barrel.
+// @wizeworksllc/social — public barrel.
 //
 // The SocialAdapter contract + normalized types, the per-platform constraints, the
 // one-post→N-platforms renderer, and the adapter registry (docs/133). Pure types +
@@ -7,7 +7,7 @@
 // constraints for author-time validation).
 //
 // The server-only token crypto is NOT re-exported here — it lives behind the
-// `@wizeworks/social/crypto` subpath so the composer bundle never pulls node:crypto.
+// `@wizeworksllc/social/crypto` subpath so the composer bundle never pulls node:crypto.
 
 export type {
   SocialPlatform,
@@ -57,7 +57,7 @@ export {
   type SocialPlatformPhase,
 } from './catalog.js';
 
-// The shared-plane face of the platform catalog (@wizeworks/integrations).
+// The shared-plane face of the platform catalog (@wizeworksllc/integrations).
 export {
   socialIntegrations,
   socialToIntegrationDescriptor,

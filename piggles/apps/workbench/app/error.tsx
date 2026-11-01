@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 import { faTriangleExclamation } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { Button } from '@wizeworks/silicaui-react';
-import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworks/app-kit';
+import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworksllc/app-kit';
 import { reportCrash } from '@/lib/analytics';
 import { productName } from '@/lib/product';
 

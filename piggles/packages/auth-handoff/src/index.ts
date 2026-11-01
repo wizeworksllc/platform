@@ -2,7 +2,7 @@ import {
   consumeHandoff,
   mintHandoff,
   type ConsumeHandoffResult,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 import { audienceOrigin, internalPath, type HandoffAudience } from './origins';
 
 // The getpiggles.com → mypiggles.com session handoff.

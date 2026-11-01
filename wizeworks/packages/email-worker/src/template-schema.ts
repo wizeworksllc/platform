@@ -10,19 +10,19 @@
 // the broker saw a success, and nobody is told.
 //
 // Four templates lived in exactly that state: `login-otp`, `magic-link`,
-// `team-invitation` and `partner-welcome` were registered in `@wizeworks/email`,
+// `team-invitation` and `partner-welcome` were registered in `@wizeworksllc/email`,
 // listed in the events union, and published from live auth code — and dropped
 // here. Two of them are how a person signs in, so passwordless sign-in could
 // not complete and inviting a teammate delivered nothing. Every typecheck, lint
 // and test in the repo passed the whole time.
 //
 // SO THE GATE IS ITS OWN MODULE, imported by `handler.ts` rather than buried in
-// it. `handler.ts` pulls in `@wizeworks/email` for `renderTemplate`, which drags the
+// it. `handler.ts` pulls in `@wizeworksllc/email` for `renderTemplate`, which drags the
 // React templates along; asking "does the gate cover every template" should not
 // require loading a rendering stack. Split out, the coverage test imports only
 // zod and a list of strings — which is why that test can exist at all.
 //
-// Adding a template to `@wizeworks/email` is not finished until its literal is
+// Adding a template to `@wizeworksllc/email` is not finished until its literal is
 // here. `__tests__/template-coverage.test.ts` fails the build if it is not.
 
 import { z } from 'zod';
@@ -74,7 +74,7 @@ const withLegacySiteName = (v: unknown) => {
 // The sign-in code and the sign-in link were among them, so passwordless
 // sign-in could not complete at all, and inviting a teammate sent nothing.
 //
-// So: adding a template to `@wizeworks/email` is not finished until its literal is
+// So: adding a template to `@wizeworksllc/email` is not finished until its literal is
 // in this union. The full six-point checklist is in the platform-email notes;
 // this is the point where forgetting is silent.
 export const TemplateSendSchema = z.discriminatedUnion('template', [
@@ -242,7 +242,7 @@ export const TemplateSendSchema = z.discriminatedUnion('template', [
   }),
   // Site-form emails (docs/115) — the owner notification + the submitter autoresponder.
   // Enqueued by the `form.notify` / `form.autoreply` automation actions
-  // (`@wizeworks/automation-actions`) via `enqueueSend`, so they arrive on the async
+  // (`@wizeworksllc/automation-actions`) via `enqueueSend`, so they arrive on the async
   // email.send path and MUST be in this union or they'd be acked-and-dropped. The
   // producer builds props from resolved form fields, several of which are legitimately
   // absent — a form whose settings panel was never opened has a null `formName`, and

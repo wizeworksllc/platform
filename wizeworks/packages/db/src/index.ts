@@ -320,7 +320,7 @@ export type {
 // `Prisma` is exported as a VALUE (not type-only) because callers need the
 // runtime members — Prisma.DbNull / Prisma.JsonNull / Prisma.sql — in addition
 // to the type namespace (Prisma.TransactionClient, Prisma.*WhereInput, …).
-// Type-only consumers keep using `import type { Prisma } from '@wizeworks/db'`.
+// Type-only consumers keep using `import type { Prisma } from '@wizeworksllc/db'`.
 export { Prisma } from '@prisma/client';
 
 // The single allocation table for Postgres advisory-lock keys used by the

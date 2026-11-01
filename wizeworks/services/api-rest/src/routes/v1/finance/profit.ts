@@ -11,12 +11,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { prisma } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { commerceSchedulers } from '@wizeworks/commerce';
-import { profitForRange, recomputeRange, utcMidnight } from '@wizeworks/finance';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { prisma } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { commerceSchedulers } from '@wizeworksllc/commerce';
+import { profitForRange, recomputeRange, utcMidnight } from '@wizeworksllc/finance';
 import { requireFinanceModule, toFinanceContext } from '../../../lib/finance-context.js';
 import { resolveListScopeIds } from '../../../lib/property.js';
 

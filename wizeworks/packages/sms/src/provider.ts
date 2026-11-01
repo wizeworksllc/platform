@@ -1,4 +1,4 @@
-// The SMS provider abstraction (mirrors @wizeworks/payments' PaymentGateway). Every
+// The SMS provider abstraction (mirrors @wizeworksllc/payments' PaymentGateway). Every
 // SMS the platform sends — booking confirmations, reminders, waitlist offers —
 // goes through this interface and never knows the vendor. Adding a provider =
 // implementing this interface + registering it; no caller changes.

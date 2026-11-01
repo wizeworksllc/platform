@@ -35,7 +35,7 @@
 // The two writes touch DISJOINT rows: stage keys are unique within a ladder and
 // `recordStage` refuses a view rung, so a key is counted by exactly one of them.
 
-import { Prisma, withTenant, type TenantContext, type TxClient } from '@wizeworks/db';
+import { Prisma, withTenant, type TenantContext, type TxClient } from '@wizeworksllc/db';
 
 import { FunnelStages, pathForSlug, stagePath } from './schemas.js';
 

@@ -21,8 +21,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { withTenant } from '@wizeworks/db';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { withTenant } from '@wizeworksllc/db';
 import {
   b2bQuoteService,
   billingDocumentConversionService,
@@ -34,13 +34,13 @@ import {
   buildRenderDataFromDraft,
   type BillingDraftInput,
   type BillingDraftLine,
-} from '@wizeworks/crm';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { GatewayNotFoundError, PaymentConfigError, paymentService } from '@wizeworks/payments';
-import { indexEntity } from '@wizeworks/events';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { ApiError } from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/crm';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { GatewayNotFoundError, PaymentConfigError, paymentService } from '@wizeworksllc/payments';
+import { indexEntity } from '@wizeworksllc/events';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { ApiError } from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInvoicingModule, toInvoicingContext } from '../../../lib/invoicing-context.js';
 import { reachableSiteIds, resolveListScope } from '../../../lib/property.js';
 import { renderTenantInvoiceHtml, resolveInvoiceBrand } from '../../../lib/invoice-render.js';

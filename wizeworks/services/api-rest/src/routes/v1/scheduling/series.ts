@@ -10,10 +10,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { Booking, BookingSeries } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { CancelBookingSeriesInput, CreateBookingSeriesInput } from '@wizeworks/scheduling-schemas';
+import type { Booking, BookingSeries } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import {
+  CancelBookingSeriesInput,
+  CreateBookingSeriesInput,
+} from '@wizeworksllc/scheduling-schemas';
 import {
   cancelBookingSeries,
   createBookingSeries,
@@ -21,7 +24,7 @@ import {
   listBookingSeries,
   type BookingSeriesDetail,
   type BookingSeriesSummary,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { publishBookingEvent } from '../../../lib/scheduling-events.js';

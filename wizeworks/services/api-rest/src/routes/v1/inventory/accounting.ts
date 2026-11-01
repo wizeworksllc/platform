@@ -34,8 +34,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { JOURNAL_ACCOUNT_ROLES } from '@wizeworks/commerce-schemas';
-import { inventoryService } from '@wizeworks/inventory';
+import { JOURNAL_ACCOUNT_ROLES } from '@wizeworksllc/commerce-schemas';
+import { inventoryService } from '@wizeworksllc/inventory';
 import {
   accountingAdapter,
   listConnections,
@@ -43,10 +43,10 @@ import {
   loadCredentials,
   recordSyncRun,
   setMappings,
-} from '@wizeworks/finance';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/finance';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 /** The `sparxType` these five rows use in the shared mapping table. */

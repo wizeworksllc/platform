@@ -2,9 +2,9 @@
 // app.ts so the invoicing URL space lives behind a single registration point.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { documentLineTypeService, documentWorkflowService } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { documentLineTypeService, documentWorkflowService } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import workflowRoutes from './workflows.js';
 import lineTypeRoutes from './line-types.js';

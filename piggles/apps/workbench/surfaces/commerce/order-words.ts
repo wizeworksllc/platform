@@ -7,7 +7,7 @@
 // of those and they had drifted: this console said "Sent by the supplier" where
 // the shopper's own order page said "Drop-ship", and the customer's email said
 // "usps". One list, so a new carrier is named once.
-import { carrierLabel, typedCarrierOf } from '@wizeworks/commerce-schemas';
+import { carrierLabel, typedCarrierOf } from '@wizeworksllc/commerce-schemas';
 import { channelLabel as sharedChannelLabel } from '../../lib/console/channels';
 import type { Order, OrderFulfillment, OrderPayment } from './order-types';
 

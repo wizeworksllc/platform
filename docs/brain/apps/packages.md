@@ -9,20 +9,20 @@ sources:
 
 ~60 workspace packages, grouped by domain (one line each):
 
-**UI / design:** `@wizeworks/ui` (dashboard components) · `@sparx/site-ui` (site components, `--st-*`) · `@wizeworks/site-themes` (tenant theme presets + compiler) · `@wizeworks/surface-compile` (per-tenant CSS compile). → [[design]], [[components]].
+**UI / design:** `@wizeworksllc/ui` (dashboard components) · `@sparx/site-ui` (site components, `--st-*`) · `@wizeworksllc/site-themes` (tenant theme presets + compiler) · `@wizeworksllc/surface-compile` (per-tenant CSS compile). → [[design]], [[components]].
 
-**Builder / CMS:** `@wizeworks/builder-schemas` (BuilderNode schemas + the [[builder-catalog]]) · `@wizeworks/builder-render` (node→element map) · `@wizeworks/builder` · `@wizeworks/sitebuilder(-schemas)` · `@wizeworks/section-template-react` · `@wizeworks/cms-editor(-schemas)` · `@wizeworks/blueprints`.
+**Builder / CMS:** `@wizeworksllc/builder-schemas` (BuilderNode schemas + the [[builder-catalog]]) · `@wizeworksllc/builder-render` (node→element map) · `@wizeworksllc/builder` · `@wizeworksllc/sitebuilder(-schemas)` · `@wizeworksllc/section-template-react` · `@wizeworksllc/cms-editor(-schemas)` · `@wizeworksllc/blueprints`.
 
-**Commerce / inventory:** `@wizeworks/commerce(-schemas)` · `@wizeworks/inventory` · `@wizeworks/dropship` · `@wizeworks/channels`.
+**Commerce / inventory:** `@wizeworksllc/commerce(-schemas)` · `@wizeworksllc/inventory` · `@wizeworksllc/dropship` · `@wizeworksllc/channels`.
 
-**Payments / billing / providers:** `@wizeworks/payments` (multi-gateway) · `@wizeworks/billing` (platform subscription) · `@wizeworks/integration-framework` · `provider-{avalara,taxjar,shippo,easypost,paypal(stub)}`. → [[stripe]].
+**Payments / billing / providers:** `@wizeworksllc/payments` (multi-gateway) · `@wizeworksllc/billing` (platform subscription) · `@wizeworksllc/integration-framework` · `provider-{avalara,taxjar,shippo,easypost,paypal(stub)}`. → [[stripe]].
 
-**CRM / automation / scheduling:** `@wizeworks/crm(-schemas)` · `@wizeworks/automation(-schemas,-actions)` · `@wizeworks/scheduling(-schemas)` · `@wizeworks/attribution` · `@wizeworks/seo-audit`.
+**CRM / automation / scheduling:** `@wizeworksllc/crm(-schemas)` · `@wizeworksllc/automation(-schemas,-actions)` · `@wizeworksllc/scheduling(-schemas)` · `@wizeworksllc/attribution` · `@wizeworksllc/seo-audit`.
 
-**Email / SMS:** `@wizeworks/email` (React Email + provider) · `@wizeworks/email-platform` · `@wizeworks/email-sends` (worker-safe enqueue) · `@wizeworks/sms`. → [[email-pipeline]].
+**Email / SMS:** `@wizeworksllc/email` (React Email + provider) · `@wizeworksllc/email-platform` · `@wizeworksllc/email-sends` (worker-safe enqueue) · `@wizeworksllc/sms`. → [[email-pipeline]].
 
-**Auth / data / infra:** `@wizeworks/auth` (staff) · `@wizeworks/customer-auth` (shopper) · `@wizeworks/db` · `@wizeworks/events` · `@wizeworks/modules` · `@wizeworks/query` (TanStack) · `@wizeworks/api-core` · `@wizeworks/api-client`.
+**Auth / data / infra:** `@wizeworksllc/auth` (staff) · `@wizeworksllc/customer-auth` (shopper) · `@wizeworksllc/db` · `@wizeworksllc/events` · `@wizeworksllc/modules` · `@wizeworksllc/query` (TanStack) · `@wizeworksllc/api-core` · `@wizeworksllc/api-client`.
 
-**Domains / legal / search:** `@wizeworks/godaddy` + `@wizeworks/registrar` ([[godaddy]]) · `@wizeworks/legal(-templates,-seed)` · `@wizeworks/search` (Typesense) · `@wizeworks/chat-widget` · `@wizeworks/marketplace-schemas` · `@wizeworks/partner-schemas` · `@wizeworks/site-mcp`.
+**Domains / legal / search:** `@wizeworksllc/godaddy` + `@wizeworksllc/registrar` ([[godaddy]]) · `@wizeworksllc/legal(-templates,-seed)` · `@wizeworksllc/search` (Typesense) · `@wizeworksllc/chat-widget` · `@wizeworksllc/marketplace-schemas` · `@wizeworksllc/partner-schemas` · `@wizeworksllc/site-mcp`.
 
 Related: [[services]], [[architecture]]

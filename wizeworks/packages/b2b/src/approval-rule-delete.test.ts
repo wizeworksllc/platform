@@ -19,14 +19,14 @@ const rule = {
   update: vi.fn(() => Promise.resolve({ id: 'rule-1' })),
 };
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, run: (tx: unknown) => unknown) => run({ purchaseApprovalRule: rule }),
   nameSearchClauses: () => [],
 }));
-vi.mock('@wizeworks/auth', () => ({ isModuleEnabled: () => Promise.resolve(true) }));
-vi.mock('@wizeworks/crm', () => ({ b2bArService: {} }));
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: {} }));
-vi.mock('@wizeworks/api-core/errors', () => ({
+vi.mock('@wizeworksllc/auth', () => ({ isModuleEnabled: () => Promise.resolve(true) }));
+vi.mock('@wizeworksllc/crm', () => ({ b2bArService: {} }));
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: {} }));
+vi.mock('@wizeworksllc/api-core/errors', () => ({
   notFound: (message: string) => new Error(message),
 }));
 

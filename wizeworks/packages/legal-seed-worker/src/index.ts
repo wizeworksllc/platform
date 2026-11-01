@@ -10,7 +10,7 @@
 // stopped rather than replaying the stream.
 
 import type { Logger } from 'pino';
-import { createBrokerHandler, type WorkerSubscription } from '@wizeworks/events';
+import { createBrokerHandler, type WorkerSubscription } from '@wizeworksllc/events';
 
 import { handle, parseEvent } from './handler.js';
 

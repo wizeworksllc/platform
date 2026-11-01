@@ -21,7 +21,7 @@
 // A server component: nothing here is stateful, so there is no client bundle and the
 // frame is in the first HTML the browser gets.
 
-import { mapEmbedSrc, frameRatioClass } from '@wizeworks/silica-catalog';
+import { mapEmbedSrc, frameRatioClass } from '@wizeworksllc/silica-catalog';
 
 export function SiteMap({ props }: { props?: Record<string, unknown> }) {
   const src = mapEmbedSrc(props?.location, props?.zoom);

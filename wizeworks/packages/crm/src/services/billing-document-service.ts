@@ -11,13 +11,16 @@ import {
   ListBillingDocumentsInput,
   UpdateBillingDocumentInput,
   withPoNumber,
-} from '@wizeworks/crm-schemas';
-import { NOT_OWED_STAGE_TYPES, PRICE_OFFER_WORKFLOW_SLUGS } from '@wizeworks/crm-schemas/builtins';
+} from '@wizeworksllc/crm-schemas';
+import {
+  NOT_OWED_STAGE_TYPES,
+  PRICE_OFFER_WORKFLOW_SLUGS,
+} from '@wizeworksllc/crm-schemas/builtins';
 // `Prisma` as a VALUE, not a type-only import: `Prisma.DbNull` is a runtime
 // sentinel, and it is the only way to ask a nullable Json column whether a key
 // is present.
-import { nameSearchClauses, Prisma, withTenant } from '@wizeworks/db';
-import type { BillingDocument, BillingDocumentLine } from '@wizeworks/db';
+import { nameSearchClauses, Prisma, withTenant } from '@wizeworksllc/db';
+import type { BillingDocument, BillingDocumentLine } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent, type CrmTopic } from '../events';

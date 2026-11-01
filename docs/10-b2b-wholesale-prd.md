@@ -297,7 +297,7 @@ an order they placed. The rule lives in `accountOrderGate.signOffState`
 
 A card order a spending limit holds is **held, not charged** (sparx persona issue 087). The
 checkout asks the gateway to hold the card when the limit will hold the order, and only
-where the gateway can (`capabilities.capture` in `@wizeworks/payments`: sparx Pay and the
+where the gateway can (`capabilities.capture` in `@wizeworksllc/payments`: sparx Pay and the
 merchant's own Stripe today). The last approval charges it; turning the order down lets it
 go. Where the gateway cannot hold a card it is charged at checkout as before, and a
 turned-down order is refunded in full through the ordinary refund path, so the order's
@@ -305,8 +305,8 @@ refund rows and totals stay true. A charge still on its way when the order is tu
 is refunded the moment it lands.
 
 What each card payment needs is decided inside the decision's transaction
-(`heldOrderMoney` in `@wizeworks/crm`); the gateway calls happen after it commits
-(`heldOrderPayments.settle` in `@wizeworks/commerce`), from the console, the site and the
+(`heldOrderMoney` in `@wizeworksllc/crm`); the gateway calls happen after it commits
+(`heldOrderPayments.settle` in `@wizeworksllc/commerce`), from the console, the site and the
 MCP tools alike. Nothing fails quietly: a hold lasts about seven days, so a card that cannot
 be charged when the order is approved leaves the order placed and unpaid, writes that on
 the order, gives the business a task to send the buyer an invoice, and the buyer's order

@@ -1,7 +1,7 @@
 'use client';
 
-import { useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../../lib/api/client';
 import type { Automation, AutomationVersionRow, AutomationsFilter, RunsFilter } from './wire-types';
 import type {

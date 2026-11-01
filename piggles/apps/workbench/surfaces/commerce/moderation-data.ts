@@ -23,8 +23,8 @@
 // product's facet and leave this queue stale.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 import { PRODUCTS_KEY } from './products-data';
 

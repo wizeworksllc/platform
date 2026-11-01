@@ -706,7 +706,7 @@
   /* ── COOKIE CONSENT: banner + preference center (docs/42) ────────
    Client-only GDPR opt-in chrome. Bottom-left card on desktop, a
    full-width bottom sheet on mobile; the preference center is a
-   centered modal. Controls are <Button>/<Checkbox> from @wizeworks/ui —
+   centered modal. Controls are <Button>/<Checkbox> from @wizeworksllc/ui —
    these classes only do layout + the card surface. */
   .mkt-consent-banner {
     position: fixed;
@@ -1214,7 +1214,7 @@
     }
   }
   /* Native résumé file input — chrome, not a re-skinned control. Styles the field
-   frame + the OS-drawn "Choose file" button so it sits next to the @wizeworks/ui
+   frame + the OS-drawn "Choose file" button so it sits next to the @wizeworksllc/ui
    Inputs without looking foreign. */
   .mkt-file-input {
     font-family: var(--font-sans);

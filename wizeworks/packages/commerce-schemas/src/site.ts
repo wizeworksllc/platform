@@ -1,11 +1,11 @@
 // Storefront-level settings and theme token overrides. Sitebuilder owns
 // layout + page composition; Commerce owns the commerce-side defaults
 // (currency, default warehouse, channel toggles) and the per-tenant theme
-// token overrides applied on top of the @wizeworks/ui storefront variants.
+// token overrides applied on top of the @wizeworksllc/ui storefront variants.
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 import { Channel, Currency } from './common';
 import { DunningPolicy } from './subscriptions';

@@ -14,7 +14,7 @@
 
 import { Badge, Button } from '@wizeworks/silicaui-react';
 import { useToast } from '@wizeworks/silicaui-react';
-import { HELD_FOR_SIGN_OFF_STATUS } from '@wizeworks/crm-schemas';
+import { HELD_FOR_SIGN_OFF_STATUS } from '@wizeworksllc/crm-schemas';
 
 import { SubSection } from './order-detail-blocks';
 import {

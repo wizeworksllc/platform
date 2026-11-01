@@ -10,7 +10,7 @@
 // same in its own row. Only the controls that apply to the current choice are
 // shown, so nobody sets a percentage on a policy that takes no deposit.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

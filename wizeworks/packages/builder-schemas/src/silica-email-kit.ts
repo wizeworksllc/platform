@@ -17,7 +17,7 @@
 //
 // Colors are authored as silica's neutral defaults WITH the `*Auto` flags set, so
 // they repaint from the tenant's brand — live in the editor (silica's own
-// `setColorDefaults`) and at send (`@wizeworks/email/silica`'s brand pass). An author who
+// `setColorDefaults`) and at send (`@wizeworksllc/email/silica`'s brand pass). An author who
 // picks a color by hand freezes that field, exactly as silica intends.
 
 import type {
@@ -411,7 +411,7 @@ export function featureList(items: { title: string; body: string }[]): SectionNo
  *  wearing the same inset CARD, with a `modules.<slug>` value-gate on the section — and
  *  because a section fills no default field, that gate acts as pure show/hide via the
  *  same `hideWhenEmpty` drop as `when()`, so the card vanishes for a tenant without the
- *  module. `slug` is a `@wizeworks/modules` `ModuleSlug` (mirrored in the `modules` email
+ *  module. `slug` is a `@wizeworksllc/modules` `ModuleSlug` (mirrored in the `modules` email
  *  source, binding.ts); the resolver (`resolveModules`) fills '' for an inactive module,
  *  which is what triggers the drop. Stacking several reads as one grouped list. */
 export function moduleFeature(slug: string, title: string, body: string): SectionNode {
@@ -618,7 +618,7 @@ export function contentCards(ref: string): SectionNode {
 // ── The document ─────────────────────────────────────────────────────────────
 
 /** Wrap authored sections in an email body. The brand wordmark header and the legal
- *  footer are NOT here — the send composes both (`@wizeworks/email/silica`), so an author
+ *  footer are NOT here — the send composes both (`@wizeworksllc/email/silica`), so an author
  *  edits only their own copy and can't delete the compliance footer off a marketing
  *  email. */
 export function emailDoc(subject: string, preheader: string, body: SectionNode[]): EmailDocument {

@@ -17,8 +17,8 @@
 // screen, and the list and the detail can never disagree about a field.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { focalFromWire } from './focal-point';
@@ -513,7 +513,7 @@ export function mediaErrorMessage(error: unknown, fallback: string): string {
 /** "3 product photos and 1 page or article", or null when nothing is using it.
  *  Names the KINDS rather than a bare count, because "used in 4 places" does
  *  not tell an owner which screen to open before she can delete the file. The
- *  same words api-rest's refusal uses (`describeUsage` in @wizeworks/media), so
+ *  same words api-rest's refusal uses (`describeUsage` in @wizeworksllc/media), so
  *  the disabled button and the server's answer never name one problem two ways. */
 export function usedInLabel(asset: Pick<MediaAsset, 'usageCount' | 'usage'>): string | null {
   if (asset.usageCount <= 0) return null;

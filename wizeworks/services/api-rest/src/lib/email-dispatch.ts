@@ -10,13 +10,13 @@
 // CMS/sitebuilder ticks). Per-row work rides withTenant({tenantId}) so the
 // UPDATE still goes through tenant_isolation; the cross-tenant scan does not.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { emailService } from '@wizeworks/builder';
-import { UNSUBSCRIBE_PLACEHOLDER } from '@wizeworks/email/silica';
-import type { RawEmailSendPayload } from '@wizeworks/events';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { emailService } from '@wizeworksllc/builder';
+import { UNSUBSCRIBE_PLACEHOLDER } from '@wizeworksllc/email/silica';
+import type { RawEmailSendPayload } from '@wizeworksllc/events';
 import { recipientRef } from './email-recipient-ref.js';
 import { buildFrom, loadSenderIdentity, renderBuilderEmailDoc } from './tenant-email.js';
 import { personalizeUnsubscribe, unsubscribeUrl } from './email-unsubscribe.js';

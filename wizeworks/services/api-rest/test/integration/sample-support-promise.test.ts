@@ -21,7 +21,7 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { loadSampleData, prisma, resolveSamplePack, withTenant } from '@wizeworks/db';
+import { loadSampleData, prisma, resolveSamplePack, withTenant } from '@wizeworksllc/db';
 
 import { seedPrimaryProperty } from '../helpers.js';
 

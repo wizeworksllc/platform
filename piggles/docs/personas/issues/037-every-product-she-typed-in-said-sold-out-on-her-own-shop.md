@@ -123,6 +123,6 @@ anywhere. Console and shop finally agree.
   calls it) and `closePublisher()` is exported from api-core.
 - **An ops script does not inherit its service's env.** The first run read the
   database perfectly and published to the `log` transport, printing a full list of
-  101 tenants it had asked — having asked nobody. `@wizeworks/db` loads its own env;
+  101 tenants it had asked — having asked nobody. `@wizeworksllc/db` loads its own env;
   `publish` resolves its transport from `process.env` at call time. The script now
   imports `dotenv/config` first.

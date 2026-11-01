@@ -2,7 +2,7 @@
 // model — already existed with the right shape; only the write path was
 // missing, see return-service.approve()).
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

@@ -14,9 +14,9 @@
 
 import 'dotenv/config';
 
-import { registerCommerceConsumers } from '@wizeworks/commerce/consumers';
-import { registerCrmConsumers } from '@wizeworks/crm';
-import { prisma } from '@wizeworks/db';
+import { registerCommerceConsumers } from '@wizeworksllc/commerce/consumers';
+import { registerCrmConsumers } from '@wizeworksllc/crm';
+import { prisma } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
 
 import { registerEmailProvisioningConsumer } from '../lib/email-provisioning.js';

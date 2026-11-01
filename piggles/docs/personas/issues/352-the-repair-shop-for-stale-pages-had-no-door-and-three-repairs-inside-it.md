@@ -14,7 +14,7 @@
 `upgrade-page.ts` — the file that exists for exactly this. Then I looked for its call
 site.
 
-**There is not one.** `upgradePageBody` is exported from `@wizeworks/silica-catalog`'s
+**There is not one.** `upgradePageBody` is exported from `@wizeworksllc/silica-catalog`'s
 index and imported by nothing in the repository except its own test file.
 
 ```
@@ -91,7 +91,7 @@ production. That is the shape [[feedback_structural_checks_go_blind]] warns abou
 unit test of a repair function proves the repair, and says nothing about whether
 anything calls it.
 
-So the new tests drive the real entry points with a mocked `@wizeworks/db`, and assert
+So the new tests drive the real entry points with a mocked `@wizeworksllc/db`, and assert
 the repair reaches the ROW:
 
 - `load()` routes the form, writes it back, and touches only the draft column;
@@ -106,8 +106,8 @@ two.
 
 ## Confirmed by
 
-`@wizeworks/builder`: **141 tests across 12 files** (was 135). Typecheck clean on
-`@wizeworks/builder`, `@wizeworks/silica-catalog` and `api-rest`; eslint and prettier
+`@wizeworksllc/builder`: **141 tests across 12 files** (was 135). Typecheck clean on
+`@wizeworksllc/builder`, `@wizeworksllc/silica-catalog` and `api-rest`; eslint and prettier
 clean.
 
 ## Rating effect

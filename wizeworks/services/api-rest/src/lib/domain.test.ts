@@ -18,7 +18,7 @@ import type * as Domain from './domain.js';
 /** The `domains` rows `tenantZone` reads. Reassigned per test, before the import. */
 let domainRows: { host: string; property: { isPrimary: boolean } | null }[] = [];
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: { domain: { findMany: () => Promise.resolve(domainRows) } },
   withTenant: () => Promise.reject(new Error('domain.test does not exercise withTenant')),
 }));

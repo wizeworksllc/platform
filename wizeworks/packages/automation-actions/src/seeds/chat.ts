@@ -4,7 +4,7 @@
 // survey after a conversation is RESOLVED. Both use the interval cadence so each
 // conversation triggers exactly once (once-per-entity dedupe).
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 /** Alert staff when an open conversation has gone 10 minutes with no staff reply.
  *  The alert prefers the assigned agent's email (`conversation.assignedToEmail`),

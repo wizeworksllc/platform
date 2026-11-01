@@ -6,13 +6,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { requireB2bModule } from '../../../lib/b2b-context.js';
-import { companyService } from '@wizeworks/crm';
+import { companyService } from '@wizeworksllc/crm';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 
 const PathJobId = z.object({ jobId: z.string().uuid() });

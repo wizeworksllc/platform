@@ -36,28 +36,28 @@ import { pruneHiddenLinks, siteShowsModule } from '@/lib/site-modules';
 import { SiteHostRenderer } from '@/components/silica-host-cores';
 import { SilicaBehaviors } from '@/components/silica-behaviors';
 import { SiteBuilderRuntime } from '@/components/site-builder-runtime';
-import type { PublishedSilicaFrameDto } from '@wizeworks/builder-schemas';
+import type { PublishedSilicaFrameDto } from '@wizeworksllc/builder-schemas';
 import { getPublishedSilicaFrame, resolveSiteSells } from '@/lib/silica';
 import { buildSilicaHost, silicaSiteIdentity } from '@/lib/silica-data';
 import {
   buildSilicaThemeCssFromTheme,
   brandFontHref,
   themeFontFamilies,
-} from '@wizeworks/site-themes';
+} from '@wizeworksllc/site-themes';
 import {
   BASE_SILICA_THEME,
   buildCustomColorCss,
   buildDerivedContentCss,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 import { getLegalFooterLinks, type LegalLink } from '@/lib/legal';
 import { getPublishedBuilderStyles } from '@/lib/builder';
 import { ConsentManager } from '@/components/consent/consent-manager';
 import { SiteAnalyticsBeacon } from '@/components/site-analytics-beacon';
 import { TopProgressBar } from '@/components/top-progress-bar';
 import { SiteChatWidget } from '@/components/site-chat-widget';
-import { PlatformCredit } from '@wizeworks/ui';
-import { platformBrandIdentity } from '@wizeworks/brand-core';
-import { ChunkReloadGuard } from '@wizeworks/app-kit';
+import { PlatformCredit } from '@wizeworksllc/ui';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
+import { ChunkReloadGuard } from '@wizeworksllc/app-kit';
 import { mediaUrl } from '@/lib/media';
 import { ogImageUrl } from '@/lib/og';
 import { resolveActivePropertySlug, resolveSite } from '@/lib/site-context';
@@ -73,7 +73,7 @@ import './globals.css';
 import './site.css';
 // The custom-section template primitives (bx-tpl-*), shared with the dashboard
 // Section Studio preview so both render identically (docs/38 Phase C).
-import '@wizeworks/section-template-react/section-template.css';
+import '@wizeworksllc/section-template-react/section-template.css';
 
 const THEME_COOKIE = 'sparx_theme';
 
@@ -195,7 +195,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // Brand web fonts — the tenant's chosen families (e.g. 'Quicksand', 'Nunito')
 // must be LOADED or the browser silently falls back to Geist. `brandFontHref`
-// (@wizeworks/site-themes, shared with the Builder canvas so the two never drift)
+// (@wizeworksllc/site-themes, shared with the Builder canvas so the two never drift)
 // builds one Google Fonts stylesheet for whatever the tenant chose; see its use
 // below with the compiled snapshot as the source of truth + theme columns as a
 // backstop.

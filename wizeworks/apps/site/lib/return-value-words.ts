@@ -9,7 +9,7 @@
 // who had paid $643.50 for it (sparx persona issue 231). `paidForUnits` is the
 // one rule, shared with the shop's refund and the server.
 
-import { paidForUnits } from '@wizeworks/commerce-schemas';
+import { paidForUnits } from '@wizeworksllc/commerce-schemas';
 
 import { formatMoney } from './format';
 

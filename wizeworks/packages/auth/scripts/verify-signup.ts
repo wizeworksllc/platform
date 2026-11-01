@@ -1,5 +1,5 @@
 // One-shot script that exercises the sign-up + sign-in path end-to-end.
-//   pnpm --filter @wizeworks/auth exec tsx scripts/verify-signup.ts
+//   pnpm --filter @wizeworksllc/auth exec tsx scripts/verify-signup.ts
 //
 // Verifies:
 //   1. signUpMerchant() creates Tenant + User + Account in one transaction

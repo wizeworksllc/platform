@@ -16,7 +16,7 @@
 // without a label reddens this file.
 
 import { describe, expect, it } from 'vitest';
-import { OrderChannel, ORDER_CHANNEL_LABELS } from '@wizeworks/crm-schemas';
+import { OrderChannel, ORDER_CHANNEL_LABELS } from '@wizeworksllc/crm-schemas';
 
 import { LEAD_SOURCE_NONE, leadSourceLabel } from './reporting-service';
 

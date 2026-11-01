@@ -3,7 +3,7 @@
 // The global gates (tenant-active, kill-switch, module-active) all read the same
 // `tenants` row. Reading it once per action-dispatch ×3 gates would hammer the
 // table, so we cache `{ status, settings }` per tenant with a short TTL — exactly
-// the shape `@wizeworks/auth`'s module-gate uses. The `tenants` table is RLS-exempt
+// the shape `@wizeworksllc/auth`'s module-gate uses. The `tenants` table is RLS-exempt
 // (it's the dispatch table), so the tenant tx reads it regardless of the GUC.
 
 import type { TenantCtx } from '../engine-types';

@@ -15,7 +15,7 @@ import {
   UpdateLocationInput,
   UpdateResourceInput,
   UpdateServiceInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
 import { setAvailabilityWindows } from '../availability-rules';
 import { createBooking, rescheduleBooking } from '../booking-service';

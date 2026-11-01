@@ -1,10 +1,10 @@
 // CMS module presets — content types, a topic taxonomy, and starter navigation.
 //
-// These live at the api-rest composition root (not in a `@wizeworks/cms` package —
+// These live at the api-rest composition root (not in a `@wizeworksllc/cms` package —
 // there isn't one; CMS write paths are route handlers over raw Prisma), so the
 // preset `build` mirrors those routes: raw Prisma on the open tenant tx (`sx.tx`),
-// tenant-scoped under the same RLS. The contract comes from @wizeworks/auth (api-rest
-// already deps it), the field vocabulary from @wizeworks/cms-schemas.
+// tenant-scoped under the same RLS. The contract comes from @wizeworksllc/auth (api-rest
+// already deps it), the field vocabulary from @wizeworksllc/cms-schemas.
 //
 // CMS activation seeds NOTHING per-tenant (built-in content types like `page` /
 // `blog_post` live in the platform tenant and are shared via RLS), so every key
@@ -17,17 +17,17 @@ import {
   ContentTypeSchema,
   type ContentTypeDefinition,
   type FieldDef,
-} from '@wizeworks/cms-schemas';
-import { definePreset, type ModulePreset } from '@wizeworks/auth';
-import { afterCommit, type Prisma, type TenantContext } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+} from '@wizeworksllc/cms-schemas';
+import { definePreset, type ModulePreset } from '@wizeworksllc/auth';
+import { afterCommit, type Prisma, type TenantContext } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 // ContentTypeSchema is a plain JSON-shaped object (Prisma's InputJsonObject
 // permits optional/undefined values), so it's assignable to the Json column type
 // directly — no cast needed.
 const asJson = (schema: ContentTypeSchema): Prisma.InputJsonValue => schema;
 
-// ─── Field helpers (each returns one FieldDef in the @wizeworks/cms-schemas union) ──
+// ─── Field helpers (each returns one FieldDef in the @wizeworksllc/cms-schemas union) ──
 
 const text = (key: string, label: string, required = false): FieldDef => ({
   type: 'text',

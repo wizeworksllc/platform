@@ -5,7 +5,7 @@
 // it targets (null = the whole domain) plus a numeric window per range axis.
 //
 // Everything is tenant-scoped — there is NO platform-global domain. The platform
-// ships a LIBRARY of installable dictionaries (@wizeworks/commerce-schemas
+// ships a LIBRARY of installable dictionaries (@wizeworksllc/commerce-schemas
 // FITMENT_DICTIONARIES); installFitmentDictionary stamps a chosen dictionary as
 // the tenant's own domain + node tree via the shared planner
 // (planFitmentDictionaryRows), so an installed tree and a seeded tree are
@@ -26,11 +26,11 @@ import {
   ReorderFitmentNodesInput,
   UpdateFitmentDomainInput,
   UpdateFitmentNodeInput,
-} from '@wizeworks/commerce-schemas';
-import type { FitmentDimension } from '@wizeworks/commerce-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import { Prisma } from '@wizeworks/db';
-import type { FitmentNode, ProductFitment } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { FitmentDimension } from '@wizeworksllc/commerce-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import { Prisma } from '@wizeworksllc/db';
+import type { FitmentNode, ProductFitment } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError } from '../errors';

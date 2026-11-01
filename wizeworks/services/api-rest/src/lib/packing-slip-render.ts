@@ -10,9 +10,9 @@
 // The order's own site wins over the primary one, so an order placed on the
 // second shop ships with the second shop's name on the paper.
 
-import { brandService } from '@wizeworks/email-platform';
-import { withTenant } from '@wizeworks/db';
-import type { PackingSlipBrand } from '@wizeworks/inventory';
+import { brandService } from '@wizeworksllc/email-platform';
+import { withTenant } from '@wizeworksllc/db';
+import type { PackingSlipBrand } from '@wizeworksllc/inventory';
 
 import { resolveBusinessIdentity } from './business-identity.js';
 

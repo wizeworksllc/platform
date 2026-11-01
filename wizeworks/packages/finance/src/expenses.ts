@@ -6,7 +6,7 @@
 // decision #2). Filing a PO here would double-count every part.
 
 import { endOfDayExclusive } from './rollup';
-import { withTenant, type FinanceExpense, type Prisma, type TxClient } from '@wizeworks/db';
+import { withTenant, type FinanceExpense, type Prisma, type TxClient } from '@wizeworksllc/db';
 
 import { ExpenseNotFoundError, OverAllocatedError } from './errors';
 import type {

@@ -4,7 +4,7 @@
 // THE SEGMENT RULE TREE
 //
 // A segment's membership is a recursive boolean tree stored in `segments.rules`,
-// shaped by `SegmentRule` in `@wizeworks/crm-schemas` — the same Zod the server
+// shaped by `SegmentRule` in `@wizeworksllc/crm-schemas` — the same Zod the server
 // validates and evaluates against, so the builder cannot drift from it. Field
 // labels live in ./segment-fields, operator labels in ./segment-operators.
 //
@@ -26,7 +26,7 @@ import type {
   SegmentFieldPath,
   SegmentOperator,
   SegmentRule,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 import { fieldMeta, type CustomFieldIndex, type ValueKind } from './segment-fields';
 import {
   defaultOperator,

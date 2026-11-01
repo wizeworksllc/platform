@@ -5,15 +5,15 @@
 // sites that never use the module out of the table. Per-property (docs/49
 // Phase 6): each of a tenant's sites keeps its own draft config.
 
-import type { Prisma, SiteConfig, TxClient } from '@wizeworks/db';
-import { firstPartyTheme } from '@wizeworks/silica-catalog';
+import type { Prisma, SiteConfig, TxClient } from '@wizeworksllc/db';
+import { firstPartyTheme } from '@wizeworksllc/silica-catalog';
 
 import { themePresetFor } from './theme-preset';
 
 // The look a site gets when it is created WITHOUT a blueprint — someone opens
 // the builder on a bare site and starts editing.
 //
-// This used to be DEFAULT_THEME_KEY from @wizeworks/site-themes ('apex'), one of six
+// This used to be DEFAULT_THEME_KEY from @wizeworksllc/site-themes ('apex'), one of six
 // legacy presets that predate the silica catalog. Those six are now retired.
 //
 // `studio` is the achromatic one: chroma zero on every surface with a single hot

@@ -10,7 +10,7 @@
 // the point: `type` is how they transact, `lifecycleStage` is where they are in
 // the journey, `leadStatus` is the micro work-state of a lead.
 
-import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworks/crm-schemas';
+import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworksllc/crm-schemas';
 import { formatAmount } from '../../lib/money-format';
 
 /** The best human name for a customer — real name, else company, else email,

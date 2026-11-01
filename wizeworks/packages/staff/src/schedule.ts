@@ -6,7 +6,7 @@
 // tables is that "scheduled hours" and "paid hours" are different numbers that
 // every rota product eventually conflates.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 import {
   InvalidShiftWindowError,
   ShiftNotFoundError,

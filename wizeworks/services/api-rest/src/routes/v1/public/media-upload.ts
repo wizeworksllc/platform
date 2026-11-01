@@ -28,20 +28,20 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { verifyUploadToken } from '@wizeworks/media/upload-token';
-import { ok } from '@wizeworks/api-core/envelope';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { withTenant } from '@wizeworksllc/db';
+import { verifyUploadToken } from '@wizeworksllc/media/upload-token';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import {
   badRequest,
   conflict,
   forbidden,
   notFound,
   unauthorized,
-} from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/api-core/errors';
 import { getStorage } from '../../../lib/storage.js';
 
-// Hard parser ceiling — mirrors @wizeworks/media MAX_PROXIED_UPLOAD_BYTES. The
+// Hard parser ceiling — mirrors @wizeworksllc/media MAX_PROXIED_UPLOAD_BYTES. The
 // token's own `max` (the caller's declared size) is the real per-upload bound;
 // this is just a backstop so a missing/oversized token can't buffer unbounded.
 const HARD_MAX_BYTES = 20 * 1024 * 1024;

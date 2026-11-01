@@ -10,9 +10,9 @@ import {
   CreateFleetHoldInput,
   productLabel,
   quantityProblem,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError, InventoryValidationError } from '../errors';
 import type { ServiceContext } from '../errors';
@@ -107,7 +107,7 @@ async function ensureAccount(tx: TxClient, ctx: ServiceContext, accountId: strin
 /**
  * Hold the amount to the account's buying rules on this version: its minimum,
  * maximum and case pack (sparx persona issue 086). The rule and the sentence are
- * the cart's own (`quantityProblem` in @wizeworks/commerce-schemas), so a hold
+ * the cart's own (`quantityProblem` in @wizeworksllc/commerce-schemas), so a hold
  * and a cart refuse the same amount in the same words. The case pack used to be
  * ignored here, so stock could be held for 5 of something sold in cases of 12.
  */

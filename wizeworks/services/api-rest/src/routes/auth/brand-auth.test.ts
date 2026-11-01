@@ -9,7 +9,7 @@
 import Fastify, { type FastifyInstance } from 'fastify';
 import { jwtVerify } from 'jose';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import type { SparxSession } from '@wizeworks/auth';
+import type { SparxSession } from '@wizeworksllc/auth';
 
 process.env.PLATFORM_AUTH_BRANDS = 'sparx, Piggles';
 process.env.PLATFORM_BRAND_SOURCE = 'request';

@@ -20,7 +20,7 @@
 // THE PRODUCT PAGE NOTICE IS LITERAL. One product, one buyer, one request (a
 // signed-in read is never cached), so the sentence is written straight in.
 
-import type { FleetFit } from '@wizeworks/commerce-schemas';
+import type { FleetFit } from '@wizeworksllc/commerce-schemas';
 
 import { fleetFitNotice } from './fleet-fit-words';
 

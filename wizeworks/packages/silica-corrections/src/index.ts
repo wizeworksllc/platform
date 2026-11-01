@@ -1,4 +1,4 @@
-// @wizeworks/silica-corrections — the platform's corrections to silicaui.
+// @wizeworksllc/silica-corrections — the platform's corrections to silicaui.
 //
 // Everything here fixes a gap or a misreading in silica (or in a tool that
 // consumes it) and states NO brand value of its own. That is the whole entry
@@ -7,8 +7,8 @@
 //
 // The CSS is imported by path, because a stylesheet has to be:
 //
-//   @import '@wizeworks/silica-corrections/silica-gaps.css';
-//   @import '@wizeworks/silica-corrections/toast.css';
+//   @import '@wizeworksllc/silica-corrections/silica-gaps.css';
+//   @import '@wizeworksllc/silica-corrections/toast.css';
 //
 // This barrel carries the JavaScript.
 

@@ -30,9 +30,9 @@ import {
   readCustomerConsentRequest,
   submitCustomerConsent,
   CUSTOMER_MCP_SCOPE_CATALOG,
-} from '@wizeworks/customer-auth';
-import { ok } from '@wizeworks/api-core/envelope';
-import { unauthorized, validationError } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/customer-auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { unauthorized, validationError } from '@wizeworksllc/api-core/errors';
 
 import { resolveActivePropertyName } from '../../../lib/property.js';
 import {

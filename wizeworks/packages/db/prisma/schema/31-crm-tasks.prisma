@@ -37,7 +37,7 @@ model Task {
   companyId               String? @map("company_id") @db.Uuid
   // True when the task exists to get the account's prices and terms set up. It
   // closes itself, done, the moment the account is set up by the same rule the
-  // set-up automation opens it on (`ACCOUNT_SET_UP_TO_DO`, @wizeworks/crm-schemas).
+  // set-up automation opens it on (`ACCOUNT_SET_UP_TO_DO`, @wizeworksllc/crm-schemas).
   // Wasatch Front was put on Net 30 with a $25,000 limit and its "Set up prices
   // and terms" task stayed open: nothing that saved the account looked at it.
   closesWhenAccountSetUp  Boolean @default(false) @map("closes_when_account_set_up")

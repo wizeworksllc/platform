@@ -23,7 +23,7 @@ import {
   summarize,
   type MappedEntity,
   type ValidationIssue,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 import { ColumnMapper } from './column-mapper';
 import { entityLabel, sentenceList, type LoadedFile } from './data';
 

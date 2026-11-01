@@ -1,7 +1,6 @@
 {
-  "name": "@wizeworks/crm-schemas",
+  "name": "@wizeworksllc/crm-schemas",
   "version": "0.0.0",
-  "private": true,
   "description": "sparx CRM — Zod input schemas, segment rule shape, and built-in pipeline templates (docs/11-crm-prd.md, memory/feedback_crm_architecture.md).",
   "type": "module",
   "exports": {
@@ -15,8 +14,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/crm-schemas"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -25,8 +34,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/automation-schemas": "workspace:*",
-    "@wizeworks/field-schema": "workspace:*",
+    "@wizeworksllc/automation-schemas": "workspace:*",
+    "@wizeworksllc/field-schema": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

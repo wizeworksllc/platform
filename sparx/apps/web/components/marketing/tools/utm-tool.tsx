@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Bookmark, Download, Link2 } from 'lucide-react';
-import { toast } from '@wizeworks/ui';
+import { toast } from '@wizeworksllc/ui';
 import { Alert, Button, EmptyState, Input, Switch } from '@wizeworks/silicaui-react';
 import { Workbench, ControlsPane, OutputPane, Panel, Field, CopyButton, CodeBlock } from './ui-kit';
 import { useReportToolResult } from './tool-result-context';

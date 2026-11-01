@@ -255,7 +255,7 @@ Story obeys the same rules as every surface:
   rail + journey + `RailFooter`) and the shared `<SummaryCard>` — the same chrome as the
   wizard, so the two flows feel like one product.
 - Clause chips are bespoke module-tinted tokens via `color-mix` on the module color vars
-  (mirroring the `@wizeworks/ui` recipe) — they are _not_ re-skinned controls; the CTA is a
+  (mirroring the `@wizeworksllc/ui` recipe) — they are _not_ re-skinned controls; the CTA is a
   real `<Button>` and "Included" is a real `<Badge>`.
 - 16px body floor, no gradients, no eyebrow kickers, responsive (rail collapses under
   ~940px, the two-pane grid stacks to one column).

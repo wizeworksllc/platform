@@ -12,7 +12,7 @@
 import { useEffect, useState } from 'react';
 import { PaneLoadError } from '../../components/pane-load-error';
 import { Button, Card, Loading, Textarea, useToast } from '@wizeworks/silicaui-react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { faMessage } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { describeAgo } from '../../lib/api/activity';

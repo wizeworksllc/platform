@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 
-import type { TestimonialsConfig } from '@wizeworks/sitebuilder-schemas';
+import type { TestimonialsConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { RatingStars } from '@/components/rating-stars';
 import { mediaUrl } from '@/lib/media';

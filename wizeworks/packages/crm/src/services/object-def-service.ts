@@ -25,10 +25,10 @@ import {
   UpdateObjectDefInput,
   checkPropertySchema,
   type BuiltinObjectKey,
-} from '@wizeworks/crm-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { CrmObjectDef, Prisma } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+} from '@wizeworksllc/crm-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { CrmObjectDef, Prisma } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

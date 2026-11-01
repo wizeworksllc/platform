@@ -92,7 +92,7 @@ showing **—**. Three screens, two answers, one column filled by a machine.
 ## What was done
 
 **The send path loads the workflow**, and asks the one shared rule
-(`isPriceOfferWorkflow` / `billingDocumentNoun` in `@wizeworks/crm-schemas`)
+(`isPriceOfferWorkflow` / `billingDocumentNoun` in `@wizeworksllc/crm-schemas`)
 what kind of document it is holding. Everything below turns on that answer:
 
 - the label is the document's **noun** on an offer ("Quote"), and the stage's

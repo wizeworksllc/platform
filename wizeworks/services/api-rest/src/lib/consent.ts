@@ -2,7 +2,7 @@
 // tenant-payload fanout (docs/42 §4). Kept here (not in a route module) so the
 // config shape has one definition both readers agree on.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 export const CONSENT_CATEGORIES = [
   'strictly_necessary',

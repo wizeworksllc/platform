@@ -79,7 +79,7 @@ import {
   type BuyingRuleValues,
 } from './trade-buying-rules';
 import { fetchTradePrice } from '../invoicing/trade-price';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Building2, Plus, ServerCrash, Trash2 } from 'lucide-react';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { RefreshButton } from '../../components/refresh-button';

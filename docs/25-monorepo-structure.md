@@ -36,10 +36,10 @@ sparx/
 │   └── api/                  # @sparx/api — Fastify REST + GraphQL + MCP server
 │
 ├── packages/
-│   ├── ui/                   # @wizeworks/ui — component library (CVA + Shadcn + ModuleProvider)
-│   ├── db/                   # @wizeworks/db — Prisma client + schema + migrations
-│   ├── auth/                 # @wizeworks/auth — Better Auth config (staff + customer layers)
-│   ├── email/                # @wizeworks/email — React Email templates + Postal client
+│   ├── ui/                   # @wizeworksllc/ui — component library (CVA + Shadcn + ModuleProvider)
+│   ├── db/                   # @wizeworksllc/db — Prisma client + schema + migrations
+│   ├── auth/                 # @wizeworksllc/auth — Better Auth config (staff + customer layers)
+│   ├── email/                # @wizeworksllc/email — React Email templates + Postal client
 │   ├── sdk/                  # @sparx/sdk — public site SDK
 │   ├── config/               # @sparx/config — shared ESLint, Prettier, TS, Tailwind configs
 │   └── types/                # @sparx/types — shared TypeScript types
@@ -48,10 +48,10 @@ sparx/
 │   # packages, and ONE service runs them:
 │   #
 │   #   wizeworks/services/event-worker      the only process that holds subscriptions
-│   #   wizeworks/packages/email-worker      @wizeworks/email-worker      — email.send
-│   #   wizeworks/packages/domain-worker     @wizeworks/domain-worker     — domain.purchased
-│   #   wizeworks/packages/dropship-worker   @wizeworks/dropship-worker   — supplier sync
-│   #   wizeworks/packages/commerce-indexer  @wizeworks/commerce-indexer  — Typesense sync
+│   #   wizeworks/packages/email-worker      @wizeworksllc/email-worker      — email.send
+│   #   wizeworks/packages/domain-worker     @wizeworksllc/domain-worker     — domain.purchased
+│   #   wizeworks/packages/dropship-worker   @wizeworksllc/dropship-worker   — supplier sync
+│   #   wizeworks/packages/commerce-indexer  @wizeworksllc/commerce-indexer  — Typesense sync
 │   #   …and eight more, each exporting createSubscription(logger)
 │   #
 │   # wizeworks/services/media-worker and wizeworks/services/import-worker are the two handlers
@@ -80,7 +80,7 @@ cluster.
 ```
 middleware.ts                 # Better Auth session validation
 app/
-├── layout.tsx                # imports @wizeworks/ui/tokens.css
+├── layout.tsx                # imports @wizeworksllc/ui/tokens.css
 ├── (auth)/                   # login, register, forgot-password
 ├── (onboarding)/
 │   ├── step-1/page.tsx       # business info
@@ -110,7 +110,7 @@ app/
 
 ---
 
-## 4. `@wizeworks/ui` Package Structure
+## 4. `@wizeworksllc/ui` Package Structure
 
 ```
 tokens.css                    # ALL CSS custom properties (single source of truth)
@@ -167,7 +167,7 @@ src/
 
 - `build`, `dev`, `lint`, `typecheck`, `test`, `test:e2e`, `clean`
 - `db:generate`, `db:migrate`, `db:push`, `db:seed`, `db:studio`
-- `ui:add` (`pnpm --filter @wizeworks/ui shadcn add`)
+- `ui:add` (`pnpm --filter @wizeworksllc/ui shadcn add`)
 - `search:init`, `search:reindex`
 
 ---
@@ -198,9 +198,9 @@ src/
 
 | Workspace | Depends on |
 | ----------- | ---------------------------------------------------------------------- | --- | ----- |
-| `dashboard` | `@wizeworks/ui`, `@wizeworks/auth`, `@wizeworks/db`, `@sparx/types` |
-| `api` | `@wizeworks/db`, `@wizeworks/auth`, `@wizeworks/email`, `@sparx/types` |
-| `site` | `@wizeworks/ui`, `@sparx/sdk`, `@sparx/types` |
+| `dashboard` | `@wizeworksllc/ui`, `@wizeworksllc/auth`, `@wizeworksllc/db`, `@sparx/types` |
+| `api` | `@wizeworksllc/db`, `@wizeworksllc/auth`, `@wizeworksllc/email`, `@sparx/types` |
+| `site` | `@wizeworksllc/ui`, `@sparx/sdk`, `@sparx/types` |
 | `ui` | `@sparx/types` (peerDeps: `react ^18                                   |     | ^19`) |
 
 All internal: `"workspace:*"`
@@ -240,10 +240,10 @@ NEXT_PUBLIC_APP_URL | NEXT_PUBLIC_API_URL | NEXT_PUBLIC_SITE_URL
 
 1. `@sparx/types` (no deps)
 2. `@sparx/config` (no deps)
-3. `@wizeworks/db` (types)
-4. `@wizeworks/auth` (db, types)
-5. `@wizeworks/email` (types)
-6. `@wizeworks/ui` (types)
+3. `@wizeworksllc/db` (types)
+4. `@wizeworksllc/auth` (db, types)
+5. `@wizeworksllc/email` (types)
+6. `@wizeworksllc/ui` (types)
 7. `@sparx/sdk` (types)
 8. `@sparx/api` (db, auth, email, types)
 9. `sparx/apps/web` (ui, types)
@@ -263,7 +263,7 @@ NEXT_PUBLIC_APP_URL | NEXT_PUBLIC_API_URL | NEXT_PUBLIC_SITE_URL
 6. **`sparx/packages/ui` — PRIORITY.** Follow doc [23](23-frontend-component-architecture.md) exactly. Order: `tokens.css` → `cn.ts` → `module-provider.tsx` → `button.tsx` → `card.tsx` → `badge.tsx` → rest
 7. `apps/api` — Fastify, Better Auth middleware, all routes, Typesense, GoDaddy, Postal
 8. `apps/dashboard` — Next.js App Router, `tokens.css` in root layout, `ModuleProvider` per module section
-9. `sparx/apps/web` — Next.js marketing site, `@wizeworks/ui` components
+9. `sparx/apps/web` — Next.js marketing site, `@wizeworksllc/ui` components
 10. `wizeworks/apps/site` — Next.js, tenant resolution middleware, theme CSS vars
 11. `packages/*-worker` — event handlers, each exporting `createSubscription(logger)`; `wizeworks/services/event-worker` is the one process that runs them
 12. `k8s/` — manifests (the Terraform and the ingress are in wize-infrastructure)

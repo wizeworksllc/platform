@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { parseEvent } from './handler';
 
-// What goes on the wire, built the way `publish()` in @wizeworks/api-core builds it.
+// What goes on the wire, built the way `publish()` in @wizeworksllc/api-core builds it.
 //
 // This file exists because of the exact bug it now prevents: the worker parsed
 // the payload shape at the TOP LEVEL while every published event wraps it in an

@@ -18,7 +18,7 @@
 // by 100 once, at the render edge, and the shared `formatMoney` from ./data
 // stays the single money formatter across every commerce surface.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import type { Tone } from './data';

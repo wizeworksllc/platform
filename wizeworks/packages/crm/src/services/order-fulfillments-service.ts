@@ -14,9 +14,9 @@ import {
   lineShipRefusal,
   orderShipRefusal,
   UpdateFulfillmentInput,
-} from '@wizeworks/crm-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { OrderFulfillment, Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { OrderFulfillment, Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishPlatformEvent } from '../consumers/platform-bus';

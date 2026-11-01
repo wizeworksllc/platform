@@ -41,7 +41,7 @@ import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { PaneEmpty } from '../../components/pane-empty';
 import { FormSection } from '../../components/form-section';
 import { api } from '../../lib/api/client';
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
 import {
   priorityLabel,

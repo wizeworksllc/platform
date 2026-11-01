@@ -19,17 +19,17 @@ Last Updated: 2026-07-22
 
 ## 1. What gets consolidated
 
-| Today                                                                | After cutover                                             |
-| -------------------------------------------------------------------- | --------------------------------------------------------- |
-| `/builder/brand` (theme-center)                                      | Theme node in the unified editor                          |
-| `/builder/site` (site layout editor)                                 | Site-layout zone of the unified editor                    |
-| `/builder/page` (page editor)                                        | Page (Outlet) zone of the unified editor                  |
-| `/builder/email`                                                     | Email sibling surface (kept)                              |
-| `/builder/components`                                                | kept (catalog + custom editor)                            |
-| `/builder/blueprints`                                                | kept                                                      |
-| `/builder` (surface picker)                                          | the overview home ([06](06-builder-overview-home.md))     |
-| `registry.tsx` canvas render fns                                     | **deleted** (render lives in `@wizeworks/builder-render`) |
-| `canvas.tsx` mock branches (`CanvasCarousel`, commerce/Button mocks) | **deleted**                                               |
+| Today                                                                | After cutover                                                |
+| -------------------------------------------------------------------- | ------------------------------------------------------------ |
+| `/builder/brand` (theme-center)                                      | Theme node in the unified editor                             |
+| `/builder/site` (site layout editor)                                 | Site-layout zone of the unified editor                       |
+| `/builder/page` (page editor)                                        | Page (Outlet) zone of the unified editor                     |
+| `/builder/email`                                                     | Email sibling surface (kept)                                 |
+| `/builder/components`                                                | kept (catalog + custom editor)                               |
+| `/builder/blueprints`                                                | kept                                                         |
+| `/builder` (surface picker)                                          | the overview home ([06](06-builder-overview-home.md))        |
+| `registry.tsx` canvas render fns                                     | **deleted** (render lives in `@wizeworksllc/builder-render`) |
+| `canvas.tsx` mock branches (`CanvasCarousel`, commerce/Button mocks) | **deleted**                                                  |
 
 ## 2. Decisions
 
@@ -44,7 +44,7 @@ Outlet). Use the dashboard redirect layer (`sparx/apps/workbench/next.config.mjs
 `redirects()`), preserving the `?page=` deep-link contract.
 
 **2.3 Delete the dead render path.** Once the unified editor and the live site both
-render through `@wizeworks/builder-render` ([02](02-canvas-live-renderer-unification.md)),
+render through `@wizeworksllc/builder-render` ([02](02-canvas-live-renderer-unification.md)),
 remove the `renderLeaf`/`CanvasCarousel`/mock branches from `registry.tsx` and
 `canvas.tsx`. `registry.tsx` retains metadata only. Grep for any remaining importer
 of the old render functions and clean them up.
@@ -87,7 +87,7 @@ per-site behaviors ([per-site brand]).
   renders nodes; the mock branches are gone.
 - The §2.6 parity checklist passes — no capability lost from the three old editors.
 - Lint + typecheck clean across `@sparx/dashboard`, `@wizeworks/api-rest`,
-  `@wizeworks/sitebuilder`, and the new `@wizeworks/builder-render`.
+  `@wizeworksllc/sitebuilder`, and the new `@wizeworksllc/builder-render`.
 - The per-site brand isolation + site-switch remount behavior still holds.
 
 ## 5. Risks & notes

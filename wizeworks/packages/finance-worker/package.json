@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/finance-worker",
+  "name": "@wizeworksllc/finance-worker",
   "version": "0.0.0",
   "private": true,
   "description": "sparx finance worker (docs/148 §8). Generates due recurring expenses and recomputes the daily profit rollup for days whose sources moved. A LIBRARY registered by wizeworks/services/event-worker — not a service, not a Deployment.",
@@ -13,9 +13,9 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/finance": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/finance": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

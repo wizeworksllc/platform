@@ -23,12 +23,12 @@ import {
   PaymentConfigError,
   paymentService,
   takenByGateway,
-} from '@wizeworks/payments';
-import { orderRefundsService } from '@wizeworks/crm';
-import type { OrderRefund } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/payments';
+import { orderRefundsService } from '@wizeworksllc/crm';
+import type { OrderRefund } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
-import { badRequest } from '@wizeworks/api-core/errors';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 export interface RefundOrderInput {
   orderId: string;

@@ -38,7 +38,7 @@ import {
   starterFrame,
   upgradeFrameChrome,
   type SiteChromeOptions,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 import { describe, expect, it } from 'vitest';
 
 import { BLUEPRINTS, blueprintSlugs } from './blueprints-dir';

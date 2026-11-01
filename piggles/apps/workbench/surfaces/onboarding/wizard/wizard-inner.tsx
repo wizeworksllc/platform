@@ -4,7 +4,7 @@
 // runs. The work pane is wizard-body, the right-hand column wizard-summary.
 
 import { useEffect, useMemo, useState } from 'react';
-import type { StoryState } from '@wizeworks/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 import { OnboardingLayout } from '../onboarding-layout';
 import { useOnboardingActions } from '../../../lib/onboarding/api';
 import { useStoryModel } from '../../../lib/onboarding/use-story-model';

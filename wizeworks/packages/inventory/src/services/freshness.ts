@@ -25,9 +25,9 @@
 // channel buffer (./channel-buffers.ts) rather than replacing it, because it
 // expresses "we are currently flying blind", not "this is how much we withhold".
 
-import { SetSourceFreshnessInput } from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { SetSourceFreshnessInput } from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryNotFoundError } from '../errors';

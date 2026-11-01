@@ -18,7 +18,7 @@
 // tallied its own units in the browser would tally the page, not the shelf.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { Tone } from './data';
 

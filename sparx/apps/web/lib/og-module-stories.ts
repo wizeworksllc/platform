@@ -1,6 +1,6 @@
 import type { ImageResponse } from 'next/og';
 import type { ModuleKey } from '@sparx/brand';
-import type { StoryState } from '@wizeworks/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 import { moduleHeadlineHue, renderStoryOg } from './og-story';
 
 // Per-module social cards, built on the same story-card system as the homepage

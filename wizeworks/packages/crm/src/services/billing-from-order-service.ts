@@ -27,9 +27,9 @@
 // `recordPayment` mirrors a payment back onto the linked order, and this money is
 // already ON the order. Routing the seed through it would count it twice.
 
-import { poNumberOf, withPoNumber } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { poNumberOf, withPoNumber } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

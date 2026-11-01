@@ -2,10 +2,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { cartService, checkoutService } from '@wizeworks/commerce';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { cartService, checkoutService } from '@wizeworksllc/commerce';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireCommerceModule, toCommerceContext } from '../../../lib/commerce-context.js';
 import { cartContact } from './cart-contact.js';
 

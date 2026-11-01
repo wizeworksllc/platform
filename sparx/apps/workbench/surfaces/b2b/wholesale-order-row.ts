@@ -6,7 +6,7 @@
 // the whole reason the row is on this screen rather than on Orders.
 //
 // Nothing had to be fetched to fix it. The order list already joins the
-// business, and `ORDER_CUSTOMER_SELECT` in @wizeworks/crm says so in its own
+// business, and `ORDER_CUSTOMER_SELECT` in @wizeworksllc/crm says so in its own
 // comment — "paymentTerms rides along so the B2B lens can show what an order is
 // owed under" — and the console's own `OrderCustomer` type has carried
 // `company: { id, companyName, paymentTerms, status }` all along. It was in the

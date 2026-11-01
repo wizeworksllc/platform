@@ -9,7 +9,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 let row: { id: string; name: string; publishedAt: Date | null; silicaPublishedTree: unknown };
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(
       fn({
@@ -22,7 +22,7 @@ vi.mock('@wizeworks/db', () => ({
       })
     ),
 }));
-vi.mock('@wizeworks/events', () => ({ indexEntity: () => Promise.resolve() }));
+vi.mock('@wizeworksllc/events', () => ({ indexEntity: () => Promise.resolve() }));
 
 const { RecordingPublisher, setPublisher } = await import('../events');
 const { remove } = await import('./page-service');

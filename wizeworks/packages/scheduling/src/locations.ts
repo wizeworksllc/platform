@@ -12,14 +12,14 @@
 // junction: one premises can host two businesses. EMPTY links = every site, the
 // same Model B default the rest of the platform uses.
 
-import { withTenant, type BusinessLocation } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { withTenant, type BusinessLocation } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 import {
   CreateLocation,
   UpdateLocationInput,
   type CreateLocationInput,
   type LocationAddress,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
 import { LocationInUseError, LocationNotFoundError } from './errors';
 

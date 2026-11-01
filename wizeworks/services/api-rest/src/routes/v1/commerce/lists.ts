@@ -7,17 +7,17 @@
 //
 // These all go through `withRequestTenant` so RLS still enforces tenant
 // isolation. Each handler is a thin Prisma query and is a candidate to
-// hoist into `@wizeworks/commerce` once the dashboard's needs settle.
+// hoist into `@wizeworksllc/commerce` once the dashboard's needs settle.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { nameSearchClauses } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { depositFromColumns, VARIANT_OPTION_SELECT, variantOptions } from '@wizeworks/commerce';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { nameSearchClauses } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { depositFromColumns, VARIANT_OPTION_SELECT, variantOptions } from '@wizeworksllc/commerce';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { requireCommerceModule } from '../../../lib/commerce-context.js';
 import { cartContacts } from './cart-contact.js';
 import { resolveListScope } from '../../../lib/property.js';
@@ -238,7 +238,7 @@ const commerceListRoutes: FastifyPluginAsync = async (app) => {
           // ten identical rows for one product's sizes. The lattice point is the
           // real answer and it is one join away.
           //
-          // The select and the sort live in `@wizeworks/commerce` now, because
+          // The select and the sort live in `@wizeworksllc/commerce` now, because
           // the bundle component list needed the same answer and had been
           // reading raw SKUs instead. One function, or a second screen learns
           // this separately again.

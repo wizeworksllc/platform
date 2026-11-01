@@ -20,8 +20,8 @@
 //      so rather than inventing a number from the wrong source.
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { prisma, withTenant } from '@wizeworks/db';
-import { bundleAvailability } from '@wizeworks/commerce';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { bundleAvailability } from '@wizeworksllc/commerce';
 import { createTestTenant, dropTestTenant, type TestTenant } from '../helpers.js';
 
 describe('bundle availability from components', () => {

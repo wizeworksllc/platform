@@ -4,13 +4,13 @@
 // against the document's rate, and recomputes the document totals. Writes are
 // blocked when the document sits on an edit-locking stage.
 
-import { AddBillingLineInput, UpdateBillingLineInput } from '@wizeworks/crm-schemas';
+import { AddBillingLineInput, UpdateBillingLineInput } from '@wizeworksllc/crm-schemas';
 import {
   LineMarkupInput,
   type LineMarkupInput as LineMarkupInputType,
-} from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { BillingDocumentLineType } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { BillingDocumentLineType } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

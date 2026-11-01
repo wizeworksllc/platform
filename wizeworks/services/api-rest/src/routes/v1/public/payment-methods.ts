@@ -28,10 +28,10 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { paymentMethodService, subscriptionService } from '@wizeworks/commerce';
-import { StoredMethodsUnsupportedError } from '@wizeworks/payments';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound, validationError } from '@wizeworks/api-core/errors';
+import { paymentMethodService, subscriptionService } from '@wizeworksllc/commerce';
+import { StoredMethodsUnsupportedError } from '@wizeworksllc/payments';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound, validationError } from '@wizeworksllc/api-core/errors';
 
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { requireCustomerId } from '../../../lib/customer-session.js';

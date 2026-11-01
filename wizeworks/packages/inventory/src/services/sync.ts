@@ -13,7 +13,7 @@
 // Both the inventory-worker (CSV pull) and the `/sources/:id/push` endpoint
 // (external push) call this — one reconcile implementation, one funnel.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

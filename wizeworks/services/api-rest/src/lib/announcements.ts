@@ -12,12 +12,12 @@
 // NOTIFICATION rows to one tenant's staff. This is a public banner, addressed to
 // nobody in particular, and it has no recipient at all.
 
-import { prisma, type Prisma } from '@wizeworks/db';
+import { prisma, type Prisma } from '@wizeworksllc/db';
 import type {
   OperatorAnnouncement,
   OperatorAnnouncementSurface,
   OperatorAnnouncementTone,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 export const ANNOUNCEMENT_SURFACES = ['marketing', 'account', 'console'] as const;
 export const ANNOUNCEMENT_TONES = ['primary', 'info', 'success', 'warning', 'danger'] as const;

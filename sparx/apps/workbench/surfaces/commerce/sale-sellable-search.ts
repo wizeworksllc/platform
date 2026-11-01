@@ -20,7 +20,7 @@
 // WORDS, NOT A SUBSTRING. "injector 6.7" and "6.7 injector" both have to work:
 // nobody at a counter types a catalog string in catalog order. Every word has to
 // land somewhere, the same rule the server's own contact search uses
-// (`nameSearchClauses` in @wizeworks/db).
+// (`nameSearchClauses` in @wizeworksllc/db).
 
 export interface SearchableSellable {
   name: string;

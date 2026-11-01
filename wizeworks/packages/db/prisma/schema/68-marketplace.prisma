@@ -110,7 +110,7 @@ model MarketplaceBlueprint {
   // Lightweight "what this creates" counts for the browse/detail card, so list
   // queries never load the heavy manifest.
   contents        Json     @default("{}")
-  // The full @wizeworks/blueprints manifest for a DATA-backed (tenant/partner)
+  // The full @wizeworksllc/blueprints manifest for a DATA-backed (tenant/partner)
   // listing. NULL for Sparx-core rows, whose manifest lives in the in-code
   // registry and is resolved by slug at install time (docs/60 §6).
   definition      Json?

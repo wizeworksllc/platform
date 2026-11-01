@@ -2,8 +2,8 @@
 //
 // Better Auth logs "User not found { email }" at error level on every failed
 // sign-in, so each mistyped or guessed address went to the logs and on to
-// WizeLens (trace 4d32a5bf). A copy of @wizeworks/auth's, kept in step with
-// auth and operator-auth; this package does not depend on @wizeworks/auth.
+// WizeLens (trace 4d32a5bf). A copy of @wizeworksllc/auth's, kept in step with
+// auth and operator-auth; this package does not depend on @wizeworksllc/auth.
 
 import type { BetterAuthOptions } from 'better-auth';
 

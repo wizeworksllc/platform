@@ -25,8 +25,8 @@
 // the file you are editing when you add a projector.
 //
 // WHY A SCRIPT. The three sides are pure data in three packages with no
-// dependency on each other (`@wizeworks/commerce`, `@wizeworks/commerce-indexer`,
-// `@wizeworks/links`, plus every service that writes a record). Each declares its
+// dependency on each other (`@wizeworksllc/commerce`, `@wizeworksllc/commerce-indexer`,
+// `@wizeworksllc/links`, plus every service that writes a record). Each declares its
 // keys as string literals, so reading the literals is sufficient, and adding a
 // dependency just to assert a string set would be a real coupling to pay for a
 // check. Same reasoning as check-notification-entities and check-surface-routes.
@@ -57,7 +57,7 @@ const PROJECTOR_FILES = [
 const ROUTES_FILE = 'wizeworks/packages/links/src/routes.ts';
 
 /** THE closed set of module slugs, read from the one file that declares it. */
-const MODULES_FILE = 'wizeworks/packages/modules/src/index.ts';
+const MODULES_FILE = 'wizeworks/packages/module-roster/src/index.ts';
 
 /** Where `PLATFORM_MODULE` is declared — the reserved word for records that
  *  belong to no module and so can never be gated off. */
@@ -337,7 +337,7 @@ for (const [type, file] of projectors) {
         '     your records matches" over records it is holding. Nothing else is wrong.\n' +
         (near
           ? `     Did you mean '${near}'?`
-          : `     If ${type} belongs to no module, use PLATFORM_MODULE from @wizeworks/search.`)
+          : `     If ${type} belongs to no module, use PLATFORM_MODULE from @wizeworksllc/search.`)
     );
     continue;
   }

@@ -13,16 +13,16 @@
 // renders the `account-statement` template and relays it.
 
 import type { FastifyRequest } from 'fastify';
-import { withTenant } from '@wizeworks/db';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { withTenant } from '@wizeworksllc/db';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import {
   b2bStatementService,
   statementPeriodText,
   type AccountStatement,
   type StatementRecipient,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 import { resolveSiteOrigin, siteUrl } from './site-origin.js';
 import { tenantSenderHeaders } from './tenant-email.js';
 

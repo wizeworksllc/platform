@@ -9,7 +9,7 @@ sources:
   - wizeworks/packages/email/src/templates/
 ---
 
-Outbound email defaults to **publishing `email.send` to Pub/Sub**. `email-worker` consumes, validates against a Zod discriminated union of template ids (or a pre-rendered `raw` broadcast), resolves per-site brand, calls `renderTemplate()` (`@wizeworks/email`, React Email → html + auto plaintext), then `getEmailProvider().send()`.
+Outbound email defaults to **publishing `email.send` to Pub/Sub**. `email-worker` consumes, validates against a Zod discriminated union of template ids (or a pre-rendered `raw` broadcast), resolves per-site brand, calls `renderTemplate()` (`@wizeworksllc/email`, React Email → html + auto plaintext), then `getEmailProvider().send()`.
 
 - **Failure model:** unknown-template / parse error → `rejected` + ack (no retry); transient/5xx → throw → nack → Pub/Sub redelivers.
 - **Escape hatch:** direct `sendTemplate()` / `sendEmail()` is reserved for **synchronous-required** flows (OTP, future 2FA); a non-OTP direct send needs PR justification.

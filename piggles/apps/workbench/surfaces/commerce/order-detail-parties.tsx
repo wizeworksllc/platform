@@ -11,7 +11,7 @@ import {
   Button,
   Text,
 } from '@wizeworks/silicaui-react';
-import { poNumberOf } from '@wizeworks/crm-schemas';
+import { poNumberOf } from '@wizeworksllc/crm-schemas';
 import { orderDeliveryRows } from './order-delivery-needs';
 
 import { FormSection } from '../../components/form-section';

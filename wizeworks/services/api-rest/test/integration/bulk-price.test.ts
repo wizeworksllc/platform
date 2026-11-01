@@ -5,8 +5,8 @@
 // (restores), and the double-revert guard.
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { withTenant } from '@wizeworks/db';
-import { bulkPriceService } from '@wizeworks/commerce';
+import { withTenant } from '@wizeworksllc/db';
+import { bulkPriceService } from '@wizeworksllc/commerce';
 
 import { createTestTenant, dropTestTenant, type TestTenant } from '../helpers.js';
 

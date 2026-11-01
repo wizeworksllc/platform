@@ -38,9 +38,9 @@
 // at most one row, which is what makes the answer deterministic.
 // [[feedback_one_outcome_two_causes]]
 
-import { withTenant } from '@wizeworks/db';
-import type { TenantContext } from '@wizeworks/db';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import type { TenantContext } from '@wizeworksllc/db';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { firstNonEmpty } from './types.js';
 

@@ -14,10 +14,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { inventoryService } from '@wizeworks/inventory';
-import { MapUnmappedSkuInput } from '@wizeworks/commerce-schemas';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { MapUnmappedSkuInput } from '@wizeworksllc/commerce-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

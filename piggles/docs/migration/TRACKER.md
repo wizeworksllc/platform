@@ -58,14 +58,14 @@ B3.1←A1.4, B3.4←A1.3) all cleared when A1 and A2 landed.
 `piggles/apps/account` builds clean (460MB) — all 73 COPY stages, 762 packages
 resolved against the lockfile, and the Next build through to a running image.
 
-**It caught a bug nothing else could.** `@wizeworks/usage` re-exported from
+**It caught a bug nothing else could.** `@wizeworksllc/usage` re-exported from
 `'./allowance.js'`, which is the right convention for the compiled server packages
 and wrong for this one: it exports SOURCE and is consumed by a Next app, and
 Turbopack resolves those specifiers literally rather than doing the `.js` → `.ts`
 remap that `tsc` and `vitest` both do. So it typechecked, tested, linted and
 passed all eight guards, and failed only at the last stage of the image build with
 `Module not found`. Source-exported packages use EXTENSIONLESS relative imports —
-`@wizeworks/links` and `entitlements` already did.
+`@wizeworksllc/links` and `entitlements` already did.
 
 That is exactly why "check:docker is green" was never the same claim as "the image
 builds": the guard proves a Dockerfile is a superset of what a package imports,
@@ -121,35 +121,35 @@ Legend: ⬜ open · 🔶 in progress · ✅ done · ⛔ blocked · ❌ decided a
 
 ## A0 · Guardrails — do this first
 
-| ID   | Step                                                                                                                                | Exit test                                                             | State |
-| ---- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ----- |
-| A0.1 | Write `scripts/check-boundaries.mjs`, carrying over the two app-crossing patterns from `check-piggles-isolation.mjs`                | `pnpm check:boundaries` runs and is green                             | ✅    |
-| A0.2 | Add rule 5 — a per-package baseline of `@sparx/*` counts in `piggles/` that may only fall                                           | Adding one `@wizeworks/query` import to a Piggles file turns it red   | ✅    |
-| A0.3 | Add rules 3 + 4 (hex / brand-name literals under `wizeworks/**`), inert until A4                                                    | Script runs; documents that rules 1, 3, 4 are dormant                 | ✅    |
-| A0.4 | Wire into `package.json`, `.githooks/pre-push`, CI beside `check:events`                                                            | A push with a fresh `@sparx/*` import in `piggles/` is blocked        | ✅    |
-| A0.5 | Retire `check-piggles-isolation.mjs`                                                                                                | No script references it; its patterns live in the new check           | ✅    |
-| A0.6 | Split the rule in two: a **hard ban** on `@sparx/brand` / `@wizeworks/ui` that no baseline can absorb, and the ratchet for the rest | Appending a `@sparx/brand` import fails even with `--update-baseline` | ✅    |
+| ID   | Step                                                                                                                                   | Exit test                                                              | State |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ----- |
+| A0.1 | Write `scripts/check-boundaries.mjs`, carrying over the two app-crossing patterns from `check-piggles-isolation.mjs`                   | `pnpm check:boundaries` runs and is green                              | ✅    |
+| A0.2 | Add rule 5 — a per-package baseline of `@sparx/*` counts in `piggles/` that may only fall                                              | Adding one `@wizeworksllc/query` import to a Piggles file turns it red | ✅    |
+| A0.3 | Add rules 3 + 4 (hex / brand-name literals under `wizeworks/**`), inert until A4                                                       | Script runs; documents that rules 1, 3, 4 are dormant                  | ✅    |
+| A0.4 | Wire into `package.json`, `.githooks/pre-push`, CI beside `check:events`                                                               | A push with a fresh `@sparx/*` import in `piggles/` is blocked         | ✅    |
+| A0.5 | Retire `check-piggles-isolation.mjs`                                                                                                   | No script references it; its patterns live in the new check            | ✅    |
+| A0.6 | Split the rule in two: a **hard ban** on `@sparx/brand` / `@wizeworksllc/ui` that no baseline can absorb, and the ratchet for the rest | Appending a `@sparx/brand` import fails even with `--update-baseline`  | ✅    |
 
 **A0.6 came from the check being wrong in practice.** A single ratchet over all
 34 packages is noisy where it matters least and silent where it matters most:
-every new Piggles pane legitimately imports `@wizeworks/query` and `@wizeworks/api-client`
+every new Piggles pane legitimately imports `@wizeworksllc/query` and `@wizeworksllc/api-client`
 (the two largest counts), so the check fired constantly for the brand-blind infra
 — and a brand leak, where the correct number is zero, could be baselined away
 like anything else. Being able to do that is precisely how five sparx-mark render
 sites survived the fork unnoticed.
 
-Now: `@sparx/brand` and `@wizeworks/ui` fail at any count, `--update-baseline`
+Now: `@sparx/brand` and `@wizeworksllc/ui` fail at any count, `--update-baseline`
 refuses to write while such a leak is present, and everything else ratchets. It
 caught two real leftovers the moment it existed — `next.config.mjs` was still
 transpiling both packages after the deps were dropped.
 
 **The baseline is `piggles/docs/migration/sparx-usage-baseline.json`, and it went
 UP once, on purpose.** 420 → 432, all of it Track B building capability that did
-not exist: `@wizeworks/auth` +7 (the MCP consent screen and `/accept-invite`, which
-are Better Auth flows and cannot be anything else), `@wizeworks/app-kit` +2 (the two
-error boundaries need the stale-chunk helpers), `@wizeworks/links` +2 (the
+not exist: `@wizeworksllc/auth` +7 (the MCP consent screen and `/accept-invite`, which
+are Better Auth flows and cannot be anything else), `@wizeworksllc/app-kit` +2 (the two
+error boundaries need the stale-chunk helpers), `@wizeworksllc/links` +2 (the
 brand-aware invite URL — the fix itself), and one measurement drift in
-`@wizeworks/query` where `git diff` shows no import added at all.
+`@wizeworksllc/query` where `git diff` shows no import added at all.
 
 That is the intended use of `--update-baseline`: a rise that is argued and
 written down. It is NOT for making a red check green because the number is
@@ -165,20 +165,20 @@ caught this exact work, which is the evidence it functions.
 | A1.2 | `spark-field.tsx` — **deleted.** Its only consumer was `onboarding-gate.tsx`, itself unmounted                                                                                                                                                                                                           | File gone; no importer left                                                       | ✅    |
 | A1.3 | `onboarding-layout.tsx` — **deleted `OnboardingHeader`**, which held the sparx wordmark AND signed out to a `/sign-in` that does not exist in the console. Only the gate rendered it. `OnboardingLayout` (reachable) stays and now imports nothing sparx                                                 | No `@sparx/brand` import; the reopenable wizard/story panes still work            | ✅    |
 | A1.4 | `lib/tour/*` — **DELETED** (8 files + `driver.js`). Zero references anywhere; `surfaces/first-run.tsx` already replaced the first-run tour. Module tour offers have no Piggles equivalent — recorded, not silently dropped                                                                               | Files gone, dep gone, `data-tour` anchors left in place for a future Piggles tour | ✅    |
-| A1.5 | Moved `silica-gaps.css` + `toast.css` into the new `@wizeworks/silica-corrections`; re-pointed all six apps. `toast.css`'s one brand statement (`box-shadow: none`) became `--toast-elevation`, defaulting to the current rendering for both brands                                                      | Piggles `globals.css` imports no `@sparx/*`; neither brand's toasts changed       | ✅    |
-| A1.6 | Dropped `@wizeworks/ui` **and `@sparx/brand`** — both declared, both imported zero times                                                                                                                                                                                                                 | Neither appears in `piggles/apps/workbench/package.json`                          | ✅    |
+| A1.5 | Moved `silica-gaps.css` + `toast.css` into the new `@wizeworksllc/silica-corrections`; re-pointed all six apps. `toast.css`'s one brand statement (`box-shadow: none`) became `--toast-elevation`, defaulting to the current rendering for both brands                                                   | Piggles `globals.css` imports no `@sparx/*`; neither brand's toasts changed       | ✅    |
+| A1.6 | Dropped `@wizeworksllc/ui` **and `@sparx/brand`** — both declared, both imported zero times                                                                                                                                                                                                              | Neither appears in `piggles/apps/workbench/package.json`                          | ✅    |
 | A1.7 | Phase gate                                                                                                                                                                                                                                                                                               | `grep -rE "@sparx/(brand\|ui)" piggles/` returns comments only                    | ✅    |
 
 ## A2 · De-sparx the shared packages
 
-| ID   | Step                                                                                                                                                                                                                                                                                                                                                                                                             | Exit test                                                               | State |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----- |
-| A2.1 | `wizeworks/packages/links` — `appOrigin(brand)`, variable name DERIVED from the brand key so the file names no brand; the `app.sparx.works` literal is gone and an unconfigured production origin now throws instead of guessing. **Plus `accountOrigin(brand)`** — see the note below                                                                                                                           | 42 tests in `wizeworks/packages/links/src/server.test.ts`, all green    | ✅    |
-| A2.2 | Threaded the brand through every caller that has a tenant: api-rest team (invites, role change), chat notify, email domains, tenant module toggle, operator feedback, Stripe billing webhook, domain-worker (handler + cron ×2), social-worker (×2), and `@wizeworks/auth`'s own invitation email. The two sparx-ONLY emitters (market payouts, partner programme) keep the default with the reason written down | No caller silently takes the default without a comment saying why       | ✅    |
-| A2.3 | `wizeworks/packages/attribution` — `LAUNCH_LINKS` is sparx's own campaign data, not a mechanism, so it moved OFF the barrel to a `./launch-links` subpath rather than growing a fake brand lookup. Piggles imports the barrel and can no longer reach it                                                                                                                                                         | `@wizeworks/attribution`'s barrel states no brand value                 | ✅    |
-| A2.4 | `@wizeworks/brand-core` — **shipped, and it is not the token contract.** See below                                                                                                                                                                                                                                                                                                                               | 8 tests in `wizeworks/packages/brand-core/src/index.test.ts`, all green | ✅    |
-| A2.5 | Sweep the 29 remaining Class-1 packages for brand literals in code. **Done, and it was far larger than "a sweep" — see below**                                                                                                                                                                                                                                                                                   | 159 tests across `email` + `brand-core`, all green                      | ✅    |
-| A2.6 | Break `@piggles/console → @wizeworks/cms-editor → @wizeworks/ui → @sparx/brand` — **done, and it was an hour, not a phase.** See below                                                                                                                                                                                                                                                                           | No `packages/{brand,ui}` in the console image; the ban enforces it      | ✅    |
+| ID   | Step                                                                                                                                                                                                                                                                                                                                                                                                                | Exit test                                                               | State |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----- |
+| A2.1 | `wizeworks/packages/links` — `appOrigin(brand)`, variable name DERIVED from the brand key so the file names no brand; the `app.sparx.works` literal is gone and an unconfigured production origin now throws instead of guessing. **Plus `accountOrigin(brand)`** — see the note below                                                                                                                              | 42 tests in `wizeworks/packages/links/src/server.test.ts`, all green    | ✅    |
+| A2.2 | Threaded the brand through every caller that has a tenant: api-rest team (invites, role change), chat notify, email domains, tenant module toggle, operator feedback, Stripe billing webhook, domain-worker (handler + cron ×2), social-worker (×2), and `@wizeworksllc/auth`'s own invitation email. The two sparx-ONLY emitters (market payouts, partner programme) keep the default with the reason written down | No caller silently takes the default without a comment saying why       | ✅    |
+| A2.3 | `wizeworks/packages/attribution` — `LAUNCH_LINKS` is sparx's own campaign data, not a mechanism, so it moved OFF the barrel to a `./launch-links` subpath rather than growing a fake brand lookup. Piggles imports the barrel and can no longer reach it                                                                                                                                                            | `@wizeworksllc/attribution`'s barrel states no brand value              | ✅    |
+| A2.4 | `@wizeworksllc/brand-core` — **shipped, and it is not the token contract.** See below                                                                                                                                                                                                                                                                                                                               | 8 tests in `wizeworks/packages/brand-core/src/index.test.ts`, all green | ✅    |
+| A2.5 | Sweep the 29 remaining Class-1 packages for brand literals in code. **Done, and it was far larger than "a sweep" — see below**                                                                                                                                                                                                                                                                                      | 159 tests across `email` + `brand-core`, all green                      | ✅    |
+| A2.6 | Break `@piggles/console → @wizeworksllc/cms-editor → @wizeworksllc/ui → @sparx/brand` — **done, and it was an hour, not a phase.** See below                                                                                                                                                                                                                                                                        | No `packages/{brand,ui}` in the console image; the ban enforces it      | ✅    |
 
 **A2.4 turned out to be load-bearing, and it is a different package than
 planned.** The plan filed it as the token-contract split — which tokens exist,
@@ -188,7 +188,7 @@ question surfaced a much larger leak underneath it.
 
 `resolveEmailBrand` resolves the TENANT's brand — their logo, for their own
 customers. It has no notion of the PLATFORM brand at all, so a tenant who has not
-set up branding falls through to `@wizeworks/email`'s `defaultBrand`, which carries
+set up branding falls through to `@wizeworksllc/email`'s `defaultBrand`, which carries
 `siteName: 'sparx'`. Worse, `wordmark.tsx` asked `siteName !== 'sparx'` to decide
 whether a name was real — making one brand's name the literal definition of
 "unbranded". **Every platform email to a Piggles tenant without branding arrived
@@ -237,7 +237,7 @@ was the smallest part of it:
   the set: it silently defeats every other fix for that tenant, forever. Same
   for an invited owner. Fixed by `currentPlatformBrand()` — each brand's account
   app is its own deployment, so `PLATFORM_BRAND` on the pod is the answer.
-- **`customers.sparx.zone` was the hardcoded CNAME target** in `@wizeworks/registrar`
+- **`customers.sparx.zone` was the hardcoded CNAME target** in `@wizeworksllc/registrar`
   and `domain-worker` — the hostname a customer is told to point their own domain
   at. Now per-tenant-zone in both, and in api-rest's and api-mcp's purchase paths.
 - **Three places CONSTRUCTED `${slug}.sparx.zone`** as a fallback when a Domain
@@ -268,8 +268,8 @@ by name rather than silently.
 **A2.6 was mis-filed as a phase-A3/A4 problem and was neither.** The chain was
 held up by exactly two things: `cn`, a 26-line tailwind-merge wrapper with no
 brand in it, and `type ModuleManifest` from a module-manifest contract written
-for the removed dashboard. `cn` moved to `@wizeworks/silica-corrections`
-(re-exported from `@wizeworks/ui`, so admin's six call sites were untouched) and the
+for the removed dashboard. `cn` moved to `@wizeworksllc/silica-corrections`
+(re-exported from `@wizeworksllc/ui`, so admin's six call sites were untouched) and the
 four dead `manifest.ts` files were deleted. The lesson worth keeping: **trace a
 transitive dependency to what it actually imports before scheduling it.**
 
@@ -290,7 +290,7 @@ one that bites:
 
 1. It renames FRAGMENTS — `@sparx/provider-`, `@sparx/cms-`, `@sparx/x` all
    appear in prose and none is a package.
-2. It renames the FIVE THAT STAY: `@sparx/brand` and `@wizeworks/ui` (sparx's marks
+2. It renames the FIVE THAT STAY: `@sparx/brand` and `@wizeworksllc/ui` (sparx's marks
    and compositions) and `@sparx/web` / `@sparx/market` / `@sparx/workbench`
    (its applications). All five keep the scope and move to `sparx/` in A4.
 3. It renames packages THAT DO NOT EXIST. **31 tokens are referenced only in
@@ -332,17 +332,17 @@ under `piggles/` rises above zero and fails the push.
 
 ## A4 · The tree move
 
-| ID   | Step                                                                                                  | Exit test                                                 | State |
-| ---- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----- |
-| A4.1 | `packages/` → `wizeworks/packages/`, `services/` → `wizeworks/services/`; `brand` → `sparx/packages/` | 111 directories moved; old roots gone                     | ✅    |
-| A4.2 | `apps/{web,market,workbench,b2b-portal}` → `sparx/apps/`; `apps/{admin,site}` → `wizeworks/apps/`     | Layout matches pnpm-workspace.yaml                        | ✅    |
-| A4.3 | `pnpm-workspace.yaml` globs, 96 tsconfig `extends` depths, every relative path                        | Globs rewritten; `../../` → `../../../` throughout        | ✅    |
-| A4.4 | `Dockerfile.base` paths + `--filter` args                                                             | `--filter "@wizeworks/db..."`, `{./wizeworks/services/*}` | ✅    |
-| A4.5 | Replace the hand-enumerated `COPY` lines with a glob — **decided against**, see below                 | `check:docker` already guards the drift it targeted       | ❌    |
-| A4.6 | `release.yml` — image matrix, `azure-bootstrap.sql` path                                              | All four rewritten by the path pass                       | ✅    |
-| A4.7 | Every `scripts/check-*.mjs` path assumption — **two were passing FALSELY**, see below                 | All seven structural checks green, and meaningfully so    | ✅    |
-| A4.8 | Activate A0 rule 1 (`wizeworks/` may not import `sparx/` or `piggles/`)                               | Live, green, with 9 enumerated exceptions it prints       | ✅    |
-| A4.9 | **NEW —** the per-brand credit badge, plus `@wizeworks/brand` for the staff console. See below        | **Rule 1 has ZERO exceptions**                            | ✅    |
+| ID   | Step                                                                                                  | Exit test                                                    | State |
+| ---- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----- |
+| A4.1 | `packages/` → `wizeworks/packages/`, `services/` → `wizeworks/services/`; `brand` → `sparx/packages/` | 111 directories moved; old roots gone                        | ✅    |
+| A4.2 | `apps/{web,market,workbench,b2b-portal}` → `sparx/apps/`; `apps/{admin,site}` → `wizeworks/apps/`     | Layout matches pnpm-workspace.yaml                           | ✅    |
+| A4.3 | `pnpm-workspace.yaml` globs, 96 tsconfig `extends` depths, every relative path                        | Globs rewritten; `../../` → `../../../` throughout           | ✅    |
+| A4.4 | `Dockerfile.base` paths + `--filter` args                                                             | `--filter "@wizeworksllc/db..."`, `{./wizeworks/services/*}` | ✅    |
+| A4.5 | Replace the hand-enumerated `COPY` lines with a glob — **decided against**, see below                 | `check:docker` already guards the drift it targeted          | ❌    |
+| A4.6 | `release.yml` — image matrix, `azure-bootstrap.sql` path                                              | All four rewritten by the path pass                          | ✅    |
+| A4.7 | Every `scripts/check-*.mjs` path assumption — **two were passing FALSELY**, see below                 | All seven structural checks green, and meaningfully so       | ✅    |
+| A4.8 | Activate A0 rule 1 (`wizeworks/` may not import `sparx/` or `piggles/`)                               | Live, green, with 9 enumerated exceptions it prints          | ✅    |
+| A4.9 | **NEW —** the per-brand credit badge, plus `@wizeworksllc/brand` for the staff console. See below     | **Rule 1 has ZERO exceptions**                               | ✅    |
 
 **A4.7 caught two checks passing FALSELY, which is the finding worth keeping.**
 `check-deletability` and `check-boundaries` both read `apps` / `packages` /
@@ -358,15 +358,15 @@ deletability check, one file below the comment describing it.
 
 **A4.8 surfaced a real architectural violation, and the fix was a package split.**
 `wizeworks/apps/admin` — the WizeWorks STAFF console, which administers both
-brands — imported `@wizeworks/ui` in 75 files. Deleting sparx would have broken the
+brands — imported `@wizeworksllc/ui` in 75 files. Deleting sparx would have broken the
 console you need to run Piggles.
 
 The package turned out to be brand-blind apart from four symbols, two of which
 were pure re-exports of `@sparx/brand/react` kept for compile compatibility. So:
-`@wizeworks/ui` → **`@wizeworks/ui`** in `wizeworks/packages/`, with `Wordmark`,
+`@wizeworksllc/ui` → **`@wizeworksllc/ui`** in `wizeworks/packages/`, with `Wordmark`,
 `SparxMark`, `AppIcon` and `MadeWithSparx` returned to `@sparx/brand/react`
 where the marks already lived. 206 files repointed; 8 mixed imports split in two.
-`@wizeworks/ui` no longer exists, which is why the hard-ban list is down to
+`@wizeworksllc/ui` no longer exists, which is why the hard-ban list is down to
 `@sparx/brand` alone.
 
 **What rule 1 still allows, out loud.** Nine files: `admin` and `site` take their
@@ -394,7 +394,7 @@ if sparx were deleted. The fix was filed here as "a design decision with real
 values in it", which was wrong: **WizeWorks has a locked palette**, in
 docs/wizeworks/04-brand-and-visual-identity.md, dated 2026-07-30. Nobody had looked.
 
-So `@wizeworks/brand` now ships those exact values — the warm bone/ink neutrals, the
+So `@wizeworksllc/brand` now ships those exact values — the warm bone/ink neutrals, the
 house trio (pine `#1B5E43` primary, brass `#A9761F` for figures, clay `#9C4A2F` for
 emphasis), both modes — structurally identical to `@sparx/brand/theme.css` so the
 swap was a one-line import change. Brass carries DARK ink because white on it
@@ -414,7 +414,7 @@ layout mounted a fixed `MadeWithSparx`, so every Piggles business's public foote
 said "Made with sparx" and sent their visitors to another company. The most
 public surface the platform has.
 
-The badge is now `PlatformCredit` in `@wizeworks/ui` — same self-contained dark
+The badge is now `PlatformCredit` in `@wizeworksllc/ui` — same self-contained dark
 tab, but the name, accent, destination and accent-split arrive as props.
 `apps/site` resolves them per tenant through `platformBrandIdentity()`, keyed on
 a `platformBrand` now carried on the public site payload. `@sparx/brand`'s
@@ -428,7 +428,7 @@ against the tenant's theme and the badge would change color from one site to the
 next.
 
 **And `site` turned out to need nothing else from `@sparx/brand`.** Its base
-tokens come from `@wizeworks/ui` plus the tenant's own injected theme — which is
+tokens come from `@wizeworksllc/ui` plus the tenant's own injected theme — which is
 what a tenant renderer should have been reading all along. The dependency is
 dropped, the COPY lines are out of its Dockerfile, and the tenant site renderer
 is now genuinely brand-free.
@@ -467,7 +467,7 @@ the stronger check, not the cheaper one.**
 
 `check-boundaries` reads source text, so it catches the import somebody WROTE.
 The import that actually breaks you is never that one. It is the one four
-packages down — `@piggles/console → @wizeworks/cms-editor → @wizeworks/ui →
+packages down — `@piggles/console → @wizeworksllc/cms-editor → @wizeworksllc/ui →
 @sparx/brand`. Nothing under `piggles/` mentioned `@sparx/brand`, the text scan
 was green, and sparx's mascot was in the Piggles container image.
 
@@ -491,8 +491,8 @@ collapses to `sparx/` and nothing else about the check changes. `wizeworks/apps/
 `wizeworks/apps/site` are deliberately NOT in it — the staff console and the tenant site
 renderer serve either brand, so neither is sparx's to delete.
 
-**Verified by injecting the real historical leak.** Adding `@wizeworks/ui` to
-`@wizeworks/cms-editor`'s manifest turns it red and reproduces that exact four-hop
+**Verified by injecting the real historical leak.** Adding `@wizeworksllc/ui` to
+`@wizeworksllc/cms-editor`'s manifest turns it red and reproduces that exact four-hop
 chain. A guard nobody has watched fail is a guard nobody knows works.
 
 `--build` is the destructive version for when someone wants to watch it happen: a
@@ -552,7 +552,7 @@ lives wherever the brand's auth lives. For sparx that is the same host as the
 console; for Piggles it is a different registrable domain. `appOrigin` answers
 "where you work", `accountOrigin` answers "where you prove who you are", and code
 that assumes those are one place breaks for exactly one brand. Both the api-rest
-route and `@wizeworks/auth`'s own invitation email now use it.
+route and `@wizeworksllc/auth`'s own invitation email now use it.
 
 **B2.4 was two things wearing one id, and only one of them was a migration
 item.** The orphaned `lib/billing/*` was sparx's trial-banner ladder; Piggles had
@@ -563,7 +563,7 @@ near a ceiling — was new platform work rather than a port.
 **It is now built, and the shape is worth recording because two of the four
 decisions are about refusing to state things.**
 
-- **Metering** (`@wizeworks/usage`, `rollup_tenant_daily_usage`, the nightly
+- **Metering** (`@wizeworksllc/usage`, `rollup_tenant_daily_usage`, the nightly
   `/internal/platform/usage-rollup` CronJob) was already in the tree — this row
   said "the `Bill` API carries no meters, so there is nothing to render", which
   was true of `Bill` and false of the platform. Six measures per tenant per UTC
@@ -621,11 +621,11 @@ Each needs a recorded outcome. ❌ (delete) is a legitimate answer.
 
 ## B5 · Open, and named so it is not carried silently
 
-| ID   | Step                                                                                                                                                                                                                                                                            | Exit test                                                                  | State |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----- |
-| B5.1 | The platform email PALETTE. **Done** — it is `<BRAND>_EMAIL_PALETTE`, resolved per send from the tenant's `platform_brand`; the fallback is achromatic and belongs to nobody. See below                                                                                         | An unbranded Piggles tenant's receipt looks like neither brand by accident | ✅    |
-| B5.2 | `PIGGLES_SUPPORT_EMAIL` — **deleted, on evidence.** `meetpiggles.com` and `getpiggles.com` have NO MX RECORDS (checked 2026-08-17); only `mypiggles.com` does. The address cannot receive mail, so the exit test answered itself                                                | The address accepts mail, or the line is deleted                           | ✅    |
-| B5.3 | `@wizeworks/email-platform`'s two `FALLBACK_FROM` constants (broadcast + builder email). **Done** — both paths were identical copies of the same six lines, including the same bug, so the fix is one `buildTenantFrom()` in `services/platform-sender.ts` and both now call it | A Piggles tenant's newsletter is not from `sparx <noreply@…>`              | ✅    |
+| ID   | Step                                                                                                                                                                                                                                                                               | Exit test                                                                  | State |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----- |
+| B5.1 | The platform email PALETTE. **Done** — it is `<BRAND>_EMAIL_PALETTE`, resolved per send from the tenant's `platform_brand`; the fallback is achromatic and belongs to nobody. See below                                                                                            | An unbranded Piggles tenant's receipt looks like neither brand by accident | ✅    |
+| B5.2 | `PIGGLES_SUPPORT_EMAIL` — **deleted, on evidence.** `meetpiggles.com` and `getpiggles.com` have NO MX RECORDS (checked 2026-08-17); only `mypiggles.com` does. The address cannot receive mail, so the exit test answered itself                                                   | The address accepts mail, or the line is deleted                           | ✅    |
+| B5.3 | `@wizeworksllc/email-platform`'s two `FALLBACK_FROM` constants (broadcast + builder email). **Done** — both paths were identical copies of the same six lines, including the same bug, so the fix is one `buildTenantFrom()` in `services/platform-sender.ts` and both now call it | A Piggles tenant's newsletter is not from `sparx <noreply@…>`              | ✅    |
 
 **B5.1 — the palette is CONFIGURATION, and the fallback is nobody's.** The
 question as filed was "brand-neutral chrome, or per-brand values in

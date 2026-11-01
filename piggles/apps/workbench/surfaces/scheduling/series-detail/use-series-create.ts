@@ -1,6 +1,6 @@
 'use client';
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useState } from 'react';
 import { useToast } from '@wizeworks/silicaui-react';
 import { useDirtySource } from '../../../lib/workbench/dirty';

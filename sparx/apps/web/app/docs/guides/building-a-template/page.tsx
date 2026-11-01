@@ -893,8 +893,8 @@ export default function BuildingATemplatePage() {
           <Step n={1} title="It validates on build">
             <p>
               <InlineCode>parseBlueprint()</InlineCode> runs when the module loads, so{' '}
-              <InlineCode>pnpm --filter @wizeworks/blueprints typecheck</InlineCode> and the package
-              tests catch a malformed manifest, a dangling handle, or a missing asset id
+              <InlineCode>pnpm --filter @wizeworksllc/blueprints typecheck</InlineCode> and the
+              package tests catch a malformed manifest, a dangling handle, or a missing asset id
               immediately.
             </p>
           </Step>

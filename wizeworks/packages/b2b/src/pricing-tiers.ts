@@ -9,9 +9,9 @@
 // list and resolves it to list price.
 
 import { z } from 'zod';
-import { withTenant, type Prisma } from '@wizeworks/db';
-import { notFound } from '@wizeworks/api-core/errors';
-import { indexEntity } from '@wizeworks/events';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { indexEntity } from '@wizeworksllc/events';
 import type { B2bContext } from './context.js';
 
 // ── Schemas (shared with the REST routes — one source of truth) ───────────────

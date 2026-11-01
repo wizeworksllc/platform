@@ -5,7 +5,7 @@
 // (no data hooks), so any surface renders them.
 //
 // The rich rule document is PARSED from the stored JSON columns with the
-// canonical `@wizeworks/automation-schemas` parsers — never re-implemented here — so
+// canonical `@wizeworksllc/automation-schemas` parsers — never re-implemented here — so
 // the editor and the read views can never disagree with the engine. Parsing is
 // defensive: a malformed legacy row degrades to a raw view rather than throwing.
 
@@ -41,7 +41,7 @@ import {
   IfElseConfig,
   isConditionGroup,
   triggerFromColumns,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 import type {
   Action,
   AutomationStatus,
@@ -50,7 +50,7 @@ import type {
   ScheduleSpec,
   StepStatus,
   Trigger,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 import { ModuleScope, type WorkbenchModule } from '../../components/module-scope';
 import {
   actionLabel,

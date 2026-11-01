@@ -31,8 +31,8 @@
 //
 // Worth saying twice. The cost ledger is a passenger on the stock ledger.
 
-import { Prisma } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** Where a layer's units came from. Mirrors the CHECK on
  *  `inventory_cost_layers.source_type` — a value here that is not in that

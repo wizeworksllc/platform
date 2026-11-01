@@ -28,10 +28,10 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { withTenant } from '@wizeworks/db';
-import { findFleetVehicle, getAccountFleet } from '@wizeworks/b2b';
-import { vehicleLabel } from '@wizeworks/commerce-schemas';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { withTenant } from '@wizeworksllc/db';
+import { findFleetVehicle, getAccountFleet } from '@wizeworksllc/b2b';
+import { vehicleLabel } from '@wizeworksllc/commerce-schemas';
 import {
   createBooking,
   customerFacingPlace,
@@ -40,10 +40,10 @@ import {
   getAvailability,
   getService,
   listServices,
-} from '@wizeworks/scheduling';
-import { ok } from '@wizeworks/api-core/envelope';
-import { conflict, forbidden, moduleDisabled, notFound } from '@wizeworks/api-core/errors';
-import type { CustomerAuthContext } from '@wizeworks/customer-auth';
+} from '@wizeworksllc/scheduling';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { conflict, forbidden, moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
+import type { CustomerAuthContext } from '@wizeworksllc/customer-auth';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { resolvePublicPropertyId } from '../../../lib/property.js';
 import { requireCustomerId } from '../../../lib/customer-session.js';

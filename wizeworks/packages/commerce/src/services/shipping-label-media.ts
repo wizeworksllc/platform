@@ -1,9 +1,9 @@
 // Uploads a purchased shipping-label PDF into the tenant's media library
-// via @wizeworks/media's document path (PDF-capable, unlike the image-only
+// via @wizeworksllc/media's document path (PDF-capable, unlike the image-only
 // MCP surface). Thin resolver: ShippingLabel bytes in, MediaAsset id out.
 
-import { createDocumentAssetFromBytes } from '@wizeworks/media';
-import { prisma } from '@wizeworks/db';
+import { createDocumentAssetFromBytes } from '@wizeworksllc/media';
+import { prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

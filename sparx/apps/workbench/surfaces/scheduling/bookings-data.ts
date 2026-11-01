@@ -25,13 +25,13 @@
 // live in the same list and calendar.
 //
 // The write PAYLOADS below are narrow, local shapes carrying only the fields these
-// panes send. The server runs the real Zod (`@wizeworks/scheduling-schemas`) on every
+// panes send. The server runs the real Zod (`@wizeworksllc/scheduling-schemas`) on every
 // write and has the final say — this app deliberately does not depend on that
 // package, matching the house pattern in commerce/discounts-data and crm/customers-data.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 

@@ -1,7 +1,7 @@
 // mcp-site calls api-rest on the caller's behalf, so it must say who the caller
 // is — otherwise every agent on every site shares this pod's one rate-limit
 // budget there. (Which hops are trusted, and that the list matches Caddy's, is
-// tested once, in @wizeworks/client-ip.)
+// tested once, in @wizeworksllc/client-ip.)
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
 

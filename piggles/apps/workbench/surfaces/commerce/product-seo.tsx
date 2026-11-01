@@ -41,7 +41,7 @@ import {
   Text,
   Textarea,
 } from '@wizeworks/silicaui-react';
-import { plainText } from '@wizeworks/commerce-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 import { faImageSlash } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { useActivePropertyId, useSites } from '../../lib/api/shell-data';

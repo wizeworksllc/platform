@@ -4,9 +4,9 @@
 // any pattern the site can serve: `/<words>/{slug}`, whose first word is not one of the
 // site's own. The console asks the site's own rule (`kindAddressFromPattern`), so the
 // note under the box and the page a visitor gets cannot disagree. The server refuses
-// the rest on save with its own reason (`urlPatternProblem` in @wizeworks/cms).
+// the rest on save with its own reason (`urlPatternProblem` in @wizeworksllc/cms).
 
-import { kindAddressFromPattern } from '@wizeworks/silica-catalog';
+import { kindAddressFromPattern } from '@wizeworksllc/silica-catalog';
 
 /** "Article" → "article"; an acronym stays as it is. */
 function lower(name: string): string {

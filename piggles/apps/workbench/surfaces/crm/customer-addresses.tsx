@@ -12,7 +12,7 @@
 // customer's Save draft), which is why Save/Cancel live on the address form
 // itself here, not on the pane toolbar.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useRef, useState } from 'react';
 import {
   Badge,

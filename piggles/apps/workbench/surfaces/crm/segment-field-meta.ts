@@ -4,7 +4,7 @@
 // the value kind. Data only; the accessor and the custom-property handling live
 // in ./segment-fields.
 
-import type { SegmentField } from '@wizeworks/crm-schemas';
+import type { SegmentField } from '@wizeworksllc/crm-schemas';
 import {
   LEAD_STATUSES,
   LIFECYCLE_STAGES,

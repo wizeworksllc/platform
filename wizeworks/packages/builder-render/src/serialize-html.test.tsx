@@ -4,7 +4,7 @@
 // drives leaf content.
 
 import { describe, expect, it } from 'vitest';
-import type { BuilderNode } from '@wizeworks/builder-schemas';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
 
 import { serializeNodeToHtml, serializeTreeToHtml } from './serialize-html';
 

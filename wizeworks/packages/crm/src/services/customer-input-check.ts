@@ -11,7 +11,7 @@
 // 25 rows and no problems, and the import that followed refused ten of them.
 
 import { ZodError } from 'zod';
-import { CreateCustomerInput } from '@wizeworks/crm-schemas';
+import { CreateCustomerInput } from '@wizeworksllc/crm-schemas';
 
 /** What each field is called on the screen someone mapped their columns on. */
 const FIELD_LABEL: Record<string, string> = {

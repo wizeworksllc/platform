@@ -12,7 +12,7 @@ let browserQueryClient: QueryClient | undefined;
  * - On the **server**, returns a fresh client per call so requests never share
  *   cache. (For server-side *prefetch* across multiple Server Components in one
  *   request, use the cache()-backed `getServerQueryClient` from
- *   `@wizeworks/query/server` instead, so they dehydrate as one.)
+ *   `@wizeworksllc/query/server` instead, so they dehydrate as one.)
  * - In the **browser**, returns a lazily-created singleton.
  */
 export function getQueryClient(): QueryClient {

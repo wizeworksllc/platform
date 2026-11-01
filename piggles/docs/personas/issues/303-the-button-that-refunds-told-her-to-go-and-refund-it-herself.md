@@ -111,7 +111,7 @@ reach it.
 ## The fix
 
 **One answer to "is a gateway holding this?", in one place.** `takenByGateway` and
-`GATEWAY_PROCESSORS` move to `@wizeworks/payments`, which is where gateways live
+`GATEWAY_PROCESSORS` move to `@wizeworksllc/payments`, which is where gateways live
 and which both refund paths already depend on. return-service now asks it instead
 of keeping its own private copy, so there is one set rather than two that drift.
 

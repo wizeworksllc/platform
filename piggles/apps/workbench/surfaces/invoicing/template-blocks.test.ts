@@ -15,7 +15,7 @@ import { describe, expect, it } from 'vitest';
 import {
   DEFAULT_INVOICE_TEMPLATE,
   INVOICE_STRUCTURED_NODE_TYPES,
-} from '@wizeworks/crm-schemas/builtins';
+} from '@wizeworksllc/crm-schemas/builtins';
 import { comparableDraft, emptyTemplateDraft, toTemplateDraft } from './template-data';
 import {
   addableKinds,

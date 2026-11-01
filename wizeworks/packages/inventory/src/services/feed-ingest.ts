@@ -21,9 +21,9 @@
 // short-circuit + event emission; the funnel owns matching, reconciliation, the
 // queue, and the run row.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
-import type { SyncTrigger } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
+import type { SyncTrigger } from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../errors';
 import { indexInventoryEntityOnCommit } from '../events';

@@ -13,9 +13,9 @@ import {
   pipelineService,
   seedBuiltinReports,
   segmentService,
-} from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import customerRoutes from './customers.js';
 import companyRoutes from './companies.js';

@@ -56,9 +56,9 @@
 // endpoint gets fixed rather than the client looping.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
-import type { RepeatCadence } from '@wizeworks/commerce-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
+import type { RepeatCadence } from '@wizeworksllc/commerce-schemas';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { slugify, slugifyUpper } from '../../lib/slugify';
@@ -1276,7 +1276,7 @@ export class LatticeRebindError extends Error {
  * variant's position cascade with them, so a version retired that way has no
  * coordinate left to match on. The server writes the coordinate down as text
  * before that happens and puts it back when the lattice can hold it again
- * (lattice-memory.ts in @wizeworks/commerce); this reads the same record, so the
+ * (lattice-memory.ts in @wizeworksllc/commerce); this reads the same record, so the
  * Options tab can say "these come back" instead of "these have no price".
  *
  * The one named reader of `metadata`. Nothing else should be poking at its keys.

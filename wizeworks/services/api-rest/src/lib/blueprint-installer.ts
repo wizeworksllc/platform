@@ -16,30 +16,30 @@
 
 import type { FastifyBaseLogger } from 'fastify';
 
-import { Prisma, SAMPLE_SETTINGS, afterCommit, withTenant } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
-import { listEnabledModules, type ModuleSlug } from '@wizeworks/auth';
+import { Prisma, SAMPLE_SETTINGS, afterCommit, withTenant } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
+import { listEnabledModules, type ModuleSlug } from '@wizeworksllc/auth';
 import {
   categoryService,
   collectionService,
   productService,
   variantService,
-} from '@wizeworks/commerce';
-import { emailService, pageService, siteService } from '@wizeworks/builder';
-import { createSequence, updateSequence, deleteSequence } from '@wizeworks/email-sequences';
-import { publishService, savedThemeService } from '@wizeworks/sitebuilder';
+} from '@wizeworksllc/commerce';
+import { emailService, pageService, siteService } from '@wizeworksllc/builder';
+import { createSequence, updateSequence, deleteSequence } from '@wizeworksllc/email-sequences';
+import { publishService, savedThemeService } from '@wizeworksllc/sitebuilder';
 import {
   createBookingPolicy,
   createLocation,
   createResource,
   createService,
   setAvailabilityWindows,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import {
   CreateBookingPolicyInput,
   CreateResourceInput,
   CreateServiceInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 import {
   parseTypeSchema,
   publishTimestamp,
@@ -47,10 +47,10 @@ import {
   validateAndNormalizeBody,
   recordRevision,
   syncReferences,
-} from '@wizeworks/cms';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { isAssetRef, type Blueprint } from '@wizeworks/blueprints';
-import { decodeBindingRef, encodeBindingRef, type SilicaNode } from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/cms';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { isAssetRef, type Blueprint } from '@wizeworksllc/blueprints';
+import { decodeBindingRef, encodeBindingRef, type SilicaNode } from '@wizeworksllc/builder-schemas';
 
 import { captureBaselines, resolveBlueprintArtifacts } from './blueprint-baseline.js';
 import { replacedInstallIds } from './blueprint-replaced.js';

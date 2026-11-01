@@ -12,7 +12,7 @@
 // So the decision lives here, beside the booking it is about: each lifecycle
 // function works it out INSIDE its own transaction, from the state the booking
 // was in, and hands it back as `money`. The gateway half is
-// `bookingPayments.settle` in @wizeworks/commerce, which every transport calls
+// `bookingPayments.settle` in @wizeworksllc/commerce, which every transport calls
 // once the transaction has committed, the way a held wholesale order's card is
 // settled (`heldOrderMoney` → `heldOrderPayments`). This package carries no
 // payment gateway and must not: the decision is plain data so it can cross.
@@ -22,7 +22,7 @@
 // changes nothing and decides nothing, and a deposit that has already been
 // settled (`refunded` / `forfeited`) has nothing left to decide.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import {
   computeLateCancelFee,

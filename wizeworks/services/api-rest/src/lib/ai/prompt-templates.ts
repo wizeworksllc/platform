@@ -5,10 +5,15 @@
 // and the live-chat first-responder calls `getActivePersona` to ground its system
 // prompt. Every write runs inside withTenant (RLS) and audit-logs.
 
-import type { Prisma } from '@wizeworks/db';
-import { afterCommit, withTenant, type AiPromptTemplate, type TenantContext } from '@wizeworks/db';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
-import { indexEntity } from '@wizeworks/events';
+import type { Prisma } from '@wizeworksllc/db';
+import {
+  afterCommit,
+  withTenant,
+  type AiPromptTemplate,
+  type TenantContext,
+} from '@wizeworksllc/db';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { DEFAULT_PROMPT_TEMPLATES } from './default-prompts.js';
 import {

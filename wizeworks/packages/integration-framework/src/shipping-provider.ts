@@ -2,7 +2,7 @@
 // and label voiding. Shippo, EasyPost, future direct-carrier integrations
 // implement this. sparx Shipping is a white-label wrapper over Shippo.
 
-import type { RateOption, ShipmentRequest } from '@wizeworks/commerce-schemas';
+import type { RateOption, ShipmentRequest } from '@wizeworksllc/commerce-schemas';
 
 import type { ProviderRunContext } from './context';
 import type { ProviderMetadataDescriptor } from './metadata';

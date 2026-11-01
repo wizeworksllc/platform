@@ -7,10 +7,10 @@
 //   • skip it           — unbound variant, inactive/frozen rule, no cost, or the
 //                         price is already correct
 //
-// The pure cost→price math + snapshot come from @wizeworks/commerce-schemas'
+// The pure cost→price math + snapshot come from @wizeworksllc/commerce-schemas'
 // `priceVariantByRule` — the SAME engine the catalog markup-service uses, so the
 // two write paths can't drift. This module owns only the orchestration + writes;
-// it borrows nothing from @wizeworks/commerce (which carries React deps a worker
+// it borrows nothing from @wizeworksllc/commerce (which carries React deps a worker
 // must not pull — see services/CLAUDE.md), mirroring how CRM's quote-markup
 // keeps a local rule→spec mapping.
 
@@ -20,8 +20,8 @@ import {
   type MarkupCostBasis,
   type MarkupRuleSpec,
   type RoundingSpec,
-} from '@wizeworks/commerce-schemas';
-import type { MarkupRule, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { MarkupRule, TxClient } from '@wizeworksllc/db';
 
 export type ReviewReason = 'tolerance_exceeded' | 'review_mode';
 
@@ -138,7 +138,7 @@ async function refreshProductPriceRange(tx: TxClient, productId: string): Promis
   });
 }
 
-// System audit row for an automated price change — mirrors @wizeworks/commerce's
+// System audit row for an automated price change — mirrors @wizeworksllc/commerce's
 // writeAuditLog shape so compliance/export tooling reads one shape across modules.
 async function writeAudit(
   tx: TxClient,

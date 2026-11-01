@@ -27,8 +27,8 @@
 // nothing happened" is the least diagnosable complaint in warehouse software,
 // and the only cure is a record that the scan reached us at all.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import {

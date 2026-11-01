@@ -7,7 +7,7 @@ import {
   requestConfirmLink,
   setSessionCookies,
   type SessionCookie,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 
 // Server actions for the team-invitation acceptance flow (docs/114 §A.4). These
 // run in api-rest, which holds the Better Auth org plugin (docs/154). Accepting

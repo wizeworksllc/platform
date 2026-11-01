@@ -26,9 +26,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { associationService } from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { associationService } from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 

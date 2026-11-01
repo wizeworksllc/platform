@@ -1,20 +1,20 @@
 // renderInvoiceTree — the builder-authored print template renderer (docs/87 §10,
 // Phase 5b). A PEER renderer in the builder framework, alongside the page renderer
-// (wizeworks/apps/site builder-renderer) and the email renderer (@wizeworks/email): it walks the
+// (wizeworks/apps/site builder-renderer) and the email renderer (@wizeworksllc/email): it walks the
 // SAME BuilderNode tree and resolves bindings through the SAME runtime (resolvePath
 // / cardinalityOf), and serializes Prose through the SAME audited serializer
-// (@wizeworks/cms-editor/serialize) the page/email renderers use.
+// (@wizeworksllc/cms-editor/serialize) the page/email renderers use.
 //
 // Where it differs: it emits FULL-PAGE print HTML (not 560px email tables), and it
 // recognises a tier of DATA-AWARE invoice nodes (InvoiceLineTable, InvoiceTotals,
-// InvoiceParties, …) that render the financial substance through @wizeworks/crm's
+// InvoiceParties, …) that render the financial substance through @wizeworksllc/crm's
 // shared print section builders — the exact blocks the code default renderer uses,
 // so a default print and a customised template stay visually one. The author owns
 // LAYOUT (header / logo / column order / a Prose terms block / accent); the
 // financial core is structured, never free-form (docs/87 §10).
 //
-// Lives in api-rest (the composition root that already carries @wizeworks/builder-schemas
-// + @wizeworks/cms-editor) so @wizeworks/crm stays free of those deps.
+// Lives in api-rest (the composition root that already carries @wizeworksllc/builder-schemas
+// + @wizeworksllc/cms-editor) so @wizeworksllc/crm stays free of those deps.
 
 import {
   cardinalityOf,
@@ -22,8 +22,8 @@ import {
   type BuilderNode,
   type DataSources,
   type Scope,
-} from '@wizeworks/builder-schemas';
-import { renderDocToHtml } from '@wizeworks/cms-editor/serialize';
+} from '@wizeworksllc/builder-schemas';
+import { renderDocToHtml } from '@wizeworksllc/cms-editor/serialize';
 import {
   docHeadBlockHtml,
   escapeHtml,
@@ -39,7 +39,7 @@ import {
   totalsBlockHtml,
   type BillingRenderBrand,
   type BillingRenderData,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 
 const esc = escapeHtml;
 

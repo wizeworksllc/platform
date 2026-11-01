@@ -137,8 +137,8 @@ prompt gets an abstract answer.
 
 ## Three states, not two
 
-`countNoteWrite` in `@wizeworks/inventory` is the twin of `checkout-note.ts` in
-`@wizeworks/commerce` (issue 874), and exists for the same reason: collapsing
+`countNoteWrite` in `@wizeworksllc/inventory` is the twin of `checkout-note.ts` in
+`@wizeworksllc/commerce` (issue 874), and exists for the same reason: collapsing
 two of the three states is invisible, compiles, and breaks something quietly.
 
 ```ts
@@ -174,8 +174,8 @@ falsy test instead of undefined      →  2 fail: the emptied box and the explic
 drop the trim                        →  2 fail: whitespace, and the edges
 ```
 
-**Checks:** typecheck 0 on both workbenches, `@wizeworks/inventory`,
-`@wizeworks/commerce-schemas` and api-rest. Tests: piggles 163 files / 1522,
+**Checks:** typecheck 0 on both workbenches, `@wizeworksllc/inventory`,
+`@wizeworksllc/commerce-schemas` and api-rest. Tests: piggles 163 files / 1522,
 sparx 133 / 1221, inventory 13 / 159. ESLint and prettier clean. Guards green
 including `check:console-parity`, `check:counted-in-words`, `check:counts-known`,
 `check:count-ink`, `check:column-floor` and `check:inventory-api`.

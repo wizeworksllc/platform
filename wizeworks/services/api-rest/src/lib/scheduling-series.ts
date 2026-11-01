@@ -7,10 +7,10 @@
 // (migration 20260918000000); the per-series materialize then runs back under
 // withTenant({tenantId}) inside the engine, so every write still passes RLS.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { materializeSeries } from '@wizeworks/scheduling';
+import { prisma } from '@wizeworksllc/db';
+import { materializeSeries } from '@wizeworksllc/scheduling';
 
 const SERIES_LOCK_KEY = ADVISORY_LOCKS.SCHEDULING_SERIES;
 const DEFAULT_INTERVAL_MS = 600_000; // every 10 min — series roll slowly

@@ -209,17 +209,17 @@ its own trigger. **silicaui 0.55 fixes it**, and more generously than asked —
 That is the RULE #1 ladder run to its end: no prop existed, it was not a token, so
 it was a missing prop on a silica component and the fix went upstream. Nothing was
 re-implemented at the call site, and no `GuidePopover` was added to
-`@wizeworks/silica-corrections` — the fallback that would have been needed if the
+`@wizeworksllc/silica-corrections` — the fallback that would have been needed if the
 release had been far off.
 
 The bump was not free, and the cost is worth recording because the next one will
 look the same. silicaui 0.55 also **moved Base UI packages**:
 `@base-ui-components/react@1.0.0-rc.0` → `@base-ui/react@^1.7.0`, a rename as well
-as a version. `@wizeworks/ui` still pinned the old name, so for one install the
+as a version. `@wizeworksllc/ui` still pinned the old name, so for one install the
 tree held two Base UIs whose types would not unify, and its toast wrapper stopped
 compiling. It now sits on `@base-ui/react` too, and the repo's only pnpm patch —
 a Base UI toast `flushSync` fix — went with it, because 1.7.0 fixes that upstream.
-Detail: [@wizeworks/ui CLAUDE.md](../../../wizeworks/packages/ui/CLAUDE.md).
+Detail: [@wizeworksllc/ui CLAUDE.md](../../../wizeworks/packages/ui/CLAUDE.md).
 
 **The wiring landed the same day.** `useGuideAnchor` now returns the ringed
 element (it moved to [lib/tour/anchor.ts](../../apps/workbench/lib/tour/anchor.ts),

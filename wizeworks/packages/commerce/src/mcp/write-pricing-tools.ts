@@ -21,7 +21,7 @@ import {
   UpdateMarkupRuleInput,
   UpdatePriceListInput,
   UpdateSurchargeRuleInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { discountService, markupService, pricingService, surchargeService } from '../services';
 import type { AnyMcpTool, McpToolDefinition } from './registry';

@@ -233,9 +233,9 @@ pnpm --filter @sparx/dashboard dev          # http://localhost:3000
 pnpm --filter @wizeworks/api-rest dev           # http://localhost:3100
 pnpm --filter @wizeworks/api-mcp dev            # http://localhost:3200
 pnpm --filter @wizeworks/api-graphql dev        # http://localhost:3300  (if testing GraphQL)
-pnpm --filter @wizeworks/db db:up               # local Postgres
-pnpm --filter @wizeworks/db db:migrate          # apply migrations
-pnpm --filter @wizeworks/db db:seed             # seed the e2e tenant
+pnpm --filter @wizeworksllc/db db:up               # local Postgres
+pnpm --filter @wizeworksllc/db db:migrate          # apply migrations
+pnpm --filter @wizeworksllc/db db:seed             # seed the e2e tenant
 ```
 
 For an authenticated session, the seed creates `e2e-staff@sparx.test` / `e2e-test-password` against the `e2e-store` tenant with all platform modules enabled.
@@ -244,8 +244,8 @@ For the non-browser checks (REST, GraphQL, MCP, webhooks, cron):
 
 - Use `curl` against the local dev servers
 - Use `kubectl -n sparx-prod get cronjobs` to confirm the four CronJobs exist (read-only; do NOT mutate the cluster)
-- For partition checks, run `pnpm --filter @wizeworks/db db:up` then `docker exec sparx-postgres psql -U sparx_owner -d sparx -c "..."`
-- For Pub/Sub event flow, use the in-process `resetPlatformBusForTesting()` helper from `@wizeworks/crm` and call `publish()` directly — no external Pub/Sub needed for the audit
+- For partition checks, run `pnpm --filter @wizeworksllc/db db:up` then `docker exec sparx-postgres psql -U sparx_owner -d sparx -c "..."`
+- For Pub/Sub event flow, use the in-process `resetPlatformBusForTesting()` helper from `@wizeworksllc/crm` and call `publish()` directly — no external Pub/Sub needed for the audit
 
 **Do NOT touch Cloud SQL.** That's prod and migrations only go through the GitHub workflow. Do NOT run raw `kubectl apply` against prod — cluster mutations go through `bootstrap.yml` / `deploy-prod.yml` / `db-migrate.yml`. Reads (`kubectl get`, `kubectl logs`) are fine.
 

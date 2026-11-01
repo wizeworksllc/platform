@@ -12,7 +12,7 @@ const state = vi.hoisted(() => ({
   built: [] as (string | null)[],
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     channelConnection: {
       findMany: () =>
@@ -33,7 +33,7 @@ vi.mock('@wizeworks/db', () => {
   return { withTenant: (_ctx: unknown, fn: (t: typeof tx) => Promise<unknown>) => fn(tx) };
 });
 
-vi.mock('@wizeworks/channels', () => ({
+vi.mock('@wizeworksllc/channels', () => ({
   getChannel: (slug: string) => ({
     pushProduct: (auth: { connection: string }, product: { productUrl: string }) => {
       state.pushed.push({ connection: auth.connection, productUrl: product.productUrl });

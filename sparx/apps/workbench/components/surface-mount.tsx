@@ -25,7 +25,7 @@ import {
 import { AlertTriangle } from 'lucide-react';
 import { Button, ImperativeAlertDialogProvider } from '@wizeworks/silicaui-react';
 import { useConfirm } from '../lib/confirm';
-import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworks/app-kit';
+import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworksllc/app-kit';
 import { productName } from '../lib/product';
 import { reportCrash } from '../lib/analytics';
 import { PaneModuleProvider } from './module-beta-notice';

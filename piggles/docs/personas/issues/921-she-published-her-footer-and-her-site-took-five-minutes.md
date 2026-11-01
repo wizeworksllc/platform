@@ -49,7 +49,7 @@ look her site wears.
 The purge worker, `cache-revalidation-worker`, subscribed to `builder.published`
 and `builder.rolled_back` only. api-rest publishes those for the WHOLE-site
 Publish. A single document published from its own pane goes through
-`@wizeworks/builder`'s services, which publish their own topics
+`@wizeworksllc/builder`'s services, which publish their own topics
 (`builder.layout.published`, `builder.page.published`, `builder.layout.activated`),
 and `installBuilderPubSubBridge` puts them on the bus.
 

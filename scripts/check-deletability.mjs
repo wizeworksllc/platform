@@ -10,7 +10,7 @@
 //
 // A text scan cannot answer that, because the thing that breaks you is never the
 // import you wrote. It is the one four packages down: `@piggles/console` imports
-// `@wizeworks/cms-editor`, which imported `@wizeworks/ui`, which imported
+// `@wizeworksllc/cms-editor`, which imported `@wizeworksllc/ui`, which imported
 // `@sparx/brand`. Nothing in `piggles/` mentioned `@sparx/brand`, the boundary
 // check was green, and sparx's mascot was in the Piggles container image.
 //

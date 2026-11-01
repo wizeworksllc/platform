@@ -1,4 +1,4 @@
-// @wizeworks/brand-core — who the platform is talking as.
+// @wizeworksllc/brand-core — who the platform is talking as.
 //
 // WizeWorks runs more than one product on one platform, and a tenant belongs to
 // the brand it signed up under (`tenants.platform_brand`). Shared code that
@@ -18,7 +18,7 @@
 // So the values arrive as CONFIGURATION, keyed by brand, with the variable name
 // DERIVED from the brand key. This file names no brand and holds no brand's
 // value; adding a third is setting three environment variables. Same shape as
-// `appOrigin()` in @wizeworks/links/server, and for the same reason.
+// `appOrigin()` in @wizeworksllc/links/server, and for the same reason.
 //
 // ── THE EMAIL PALETTE IS NEXT DOOR ──────────────────────────────────────────
 //
@@ -87,7 +87,7 @@ export const DEFAULT_GOLDEN_BLUEPRINT = 'sparx';
  * Geometry keyed by brand is the same shape every other value in this file
  * already takes: `<BRAND>_BRAND_WORDMARK`, holding compact JSON. This file
  * still names no brand and holds no brand's value. The platform's copy of the
- * art is in @wizeworks/brand-registry: `scripts/check-brand-wordmark.mjs` fails
+ * art is in @wizeworksllc/brand-registry: `scripts/check-brand-wordmark.mjs` fails
  * the build if the configured value and the registry disagree, and the brand's
  * own test fails if the registry and its drawing disagree.
  *
@@ -235,13 +235,13 @@ export interface PlatformBrandIdentity {
   wordmark: BrandWordmark | null;
   /**
    * The billing plan a tenant born under this brand is stamped with — an id in
-   * `@wizeworks/billing`'s plan registry, which decides both the SHAPE of the bill
+   * `@wizeworksllc/billing`'s plan registry, which decides both the SHAPE of the bill
    * and which Stripe ACCOUNT it is raised in.
    *
    * This is the ONE place brand and billing meet, and it is a default rather than a
    * rule: it seeds `tenants.billing_plan` once, at provisioning, and from then on
    * billing reads the column and never asks about the brand again. That is what
-   * keeps `@wizeworks/billing` free of the brand fork this repo works to avoid
+   * keeps `@wizeworksllc/billing` free of the brand fork this repo works to avoid
    * (piggles/CLAUDE.md RULE #0) — and it leaves room for a tenant whose plan is not
    * its brand's default, which is what an enterprise contract is.
    *
@@ -320,7 +320,7 @@ export function normalizeBrandKey(brand: string | null | undefined): string {
  *
  *   - reads `tenants.platform_brand` where it has a tenant, or
  *   - runs the work inside `runAsBrand(brand, fn)` from
- *     `@wizeworks/brand-core/request-scope`, which this function answers from
+ *     `@wizeworksllc/brand-core/request-scope`, which this function answers from
  *     first. api-rest does this around every call into a brand's auth instance,
  *     because sign-up and Google sign-in run before any tenant exists to read.
  *
@@ -349,7 +349,7 @@ export function currentPlatformBrand(): string {
 // must not import that module itself; the scope registers a resolver here
 // instead. A global symbol rather than a module variable, so a second copy of
 // this module (two bundles in one process) still sees the one resolver.
-const REQUEST_BRAND_RESOLVER = Symbol.for('@wizeworks/brand-core/request-brand-resolver');
+const REQUEST_BRAND_RESOLVER = Symbol.for('@wizeworksllc/brand-core/request-brand-resolver');
 
 type RequestBrandResolver = () => string | null;
 

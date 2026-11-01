@@ -11,8 +11,8 @@ import {
   moduleForKey,
   moduleForPath,
   starterPages,
-} from '@wizeworks/silica-catalog';
-import type { SiteChromeOptions } from '@wizeworks/builder';
+} from '@wizeworksllc/silica-catalog';
+import type { SiteChromeOptions } from '@wizeworksllc/builder';
 
 /**
  * A stored page slug as the URL a visitor actually types.

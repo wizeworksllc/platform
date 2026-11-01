@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { nameSearchClauses, searchTerms } from '@wizeworks/db';
+import { nameSearchClauses, searchTerms } from '@wizeworksllc/db';
 
 /**
  * A PERSON WHO CANNOT BE FOUND BY THEIR NAME.
@@ -11,7 +11,7 @@ import { nameSearchClauses, searchTerms } from '@wizeworks/db';
  * customers have both a first and a last name.
  *
  * Lives beside the commerce services because this package is where the search
- * clauses it feeds are read back (orders, invoices, credits); `@wizeworks/db`
+ * clauses it feeds are read back (orders, invoices, credits); `@wizeworksllc/db`
  * itself carries no test runner.
  */
 describe('searchTerms', () => {

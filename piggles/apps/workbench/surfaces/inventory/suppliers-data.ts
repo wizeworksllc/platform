@@ -20,7 +20,7 @@
 // "how a price is written" across the whole module.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { isNotFound, stockErrorMessage, type Tone } from './data';
 import { reorderKeys } from './reorder-data';

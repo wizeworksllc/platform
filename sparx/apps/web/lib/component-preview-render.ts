@@ -8,19 +8,19 @@
 // keys (`title`/`price`/`image`/…). Rendered with NO host, a bound `<img>` loses its
 // `src` (the engine defers it to a resolution that never runs) and a `repeat` shows a
 // single template row — so a preview would have broken images and empty grids. This
-// host feeds the SAME shape the site's resolver does (`@wizeworks/builder-schemas`
+// host feeds the SAME shape the site's resolver does (`@wizeworksllc/builder-schemas`
 // `createSilicaResolver`), but over a fixed set of neutral SAMPLE records, so every
 // section renders populated + truthful with zero tenant data. Images resolve to a
 // neutral static placeholder tile (see SAMPLE_IMAGE — a component preview must not imply
 // a specific business's photography). Static marketing sections bind nothing and render
 // their authored copy regardless — the host only affects the bound ones.
 
-import { renderSilicaBody, PLACEHOLDER_IMAGE } from '@wizeworks/silica-catalog';
+import { renderSilicaBody, PLACEHOLDER_IMAGE } from '@wizeworksllc/silica-catalog';
 import {
   createSilicaResolver,
   defaultSilicaFormat,
   type DataSources,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import type { Node } from '@wizeworks/silicaui-html';
 
 /** The neutral placeholder tile every sample image points at. It is a STATIC FILE

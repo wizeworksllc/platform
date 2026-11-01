@@ -18,9 +18,9 @@ import {
   entityPinKey,
   type BuilderNode,
   type DataSources,
-} from '@wizeworks/builder-schemas';
-import { plainText } from '@wizeworks/commerce-schemas';
-import { authorPath } from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/builder-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
+import { authorPath } from '@wizeworksllc/silica-catalog';
 
 import { getEntriesByIds, publicGet, type ApiEntry, type BlogPostBody } from './content';
 import { isNotFound, listProducts, type PublicProductListItem } from './commerce';

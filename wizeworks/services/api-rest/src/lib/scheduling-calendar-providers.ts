@@ -4,7 +4,7 @@
 // URL and no SSRF surface; the access token (Bearer) is the only secret on the wire.
 //
 // Busy import re-fetches the whole window each sync (push only signals "something
-// changed") and the pure parsers (@wizeworks/scheduling) turn the provider JSON into
+// changed") and the pure parsers (@wizeworksllc/scheduling) turn the provider JSON into
 // the engine's Interval[] — so the existing availability merge blocks sparx slots.
 // Pagination loops are capped so a runaway feed can't spin forever.
 
@@ -18,7 +18,7 @@ import {
   parseMicrosoftBusy,
   type BusyWindow,
   type Interval,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 const FETCH_TIMEOUT_MS = 15_000;
 const MAX_PAGES = 20;

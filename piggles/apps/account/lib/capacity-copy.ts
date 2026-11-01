@@ -1,4 +1,4 @@
-import type { Meter, MeterReading } from '@wizeworks/usage';
+import type { Meter, MeterReading } from '@wizeworksllc/usage-meters';
 
 // How a meter reads to a shop owner. Names are the lexicon's, not the platform's
 // — nobody has "seats" or "contacts"; they have people and customers.

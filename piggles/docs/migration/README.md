@@ -47,8 +47,8 @@ So the shape is:
 
 - **31 packages → rename and relocate.** `@sparx/x` → `@wizeworks/x`, moved to
   `wizeworks/packages/`. One copy, both brands import it, neither owns it.
-- **3 packages → split or fix.** `@sparx/brand` and `@wizeworks/ui` genuinely carry
-  sparx; `@wizeworks/links` and `@wizeworks/attribution` hardcode sparx hostnames inside
+- **3 packages → split or fix.** `@sparx/brand` and `@wizeworksllc/ui` genuinely carry
+  sparx; `@wizeworksllc/links` and `@wizeworksllc/attribution` hardcode sparx hostnames inside
   otherwise-neutral code.
 - **The sparx apps → move to `sparx/`.** Until they do, "delete sparx" is not an
   operation anybody can run, so the invariant cannot be tested.

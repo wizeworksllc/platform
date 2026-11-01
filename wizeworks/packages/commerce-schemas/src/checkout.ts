@@ -4,7 +4,7 @@
 
 import { z } from 'zod';
 
-import { AddressSnapshot, Uuid } from '@wizeworks/crm-schemas';
+import { AddressSnapshot, Uuid } from '@wizeworksllc/crm-schemas';
 
 import { CartMadeToOrder } from './cart';
 import { Channel, Currency, MoneyCents } from './common';

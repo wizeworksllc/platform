@@ -85,7 +85,7 @@ export function formatStamp(iso: string, tz: string | null): string {
 // ── Which DAY, in the business's zone ───────────────────────────────────────
 // The times above are only half of it: "Thursday" has to mean Thursday where the
 // salon is too, or a reader eight hours away gets a grid holding the tail of one
-// day and the head of the next. These mirror `@wizeworks/time`'s `tzOffsetMs` /
+// day and the head of the next. These mirror `@wizeworksllc/time`'s `tzOffsetMs` /
 // `localWallToUtc` deliberately, two-pass DST resolution included — that package
 // is not a dependency of this app, and an algorithm that disagreed with the
 // server's about the hour the clocks change would be worse than the duplication.

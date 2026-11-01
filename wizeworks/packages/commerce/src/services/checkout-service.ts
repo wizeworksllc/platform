@@ -7,7 +7,7 @@
 // All side effects (payment intent, shipping rate, tax calculation) are
 // captured as provider refs on CheckoutSession so the flow is idempotent
 // across reloads. complete() is the single function that creates an
-// Order via @wizeworks/crm's orderService and fires the post-commit events
+// Order via @wizeworksllc/crm's orderService and fires the post-commit events
 // (order.placed, inventory.adjusted, email.send).
 
 import {
@@ -18,7 +18,7 @@ import {
   customerService,
   dueDayAfter,
   heldOrderMoney,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 import {
   type AppliedSurcharge,
   applySurcharges,
@@ -31,7 +31,7 @@ import {
   SubmitPaymentInput,
   SubmitShippingInput,
   type SurchargePaymentMethod,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import {
   createMarketPaymentIntent,
   GatewayNotFoundError,
@@ -41,10 +41,10 @@ import {
   type PaymentIntentStatus,
   paymentService,
   SPARX_MARKET_GATEWAY_ID,
-} from '@wizeworks/payments';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { CheckoutSession, TxClient } from '@wizeworks/db';
-import { inventoryService, type CommittedSale } from '@wizeworks/inventory';
+} from '@wizeworksllc/payments';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { CheckoutSession, TxClient } from '@wizeworksllc/db';
+import { inventoryService, type CommittedSale } from '@wizeworksllc/inventory';
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError, CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';
@@ -69,7 +69,7 @@ import { resolveShipFromAddress } from './shipping-request-resolver';
 import type {
   AddressSnapshot as AddressSnapshotType,
   TaxBreakdown,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import { describeRate, isCollection } from './collection-option';
 import { noteWrite } from './checkout-note';
 import { creditPreviewOf } from './checkout-credit-preview';

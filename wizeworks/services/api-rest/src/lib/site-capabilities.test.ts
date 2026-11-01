@@ -7,7 +7,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const moduleStates = new Map<string, boolean>();
 let siteOff: string[] | Error = [];
 
-vi.mock('@wizeworks/auth', () => ({
+vi.mock('@wizeworksllc/auth', () => ({
   isModuleEnabled: (_tenantId: string, key: string) =>
     Promise.resolve(moduleStates.get(key) ?? false),
 }));

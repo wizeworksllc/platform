@@ -1,6 +1,6 @@
 // Automation fan-in tee (docs/82 §3.3).
 //
-// Every publish path (api-core `publish`, the @wizeworks/events publisher, and the
+// Every publish path (api-core `publish`, the @wizeworksllc/events publisher, and the
 // CRM pubsub-bridge's two bus wrappers) tees a copy of each event onto ONE topic
 // — `automation.trigger` — after its normal per-type publish. The automation
 // engine's worker is the SOLE subscriber: one firehose + one push subscription is

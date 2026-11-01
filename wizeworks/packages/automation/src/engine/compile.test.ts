@@ -12,8 +12,8 @@
 //     action exactly once per path taken, and never inside the arm not chosen.
 
 import { describe, expect, it } from 'vitest';
-import { countActions } from '@wizeworks/automation-schemas';
-import type { Action, ConditionGroup } from '@wizeworks/automation-schemas';
+import { countActions } from '@wizeworksllc/automation-schemas';
+import type { Action, ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 import { compileActions, compileStoredActions, CompileError } from './compile';
 

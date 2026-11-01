@@ -27,13 +27,13 @@
 
 import type { FastifyBaseLogger, FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { approvalService, type PendingEvent } from '@wizeworks/b2b';
-import { inventoryService } from '@wizeworks/inventory';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { ok } from '@wizeworks/api-core/envelope';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
-import { type CustomerAuthContext } from '@wizeworks/customer-auth';
+import { approvalService, type PendingEvent } from '@wizeworksllc/b2b';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
+import { type CustomerAuthContext } from '@wizeworksllc/customer-auth';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { requireCustomerId } from '../../../lib/customer-session.js';
 import { requirePortalWriter } from '../../../lib/portal-writer.js';

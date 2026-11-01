@@ -36,7 +36,7 @@ export interface AuditableEntity {
   /**
    * The title as a search result actually shows it, when that differs from
    * `title`: the site adds its own name to every page but the home page, unless
-   * the title already names it (`servedTitle` in @wizeworks/builder-schemas).
+   * the title already names it (`servedTitle` in @wizeworksllc/builder-schemas).
    * The length check measures this one. Gillett Diesel's 54-character title was
    * served as 79 characters and the check called it a good length (sparx persona
    * issue 134). Absent: `title` is what is served.

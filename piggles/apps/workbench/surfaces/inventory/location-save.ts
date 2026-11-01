@@ -4,7 +4,7 @@
 // because each is a several-branch decision about what to send and what to say
 // afterwards, and neither is about how the form looks.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useToast } from '@wizeworks/silicaui-react';
 import { useConfirm } from '../../lib/confirm';
 import { afterPaneChange } from '../../lib/defer';

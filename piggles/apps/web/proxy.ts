@@ -1,19 +1,19 @@
 // A server-action form posted from an older build (a page open across a deploy,
 // or a bot replaying a scraped form) made Next.js answer 500 "Failed to find
 // Server Action". This sends it back to a fresh copy of the page instead. The
-// why, and what it never touches, is in @wizeworks/app-kit/stale-form-action.
+// why, and what it never touches, is in @wizeworksllc/app-kit/stale-form-action.
 // A header-named call to an unknown action gets Next's own 404 first, because
 // on a prerendered page Next's answer to it is a 500. A request Next cannot read
 // (`/%c0`, a multipart body with no boundary) gets a 400; see
-// @wizeworks/app-kit/malformed-path.
+// @wizeworksllc/app-kit/malformed-path.
 
 import { NextResponse, type NextRequest } from 'next/server';
 import {
   runningActionIds,
   staleFormActionRedirect,
   unknownActionResponse,
-} from '@wizeworks/app-kit/stale-form-action';
-import { malformedRequestResponse } from '@wizeworks/app-kit/malformed-path';
+} from '@wizeworksllc/app-kit/stale-form-action';
+import { malformedRequestResponse } from '@wizeworksllc/app-kit/malformed-path';
 
 export async function proxy(req: NextRequest) {
   const known = runningActionIds();

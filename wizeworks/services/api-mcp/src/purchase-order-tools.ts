@@ -5,15 +5,15 @@
 // one with nowhere to go), email-platform says who it is from, and the send is
 // written onto the order's trail.
 //
-// It lives here rather than in `@wizeworks/inventory/mcp` because sending needs
+// It lives here rather than in `@wizeworksllc/inventory/mcp` because sending needs
 // the mail bus and the sender identity, and the inventory package carries no
 // transport (same reasoning as `domain-tools.ts`).
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { settingsService } from '@wizeworks/email-platform';
-import { inventoryService } from '@wizeworks/inventory';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { withTenant } from '@wizeworksllc/db';
+import { settingsService } from '@wizeworksllc/email-platform';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 
 const pubLogger: PublisherLogger = {
   info: (obj, msg) => console.info(msg ?? '', obj),

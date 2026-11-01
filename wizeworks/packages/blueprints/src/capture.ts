@@ -31,8 +31,8 @@
 // is returned, so a captured site that would not reinstall is caught here — at capture
 // time — rather than at ingest.
 
-import type { BuilderPageKind, SilicaNode, SilicaTheme } from '@wizeworks/builder-schemas';
-import { isRecordAddress, recordAddressFor } from '@wizeworks/silica-catalog';
+import type { BuilderPageKind, SilicaNode, SilicaTheme } from '@wizeworksllc/builder-schemas';
+import { isRecordAddress, recordAddressFor } from '@wizeworksllc/silica-catalog';
 
 import { SiteDecl } from './manifest';
 

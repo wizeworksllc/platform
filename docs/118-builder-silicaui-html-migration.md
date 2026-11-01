@@ -7,7 +7,7 @@
 > **STATUS (2026-07-12) — the ROUTE CUTOVER is done: `/builder/studio` IS the silica editor.**
 > The parallel-run proof route (`/builder/silica`) and the hand-rolled `.bx-*` site editor behind it are **deleted** — 15 files / ~4,500 lines, including `site-studio.tsx` (1,275), `use-studio-editor.ts` (917), the HTML/fields/import-export panels, and the three no-selection settings panels in `inspector.tsx`. `/builder/studio` now loads the tenant's stored silica `Site` and mounts `<Builder>`; the Builder nav row, the overview cards, and every deep link point at it. The gate that held this open — "the storefront must render silica for every tenant first" — **closed** when `wizeworks/apps/site/lib/silica.ts` made the code starter the universal fallback: a published silica tree always wins, and a tenant who has published nothing still renders silica (starter frame + home/shop/about/contact + the PDP/collection composites), which is what makes the legacy tiers unreachable.
 >
-> **What did NOT die with it, and this is the part that matters:** the `.bx-*` engine (`canvas.tsx`, `inspector.tsx`, `registry.tsx`, `model.ts`, `builder.css`, ~45 files) is still reachable from **two surfaces that are staying** — the **component builder** (`/builder/components/[type]/edit`) and the **CMS entry editor's embedded record preview**. Deleting the site studio freed ~4.5k lines, not the whole engine. Retiring `.bx-*` entirely is a separate decision about those two surfaces, not a leftover of this one. No `@sparx/*` package became unreferenced (`@wizeworks/builder-render` + `surface-compile/allowlist` are still live); only two subpath entrypoints lost their last dashboard importer.
+> **What did NOT die with it, and this is the part that matters:** the `.bx-*` engine (`canvas.tsx`, `inspector.tsx`, `registry.tsx`, `model.ts`, `builder.css`, ~45 files) is still reachable from **two surfaces that are staying** — the **component builder** (`/builder/components/[type]/edit`) and the **CMS entry editor's embedded record preview**. Deleting the site studio freed ~4.5k lines, not the whole engine. Retiring `.bx-*` entirely is a separate decision about those two surfaces, not a leftover of this one. No `@sparx/*` package became unreferenced (`@wizeworksllc/builder-render` + `surface-compile/allowlist` are still live); only two subpath entrypoints lost their last dashboard importer.
 >
 > **One regression, upstream-blocked:** the old editor honored `?zone=theme` / `?zone=layout` deep links. silica's `<Builder>` holds its editor **mode** in private local state with no `initialMode` / controlled `mode` prop, so a host can only ever land the author on **Page**. (`?page=<id>` still works — the active page IS public engine state, applied from the `toolbarSlot`.) The dead query params are removed rather than left lying; the ask is [119](119-silicaui-builder-gap-questions.md) **Q26**, and it is ~3 lines upstream.
 >
@@ -18,7 +18,7 @@
 > - **Seed.** A published silica product-detail template ships in the DB seed so the demo storefront renders a real PDP without hand-authoring.
 > - **Deferred (with reason):** the node-scoped **product-pin** inspector panel — it needs a product-picker data path that doesn't exist cleanly yet, and the grid/PDP/rail already cover commerce binding via scope + collection.
 >
-> **Still GATED — do NOT delete legacy yet.** The legacy render clusters (`@sparx/site-ui`, the sparx `BuilderRenderer` storefront half, `surface-compile`'s compile pipeline + `/styles`, the section renderer + `sections/*`) remain the FALLBACK beneath silica, and the **`collections/[handle]`** route has **no silica path at all** (its section renderer is the sole renderer, not a fallback). Deletion is safe only once silica covers home + page + PDP + blog + **collections** + frame for every tenant. `@wizeworks/builder-render` (dashboard editor canvas + serializer) and `surface-compile/allowlist.ts` (governance) are **retained**, not deleted. Full deletion map: brain builder node + [119](119-silicaui-builder-gap-questions.md).
+> **Still GATED — do NOT delete legacy yet.** The legacy render clusters (`@sparx/site-ui`, the sparx `BuilderRenderer` storefront half, `surface-compile`'s compile pipeline + `/styles`, the section renderer + `sections/*`) remain the FALLBACK beneath silica, and the **`collections/[handle]`** route has **no silica path at all** (its section renderer is the sole renderer, not a fallback). Deletion is safe only once silica covers home + page + PDP + blog + **collections** + frame for every tenant. `@wizeworksllc/builder-render` (dashboard editor canvas + serializer) and `surface-compile/allowlist.ts` (governance) are **retained**, not deleted. Full deletion map: brain builder node + [119](119-silicaui-builder-gap-questions.md).
 
 > **Purpose.** This is the **sparx-side execution plan** for migrating the Builder and the storefront (`wizeworks/apps/site`) off sparx's bespoke render stack (`@sparx/site-ui` `st-*` classes + `surface-compile`'s `--st-*` theme) and onto the **silicaui design system + `@wizeworks/silicaui-html` document/component model** — while **keeping the sparx builder engine** (the two-zone studio, the binding/scope/iteration runtime, collections, publish, per-site scoping). It is the complement to [silicaui-site-ui-parity-spec.md](silicaui-site-ui-parity-spec.md) (what silicaui must do) and to the two silica-repo contracts ([`silicaui/docs/builder-contract.md`](../../silicaui/docs/builder-contract.md), [`silicaui/docs/blocks-contract.md`](../../silicaui/docs/blocks-contract.md)).
 >
@@ -40,7 +40,7 @@ The migration is done when a rendered tenant site is exactly this and **no more*
 
 Everything that is not one of those three things is **deleted, not translated**:
 
-- **No `@wizeworks/surface-compile` per-tenant compiler.** Per-tenant CSS compilation is removed. The static app sheet already carries every component + safelisted utility any tenant can author; only _token values_ vary per tenant, and those are the theme file. (This rests on the builder's authorable class vocabulary being **bounded/safelistable** — the one hinge, verified before Phase B; if any inspector control emits freeform arbitrary values it is constrained to a fixed scale, not exempted.)
+- **No `@wizeworksllc/surface-compile` per-tenant compiler.** Per-tenant CSS compilation is removed. The static app sheet already carries every component + safelisted utility any tenant can author; only _token values_ vary per tenant, and those are the theme file. (This rests on the builder's authorable class vocabulary being **bounded/safelistable** — the one hinge, verified before Phase B; if any inspector control emits freeform arbitrary values it is constrained to a fixed scale, not exempted.)
 - **No `--st-*` namespace.** `site-themes/v2` emits silica-native `--color-*`/`--color-*-content`/`--radius-*`/`--font-*` **directly** (the WCAG `-content` derivation logic stays — it beats silica's auto fallback and overrides it — but under silica's names). The canonical `--st-*` block and its legacy aliases are removed.
 - **No `st-*` recipe/component classes.** `@sparx/site-ui`'s stylesheet is **deleted**; silica's `@plugin` is the _sole_ emitter of all component CSS. render output speaks silica's flat vocabulary (`btn btn-primary btn-soft`, `card card-body`, …).
 - **No hand-authored `@theme` remap, no allowlist-as-compile-gate.** The allowlist demotes to an **author-time hygiene validator** (a dangerous class like `fixed`/`z-[9999]`/`url(...)` simply has no CSS behind it in the safelisted sheet — security by omission).
@@ -49,8 +49,8 @@ This is the parity-spec §12 endgame ("sparx stops being a design-system author,
 
 ### 1.1 What we are doing
 
-- **Replace the render output** — delete every `@sparx/site-ui` (`st-*`) reference at the **one shared seam** both surfaces funnel through (`@wizeworks/builder-render`'s `renderLeaf`); emit silica component classes / silicaui-react instead.
-- **Delete the per-tenant CSS compile.** Retire `@wizeworks/surface-compile`'s hand-authored `--st-*` `@theme` block; move to a **build-once** silica `@plugin "@wizeworks/silicaui"` app sheet + a bounded utility **safelist**. Per-tenant variation is a **theme file only** (§1.0).
+- **Replace the render output** — delete every `@sparx/site-ui` (`st-*`) reference at the **one shared seam** both surfaces funnel through (`@wizeworksllc/builder-render`'s `renderLeaf`); emit silica component classes / silicaui-react instead.
+- **Delete the per-tenant CSS compile.** Retire `@wizeworksllc/surface-compile`'s hand-authored `--st-*` `@theme` block; move to a **build-once** silica `@plugin "@wizeworks/silicaui"` app sheet + a bounded utility **safelist**. Per-tenant variation is a **theme file only** (§1.0).
 - **Migrate `wizeworks/apps/site`** (the storefront) to render silica elements/styles — same document, same renderer, same result as the canvas.
 - **Re-author the catalog** (`wizeworks/packages/builder-schemas/src/catalog/*`) and the seed factories against silica classes.
 - **Re-skin the editor chrome** (`.bx-*` → silicaui-react components) — keeping the sparx engine intact. _(HELD, §1.4.)_
@@ -98,9 +98,9 @@ Four architecture sweeps (2026-07-09) establish the migration is **concentrated*
 
 1. **The node shapes were designed to converge.** silicaui-html's `Node` (`kind:"element" tag` | `kind:"component" component` | `outlet`, `class` as the sole styling surface, attrs/text/props on `props`, `children`) and the builder-contract's `BuilderNode` are sparx's `BuilderNode` shape. Deltas are minimal: silicaui drops `id` on templates (sparx mints on stamp — same invariant), and uses `slot`/`data` markers where sparx uses its `binding` union. The blocks-contract §10 documents the sparx adapter as an explicit **"rename-and-mint, near-identity"** table. sparx's four binding kinds (field/entity/collection/action) map onto silicaui-html's `data: {kind:"value"|"collection"|"action"}` + `slot`.
 
-2. **One shared renderer feeds all three surfaces.** The editor canvas (`canvas.tsx`), the storefront (`wizeworks/apps/site/.../builder-renderer.tsx`), and the View-HTML serializer (`serialize-html.tsx`) all call **`@wizeworks/builder-render`'s `renderLeaf`** for leaf output. Retarget that one map (+ `renderSiteUiAtom`) and all three move together. The host _walkers_ (which own binding/iteration) stay; only the leaf _output_ changes.
+2. **One shared renderer feeds all three surfaces.** The editor canvas (`canvas.tsx`), the storefront (`wizeworks/apps/site/.../builder-renderer.tsx`), and the View-HTML serializer (`serialize-html.tsx`) all call **`@wizeworksllc/builder-render`'s `renderLeaf`** for leaf output. Retarget that one map (+ `renderSiteUiAtom`) and all three move together. The host _walkers_ (which own binding/iteration) stay; only the leaf _output_ changes.
 
-3. **Storage is schema-agnostic.** Opaque `JSONB` everywhere → no DB migration. The API routes are pass-throughs (they don't import `@wizeworks/builder-schemas`); validation is one Zod choke point in `@wizeworks/builder`. Publish emits payload-only events with **no consumers** (no reindex, no cache bust, no compiled artifact — CSS is compiled lazily at read). So the blast radius of a document-shape change is: one schema, the DTOs that embed `tree`, and four shape-coupled tree-transforms.
+3. **Storage is schema-agnostic.** Opaque `JSONB` everywhere → no DB migration. The API routes are pass-throughs (they don't import `@wizeworksllc/builder-schemas`); validation is one Zod choke point in `@wizeworksllc/builder`. Publish emits payload-only events with **no consumers** (no reindex, no cache bust, no compiled artifact — CSS is compiled lazily at read). So the blast radius of a document-shape change is: one schema, the DTOs that embed `tree`, and four shape-coupled tree-transforms.
 
 4. **The chrome is already on silica color tokens.** `builder.css` (4060 lines / 396 `.bx-*` classes) already references `--color-base-*`. The re-skin swaps _component shapes_ (toolbar/tabs/splitter/cards/sliders → silicaui-react), not colors. ~1600 lines map to components; ~1100 lines (canvas frames, drag/align overlays, box-model & swatch pickers) stay bespoke by design.
 
@@ -117,7 +117,7 @@ LOAD    builder-data.ts: collectBindingRefs → fetch products/CMS/collections �
 WALK    host walker (RenderNode in wizeworks/apps/site  ||  CanvasNode in dashboard):
   │       resolveBinding(scope, node.binding) → cardinality → iterate array | scope object | Outlet composes layout↔page
   │
-RENDER  ── @wizeworks/builder-render renderLeaf(node, {mode, surface, leafClass}) ──►  @sparx/site-ui st-* components
+RENDER  ── @wizeworksllc/builder-render renderLeaf(node, {mode, surface, leafClass}) ──►  @sparx/site-ui st-* components
 LEAF        (ONE map; both walkers + serialize-html call it)
 ```
 
@@ -151,7 +151,7 @@ Author the **canonical `st-* → silica` map** — this governs WS-3, WS-6, and 
 - Component-part classes: `navbar navbar-start/center/end`, `card card-body/card-actions`, etc. — confirm silica parity (parity-spec §3).
 - Output: `wizeworks/packages/builder-schemas/src/migrations/st-to-silica.ts` (a pure, tested string→string mapper) reused by both the catalog rewrite and the DB backfill so they cannot drift.
 
-### WS-3 — Retarget the leaf renderer (`@wizeworks/builder-render`)
+### WS-3 — Retarget the leaf renderer (`@wizeworksllc/builder-render`)
 
 The core swap seam. In `wizeworks/packages/builder-render/`:
 
@@ -162,7 +162,7 @@ The core swap seam. In `wizeworks/packages/builder-render/`:
 
 **Risk:** this one file drives canvas + storefront + View-HTML. Snapshot-test the emitted markup per node type before/after (§5).
 
-### WS-4 — Retarget the CSS compile (`@wizeworks/surface-compile`)
+### WS-4 — Retarget the CSS compile (`@wizeworksllc/surface-compile`)
 
 - `theme.ts`: replace the hand-authored `@theme{}` `--st-*` remap with silica's `@plugin "@wizeworks/silicaui" { colors: … , danger, module-* }` + `@plugin "@wizeworks/silicaui/theme"` (tenant tokens injected as `--color-*`). The `.navbar` `@layer components` rules become silica's navbar component classes (silica ships the verbatim-daisyUI navbar per parity-spec §3).
 - Keep `collectClasses` (tree-shake authored literals), `contentHash`, and the dual output (`styles.css` global + `styles.canvas.css` `@scope(.bx-canvas)`), per parity-spec §5.
@@ -210,9 +210,9 @@ The flip side of WS-3/WS-4 — same document, same renderer, so it largely _foll
 - Any hand-authored `wizeworks/apps/site` chrome using `@sparx/site-ui` React directly → swap to silicaui-react (Mode-1 consumption, blocks-contract §10) or silica blocks' generated React.
 - Retire the `@sparx/site-ui` stylesheet import once WS-3 emits silica classes.
 
-### WS-9 — Backend transforms + data backfill (`@wizeworks/builder-schemas`, `@wizeworks/builder`, DB)
+### WS-9 — Backend transforms + data backfill (`@wizeworksllc/builder-schemas`, `@wizeworksllc/builder`, DB)
 
-- **Validation choke point:** update `BuilderNodeSchema` + input schemas (`CreatePageInput`/`UpdatePageInput`/component/archetype/email) in `@wizeworks/builder-schemas`. `type` stays a free string, so the schema barely changes; the change is the **class allowlist** the validator enforces (align to silica).
+- **Validation choke point:** update `BuilderNodeSchema` + input schemas (`CreatePageInput`/`UpdatePageInput`/component/archetype/email) in `@wizeworksllc/builder-schemas`. `type` stays a free string, so the schema barely changes; the change is the **class allowlist** the validator enforces (align to silica).
 - **Port the 4 shape-coupled transforms** (all in `wizeworks/packages/builder/`): `expandTreeForPublish` (custom-component `$ref` expansion), `syncFormDefinitions` (ContactForm extraction), the `findNodeById`/`collectNodesByType` walkers, and `collectClasses` (reads `node.class`). The shape is preserved, so these are **light** — mainly verifying `node.class` semantics under the new vocabulary.
 - **Data backfill (the real work):** transform every persisted tree's `class` strings via the WS-2 mapper — `BuilderPage.draft_tree`/`published_tree`, `BuilderLayout.*`, `BuilderEmail.*`, `BuilderComponentVersion.tree`, `BuilderArchetype.tree`, `PlatformComponent.tree`, plus saved themes. **No schema migration** (opaque JSONB) — this ships as a **seed-style backfill script run through the DB Migrate workflow** (`gh workflow run db-migrate.yml`), NOT a local run. Tenant-scoped `builder_*` tables are FORCE-RLS → the backfill must loop tenants with `set_config('app.tenant_id', …)` per tenant (`sparx_owner` is non-superuser in prod — the documented footgun).
 - **Pre-launch reality:** there is no production tenant data yet, so the backfill target is **seed + demo data** — trivial, and it makes the parity-spec §11 "big-bang, not hybrid" decision safe. Still write the mapper + script properly (humans hand-edit seed data; it must round-trip).
@@ -286,16 +286,16 @@ The migration's correctness bar is **"preview == production, and both == before"
 
 ## 6. Risks & mitigations
 
-| Risk                                                                      | Severity | Mitigation                                                                                                                                                               |
-| ------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Half-styled render if WS-3 lands without WS-4 (or vice versa)             | High     | Land Phase B as one coordinated change behind the §5 gate; never merge one seam alone.                                                                                   |
-| Stored `class` strings drift from the catalog rewrite                     | High     | One shared WS-2 mapper powers both the catalog rewrite and the DB backfill — single source of truth, unit-tested.                                                        |
-| Binding/iteration regression during the render swap                       | High     | The walkers (`RenderNode`/`CanvasNode`) are **out of scope** for WS-3; only `renderLeaf` output changes. Binding-integrity tests gate.                                   |
-| Splitter re-skin breaks the shell width/collapse/mobile contract (WS-7.4) | Med      | Preserve the `--bx-rail-w`/`--bx-side-w` CSS-var contract + `useMediaQuery` gate explicitly; treat as its own reviewed slice.                                            |
-| silicaui gaps discovered mid-cutover                                      | Med      | WS-1 closes the parity-spec §13 gap list **before** Phase B; a fast recon of exotic surfaces converts surprises into todos.                                              |
-| FORCE-RLS backfill fails in prod (`23502`) but passes locally             | Med      | Per-tenant `set_config('app.tenant_id')` loop in the backfill; run via the DB Migrate workflow, never locally.                                                           |
-| Two-repo dev loop friction (silica + sparx)                               | Low      | Workspace-link silica locally for dev; disciplined semver at the boundary (blocks-contract §11). Class vocab is a **major**-version data contract.                       |
-| Email surface divergence                                                  | Low      | `renderLeaf` `surface:'email'` path + `@wizeworks/email` consume the neutral tree (Mode-3); keep the email-degradable subset (blocks-contract §12). No `toEmail()` owed. |
+| Risk                                                                      | Severity | Mitigation                                                                                                                                                                  |
+| ------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Half-styled render if WS-3 lands without WS-4 (or vice versa)             | High     | Land Phase B as one coordinated change behind the §5 gate; never merge one seam alone.                                                                                      |
+| Stored `class` strings drift from the catalog rewrite                     | High     | One shared WS-2 mapper powers both the catalog rewrite and the DB backfill — single source of truth, unit-tested.                                                           |
+| Binding/iteration regression during the render swap                       | High     | The walkers (`RenderNode`/`CanvasNode`) are **out of scope** for WS-3; only `renderLeaf` output changes. Binding-integrity tests gate.                                      |
+| Splitter re-skin breaks the shell width/collapse/mobile contract (WS-7.4) | Med      | Preserve the `--bx-rail-w`/`--bx-side-w` CSS-var contract + `useMediaQuery` gate explicitly; treat as its own reviewed slice.                                               |
+| silicaui gaps discovered mid-cutover                                      | Med      | WS-1 closes the parity-spec §13 gap list **before** Phase B; a fast recon of exotic surfaces converts surprises into todos.                                                 |
+| FORCE-RLS backfill fails in prod (`23502`) but passes locally             | Med      | Per-tenant `set_config('app.tenant_id')` loop in the backfill; run via the DB Migrate workflow, never locally.                                                              |
+| Two-repo dev loop friction (silica + sparx)                               | Low      | Workspace-link silica locally for dev; disciplined semver at the boundary (blocks-contract §11). Class vocab is a **major**-version data contract.                          |
+| Email surface divergence                                                  | Low      | `renderLeaf` `surface:'email'` path + `@wizeworksllc/email` consume the neutral tree (Mode-3); keep the email-degradable subset (blocks-contract §12). No `toEmail()` owed. |
 
 ---
 

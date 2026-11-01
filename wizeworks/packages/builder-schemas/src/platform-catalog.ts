@@ -1,6 +1,6 @@
 // Platform component catalog — persisted contract for the DB-backed platform
 // component library (docs/98 §5). Zod-only (no DB, no React), like the rest of
-// @wizeworks/builder-schemas: safe to import from editor client components AND the
+// @wizeworksllc/builder-schemas: safe to import from editor client components AND the
 // server service layer.
 
 import { z } from 'zod';
@@ -19,7 +19,7 @@ import { ComponentSurface } from './component';
 // `kind` is a real DB enum (clean identifiers). `category`/`surfaces` are stored as
 // validated STRINGS (VARCHAR / TEXT[]) rather than DB enums — the category slugs are
 // hyphenated (`data-display`), which are invalid Postgres enum identifiers, and this
-// matches the package's "catalog data is validated by @wizeworks/builder-schemas, never
+// matches the package's "catalog data is validated by @wizeworksllc/builder-schemas, never
 // by the DB" convention (cf. the `tree` JSON column).
 
 export const PlatformComponentKind = z.enum(CATALOG_KINDS);

@@ -1,10 +1,10 @@
 // Unit tests for platform-catalog-service lifecycle + visibility rules.
-// Mocks @wizeworks/db so no live database is needed.
+// Mocks @wizeworksllc/db so no live database is needed.
 
 import { describe, it, expect, vi, beforeEach, type Mock } from 'vitest';
 
-// Mock @wizeworks/db before importing the service
-vi.mock('@wizeworks/db', () => {
+// Mock @wizeworksllc/db before importing the service
+vi.mock('@wizeworksllc/db', () => {
   const mockPrisma = {
     platformComponent: {
       findUnique: vi.fn(),
@@ -17,7 +17,7 @@ vi.mock('@wizeworks/db', () => {
   return { prisma: mockPrisma };
 });
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import * as svc from './platform-catalog-service';
 
 const mockPlatformComponent = prisma.platformComponent as unknown as {
@@ -132,7 +132,7 @@ describe('platformCatalogService — lifecycle transitions', () => {
   });
 
   it('archived → draft is a legal transition (isLegalTransition)', async () => {
-    const { isLegalTransition } = await import('@wizeworks/builder-schemas');
+    const { isLegalTransition } = await import('@wizeworksllc/builder-schemas');
     expect(isLegalTransition('archived', 'draft')).toBe(true);
   });
 

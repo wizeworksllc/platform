@@ -25,8 +25,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/silica-catalog": "workspace:*",
-    "@wizeworks/site-themes": "workspace:*",
+    "@wizeworksllc/silica-catalog": "workspace:*",
+    "@wizeworksllc/site-themes": "workspace:*",
     "@wizeworks/silicaui-builder": "catalog:",
     "@wizeworks/silicaui-html": "catalog:",
     "@wizeworks/silicaui-react": "catalog:"

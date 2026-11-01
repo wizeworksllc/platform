@@ -2,9 +2,9 @@
 //
 //   rebuild_search_index — write:search, confirmation:true
 //
-// Every other search tool is a READ (`@wizeworks/search`'s `searchMcpTools`). This one
-// writes, so it lives here rather than in `@wizeworks/search`: publishing needs
-// `@wizeworks/events` → `@google-cloud/pubsub`, and `@wizeworks/search` is imported by the
+// Every other search tool is a READ (`@wizeworksllc/search`'s `searchMcpTools`). This one
+// writes, so it lives here rather than in `@wizeworksllc/search`: publishing needs
+// `@wizeworksllc/events` → `@google-cloud/pubsub`, and `@wizeworksllc/search` is imported by the
 // Next apps for the ⌘K palette — dragging a Pub/Sub client into that dependency
 // graph to serve one server-only tool is the wrong trade. Same reasoning (and the
 // same module-level-publisher shape) as `domain-tools.ts`.
@@ -20,7 +20,7 @@
 
 import { z } from 'zod';
 import crypto from 'node:crypto';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 
 const pubLogger: PublisherLogger = {
   info: (obj, msg) => console.info(msg ?? '', obj),

@@ -14,7 +14,7 @@
 // every module's seeding pass (seedSystemAutomations installs null-module seeds on
 // any activation and on the daily reconcile), so every tenant gets it.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 export const FORM_HANDLE_SUBMISSIONS: SystemAutomationSpec = {
   key: 'forms.handle-submissions',

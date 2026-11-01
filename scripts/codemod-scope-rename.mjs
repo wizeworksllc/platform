@@ -18,7 +18,7 @@
 //      and token values; `@sparx/web`, `@sparx/market` and `@sparx/workbench`
 //      are its applications. All four keep the scope and live under `sparx/`.
 //      (`ui` was on this list until the tree move proved it brand-blind apart
-//      from four re-exported marks — it is `@wizeworks/ui` now.)
+//      from four re-exported marks — it is `@wizeworksllc/ui` now.)
 //   3. It renames packages THAT DO NOT EXIST. About thirty tokens — `@sparx/ai`,
 //      `@sparx/audit`, `@sparx/errors`, `@sparx/geo`, `@sparx/dashboard` — are
 //      referenced only in docs. Some are planned, some name code that was
@@ -276,7 +276,7 @@ function main() {
   for (const t of top) console.log(`    ${String(t.changed).padStart(4)}  ${t.file}`);
 
   // Two very different reasons a token was left alone, and reporting them as one
-  // list is how "@wizeworks/ui, 454 occurrences" reads like an oversight instead of
+  // list is how "@wizeworksllc/ui, 454 occurrences" reads like an oversight instead of
   // the deliberate decision it is.
   const keptShort = new Set([...KEEP]);
   const keptHits = [...unknown.entries()].filter(([n]) => keptShort.has(n));

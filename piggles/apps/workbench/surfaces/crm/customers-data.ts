@@ -7,7 +7,7 @@
 // but not bought, a RETAIL buyer, or a B2B contact who belongs to a wholesale
 // account. It is one record with a `type`, promoted between the three by editing
 // that field — never a separate table. The write shapes mirror the CRM's own
-// `CreateCustomerInput` / `UpdateCustomerInput` (Zod in `@wizeworks/crm-schemas`),
+// `CreateCustomerInput` / `UpdateCustomerInput` (Zod in `@wizeworksllc/crm-schemas`),
 // named locally because that package is not a dependency of this app; the server
 // runs that Zod on every write and has the final say on anything malformed.
 //
@@ -22,14 +22,14 @@
 // shows correctly in the list and the detail at once.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
-import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworks/crm-schemas';
+import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworksllc/crm-schemas';
 import { api } from '../../lib/api/client';
 
 // Classification is three orthogonal axes (docs/137), each enum straight from
-// `@wizeworks/crm-schemas` (the server's own Zod) so nothing can drift: `type` is the
+// `@wizeworksllc/crm-schemas` (the server's own Zod) so nothing can drift: `type` is the
 // RELATIONSHIP (retail/b2b/partner/vendor), `lifecycleStage` is where they are in
 // the journey, `leadStatus` is the micro work-state. `CustomerInput` below stays a
 // local, narrow write PAYLOAD (only the fields this pane sends) on purpose — the
@@ -60,7 +60,7 @@ export interface Customer {
    *  Separate from `company` above, which is the employer they TYPED — a
    *  wholesale buyer usually has the link and no typed name. Carried under its
    *  own key because `Customer.company` is a computed field that shadows the
-   *  relation (see @wizeworks/db's client). */
+   *  relation (see @wizeworksllc/db's client). */
   b2bAccount: { id: string; companyName: string } | null;
   jobTitle: string | null;
   preferredContactMethod: string | null;

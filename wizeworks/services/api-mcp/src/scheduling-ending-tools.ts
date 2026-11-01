@@ -1,9 +1,9 @@
 // Ending a booking, for an AI client: cancel it, mark a no-show, complete it,
 // or cancel a whole repeating series.
 //
-// The REST routes and these tools are the same steps: @wizeworks/scheduling ends
+// The REST routes and these tools are the same steps: @wizeworksllc/scheduling ends
 // the booking and hands back what the card on it needs (`money`), then, once that
-// has committed, `bookingPayments.settle` in @wizeworks/commerce charges the fee
+// has committed, `bookingPayments.settle` in @wizeworksllc/commerce charges the fee
 // from the hold, lets the hold go, or refunds or keeps the deposit, and the
 // booking's event is published.
 //
@@ -18,20 +18,20 @@
 // the scheduling module in server.ts.
 
 import { z } from 'zod';
-import { bookingPayments } from '@wizeworks/commerce';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { bookingPayments } from '@wizeworksllc/commerce';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import {
   cancelBooking,
   cancelBookingSeries,
   completeBooking,
   noShowBooking,
   type BookingMoney,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import {
   CancelBookingInput,
   CancelBookingSeriesInput,
   NoShowBookingInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
 // Through api-core's publish, which also queues the business's own webhooks, the
 // same as the REST routes. It wants a Fastify logger and this service has no

@@ -13,7 +13,7 @@
 // posted and the sentence that explains both are pinned by one test file.
 //
 // The money follows the order spine exactly (`computeBillingTotals` in
-// @wizeworks/crm): a deposit is never in the subtotal, never discounted or taxed,
+// @wizeworksllc/crm): a deposit is never in the subtotal, never discounted or taxed,
 // and IS in the total taken. The till prints it on its own row, under the same
 // name the website's checkout summary uses, so the sum on screen adds up.
 

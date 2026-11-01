@@ -2,7 +2,7 @@
 // persona issue 360). The report is the invoicing module's; a business without
 // invoicing gets an error and the card stays away.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { CollectedPoint } from './collected-chart-option';
 

@@ -10,7 +10,7 @@
 // in routes/v1/tenant.ts.
 
 import { SignJWT, jwtVerify } from 'jose';
-import { forbidden } from '@wizeworks/api-core/errors';
+import { forbidden } from '@wizeworksllc/api-core/errors';
 
 import { env } from '../../env.js';
 

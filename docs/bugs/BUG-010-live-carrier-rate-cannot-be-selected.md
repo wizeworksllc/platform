@@ -106,7 +106,7 @@ with `country: 'US'` and nothing else, so `resolveShipFromAddress` threw and
 connected silently got manual rates only, no live options shown, no warning.
 
 **Not a module gap.** `inventory` is `BUNDLED_FREE` with `commerce`/`b2b`
-(`wizeworks/packages/modules/src/index.ts`), so any tenant that can check out already has the
+(`wizeworks/packages/module-roster/src/index.ts`), so any tenant that can check out already has the
 full inventory surface at $0 — the warehouse always exists and the
 `requireInventoryModule`-gated locations API is bundle-aware. Only a WMS-only tenant
 (no commerce/b2b) pays for standalone inventory, and it isn't selling anyway. So the

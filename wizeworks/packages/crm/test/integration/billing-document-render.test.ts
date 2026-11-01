@@ -21,8 +21,8 @@ import {
   renderBillingDocumentHtml,
 } from '../../src/services/index.js';
 import { formatDate } from '../../src/services/billing-document-html.js';
-import { withTenant } from '@wizeworks/db';
-import { DEFAULT_DOCUMENT_LINE_TYPES } from '@wizeworks/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import { DEFAULT_DOCUMENT_LINE_TYPES } from '@wizeworksllc/crm-schemas/builtins';
 import { disposeTestContext, makeTestContext, type TestContext } from '../helpers.js';
 
 /** The customer-facing label a builtin line type renders with.

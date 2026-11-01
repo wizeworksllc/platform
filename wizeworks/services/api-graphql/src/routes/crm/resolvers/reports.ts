@@ -1,7 +1,7 @@
 // CRM reporting GraphQL resolvers — live reads off the source tables.
 
-import { reportingService } from '@wizeworks/crm';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { reportingService } from '@wizeworksllc/crm';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import type { GqlContext } from '../types';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 

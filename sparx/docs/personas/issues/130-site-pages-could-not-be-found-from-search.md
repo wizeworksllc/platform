@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P01 · Gillett Diesel Service · act 9 (finding the About page to change its words)
-**Surface:** workbench › Search everything; `@wizeworks/commerce` universal projectors; `@wizeworks/builder` page and site services; `@wizeworks/links` routes; `DELETE /v1/properties/:id`
+**Surface:** workbench › Search everything; `@wizeworksllc/commerce` universal projectors; `@wizeworksllc/builder` page and site services; `@wizeworksllc/links` routes; `DELETE /v1/properties/:id`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 on screen, 2026-10-06

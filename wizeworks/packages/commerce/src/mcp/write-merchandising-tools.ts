@@ -12,7 +12,7 @@ import {
   SubmitAnswerInput,
   UpdateCommerceSiteSettingsInput,
   UpdateCommerceSiteThemeInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { commerceSiteService, reviewService } from '../services';
 import type { AnyMcpTool, McpToolDefinition } from './registry';

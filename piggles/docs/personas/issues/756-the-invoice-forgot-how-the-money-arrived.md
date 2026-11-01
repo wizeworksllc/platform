@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P03 · Juniper Row · act 268
-**Surface:** `@wizeworks/crm` — an invoice raised from an order; both consoles
+**Surface:** `@wizeworksllc/crm` — an invoice raised from an order; both consoles
 **Filed:** 2026-09-20
 **Fixed:** 2026-09-20
 **Confirmed by:** P03, reading the two screens side by side

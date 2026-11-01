@@ -9,8 +9,8 @@
 //
 // CRM figures are tenant-scoped today, so this is a whole-business dashboard.
 
-import { reportingService } from '@wizeworks/crm';
-import type { TxClient } from '@wizeworks/db';
+import { reportingService } from '@wizeworksllc/crm';
+import type { TxClient } from '@wizeworksllc/db';
 import {
   startOfUtcDay,
   utcDateKey,

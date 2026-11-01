@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/social",
+  "name": "@wizeworksllc/social",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx Social — the SocialAdapter contract, adapter registry, per-platform constraints + one-post→N-platforms renderer, and the AES-256-GCM token box for social-posting OAuth grants (docs/133).",
+  "description": "sparx Social \u00e2\u20ac\u201d the SocialAdapter contract, adapter registry, per-platform constraints + one-post\u00e2\u2020\u2019N-platforms renderer, and the AES-256-GCM token box for social-posting OAuth grants (docs/133).",
   "type": "module",
   "exports": {
     ".": {
@@ -34,10 +34,11 @@
     "src"
   ],
   "dependencies": {
-    "@wizeworks/api-core": "workspace:*",
-    "@wizeworks/brand-core": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/integrations": "workspace:*",
+    "@wizeworksllc/api-core": "workspace:*",
+    "@wizeworksllc/brand-core": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/integrations": "workspace:*",
+    "@wizeworksllc/social-cadence": "workspace:*",
     "zod": "^4.6.6"
   },
   "scripts": {

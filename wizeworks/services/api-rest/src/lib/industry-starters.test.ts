@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { toIndustryStarterView, type ModuleSlug } from '@wizeworks/auth';
+import { toIndustryStarterView, type ModuleSlug } from '@wizeworksllc/auth';
 
 import { industryAuditPayload, starterRegistry } from './industry-starters';
 import { presetRegistry } from './preset-registry';

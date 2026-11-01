@@ -3,13 +3,13 @@
 // needs to know WHERE a post can go (a target's `id` is `create_social_post`'s
 // `targets[].targetId`).
 //
-// Lives in @wizeworks/social (not api-rest) so every transport drives the SAME read —
+// Lives in @wizeworksllc/social (not api-rest) so every transport drives the SAME read —
 // one service, many transports, exactly like posts.ts. api-rest's
 // social-connections lib re-exports this; the OAuth connect / upsert / target-sync
 // / disconnect side stays in api-rest (it is adapter- and crypto-bound
 // provisioning, not post authoring, and is deliberately NOT agent-authorable).
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { SocialContext } from './context.js';
 

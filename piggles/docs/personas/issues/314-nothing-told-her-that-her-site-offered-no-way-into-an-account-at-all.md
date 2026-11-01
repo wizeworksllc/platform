@@ -54,7 +54,7 @@ and rescheduling are all built. Two live sites reach none of it.
 
 ## Where it lives
 
-`@wizeworks/site-lint` had no rule about what the shared chrome OFFERS — only about
+`@wizeworksllc/site-lint` had no rule about what the shared chrome OFFERS — only about
 whether it works (`frame-no-outlet`, `symbol-missing`, duplicate ids). Every rule in
 the package asks whether a tree is well formed. None asked whether a capability the
 site has is reachable from it.

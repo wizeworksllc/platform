@@ -14,7 +14,7 @@
 // bills per module, so the worst case is a wasted request.
 
 import { useEffect, useRef } from 'react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { api } from '@/lib/api/client';
 import { useModuleStates, useViewer } from '@/lib/api/shell-data';
 

@@ -8,11 +8,11 @@
 // email is clean, not just "errors when broken").
 //
 // Runs server-side alongside `renderPreview` (it needs the byte size of the REAL
-// projected HTML, and the merge-tag vocabulary from @wizeworks/builder-schemas). The copy
+// projected HTML, and the merge-tag vocabulary from @wizeworksllc/builder-schemas). The copy
 // is written for a non-technical owner, never dev jargon.
 
-import { EMAIL_CATALOG, parseEmailTokens } from '@wizeworks/builder-schemas';
-import type { SilicaEmailDocument } from '@wizeworks/builder-schemas';
+import { EMAIL_CATALOG, parseEmailTokens } from '@wizeworksllc/builder-schemas';
+import type { SilicaEmailDocument } from '@wizeworksllc/builder-schemas';
 
 /** Gmail clips a message once its HTML passes ~102 KB, hiding everything below —
  *  including the footer/unsubscribe — behind a "[Message clipped]" link. Warn well

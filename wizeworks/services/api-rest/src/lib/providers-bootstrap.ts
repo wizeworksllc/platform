@@ -12,8 +12,8 @@
 // plane's registrations are last-wins, so a second boot is a no-op and there is no
 // benign exception left to tell apart from a real one.
 
-import { setSecretReader, envSecretReader, mapSecretReader } from '@wizeworks/commerce';
-import { SecretNotFoundError, type SecretReader } from '@wizeworks/integration-framework';
+import { setSecretReader, envSecretReader, mapSecretReader } from '@wizeworksllc/commerce';
+import { SecretNotFoundError, type SecretReader } from '@wizeworksllc/integration-framework';
 
 import { bootstrapIntegrations } from './integrations-bootstrap.js';
 import { bootstrapPayments } from './payments-bootstrap.js';
@@ -26,7 +26,7 @@ export function bootstrapProviders(): void {
 
   setSecretReader(buildSecretReader());
 
-  // The payment surface (@wizeworks/payments gateways + their secret reader). This also
+  // The payment surface (@wizeworksllc/payments gateways + their secret reader). This also
   // publishes the gateway catalog to the shared integration plane.
   bootstrapPayments();
 

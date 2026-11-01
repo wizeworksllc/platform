@@ -17,7 +17,7 @@
 // from a service would invert the dependency — but they MUST stay in step, and a
 // change to the predicate belongs in both.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 export function productSiteVisibility(propertyId: string): Prisma.ProductWhereInput {
   return {

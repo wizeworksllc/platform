@@ -57,10 +57,10 @@
 // itself via `withTenant`; the SCAN has to do it by hand, or it reports zero properties
 // and exits looking successful (wizeworks/packages/db/CLAUDE.md).
 
-import { isModuleEnabled } from '@wizeworks/auth';
-import { siteService, type PropertyContext } from '@wizeworks/builder';
-import { prisma, withTenant, type Prisma } from '@wizeworks/db';
-import { BASE_SILICA_THEME, starterSite } from '@wizeworks/silica-catalog';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { siteService, type PropertyContext } from '@wizeworksllc/builder';
+import { prisma, withTenant, type Prisma } from '@wizeworksllc/db';
+import { BASE_SILICA_THEME, starterSite } from '@wizeworksllc/silica-catalog';
 
 import { effectiveTheme } from '../lib/effective-theme.js';
 

@@ -23,14 +23,14 @@
 // window may say "date to be confirmed", which sells honestly, and
 // `availabilityNote` carries the human version ("ships with the spring run").
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 import {
   preorderState,
   UpsertPreorderWindowInput,
   type PreorderState,
   type PreorderWindowShape,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../audit';
 import { VARIANT_LABEL_SELECT, variantLabel, type LabelledVariant } from './variant-label';

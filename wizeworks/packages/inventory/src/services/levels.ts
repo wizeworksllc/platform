@@ -3,9 +3,9 @@
 // ever changes through the movement ledger (see ./ledger); this module owns
 // the read paths + the non-stock fields (reorder policy, cost basis surfacing).
 
-import { SetReorderPolicyInput, SetSafetyBufferInput } from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { SetReorderPolicyInput, SetSafetyBufferInput } from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishInventoryEvent } from '../events';

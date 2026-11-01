@@ -4,7 +4,7 @@
 // event handler dispatches `search.entity.changed` by `entity_type` through
 // this map; reindex walks every projector to backfill the `entities`
 // collection. Phase 1 ships the Commerce + CRM projectors (both re-exported
-// from @wizeworks/commerce, which the indexer already depends on — no new
+// from @wizeworksllc/commerce, which the indexer already depends on — no new
 // dependency edge). Phase 2 appends CMS / Email / Site Builder bundles here.
 //
 // The EMAIL bundle is in — campaigns, automatic emails and the rules that fire
@@ -15,8 +15,8 @@
 // a screen of its own: reports, boards, requests, shelves, price lists, services,
 // content types and the rest. Same dependency, so no new edge either.
 
-import { commerceUniversalProjectors, ownerNamedUniversalProjectors } from '@wizeworks/commerce';
-import { buildRegistry } from '@wizeworks/search';
+import { commerceUniversalProjectors, ownerNamedUniversalProjectors } from '@wizeworksllc/commerce';
+import { buildRegistry } from '@wizeworksllc/search';
 
 import { messagingUniversalProjectors } from './messaging-projection.js';
 

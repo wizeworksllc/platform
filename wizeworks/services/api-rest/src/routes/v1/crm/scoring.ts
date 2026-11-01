@@ -19,9 +19,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { scoringService, scoringFields } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { scoringService, scoringFields } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { reachableSiteIds, resolvePropertyId } from '../../../lib/property.js';
 

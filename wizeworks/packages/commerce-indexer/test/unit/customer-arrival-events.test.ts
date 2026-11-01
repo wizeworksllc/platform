@@ -19,7 +19,7 @@ const projectCustomer = vi.fn();
 const upsertCustomer = vi.fn();
 const deleteCustomer = vi.fn();
 
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   marketService: {},
   projectAllCollectionRulesForTenant: vi.fn(),
   projectCollectionRules: vi.fn(),
@@ -31,7 +31,7 @@ vi.mock('@wizeworks/commerce', () => ({
   projectProduct: vi.fn(),
   productIdForVariant: vi.fn(),
 }));
-vi.mock('@wizeworks/search', () => ({
+vi.mock('@wizeworksllc/search', () => ({
   bulkUpsertOrders: vi.fn(() => Promise.resolve({ successCount: 0, errors: [] })),
   getCustomerDocument: vi.fn(() => Promise.resolve(null)),
   deleteCustomer,

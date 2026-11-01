@@ -1,7 +1,7 @@
 import 'server-only';
 
-import { platformRequest, PlatformRequestError } from '@wizeworks/auth-client-server';
-import type { CapacityReport, Meter, MeterState } from '@wizeworks/usage';
+import { platformRequest, PlatformRequestError } from '@wizeworksllc/auth-client-server';
+import type { CapacityReport, Meter, MeterState } from '@wizeworksllc/usage-meters';
 import { readBilling } from './billing';
 import { readConsent } from './consent';
 

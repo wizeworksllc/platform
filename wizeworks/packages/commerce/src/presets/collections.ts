@@ -2,7 +2,7 @@
 // a hand-curated manual list or a rule-driven smart collection (membership
 // re-projected by the commerce indexer). Marker is the collection handle.
 
-import type { CreateCollectionInput } from '@wizeworks/commerce-schemas';
+import type { CreateCollectionInput } from '@wizeworksllc/commerce-schemas';
 
 import { collectionService } from '../services';
 

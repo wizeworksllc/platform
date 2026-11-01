@@ -1,7 +1,7 @@
-// @wizeworks/inventory — the supply-domain service layer (warehouses, stock levels +
+// @wizeworksllc/inventory — the supply-domain service layer (warehouses, stock levels +
 // movement ledger, reservations, lots/serials, low-stock). The single source of
 // truth for stock; Commerce/B2B/Dropship are consumers. Extracted from
-// @wizeworks/commerce per docs/100.
+// @wizeworksllc/commerce per docs/100.
 
 export { inventoryService } from './services';
 

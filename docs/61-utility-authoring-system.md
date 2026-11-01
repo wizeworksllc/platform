@@ -20,7 +20,7 @@ A node carries a **class string** of tokenized, Tailwind-native utilities (`bg-p
 (`st-btn`, `st-card`, the recipe). The class owns **all styling**; the tree owns **structure +
 binding**; a thin **`props`** slot owns per-instance data (image/embed URLs, labels, the component
 `$ref`/`$prop` machinery). The freeform `box` and `layout` objects are **deleted**. One per-tenant
-stylesheet — compiled from the tenant's own tree by `@wizeworks/surface-compile` — drives **both** the
+stylesheet — compiled from the tenant's own tree by `@wizeworksllc/surface-compile` — drives **both** the
 live site and the editor canvas, so preview == production by construction. The utility surface is
 exposed two ways: a **curated** subset on the page builder (safe by design) and the **full** vocabulary
 in the component builder (power, gated). This is a **semantic component library over a tokenized
@@ -38,7 +38,7 @@ This is an **execution** doc, not a greenfield one. Current state (verified 2026
 | **Rich token theme** — semantic palette + `-content`/hover/active/tint, 12-step spacing, 3 radius scales, depth shadows, container width, fonts; `@theme` maps color/spacing/radius/shadow/font/container                                                | `wizeworks/packages/site-themes/src/v2/*`, `surface-compile/src/theme.ts`                      |
 | **Surface component library** — 100+ components on the five-axis recipe, `@apply` over the same theme                                                                                                                                                    | `wizeworks/packages/site-ui/*`                                                                 |
 | **Component builder** — reuses the page builder shell, panel-gated by surface; PropSpec/slots; **Save-as-component**; versioning; publish-time `custom:* → primitives` expansion                                                                         | `apps/dashboard/.../builder/_builder/*`, `wizeworks/packages/builder/.../component-service.ts` |
-| **Class-group control bridge** — `readClassGroup`/`setClassGroup`; inspector Style/Advanced panels already write class tokens                                                                                                                            | `_builder/class-controls.ts`, `@wizeworks/builder-schemas`                                     |
+| **Class-group control bridge** — `readClassGroup`/`setClassGroup`; inspector Style/Advanced panels already write class tokens                                                                                                                            | `_builder/class-controls.ts`, `@wizeworksllc/builder-schemas`                                  |
 
 **What is missing (this doc's scope):** the **expanded utility vocabulary** in the panel, the
 **breakpoint authoring model**, the **allowlist**, **motion**, **wiring the compiled stylesheet into
@@ -275,7 +275,7 @@ Phase 3 (§12.3) **folds into** this Motion control rather than running in paral
 ### 9.3 The `.st-reveal` contract — the one new runtime
 
 The render layer ships **one self-contained stylesheet block** (`SCROLL_MOTION_CSS`, beside
-`REDUCED_MOTION_CSS` in `@wizeworks/surface-compile`'s `motion.ts`) and **one client island**
+`REDUCED_MOTION_CSS` in `@wizeworksllc/surface-compile`'s `motion.ts`) and **one client island**
 (`MotionController`). That island is the _entire_ runtime this whole doc adds.
 
 - `SCROLL_MOTION_CSS` is **self-contained** — it defines its own `@keyframes` plus the per-token
@@ -408,7 +408,7 @@ unrelated). Decisions made during execution:
 - **Node shape** is `{ id, type, name?, class?, props, binding?, children? }`. `name?` was added as
   top-level metadata (sibling to `id`, for the Layers label) — a deliberate one-field addition to the
   §4 shape; it is not styling. `box`/`layout` and every box/layout enum + `DEFAULT_BOX`/`DEFAULT_LAYOUT`
-  are deleted from `@wizeworks/builder-schemas`.
+  are deleted from `@wizeworksllc/builder-schemas`.
 - **The box vocabulary survives only as a build-time DTO.** `wizeworks/packages/builder-schemas/src/box-to-class.ts`
   exports `BoxStyle`/`LayoutStyle` (ergonomic, all-optional authoring inputs) + `boxLayoutClass()`
   (single-element compile, used by `makeNode` + the registry drop-defaults) + `seedNode()` (the seed
@@ -437,15 +437,15 @@ unrelated). Decisions made during execution:
   3–4. `@sparx/site-ui` re-homed its own `Overlay`/`TextTone` types (they were importing the deleted box
   enums).
 - **MCP gap (closed 2026-06-07 — see §12.2):** the new `/builder` node-tree authoring had **no MCP tool**;
-  today's `write:builder` MCP tools drive the older section/theme sitebuilder (`@wizeworks/sitebuilder`). That
+  today's `write:builder` MCP tools drive the older section/theme sitebuilder (`@wizeworksllc/sitebuilder`). That
   gap is now closed by a dedicated Builder MCP tool bundle.
 
 ### 12.2 Build log — Builder MCP authoring tools (2026-06-07, gate-green, v1.2.0)
 
 The class-only node model is the real AI-legibility unlock — an agent now writes the same Tailwind a
 person does — so the Builder gets first-class MCP authoring. New module
-`wizeworks/packages/builder/src/mcp/` (mirrors `@wizeworks/crm`/`@wizeworks/sitebuilder`), exposed as **`builderMcpTools`**
-via a `@wizeworks/builder/mcp` **subpath** and registered in `wizeworks/services/api-mcp`'s `ALL_MCP_TOOLS`.
+`wizeworks/packages/builder/src/mcp/` (mirrors `@wizeworksllc/crm`/`@wizeworksllc/sitebuilder`), exposed as **`builderMcpTools`**
+via a `@wizeworksllc/builder/mcp` **subpath** and registered in `wizeworks/services/api-mcp`'s `ALL_MCP_TOOLS`.
 
 - **The teach-then-author surface.** Reads (`read:builder`): `describe_builder_styling` (the strategic
   one — returns `BUILDER_STYLE_GUIDE`: node model, node-type catalog, the tokenized Tailwind class
@@ -460,7 +460,7 @@ via a `@wizeworks/builder/mcp` **subpath** and registered in `wizeworks/services
 - **Property resolution.** MCP auth carries tenant+user but no site; `mcp/context.ts` `toPropertyContext`
   mirrors api-rest's `lib/property.ts` (explicit `propertyId` arg wins when it's the tenant's own, else
   the primary site) so MCP and REST scope a site identically.
-- **No Tailwind at MCP boot.** The `@wizeworks/builder/mcp` subpath imports `page-service` **directly**, never
+- **No Tailwind at MCP boot.** The `@wizeworksllc/builder/mcp` subpath imports `page-service` **directly**, never
   the services barrel — so `surface-css-service` (and its `@tailwindcss/node` compiler) is never evaluated
   in the api-mcp process. `surface-compile` is still installed (pnpm transitive dep; Dockerfile COPYs it +
   `wizeworks/packages/builder`) but inert at runtime.
@@ -507,7 +507,7 @@ the renderer already applies `node.class` verbatim). Decisions made during execu
 - **One new runtime + one self-contained sheet.** `SCROLL_MOTION_CSS` (own `@keyframes` + the
   `.st-reveal`/`.st-in`/stagger rules, generated programmatically) and `MotionController` (one shared
   `IntersectionObserver`, one-shot, reduced-motion early-return, route re-scan) ship from
-  `@wizeworks/surface-compile`'s `motion.ts` + `wizeworks/apps/site`. The sheet is self-contained so it never depends
+  `@wizeworksllc/surface-compile`'s `motion.ts` + `wizeworks/apps/site`. The sheet is self-contained so it never depends
   on the per-tenant compile emitting `--animate-*` (which tree-shakes on use).
 - **Delivery path.** Both `REDUCED_MOTION_CSS` (previously exported but **never wired** — now active) and
   `SCROLL_MOTION_CSS` are prepended in `surface-css-service` (`getPublishedStylesheet` /

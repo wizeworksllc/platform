@@ -51,11 +51,11 @@
 
 import type { FastifyPluginAsync, FastifyReply } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { CustomFieldEntity } from '@wizeworks/commerce-schemas';
-import { inventoryService, toCsv, type CsvTable } from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { CustomFieldEntity } from '@wizeworksllc/commerce-schemas';
+import { inventoryService, toCsv, type CsvTable } from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const IdPath = z.object({ id: z.string().uuid() });

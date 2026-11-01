@@ -5,12 +5,12 @@
 // NOT the legacy `b2b_invoices` table. These functions preserve the historical
 // "invoice" projection the dashboard + portal read (status vocabulary: unpaid |
 // partial | paid | overdue | void) while delegating the money authority to
-// @wizeworks/crm's b2bArService + billingPaymentService (recomputeTotals re-syncs
+// @wizeworksllc/crm's b2bArService + billingPaymentService (recomputeTotals re-syncs
 // credit_used on every mutation). Manual create emits `b2b.invoice.created`; the
 // caller publishes it once its transaction has committed.
 
 import { z } from 'zod';
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 import {
   b2bArService,
   billingPaymentService,
@@ -18,8 +18,8 @@ import {
   ISSUED_BILL_WHERE,
   OWED_DOCUMENT_WHERE,
   startOfBusinessDay,
-} from '@wizeworks/crm';
-import { notFound, badRequest } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/crm';
+import { notFound, badRequest } from '@wizeworksllc/api-core/errors';
 import type { B2bContext } from './context.js';
 import type { PendingEvent } from './events.js';
 import { invoiceLateness } from './invoice-lateness.js';

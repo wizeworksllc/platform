@@ -14,7 +14,7 @@
 // Excluded under CI (no database there) exactly like the finance suites.
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { createMember } from '../../src/members.js';
 import { createTimeEntry, approveTimeEntries } from '../../src/time.js';

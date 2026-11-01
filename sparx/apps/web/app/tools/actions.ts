@@ -13,7 +13,7 @@
 // and turning a failure into a sentence a person can act on.
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 const API_BASE = process.env.SPARX_API_REST_URL ?? 'http://localhost:3100';
 const PLATFORM_TENANT = process.env.SPARX_PLATFORM_TENANT_SLUG ?? 'wizeworks';
@@ -70,7 +70,7 @@ export async function sendToolResult(
     return { status: 'error', message: 'Fill in the tool first and we will send you the result.' };
   }
 
-  // The visitor's own client chain, verbatim (see @wizeworks/app-kit/forwarded-for).
+  // The visitor's own client chain, verbatim (see @wizeworksllc/app-kit/forwarded-for).
   const client = forwardedFor(await headers());
 
   try {

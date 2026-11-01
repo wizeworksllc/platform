@@ -46,7 +46,7 @@ screen, and a reminder written from it says the wrong thing.
 - `wizeworks/packages/b2b/src/invoices.ts`: every invoice read (list and one) maps
   through it, and the status filter is as of today: "overdue" is an owed bill past
   its due day; "unpaid" and "part paid" leave out those now late.
-- `@wizeworks/crm` exports `startOfBusinessDay` beside `daysPastDue`.
+- `@wizeworksllc/crm` exports `startOfBusinessDay` beside `daysPastDue`.
 - The bills test's fake CRM gained the two helpers. b2b 105 tests pass; lint clean.
 
 ## Confirmed by

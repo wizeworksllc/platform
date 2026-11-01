@@ -1,6 +1,6 @@
 // Inventory analytics reports (docs/100 P6b, docs/09 §8) — turnover / DIO, aging
 // + dead-stock, and reorder analysis, over the master model + ledger. Thin
-// wrappers over @wizeworks/inventory's analytics service (shared with the MCP supply
+// wrappers over @wizeworksllc/inventory's analytics service (shared with the MCP supply
 // tools). Each supports `?format=csv` for a spreadsheet export (the detail rows);
 // default is the JSON envelope. Inventory-module-gated + viewer-read, RLS-scoped.
 //
@@ -11,15 +11,15 @@
 
 import type { FastifyPluginAsync, FastifyReply } from 'fastify';
 import { z } from 'zod';
-import { inventoryService } from '@wizeworks/inventory';
+import { inventoryService } from '@wizeworksllc/inventory';
 import type {
   AgingReport,
   ReorderAnalysisReport,
   ShrinkageReport,
   TurnoverReport,
-} from '@wizeworks/inventory';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/inventory';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const DAY_MS = 24 * 60 * 60 * 1000;

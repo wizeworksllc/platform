@@ -7,9 +7,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { suppressionService } from '@wizeworks/email-platform';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { suppressionService } from '@wizeworksllc/email-platform';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireEmailModule, toEmailContext } from '../../../lib/email-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

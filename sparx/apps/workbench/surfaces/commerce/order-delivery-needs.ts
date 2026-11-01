@@ -3,7 +3,7 @@
 // from the quote onto the order in `metadata.delivery`, beside the PO number,
 // and `deliveryNeedsOf` is the one reader of that bag.
 
-import { deliveryNeedsOf } from '@wizeworks/crm-schemas';
+import { deliveryNeedsOf } from '@wizeworksllc/crm-schemas';
 
 /**
  * A calendar day (`YYYY-MM-DD`) as words. Built from its parts rather than

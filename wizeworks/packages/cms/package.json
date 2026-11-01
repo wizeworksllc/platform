@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/cms",
+  "name": "@wizeworksllc/cms",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx CMS service layer (docs/12) — content-type resolution + body validation, the entry serializer, and the shared revision/reference write path. Sibling of @wizeworks/cms-schemas (the field schemas); consumed by api-rest, api-graphql, and the CMS MCP tools.",
+  "description": "sparx CMS service layer (docs/12) — content-type resolution + body validation, the entry serializer, and the shared revision/reference write path. Sibling of @wizeworksllc/cms-schemas (the field schemas); consumed by api-rest, api-graphql, and the CMS MCP tools.",
   "type": "module",
   "exports": {
     ".": {
@@ -25,11 +25,11 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/api-core": "workspace:*",
-    "@wizeworks/cms-schemas": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/legal-templates": "workspace:*",
+    "@wizeworksllc/api-core": "workspace:*",
+    "@wizeworksllc/cms-schemas": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/legal-templates": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

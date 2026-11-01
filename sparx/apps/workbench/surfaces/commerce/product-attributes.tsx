@@ -36,7 +36,7 @@ import {
   Textarea,
 } from '@wizeworks/silicaui-react';
 import { Plus, Shapes, Trash2 } from 'lucide-react';
-import { ContentBlockEditor } from '@wizeworks/cms-editor/editor';
+import { ContentBlockEditor } from '@wizeworksllc/cms-editor/editor';
 import { FormSection } from '../../components/form-section';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
 import { MediaPickerProvider, AssetField, useMediaPicker } from '../cms/media-picker';

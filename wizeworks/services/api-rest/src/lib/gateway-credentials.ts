@@ -1,18 +1,18 @@
 // Bring-your-own gateway credential capture + read (docs/111 §2). The merchant pastes
 // API keys in the dashboard; we partition them into secret vs public per the catalog
-// descriptor, AES-256-GCM-encrypt the secret bundle (@wizeworks/channels/crypto — the same
+// descriptor, AES-256-GCM-encrypt the secret bundle (@wizeworksllc/channels/crypto — the same
 // box channel OAuth tokens use), and store ciphertext in `tenant_gateway_credentials`.
 // The injected GatewayCredentialReader (wired in payments-bootstrap) decrypts at
 // runtime for the adapters. Secrets are NEVER returned to the dashboard — the masked
 // view exposes only the public fields + a "secrets on file" flag.
 
-import { withTenant } from '@wizeworks/db';
-import { encryptChannelToken, decryptChannelToken } from '@wizeworks/channels/crypto';
+import { withTenant } from '@wizeworksllc/db';
+import { encryptChannelToken, decryptChannelToken } from '@wizeworksllc/channels/crypto';
 import {
   getGatewayDescriptor,
   type GatewayCredentialReader,
   type GatewayCredentials,
-} from '@wizeworks/payments';
+} from '@wizeworksllc/payments';
 
 export class GatewayCredentialError extends Error {
   constructor(message: string) {

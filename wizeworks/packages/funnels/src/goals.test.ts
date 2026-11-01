@@ -2,8 +2,8 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { evaluateConditions } from '@wizeworks/automation-schemas';
-import type { Prisma } from '@wizeworks/db';
+import { evaluateConditions } from '@wizeworksllc/automation-schemas';
+import type { Prisma } from '@wizeworksllc/db';
 import { evaluateFunnelGoal } from './index';
 import { FUNNEL_LIBRARY } from './library';
 

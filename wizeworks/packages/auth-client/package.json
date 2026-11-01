@@ -1,0 +1,75 @@
+{
+  "name": "@wizeworksllc/auth-client",
+  "version": "0.0.0",
+  "description": "What a frontend needs from staff auth, with no server and no database: the Better Auth browser client, the org role and module/property access vocabularies, the MCP scope list, the friendly-slug helpers and the shared user fields. @wizeworksllc/auth re-exports all of it.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "types": "./src/client.ts",
+      "default": "./src/client.ts"
+    },
+    "./org-roles": {
+      "types": "./src/org-roles.ts",
+      "default": "./src/org-roles.ts"
+    },
+    "./module-access": {
+      "types": "./src/module-access.ts",
+      "default": "./src/module-access.ts"
+    },
+    "./property-access": {
+      "types": "./src/property-access.ts",
+      "default": "./src/property-access.ts"
+    },
+    "./friendly-slug": {
+      "types": "./src/friendly-slug.ts",
+      "default": "./src/friendly-slug.ts"
+    },
+    "./mcp-scopes": {
+      "types": "./src/mcp-scopes.ts",
+      "default": "./src/mcp-scopes.ts"
+    },
+    "./user-fields": {
+      "types": "./src/user-fields.ts",
+      "default": "./src/user-fields.ts"
+    }
+  },
+  "files": [
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/auth-client"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --maxWorkers=1 --passWithNoTests",
+    "clean": "rm -rf .turbo dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@better-auth/passkey": "1.7.14",
+    "@wizeworksllc/attribution": "workspace:*",
+    "@wizeworksllc/module-roster": "workspace:*",
+    "better-auth": "~1.7.14"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.12"
+  }
+}

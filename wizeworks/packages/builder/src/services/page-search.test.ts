@@ -14,7 +14,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 let rows: { id: string; name: string }[] = [];
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(
       fn({
@@ -33,7 +33,7 @@ vi.mock('@wizeworks/db', () => ({
 vi.mock('../audit', () => ({ writeAuditLog: () => Promise.resolve() }));
 
 const signalled: { entityType: string; recordId: string }[] = [];
-vi.mock('@wizeworks/events', () => ({
+vi.mock('@wizeworksllc/events', () => ({
   indexEntity: (input: { entityType: string; recordId: string }) => {
     signalled.push({ entityType: input.entityType, recordId: input.recordId });
     return Promise.resolve();

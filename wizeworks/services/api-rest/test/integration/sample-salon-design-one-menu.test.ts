@@ -22,7 +22,7 @@ import {
   resolveSamplePack,
   sampleDataStatus,
   withTenant,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 import { installBlueprint } from '../../src/lib/blueprint-installer.js';

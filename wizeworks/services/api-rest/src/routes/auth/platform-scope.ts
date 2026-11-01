@@ -9,9 +9,9 @@
 
 import type { FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { registeredAuthBrands, resolveSession, type SparxSession } from '@wizeworks/auth';
-import { normalizeBrandKey } from '@wizeworks/brand-core';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
+import { registeredAuthBrands, resolveSession, type SparxSession } from '@wizeworksllc/auth';
+import { normalizeBrandKey } from '@wizeworksllc/brand-core';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
 
 /** Never forwarded either way: they describe one connection, not the message. */
 export const HOP_BY_HOP = new Set([
@@ -33,7 +33,7 @@ export function requestHeaders(request: FastifyRequest): Headers {
   return headers;
 }
 
-/** Set by the apps' `/api/auth` proxy (ORIGINAL_FETCH_MODE in @wizeworks/auth-client-server). */
+/** Set by the apps' `/api/auth` proxy (ORIGINAL_FETCH_MODE in @wizeworksllc/auth-client-server). */
 const ORIGINAL_FETCH_MODE = 'x-original-sec-fetch-mode';
 
 /**

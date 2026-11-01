@@ -92,7 +92,7 @@ Out of scope for a persona run, and the reason is architectural rather than
 sizing: it changes what the worker fleet is made of, and one of its decisions is
 irreversible.
 
-1. **Make it a handler package, not a service.** `@wizeworks/cache-revalidation-worker`
+1. **Make it a handler package, not a service.** `@wizeworksllc/cache-revalidation-worker`
    exporting `createSubscription(logger)`, registered in `event-worker/src/index.ts`
    beside the other fourteen. That is the documented pattern and it adds **no pod
    and no cost** — the alternative, a fifteenth Deployment, is a spend decision.
@@ -116,7 +116,7 @@ omits `builder.*` (the code has it), and its deploy steps point at
 All five steps in "What it would take" landed in `c5eca5886`, from another
 session, and this file was never told:
 
-1. `@wizeworks/cache-revalidation-worker` is a handler package now, under
+1. `@wizeworksllc/cache-revalidation-worker` is a handler package now, under
    `wizeworks/packages/`, exporting `createSubscription`, registered in
    `event-worker/src/index.ts` beside the others. No new pod.
 2. Its JetStream durable is `cache-revalidation-worker`, fixed with a comment

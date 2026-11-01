@@ -14,7 +14,7 @@
 // on the end of it (issue #090). Connecting a domain you ALREADY own is the whole
 // of this surface, and a customer buys hers wherever she likes.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 

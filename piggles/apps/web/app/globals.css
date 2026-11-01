@@ -11,7 +11,7 @@
  * package pulls it in. Do not add a sparx stylesheet here.
  *
  * There is deliberately NO second token system. sparx/apps/web (sparx) still loads
- * @wizeworks/ui/tokens.css alongside brand during its silicaui migration; Piggles
+ * @wizeworksllc/ui/tokens.css alongside brand during its silicaui migration; Piggles
  * starts after that migration, so brand is the sole token authority from day
  * one and there is nothing to coexist with. */
 @import '@piggles/brand/layers.css';

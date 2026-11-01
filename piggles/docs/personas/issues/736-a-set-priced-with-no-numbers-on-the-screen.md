@@ -91,7 +91,7 @@ rest on the doorstep, one line below where the price had just been rendered.
 Now: each part shows its price (`3 × $58.00 = $174.00` when there is more than
 one), the list is followed by **"2 parts add up to $186.00."**, and the pricing
 card ends with what a shopper pays. The arithmetic is `bundlePartsTotalCents` +
-`bundleSetPriceCents` in `@wizeworks/commerce-schemas` — the SAME two functions
+`bundleSetPriceCents` in `@wizeworksllc/commerce-schemas` — the SAME two functions
 the pricing pipeline charges with, so the figure she reads while setting it up
 and the figure the till takes cannot drift.
 
@@ -111,7 +111,7 @@ values instead. The fix reached the picker and not the list the picker fills.
 [[feedback_a_fix_leaves_its_neighbour_behind]]
 
 The option sort now lives in ONE function, `variantOptions` in
-`@wizeworks/commerce`, used by the variant catalog AND by `getBundle`. A rule
+`@wizeworksllc/commerce`, used by the variant catalog AND by `getBundle`. A rule
 applied to one of N places is this repository's most common defect shape, and a
 shared function is the only version of it that cannot drift.
 

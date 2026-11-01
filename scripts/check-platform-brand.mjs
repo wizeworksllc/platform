@@ -17,7 +17,7 @@
  *                                  whose every other word says Piggles.
  *   3. Their inbox              -- "You earned a commission on sparx".
  *
- * `@wizeworks/brand-core` already solves this: `platformBrandIdentity(brand).name`
+ * `@wizeworksllc/brand-core` already solves this: `platformBrandIdentity(brand).name`
  * returns the product's name as a person reads it, configured rather than
  * computed, because sparx is deliberately lowercase and Piggles deliberately
  * capitalised. The strings this check finds simply bypass it.
@@ -55,7 +55,7 @@
  * copying for the rest:
  *
  *   · The data carries a `{platform}` token (`PLATFORM_TOKEN` in
- *     @wizeworks/brand-core) instead of a name.
+ *     @wizeworksllc/brand-core) instead of a name.
  *   · `gatewayCatalog(brand)` and `getGatewayDescriptor(id, brand)` resolve it.
  *   · THE RAW ARRAY IS NOT EXPORTED. That is what closes the trap this header
  *     warned about — a caller cannot forget to resolve, because there is no
@@ -130,6 +130,7 @@ const ALLOWED_PATTERNS = [
   'x-sparx',
   '@sparx/',
   '@wizeworks/',
+  '@wizeworksllc/',
   'sparx.works',
   'sparx.email',
   'sparx.>',

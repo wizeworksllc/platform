@@ -24,14 +24,14 @@
 // takes the property. That asymmetry is the whole point of the tier.
 //
 // Bodies are validated by the service-layer Zod schemas, so api-rest keeps no
-// @wizeworks/builder-schemas dependency.
+// @wizeworksllc/builder-schemas dependency.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { themeService, themeVersionService } from '@wizeworks/builder';
-import { SPARX_THEME_GROUPS } from '@wizeworks/silica-catalog';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { themeService, themeVersionService } from '@wizeworksllc/builder';
+import { SPARX_THEME_GROUPS } from '@wizeworksllc/silica-catalog';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireBuilderModule,
   toBuilderContext,

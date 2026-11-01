@@ -1,6 +1,6 @@
 // Appearance for the workbench — light, dark, or whatever the machine is set to.
 //
-// Deliberately NOT imported from @wizeworks/ui: the workbench is a ground-up app
+// Deliberately NOT imported from @wizeworksllc/ui: the workbench is a ground-up app
 // and its appearance has one requirement the old dashboard's did not — it must
 // stay in sync across DETACHED WINDOWS. A popout is a separate `document`, so
 // changing the appearance in the main window has to reach every open one. The

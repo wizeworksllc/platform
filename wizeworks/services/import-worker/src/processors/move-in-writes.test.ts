@@ -5,7 +5,7 @@ import {
   mapManually,
   validateRows,
   type CanonicalEntity,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 
 import type { ProcessorOptions } from './types';
 
@@ -23,7 +23,7 @@ const state = vi.hoisted(() => ({
   calls: [] as { name: string; args: unknown[] }[],
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx: Record<string, unknown> = new Proxy(
     {},
     {
@@ -70,16 +70,16 @@ const recorder = vi.hoisted(
       )
 );
 
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   productService: recorder('productService'),
   variantService: recorder('variantService', { setOptions: () => [] }),
   categoryService: recorder('categoryService'),
   collectionService: recorder('collectionService'),
 }));
 
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: recorder('inventoryService') }));
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: recorder('inventoryService') }));
 
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   customerService: recorder('customerService', {
     create: () => ({ id: 'customer-new' }),
     listAddresses: () => [],
@@ -92,7 +92,7 @@ vi.mock('@wizeworks/crm', () => ({
   checkCustomerInput: () => null,
 }));
 
-vi.mock('@wizeworks/cms', () => ({
+vi.mock('@wizeworksllc/cms', () => ({
   listContentTypes: () => Promise.resolve([{ key: 'article', url_pattern: '/journal/{slug}' }]),
   createContentType: () => Promise.resolve({ contentType: { key: 'post', url_pattern: null } }),
   createEntry: (...args: unknown[]) => {

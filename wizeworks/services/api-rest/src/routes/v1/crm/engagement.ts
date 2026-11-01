@@ -23,10 +23,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { engagementService, mailboxService, salesTemplateService } from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { engagementService, mailboxService, salesTemplateService } from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { connectMailbox, syncMailbox } from '../../../lib/crm-mailbox-sync.js';
@@ -36,7 +36,7 @@ const IdPath = z.object({ id: z.string().uuid() });
 /**
  * What connecting a mailbox needs.
  *
- * The full validation lives in `ConnectMailboxInput` (@wizeworks/crm-schemas) and
+ * The full validation lives in `ConnectMailboxInput` (@wizeworksllc/crm-schemas) and
  * runs inside the service; this is the shape the ROUTE needs before it can
  * attempt a login, which happens before anything is stored.
  */

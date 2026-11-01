@@ -3,7 +3,7 @@
 process.env.NODE_ENV = 'test';
 process.env.LOG_LEVEL ??= 'silent';
 
-// The @wizeworks/db client picks DATABASE_URL up from the surrounding shell. If
+// The @wizeworksllc/db client picks DATABASE_URL up from the surrounding shell. If
 // vitest is invoked from the package root (`pnpm test`), the cwd inherits the
 // repo .env via tsx/dotenv resolution upstream; if not, the docker-compose
 // default works as a fallback.

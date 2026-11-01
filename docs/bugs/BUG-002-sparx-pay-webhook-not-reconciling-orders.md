@@ -127,7 +127,7 @@ works. The defects are the timing race + the event-id gate.
 
 ## What was built (2026-07-24) — all three parts landed
 
-All three parts are implemented in the working tree; `@wizeworks/commerce` + `@wizeworks/api-rest`
+All three parts are implemented in the working tree; `@wizeworksllc/commerce` + `@wizeworks/api-rest`
 typecheck and lint clean. Summary of what shipped, then the original design notes.
 
 - **Part A — real-time capture at checkout-complete (closes the race for the common case).**

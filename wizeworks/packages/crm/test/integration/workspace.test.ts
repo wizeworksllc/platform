@@ -21,7 +21,7 @@ import crypto from 'node:crypto';
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import {
   companyService,
   crmSettingsService,

@@ -18,7 +18,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import {
   Alert,
   Button,
@@ -51,7 +51,7 @@ import type { LineTypeOption } from './line-editor-modal';
 import type { MarkupRuleSummary } from './line-markup';
 import { documentNoun, isPriceOffer, newDocumentTitle } from './document-words';
 import { normalizeDocument, type BillingDocument } from './types';
-import { poNumberOf } from '@wizeworks/crm-schemas';
+import { poNumberOf } from '@wizeworksllc/crm-schemas';
 import { useModuleStates } from '../../lib/api/shell-data';
 import { useCustomerOnRecord } from './customer-picker-data';
 import { useAccountName } from './bill-to-party';

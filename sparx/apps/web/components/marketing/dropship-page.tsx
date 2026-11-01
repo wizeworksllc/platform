@@ -24,7 +24,7 @@ import { Faq, type FaqItem } from './faq';
  * each file stays cohesive.
  *
  * Facts grounded in docs/14 (Dropship PRD) + docs/17 (billing) + the real
- * @wizeworks/dropship package and dashboard surfaces. The selectable vendors are
+ * @wizeworksllc/dropship package and dashboard surfaces. The selectable vendors are
  * Printify, Printful, DSers, Spocket, and a CSV feed (the only self-serve APIs;
  * the rest are honestly omitted). Pricing rules are percentage markup,
  * multiplier, flat markup, and target margin. Routed-order status is
@@ -65,7 +65,7 @@ const M = getModuleColor('dropship');
 const C = getModuleColor('commerce');
 
 // Page-specific FAQ. Real evaluation questions for sparx Dropship, answered
-// straight and grounded in docs/14 (PRD) + docs/17 (billing) + @wizeworks/dropship —
+// straight and grounded in docs/14 (PRD) + docs/17 (billing) + @wizeworksllc/dropship —
 // no tier/plan language. Feeds the FAQPage JSON-LD via <Faq>, so accuracy is
 // load-bearing.
 const DROPSHIP_FAQ: FaqItem[] = [

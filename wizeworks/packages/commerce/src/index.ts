@@ -1,4 +1,4 @@
-// @wizeworks/commerce — public package barrel.
+// @wizeworksllc/commerce — public package barrel.
 //
 // Re-exports the service layer plus the shared types REST/GraphQL/MCP/
 // Server Actions consume. Per locked decision #7 (mirrored from CRM:

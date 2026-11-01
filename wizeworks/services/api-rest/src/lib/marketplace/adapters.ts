@@ -12,8 +12,8 @@
 // the public list; detail-by-slug allows unlisted-published (a shared install
 // link).
 
-import type { TxClient } from '@wizeworks/db';
-import { readSilicaComponentTree } from '@wizeworks/marketplace-schemas';
+import type { TxClient } from '@wizeworksllc/db';
+import { readSilicaComponentTree } from '@wizeworksllc/marketplace-schemas';
 import type {
   BlueprintContents,
   ComponentFacets,
@@ -26,7 +26,7 @@ import type {
   PricingModel,
   PublisherType,
   ThemeFacets,
-} from '@wizeworks/marketplace-schemas';
+} from '@wizeworksllc/marketplace-schemas';
 
 // A facet dimension: its query/bucket key + the values a listing contributes.
 export interface FacetDef {
@@ -181,7 +181,7 @@ interface ThemeRow extends SpineRow {
   tokens: unknown;
 }
 
-/** The stored silica payload shape (mirrors @wizeworks/marketplace-schemas SilicaThemePayload),
+/** The stored silica payload shape (mirrors @wizeworksllc/marketplace-schemas SilicaThemePayload),
  *  narrowed defensively — a legacy/hand-edited row may hold anything or NULL. */
 function themePreview(raw: unknown): Pick<ThemeFacets, 'tokens' | 'dark' | 'fonts'> {
   if (!raw || typeof raw !== 'object') return { tokens: null, dark: null, fonts: null };

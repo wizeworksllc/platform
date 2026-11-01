@@ -1,4 +1,4 @@
-// @wizeworks/platform-crm — sparx's own customer base, kept in sparx (docs/140).
+// @wizeworksllc/platform-crm — sparx's own customer base, kept in sparx (docs/140).
 //
 // Every tenant that signs up becomes a contact + a deal in the PLATFORM tenant's
 // CRM (WizeWorks, the dogfood tenant-of-record of docs/80 §2), and the deal

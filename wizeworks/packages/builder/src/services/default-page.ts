@@ -7,7 +7,7 @@
 // yet" over a journal's untouched "Each author", which the site was already showing
 // (persona issue 947).
 
-import { RECORD_TEMPLATES, recordAddressFor } from '@wizeworks/silica-catalog';
+import { RECORD_TEMPLATES, recordAddressFor } from '@wizeworksllc/silica-catalog';
 import { stripIds, type Node } from '@wizeworks/silicaui-html';
 
 import { canonicalJson } from './artifact-service';

@@ -13,14 +13,14 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { broadcastService } from '@wizeworks/email-platform';
-import { emailService } from '@wizeworks/builder';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { broadcastService } from '@wizeworksllc/email-platform';
+import { emailService } from '@wizeworksllc/builder';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 // Universal search (docs/39): a campaign is an `email_broadcast` entity. Its NAME,
 // its subject and its status are all things an owner searches for, so every write
 // that moves one re-indexes. `indexEntity` never throws into the handler.
-import { indexEntity } from '@wizeworks/events';
+import { indexEntity } from '@wizeworksllc/events';
 import { requireEmailModule, toEmailContext } from '../../../lib/email-context.js';
 import { requireVerifiedEmail } from '../../../lib/verified-email-guard.js';
 import { silicaEmailDataResolver } from '../../../lib/email-data.js';

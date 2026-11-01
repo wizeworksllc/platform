@@ -18,11 +18,11 @@
 >
 > **1.5 (2026-05-31):** Two consistency gaps closed. **(1) Create surface follows the detail-view preference** (§13.1) — "New X" no longer varies per page (some inline forms, some `/new` routes, some buttons). A new `EntityCreateButton` resolves the user's `defaultDetailView` to the same surface used for _viewing_ a record: drawer/modal open the create form in the `@detail` overlay (token `?drawer=type:new`), `fullPage`/`newTab` route to `/{resource}/new`. Reuses the entire detail substrate — same chrome, same registry — so creating and viewing a record share one experience. **(2) Toolbar visibility no longer depends on data** (§8) — a list either always shows its `ListToolbar` (when it has any control) or never does; the empty/zero-record state never toggles the toolbar off. Piloted on `commerce/collections`.
 >
-> **1.4 (2026-05-31):** Review feedback after the toolbar pilot. **Collection/List pages move to Full width** (§3) — a data table is a work surface that should use the viewport, not a reading column; **overviews and detail pages stay bound** (their KPI/section/panel grids would sprawl). Shipped the `ListToolbar` (`@wizeworks/ui`) + dashboard URL-sync wrapper — live quick-filters/search/sort, no Apply, rolled across all module list pages (§7.1). Card/grid views use the new `Grid minItemWidth` auto-fill so cards stay a tidy width on full-bleed pages instead of stretching. Search is shown only where the list's endpoint supports text search (`q`); filter-only lists hide it.
+> **1.4 (2026-05-31):** Review feedback after the toolbar pilot. **Collection/List pages move to Full width** (§3) — a data table is a work surface that should use the viewport, not a reading column; **overviews and detail pages stay bound** (their KPI/section/panel grids would sprawl). Shipped the `ListToolbar` (`@wizeworksllc/ui`) + dashboard URL-sync wrapper — live quick-filters/search/sort, no Apply, rolled across all module list pages (§7.1). Card/grid views use the new `Grid minItemWidth` auto-fill so cards stay a tidy width on full-bleed pages instead of stretching. Search is shown only where the list's endpoint supports text search (`q`); filter-only lists hide it.
 >
 > **1.3 (2026-05-31):** Post-rollout review feedback. Content width gains a third tier — **Full** (§3) for canvas/builder workspaces (Site Builder editor, the pipeline Kanban board) where the work surface itself wants the whole viewport. The drawer/modal detail view now adopts the record's **module color** (the `@detail` slot wraps content in the owning `ModuleProvider` — previously it inherited the `:root` indigo). Commerce primary CTAs corrected to `color="module"`. Next: the list **filter/search toolbar** redesign (§7) and a `defaultListView` (table/cards) preference mirroring `defaultDetailView`.
 >
-> **1.2 (2026-05-31):** Rollout landed (§17). `PageHeader` / `FilterBar` / `FormActionBar` built; in-content section tabs (cms/crm/email) and the in-content "← Back to X" links removed platform-wide (the breadcrumb owns up-nav). **Trend charts** added to @wizeworks/ui (`LineChart`/`BarChart`/`AreaChart`/`Sparkline`, token + `--color-module` themed, `--chart-1..6` palette) and onto the overviews (sample-labeled until reporting timeseries exists). **Landings converted to overview dashboards** — CRM list → `/crm/customers`, CMS Pages list → `/cms/pages`, each with a new `/{module}` overview; Email/Commerce already overview-shaped.
+> **1.2 (2026-05-31):** Rollout landed (§17). `PageHeader` / `FilterBar` / `FormActionBar` built; in-content section tabs (cms/crm/email) and the in-content "← Back to X" links removed platform-wide (the breadcrumb owns up-nav). **Trend charts** added to @wizeworksllc/ui (`LineChart`/`BarChart`/`AreaChart`/`Sparkline`, token + `--color-module` themed, `--chart-1..6` palette) and onto the overviews (sample-labeled until reporting timeseries exists). **Landings converted to overview dashboards** — CRM list → `/crm/customers`, CMS Pages list → `/cms/pages`, each with a new `/{module}` overview; Email/Commerce already overview-shaped.
 >
 > **1.1 (2026-05-31):** Locked intra-module navigation as a **rail + contextual sidebar** (§11) — module sections move out of in-content tab strips and card-grid-as-nav into the shell's contextual panel; in-content tabs are now reserved for record facets only. Shell-side detail in [doc 24](24-dashboard-shell.md) §5.
 
@@ -32,7 +32,7 @@
 
 The [Dashboard Shell](24-dashboard-shell.md) defines the **chrome** — the sidebar, the header breadcrumb, the `…` menu, the theme toggle. This document defines the **working area**: everything rendered inside `<main>`, below the breadcrumb/control bar, where the actual module work happens.
 
-Today that working area is improvised per page. A live audit of 19 representative pages (every module × every archetype, 2026-05-31) found four different module-landing layouts, four list-rendering styles, three empty-state treatments, three page-header anatomies, two back-link placements, and Commerce primary buttons rendering in the wrong color. This standard collapses those into one set of archetypes built from the primitives that already exist in `@wizeworks/ui`.
+Today that working area is improvised per page. A live audit of 19 representative pages (every module × every archetype, 2026-05-31) found four different module-landing layouts, four list-rendering styles, three empty-state treatments, three page-header anatomies, two back-link placements, and Commerce primary buttons rendering in the wrong color. This standard collapses those into one set of archetypes built from the primitives that already exist in `@wizeworksllc/ui`.
 
 **In scope:** page header, content width, list/table rendering, empty states, stat cards, section/nav-card grids, in-content tabs, forms and their save affordance, module-overview composition, the module-preview ("coming online") template, and the placement of primary/secondary actions.
 
@@ -43,7 +43,7 @@ Today that working area is improvised per page. A live audit of 19 representativ
 ## 2. Core Principles
 
 1. **Archetype, not improvisation.** Every working-area page is exactly one of six archetypes (§4). The archetype dictates the layout; pages do not invent their own.
-2. **Compose primitives, never restyle them.** The building blocks live in `@wizeworks/ui` (`Container`, `Card`, `Stat`, `DataTable`, `EmptyState`, `Tabs`, `Grid`, `Stack`, `Form`). Feature code arranges them; it never reaches for raw Tailwind or one-off colors. (Per [doc 23](23-frontend-component-architecture.md) §1.)
+2. **Compose primitives, never restyle them.** The building blocks live in `@wizeworksllc/ui` (`Container`, `Card`, `Stat`, `DataTable`, `EmptyState`, `Tabs`, `Grid`, `Stack`, `Form`). Feature code arranges them; it never reaches for raw Tailwind or one-off colors. (Per [doc 23](23-frontend-component-architecture.md) §1.)
 3. **The module color is automatic — let it be.** Every surface is wrapped in `<ModuleProvider>`, which sets `--color-module`. Primary actions (`color="module"`), card tints (`bg-module bg-soft`), tab underlines, and stat icons all read that variable. A page should never hardcode indigo (or any hue) — if it looks indigo on a Commerce page, the primary action is missing `color="module"`. This holds in the drawer/modal too: the `@detail` slot renders outside the module layout, so it wraps content in the record's owning `ModuleProvider` (keyed by entity type) — never assume the route's layout supplies the color.
 4. **One primary action per header, top-right.** Actions live in the page header, right-aligned. Never below the header, never duplicated into the body, never a second competing primary.
 5. **The breadcrumb is the back button.** The shell breadcrumb already provides up-navigation. The working area carries no in-content "← Back to X" link.
@@ -83,7 +83,7 @@ Everything below specifies the shared pieces these archetypes are built from.
 
 ---
 
-## 5. Page Header — `PageHeader` (built, `@wizeworks/ui`)
+## 5. Page Header — `PageHeader` (built, `@wizeworksllc/ui`)
 
 There is no shared `PageHeader` today; every page hand-rolls `Stack + Heading + Text`, which is why the anatomy drifts. Build one component and route every archetype (1, 2, 3, 5, 6) through it.
 
@@ -127,9 +127,9 @@ A **complex tabbed record** (a product, and in time customer / B2B) also carries
 - **Mobile cards:** title + key metadata + status badge per card; tapping the card navigates. This is the _only_ sanctioned card-list — it is the responsive form of the table, not a separate design choice.
 - **Browse/library views** (e.g. CMS Media) are the documented exception: a thumbnail grid is appropriate where the content _is_ visual. Everything record-shaped uses the table.
 
-### 7.1 ListToolbar (to build, `@wizeworks/ui`)
+### 7.1 ListToolbar (to build, `@wizeworksllc/ui`)
 
-The audit found three filter styles (labeled inputs + an "Apply" button on products; pill toggles + search + sort on customers; a lone dropdown on pages), all hand-rolled inside a `Card` + `<form>`. The 2026-05-31 review judged the whole surface "sloppy." Replace it with one toolbar component above the list — a proper `@wizeworks/ui` primitive (`ListToolbar`), **not** a re-style of the per-page form. `FilterBar` (the earlier layout-only container) is superseded by it.
+The audit found three filter styles (labeled inputs + an "Apply" button on products; pill toggles + search + sort on customers; a lone dropdown on pages), all hand-rolled inside a `Card` + `<form>`. The 2026-05-31 review judged the whole surface "sloppy." Replace it with one toolbar component above the list — a proper `@wizeworksllc/ui` primitive (`ListToolbar`), **not** a re-style of the per-page form. `FilterBar` (the earlier layout-only container) is superseded by it.
 
 Anatomy (left → right), wrapping responsively:
 
@@ -153,7 +153,7 @@ Mirror `defaultDetailView` exactly ([doc 24](24-dashboard-shell.md) §4.6): a si
 
 ---
 
-## 8. Empty States — `EmptyState` (exists, `@wizeworks/ui`)
+## 8. Empty States — `EmptyState` (exists, `@wizeworksllc/ui`)
 
 The audit found three treatments (an inline icon-left card on Home; a bare gray box with no CTA on Orders; a module-card-wrapping-a-gray-box with a _duplicated_ CTA on Discounts and Media). Use the single `EmptyState` component (`sparx/packages/ui/src/components/data/empty-state.tsx`) everywhere:
 
@@ -166,7 +166,7 @@ The audit found three treatments (an inline icon-left card on Home; a bare gray 
 
 ---
 
-## 9. Stat Cards — `Stat` + `Grid` (exists, `@wizeworks/ui`)
+## 9. Stat Cards — `Stat` + `Grid` (exists, `@wizeworksllc/ui`)
 
 Three KPI surfaces today (4 bordered cards on Home; 4 gray cards 2×2 on Commerce; 6 inline metrics in one card on Email). Standardize on the `Stat` component (`sparx/packages/ui/src/components/data/stat.tsx`: label + value + optional delta + module-tinted icon) laid out in a `Grid`:
 
@@ -325,7 +325,7 @@ The three layout primitives (built 2026-05-31 — pure layout containers; action
 
 ## 17. Rollout
 
-1. **Build the three new primitives** (`PageHeader`, `FilterBar`, `FormActionBar`) in `@wizeworks/ui` with the specs above. Ship behind nothing — they're additive.
+1. **Build the three new primitives** (`PageHeader`, `FilterBar`, `FormActionBar`) in `@wizeworksllc/ui` with the specs above. Ship behind nothing — they're additive.
 2. **Sweep by archetype, not by module** — fix all Forms, then all Lists, then all Overviews. Same-archetype pages share the same diff, so batching by archetype is faster and keeps the standard honest.
 3. **Quick wins first:** the Commerce `color="module"` button fixes (§6) and the back-link deletions (§5/§13) are one-line changes with immediate visible payoff — do them in the first pass.
 4. Each archetype's compliance is verifiable live with the same Playwright capture used for the audit; re-shoot the working area and diff against this doc.

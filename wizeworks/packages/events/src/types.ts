@@ -81,7 +81,7 @@ export type EventType =
   | 'builder.rolled_back'
   // One document went live from its own pane rather than the whole site: the
   // header and footer, a single page, a different layout made the live one, or a
-  // look the site already wears. `@wizeworks/builder` publishes these itself
+  // look the site already wears. `@wizeworksllc/builder` publishes these itself
   // after the write commits (`BuilderTopic` in its events.ts, which must stay a
   // subset of this union), and api-rest bridges them onto the bus. Each changes
   // what visitors are served, so the purge worker subscribes to all four. It
@@ -596,7 +596,7 @@ export interface SparxEvent<T = unknown> {
 
 /**
  * Payload for `email.send`. Template-based — the worker resolves the
- * template id against @wizeworks/email's registry and renders before relay.
+ * template id against @wizeworksllc/email's registry and renders before relay.
  *
  * `to` MUST be the recipient's verified address; the worker does no
  * enrichment lookup. For "send to userId" semantics, resolve at the
@@ -606,7 +606,7 @@ export interface EmailSendPayload {
   to: string;
   cc?: string;
   bcc?: string;
-  /** Must match a registered template id in @wizeworks/email's TemplateSend. Tenant→
+  /** Must match a registered template id in @wizeworksllc/email's TemplateSend. Tenant→
    *  customer emails (order/shipping/appointment) are Builder-authored and rendered
    *  by key (docs/93), so they are NOT template ids here. */
   template:
@@ -654,7 +654,7 @@ export interface EmailSendPayload {
     | 'social-post-failed'
     | 'social-connection-expired'
     | 'inventory-report';
-  /** Shape is enforced by @wizeworks/email's TemplateSend.props on render. */
+  /** Shape is enforced by @wizeworksllc/email's TemplateSend.props on render. */
   props: Record<string, unknown>;
   /** Optional From override; defaults to SPARX_EMAIL_FROM env in worker. */
   from?: string;

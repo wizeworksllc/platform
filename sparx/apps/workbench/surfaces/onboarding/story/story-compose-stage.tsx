@@ -2,7 +2,7 @@
 
 import { type ReactNode } from 'react';
 import { Button, Heading, Text } from '@wizeworks/silicaui-react';
-import type { StoryExample } from '@wizeworks/story-schemas';
+import type { StoryExample } from '@wizeworksllc/story-schemas';
 import type { StoryState } from '../../../lib/onboarding/story-state';
 import { StoryCanvas, type StoryDispatch } from './story-canvas';
 

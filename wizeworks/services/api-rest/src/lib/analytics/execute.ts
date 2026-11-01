@@ -14,7 +14,7 @@
 // The caller (the route) enforces the hard cap on metrics-per-request and
 // resolves the site; this function assumes both are done.
 
-import { isModuleEnabled, type ModuleSlug } from '@wizeworks/auth';
+import { isModuleEnabled, type ModuleSlug } from '@wizeworksllc/auth';
 
 import { cacheGet, cacheSet, metricCacheKey } from './cache.js';
 import { ensureMetricsRegistered } from './metrics/index.js';

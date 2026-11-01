@@ -7,7 +7,7 @@ import type { AppChapter } from '../types';
 //
 // VERIFIED 2026-09-30 against piggles/apps/workbench/surfaces/inventory (the
 // purchase order, sign-off, dispatch note, bill, return, consignment, scorecard
-// and stock source panes), surfaces/dropship, and @wizeworks/dropship's vendor
+// and stock source panes), surfaces/dropship, and @wizeworksllc/dropship's vendor
 // catalog and pricing rule.
 //
 // DELIBERATELY ABSENT:
@@ -160,7 +160,7 @@ export const PARTNERS_CHAPTERS: AppChapter[] = [
         body: 'It is one catalog and one order list. A customer buying something you hold and something a supplier ships is placing one order, not two.',
       },
     ],
-    // All four have live adapters in @wizeworks/dropship's VENDOR_CATALOG, which
+    // All four have live adapters in @wizeworksllc/dropship's VENDOR_CATALOG, which
     // lists only self-serve integrations, and nothing in Piggles hides them. The
     // spreadsheet feed is described above rather than named here.
     connects: ['Printify', 'Printful', 'DSers', 'Spocket'],

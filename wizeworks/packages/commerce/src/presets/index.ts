@@ -6,7 +6,7 @@
 // shippingService, categoryService, …) so a config pack stamped via the
 // à-la-carte picker, via an industry starter, or via the demo seed is identical.
 
-import type { ModulePreset } from '@wizeworks/auth';
+import type { ModulePreset } from '@wizeworksllc/auth';
 
 import { categoryPresets } from './categories';
 import { collectionPresets } from './collections';

@@ -3,17 +3,17 @@
 // array of generalized fitment selections), per-account product overrides, and the
 // fleet-filtered compatible-products read. Extracted from the api-rest routes.
 //
-// Boundary with CRM: @wizeworks/crm's companyService owns the account RECORD
+// Boundary with CRM: @wizeworksllc/crm's companyService owns the account RECORD
 // (companyName, taxId, assigned rep). Both write the validated `pricingTierId`
 // FK; the legacy free-text `pricing_tier` column is read and written by nothing.
 // These functions own the B2B MODULE's enrichments and the override / fleet tables.
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { conflict, notFound, validationError } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { conflict, notFound, validationError } from '@wizeworksllc/api-core/errors';
 // A trade account IS the CRM's company row, so its tenant-declared properties go
 // through the CRM's single write path rather than a second one here (docs/144
-// §3). `@wizeworks/b2b` already depends on `@wizeworks/crm`, and crm does not depend
+// §3). `@wizeworksllc/b2b` already depends on `@wizeworksllc/crm`, and crm does not depend
 // back, so this adds no cycle.
 import {
   PaymentTerms,
@@ -23,7 +23,7 @@ import {
   resolvePropertyBag,
   taskService,
   toJsonInput,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 import type { B2bContext } from './context.js';
 // The fleet lives in its own file; these names stay reachable as
 // `accountService.*` for the routes and MCP tools that already use them (sparx

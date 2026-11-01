@@ -4,7 +4,7 @@
 // Both api-rest (connect/callback + compose) and social-worker (publish) call the
 // built-in-adapter registration once at boot; adding a platform is one adapter file +
 // one registration line, with no change to the worker dispatch core. Mirrors
-// @wizeworks/channels' registry. Pure (a Map + accessors) — no adapter is imported here,
+// @wizeworksllc/channels' registry. Pure (a Map + accessors) — no adapter is imported here,
 // so this module stays client-safe; the adapters (which pull network + crypto) are
 // registered from the server side.
 

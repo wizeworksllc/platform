@@ -9,8 +9,8 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { directoryService } from '../../../lib/partners/directory.js';
 import { bootcampService } from '../../../lib/partners/bootcamp-service.js';

@@ -4,7 +4,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { LEGAL_TEMPLATES } from '@wizeworks/legal-templates';
+import { LEGAL_TEMPLATES } from '@wizeworksllc/legal-templates';
 import { promisesCookieChoices } from './legal-service';
 
 const doc = (...paragraphs: string[]) => ({

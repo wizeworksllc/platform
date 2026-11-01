@@ -18,7 +18,7 @@ import {
   frameRatioClass,
   mapEmbedSrc,
   type HostComponentMeta,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import { PlatformMark, hasPlatformMark } from '../../components/platform-mark';
 

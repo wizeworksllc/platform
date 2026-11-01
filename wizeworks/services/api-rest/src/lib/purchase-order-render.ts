@@ -1,5 +1,5 @@
 // Purchase-order print brand resolution (docs/100 P3b). The PO document renderer
-// (@wizeworks/inventory's renderPurchaseOrderHtml) is brand-free; the composition root
+// (@wizeworksllc/inventory's renderPurchaseOrderHtml) is brand-free; the composition root
 // resolves the BUYER's identity (the tenant issuing the PO) and hands it in —
 // mirroring how invoice-render.ts resolves the issuing tenant's brand. The seller
 // masthead NAME and address come from the BUSINESS (TenantBusiness → tenant legal
@@ -11,8 +11,8 @@
 // them — and so the seller ADDRESS block, which this renderer has always read
 // but nothing ever populated, is filled from one place.
 
-import { brandService } from '@wizeworks/email-platform';
-import type { PurchaseOrderDocumentBrand } from '@wizeworks/inventory';
+import { brandService } from '@wizeworksllc/email-platform';
+import type { PurchaseOrderDocumentBrand } from '@wizeworksllc/inventory';
 import { resolveBusinessIdentity } from './business-identity.js';
 
 export async function resolvePurchaseOrderBrand(ctx: {

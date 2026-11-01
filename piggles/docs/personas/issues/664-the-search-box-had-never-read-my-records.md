@@ -100,7 +100,7 @@ nothing — over a line saying 36 customers and 16 orders were missing. The inde
 had been full ten minutes earlier.
 
 The collections' `created_at` was the exact second `vitest run` started in
-`@wizeworks/search`. That suite's `beforeAll` calls **`dropAllSchemas()`**, and
+`@wizeworksllc/search`. That suite's `beforeAll` calls **`dropAllSchemas()`**, and
 collection names are fixed constants with no per-run namespace, so the drop takes
 **every tenant's documents on that instance**, not just its own two fixtures.
 

@@ -6,9 +6,9 @@
 // enforces the same table). This service backs the dashboard surface: list the
 // catalog with each tool's effective exposure, flip one tool, or reset to defaults.
 
-import type { Prisma } from '@wizeworks/db';
-import { withTenant, type TenantContext } from '@wizeworks/db';
-import { badRequest } from '@wizeworks/api-core/errors';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant, type TenantContext } from '@wizeworksllc/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import { TOOL_CATALOG, isKnownTool } from './tool-catalog.js';
 import { toolTitle } from './tool-titles.js';

@@ -7,7 +7,7 @@
 //   NOTHING WRITES A CUSTOM-FIELD VALUE EXCEPT `applyCustomFields`.
 //
 // Every write goes through one coercion (`coerceCustomFieldValue`, pure, in
-// @wizeworks/commerce-schemas) and one merge. That is what keeps a field's TYPE a
+// @wizeworksllc/commerce-schemas) and one merge. That is what keeps a field's TYPE a
 // promise rather than a hope: the API, the importer, the stock grid and the MCP
 // tool all arrive here, so a number field cannot end up holding "n/a" because
 // one of the four forgot to check.
@@ -28,9 +28,9 @@ import {
   type CustomFieldDefinition,
   type CustomFieldType,
   type CustomFieldValue,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryNotFoundError, InventoryValidationError } from '../errors';

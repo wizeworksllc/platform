@@ -30,7 +30,7 @@ import crypto from 'node:crypto';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { InventoryOutOfStockError } from '../../src/errors.js';
 import { syncProductInStock } from '../../src/services/internal.js';

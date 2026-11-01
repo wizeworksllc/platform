@@ -5,9 +5,9 @@
 // preferred flag on the variant's other links. These links feed PO line defaults
 // and the reorder engine's supplier pick (P3b/P3d).
 
-import { UpsertSupplierVariantInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { UpsertSupplierVariantInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

@@ -9,7 +9,7 @@ import {
   industryOf,
   lineLead,
   storyNoun,
-} from '@wizeworks/story-schemas';
+} from '@wizeworksllc/story-schemas';
 import {
   flatUnused,
   type StoryDispatch,

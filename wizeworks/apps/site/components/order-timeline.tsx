@@ -44,7 +44,7 @@ import {
   TimelineStart,
   type SilicaColor,
 } from '@wizeworks/silicaui-react';
-import { carrierLabel } from '@wizeworks/commerce-schemas';
+import { carrierLabel } from '@wizeworksllc/commerce-schemas';
 
 import type { OrderDetail, OrderFulfillmentView } from '@/lib/customer-client';
 import {

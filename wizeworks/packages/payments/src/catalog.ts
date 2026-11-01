@@ -9,7 +9,7 @@
 // NEVER in here; `credentialFields[].secret` marks which captured fields are write-only
 // and encrypted at rest (docs/111 §2).
 
-import { fillPlatformName, platformBrandIdentity } from '@wizeworks/brand-core';
+import { fillPlatformName, platformBrandIdentity } from '@wizeworksllc/brand-core';
 
 /** How a tenant turns the gateway on. */
 export type GatewayOnboarding =

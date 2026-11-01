@@ -21,7 +21,7 @@ Three apps and one package do server-side auth or database work today:
 | `piggles/packages/auth-handoff`    |               |                 1 |         1 |            1 |
 
 The marketing apps (`sparx/apps/web`, `sparx/apps/market`, `piggles/apps/web`)
-have none. Browser-side Better Auth client imports (`@wizeworks/auth/client`)
+have none. Browser-side Better Auth client imports (`@wizeworksllc/auth/client`)
 stay; they only need to reach the same origin's `/api/auth`, which keeps
 working through the proxy below.
 
@@ -35,7 +35,7 @@ brand-scoped auth adapter, tenant provisioning, merchant sign-up and invited
 owner provisioning all call it. Moved as they are, a Piggles sign-up inside
 api-rest would be stamped `sparx`.
 
-- `@wizeworks/brand-core` gains a request brand scope (`AsyncLocalStorage`):
+- `@wizeworksllc/brand-core` gains a request brand scope (`AsyncLocalStorage`):
   `runAsBrand(brand, fn)`. `currentPlatformBrand()` returns the scoped brand
   when one is set, and the environment otherwise.
 - A process that serves every brand sets `PLATFORM_BRAND_SOURCE=request`. In
@@ -63,7 +63,7 @@ Google sign-in. So it stays where it is: `https://app.sparx.works/api/auth` and
   Caddy routes no public host to it.
 - Each app's `app/api/auth/[...all]/route.ts` forwards to
   `${SPARX_API_REST_URL}/auth/<brand>/:path*` (`authProxyHandlers` from
-  `@wizeworks/auth-client-server`). A route handler, not a `next.config`
+  `@wizeworksllc/auth-client-server`). A route handler, not a `next.config`
   rewrite: it relays every `Set-Cookie` line and the redirect untouched, so
   sessions stay first-party on the app's own domain.
 - The client IP headers Better Auth reads (`x-client-ip`, `x-forwarded-for`)
@@ -76,7 +76,7 @@ Google sign-in. So it stays where it is: `https://app.sparx.works/api/auth` and
   same `SparxSession` shape `getSession()` returns today (user, active tenant,
   home tenant, role, active organization), including the active-membership
   lookup.
-- `@wizeworks/auth-client-server` (new, no DB, no Better Auth server):
+- `@wizeworksllc/auth-client-server` (new, no DB, no Better Auth server):
   `getSession()` and `requireSession()` with the same signatures, forwarding
   the incoming request's `cookie` and client IP headers. Wrapped in React
   `cache()` so a render makes one call.
@@ -97,7 +97,7 @@ cookie unless noted, and acting on the session's own business, never one named
 in the request. The `/platform` prefix keeps them apart from Better Auth's own
 paths: an unknown `/platform/...` path is a 404, never Better Auth. Each app
 call site becomes a typed call through `platformRequest` in
-`@wizeworks/auth-client-server`. A step that writes a session (sign-up,
+`@wizeworksllc/auth-client-server`. A step that writes a session (sign-up,
 accepting an invitation) answers with the cookies as `cookies`, and the app
 sets them with `setSessionCookies`.
 
@@ -170,12 +170,12 @@ Built on branch `phase1/apps-off-the-database`, committed, not pushed:
   both brands at `/auth/<brand>/*`.
 - The session read, the API token, account security, the handoff and sign-out.
 - Endpoints 1 to 11, with the flows (sign-up, verification email, invitations,
-  MCP consent and discovery) as typed calls in `@wizeworks/auth-client-server`
+  MCP consent and discovery) as typed calls in `@wizeworksllc/auth-client-server`
   shared by both brands' sign-in apps.
 - All three apps switched: the Piggles console, the Piggles account app and
   sparx's workbench. `scripts/check-app-data-access.mjs` now reads every app
   under `*/apps/*` from the tree, and none imports the database or the auth
-  server or depends on `@wizeworks/db`.
+  server or depends on `@wizeworksllc/db`.
 - Partner provisioning runs on api-rest's own sparx instance;
   `app/api/internal/partner-provision` and `SPARX_DASHBOARD_INTERNAL_URL` are
   gone.
@@ -219,7 +219,7 @@ a real authenticator.
 - [x] `createAuth(brandConfig)`; no environment brand reads inside an
       instance.
 - [x] api-rest mounts both brands at `/auth/<brand>/*`.
-- [x] `/auth/<brand>/session` and `@wizeworks/auth-client-server`.
+- [x] `/auth/<brand>/session` and `@wizeworksllc/auth-client-server`.
 - [x] `/auth/<brand>/api-token`; both consoles forward to it.
 - [x] Endpoints 1 to 11 above, each with its callers switched.
 - [x] api-rest calls its own auth instance for password reset and partner
@@ -227,7 +227,7 @@ a real authenticator.
 - [x] Pure helpers moved.
 - [x] Rewrites in all three apps; the apps' `app/api/auth/[...all]` routes
       deleted.
-- [x] No app imports `@wizeworks/db`, `@prisma/client` or the auth server
+- [x] No app imports `@wizeworksllc/db`, `@prisma/client` or the auth server
       (enforced by a check, proven red first).
 - [x] Frontend pods no longer load `sparx-app-secrets`.
 - [x] The test pass above, on both brands.

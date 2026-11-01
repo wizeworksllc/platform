@@ -1,6 +1,6 @@
 // Bound collection section — count toolbar + product grid + pagination.
 
-import type { CollectionProductsConfig } from '@wizeworks/sitebuilder-schemas';
+import type { CollectionProductsConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { Pagination } from '@/components/pagination';
 import { ProductGrid } from '@/components/product-grid';

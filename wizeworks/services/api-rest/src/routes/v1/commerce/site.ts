@@ -2,9 +2,9 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { reportingService, commerceSiteService } from '@wizeworks/commerce';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { reportingService, commerceSiteService } from '@wizeworksllc/commerce';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import { requireCommerceModule, toCommerceContext } from '../../../lib/commerce-context.js';
 import { resolveListScope, resolvePropertyId, type SiteActor } from '../../../lib/property.js';
 import { publishSiteUpdated } from '../../../lib/site-events.js';

@@ -10,7 +10,7 @@
 // business always has the provisioned defaults. An empty result means the module
 // is off, never "make your first one".
 
-import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworksllc/query';
 import { emailKeys } from '../../surfaces/email/broadcasts-data';
 import type {
   EmailColorDefaults,

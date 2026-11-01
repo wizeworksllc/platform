@@ -1,11 +1,11 @@
-// @wizeworks/integrations — the one registry every outside service registers into.
+// @wizeworksllc/integrations — the one registry every outside service registers into.
 //
 // Read `types.ts` first: it carries the rule this package exists to enforce (one
 // lookup, many contracts) and why five copied registries cost a real capability.
 //
 // Domains register into it:
 //
-//   // @wizeworks/payments
+//   // @wizeworksllc/payments
 //   export const gateways = defineIntegrationKind<PaymentGateway>('payments');
 //   gateways.register(stripeDirectDescriptor, new StripeDirectGateway());
 //   gateways.require('stripe_direct').createIntent(…)   // still fully typed

@@ -107,7 +107,7 @@ export function _resetIntegrationsForTest(): void {
 /**
  * A category's typed view of the shared registry.
  *
- * `@wizeworks/payments` gets `IntegrationKind<PaymentGateway>`, `@wizeworks/social` gets
+ * `@wizeworksllc/payments` gets `IntegrationKind<PaymentGateway>`, `@wizeworksllc/social` gets
  * `IntegrationKind<SocialAdapter>` — same storage underneath, so one panel can list
  * everything, while `require()` still hands back the domain's real adapter type and
  * dispatch stays as typed as it was before.

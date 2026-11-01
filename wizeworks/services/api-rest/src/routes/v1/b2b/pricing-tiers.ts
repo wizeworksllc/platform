@@ -11,16 +11,16 @@
 //   DELETE /v1/b2b/pricing-tiers/:id/overrides/:oid → remove override
 //   GET    /v1/b2b/resolve-price              → what one account pays for one variant, and why
 //
-// Thin transport over @wizeworks/b2b's pricingTierService (one service, many
+// Thin transport over @wizeworksllc/b2b's pricingTierService (one service, many
 // transports) — the same functions the MCP tool registry drives. The exception
 // is resolve-price, which answers from commerce's price engine; see the route.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { pricingTierService } from '@wizeworks/b2b';
-import { pricingService } from '@wizeworks/commerce';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { pricingTierService } from '@wizeworksllc/b2b';
+import { pricingService } from '@wizeworksllc/commerce';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

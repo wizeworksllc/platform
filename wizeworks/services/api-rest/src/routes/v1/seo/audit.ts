@@ -11,15 +11,15 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
-import type { EntityType, Scorecard } from '@wizeworks/seo-audit';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import type { EntityType, Scorecard } from '@wizeworksllc/seo-audit';
 // Re-says a stored card in today's words without changing a single finding. The
 // stored `fix_first` column is a COPY of one check's advice, so it aged with the
 // labels (issue 863).
-import { refreshCard } from '@wizeworks/seo-audit';
+import { refreshCard } from '@wizeworksllc/seo-audit';
 
 import { auditAndStore, storedPath } from '../../../lib/seo-audit.js';
 import { resolveListScope } from '../../../lib/property.js';

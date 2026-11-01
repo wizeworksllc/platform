@@ -7,7 +7,7 @@
 
 import { notFound } from 'next/navigation';
 import { getPublishedSilicaCollection } from '@/lib/silica';
-import { serviceDetailPage } from '@wizeworks/silica-catalog';
+import { serviceDetailPage } from '@wizeworksllc/silica-catalog';
 
 import { SilicaFunctionalBody } from '@/components/silica-chrome';
 import { SiteHostRenderer } from '@/components/silica-host-cores';

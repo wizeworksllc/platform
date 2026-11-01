@@ -1,7 +1,7 @@
 import { configDefaults, defineConfig } from 'vitest/config';
 
 // Integration suites under test/integration/** drive real executors → real CRM
-// services against a live Postgres (the sparx_app role, via @wizeworks/db). CI has no
+// services against a live Postgres (the sparx_app role, via @wizeworksllc/db). CI has no
 // database, so skip them there (GH Actions sets CI=true). Locally `pnpm test`
 // runs everything against the docker-compose Postgres from `pnpm db:up`.
 const IS_CI = process.env.CI === 'true' || process.env.CI === '1';

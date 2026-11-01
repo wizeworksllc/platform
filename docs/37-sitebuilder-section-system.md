@@ -90,7 +90,7 @@ editor primitives.
 
 Render path: `SectionRenderer` switches `sectionType` against a component map, themes purely via the
 `--st-*` token layer injected by the site layout (the site has its **own** token/CSS
-surface — it does **not** consume `@wizeworks/ui` components), and **skips unknown types** so an old
+surface — it does **not** consume `@wizeworksllc/ui` components), and **skips unknown types** so an old
 site tolerates a new section. Empty data-bound sections render nothing.
 
 ---
@@ -250,7 +250,7 @@ no hardcoded colors, consistent with the CLAUDE.md brand rule and [[feedback_spa
   feature/section code references the class, it does not hand-build hover/focus states.
 - The only inline style any section uses remains the background-image URL (the existing Hero/banner
   pattern); no new `style={{ color/background }}` fingerprints.
-- Site sections render on the site's own CSS surface (not `@wizeworks/ui`), so this is
+- Site sections render on the site's own CSS surface (not `@wizeworksllc/ui`), so this is
   additive CSS in `site.css` — the same place Hero/banner styles already live.
 
 ---

@@ -225,7 +225,7 @@ There is more than one onboarding here and they are not the same job:
 
 **The in-console one is substantial**, not a form: it is
 `sparx/apps/workbench/surfaces/onboarding/` — a **story composer** backed by
-`@wizeworks/story-schemas` (a clause grammar with industry, audience and tense, where
+`@wizeworksllc/story-schemas` (a clause grammar with industry, audience and tense, where
 the owner literally writes a sentence describing their business), a six-step
 wizard (`step-workspace`, `step-modules`, `step-blueprint`, `step-domain`,
 `step-payments`, `step-launch`), a welcome banner + checklist, then `FirstRunTour`
@@ -343,7 +343,7 @@ since `rollupTenantDailyUsage` does not exist on the client yet.
 
 ## After the first install — what typechecks, and four things it caught
 
-`@piggles/brand`, `@piggles/auth-handoff` and `@wizeworks/usage` all typecheck clean.
+`@piggles/brand`, `@piggles/auth-handoff` and `@wizeworksllc/usage` all typecheck clean.
 Four defects only became visible once the packages could actually resolve:
 
 1. **The handoff's single-use guard could not compile.** `verifications.identifier`
@@ -354,7 +354,7 @@ Four defects only became visible once the packages could actually resolve:
 2. **`forgetPassword` is not callable on this client.** The emailOTP plugin
    claims the name as a NAMESPACE (`forgetPassword.emailOtp`). The call is
    `requestPasswordReset`, which is what `sparx/apps/workbench` uses.
-3. **A package that imports `@wizeworks/db` needs `"types": ["node"]` in its own
+3. **A package that imports `@wizeworksllc/db` needs `"types": ["node"]` in its own
    tsconfig.** Type roots are per-compilation, so the dependency having
    `@types/node` does not help the consumer typecheck its source.
 4. **`@piggles/brand` needs `"jsx": "react-jsx"`.** Under the base config's
@@ -419,7 +419,7 @@ Building a second consumer found four defects that were invisible with one:
    recorded that `inventory` and `finance` had each fallen out of sync — the
    symptom being that the module typechecks everywhere and then CANNOT BE TURNED
    ON (the toggle refuses the slug as "Request validation failed"). Now derives
-   from `ALL_MODULES`, newly exported from `@wizeworks/modules`. **The same comment
+   from `ALL_MODULES`, newly exported from `@wizeworksllc/modules`. **The same comment
    says other copies exist** — see FOLLOW_UPS #3.
 3. **`.sparx-pulse-nudge` was defined in one app's stylesheet** for a shared
    component, so the other shell rendered a control that silently never moved.
@@ -491,7 +491,7 @@ Closures computed from the manifests rather than guessed:
 - **piggles-web** — 3 packages, all `@piggles/*`, and NOT ONE `@sparx/*`. No
   database, no auth, no api-rest. It is the only Piggles surface that can ship
   alone; the account app before the console is a live funnel with a dead end.
-- **piggles-account** — 27: the platform account spine (`@wizeworks/auth` → the whole
+- **piggles-account** — 27: the platform account spine (`@wizeworksllc/auth` → the whole
   `signUpMerchant` closure) plus the four Piggles packages.
 - **piggles-console** — 38, and it hits the same V8 heap wall sparx's workbench
   does (`--max-old-space-size=8192`), because it carries the same surface layer.
@@ -554,7 +554,7 @@ forked and then unreachable.
 
 The fix is one Caddy host block, one Cloudflare record, no extra pod, and a
 brand-scoped seam: `mcpResourceUrl(brand)` / `mcpAuthServerOrigin(brand)` in
-`@wizeworks/links/server`, beside `appOrigin` and `accountOrigin` and derived the
+`@wizeworksllc/links/server`, beside `appOrigin` and `accountOrigin` and derived the
 same way, so a third brand is configuration. api-mcp builds a host→brand map at
 boot from `PLATFORM_BRANDS` and **exits 78** rather than serve a brand it has no
 address for — a host that falls through to the default returns a 200 and a valid
@@ -1133,7 +1133,7 @@ deliberate — deleting the sparx APPS does not delete them, so depending on one
 couples nothing." That defended the right boundary for the question it was asked
 and the wrong one for the question that matters. "Does Piggles import sparx's app
 code?" is not the same as "**can sparx be deleted without affecting Piggles?**",
-and under the second a package named `@wizeworks/db` that Piggles cannot boot without
+and under the second a package named `@wizeworksllc/db` that Piggles cannot boot without
 is an unanswered question rather than a pass.
 
 So the counts are recorded per package in a baseline file and may only fall. The

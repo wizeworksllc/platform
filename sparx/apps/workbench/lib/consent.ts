@@ -42,7 +42,7 @@
 // them, so it is strictly necessary. It is still listed on the cookies page:
 // "not asked about" and "not disclosed" are very different things.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from './api/client';
 
 /** The `consent` branch of GET /v1/me/preferences. `null` when no decision is on

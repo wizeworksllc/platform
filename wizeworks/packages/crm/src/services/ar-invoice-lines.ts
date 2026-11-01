@@ -17,7 +17,7 @@
 // Cost is the business's own figure. It rides on the invoice line for staff and
 // is never printed or emailed (buyer-output-has-no-cost.test.ts).
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { computeBillingTotals } from './billing-totals';
 

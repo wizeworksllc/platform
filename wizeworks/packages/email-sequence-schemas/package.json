@@ -1,0 +1,39 @@
+{
+  "name": "@wizeworksllc/email-sequence-schemas",
+  "version": "0.0.0",
+  "description": "The email-sequence contract as zod schemas, with no database behind it, so the sequence editor validates the same shapes the server stores; @wizeworksllc/email-sequences re-exports it.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/schemas.ts",
+      "default": "./src/schemas.ts"
+    }
+  },
+  "files": [
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/email-sequence-schemas"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --maxWorkers=1 --passWithNoTests",
+    "clean": "rm -rf .turbo dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.12"
+  }
+}

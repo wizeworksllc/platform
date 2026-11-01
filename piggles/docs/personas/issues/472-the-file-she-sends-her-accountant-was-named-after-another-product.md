@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** the real filename becoming visible for the first time, after [469](469-every-warning-a-download-carried-had-never-been-shown.md)
-**Surface:** `finance.accounting` (both consoles) · `@wizeworks/finance` export
+**Surface:** `finance.accounting` (both consoles) · `@wizeworksllc/finance` export
 **Filed:** 2026-09-09
 
 ## What was wrong

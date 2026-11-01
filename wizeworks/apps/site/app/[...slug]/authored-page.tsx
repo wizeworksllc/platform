@@ -1,7 +1,7 @@
 // The two authored tiers the catch-all route renders: a silica page, then a builder page.
 
 import { notFound } from 'next/navigation';
-import type { PublishedPageDto, PublishedSilicaPageDto } from '@wizeworks/builder-schemas';
+import type { PublishedPageDto, PublishedSilicaPageDto } from '@wizeworksllc/builder-schemas';
 import { resolveActivePropertySlug, type ResolvedSite } from '@/lib/site-context';
 import { getPublishedBuilderStyles } from '@/lib/builder';
 import { hostKeysIn, treeHasHostNode } from '@/lib/silica';

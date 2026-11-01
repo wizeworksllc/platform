@@ -43,7 +43,7 @@ import {
 } from '@wizeworks/silicaui-react';
 import { useConfirm } from '../../lib/confirm';
 import { ArrowDown, ArrowUp, FlaskConical, Plus, Trash2 } from 'lucide-react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { afterPaneChange } from '../../lib/defer';

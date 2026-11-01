@@ -16,7 +16,7 @@
 // no parent — because nothing entered or left the building and inventing a
 // warehouse movement to describe it would put a fiction in the ledger.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryValidationError } from '../errors';
 

@@ -2,7 +2,7 @@
 // tier). CRUD over SiteTheme rows + `apply`, which loads a saved theme's
 // presentation + base preset into the working draft (theme_key + draftSettings)
 // without publishing. Distinct from the read-only themes sparx SHIPS
-// (themeService.listThemes()) — those are code-first in @wizeworks/silica-catalog, and a
+// (themeService.listThemes()) — those are code-first in @wizeworksllc/silica-catalog, and a
 // saved theme names one of them as the base it layers over.
 //
 // Tenant-scoped via withTenant; SiteTheme is ENABLE+FORCE RLS, so a findUnique
@@ -14,9 +14,9 @@ import {
   UpdateSavedThemeInput,
   type PresentationOverlay,
   type SavedThemeBrand,
-} from '@wizeworks/sitebuilder-schemas';
-import type { Prisma, SiteTheme, TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/sitebuilder-schemas';
+import type { Prisma, SiteTheme, TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { PropertyContext, ServiceContext } from '../errors';

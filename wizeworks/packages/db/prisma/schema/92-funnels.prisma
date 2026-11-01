@@ -120,7 +120,7 @@ model Funnel {
   // Per-funnel rather than a platform constant because the same word means
   // wildly different things: a cart left for four hours is abandoned, a B2B
   // quote left for four hours is Tuesday afternoon. `kind` supplies the default
-  // (DEFAULT_STALL_HOURS in @wizeworks/funnels); this overrides it.
+  // (DEFAULT_STALL_HOURS in @wizeworksllc/funnels); this overrides it.
   stallAfterHours Int? @map("stall_after_hours")
 
   // user | system, mirroring Automation.origin, plus which shipped recipe this

@@ -34,7 +34,7 @@
 // voided commission or push a paid one back to pending — those are decisions a
 // human made about money that has already moved.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 import { commissionCents, recordCommission, type CommissionSource } from './commissions.js';
 

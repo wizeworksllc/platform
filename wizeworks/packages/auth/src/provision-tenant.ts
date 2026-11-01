@@ -1,6 +1,5 @@
-import type { AttributionSnapshot } from '@wizeworks/attribution';
 import type { Prisma } from '@prisma/client';
-import { currentPlatformBrand, platformBrandIdentity } from '@wizeworks/brand-core';
+import { currentPlatformBrand, platformBrandIdentity } from '@wizeworksllc/brand-core';
 import { randomFriendlySlug } from './friendly-slug';
 
 // Tenant provisioning shared by every account-creation path: email/password
@@ -14,15 +13,8 @@ import { randomFriendlySlug } from './friendly-slug';
 // to end at a literal naming one brand.
 
 /** First-party acquisition attribution read at signup (docs/80 §6.1 / L-PLAT). */
-export interface SignUpAcquisition {
-  /** Denormalized from first-touch — the acquisition model for L-PLAT (docs/80 §9). */
-  channel: string | null;
-  source: string | null;
-  campaign: string | null;
-  /** Full snapshots retained for later model recompute (docs/80 §8.3). */
-  firstTouch: AttributionSnapshot | null;
-  lastTouch: AttributionSnapshot | null;
-}
+import type { SignUpAcquisition } from '@wizeworksllc/auth-client';
+export type { SignUpAcquisition };
 
 // Minimal shape we need to confirm slug availability — satisfied by both the
 // PrismaClient and a transaction client.
@@ -106,11 +98,11 @@ export interface ProvisionTenantInput {
  * (authPrisma connects as sparx_owner, which IS subject to FORCE RLS). The GUC
  * is transaction-local, so it never leaks past the caller's commit.
  */
-// The free trial length in days (docs/17 §6). MUST match @wizeworks/billing's
+// The free trial length in days (docs/17 §6). MUST match @wizeworksllc/billing's
 // TRIAL_PERIOD_DAYS — provisioning is the AUTHORITATIVE clock (it stamps
 // tenants.trial_ends_at at signup); billing aligns Stripe to this persisted value
 // when the subscription is later created. Kept local so the signup path (bundled
-// into Next server actions) doesn't pull the Stripe SDK closure via @wizeworks/billing.
+// into Next server actions) doesn't pull the Stripe SDK closure via @wizeworksllc/billing.
 const TRIAL_PERIOD_DAYS = 14;
 
 export async function provisionTenant(
@@ -139,7 +131,7 @@ export async function provisionTenant(
       // name one, because the hook runs before the tenant exists to carry it.
       platformBrand: brand,
       // WHAT this account is charged, and out of which Stripe account
-      // (@wizeworks/billing/plans). Stamped ONCE here, from the brand's configured
+      // (@wizeworksllc/billing/plans). Stamped ONCE here, from the brand's configured
       // default, and read from the column forever after — which is what lets the
       // billing engine stay free of brand checks, and lets a tenant later sit on a
       // plan its brand does not sell.

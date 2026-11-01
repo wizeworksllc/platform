@@ -24,13 +24,13 @@
 // `symbols` artifact is loaded and the ONE entry hashed — which is why a piece can
 // be restored without dragging every other piece back with it.
 
-import { withTenant, type Prisma, type TxClient } from '@wizeworks/db';
+import { withTenant, type Prisma, type TxClient } from '@wizeworksllc/db';
 
 import { BuilderNotFoundError, type PropertyContext } from '../errors';
 import { captureDraftVersionTx } from './draft-version-service';
 import { hashTree, type ArtifactOwnerKind, type ManifestEntry } from './artifact-service';
 import { reindexTreeTx } from './node-index-service';
-import type { SilicaNode } from '@wizeworks/builder-schemas';
+import type { SilicaNode } from '@wizeworksllc/builder-schemas';
 
 /** Which document a history is being asked for. `symbol` is a view over the site's
  *  one symbols artifact; the other three are artifacts in their own right. */

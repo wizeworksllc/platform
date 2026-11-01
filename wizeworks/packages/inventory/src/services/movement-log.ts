@@ -4,8 +4,8 @@
 // moved this stock, when, why, and by how much" for the compliance/audit UI.
 // No new tables — every mutation already records a row here.
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

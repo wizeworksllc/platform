@@ -21,8 +21,8 @@
 // all. The caller checks that first and never calls this otherwise, and this
 // returns early if it is called anyway.
 
-import { withTenant } from '@wizeworks/db';
-import { hostKeysIn, moduleForKey } from '@wizeworks/silica-catalog';
+import { withTenant } from '@wizeworksllc/db';
+import { hostKeysIn, moduleForKey } from '@wizeworksllc/silica-catalog';
 
 /** The module a core key or record type belongs to, or null — the storefront's own
  *  answer (`moduleForKey`), so the two cannot disagree. This file kept a copy of it,

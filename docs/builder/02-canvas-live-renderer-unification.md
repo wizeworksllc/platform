@@ -34,13 +34,13 @@ EditorialSection, Logo, Wordmark, SocialLinks) — both sides render the same
 
 **Diverges** (two code paths):
 
-| Component                                     | Canvas (`registry.tsx`)                              | Live (`builder-renderer.tsx`)               |
-| --------------------------------------------- | ---------------------------------------------------- | ------------------------------------------- |
-| BuyBox / VariantPicker / Quantity / AddToCart | static mock spans (`~1135–1198`)                     | real wired atoms (`~314–320`)               |
-| PriceTag / ImageDisplay                       | `amount={null}` / "N images" badge (`~1041–1085`)    | real bound value (`~342–352`)               |
-| Button                                        | inert `<span>` (`~666–682`)                          | interactive `<a>/<button>` (`~298–308`)     |
-| Carousel                                      | `CanvasCarousel` (no autoplay)                       | `BuilderCarousel` (autoplay/pause)          |
-| Email leaves                                  | `email-leaf.tsx` at email scale, site-theme fallback | `@wizeworks/email` via email-platform brand |
+| Component                                     | Canvas (`registry.tsx`)                              | Live (`builder-renderer.tsx`)                  |
+| --------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------- |
+| BuyBox / VariantPicker / Quantity / AddToCart | static mock spans (`~1135–1198`)                     | real wired atoms (`~314–320`)                  |
+| PriceTag / ImageDisplay                       | `amount={null}` / "N images" badge (`~1041–1085`)    | real bound value (`~342–352`)                  |
+| Button                                        | inert `<span>` (`~666–682`)                          | interactive `<a>/<button>` (`~298–308`)        |
+| Carousel                                      | `CanvasCarousel` (no autoplay)                       | `BuilderCarousel` (autoplay/pause)             |
+| Email leaves                                  | `email-leaf.tsx` at email scale, site-theme fallback | `@wizeworksllc/email` via email-platform brand |
 
 The root cause is **structural**: per-type render lives in two files. Any new
 component must be written twice and can silently drift. The mocks exist because
@@ -51,10 +51,10 @@ interaction layer — not a parallel render tree.
 ## 2. Decisions
 
 **2.1 One render path, in a shared package.** Extract the per-type node render
-into a new server-safe package — working name **`@wizeworks/builder-render`** — that
+into a new server-safe package — working name **`@wizeworksllc/builder-render`** — that
 both `wizeworks/apps/site` (live) and the dashboard canvas (edit) import. The package owns
 the `type → React element` mapping for every node, calling the _same_
-`@sparx/site-ui` / commerce / `@wizeworks/email` components both surfaces ship.
+`@sparx/site-ui` / commerce / `@wizeworksllc/email` components both surfaces ship.
 `registry.tsx` keeps **metadata only** (palette grouping, `accepts`/cardinality,
 `defaults`, `props`, `bindable`, icons); its `renderLeaf` functions are deleted.
 
@@ -90,11 +90,11 @@ wrapper/host, not the shared renderer, so the renderer is scope-agnostic.
 tree; the canvas is a client tree. The shared package must run in both: render
 functions are presentational and synchronous, data is **injected** (no server-only
 fetches inside), and the genuinely-interactive atoms stay `'use client'` islands
-(they already are). No `@wizeworks/db`, no server-only imports in the package — keep
+(they already are). No `@wizeworksllc/db`, no server-only imports in the package — keep
 it the same dependency weight the storefront image already tolerates.
 
 **2.6 Email converges too.** The email leaf render (`email-leaf.tsx`) and the live
-email render unify on the `@wizeworks/email` components in the shared package, so the
+email render unify on the `@wizeworksllc/email` components in the shared package, so the
 canvas email preview uses the _same_ brand resolution as a real send (closes the
 email-scale/brand caveat). If full brand-service parity is heavy, the minimum bar
 is: same components, same scale; brand source documented.
@@ -123,7 +123,7 @@ apps/dashboard/.../_builder/registry.tsx
 
 | Step | Area                                    | Change                                                                                                                                                            |
 | ---- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | new `wizeworks/packages/builder-render` | Scaffold the package ([new-workspace-package] skill); server-safe; depends on `@sparx/site-ui`, `@wizeworks/builder-schemas`, commerce/email component libs.      |
+| 1    | new `wizeworks/packages/builder-render` | Scaffold the package ([new-workspace-package] skill); server-safe; depends on `@sparx/site-ui`, `@wizeworksllc/builder-schemas`, commerce/email component libs.   |
 | 2    | move render                             | Port each `type → element` mapping out of `registry.tsx` and `builder-renderer.tsx` into `renderNode`, calling the **real** components for every type (no mocks). |
 | 3    | data resolver                           | Define `DataResolver`; live = `DataSources`, edit = `sampleData`. Move/own the sample records; ensure the commerce sample is a realistic multi-variant product.   |
 | 4    | edit mode                               | `EditModeContext`; interactive atoms (Button, AddToCart, Signup, forms, Carousel) honor it (inert internal effects).                                              |
@@ -145,7 +145,7 @@ apps/dashboard/.../_builder/registry.tsx
 - There is exactly **one** per-type render map in the codebase; `registry.tsx` no
   longer renders nodes.
 - Storefront image size/deps are not regressed (no server-only deps leaked into
-  `@wizeworks/builder-render`).
+  `@wizeworksllc/builder-render`).
 
 ## 6. Risks & notes
 

@@ -10,7 +10,7 @@
 // key SCHEDULED_PUBLISH_LOCK_KEY) via withAdvisoryTickLock; if another pod holds
 // it the tick returns immediately. The lock auto-releases at transaction end, so
 // it cannot leak across pooled connections the way the old session-lock did (see
-// @wizeworks/db advisory-tick-lock).
+// @wizeworksllc/db advisory-tick-lock).
 //
 // RLS: the cross-tenant SELECT uses the `find_due_scheduled_entries(int)`
 // SECURITY DEFINER function (migration 20260601100000). The function is
@@ -19,11 +19,11 @@
 // bypass. Per-entry UPDATE rides `withTenant({tenantId})` so the write
 // still goes through the standard tenant_isolation policy.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import { recordRevision } from '@wizeworks/cms';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { recordRevision } from '@wizeworksllc/cms';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 const SCHEDULED_PUBLISH_LOCK_KEY = ADVISORY_LOCKS.SCHEDULED_PUBLISH;
 const DEFAULT_INTERVAL_MS = 60_000;

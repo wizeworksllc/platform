@@ -10,7 +10,7 @@ import {
   DEFAULT_EMAIL_TEMPLATES,
   getDefaultEmailTemplate,
   type SilicaEmailDocument,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 
 import {
   PRIOR_DEFAULT_BODY_FINGERPRINTS,

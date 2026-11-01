@@ -32,9 +32,9 @@ import {
   serviceLevelLabel,
   serviceLevelZ,
   xyzEvidenceIsSufficient,
-} from '@wizeworks/commerce-schemas';
-import type { ServiceLevel } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { ServiceLevel } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

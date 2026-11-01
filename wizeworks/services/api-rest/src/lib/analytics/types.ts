@@ -5,8 +5,8 @@
 // computes it. The registry is a façade over measures that are correct today; it
 // does not recompute aggregation, it makes it uniformly addressable.
 
-import type { TxClient } from '@wizeworks/db';
-import type { ModuleSlug } from '@wizeworks/modules';
+import type { TxClient } from '@wizeworksllc/db';
+import type { ModuleSlug } from '@wizeworksllc/modules';
 import type { Grain, ResolvedRange } from './range.js';
 
 export type { Grain, ResolvedRange } from './range.js';

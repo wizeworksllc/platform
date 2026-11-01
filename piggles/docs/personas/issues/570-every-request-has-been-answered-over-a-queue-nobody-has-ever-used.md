@@ -70,7 +70,7 @@ the moment a second one did.
 ## The fix
 
 **A count that cannot be narrowed by the thing it exists to see past.**
-`countTimeOff` in `@wizeworks/staff` groups by status over the whole queue.
+`countTimeOff` in `@wizeworksllc/staff` groups by status over the whole queue.
 `staffMemberId` still narrows it — a page about one person should count that
 person — but `status` never does, by construction rather than by care.
 

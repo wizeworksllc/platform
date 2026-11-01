@@ -4,7 +4,7 @@
 // root layout itself throws, so it renders a complete self-contained document.
 
 import { useEffect } from 'react';
-import { useStaleBuildRecovery } from '@wizeworks/app-kit';
+import { useStaleBuildRecovery } from '@wizeworksllc/app-kit';
 
 export default function GlobalError({
   error,

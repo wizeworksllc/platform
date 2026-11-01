@@ -11,18 +11,18 @@
 // /b2b/orders, /crm/orders) — three lenses on this one API root, each with its
 // own columns, filters, and panels.
 //
-// NOTE: the order services still live in @wizeworks/crm for historical reasons,
-// which is why the context type is imported from there. @wizeworks/commerce already
+// NOTE: the order services still live in @wizeworksllc/crm for historical reasons,
+// which is why the context type is imported from there. @wizeworksllc/commerce already
 // depends on them (checkout, subscriptions, shipping), so the package
-// dependency currently runs backwards. Relocating them to @wizeworks/commerce is a
+// dependency currently runs backwards. Relocating them to @wizeworksllc/commerce is a
 // separate refactor — it risks a commerce↔crm cycle and is deliberately NOT
 // bundled into the URL move.
 
 import type { FastifyRequest } from 'fastify';
-import type { ServiceContext } from '@wizeworks/crm';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { ServiceContext } from '@wizeworksllc/crm';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 /** Derive the service context for an order handler. */
 export function toOrderContext(request: FastifyRequest): ServiceContext {

@@ -1,4 +1,4 @@
-// Sales channels' entry in the shared integration plane (@wizeworks/integrations).
+// Sales channels' entry in the shared integration plane (@wizeworksllc/integrations).
 //
 // `ChannelAdapter` keeps its own contract and its own dispatch — the sync worker still
 // resolves an adapter by slug and calls `pushProduct`/`fetchOrders` against the real
@@ -12,13 +12,13 @@
 // and it lights up on the next boot with no code change). Collapsing both into one
 // "unavailable" is what left four provider bundles invisible for months.
 
-import { PLATFORM_TOKEN } from '@wizeworks/brand-core';
+import { PLATFORM_TOKEN } from '@wizeworksllc/brand-core';
 
 import {
   defineIntegrationKind,
   type IntegrationAvailability,
   type IntegrationDescriptor,
-} from '@wizeworks/integrations';
+} from '@wizeworksllc/integrations';
 
 import { CHANNEL_CATALOG, type ChannelDescriptor } from './catalog.js';
 import type { ChannelAdapter, ChannelSlug } from './types.js';

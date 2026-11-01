@@ -3,7 +3,7 @@
 **Status:** fixed (act 325)
 **Severity:** major
 **Found by:** P03 · Juniper Row · act 325, re-walking Accounting (Ease 5)
-**Surface:** mypiggles › Money › Accounting (both consoles), `@wizeworks/finance`
+**Surface:** mypiggles › Money › Accounting (both consoles), `@wizeworksllc/finance`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P03 · Juniper Row · act 325, all seven layouts under Laid out for, and account codes kept for Xero with its sync off
@@ -41,7 +41,7 @@ is worth anything to a bookkeeper, could be kept only for the generic file.
 
 ## The fix
 
-- **`@wizeworks/finance`**: QuickBooks Desktop and Sage 50 are file layouts,
+- **`@wizeworksllc/finance`**: QuickBooks Desktop and Sage 50 are file layouts,
   `available`, with no "not ready" sentence. A sync that is not switched on now
   says where its file is: "Choose Xero under Laid out for, and the file from
   this screen imports into Xero today." A connection row may be kept for any

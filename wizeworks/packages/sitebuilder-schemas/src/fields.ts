@@ -1,6 +1,6 @@
 // SectionField — the form-generation descriptor for a section's editable
 // settings. The dashboard customizer renders these (mapping each type onto a
-// @wizeworks/ui control), and the section library uses the registry metadata.
+// @wizeworksllc/ui control), and the section library uses the registry metadata.
 // Kept independent of the CMS FieldDef so this package stays zod-only.
 
 export type SectionFieldType =

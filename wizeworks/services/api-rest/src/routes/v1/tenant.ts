@@ -25,14 +25,14 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, type Prisma } from '@wizeworks/db';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { prisma, type Prisma } from '@wizeworksllc/db';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import { requireVerifiedEmail } from '../../lib/verified-email-guard.js';
-import { badRequest, conflict, notFound } from '@wizeworks/api-core/errors';
-import { appOrigin } from '@wizeworks/links/server';
+import { badRequest, conflict, notFound } from '@wizeworksllc/api-core/errors';
+import { appOrigin } from '@wizeworksllc/links/server';
 import { zoneOf } from '../../lib/domain.js';
 import {
   requiredModules,
@@ -42,7 +42,7 @@ import {
   parseModuleAccessMode,
   type MemberModuleAccessInput,
   type ModuleSlug,
-} from '@wizeworks/auth';
+} from '@wizeworksllc/auth';
 import {
   MODULE_SLUGS,
   MODULE_SLUG_SET,
@@ -52,7 +52,7 @@ import {
   moduleBlockedMessage,
 } from '../../lib/module-toggle.js';
 import { brandIncludesEveryModule, tenantPlatformBrand } from '../../lib/tenant-brand.js';
-import { platformBrandIdentity } from '@wizeworks/brand-core';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
 import { computeBannerEnabled } from '../../lib/consent.js';
 import { resolvePropertyId } from '../../lib/property.js';
 import {

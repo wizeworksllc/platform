@@ -105,7 +105,7 @@ one where the field is a variable.
 
 ## Confirmed by
 
-`@wizeworks/crm`: **477 tests, 50 files, all passing** — including
+`@wizeworksllc/crm`: **477 tests, 50 files, all passing** — including
 `customer-service.test.ts`, `rls-isolation.test.ts` and
 `segment-fills-itself.test.ts`, the three that list customers against a real
 database. Before the fix those six failed with the validation error above.

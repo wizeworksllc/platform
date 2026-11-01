@@ -3,7 +3,7 @@
 // these are compact plain-text strings built from the booking's resolved fields.
 // Kept here in the engine (not the api-rest dispatch tick) so the copy lives in
 // one place and is unit-testable, mirroring how the email trees live in
-// @wizeworks/builder-schemas.
+// @wizeworksllc/builder-schemas.
 
 import type { BookingNotificationType } from './notifications';
 

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/legal-seed-worker",
+  "name": "@wizeworksllc/legal-seed-worker",
   "version": "0.0.0",
   "private": true,
   "description": "sparx legal-seed worker. Receives tenant.created events via Pub/Sub push (Cloud Run HTTP entrypoint) and seeds the new tenant's starter legal pages (privacy/terms/cookie-policy/returns/shipping/refund) as editable CMS drafts plus footer doc placements (docs/42 §3). Idempotent on redelivery.",
@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/legal-seed": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/legal-seed": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

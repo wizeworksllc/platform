@@ -473,7 +473,7 @@ export type ListBillingDocumentsInput = z.infer<typeof ListBillingDocumentsInput
 
 // ── Lines (Phase 2) ─────────────────────────────────────────────────────────
 // The `markup` directive (rule | ad-hoc) is NOT modeled here: it lives in
-// @wizeworks/commerce-schemas (`LineMarkupInput`), which depends on this package, so
+// @wizeworksllc/commerce-schemas (`LineMarkupInput`), which depends on this package, so
 // modeling it here would cycle. The service validates `markup` against that
 // schema before pricing. Pass either `lineTypeId` or `lineTypeKey` to resolve
 // the line type (and its pricingMode + tax default).
@@ -524,7 +524,7 @@ export type UpdateBillingLineInput = z.infer<typeof UpdateBillingLineInput>;
 // ── Print templates (Phase 5b, §10) ──────────────────────────────────────────
 // The document's printed presentation is ONE BuilderNode tree (AUTHOR-only) — a
 // peer of the page/email builder trees. Validated structurally HERE so crm-schemas
-// stays free of a @wizeworks/builder-schemas dependency; the api-rest renderer, which
+// stays free of a @wizeworksllc/builder-schemas dependency; the api-rest renderer, which
 // has builder-schemas, interprets the tree (resolving bindings + serializing Prose).
 export interface InvoiceTemplateNodeInput {
   id: string;

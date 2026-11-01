@@ -21,10 +21,10 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 import { env } from '../../../env.js';
 import { careersResumeKey, getStorage } from '../../../lib/storage.js';
 

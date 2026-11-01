@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** minor
 **Found by:** reading the Accounting screen end to end
-**Surface:** `finance.accounting` (both consoles) · `@wizeworks/finance` accounting catalog
+**Surface:** `finance.accounting` (both consoles) · `@wizeworksllc/finance` accounting catalog
 **Filed:** 2026-09-09
 
 ## What was wrong
@@ -32,7 +32,7 @@ bottom and finds the end of the page.
 
 ## Why it happened, and why "above" is not the fix
 
-These sentences are written in `@wizeworks/finance`, and the console decides
+These sentences are written in `@wizeworksllc/finance`, and the console decides
 where the export card goes. A package cannot know which way to point, so "below"
 was a guess that happened to be wrong — and swapping it for "above" would just be
 a luckier guess, wrong again the day either console reorders its cards.

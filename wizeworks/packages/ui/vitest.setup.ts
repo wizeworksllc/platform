@@ -25,3 +25,13 @@ if (typeof Element !== 'undefined') {
     Element.prototype.scrollIntoView = vi.fn();
   }
 }
+
+// silicaui-react checks, in development, that its CSS plugin is loaded by reading
+// the `--sui-plugin` sentinel the plugin sets on <html>. Tests load no CSS, so the
+// check retried for 3 seconds — and when a test file finished first, its next
+// retry ran after jsdom was torn down and threw `getComputedStyle is not
+// defined`, failing the run on a slow CI machine and passing on a fast one.
+// Setting the sentinel says what is true for a unit test: styling is not under test.
+if (typeof document !== 'undefined') {
+  document.documentElement.style.setProperty('--sui-plugin', '1');
+}

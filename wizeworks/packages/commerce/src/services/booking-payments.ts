@@ -1,6 +1,6 @@
 // The gateway half of ending a booking (docs/79 §9, sparx persona issue 087).
 //
-// `bookingMoneyFor` in @wizeworks/scheduling works out, inside the transaction
+// `bookingMoneyFor` in @wizeworksllc/scheduling works out, inside the transaction
 // that ends a booking, what the card on it needs: charge a fee from the hold,
 // let the hold go, call off a deposit that was never paid, refund one that was,
 // or keep it. This does it, AFTER that transaction has committed: a refused
@@ -29,15 +29,15 @@
 //             deposit request called off, or a deposit refunded.
 //   forfeited a charged deposit/prepay kept on a no-show or a late cancellation.
 
-import { taskService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { GatewayNotFoundError, PaymentConfigError, paymentService } from '@wizeworks/payments';
+import { taskService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { GatewayNotFoundError, PaymentConfigError, paymentService } from '@wizeworksllc/payments';
 
 import { formatCents } from './money';
 
 /**
  * One booking's money, decided. The same shape as `BookingMoney` in
- * @wizeworks/scheduling, which this package cannot import: every caller passes
+ * @wizeworksllc/scheduling, which this package cannot import: every caller passes
  * scheduling's value straight in, so the compiler holds the two together.
  */
 export interface BookingMoney {
@@ -69,7 +69,7 @@ interface SettleContext {
 }
 
 /** The booking-history actions the outcome is written under. Read back by
- *  `latestBookingPayment` in @wizeworks/scheduling; a test in api-rest holds the
+ *  `latestBookingPayment` in @wizeworksllc/scheduling; a test in api-rest holds the
  *  two copies of each name together. */
 export const BOOKING_PAYMENT_SETTLED = 'booking.payment_settled';
 export const BOOKING_PAYMENT_NOT_SETTLED = 'booking.payment_not_settled';

@@ -26,7 +26,7 @@
 // content data layer rather than re-spelled, so the two can never drift.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { contentKeys, LEGAL_QUERY_ROOT, type EntryStatus, type Tone } from './data';
 

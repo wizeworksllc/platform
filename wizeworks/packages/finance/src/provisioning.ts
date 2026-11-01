@@ -7,7 +7,7 @@
 // Idempotent, because a tenant can turn the module off and back on (and because
 // `module.activated` is a Pub/Sub event, which means it can arrive twice).
 
-import { type TxClient } from '@wizeworks/db';
+import { type TxClient } from '@wizeworksllc/db';
 
 import { seedCategories } from './categories';
 
@@ -21,7 +21,7 @@ export interface FinanceProvisionResult {
 /**
  * Provision Finance for a tenant. Called by the module-activation path, never by
  * a preset — a preset provisions config into an ALREADY-enabled module and never
- * writes `settings.modules` (the ModulePreset contract in @wizeworks/modules).
+ * writes `settings.modules` (the ModulePreset contract in @wizeworksllc/modules).
  */
 export async function provisionFinance(
   tenantId: string,

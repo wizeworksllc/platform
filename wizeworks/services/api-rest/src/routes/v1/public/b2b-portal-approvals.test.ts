@@ -38,7 +38,7 @@ vi.mock('../../../lib/customer-session.js', () => {
 vi.mock('../../../lib/public-commerce-context.js', () => ({
   resolveTenantId: () => Promise.resolve('tenant-gillett'),
 }));
-vi.mock('@wizeworks/auth', () => ({
+vi.mock('@wizeworksllc/auth', () => ({
   isModuleEnabled: (_tenant: string, slug: string) =>
     Promise.resolve(slug === 'b2b' ? state.b2bOn : false),
 }));
@@ -61,12 +61,12 @@ const service = vi.hoisted(() => ({
     })
   ),
 }));
-vi.mock('@wizeworks/b2b', () => ({ approvalService: service }));
+vi.mock('@wizeworksllc/b2b', () => ({ approvalService: service }));
 
 const published = vi.hoisted(() => vi.fn(() => Promise.resolve()));
-vi.mock('@wizeworks/api-core/pubsub', () => ({ publish: published }));
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({ publish: published }));
 const emitSaleEvents = vi.hoisted(() => vi.fn(() => Promise.resolve()));
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: { emitSaleEvents } }));
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: { emitSaleEvents } }));
 // The card on the order (sparx persona issue 087), settled after the decision
 // commits. Mocked here: the gateway work has its own tests.
 const settleHeldOrderMoney = vi.hoisted(() => vi.fn(() => Promise.resolve()));

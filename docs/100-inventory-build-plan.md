@@ -29,7 +29,7 @@ The module is **half-scaffolded** already — completing it, not inventing it:
 
 | Already exists                     | Location                                                                                                           |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `inventory` module slug + type     | `wizeworks/packages/modules/src/index.ts` (`ModuleSlug`, `ALL_MODULES`)                                            |
+| `inventory` module slug + type     | `wizeworks/packages/module-roster/src/index.ts` (`ModuleSlug`, `ALL_MODULES`)                                      |
 | Activation validation slug         | `wizeworks/services/api-rest/src/routes/v1/tenant.ts` `MODULE_SLUGS`; `settings/modules/actions.ts` `VALID_SLUGS`  |
 | Module color (amber `#F59E0B`)     | `sparx/packages/ui/src/providers/module-provider.tsx` `MODULE_COLORS`; `variants.ts` `MODULE_COLOR_KEYS`           |
 | Marketing catalog entry            | `sparx/apps/web/lib/capabilities.ts`; `apps/dashboard/components/module-catalog.ts`                                |
@@ -46,7 +46,7 @@ The module is **half-scaffolded** already — completing it, not inventing it:
 3. `apps/dashboard/lib/modules.ts` — `SWITCHBOARD_MODULES` (pricing switchboard)
 4. `wizeworks/packages/billing/src/price-catalog.ts` — `MODULE_MONTHLY_CENTS.inventory = 2900` ($29/mo)
 5. `wizeworks/packages/blueprints/src/manifest.ts` — `BlueprintModuleSlug` enum (if inventory is blueprintable)
-6. `wizeworks/packages/modules/src/index.ts` + `apps/dashboard/lib/modules.ts` — `BUNDLED_FREE`: bundle `inventory`
+6. `wizeworks/packages/module-roster/src/index.ts` + `apps/dashboard/lib/modules.ts` — `BUNDLED_FREE`: bundle `inventory`
    free when `commerce` **or** `b2b` is active (mirrors invoicing↔b2b). Standalone activation bills $29.
 
 **Packaging (§7):** Inventory is **bundled-free with Commerce or B2B**, and **$29/mo standalone** for
@@ -61,18 +61,18 @@ on with the module.
 ### 2.1 Package topology
 
 ```
-@wizeworks/inventory          NEW — owns the supply domain (service + events + errors + MCP tools)
-   ├─ depends on: @wizeworks/db, @wizeworks/commerce-schemas¹, shared low-level publisher
+@wizeworksllc/inventory          NEW — owns the supply domain (service + events + errors + MCP tools)
+   ├─ depends on: @wizeworksllc/db, @wizeworksllc/commerce-schemas¹, shared low-level publisher
    └─ depends on NO other module package  ← keeps the dependency graph acyclic
-@sparx/inventory-schemas  DEFERRED¹ — Zod inputs stay in @wizeworks/commerce-schemas for now
-@wizeworks/commerce           consumes @wizeworks/inventory (checkout reserve/commit, return restock)
-@wizeworks/crm                emits order.* events; an inventory consumer reacts (no direct dep)
+@sparx/inventory-schemas  DEFERRED¹ — Zod inputs stay in @wizeworksllc/commerce-schemas for now
+@wizeworksllc/commerce           consumes @wizeworksllc/inventory (checkout reserve/commit, return restock)
+@wizeworksllc/crm                emits order.* events; an inventory consumer reacts (no direct dep)
 services/inventory-worker EXISTING — repurposed to write the master ledger, + sync adapters
 ```
 
 > **¹ Deferral (as built in P1a, 2026-06-16).** The standalone `@sparx/inventory-schemas` split was
-> **deferred**. The inventory Zod inputs continue to live in `@wizeworks/commerce-schemas`, which is a
-> dependency-free **shared leaf** — `@wizeworks/inventory` importing it keeps the graph acyclic, so the split
+> **deferred**. The inventory Zod inputs continue to live in `@wizeworksllc/commerce-schemas`, which is a
+> dependency-free **shared leaf** — `@wizeworksllc/inventory` importing it keeps the graph acyclic, so the split
 > buys ownership tidiness, not correctness. The blocker: inventory's Zod inputs share primitives
 > (`AddressSnapshot`, `HazmatClass`, money/units helpers) with the commerce schemas, so a clean split
 > means first extracting those primitives to a third shared leaf — a knot not worth untying mid-foundation.
@@ -84,15 +84,15 @@ extraction must also lift the shared primitives inventory currently borrows from
 
 ### 2.2 The extraction untangle (Phase 1 core)
 
-`inventory-service.ts` today imports from `@wizeworks/commerce`'s internals:
+`inventory-service.ts` today imports from `@wizeworksllc/commerce`'s internals:
 
-| Borrowed today                                              | Resolution                                                                                                                                      |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@wizeworks/commerce-schemas` (inputs/types)                | **DEFERRED** — Zod inputs stay in `@wizeworks/commerce-schemas` (shared leaf, acyclic); `@sparx/inventory-schemas` split postponed (see §2.1 ¹) |
-| `../audit` (`writeAuditLog`)                                | `writeAuditLog` writes the shared `AuditLog` table → lift to a shared util (or `@wizeworks/db`) both modules import                             |
-| `../events` (`publishCommerceEvent`, `indexCommerceEntity`) | publish `inventory.*` via the **shared low-level publisher** (`createPublisher`) directly; inventory owns its own event helper                  |
-| `../errors` (`CommerceOutOfStockError`, …)                  | define `@wizeworks/inventory` error classes (or a shared `@sparx/errors`)                                                                       |
-| `@wizeworks/db` (Prisma)                                    | unchanged — single shared client                                                                                                                |
+| Borrowed today                                              | Resolution                                                                                                                                         |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@wizeworksllc/commerce-schemas` (inputs/types)             | **DEFERRED** — Zod inputs stay in `@wizeworksllc/commerce-schemas` (shared leaf, acyclic); `@sparx/inventory-schemas` split postponed (see §2.1 ¹) |
+| `../audit` (`writeAuditLog`)                                | `writeAuditLog` writes the shared `AuditLog` table → lift to a shared util (or `@wizeworksllc/db`) both modules import                             |
+| `../events` (`publishCommerceEvent`, `indexCommerceEntity`) | publish `inventory.*` via the **shared low-level publisher** (`createPublisher`) directly; inventory owns its own event helper                     |
+| `../errors` (`CommerceOutOfStockError`, …)                  | define `@wizeworksllc/inventory` error classes (or a shared `@sparx/errors`)                                                                       |
+| `@wizeworksllc/db` (Prisma)                                 | unchanged — single shared client                                                                                                                   |
 
 > Prisma is **one shared client over one schema folder** — "extracting a package" is **code
 > organization + ownership**, not a separate database. **Tables are renamed `commerce_* → inventory_*`
@@ -159,29 +159,29 @@ Each phase is independently deployable (docs/03 deploy-early) and the **whole su
 phases are a deploy order, not a scope cut. "Standalone?" = does this phase work with inventory active
 and commerce off.
 
-| Phase | Theme                                                                        | Standalone?       | Ships                                             |
-| ----- | ---------------------------------------------------------------------------- | ----------------- | ------------------------------------------------- |
-| P1    | Foundation: extract `@wizeworks/inventory`, unify to one ledger, re-point UI | ✅                | `/inventory` shows real data + non-zero valuation |
-| P2    | Sell path: wire reserve/commit/release into commerce                         | n/a (integration) | real-time accurate stock, oversell protection     |
-| P3    | Supply path: suppliers, POs, receiving, reorder engine                       | ✅                | inbound + replenishment workflow                  |
-| P4    | Counts, transfers, audit UI                                                  | ✅                | auditable corrections + cross-location moves      |
-| P5    | External sync: Tier C/B/A adapters (Fishbowl)                                | ✅                | ERP/WMS-backed tenants live                       |
-| P6    | API contract + reporting + MCP + B2B                                         | ✅                | headless + AI + wholesale complete                |
+| Phase | Theme                                                                           | Standalone?       | Ships                                             |
+| ----- | ------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------- |
+| P1    | Foundation: extract `@wizeworksllc/inventory`, unify to one ledger, re-point UI | ✅                | `/inventory` shows real data + non-zero valuation |
+| P2    | Sell path: wire reserve/commit/release into commerce                            | n/a (integration) | real-time accurate stock, oversell protection     |
+| P3    | Supply path: suppliers, POs, receiving, reorder engine                          | ✅                | inbound + replenishment workflow                  |
+| P4    | Counts, transfers, audit UI                                                     | ✅                | auditable corrections + cross-location moves      |
+| P5    | External sync: Tier C/B/A adapters (Fishbowl)                                   | ✅                | ERP/WMS-backed tenants live                       |
+| P6    | API contract + reporting + MCP + B2B                                            | ✅                | headless + AI + wholesale complete                |
 
 ---
 
 ### Phase 1 — Foundation (extract + unify + re-point)
 
 **Goal:** one inventory module backed by one ledger, showing real data, with the engine living in
-`@wizeworks/inventory`. This phase alone fixes docs/99 defect D1 and makes `/inventory` useful.
+`@wizeworksllc/inventory`. This phase alone fixes docs/99 defect D1 and makes `/inventory` useful.
 
 **Work:**
 
-1. **Create `@wizeworks/inventory`** (use the `new-workspace-package` skill). _(`@sparx/inventory-schemas`
-   split **deferred** — Zod inputs stay in `@wizeworks/commerce-schemas`; see §2.1 ¹.)_
+1. **Create `@wizeworksllc/inventory`** (use the `new-workspace-package` skill). _(`@sparx/inventory-schemas`
+   split **deferred** — Zod inputs stay in `@wizeworksllc/commerce-schemas`; see §2.1 ¹.)_
    Move `inventory-service.ts`; resolve the §2.2 untangle (own events/errors, shared audit). Re-export so
-   existing importers (MCP read/write tools, reservation-reaper) switch to `@wizeworks/inventory`.
-   `@wizeworks/commerce` keeps a thin re-export shim only if needed for an interim. ✅ **DONE (P1a, PR #64).**
+   existing importers (MCP read/write tools, reservation-reaper) switch to `@wizeworksllc/inventory`.
+   `@wizeworksllc/commerce` keeps a thin re-export shim only if needed for an interim. ✅ **DONE (P1a, PR #64).**
 2. **Unify the stock model.** Make `InventoryLevel`/`Warehouse` the single master:
    - Migrate any `StockLevel`/`StockLocation` data into `InventoryLevel`/`Warehouse`; map location
      types; add `transit`/`bin`/`virtual` to `Warehouse.type`. ✅ **DONE (P1c)** — the migration lifts
@@ -242,9 +242,9 @@ and commerce off.
 6. **Finish module wiring** — add `'inventory'` to the lists in §1 (price `2900`, `BUNDLED_FREE` with
    commerce/b2b) and build the commerce/b2b **degrade-without-inventory** path (untracked = always available).
    ✅ **DONE (P1e)** — `MODULE_MONTHLY_CENTS.inventory = 2900`; `BUNDLED_FREE: inventory → [commerce, b2b]`
-   in `@wizeworks/modules` + the dashboard/web switchboard mirrors; `properties.ts` `MODULE_SLUGS` +
+   in `@wizeworksllc/modules` + the dashboard/web switchboard mirrors; `properties.ts` `MODULE_SLUGS` +
    `BlueprintModuleSlug` extended (dashboard.ts + activation slugs already had it). The degrade path is the
-   shared `computeAvailability(levels, policy, { inventoryActive })` in `@wizeworks/inventory` — the single home
+   shared `computeAvailability(levels, policy, { inventoryActive })` in `@wizeworksllc/inventory` — the single home
    for "untracked = always available" — wired into the storefront PDP read (`mapFullProduct` passes
    `isModuleEnabled(tenantId, 'inventory')`); module off → unbounded, always in stock, seam no-ops.
 7. **Seed** real inventory data (warehouses + levels + movements + lots) so a fresh tenant shows a
@@ -304,7 +304,7 @@ enforced. Fixes docs/99 defect D2. This is the commerce **integration** layer.
    owed as a backorder when the shelf is short, recorded as an `allowed` oversell incident when they
    were held for somebody else, and reported to the approver as `order.stock` on the approve result.
    A `deny` item nobody has counted takes no sale at all (no level row is invented).
-3. **Release on cancel / payment-fail** — new commerce **event consumer** (`@wizeworks/commerce/consumers`,
+3. **Release on cancel / payment-fail** — new commerce **event consumer** (`@wizeworksllc/commerce/consumers`,
    installed at api-rest/api-mcp boot on the in-process platform bus, gated per-tenant on the inventory
    module): on `order.cancelled`, `inventoryService.reverseOrderSale({orderId})` reverses each `sale`
    movement with a compensating `cancel` movement (idempotency-keyed off the source movement) and releases
@@ -357,7 +357,7 @@ expected arrival, line cost), `GoodsReceipt` + `GoodsReceiptLine` (receive again
 
 1. `Supplier` CRUD + per-variant supplier links (cost feeds valuation/margin). ✅ **DONE (P3a).**
    `inventory_suppliers` + `inventory_supplier_variants` tables (migration `20260904000000_inventory_suppliers`,
-   FORCE RLS); `@wizeworks/inventory` services (`suppliers.ts` CRUD + soft archive; `supplier-variants.ts` upsert/
+   FORCE RLS); `@wizeworksllc/inventory` services (`suppliers.ts` CRUD + soft archive; `supplier-variants.ts` upsert/
    remove/list + **one-preferred-supplier-per-variant** invariant + `suppliersForVariant` reverse lookup +
    SKU→variant resolver); API `/v1/inventory/suppliers` (+ `/:id/variants` + `variant-lookup`),
    `requireInventoryModule` (standalone-usable); dashboard `/inventory/suppliers` (list/create/detail with
@@ -366,7 +366,7 @@ expected arrival, line cost), `GoodsReceipt` + `GoodsReceiptLine` (receive again
 2. `PurchaseOrder` lifecycle + lines; PO document/print (reuse the billing-document/canvas pattern).
    ✅ **DONE (P3b).** `inventory_purchase_orders` + `inventory_purchase_order_lines` tables (migration
    `20260905000000_inventory_purchase_orders`, FORCE RLS + a `status` CHECK pinning the six-state
-   vocabulary); `@wizeworks/inventory` services split by concern (`purchase-order-shared.ts` serializers +
+   vocabulary); `@wizeworksllc/inventory` services split by concern (`purchase-order-shared.ts` serializers +
    helpers, `purchase-orders.ts` CRUD with per-tenant `PO-000001` numbering + retry-on-collision,
    `purchase-order-lines.ts` draft-only line add/update/remove, `purchase-order-lifecycle.ts`
    submit/cancel/close, `purchase-order-document.ts` a pure self-contained print-HTML renderer + loader).
@@ -385,7 +385,7 @@ expected arrival, line cost), `GoodsReceipt` + `GoodsReceiptLine` (receive again
    partial receipts; over/under-receipt handling.
    ✅ **DONE (P3c).** `inventory_goods_receipts` + `inventory_goods_receipt_lines` tables (migration
    `20260906000000_inventory_goods_receipts`, FORCE RLS); a receipt is **posted atomically** (no editable
-   draft — corrections are a later adjustment/count). `@wizeworks/inventory` `goods-receipts.ts`
+   draft — corrections are a later adjustment/count). `@wizeworksllc/inventory` `goods-receipts.ts`
    `createGoodsReceipt` routes every line through `applyMovement` (`receive`, +qty, `referenceType:
 'GoodsReceipt'`, `idempotencyKey: goods-receipt:<lineId>`), so the moving-average `avgCostCents` updates
    (the onHand=0 case seeds the average from the receipt cost — the div-by-zero guard already lives in the
@@ -439,7 +439,7 @@ movements; reorder suggestion drafts a PO. All with commerce off.
    (`inventory_counts` + `inventory_count_lines`, migration `20260907000000_inventory_counts`, canonical
    FORCE RLS + `type`/`status` CHECKs); a count is scoped to one warehouse and snapshots `expectedQuantity`
    = on-hand at line creation. Lifecycle `counting → review → [approved] → posted` (+ `cancelled`): the
-   editable phase (`@wizeworks/inventory` `inventory-counts.ts`) creates the session (a `full` count snapshots
+   editable phase (`@wizeworksllc/inventory` `inventory-counts.ts`) creates the session (a `full` count snapshots
    every level in the warehouse, a `cycle` count the chosen variants), adds/removes lines, and records
    counted quantities; the lifecycle (`inventory-count-lifecycle.ts`) submits for review (freezing
    `varianceValueCents` = Σ |Δ|·cost and `requiresApproval` when it clears the per-count
@@ -460,7 +460,7 @@ movements; reorder suggestion drafts a PO. All with commerce off.
    `is_system` flag on `inventory_warehouses` marking the per-tenant **in-transit holding warehouse**
    (provisioned lazily on first ship; `listWarehouses` excludes system warehouses so it never appears in
    the pickers/list). A transfer is a document: lifecycle `draft → in_transit → received` (+ `cancelled`).
-   The editable phase (`@wizeworks/inventory` `inventory-transfers.ts`) composes the lines (variant + qty); the
+   The editable phase (`@wizeworksllc/inventory` `inventory-transfers.ts`) composes the lines (variant + qty); the
    lifecycle (`inventory-transfer-lifecycle.ts`) **ships** (each line writes `transfer_out` from source +
    `transfer_in` to the in-transit warehouse — so total stock is conserved while units are in motion),
    **receives** (in-transit → destination; a per-line receipt short of the shipped quantity writes the
@@ -478,7 +478,7 @@ movements; reorder suggestion drafts a PO. All with commerce off.
 3. **Movement / audit-log viewer** — `/inventory/movements`: the `inventory_movements` ledger, filter by
    variant/warehouse/reason/actor/date. This is the compliance surface docs/99 D5 flagged missing.
    ✅ **DONE (P4c).** No new tables — a read-only, filterable, paginated view over the append-only ledger
-   every mutation already writes. New `@wizeworks/inventory` `movement-log.ts` `listMovements(ctx, filter)`
+   every mutation already writes. New `@wizeworksllc/inventory` `movement-log.ts` `listMovements(ctx, filter)`
    (Prisma `findMany` enriched with the variant SKU/product title + warehouse name; filters
    variant/warehouse/reason/actor-type/actor-id/reference/created-at-range; **explicitly scopes `tenant_id`**
    — not just RLS — because the local `sparx_owner` superuser bypasses RLS and a tenant-wide scan would
@@ -491,7 +491,7 @@ movements; reorder suggestion drafts a PO. All with commerce off.
    by reason/variant/warehouse + AND-combined; actor-type + pagination; date range — inventory suite 40/40).
 4. **Lots/serials UI** — per-variant lot creation tab + serial list/status (models exist; no UI today).
    ✅ **DONE (P4d).** No new tables — a management surface on the existing `LotBatch`/`SerialUnit` models. New
-   `@wizeworks/inventory` `lot-management.ts` adds the reads + status mutations on top of the create primitives
+   `@wizeworksllc/inventory` `lot-management.ts` adds the reads + status mutations on top of the create primitives
    in `lots.ts`: `listLots` (filterable by item/warehouse/recall-state/expiry/lot-number, enriched with the
    item + serial count, **explicit `tenant_id` scope** per the RLS-bypass precedent), `getLotBatch` (detail +
    a serial-status breakdown), `listSerials`, `updateSerialStatus` (traceability metadata — it does NOT move
@@ -641,7 +641,7 @@ reconciliation overwrites must still preserve in-flight `committed`.
 > **outbound from the tenant's side** — a small agent they install on their network. **Server side** (the
 > ingress was already built in P5a — `/sources/:id/push` + the ingest funnel): a new `agent` source type
 > (Tier A, push-only — the worker never pulls it); **pairing** mints a tenant-scoped API key via
-> `@wizeworks/auth` (`POST /sources/:id/enroll`, returned ONCE, re-enroll rotates + revokes the old key),
+> `@wizeworksllc/auth` (`POST /sources/:id/enroll`, returned ONCE, re-enroll rotates + revokes the old key),
 > recorded on the source (id + visible prefix); **`POST …/revoke-agent`** unpairs; **`POST …/heartbeat`**
 > (authenticated by the agent's own key) bumps liveness. The push endpoint now accepts a per-row
 > `synced_at` (→ last-writer ordering, P5c) and a `mode: snapshot|delta` (a snapshot is the agent's full
@@ -688,9 +688,9 @@ exercised; a B2B account sees account-scoped availability.
 > enriched + paginated + `q` search), `PATCH /v1/inventory/:variant_id` (set an absolute on-hand OR a signed
 > delta), `POST /v1/inventory/adjustments` (bulk JSON **or** `text/csv`, ≤1000 rows, each row isolated in
 > its own tx so one failure can't roll back the batch), `GET /v1/inventory/alerts` (low-stock). New service
-> `@wizeworks/inventory` `public-api.ts` (`listInventory` / `updateLevelCount` / `bulkAdjust`) — every write
+> `@wizeworksllc/inventory` `public-api.ts` (`listInventory` / `updateLevelCount` / `bulkAdjust`) — every write
 > through the `applyMovement` ledger funnel; SKU resolution + broad-scan reads explicitly tenant-scoped
-> (superuser-bypasses-RLS precedent). **Per-API-key scope enforcement** landed in `@wizeworks/api-core`:
+> (superuser-bypasses-RLS precedent). **Per-API-key scope enforcement** landed in `@wizeworksllc/api-core`:
 > `AuthContext.scopes` (lifted from the verified key) + a `requireScope(request, scope)` helper — an `api`
 > actor must carry `read:inventory` / `write:inventory` (`403 FORBIDDEN` otherwise); JWT/dashboard actors
 > bypass (gated by role). docs/06 §7 reconciled to the implemented shape (spec ↔ routes agree). Tests: 3
@@ -699,7 +699,7 @@ exercised; a B2B account sees account-scoped availability.
 > MODULE_DISABLED). typecheck clean (api-core / commerce-schemas / inventory / api-rest); lint 0 errors.
 
 > **P6b DONE — Reporting (docs/09 §8).** ✅ The analytical lens over the master model + ledger, in a new
-> `@wizeworks/inventory` `analytics.ts` (shared by REST **and** the P6c MCP tools): `inventoryValuation`
+> `@wizeworksllc/inventory` `analytics.ts` (shared by REST **and** the P6c MCP tools): `inventoryValuation`
 > (units + cost/retail), `turnoverReport` (COGS over a window / average inventory value → inventory turns +
 > **DIO**; average inventory from the daily valuation snapshots, falling back to current valuation),
 > `agingReport` (on-hand value bucketed by days-since-last-sale 0-30/31-60/61-90/90+/never + the
@@ -717,7 +717,7 @@ exercised; a B2B account sees account-scoped availability.
 > errors (warn-only max-lines on the cohesive analytics SQL bodies).
 
 > **P6c DONE — MCP supply tools (docs/07).** ✅ Inventory gets its OWN first-class MCP surface (per §4.0): a
-> new `@wizeworks/inventory/mcp` registry (mirrors commerce/crm) with `read:inventory` / `write:inventory`
+> new `@wizeworksllc/inventory/mcp` registry (mirrors commerce/crm) with `read:inventory` / `write:inventory`
 > scopes. Six tools — the supply loop the AI runs end-to-end: **read** `get_low_inventory`,
 > `get_inventory_valuation`, `suggest_reorders`; **write** (confirmation) `update_inventory` (forces
 > `actorType:'ai'` → ledger attributes it to the agent), `create_purchase_order`, `receive_stock`. MCP tool
@@ -726,7 +726,7 @@ exercised; a B2B account sees account-scoped availability.
 > `get_inventory_valuation` now reads the inventory package's valuation). **api-mcp wiring**: the two scopes
 > added to the McpScope union + `DEFAULT_SCOPES_BY_ROLE` (owner/admin/editor write, viewer read) +
 > `WRITE_SCOPES`; `inventoryMcpTools` registered in `ALL_MCP_TOOLS`; **`MODULE_BY_SCOPE`** gates both on the
-> `inventory` module (refuses when off — standalone-safe). New deps: `@wizeworks/inventory` (api-mcp) + `zod`
+> `inventory` module (refuses when off — standalone-safe). New deps: `@wizeworksllc/inventory` (api-mcp) + `zod`
 > (inventory package). **Latent bug fixed**: `listLowStock` relied on RLS only — under the superuser-local
 > role it leaked other tenants' rows; added explicit `l.tenant_id = ctx.tenantId` (reorder/movement-log/
 > analytics precedent). Tests: 5 api-mcp tests (`inventory-tools.test.ts`: globally-unique names [SDK-
@@ -741,7 +741,7 @@ exercised; a B2B account sees account-scoped availability.
 > `B2bFleetHold` (`b2b_fleet_holds`) + `min_order_qty`/`max_order_qty` on `b2b_account_product_overrides`
 > (migration `20260913000000_b2b_fleet_holds`, FORCE RLS, status CHECK); back-relations on Tenant /
 > B2BAccount / ProductVariant / Warehouse; `work_order` added to the reservation holderType enum.
-> **Service** `@wizeworks/inventory` `b2b-holds.ts`: `accountAvailability` (master available net of buffer +
+> **Service** `@wizeworksllc/inventory` `b2b-holds.ts`: `accountAvailability` (master available net of buffer +
 > the account's own active holds + its min/max limits — explicitly tenant-scoped), `createFleetHold`
 > (enforces min/max → reserves via the reservation engine [holderType `work_order`] → records the hold, so
 > total stock is conserved as `allocated`), `releaseFleetHold` (frees the reservation), `consumeFleetHold`

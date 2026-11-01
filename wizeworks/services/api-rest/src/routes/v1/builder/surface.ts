@@ -9,12 +9,12 @@
 // exactly as it will at publish — a blocked class silently no-ops, matching
 // production (the `--st-*` tokens still resolve in the browser). The request body
 // is validated by the service-layer Zod schema (the established route ↔ service
-// boundary), so api-rest keeps no @wizeworks/builder-schemas dep.
+// boundary), so api-rest keeps no @wizeworksllc/builder-schemas dep.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { surfaceCssService } from '@wizeworks/builder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { surfaceCssService } from '@wizeworksllc/builder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireBuilderModule,
   toBuilderTenantContext,

@@ -6,7 +6,7 @@
 // preserves keys it doesn't own, so a one-key `{ tour: { welcome } }` patch lands
 // alongside the view defaults already there. See docs/132 §2.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../api/client';
 import type { TourModule, TourOutcome, TourPrefs } from './types';
 

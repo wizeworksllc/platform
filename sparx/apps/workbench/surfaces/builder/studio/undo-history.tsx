@@ -21,7 +21,7 @@
 // rather than being discarded.
 //
 // THE INVERSE IS THE ENGINE'S NOW (silicaui 0.36.0, docs/silicaui/01 §8). sparx used to compute
-// it in `@wizeworks/builder-schemas/silica-op-invert`, which could not be faithful for two
+// it in `@wizeworksllc/builder-schemas/silica-op-invert`, which could not be faithful for two
 // ops no host can invert from outside: `symbol.set` that CREATES (undoing it needs a
 // detach cascade of ids only the engine mints) and `node.setText` (which flattens
 // `children`, so the structure is not in the op — it now inverts into the new

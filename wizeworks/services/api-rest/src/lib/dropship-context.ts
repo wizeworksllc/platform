@@ -1,7 +1,7 @@
 import type { FastifyRequest } from 'fastify';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 export interface DropshipContext {
   tenantId: string;

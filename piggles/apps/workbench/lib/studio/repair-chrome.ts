@@ -14,7 +14,7 @@
 // `reload-document` imports from there and the two would form a cycle.
 
 import { useCallback } from 'react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 
 import { useStudioBinding } from './provider';
 import { LAYOUT_KEY, useRepairLayout, type LayoutRow } from './layout-data';

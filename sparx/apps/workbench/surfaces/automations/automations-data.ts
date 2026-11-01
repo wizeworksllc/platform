@@ -43,8 +43,8 @@
 // status change, clone or delete is reflected across every open surface at once.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import type {
   Action,
@@ -55,7 +55,7 @@ import type {
   RunStatus,
   StepStatus,
   Trigger,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 import { api } from '../../lib/api/client';
 
 /* ── Semantic tone (shared with the Badge/Button color axis) ────────────── */
@@ -71,7 +71,7 @@ export type Tone = 'success' | 'warning' | 'danger' | 'info' | 'neutral' | 'modu
  *  PUBLISHED document in the top-level columns, plus a staged `draft` when there
  *  are unpublished edits. The JSON sub-parts (`triggerConfig` / `conditions` /
  *  `actions`) are `unknown` on the wire and parsed with the canonical
- *  `@wizeworks/automation-schemas` parsers in presentation.tsx — never trusted raw. */
+ *  `@wizeworksllc/automation-schemas` parsers in presentation.tsx — never trusted raw. */
 export interface Automation {
   id: string;
   tenantId: string;

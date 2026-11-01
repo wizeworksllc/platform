@@ -25,7 +25,7 @@ import {
   UpdateDocumentLineTypeInput,
   UpdateDocumentStageInput,
   UpdateDocumentWorkflowInput,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 import type { ServiceContext } from '../errors';
 import {

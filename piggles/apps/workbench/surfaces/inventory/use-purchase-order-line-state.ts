@@ -2,7 +2,7 @@
 // following the supplier's quantity ladder until somebody types a price.
 
 import { useEffect, useMemo, useState } from 'react';
-import { resolvePurchasePrice } from '@wizeworks/commerce-schemas';
+import { resolvePurchasePrice } from '@wizeworksllc/commerce-schemas';
 import type { PurchaseOrderLineDraft } from './purchase-orders-data';
 import { usePriceLadder } from './supplier-performance-data';
 import { centsToInput } from './purchase-order-draft';

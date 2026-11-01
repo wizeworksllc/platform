@@ -9,7 +9,7 @@
 // stamps a tailored starting setup into the enabled modules — additive only, it
 // never removes anything the business has already made.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import type { LucideIcon } from 'lucide-react';
 import {
   Briefcase,
@@ -26,7 +26,7 @@ import { api } from '../../lib/api/client';
 import { WORKBENCH_MODULES, type WorkbenchModule } from '../../components/module-scope';
 
 /** The dashboard-facing projection of an industry starter — mirrors
- *  `IndustryStarterView` from @wizeworks/modules (the wire shape). */
+ *  `IndustryStarterView` from @wizeworksllc/modules (the wire shape). */
 export interface IndustryStarter {
   slug: string;
   name: string;

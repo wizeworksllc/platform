@@ -3,7 +3,7 @@
 **Status:** fixed and proven on screen, both consoles
 **Severity:** major
 **Found by:** Devi, opening the Stock list to see her linen land
-**Surface:** Stock list + the "where this came from" pane, both consoles + `@wizeworks/inventory`
+**Surface:** Stock list + the "where this came from" pane, both consoles + `@wizeworksllc/inventory`
 **Filed:** 2026-09-09
 
 ## What she saw

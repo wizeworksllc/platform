@@ -76,11 +76,11 @@ no namespacing. The hard problem Better Auth would have forced on us simply does
 
 ### Decision
 
-Build a **purpose-built, tenant-scoped customer-auth module**, `@wizeworks/customer-auth`, that
+Build a **purpose-built, tenant-scoped customer-auth module**, `@wizeworksllc/customer-auth`, that
 reuses the platform's existing primitives rather than a framework:
 
 - **Hashing:** Argon2id via `@node-rs/argon2` — the identical algorithm and parameters Layer 1
-  uses (already a dependency of `@wizeworks/db`, see `wizeworks/packages/db/prisma/seed.ts`).
+  uses (already a dependency of `@wizeworksllc/db`, see `wizeworks/packages/db/prisma/seed.ts`).
 - **Sessions:** opaque 256-bit random tokens, SHA-256-hashed at rest, in a first-party
   httpOnly cookie — the same shape as our API-key model (`wizeworks/packages/auth/src/api-keys.ts`).
 - **Isolation:** every table is tenant-scoped with `ENABLE + FORCE` RLS and a
@@ -89,7 +89,7 @@ reuses the platform's existing primitives rather than a framework:
 
 This is ~300 lines under our full control, it is auditable, and it never touches the staff auth
 package or its tables. It honours the boundary rule in
-`memory/feedback_respect_architectural_boundaries.md`: `@wizeworks/auth` stays "the Better Auth
+`memory/feedback_respect_architectural_boundaries.md`: `@wizeworksllc/auth` stays "the Better Auth
 package"; customer auth gets its own clearly-named home.
 
 ---
@@ -106,7 +106,7 @@ wizeworks/apps/site  /api/sparx/[...path]  (same-origin proxy)
 wizeworks/services/api-rest  /v1/public/commerce/account/*   (tenant by ?tenant=<slug>)
   │  resolves tenantId, asserts Site/Commerce module active
   ▼
-@wizeworks/customer-auth   registerCustomer / authenticateCustomer / {create,verify,revoke}Session
+@wizeworksllc/customer-auth   registerCustomer / authenticateCustomer / {create,verify,revoke}Session
   │  Argon2id hashing · opaque session tokens · all inside withTenant()
   ▼
 Postgres (RLS FORCE)   customer_credentials · customer_sessions · customer_password_resets
@@ -234,7 +234,7 @@ guard), same as every prior migration.
 
 ---
 
-## 5. `@wizeworks/customer-auth` package
+## 5. `@wizeworksllc/customer-auth` package
 
 New workspace package. Server-only (no React surface; the site calls it via `api-rest`,
 never directly — honouring the "site talks to api-rest only" constraint). Mirrors the
@@ -242,7 +242,7 @@ ergonomics of `wizeworks/packages/auth` but is its own thing.
 
 ```
 wizeworks/packages/customer-auth/
-  package.json          // deps: @wizeworks/db, @node-rs/argon2, zod; type: module
+  package.json          // deps: @wizeworksllc/db, @node-rs/argon2, zod; type: module
   tsconfig.json
   eslint.config.js
   src/
@@ -283,7 +283,7 @@ resetPassword(ctx, { token, password }) → void
 
 ### 5.2 Email
 
-Password-reset and welcome emails publish `email.send` to Pub/Sub via `@wizeworks/events`, the
+Password-reset and welcome emails publish `email.send` to Pub/Sub via `@wizeworksllc/events`, the
 same path `wizeworks/packages/auth/src/email-events.ts` uses — never a direct send. New templates
 (`customer-welcome`, `customer-password-reset`) are added to `wizeworks/packages/email` in the
 atomic-component style mandated by CLAUDE.md. (OTP-style synchronous send is **not** needed
@@ -358,7 +358,7 @@ register, logout, refresh }`; hydrates from `/account/me` on mount.
 
 Per `memory/feedback_deploy_early_deploy_small.md`, ship in independently-deployable slices:
 
-1. **DB + package** — migration (through the pipeline) + `@wizeworks/customer-auth` with unit tests
+1. **DB + package** — migration (through the pipeline) + `@wizeworksllc/customer-auth` with unit tests
    for hash/verify, session lifecycle, register/login/reset. Nothing user-facing yet.
 2. **API** — `account.ts` routes (register/login/logout/me) + session preHandler + cart merge.
    Verifiable with `curl` against a seeded tenant.
@@ -382,7 +382,7 @@ Per `memory/feedback_deploy_early_deploy_small.md`, ship in independently-deploy
 - [x] Login + password-reset request are enumeration-safe; login is timing-flattened (dummy
       verify on unknown email).
 - [x] Per-IP rate-limiting (10/min) on `register` / `login` / `password/forgot` / `password/reset`.
-- [x] No customer-auth code imports or mutates the staff `@wizeworks/auth` instance or its tables.
+- [x] No customer-auth code imports or mutates the staff `@wizeworksllc/auth` instance or its tables.
 
 **Verification status.** Unit tests (hash/session) + DB-gated integration tests (service +
 cross-tenant RLS) green; api-rest routes exercised end-to-end via `app.inject` against docker

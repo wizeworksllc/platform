@@ -1,7 +1,7 @@
 // sparx/apps/web ESLint — extends root, enforces the "no raw Tailwind in feature code"
 // rule from docs/23-frontend-component-architecture.md §15.
 //
-// Marketing-only chrome that has no @wizeworks/ui primitive should use inline styles
+// Marketing-only chrome that has no @wizeworksllc/ui primitive should use inline styles
 // referencing the CSS custom properties from tokens.css, NOT composed Tailwind.
 
 import rootConfig from '../../../eslint.config.js';
@@ -20,7 +20,7 @@ export default [
           selector:
             'JSXAttribute[name.name="className"][value.type="Literal"][value.value=/(?=.*(?:bg-\\[(?:var\\(|#|rgb|hsl|oklch)|bg-white|bg-black))(?=.*(?:text-\\[(?:var\\(|#|rgb|hsl|oklch)|text-white|text-black))/]',
           message:
-            'This className pairs a background fill with a foreground text color — that reimplements a styled control. Use a @wizeworks/ui component/variant or inline styles with CSS vars from tokens.css. Layout, spacing, and positioning utilities are fine (docs/23 §15).',
+            'This className pairs a background fill with a foreground text color — that reimplements a styled control. Use a @wizeworksllc/ui component/variant or inline styles with CSS vars from tokens.css. Layout, spacing, and positioning utilities are fine (docs/23 §15).',
         },
       ],
     },

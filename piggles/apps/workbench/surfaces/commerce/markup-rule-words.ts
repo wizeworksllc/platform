@@ -1,7 +1,7 @@
 // Markup rules in an owner's words (sparx persona issue 086). The server stores
 // 40% as 0.4 and a cost range in cents; this and markup-rule-draft.ts convert.
 
-import type { MarkupScope } from '@wizeworks/commerce-schemas';
+import type { MarkupScope } from '@wizeworksllc/commerce-schemas';
 import { formatCentsAmount } from '../../lib/money-format';
 
 /* ── The server's row ───────────────────────────────────────────────────── */

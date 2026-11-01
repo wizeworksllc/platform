@@ -127,7 +127,7 @@ correctly stays quiet. It was honest about what it saw; what it saw is now right
 
 Code + unit level, 2026-08-20: `collection-option.test.ts` — 9 tests, green
 (free, cart currency, no delivery estimate, stable ref, and no
-"Collection Collect in person" on the order). `@wizeworks/commerce` typechecks;
+"Collection Collect in person" on the order). `@wizeworksllc/commerce` typechecks;
 `silica-catalog` 1144 tests green.
 
 **Owed — the confirmation that actually counts:** act 8 is the buyer at 390px.

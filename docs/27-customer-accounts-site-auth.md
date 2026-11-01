@@ -9,7 +9,7 @@
 ## 0. What changed in 2.0 (and why)
 
 Layer 2 (site shoppers) was originally a **purpose-built, tenant-scoped auth module**
-(`@wizeworks/customer-auth`, v1.x of this doc): Argon2id + opaque SHA-256 sessions, deliberately
+(`@wizeworksllc/customer-auth`, v1.x of this doc): Argon2id + opaque SHA-256 sessions, deliberately
 _not_ Better Auth because Better Auth keys credential sign-in on a **globally unique email**
 and shoppers must be able to register the same email at different tenants as separate accounts.
 
@@ -54,14 +54,14 @@ the surrounding model.
 [docs/16 §2](16-auth-security.md) still stands: five distinct principals, each with its own
 identity store and isolation boundary. Conflating tiers is a security bug. What changes is Layer
 2's row: identity store becomes **"Better Auth (customer instance, tenant-scoped)"** instead of
-`@wizeworks/customer-auth`'s bespoke tables. It is still **one tenant, RLS-isolated**, still a
+`@wizeworksllc/customer-auth`'s bespoke tables. It is still **one tenant, RLS-isolated**, still a
 first-party `sparx_customer_session` cookie, still completely separate from the staff instance.
 
 **Isolation between the two Better Auth instances is mandatory and total:**
 
 | Concern          | Staff instance (Layer 1)          | Customer instance (Layer 2)                            |
 | ---------------- | --------------------------------- | ------------------------------------------------------ |
-| Package          | `@wizeworks/auth`                 | `@wizeworks/customer-auth`                             |
+| Package          | `@wizeworksllc/auth`              | `@wizeworksllc/customer-auth`                          |
 | Secret           | `BETTER_AUTH_SECRET`              | `CUSTOMER_AUTH_SECRET` (distinct)                      |
 | Cookie           | `better-auth.session_token` (app) | `sparx_customer_session` (site origin)                 |
 | Email uniqueness | global (`users.email @unique`)    | **per-tenant** (`(tenant_id, email)` composite)        |
@@ -87,7 +87,7 @@ either alone cannot leak across tenants.
 For a shopper the tenant is known **before** authentication — it is the site host
 (`acme.sparx.zone`, or `?tenant=acme`), resolved exactly as the rest of the public surface
 already does. api-rest carries it to the adapter through a new **request-scoped
-`AsyncLocalStorage`** (`@wizeworks/db` → `tenantStore`): a Fastify `preHandler` on the customer-auth
+`AsyncLocalStorage`** (`@wizeworksllc/db` → `tenantStore`): a Fastify `preHandler` on the customer-auth
 routes resolves the tenant slug → id and runs the handler inside `tenantStore.run({ tenantId }, …)`.
 
 This is the one genuinely new primitive. Today `withTenant(tenantId, fn)` takes the tenant
@@ -97,8 +97,8 @@ op ever runs with no tenant in context, it throws rather than executing an unsco
 
 ### 3.2 The tenant-scoping adapter
 
-`@wizeworks/customer-auth` builds its Better Auth instance on the **stock `prismaAdapter`**, but hands
-it a **tenant-scoping Proxy** over the shared `@wizeworks/db` client instead of the raw client. The
+`@wizeworksllc/customer-auth` builds its Better Auth instance on the **stock `prismaAdapter`**, but hands
+it a **tenant-scoping Proxy** over the shared `@wizeworksllc/db` client instead of the raw client. The
 Proxy does two things and nothing else, so all of Better Auth's audited where/select/join logic is
 reused verbatim:
 
@@ -128,7 +128,7 @@ The result:
 
 This is the "custom database adapter injecting tenantId" pattern — realized as a **DB-enforced**
 scope (strictly stronger than app-tier filtering), reusing the stock adapter, and identical in
-spirit to `withTenant()`. The customer tables are ordinary `@wizeworks/db` Prisma models (schema 48),
+spirit to `withTenant()`. The customer tables are ordinary `@wizeworksllc/db` Prisma models (schema 48),
 so they flow through the one migration pipeline — no second Prisma client or schema.
 
 ### 3.3 The database backstop (RLS + composite unique)
@@ -225,7 +225,7 @@ auth-engine swap is safer than trying to port opaque tokens into Better Auth's s
 
 ---
 
-## 5. `@wizeworks/customer-auth` — rewritten around Better Auth
+## 5. `@wizeworksllc/customer-auth` — rewritten around Better Auth
 
 The package keeps its name and its role ("the Layer-2 auth package; server-only; api-rest is the
 only caller"), and re-exports a compatible-enough surface so the blast radius on callers is small.
@@ -233,7 +233,7 @@ Internally it becomes a Better Auth instance + helpers:
 
 ```
 wizeworks/packages/customer-auth/src/
-  tenant-adapter.ts // tenant-scoping Proxy over @wizeworks/db → prismaAdapter (§3.2): plugin-key
+  tenant-adapter.ts // tenant-scoping Proxy over @wizeworksllc/db → prismaAdapter (§3.2): plugin-key
                     //   remap + per-op withTenant(tenantStore, …) on the sparx_app client
   server.ts        // betterAuth({ … emailAndPassword, mcp(), user/session/account/verification
                    //   modelName overrides, tenant-scoping adapter … }) — one instance, cached
@@ -272,7 +272,7 @@ served by api-rest, not mounted in `wizeworks/apps/site`:
   (Fastify → Web `Request`/`Response` adaptation), behind a **`preHandler` that resolves the tenant
   from `?tenant=` and enters `tenantStore.run({ tenantId }, …)`** so every BA op is scoped.
 - The existing `/v1/public/commerce/account/*` routes (register / login / logout / me / orders /
-  addresses / wishlist / password reset) are **rewired** to call the new `@wizeworks/customer-auth`
+  addresses / wishlist / password reset) are **rewired** to call the new `@wizeworksllc/customer-auth`
   service wrappers instead of the old bespoke functions. Their external contract (paths, request/
   response envelopes, the `sparx_customer_session` cookie, enumeration-safety, rate limits,
   `recognized` signal, cart-claim) is **unchanged** — `wizeworks/apps/site` needs no change.
@@ -367,7 +367,7 @@ the engine swap must not quietly drop them:
   guest; cart-claim on auth is unchanged.
 - **Cookie scope & custom domains.** `sparx_customer_session` is httpOnly / SameSite=Lax / Path=/
   (`Secure` in prod), first-party per site origin, no `Domain=` — each origin isolates.
-- **No cross-package contamination.** Customer auth never imports or mutates `@wizeworks/auth` (the
+- **No cross-package contamination.** Customer auth never imports or mutates `@wizeworksllc/auth` (the
   staff instance) or its tables, and vice-versa.
 
 ---

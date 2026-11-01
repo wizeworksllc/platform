@@ -1,4 +1,4 @@
-// @wizeworks/silica-catalog — sparx's silica-native domain catalog.
+// @wizeworksllc/silica-catalog — sparx's silica-native domain catalog.
 //
 // The commerce/CRM composites silica's shipped block library doesn't cover,
 // authored as id-free @wizeworks/silicaui-html `Node` factories, plus the grouped

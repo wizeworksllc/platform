@@ -6,8 +6,8 @@
 // in the console). Those figures are the business's working copy until it has
 // made the offer: the buyer's portal sends no money for a quote before then.
 
-import type { b2bQuoteRequestService } from '@wizeworks/crm';
-import type { pricingService, ServiceContext } from '@wizeworks/commerce';
+import type { b2bQuoteRequestService } from '@wizeworksllc/crm';
+import type { pricingService, ServiceContext } from '@wizeworksllc/commerce';
 
 type ResolveForAccount = typeof pricingService.resolveForAccount;
 

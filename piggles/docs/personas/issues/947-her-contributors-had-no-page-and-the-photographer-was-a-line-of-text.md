@@ -43,10 +43,10 @@ shot without being an author." A journal's byline links to the writer's page.
 
 ## Where it lives
 
-- `@wizeworks/silica-catalog` `RECORD_ADDRESSES`: five routed record pages, no
+- `@wizeworksllc/silica-catalog` `RECORD_ADDRESSES`: five routed record pages, no
   author.
 - `apps/site`: no `authors` route; `projectByline` gives a name and no address.
-- `@wizeworks/field-schema`: no field kind for one of the business's authors.
+- `@wizeworksllc/field-schema`: no field kind for one of the business's authors.
 
 ## The fix
 

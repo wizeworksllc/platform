@@ -69,7 +69,7 @@ export function slugifyHandle(value: string): string {
     …
 ```
 
-**The server gets this right.** `slugify` in `@wizeworks/commerce`'s
+**The server gets this right.** `slugify` in `@wizeworksllc/commerce`'s
 product-service normalises to NFKD and strips the combining marks first, so the
 API would have produced `ham-gruyere-and-mustard-baguette` on its own. It never
 got the chance: the console fills the Web address field as you type and **sends

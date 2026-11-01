@@ -25,14 +25,14 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/auth', () => ({ isModuleEnabled: () => Promise.resolve(false) }));
+vi.mock('@wizeworksllc/auth', () => ({ isModuleEnabled: () => Promise.resolve(false) }));
 // The stock a held order kept while it waited, let go when it is turned down.
 const releaseOrderHolds = vi.hoisted(() => vi.fn((..._args: unknown[]) => Promise.resolve(0)));
-vi.mock('@wizeworks/inventory', () => ({
+vi.mock('@wizeworksllc/inventory', () => ({
   inventoryService: { releaseOrderHoldsOnTx: releaseOrderHolds },
 }));
 

@@ -6,7 +6,7 @@
 // The tones are silicaui color names (`success`/`warning`/`info`/`danger`/
 // `neutral`) — `danger` is registered as a custom silicaui color (see
 // globals.css `@plugin` + sparx-theme.css) so `.badge-danger` exists. Ported
-// local to market from @wizeworks/ui; graduates to a shared `@wizeworks/app-kit` in the
+// local to market from @wizeworksllc/ui; graduates to a shared `@wizeworksllc/app-kit` in the
 // platform-wide rollout so every app resolves statuses identically.
 
 /** The tones a status pill can take (a subset of the silicaui color names). */

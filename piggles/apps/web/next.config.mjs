@@ -29,7 +29,7 @@ const config = {
     '@piggles/brand',
     '@piggles/config',
     '@piggles/mascot',
-    '@wizeworks/app-kit',
+    '@wizeworksllc/app-kit',
     '@wizeworks/silicaui-react',
   ],
   typedRoutes: true,

@@ -1,8 +1,8 @@
-// The pre-publish check — everything `@wizeworks/site-lint` needs, gathered from one site.
+// The pre-publish check — everything `@wizeworksllc/site-lint` needs, gathered from one site.
 //
 // The engine is pure by design: it takes a site and a set of rosters and returns a
 // report. This is the half that knows where any of that lives. It sits in api-rest
-// rather than in `@wizeworks/builder` for the same reason `lib/seo-audit.ts` does — the
+// rather than in `@wizeworksllc/builder` for the same reason `lib/seo-audit.ts` does — the
 // answer is assembled ACROSS modules (the builder's trees, commerce's handles, the
 // CMS's page entries, the tenant's brand), and a builder service that reached into all
 // of them would be a builder service in name only.
@@ -21,10 +21,10 @@
 //      to a tenant who is mid-migration.
 
 import type { FastifyRequest } from 'fastify';
-import { pageService, type PropertyContext } from '@wizeworks/builder';
-import { isModuleEnabled } from '@wizeworks/auth';
-import type { TxClient } from '@wizeworks/db';
-import { withRequestTenant } from '@wizeworks/api-core/db';
+import { pageService, type PropertyContext } from '@wizeworksllc/builder';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import type { TxClient } from '@wizeworksllc/db';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
 import {
   imageSourcesOf,
   lintSite,
@@ -35,7 +35,7 @@ import {
   type SiteCapabilities,
   type SiteLintInput,
   type SiteLintReport,
-} from '@wizeworks/site-lint';
+} from '@wizeworksllc/site-lint';
 import type { Node as SilicaNode, SymbolDef } from '@wizeworks/silicaui-html';
 import { authorsWithWorkTx } from './author-roster.js';
 import { siteChromeOptions } from './builder-context.js';

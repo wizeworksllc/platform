@@ -22,7 +22,7 @@
 // product card on every collection template.
 
 import { applyOverrides, type Node as SilicaNode, type SymbolDef } from '@wizeworks/silicaui-html';
-import { boundAttrs, establishesContainer } from '@wizeworks/silica-catalog';
+import { boundAttrs, establishesContainer } from '@wizeworksllc/silica-catalog';
 
 import { paintOf, ROOT_PAINT, type PaintContext } from './paint';
 import type { LintablePage, LintScope } from './types';

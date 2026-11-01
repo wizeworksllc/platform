@@ -3,15 +3,15 @@
 // drafts), and the public on-platform RSVP that drops a lead into the host
 // partner's CRM. Reads for the public directory live in directory.ts.
 
-import { customerService } from '@wizeworks/crm';
-import { withSystem, withTenant, type TxClient } from '@wizeworks/db';
-import { badRequest, forbidden, notFound } from '@wizeworks/api-core/errors';
+import { customerService } from '@wizeworksllc/crm';
+import { withSystem, withTenant, type TxClient } from '@wizeworksllc/db';
+import { badRequest, forbidden, notFound } from '@wizeworksllc/api-core/errors';
 import {
   BootcampStatusInput,
   CreateBootcampInput,
   RegisterBootcampInput,
   UpdateBootcampInput,
-} from '@wizeworks/partner-schemas';
+} from '@wizeworksllc/partner-schemas';
 
 import { publishPartnerEvent } from './events.js';
 import type { PartnerContext } from './service.js';

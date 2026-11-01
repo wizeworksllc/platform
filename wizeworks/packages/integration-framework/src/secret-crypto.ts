@@ -4,7 +4,7 @@
 // the `configEncrypted` column. The ciphertext is stored prefixed `enc:` so
 // the SecretReader can decrypt it inline at call time with no external
 // secret-store round trip — unlike `env:`/`projects/` refs, which point AT
-// a secret rather than carrying one. Mirrors @wizeworks/channels/crypto's
+// a secret rather than carrying one. Mirrors @wizeworksllc/channels/crypto's
 // proven AES-256-GCM bundle shape (iv.tag.cipher, base64), keyed by its own
 // PROVIDER_SECRET_KEY rather than reusing the channels key (unrelated
 // trust domains — OAuth channel grants vs. tenant-pasted provider keys).

@@ -8,10 +8,10 @@
 // removes by hand. See the note there before adding another FK-less table.
 
 import crypto from 'node:crypto';
-import { marketService } from '@wizeworks/commerce';
-import { prisma } from '@wizeworks/db';
+import { marketService } from '@wizeworksllc/commerce';
+import { prisma } from '@wizeworksllc/db';
 import type { FastifyInstance } from 'fastify';
-import type { StaffRole } from '@wizeworks/api-core/auth';
+import type { StaffRole } from '@wizeworksllc/api-core/auth';
 
 export interface TestTenant {
   tenantId: string;

@@ -1,7 +1,7 @@
 // Email-safe class → inline-style compiler (docs/98 §3.6c, Email v2).
 //
 // The web surface compiles a node's Tailwind `class` to per-tenant `tenant.css`
-// (`@wizeworks/surface-compile`). Mail clients strip <style> blocks and ignore CSS
+// (`@wizeworksllc/surface-compile`). Mail clients strip <style> blocks and ignore CSS
 // variables, so email can't use that path — every value must be a concrete inline
 // style on the element. This module is the email analog: it parses the EMAIL-SAFE
 // SUBSET of a node's class string into a plain inline-style object the email
@@ -17,11 +17,11 @@
 // Pure (no React, no DOM), like the rest of this package: it returns a plain
 // `Record<string, string | number>` structurally compatible with React.CSSProperties.
 // Colors are resolved against an `EmailPalette` the caller passes in (the resolved
-// tenant brand) — keeping this module brand-agnostic and free of the @wizeworks/email
+// tenant brand) — keeping this module brand-agnostic and free of the @wizeworksllc/email
 // dependency (which depends on US, not the other way around).
 
 /** The resolved brand colors a class's color tokens map onto (a subset of
- *  @wizeworks/email's BrandTokens, passed in so this stays pure). */
+ *  @wizeworksllc/email's BrandTokens, passed in so this stays pure). */
 export interface EmailPalette {
   primary: string;
   primaryForeground: string;

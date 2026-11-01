@@ -108,7 +108,7 @@ export { setCallPlacer, RecordingCallPlacer, describeCall } from './call-service
 export type { CallPlacer, PlaceCallResult, StatusUpdate } from './call-service';
 export type { VoiceConnectionView } from './voice-connection-service';
 export type { TemplatePerformance } from './sales-template-service';
-// Where a 1:1 sales email leaves the building. Injected so @wizeworks/crm carries no
+// Where a 1:1 sales email leaves the building. Injected so @wizeworksllc/crm carries no
 // transport dependency — api-rest installs the real one at boot.
 export {
   setOutboundMailSink,

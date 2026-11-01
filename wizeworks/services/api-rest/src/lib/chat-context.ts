@@ -6,10 +6,10 @@
 // identity), with chat-module activation enforced the same way.
 
 import type { FastifyRequest } from 'fastify';
-import type { TenantContext } from '@wizeworks/db';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { TenantContext } from '@wizeworksllc/db';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 import { z } from 'zod';
 

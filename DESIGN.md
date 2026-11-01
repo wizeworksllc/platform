@@ -50,7 +50,7 @@ find later.
 | `@sparx/brand/theme.css`       | the **values**            | every hex, light + dark; `--radius-box/field/selector`; the 18 module hues                                      |
 | `@wizeworks/silicaui` (plugin) | the **appearance**        | fill, ink, border, radius, hover/focus/active/disabled, loading, `soft`/`outline`/`ghost`/`dash`, sizes, shapes |
 | `@wizeworks/silicaui-react`    | **behavior + a11y**       | Base UI selection state, roving focus, portals, moving indicators                                               |
-| `@wizeworks/ui`                | sparx **compositions**    | the shell, `PageHeader`, `ListToolbar`, `Stat`, `statusTone`                                                    |
+| `@wizeworksllc/ui`             | sparx **compositions**    | the shell, `PageHeader`, `ListToolbar`, `Stat`, `statusTone`                                                    |
 | **your feature code**          | the **decision + layout** | which `color × variant × size × shape` — and Tailwind for layout, spacing, sizing, positioning                  |
 
 **Feature code owns no appearance at all.** Its entire color job is picking the right prop, which is
@@ -83,7 +83,7 @@ order:
 2. **Is it a value?** Change the token in `@sparx/brand/theme.css`. One edit, whole platform, light
    and dark together.
 3. **Is it a missing variant or component?** Add it to silicaui, or add a composition to
-   `@wizeworks/ui`. Now every future surface gets it for free.
+   `@wizeworksllc/ui`. Now every future surface gets it for free.
 4. **Only then** — with Brandon's approval — a local exception, documented as debt at the call site.
 
 **A local override is not a fix. It is a deferred fix, and everyone else pays the interest.** The
@@ -779,7 +779,7 @@ have genuinely different vocabularies; one shared mapping would either lose case
 every domain in the platform. The rule §2 actually asks for is "**state resolves through a helper,
 never a hue picked inline at the JSX site**" — and a per-domain helper satisfies it completely.
 
-The generic `statusTone()` in `@wizeworks/ui` remains the right default for ordinary
+The generic `statusTone()` in `@wizeworksllc/ui` remains the right default for ordinary
 draft/published/archived lifecycles. Reach for a local one when the domain has its own vocabulary.
 
 ---

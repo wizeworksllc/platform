@@ -13,7 +13,7 @@
 // effect) is deferred to the dispatch tick, so this is not "inlining a side
 // effect in a handler."
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** The customer-facing booking notifications the module schedules. Each maps 1:1
  *  to a keyed Builder email (BOOKING_EMAIL_KEY) and an SMS body
@@ -45,7 +45,7 @@ export type BookingNoticeStatus =
   'pending' | 'sent' | 'failed' | 'cancelled' | 'not_set_up' | 'opted_out' | 'no_address';
 
 /** The ledger status for a guarded text send's outcome (`SmsOutcome` in
- *  @wizeworks/sms). Taken as a string so this package needs no SMS dependency. */
+ *  @wizeworksllc/sms). Taken as a string so this package needs no SMS dependency. */
 export function smsNoticeStatus(outcome: string): BookingNoticeStatus {
   switch (outcome) {
     case 'sent':

@@ -27,10 +27,10 @@
 /* Rules that close a hole in a silicaui component, and the toast surface. Both
  * are written entirely in tokens — they name no color of their own — so they
  * resolve to Piggles' values here and sparx's over there. That is why they sit
- * in @wizeworks/silica-corrections: a fix both brands need cannot live inside
+ * in @wizeworksllc/silica-corrections: a fix both brands need cannot live inside
  * one brand's package, or deleting that brand deletes the other's fix. */
-@import '@wizeworks/silica-corrections/silica-gaps.css';
-@import '@wizeworks/silica-corrections/toast.css';
+@import '@wizeworksllc/silica-corrections/silica-gaps.css';
+@import '@wizeworksllc/silica-corrections/toast.css';
 
 /* Everything the shared surfaces need in order to render correctly: the site
  * canvas safelist, the field-description correction, the [data-module] field
@@ -81,8 +81,8 @@
 /* The CMS block editor's own surface styles (`.sparx-content-editor`), plus a
  * scan so Tailwind emits the utility classes its TOOLBAR carries in TSX. The
  * stylesheet is written on tokens this app defines, so it wears Piggles' values. */
-@import '@wizeworks/cms-editor/editor.css';
-@source '../node_modules/@wizeworks/cms-editor/src';
+@import '@wizeworksllc/cms-editor/editor.css';
+@source '../node_modules/@wizeworksllc/cms-editor/src';
 
 /* The silica Email Builder chrome (`builder.email.editor`) emits utility classes
  * as LITERAL strings from its shipped dist, so the two packages must be scanned
@@ -102,11 +102,11 @@
  * Turbopack tries to resolve a module called `x`, and the build fails. So:
  * silica-catalog/src whole, and for builder-schemas only the four
  * vocabulary-bearing sources. */
-@source '../node_modules/@wizeworks/silica-catalog/src';
-@source '../node_modules/@wizeworks/builder-schemas/src/catalog';
-@source '../node_modules/@wizeworks/builder-schemas/src/site-chrome.ts';
-@source '../node_modules/@wizeworks/builder-schemas/src/starters.ts';
-@source '../node_modules/@wizeworks/builder-schemas/src/box-to-class.ts';
+@source '../node_modules/@wizeworksllc/silica-catalog/src';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/catalog';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/site-chrome.ts';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/starters.ts';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/box-to-class.ts';
 
 /* The per-document builders (`@piggles/studio`). Its rails and canvas ship className
  * strings — the selection ring, the layer indents, the Inspector's whole control
@@ -120,7 +120,7 @@
  * canvas and the published page cannot disagree about what an author may write.
  * It is the home of the CONTAINER-QUERY set (`@2xl:grid-cols-3`), the sanctioned
  * responsive vocabulary and the only one the device toggle can actually preview. */
-@import '@wizeworks/silica-catalog/builder-vocabulary.css';
+@import '@wizeworksllc/silica-catalog/builder-vocabulary.css';
 
 /* ── The registered color roles ─────────────────────────────────────────────
  *

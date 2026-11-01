@@ -22,7 +22,7 @@ sparx has **two** design systems. **The axis is whose brand a surface wears — 
 | Whose brand       | **ours**                                                                                    | **the tenant's**                        |
 | Token prefix      | `--color-base-*` / semantic `--color-*` / `--color-module-*` (silica, from `@sparx/brand`)  | `--st-*`                                |
 | Component classes | silicaui plugin classes (`btn-*`, `bg-<color>`, `bg-soft`)                                  | `.st-c-*`                               |
-| Library           | `@wizeworks/silicaui-react` (primitives) + `@wizeworks/ui` (compositions) + `ModuleScope`       | `@sparx/site-ui` + `@wizeworks/site-themes` |
+| Library           | `@wizeworks/silicaui-react` (primitives) + `@wizeworksllc/ui` (compositions) + `ModuleScope`       | `@sparx/site-ui` + `@wizeworksllc/site-themes` |
 | Compiled          | silica plugin + brand theme per app                                                         | `wizeworks/packages/surface-compile`, per-tenant  |
 | Themeable         | no — one house system                                                                       | yes — per-tenant brand                  |
 | Type scale        | fixed rem (no `clamp()`)                                                                    | fluid `clamp()` allowed                 |

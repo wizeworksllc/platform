@@ -162,7 +162,7 @@ asserts the link still points at the variant, which the seed already had right.
 automation-actions 6 / 6 against the live database (was 5), full suite 3 files /
 25, inventory 12 / 153. Guards `boundaries`, `american-spelling`, `em-dashes`,
 `plain-words` green. ESLint and prettier clean. No new package dependency —
-`@wizeworks/inventory` was already a dependency of `automation-actions`.
+`@wizeworksllc/inventory` was already a dependency of `automation-actions`.
 
 ## Files
 

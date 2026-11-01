@@ -8,7 +8,7 @@
 // read. Managing the card / subscription is Stripe's hosted portal — opened via
 // POST /v1/billing/portal, which returns a single-use URL we send the browser to.
 
-import { useMutation, useQuery } from '@wizeworks/query';
+import { useMutation, useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 export interface BillCard {
@@ -24,7 +24,7 @@ export interface BillModule {
 }
 
 /** Where the tenant sits in the Trial → Grace → Suspend lifecycle (docs/17 §6).
- *  Mirror of @wizeworks/billing's BillingPhase/BillingPhaseView — redeclared here so
+ *  Mirror of @wizeworksllc/billing's BillingPhase/BillingPhaseView — redeclared here so
  *  the workbench doesn't import the server billing package for a wire shape. */
 export type BillingPhase = 'trialing' | 'active' | 'grace' | 'suspended' | 'exempt';
 export interface BillingPhaseView {

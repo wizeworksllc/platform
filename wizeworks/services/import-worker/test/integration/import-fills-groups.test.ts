@@ -14,8 +14,8 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
 import pino from 'pino';
-import { prisma } from '@wizeworks/db';
-import { segmentService } from '@wizeworks/crm';
+import { prisma } from '@wizeworksllc/db';
+import { segmentService } from '@wizeworksllc/crm';
 import { getProcessor, type ImportRow, type ProcessorContext } from '../../src/processors/index.js';
 import { reconcileSegmentsAfterImport } from '../../src/reconcile-segments.js';
 

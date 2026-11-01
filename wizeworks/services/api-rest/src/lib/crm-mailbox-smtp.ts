@@ -1,7 +1,7 @@
 // The SMTP socket (docs/144 §5.2) — sending through a tenant's own mail server
 // so the message lands in their real Sent folder and reads as coming from them.
 //
-// The dialogue is six commands and the parsing is in `@wizeworks/crm/mail`. What is
+// The dialogue is six commands and the parsing is in `@wizeworksllc/crm/mail`. What is
 // here is the socket, the two TLS shapes real servers offer, and the ordering
 // discipline: SMTP is strictly one command per reply, and a client that sends
 // ahead of a multiline reply desynchronizes and then misreads every answer as
@@ -17,7 +17,7 @@ import {
   smtpAuthLoginSteps,
   smtpAuthPlain,
   smtpPermanentFailure,
-} from '@wizeworks/crm/mail';
+} from '@wizeworksllc/crm/mail';
 
 const CONNECT_TIMEOUT_MS = 15_000;
 const COMMAND_TIMEOUT_MS = 60_000;

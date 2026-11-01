@@ -17,7 +17,7 @@
 // pattern this feature is known for and the reason people distrust it, so the
 // limit is in the selector rather than left to whoever builds the screen.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

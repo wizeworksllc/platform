@@ -14,7 +14,7 @@ import {
   UpdateSettingsInput,
   UpsertLayoutInput,
   Uuid,
-} from '@wizeworks/sitebuilder-schemas';
+} from '@wizeworksllc/sitebuilder-schemas';
 import {
   themeService,
   sectionService,

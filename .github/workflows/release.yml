@@ -671,7 +671,7 @@ jobs:
                   fi
 
                   # Every billing PLAN names the env vars holding its Stripe key, its webhook
-                  # signing secret and its price ids (@wizeworks/billing/plans, BILLING_PLANS in
+                  # signing secret and its price ids (@wizeworksllc/billing/plans, BILLING_PLANS in
                   # the ConfigMap). A plan configured against an account whose key never shipped
                   # does not fail anything: billing degrades to a clean no-op by design, the
                   # release goes green, and the first person to discover it is a customer who
@@ -1446,6 +1446,71 @@ jobs:
                   } >> "$GITHUB_STEP_SUMMARY"
 
     # ---------------------------------------------------------------------------
+    # THE PACKAGES. Published after the containers, before the tag.
+    #
+    # sparx and Piggles leave this repository and install the platform packages
+    # from GitHub Packages (docs/153, D2). A package that changed is published at
+    # the version this release is about to tag, so `@wizeworksllc/links@1.262.0`
+    # is links as it shipped in v1.262.0 and always matches a deployed API. The
+    # rules (what counts as changed, why a dependent moves with its dependency,
+    # what a published manifest drops) live in scripts/publish-packages.mjs.
+    #
+    # After `containers`, because a published version promises a deployed API.
+    # Before `tag`, which needs it: a tag then means the packages shipped too, and
+    # the next release diffs against a tag whose packages exist.
+    #
+    # The version comes from the same conventional-commit rules the tag job uses,
+    # run as a dry run. No releasable commits means no tag and nothing published.
+    #
+    # Same gate as the tag, for the same reasons; read the comment there.
+    # ---------------------------------------------------------------------------
+    publish:
+        needs: [target, base, build, infrastructure, data, containers]
+        if: >-
+            always() &&
+            needs.base.result == 'success' &&
+            needs.build.result == 'success' &&
+            needs.infrastructure.result != 'failure' && needs.infrastructure.result != 'cancelled' &&
+            needs.data.result != 'failure' && needs.data.result != 'cancelled' &&
+            needs.containers.result != 'failure' && needs.containers.result != 'cancelled' &&
+            (github.event_name != 'workflow_dispatch' || inputs.bump != 'none')
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        permissions:
+            contents: read
+            packages: write # publish to GitHub Packages with the run token
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # the previous release tag, and the diff against it
+
+            - name: Work out this release's version
+              id: version
+              uses: mathieudutour/github-tag-action@v6.2
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  default_bump: ${{ (github.event_name == 'workflow_dispatch' && inputs.bump != 'auto') && inputs.bump || false }}
+                  tag_prefix: v
+                  release_branches: main
+                  fetch_all_tags: true
+                  dry_run: true
+
+            - uses: actions/setup-node@v6
+              if: steps.version.outputs.new_version != ''
+              with:
+                  node-version-file: .nvmrc
+
+            - name: Publish the packages that changed
+              if: steps.version.outputs.new_version != ''
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: node scripts/publish-packages.mjs --version '${{ steps.version.outputs.new_version }}'
+
+            - name: Report
+              if: steps.version.outputs.new_version == ''
+              run: echo '::notice::No releasable commits, so no version to publish at.'
+
+    # ---------------------------------------------------------------------------
     # THE TAG. Cut last, and only when the release actually shipped.
     #
     # This was `auto-tag.yml`, a separate workflow triggered by the same push. It
@@ -1469,7 +1534,7 @@ jobs:
     # the tag marks the release, it does not start another one.
     # ---------------------------------------------------------------------------
     tag:
-        needs: [target, base, build, infrastructure, data, containers]
+        needs: [target, base, build, infrastructure, data, containers, publish]
         # Any stage that FAILED means this version did not ship, so it does not get
         # a tag. A SKIPPED stage is fine — `containers` skips itself when nothing
         # runtime-affecting changed, and that is still a completed release.
@@ -1499,6 +1564,7 @@ jobs:
             needs.infrastructure.result != 'failure' && needs.infrastructure.result != 'cancelled' &&
             needs.data.result != 'failure' && needs.data.result != 'cancelled' &&
             needs.containers.result != 'failure' && needs.containers.result != 'cancelled' &&
+            needs.publish.result == 'success' &&
             (github.event_name != 'workflow_dispatch' || inputs.bump != 'none')
         runs-on: ubuntu-latest
         timeout-minutes: 5

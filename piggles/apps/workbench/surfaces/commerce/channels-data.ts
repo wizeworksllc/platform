@@ -14,7 +14,7 @@
 // (`requireChannelsModule`); a 404 here means the module is off, not an error.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { apiErrorMessage } from '../../lib/api-error';
 

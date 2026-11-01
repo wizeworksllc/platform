@@ -3,11 +3,11 @@
 // A sale, a payment or stock leaving is a MOMENT, and its day is the day it was
 // in the shop, not in UTC (sparx persona issue 174). The zone lives on
 // `tenant_businesses.timezone`. The same read as `businessTimeZone` in
-// `@wizeworks/crm`, which this package does not depend on: a blank column is
+// `@wizeworksllc/crm`, which this package does not depend on: a blank column is
 // "not set", and not set keeps UTC.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { businessDateKey, dateOfKey } from '@wizeworks/time';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { businessDateKey, dateOfKey } from '@wizeworksllc/time';
 
 /** The IANA zone this business runs its books in, or null when it has not said. */
 export async function businessZone(tx: TxClient, tenantId: string): Promise<string | null> {

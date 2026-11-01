@@ -32,7 +32,7 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /* ── Shapes ─────────────────────────────────────────────────────────────── */
@@ -92,7 +92,7 @@ export interface BarcodeConflict {
 /**
  * Everything a scan can be.
  *
- * A hand copy of `ALL_KINDS` in `@wizeworks/inventory/services/scan.ts`. The
+ * A hand copy of `ALL_KINDS` in `@wizeworksllc/inventory/services/scan.ts`. The
  * console talks to that over HTTP and depends on no package that could hold the
  * list, so the copy stays and `scan-kinds.test.ts` holds it to the original -
  * `pick_list` was missing from three copies at once, which is a printed barcode

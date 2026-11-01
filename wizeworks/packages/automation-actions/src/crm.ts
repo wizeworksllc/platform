@@ -1,6 +1,6 @@
 // CRM action executors (docs/81 §5.4, docs/84 Slice F1).
 //
-// Each executor CALLS the existing CRM service (`@wizeworks/crm/services`) — it never
+// Each executor CALLS the existing CRM service (`@wizeworksllc/crm/services`) — it never
 // re-implements the write. That keeps audit logging, the published `crm.*` events,
 // and the two-bus fan-out (Pub/Sub + the in-process platform bus) exactly where
 // they already live: in the service. The executor's only job is to map the
@@ -20,9 +20,9 @@ import {
   leadService,
   taskService,
   ticketService,
-} from '@wizeworks/crm/services';
-import type { ActionOutput, EffectInput, TenantCtx } from '@wizeworks/automation';
-import { installOnce, registerAction } from '@wizeworks/automation';
+} from '@wizeworksllc/crm/services';
+import type { ActionOutput, EffectInput, TenantCtx } from '@wizeworksllc/automation';
+import { installOnce, registerAction } from '@wizeworksllc/automation';
 import { scoreFormQuiz } from './quiz-scoring';
 import { z } from 'zod';
 

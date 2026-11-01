@@ -8,7 +8,7 @@ import { randomUUID } from 'node:crypto';
 import { exportJWK, generateKeyPair, SignJWT, type CryptoKey, type KeyObject } from 'jose';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 
-vi.mock('@wizeworks/db', () => ({ withTenant: vi.fn() }));
+vi.mock('@wizeworksllc/db', () => ({ withTenant: vi.fn() }));
 
 const { verifyCustomerMcpTokenWith } = await import('./mcp-verify');
 type Store = Parameters<typeof verifyCustomerMcpTokenWith>[2];

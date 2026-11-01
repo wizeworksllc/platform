@@ -11,8 +11,8 @@
 //   - the signup flow (tenant-events) — in-process, in dev where the standalone
 //     worker isn't running. Both seed identically because both call this.
 
-import { withTenant, type Prisma } from '@wizeworks/db';
-import { LEGAL_TEMPLATES, legalEntryBody } from '@wizeworks/legal-templates';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import { LEGAL_TEMPLATES, legalEntryBody } from '@wizeworksllc/legal-templates';
 
 export interface SeedResult {
   created: number;

@@ -25,7 +25,7 @@ export type ThemeOverlay = z.infer<typeof ThemeOverlay>;
 // than in light. Blank inherits the brand (which itself falls back to the
 // preset). Every field is nullable+optional; values are validated loosely (the
 // compiler normalizes/keeps only what it recognizes). Mirrors
-// PresentationColorOverlay in @wizeworks/site-themes — keep the two in sync.
+// PresentationColorOverlay in @wizeworksllc/site-themes — keep the two in sync.
 const PresentationColors = z
   .object({
     base100: z.string().nullish(),

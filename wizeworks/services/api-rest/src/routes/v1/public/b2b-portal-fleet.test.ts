@@ -26,7 +26,7 @@ const fleetService = vi.hoisted(() => ({
   removeFleetVehicle: vi.fn(),
 }));
 
-vi.mock('@wizeworks/b2b', () => ({ fleetService }));
+vi.mock('@wizeworksllc/b2b', () => ({ fleetService }));
 vi.mock('../../../lib/public-commerce-context.js', () => ({
   resolveTenantId: () => Promise.resolve('tenant-1'),
 }));
@@ -34,7 +34,7 @@ vi.mock('../../../lib/customer-session.js', () => ({
   requireCustomer: () =>
     Promise.resolve({ customerId: 'customer-1', userId: 'u1', scopes: state.scopes }),
 }));
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => Promise<unknown>) =>
     fn({
       b2bAccountContact: {

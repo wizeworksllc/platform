@@ -1,6 +1,6 @@
 // Today's price beside tomorrow's, on every product that moves (issue 057).
 
-import type { CoreChoiceCandidate } from '@wizeworks/commerce-schemas';
+import type { CoreChoiceCandidate } from '@wizeworksllc/commerce-schemas';
 import { describe, expect, it } from 'vitest';
 
 import {

@@ -9,9 +9,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { leadClock, reportingService } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { leadClock, reportingService } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 
 const FunnelQuery = z.object({ pipeline_id: z.string().uuid() });

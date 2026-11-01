@@ -11,7 +11,7 @@
 // every create. All of
 // Better Auth's audited where/select/join logic is reused verbatim — the same
 // approach, and for the same reason, as the tenant-scoped client the shopper
-// instance uses (@wizeworks/customer-auth's tenant-adapter.ts).
+// instance uses (@wizeworksllc/customer-auth's tenant-adapter.ts).
 //
 // ── WHY THE ADAPTER AND NOT THE CALL SITES ──────────────────────────────────
 //
@@ -46,7 +46,7 @@
 // the half that makes the migration safe.
 
 import type { PrismaClient } from '@prisma/client';
-import { currentPlatformBrand } from '@wizeworks/brand-core';
+import { currentPlatformBrand } from '@wizeworksllc/brand-core';
 import { authPrisma } from './prisma';
 
 /** The Prisma delegate keys this proxy scopes. Sessions and accounts are keyed

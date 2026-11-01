@@ -1,4 +1,4 @@
-// Condition evaluation — re-exported from `@wizeworks/automation-schemas`.
+// Condition evaluation — re-exported from `@wizeworksllc/automation-schemas`.
 //
 // The implementation MOVED there when `ConditionGroup` became the filter language
 // of reports (docs/144 §8) and scoring (§10) as well as automations: the shape and
@@ -10,4 +10,4 @@
 // already reads `./evaluate`, and a re-export is cheaper and clearer
 // than a sweep that would leave no trace of why the function lives elsewhere.
 
-export { evaluateConditions } from '@wizeworks/automation-schemas';
+export { evaluateConditions } from '@wizeworksllc/automation-schemas';

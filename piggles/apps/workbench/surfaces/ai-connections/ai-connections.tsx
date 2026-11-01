@@ -64,7 +64,7 @@ import {
   faTrashCan,
 } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useQueryClient, shownInPlace } from '@wizeworks/query';
+import { useQueryClient, shownInPlace } from '@wizeworksllc/query';
 import { useConfirm } from '../../lib/confirm';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { afterPaneChange } from '../../lib/defer';

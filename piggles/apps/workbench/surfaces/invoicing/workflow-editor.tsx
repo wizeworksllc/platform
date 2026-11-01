@@ -21,7 +21,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { PaneLoadError } from '../../components/pane-load-error';
 import { PaneWaiting } from '../../components/pane-waiting';
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import {
   Alert,
   AlertContent,
@@ -37,7 +37,7 @@ import type { SurfaceContext } from '../../lib/surfaces/registry';
 import { WorkflowPanes } from './workflow-editor-panes';
 import { WorkflowToolbar } from './workflow-editor-toolbar';
 import { useStageOps } from './workflow-editor-stages';
-import { isSystemWorkflowSlug } from '@wizeworks/crm-schemas/builtins';
+import { isSystemWorkflowSlug } from '@wizeworksllc/crm-schemas/builtins';
 import { slugifyTyping } from '../../lib/slugify';
 import type { DocumentWorkflowDetail } from './types';
 import {

@@ -9,10 +9,10 @@
 
 import { promises as dns } from 'node:dns';
 import type { Logger } from 'pino';
-import { prisma } from '@wizeworks/db';
-import { publishEvent } from '@wizeworks/events';
-import type { DomainPurchasedPayload, SparxEvent } from '@wizeworks/events';
-import { appLink, appOrigin } from '@wizeworks/links/server';
+import { prisma } from '@wizeworksllc/db';
+import { publishEvent } from '@wizeworksllc/events';
+import type { DomainPurchasedPayload, SparxEvent } from '@wizeworksllc/events';
+import { appLink, appOrigin } from '@wizeworksllc/links/server';
 import { cnameTargetFor, configureDNS, buildSparxDnsRecords, GoDaddyError } from './godaddy.js';
 import { publisher, pubLogger } from './publisher.js';
 

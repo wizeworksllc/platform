@@ -58,7 +58,7 @@ import {
   isConditionGroup,
   type ConditionGroup,
   type ConditionOperator,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { PaneScope } from '../../lib/dock/window-boundary';
 import { useViewer } from '../../lib/api/shell-data';

@@ -62,7 +62,7 @@ which is exactly the name that collides with the k8s `<SERVICE>_PORT` injection.
 
 ## Deploy + verify
 
-- Code fix ships in the api-rest **and commerce-indexer** images (both use `@wizeworks/search`).
+- Code fix ships in the api-rest **and commerce-indexer** images (both use `@wizeworksllc/search`).
 - After deploy: `curl -sI https://<tenant>.sparx.zone/shop` → 200; product search + ⌘K return
   results; confirm the indexer is writing (a product appears in search).
 - Note: even after the URL fix, search shows results only once the indexer has populated

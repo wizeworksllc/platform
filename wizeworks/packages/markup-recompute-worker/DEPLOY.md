@@ -47,6 +47,6 @@ dropship sync ─────┘   (Pub/Sub topic)      worker
 - **One pending proposal per variant** — a partial unique index enforces it; a
   re-trigger replaces the prior proposal in the same transaction.
 - **Pure engine reuse.** Pricing math + the snapshot come from
-  `@wizeworks/commerce-schemas` `priceVariantByRule`, the same function the catalog
+  `@wizeworksllc/commerce-schemas` `priceVariantByRule`, the same function the catalog
   `markup-service` uses, so the two write paths never drift. The worker does NOT
-  import `@wizeworks/commerce` (it carries React deps a backend must not pull).
+  import `@wizeworksllc/commerce` (it carries React deps a backend must not pull).

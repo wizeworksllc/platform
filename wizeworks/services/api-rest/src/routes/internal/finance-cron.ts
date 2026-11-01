@@ -30,7 +30,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 
-import { businessToday, utcMidnight } from '@wizeworks/finance';
+import { businessToday, utcMidnight } from '@wizeworksllc/finance';
 
 import { authorizeCron, forEachTenant } from '../../lib/cron-auth.js';
 import { listTenantsWithModule } from '../../lib/module-tenants.js';

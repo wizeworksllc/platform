@@ -53,7 +53,7 @@ import {
 // during a server render — only components can cross that boundary. The `/server`
 // entry exists for exactly this.
 import { cx } from '@wizeworks/silicaui-react/server';
-import type { BuilderNode, Cardinality } from '@wizeworks/builder-schemas';
+import type { BuilderNode, Cardinality } from '@wizeworksllc/builder-schemas';
 
 import { BuilderIcon } from './icon';
 import { FAB, Hover3DCard, HoverGallery, TextRotate, ToastRegion } from './atoms';

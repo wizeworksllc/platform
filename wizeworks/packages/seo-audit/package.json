@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/seo-audit",
+  "name": "@wizeworksllc/seo-audit",
   "version": "0.0.0",
   "private": true,
   "description": "Dependency-free SEO scoring engine (docs/50 §7). auditEntity() grades a normalized AuditableEntity 0–100 across 12 checks; pure, deterministic, no I/O. Shared by api-rest's /v1/seo/audit and any surface that renders a scorecard.",

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/time",
+  "name": "@wizeworksllc/time",
   "version": "0.0.0",
   "private": true,
   "description": "sparx time — timezone-correct wall-clock math on the platform Intl tz database. Zero dependencies, no I/O, no Date.now(): every function takes explicit instants so callers stay deterministic and testable. Shared by scheduling availability (docs/79) and CRM service-level agreements (docs/144 §7.3).",

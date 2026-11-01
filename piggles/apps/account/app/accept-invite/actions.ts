@@ -7,7 +7,7 @@ import {
   requestConfirmLink,
   setSessionCookies,
   type SessionCookie,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 
 // Accepting a team invitation (docs/114 §A.4).
 //

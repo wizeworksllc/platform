@@ -3,7 +3,7 @@
 // routes derive it from the Fastify auth context (lib/b2b-context.ts), the MCP
 // tools from the connection's auth context.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 export interface B2bContext {
   tenantId: string;

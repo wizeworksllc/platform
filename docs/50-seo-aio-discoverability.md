@@ -5,7 +5,7 @@ Author: Brandon Korous
 Last Updated: 2026-07-22
 
 > **Reconciled 2026-07-22 (docs-vs-built audit):** the SEO audit engine
-> (`@wizeworks/seo-audit` + `/v1/seo/audit`) and Search Console integration are built and
+> (`@wizeworksllc/seo-audit` + `/v1/seo/audit`) and Search Console integration are built and
 > live. The operator SEO surfaces moved off the deleted `apps/dashboard` into
 > `sparx/apps/workbench/surfaces/seo` (the `/seo` overview + report). **Caveat:** the two
 > in-editor authoring surfaces referenced below (the builder inspector's `PageSeoPanel`
@@ -91,9 +91,9 @@ only `name · tenant`. They now carry real SEO, end to end:
 - **Schema** (`51-builder.prisma`, migration `20260624000000_builder_page_seo`): five additive,
   nullable columns on `builder_pages` — `seo_title`, `seo_description`, `canonical`, `og_image`,
   `noindex`. Additive only; RLS already ENABLE+FORCE, so no policy change.
-- **Contract** (`@wizeworks/builder-schemas`): a shared `PageSeoShape` extends Create/Update inputs;
+- **Contract** (`@wizeworksllc/builder-schemas`): a shared `PageSeoShape` extends Create/Update inputs;
   `BuilderPageDto` and the public `PublishedPageDto` expose the fields.
-- **Service** (`@wizeworks/builder` `pageService`): reads/writes the columns; empty strings normalize to
+- **Service** (`@wizeworksllc/builder` `pageService`): reads/writes the columns; empty strings normalize to
   `null` so a blank field falls back to the page name rather than an empty `<title>`.
 - **UI** (_not yet rebuilt in workbench — the builder inspector is now silica-owned, `@wizeworks/silicaui-builder`_): a `PageSeoPanel` in the singleton's
   page settings — title, description, canonical, social image, and an "allow indexing" switch.
@@ -160,7 +160,7 @@ A second pass landed the lower-risk web-best-practice gaps:
   routes (`/platform`, `/features`, `/pricing`, `/partners{,/directory}`, `/bootcamp`, `/customers`,
   `/security`, `/brand`, `/legal/{privacy,terms,dpa,aup}`) alongside the home + module pages, plus
   the registry-driven `/tools`, `/careers`, and published bootcamp slugs; legal `lastModified`
-  tracks the document revision from `@wizeworks/legal`. `ComingSoon` stubs stay excluded on purpose
+  tracks the document revision from `@wizeworksllc/legal`. `ComingSoon` stubs stay excluded on purpose
   (thin placeholders → soft-404 risk).
 - **Extension-catalog coverage (2026-07-18)** — the `/market` tree (the blueprints/themes/
   integrations/components catalog) was shipped in Phase 5 but never added to the sitemap, so the
@@ -190,7 +190,7 @@ remaining follow-ups live with the feature in §7.6.)
 
 - **Markdown content endpoints for LLM ingest** (`/<path>.md`) — serve a clean Markdown twin of every
   public page so AI crawlers ingest structure without HTML noise.
-  _Needs:_ a doc→Markdown serializer in `@wizeworks/cms-editor` (today only `renderDocToHtml` exists) + a
+  _Needs:_ a doc→Markdown serializer in `@wizeworksllc/cms-editor` (today only `renderDocToHtml` exists) + a
   `.md` route on the site. _Trigger:_ the largest remaining AIO lever — do next when AIO is
   prioritized.
 - **CSP + Permissions-Policy (Report-Only first)** — the deferred half of the security headers (§4).
@@ -245,7 +245,7 @@ references threaded through the code.
 
 ### 7.1 Shape
 
-- **Engine** — `@wizeworks/seo-audit`, a dependency-free pure function `auditEntity(input) → Scorecard`.
+- **Engine** — `@wizeworksllc/seo-audit`, a dependency-free pure function `auditEntity(input) → Scorecard`.
   No I/O, no clock, no React; deterministic and unit-tested. It scores a normalized
   `AuditableEntity` (never raw rows), so every surface scores identically.
 - **Live API** — `GET /v1/seo/audit?type=&id=` gathers the signals under RLS — inspecting the
@@ -302,7 +302,7 @@ entity-aware (prose pages expect more than a product blurb).
 
 ### 7.4 Phased build
 
-- **A — engine** (`@wizeworks/seo-audit`) + unit tests. Pure, no infra. ✅ _(Foundation.)_
+- **A — engine** (`@wizeworksllc/seo-audit`) + unit tests. Pure, no infra. ✅ _(Foundation.)_
 - **B — live API** `GET /v1/seo/audit` + per-entity-type signal extractors. ✅
 - **C — chip + hover popover.** ✅ Builder inspector, overview rows, and the CMS / product /
   collection editor SEO panels.

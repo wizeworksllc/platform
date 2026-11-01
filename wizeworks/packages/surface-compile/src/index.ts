@@ -1,4 +1,4 @@
-// @wizeworks/surface-compile — the Surface per-tenant CSS compile (docs/47 §5).
+// @wizeworksllc/surface-compile — the Surface per-tenant CSS compile (docs/47 §5).
 //
 // Pipeline: a Builder node tree → tree-shake the authored class literals
 // (`collectClasses`) → compile them through the tenant-flavored Tailwind theme
@@ -9,7 +9,7 @@
 // Server-side only — never import from a React/frontend package (it pulls
 // Tailwind + Lightning CSS).
 
-import type { BuilderNode } from '@wizeworks/builder-schemas';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
 import { collectClasses } from './extract';
 import { compileClasses, type CompileOptions } from './compile';
 import { validateClasses } from './allowlist';

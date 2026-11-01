@@ -21,11 +21,11 @@ const findableRecordCount = vi.fn();
 const customerWhere: unknown[] = [];
 const orderWhere: unknown[] = [];
 
-vi.mock('@wizeworks/api-core/auth', () => ({
+vi.mock('@wizeworksllc/api-core/auth', () => ({
   requireRole: vi.fn(),
   requireAuth: () => ({ tenantId: '5944fe23-be83-4ce5-aafc-ef56b8594508', actorId: 'u-1' }),
 }));
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   productSiteVisibilityWhere: () => ({}),
   withTenant: (_ctx: unknown, fn: (tx: unknown) => Promise<unknown>) =>
     fn({
@@ -44,7 +44,7 @@ vi.mock('@wizeworks/db', () => ({
       },
     }),
 }));
-vi.mock('@wizeworks/search', async (importOriginal) => {
+vi.mock('@wizeworksllc/search', async (importOriginal) => {
   const real = await importOriginal<Record<string, unknown>>();
   return {
     indexedSecondBoundary: real.indexedSecondBoundary,
@@ -56,8 +56,8 @@ vi.mock('@wizeworks/search', async (importOriginal) => {
 vi.mock('../../lib/property.js', () => ({ resolveListScope: () => Promise.resolve(undefined) }));
 vi.mock('../../lib/commerce-context.js', () => ({ requireCommerceModule: vi.fn() }));
 vi.mock('../../lib/crm-context.js', () => ({ requireCrmModule: vi.fn() }));
-vi.mock('@wizeworks/auth', () => ({ listEnabledModules: () => Promise.resolve([]) }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({ publish: vi.fn() }));
+vi.mock('@wizeworksllc/auth', () => ({ listEnabledModules: () => Promise.resolve([]) }));
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({ publish: vi.fn() }));
 
 const { default: searchRoutes } = await import('./search.js');
 

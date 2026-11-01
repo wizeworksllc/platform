@@ -1,6 +1,6 @@
 // Operator billing operations (docs/apps/admin/build-plan.md §5 Slice 4) — the
 // cross-tenant billing surface the WizeWorks operator console drives through the
-// PLATFORM Stripe account (the same account @wizeworks/billing uses to charge tenants
+// PLATFORM Stripe account (the same account @wizeworksllc/billing uses to charge tenants
 // for modules — never a tenant's own Connect account).
 //
 // Every function is guarded by `getBillingStripe(plan)`: when that plan's Stripe key
@@ -14,7 +14,7 @@ import type Stripe from 'stripe';
 import { getBillingStripe } from './client';
 import { planFor } from './plans';
 
-// ── Result shapes (wire-compatible with @wizeworks/operator's billing DTOs) ───────
+// ── Result shapes (wire-compatible with @wizeworksllc/operator's billing DTOs) ───────
 
 export interface PlatformStripeEvent {
   id: string;

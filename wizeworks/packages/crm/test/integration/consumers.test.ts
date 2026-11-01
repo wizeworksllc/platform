@@ -18,8 +18,8 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-import { prisma, withTenant } from '@wizeworks/db';
-import { invalidateModuleCache } from '@wizeworks/modules';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { invalidateModuleCache } from '@wizeworksllc/modules';
 import {
   customerService,
   registerCrmConsumers,

@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** minor
 **Found by:** P01 · Gillett Diesel Service · act 9 (searching Insert for "location" to build the Locations page)
-**Surface:** workbench › Editor › Insert; `@wizeworks/silica-catalog` sections
+**Surface:** workbench › Editor › Insert; `@wizeworksllc/silica-catalog` sections
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 on screen, 2026-10-06

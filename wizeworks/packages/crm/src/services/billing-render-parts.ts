@@ -5,7 +5,7 @@
 // different bill-to block than the saved document would make the live preview a
 // lie, which is the one thing a preview must never be.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import type { BillingRenderParty } from './billing-document-html';
 

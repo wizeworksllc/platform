@@ -16,8 +16,8 @@
 //   ['crm','segments', id,'members'] a sample of who is in it
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useQuery } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import {

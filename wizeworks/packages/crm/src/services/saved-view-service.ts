@@ -14,9 +14,9 @@
 // (propertyId null) shows on every site, because "my open deals" means the same
 // thing wherever you are standing.
 
-import { CreateSavedViewInput, UpdateSavedViewInput } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { CrmSavedView, Prisma } from '@wizeworks/db';
+import { CreateSavedViewInput, UpdateSavedViewInput } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { CrmSavedView, Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError, CrmValidationError } from '../errors';

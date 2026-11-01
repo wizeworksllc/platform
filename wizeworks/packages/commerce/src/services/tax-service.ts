@@ -11,9 +11,9 @@ import {
   type TaxBreakdown,
   TaxCalculationRequest,
   UpdateTaxZoneInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TaxExemption, TaxRate, TaxZone, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TaxExemption, TaxRate, TaxZone, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';
@@ -510,7 +510,7 @@ export async function calculate(ctx: ServiceContext, rawRequest: unknown): Promi
       where: {
         isActive: true,
         // A place nobody switched on charges nothing, whatever its switch says.
-        // `zoneIsCollecting` in @wizeworks/commerce-schemas is this same rule,
+        // `zoneIsCollecting` in @wizeworksllc/commerce-schemas is this same rule,
         // and it is what both consoles draw their badge from, so no screen can
         // say "Collecting" about a place that takes nothing.
         activatedAt: { not: null },

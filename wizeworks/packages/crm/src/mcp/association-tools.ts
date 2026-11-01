@@ -12,7 +12,7 @@
 
 import { z } from 'zod';
 
-import { CreateAssociationInput, CreateAssociationLabelInput } from '@wizeworks/crm-schemas';
+import { CreateAssociationInput, CreateAssociationLabelInput } from '@wizeworksllc/crm-schemas';
 
 import { associationService } from '../services';
 

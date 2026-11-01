@@ -12,11 +12,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 import { resolveListScope, resolvePropertyId } from '../../../lib/property.js';
 
 const CreateBody = z.object({ name: z.string().trim().min(1).max(120) });

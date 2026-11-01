@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/inventory",
+  "name": "@wizeworksllc/inventory",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx Inventory — supply-domain service layer (warehouses, stock levels + movement ledger, reservations, lots/serials, low-stock). Owns all stock; Commerce/B2B/Dropship are consumers. Extracted from @wizeworks/commerce (docs/100).",
+  "description": "sparx Inventory — supply-domain service layer (warehouses, stock levels + movement ledger, reservations, lots/serials, low-stock). Owns all stock; Commerce/B2B/Dropship are consumers. Extracted from @wizeworksllc/commerce (docs/100).",
   "type": "module",
   "exports": {
     ".": {
@@ -29,9 +29,9 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

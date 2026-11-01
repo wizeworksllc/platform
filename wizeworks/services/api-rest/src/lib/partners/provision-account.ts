@@ -11,9 +11,9 @@
 // The partner program is sparx-only (see service.ts), so the brand is the
 // default one rather than an unexamined constant.
 
-import { provisionInvitedOwner, SignUpError } from '@wizeworks/auth';
-import { DEFAULT_PLATFORM_BRAND } from '@wizeworks/brand-core';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
+import { provisionInvitedOwner, SignUpError } from '@wizeworksllc/auth';
+import { DEFAULT_PLATFORM_BRAND } from '@wizeworksllc/brand-core';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
 
 export type ProvisionAccountErrorCode = 'EMAIL_TAKEN' | 'INVALID_INPUT' | 'PROVISION_FAILED';
 

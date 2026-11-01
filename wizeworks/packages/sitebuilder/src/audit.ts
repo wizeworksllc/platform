@@ -2,7 +2,7 @@
 // audit_logs row inside the same transaction as its primary write
 // (action e.g. "sitebuilder.published"). Mirrors wizeworks/packages/crm/src/audit.ts.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 export interface AuditWriteInput {
   tx: TxClient;

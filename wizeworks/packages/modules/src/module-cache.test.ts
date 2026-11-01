@@ -11,7 +11,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const findUnique = vi.fn();
-vi.mock('@wizeworks/db', () => ({ prisma: { tenant: { findUnique } } }));
+vi.mock('@wizeworksllc/db', () => ({ prisma: { tenant: { findUnique } } }));
 
 const { activeModules, invalidateModuleCache, isModuleEnabled } = await import('./index');
 

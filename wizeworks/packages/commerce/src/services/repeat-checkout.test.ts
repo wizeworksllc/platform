@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { lineRepeat } from './cart-service';
 import { repeatOwner } from './checkout-service';

@@ -3,7 +3,7 @@
 **Status:** fixed (act 325)
 **Severity:** major
 **Found by:** P03 · Juniper Row · act 325, re-scoring the two setup panes on a business of her own made for it
-**Surface:** mypiggles › Set up step by step, Describe your business, the search box, a saved tab, Home's checklist, and getpiggles' setup (both consoles, api-rest, `@wizeworks/db`)
+**Surface:** mypiggles › Set up step by step, Describe your business, the search box, a saved tab, Home's checklist, and getpiggles' setup (both consoles, api-rest, `@wizeworksllc/db`)
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P03 · two new test businesses, Juniper Row Workshops and Juniper Row Mending, signed up on localhost
@@ -81,7 +81,7 @@ Then she typed "set up" in the search box.
   (api-rest) counts products, customers or invoices that are not practice rows
   (by the markers Clear removes them by) and, for products, not a design's
   example products either (by the install's own artifact rows). `countOwnRecords`
-  lives in `@wizeworks/db` beside the markers. The checklist's three reads use
+  lives in `@wizeworksllc/db` beside the markers. The checklist's three reads use
   it, under the same cache keys, so adding a product still refreshes its tick.
 - **The checklist says what the practice records are**, while any are loaded:
   "The products, customers, orders and invoices already here are practice ones,
@@ -111,7 +111,7 @@ Then she typed "set up" in the search box.
   showed the new words and **Close this tab** closed it.
 - `sample-data-own.test.ts`: the route answers the own count for the kind
   asked, and refuses `kind=orders` without counting. The counting itself has no
-  unit test (`@wizeworks/db` has no test seat); it was checked on screen below.
+  unit test (`@wizeworksllc/db` has no test seat); it was checked on screen below.
 - On screen, Juniper Row Mending: **Let us get you going** appeared with all
   three steps open and the practice sentence. Devi added "Visible mending kit"
   at $24, went back to Home, and the first step read **You have something to

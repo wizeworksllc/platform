@@ -25,10 +25,10 @@ export * as productSelectionService from './product-selection';
 export * as relatedProductService from './related-products';
 
 // Phase 2 — inventory. Extracted into its own first-class module/product
-// (@wizeworks/inventory, docs/100). Re-exported here so existing consumers
-// (MCP tools, reservation-reaper, REST routes via `@wizeworks/commerce`) keep
+// (@wizeworksllc/inventory, docs/100). Re-exported here so existing consumers
+// (MCP tools, reservation-reaper, REST routes via `@wizeworksllc/commerce`) keep
 // importing `inventoryService` unchanged while ownership lives in inventory.
-export { inventoryService } from '@wizeworks/inventory';
+export { inventoryService } from '@wizeworksllc/inventory';
 
 // Phase 3 — pricing + discounts
 export * as pricingService from './pricing-service';

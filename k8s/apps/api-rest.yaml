@@ -135,9 +135,9 @@ spec:
               value: '--max-old-space-size=384'
             # Typesense — api-rest's /v1/search/* read path queries the
             # in-cluster Typesense (ClusterIP Service named `typesense`, the
-            # @wizeworks/search default host). The key matches the secret
+            # @wizeworksllc/search default host). The key matches the secret
             # bootstrap.yml mints from Secret Manager's typesense-api-key. Port
-            # (8108) + protocol (http) come from the @wizeworks/search defaults — no
+            # (8108) + protocol (http) come from the @wizeworksllc/search defaults — no
             # need to pin them here now that `enableServiceLinks: false` (above)
             # stops k8s from injecting a bogus `TYPESENSE_PORT`.
             - name: TYPESENSE_HOST

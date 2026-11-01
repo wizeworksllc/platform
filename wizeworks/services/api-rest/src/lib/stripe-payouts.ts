@@ -15,8 +15,8 @@
 
 import type Stripe from 'stripe';
 
-import { getPlatformStripe } from '@wizeworks/payments';
-import { prisma, withTenant } from '@wizeworks/db';
+import { getPlatformStripe } from '@wizeworksllc/payments';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 export interface ConnectedPayout {
   id: string; // Stripe payout id (po_…)

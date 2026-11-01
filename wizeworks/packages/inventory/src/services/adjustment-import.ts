@@ -51,9 +51,9 @@ import {
   type ImportPlan,
   type ImportRowPlan,
   type ImportRowResolution,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { VARIANT_LABEL_COLUMNS, VARIANT_LABEL_JOINS } from './variant-label';

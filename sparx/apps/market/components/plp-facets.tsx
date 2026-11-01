@@ -10,7 +10,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useId, useState, type ReactNode } from 'react';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
-import { MARKET_CATEGORIES, marketCategoryLabel } from '@wizeworks/commerce-schemas';
+import { MARKET_CATEGORIES, marketCategoryLabel } from '@wizeworksllc/commerce-schemas';
 import { Badge, Button, Input, NativeSelect } from '@wizeworks/silicaui-react';
 import { cx } from '@wizeworks/silicaui-react/server';
 

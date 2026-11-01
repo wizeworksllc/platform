@@ -16,7 +16,7 @@
 // avg_cost_cents → unit_cost_cents → variant.cost_cents.
 //
 // The out / low / healthy buckets measure SELLABLE stock (the ONE definition in
-// @wizeworks/inventory — on-hand minus allocations minus the withheld buffer), the
+// @wizeworksllc/inventory — on-hand minus allocations minus the withheld buffer), the
 // same arithmetic the operational surfaces badge with. This KPI keeps ONE
 // deliberate difference from the operational low-stock filter: where that filter
 // only flags levels that HAVE a reorder policy, this health card applies a fixed
@@ -28,11 +28,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
-import { SELLABLE_SQL } from '@wizeworks/inventory';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
+import { SELLABLE_SQL } from '@wizeworksllc/inventory';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 import {
   addUtcDays,

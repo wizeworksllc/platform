@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/channels",
+  "name": "@wizeworksllc/channels",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Channels — ChannelAdapter contract, registry, and normalized types for external sales-channel + sparx.market integrations (docs/106).",
@@ -26,8 +26,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@wizeworks/brand-core": "workspace:*",
-    "@wizeworks/integrations": "workspace:*"
+    "@wizeworksllc/brand-core": "workspace:*",
+    "@wizeworksllc/integrations": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.7.3"

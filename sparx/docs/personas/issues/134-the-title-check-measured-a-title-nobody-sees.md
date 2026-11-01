@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P01 · Gillett Diesel Service · act 9 (search title for About)
-**Surface:** SEO page check (`@wizeworks/seo-audit`, api-rest `seo-audit.ts`); the title boxes in the editor and on the check; the site's `<title>`
+**Surface:** SEO page check (`@wizeworksllc/seo-audit`, api-rest `seo-audit.ts`); the title boxes in the editor and on the check; the site's `<title>`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 on screen, 2026-10-06

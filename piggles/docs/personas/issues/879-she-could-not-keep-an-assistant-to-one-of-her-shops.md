@@ -53,7 +53,7 @@ All three are built:
 - `members.property_access_mode` and the `member_property_access` junction,
   shipped in `20261211000000_p0_site_scoping`
 - `roleIgnoresPropertyAccess`, `memberCanReachProperty` in
-  `@wizeworks/auth/property-access`
+  `@wizeworksllc/auth/property-access`
 - the read ceiling in `api-core/src/auth.ts`, with a per-`(tenant, user)` cache
   that `PATCH /v1/team/members/:id` **invalidates on write**, so a revoked grant
   bites immediately
@@ -127,7 +127,7 @@ is the worst thing a summary can be.
 4. **The role rule is imported, not copied.** `roleHasModuleLimits` was a local
    `role !== 'owner' && role !== 'admin'` sitting beside a server that owns the
    same list. Both axes now ask the package that enforces them, through two new
-   subpath exports on `@wizeworks/auth`. A screen that decides for itself who
+   subpath exports on `@wizeworksllc/auth`. A screen that decides for itself who
    may be limited is one release away from offering a control the server then
    refuses. [[feedback_silicaui_single_point_of_change]]
 5. **A limit is sent only for a role that can hold one.** Setting a limit and

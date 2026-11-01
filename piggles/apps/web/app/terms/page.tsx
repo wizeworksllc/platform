@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Section } from '@piggles/ui';
 import Link from 'next/link';
-import { brandLegal } from '@wizeworks/legal';
+import { brandLegal } from '@wizeworksllc/legal';
 import { PRICE_LABEL } from '@piggles/config/pricing';
 import { PageHero } from '@/components/marketing/page-hero';
 import { DocumentFigure } from '@/components/marketing/hero/document-figure';

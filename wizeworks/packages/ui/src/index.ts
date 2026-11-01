@@ -1,4 +1,4 @@
-// @wizeworks/ui — public barrel.
+// @wizeworksllc/ui — public barrel.
 //
 // This package is NOT a component library. It is the small set of sparx-specific
 // compositions that silicaui does not provide. Everything silica ships has been
@@ -8,16 +8,16 @@
 //
 // The reference consumer is `sparx/apps/workbench`, which depends on this package NOT
 // AT ALL: it imports silicaui directly. The remaining consumers are `wizeworks/apps/admin`
-// (the staff console), `sparx/apps/web`, `wizeworks/apps/site` and `@wizeworks/cms-editor`.
+// (the staff console), `sparx/apps/web`, `wizeworks/apps/site` and `@wizeworksllc/cms-editor`.
 //
 // See docs/23-frontend-component-architecture.md §9 and sparx/packages/ui/CLAUDE.md.
 
 // ── Utilities ──────────────────────────────────────────────
 // Re-exported, not defined here. `cn` corrects tailwind-merge's misreading of
 // silica's `soft` classes — a platform fix with no sparx in it — so it lives in
-// @wizeworks/silica-corrections. It stays on this barrel because six admin
+// @wizeworksllc/silica-corrections. It stays on this barrel because six admin
 // screens import it from here and there is no reason to make them care.
-export { cn } from '@wizeworks/silica-corrections';
+export { cn } from '@wizeworksllc/silica-corrections';
 export { cva, type VariantProps } from './utils/cva';
 
 // ── Variant system (docs/35) ───────────────────────────────
@@ -150,7 +150,7 @@ export {
 } from './components/data/table';
 
 // ── System / runtime ──────────────────────────────────────
-// ChunkReloadGuard moved to `@wizeworks/app-kit`. It never belonged here: it has no
+// ChunkReloadGuard moved to `@wizeworksllc/app-kit`. It never belonged here: it has no
 // appearance, no variant and no token — it is framework glue, and living in the
 // design library is what let three more copies of it grow in apps that don't
-// depend on @wizeworks/ui. Import it (and `isChunkLoadError`) from '@wizeworks/app-kit'.
+// depend on @wizeworksllc/ui. Import it (and `isChunkLoadError`) from '@wizeworksllc/app-kit'.

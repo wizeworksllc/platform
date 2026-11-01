@@ -19,7 +19,7 @@
 //     SchedulingResourceProperty join. Numerator and denominator therefore share
 //     one resource set (or both fall back tenant-wide), so the ratio is honest.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 import {
   buildResourceOverrides,

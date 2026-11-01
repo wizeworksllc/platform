@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/commerce-indexer",
+  "name": "@wizeworksllc/commerce-indexer",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx search indexer. Cloud Run Pub/Sub push worker. Consumes catalog events (product.*, variant.*, inventory.adjusted) and — once the customer/order bridges land — crm.customer.* / order.* events, reprojecting the affected entity into Typesense via @wizeworks/commerce's projections + @wizeworks/search. Also runs admin-triggered full reindexes (search.reindex.requested).",
+  "description": "sparx search indexer. Cloud Run Pub/Sub push worker. Consumes catalog events (product.*, variant.*, inventory.adjusted) and — once the customer/order bridges land — crm.customer.* / order.* events, reprojecting the affected entity into Typesense via @wizeworksllc/commerce's projections + @wizeworksllc/search. Also runs admin-triggered full reindexes (search.reindex.requested).",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/commerce": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/search": "workspace:*",
+    "@wizeworksllc/commerce": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/search": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

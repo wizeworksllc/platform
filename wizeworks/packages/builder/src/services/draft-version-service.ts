@@ -19,7 +19,7 @@
 // non-technical owner clicking "restore", and it is itself sealed as a new version, so it is
 // undoable like everything else here.
 
-import { Prisma, withTenant, type BuilderPage, type TxClient } from '@wizeworks/db';
+import { Prisma, withTenant, type BuilderPage, type TxClient } from '@wizeworksllc/db';
 
 import { BuilderNotFoundError, type PropertyContext } from '../errors';
 import { hashTree, recordArtifactTx, type ManifestEntry } from './artifact-service';

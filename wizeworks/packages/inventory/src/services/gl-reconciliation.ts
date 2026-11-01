@@ -40,7 +40,7 @@
 // compare against is the single most dangerous number this phase could produce.
 
 import { calendarDate, calendarDateOrNull } from '../calendar-date';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

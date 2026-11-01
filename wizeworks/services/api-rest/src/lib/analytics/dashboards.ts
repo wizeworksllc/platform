@@ -10,7 +10,7 @@
 // user's own dashboard. Metric ids are permanent (docs/129 §4), so a dashboard
 // saved against v1 still resolves later.
 
-import type { ModuleSlug } from '@wizeworks/auth';
+import type { ModuleSlug } from '@wizeworksllc/auth';
 import type { TileShape } from './types.js';
 
 /** One tile: a QUESTION answered by a metric, in a given shape. */

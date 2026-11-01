@@ -14,8 +14,8 @@ import {
   SetAssignmentInput,
   type BuilderAssignmentDto,
   type BuilderTemplateOption,
-} from '@wizeworks/builder-schemas';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/builder-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { PropertyContext } from '../errors';
 import { BuilderNotFoundError, BuilderValidationError } from '../errors';

@@ -10,7 +10,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-vi.mock('@wizeworks/db', () => ({ withTenant: vi.fn(), prisma: {} }));
+vi.mock('@wizeworksllc/db', () => ({ withTenant: vi.fn(), prisma: {} }));
 
 const { accountingCatalog, assertProviderKnown } = await import('./connections');
 

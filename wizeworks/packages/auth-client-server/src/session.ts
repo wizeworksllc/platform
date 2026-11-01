@@ -1,7 +1,7 @@
 // The signed-in person, for a server render or a server action, read from
 // api-rest instead of from a database this app no longer holds.
 //
-// Same names and the same shape as `@wizeworks/auth`'s getSession() and
+// Same names and the same shape as `@wizeworksllc/auth`'s getSession() and
 // requireSession(), so a call site switches its import and nothing else.
 // api-rest resolves it with the same code (`resolveSession`), including the
 // active-organization membership check.
@@ -11,7 +11,7 @@ import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { brandAuthUrl, forwardedHeaders, PlatformAuthUnavailableError } from './platform-api';
 
-/** The wire shape of `GET /auth/<brand>/platform/session`. Mirrors `@wizeworks/auth`'s SparxSession. */
+/** The wire shape of `GET /auth/<brand>/platform/session`. Mirrors `@wizeworksllc/auth`'s SparxSession. */
 export interface SparxSession {
   user: {
     id: string;

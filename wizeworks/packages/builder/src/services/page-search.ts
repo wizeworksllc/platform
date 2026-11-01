@@ -17,8 +17,8 @@
 // that seeded pages. Both run after the transaction commits, and neither can
 // fail the caller: `indexEntity` detaches the publish.
 
-import { withTenant } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { withTenant } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import type { PropertyContext } from '../errors';
 

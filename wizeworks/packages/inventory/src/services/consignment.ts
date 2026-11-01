@@ -22,9 +22,9 @@
 // than valued at zero. A consignment line reading $0.00 says "they gave it to
 // us", which is the most expensive possible way for a settlement to be wrong.
 
-import { withTenant } from '@wizeworks/db';
-import { CreateConsignmentSettlementInput, draftSettlement } from '@wizeworks/commerce-schemas';
-import type { ConsignedSale, SettlementDraft } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { CreateConsignmentSettlementInput, draftSettlement } from '@wizeworksllc/commerce-schemas';
+import type { ConsignedSale, SettlementDraft } from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../audit';
 import { VARIANT_LABEL_SELECT, variantLabel } from './variant-label';

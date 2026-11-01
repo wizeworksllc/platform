@@ -5,7 +5,7 @@
 //
 // This mirrors the canonical platform sources — kept in sync by hand because the
 // marketing bundle must NOT import the server-coupled packages:
-//   • slugs + bundling graph: wizeworks/packages/modules/src/index.ts (ModuleSlug,
+//   • slugs + bundling graph: wizeworks/packages/module-roster/src/index.ts (ModuleSlug,
 //     BUNDLED_FREE, REQUIRES)
 //   • monthly prices:         wizeworks/packages/billing/src/price-catalog.ts
 //                             (MODULE_MONTHLY_CENTS — the dollar values below)

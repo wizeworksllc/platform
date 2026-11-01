@@ -11,7 +11,7 @@
 // `properties` is FORCE RLS — every lookup goes through withTenant. propertyId is
 // application-tier scoping, not the security boundary (tenant_id + RLS is).
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import type { PropertyContext, ServiceContext } from '../errors';
 import { SitebuilderNotFoundError } from '../errors';
 

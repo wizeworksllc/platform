@@ -34,11 +34,11 @@
 // install-time nulls) and a future blueprint UPDATE can three-way-merge them.
 
 import type { FastifyBaseLogger } from 'fastify';
-import type { Blueprint } from '@wizeworks/blueprints';
-import type { ModuleSlug } from '@wizeworks/auth';
-import { getPlatformBus, type PlatformEvent } from '@wizeworks/crm';
-import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import type { Blueprint } from '@wizeworksllc/blueprints';
+import type { ModuleSlug } from '@wizeworksllc/auth';
+import { getPlatformBus, type PlatformEvent } from '@wizeworksllc/crm';
+import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { captureBaselines, resolveBlueprintArtifacts } from './blueprint-baseline.js';
 import {

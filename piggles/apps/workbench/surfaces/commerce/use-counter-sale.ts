@@ -6,7 +6,7 @@
 
 import { useMemo, useState } from 'react';
 import { useToast } from '@wizeworks/silicaui-react';
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 
 import { afterPaneChange } from '../../lib/defer';
 import { useActivePropertyId } from '../../lib/api/shell-data';

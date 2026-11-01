@@ -1,4 +1,4 @@
-import { STORY_EXAMPLES } from '@wizeworks/story-schemas';
+import { STORY_EXAMPLES } from '@wizeworksllc/story-schemas';
 import { renderStoryOg } from '@/lib/og-story';
 
 // The /customers page is about the RANGE of businesses on sparx, so its card tells

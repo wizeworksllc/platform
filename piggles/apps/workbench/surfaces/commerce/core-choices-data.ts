@@ -3,8 +3,8 @@
 // Core charges set up as choices (issue 057): the list, and the one-time change.
 // A change rewrites prices and retires versions, so products and cores re-read.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import type { CoreChoiceCandidate, CoreChoiceConversion } from '@wizeworks/commerce-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import type { CoreChoiceCandidate, CoreChoiceConversion } from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import { CORES_KEY } from './cores-data';
 import { PRODUCTS_KEY } from './products-data';

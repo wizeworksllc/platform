@@ -11,8 +11,8 @@
 // types; the `content_types` RLS policy exposes those rows to every tenant
 // implicitly, so routes don't usually need to switch to it.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { PLATFORM_TENANT_ID } from '@wizeworks/cms-schemas';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { PLATFORM_TENANT_ID } from '@wizeworksllc/cms-schemas';
 import type { FastifyRequest } from 'fastify';
 import { requireAuth } from './auth.js';
 

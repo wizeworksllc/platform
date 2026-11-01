@@ -1,6 +1,6 @@
 'use client';
 
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import { api } from '../../../lib/api/client';
 import { type PaymentTerms, type AccountStatus, useInvalidateAccounts } from '../accounts-data';
 

@@ -21,7 +21,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 import type {
   OperatorPartnerApplication,
   OperatorPartnerListItem,
@@ -30,7 +30,7 @@ import type {
   OperatorPartnerCommission,
   OperatorPartnerPayoutRun,
   OperatorPartnerTier,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import { authorizeOperator, badRequest, notFound, operatorIdOf } from './operator-internal.js';
 import { partnerService } from '../../lib/partners/service.js';

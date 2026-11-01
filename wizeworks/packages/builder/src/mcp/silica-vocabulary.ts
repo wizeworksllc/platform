@@ -10,7 +10,7 @@
 //
 // Kept faithful to the SOURCES it documents: the authoring kit + block catalog in
 // `@wizeworks/silicaui-html`, the sparx domain composites in
-// `@wizeworks/silica-catalog`, and the reconcile contract in
+// `@wizeworksllc/silica-catalog`, and the reconcile contract in
 // `wizeworks/packages/builder/src/services/site-service.ts`. When those change, change this.
 
 export const SILICA_STYLE_GUIDE = {
@@ -126,7 +126,7 @@ export const SILICA_STYLE_GUIDE = {
     description:
       "Two catalogs, merged in list_silica_blocks / get_silica_block: silica's own NATIVE blocks (marketing/content " +
       'patterns: hero, feature grid, testimonials, pricing, team, stats, FAQ, contact form, nav/footer chrome) and ' +
-      "the platform's domain COMPOSITES (@wizeworks/silica-catalog: commerce/content patterns silica has no concept of: product " +
+      "the platform's domain COMPOSITES (@wizeworksllc/silica-catalog: commerce/content patterns silica has no concept of: product " +
       'grid/card, buy box, featured products, collection header, the site-branded navbar/footer). Prefer a native ' +
       'block for anything generic; reach for a domain composite only when the section needs real commerce/CMS data.',
     // The REAL block keys, as `listBlocks()`/`getBlock()` key them — snake_case, and

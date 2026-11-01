@@ -1,12 +1,12 @@
 // Booking deposits and card holds (docs/79 §9). The side-effecting counterpart to
-// @wizeworks/scheduling's PURE deposit math (deposits.ts).
+// @wizeworksllc/scheduling's PURE deposit math (deposits.ts).
 //
 //   createBookingDeposit  at booking time: authorize a card hold (manual capture)
 //                         or charge a deposit/prepay (automatic), link it to the
 //                         booking, return the clientSecret for the customer to
 //                         confirm.
 //   settleBookingMoney    when a booking ends: hand what its card needs to
-//                         `bookingPayments.settle` in @wizeworks/commerce.
+//                         `bookingPayments.settle` in @wizeworksllc/commerce.
 //
 // Settling used to live here, so only the console's own routes ever did it: a
 // booking an AI assistant ended, and every booking in a canceled series, kept
@@ -15,15 +15,15 @@
 // and the gateway work is in commerce, where api-mcp can reach it too.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { withTenant } from '@wizeworks/db';
-import { bookingPayments } from '@wizeworks/commerce';
-import { paymentService, PaymentConfigError, GatewayNotFoundError } from '@wizeworks/payments';
+import { withTenant } from '@wizeworksllc/db';
+import { bookingPayments } from '@wizeworksllc/commerce';
+import { paymentService, PaymentConfigError, GatewayNotFoundError } from '@wizeworksllc/payments';
 import {
   resolveDepositPlan,
   type BookingMoney,
   type DepositPolicyInput,
   type DepositType,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 export interface DepositCreationResult {
   /** True when a deposit/hold was created and a clientSecret is returned. */

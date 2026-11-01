@@ -23,7 +23,7 @@ import { parseEmailTokens } from './email-tokens';
 import { bindingSourceKey } from './runtime';
 
 // Re-export under a sparx-namespaced alias so consumers (`emailService`, the
-// dashboard editor, `@wizeworks/email`'s silica renderer) get the type without each
+// dashboard editor, `@wizeworksllc/email`'s silica renderer) get the type without each
 // taking its own direct `silicaui-builder/email` dependency edge.
 export type { SilicaEmailDocument, SilicaEmailNode };
 

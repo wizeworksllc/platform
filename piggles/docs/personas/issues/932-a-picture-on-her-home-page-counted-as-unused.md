@@ -3,7 +3,7 @@
 **Status:** fixed (act 325)
 **Severity:** critical
 **Found by:** P03 · Juniper Row · act 325, re-scoring Photos and files
-**Surface:** mypiggles › Photos and files, one file, the delete guard and the media clean-up (both consoles, api-rest, `@wizeworks/media`)
+**Surface:** mypiggles › Photos and files, one file, the delete guard and the media clean-up (both consoles, api-rest, `@wizeworksllc/media`)
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P03 · Juniper Row · act 325, the grid naming where each picture is used, and trio-founder.jpeg refusing Delete for being on a site page
@@ -38,7 +38,7 @@ part-finder icons. Platform-wide, 9 live files are held only by those today.
 
 ## The fix
 
-- **`countAssetUsage`** (`@wizeworks/media`) counts, in one more query: site
+- **`countAssetUsage`** (`@wizeworksllc/media`) counts, in one more query: site
   pages and site headers and footers (their designs searched for the id or the
   address, within the picture's own business), and all of the columns above.
   The delete guard, the clean-up and the library all read it, so all three are
@@ -71,7 +71,7 @@ part-finder icons. Platform-wide, 9 live files are held only by those today.
 
 ## Proof
 
-- `asset-usage.test.ts` (`@wizeworks/media`): a picture on a site page; the
+- `asset-usage.test.ts` (`@wizeworksllc/media`): a picture on a site page; the
   logo, a collection and a social post; the words for each. 19 cases.
   `upload.test.ts`'s database stand-in answers the new read.
 - `media-admin.test.ts` (both consoles): the tile line for a used and an unused

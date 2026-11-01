@@ -13,9 +13,9 @@
 import { jwtVerify } from 'jose';
 import type { FastifyBaseLogger } from 'fastify';
 import type { Server, Socket } from 'socket.io';
-import { prisma, withTenant } from '@wizeworks/db';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { opLogService } from '@wizeworks/builder';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { opLogService } from '@wizeworksllc/builder';
 
 import { env } from '../env.js';
 import {

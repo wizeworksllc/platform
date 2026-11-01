@@ -7,12 +7,12 @@
 // order cancels). The mutating transitions COMMIT then ask their caller to publish
 // the resulting domain events — the service stays free of publisher plumbing so it
 // runs identically under REST (`request.log` publisher) and MCP (a createPublisher
-// from @wizeworks/events, matching the other api-mcp tool registries).
+// from @wizeworksllc/events, matching the other api-mcp tool registries).
 
 import { z } from 'zod';
-import { nameSearchClauses, withTenant, type Prisma } from '@wizeworks/db';
-import { forbidden, notFound, validationError } from '@wizeworks/api-core/errors';
-import { isModuleEnabled } from '@wizeworks/auth';
+import { nameSearchClauses, withTenant, type Prisma } from '@wizeworksllc/db';
+import { forbidden, notFound, validationError } from '@wizeworksllc/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 import {
   accountOrderGate,
   b2bArService,
@@ -21,8 +21,12 @@ import {
   heldOrderMoney,
   poNumberOf,
   taskService,
-} from '@wizeworks/crm';
-import { inventoryService, type CommittedSale, type OrderStockOutcome } from '@wizeworks/inventory';
+} from '@wizeworksllc/crm';
+import {
+  inventoryService,
+  type CommittedSale,
+  type OrderStockOutcome,
+} from '@wizeworksllc/inventory';
 import type { B2bContext } from './context.js';
 import type { PendingEvent } from './events.js';
 

@@ -54,7 +54,7 @@ be built on four of the terms a business can hold.
 'net60','net90'])`, and each surface hand-copied a subset of it into a menu.
 
 Nothing downstream ever needed the enum. The column is `VarChar(20)` and
-`netTermsDays()` in `@wizeworks/crm` has always parsed whatever digits it finds
+`netTermsDays()` in `@wizeworksllc/crm` has always parsed whatever digits it finds
 (`"net30"`, `"net 15"`, `"due on receipt"`), so **every `netN` already worked end
 to end.** The only things in the way were one zod enum and three menus.
 

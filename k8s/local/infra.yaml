@@ -180,7 +180,7 @@ spec:
 ---
 # ---------------------------------------------------------------------------
 # Typesense — same engine and major version as the GKE StatefulSet and the dev
-# compose stack (28.0). Service name `typesense` matches the @wizeworks/search
+# compose stack (28.0). Service name `typesense` matches the @wizeworksllc/search
 # default host and the TYPESENSE_HOST in app-env-configmap.env.
 #
 # The index is DERIVED state, not a source of truth. Nothing needs migrating

@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/social-worker",
+  "name": "@wizeworksllc/social-worker",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx social-worker. Receives social.post.due events via Pub/Sub push (Cloud Run HTTP entrypoint) and publishes each due post's targets to their platforms (Google Business Profile, …) via @wizeworks/social adapters. Resolves + refreshes the per-tenant OAuth grant, renders per platform, records each per-target result, and publishes social.post.published / social.post.failed. No-ops safely when the token key is unset.",
+  "description": "sparx social-worker. Receives social.post.due events via Pub/Sub push (Cloud Run HTTP entrypoint) and publishes each due post's targets to their platforms (Google Business Profile, …) via @wizeworksllc/social adapters. Resolves + refreshes the per-tenant OAuth grant, renders per platform, records each per-target result, and publishes social.post.published / social.post.failed. No-ops safely when the token key is unset.",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/attribution": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/links": "workspace:*",
-    "@wizeworks/social": "workspace:*",
+    "@wizeworksllc/attribution": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/links": "workspace:*",
+    "@wizeworksllc/social": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

@@ -4,15 +4,15 @@
 // typed fields. It is domain-agnostic on purpose: the exact same definition
 // drives two domains that share nothing else —
 //
-//   - @wizeworks/cms-schemas re-exports it as `ContentTypeSchema` to describe a
+//   - @wizeworksllc/cms-schemas re-exports it as `ContentTypeSchema` to describe a
 //     `content_entries.body` (a content type's fields).
-//   - @wizeworks/commerce-schemas re-exports it as `ProductTypeSchema` to describe
+//   - @wizeworksllc/commerce-schemas re-exports it as `ProductTypeSchema` to describe
 //     a `commerce_products.attributes` bag (a product type's attributes).
 //
 // Whichever domain consumes it, a field's `key` is camelCase to match the
 // JSONB key; the runtime validator lives in ./validate.
 //
-// This module was extracted out of @wizeworks/cms-schemas (docs/143 §3) so that a
+// This module was extracted out of @wizeworksllc/cms-schemas (docs/143 §3) so that a
 // single field engine backs both content and product types — the "single
 // point of change" rule (root CLAUDE.md RULE #1) applied to the field system
 // itself. cms-schemas re-exports every symbol here unchanged for back-compat.

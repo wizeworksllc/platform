@@ -7,7 +7,7 @@
 // $6.30 saving was recorded against an order that charged full price.
 
 import { describe, expect, it } from 'vitest';
-import type { DiscountCondition } from '@wizeworks/commerce-schemas';
+import type { DiscountCondition } from '@wizeworksllc/commerce-schemas';
 
 import {
   apportionToLines,

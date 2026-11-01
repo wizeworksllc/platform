@@ -7,13 +7,13 @@
 //
 // Two layers, kept apart on purpose:
 //   · siteService.getCapturableSite reads the pages/frame/theme/symbols enriched with
-//     the per-page domain columns silica's flat `Page` doesn't model (@wizeworks/builder).
-//   · captureSite projects that into a validated `SiteDecl` (@wizeworks/blueprints, pure).
+//     the per-page domain columns silica's flat `Page` doesn't model (@wizeworksllc/builder).
+//   · captureSite projects that into a validated `SiteDecl` (@wizeworksllc/blueprints, pure).
 // This file just wires them, symmetric with how the installer wires captureBaselines
 // + the service layer.
 
-import { captureSite, type SiteDecl } from '@wizeworks/blueprints';
-import { siteService } from '@wizeworks/builder';
+import { captureSite, type SiteDecl } from '@wizeworksllc/blueprints';
+import { siteService } from '@wizeworksllc/builder';
 
 export interface CaptureContext {
   tenantId: string;

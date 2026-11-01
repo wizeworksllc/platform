@@ -1,11 +1,11 @@
-// Email design tokens. The VALUES live in `@wizeworks/builder-schemas`'s
+// Email design tokens. The VALUES live in `@wizeworksllc/builder-schemas`'s
 // `EMAIL_DESIGN` (a pure, client+server-safe module) so the real renderer here and
 // the Email Builder canvas preview (apps/dashboard) paint the exact same scale and
-// can't drift. This module just re-exports them under the names the @wizeworks/email
+// can't drift. This module just re-exports them under the names the @wizeworksllc/email
 // primitives already use — hex strings (no CSS variables) because mail clients
 // strip <style> blocks and every value ends up inlined on the rendered element.
 
-import { EMAIL_DESIGN } from '@wizeworks/builder-schemas';
+import { EMAIL_DESIGN } from '@wizeworksllc/builder-schemas';
 
 export const colors = EMAIL_DESIGN.colors;
 
@@ -38,7 +38,7 @@ export const fontFamily = EMAIL_DESIGN.fontFamily;
 // The colors used to be here too — Ember `#e04631` on a `#0c1433` masthead, with
 // the comment "the palette is sparx's own". One email worker drains the queue
 // for both brands, so "sparx's own" was being painted onto a Piggles owner's
-// password reset. They now resolve per send from `@wizeworks/brand-core`'s
+// password reset. They now resolve per send from `@wizeworksllc/brand-core`'s
 // `resolveEmailPalette` and reach a component through `usePalette()`. If you are
 // about to add a hex to this file, the value belongs in a brand's
 // `<BRAND>_EMAIL_PALETTE` instead — and if it is genuinely brand-blind, it

@@ -408,7 +408,7 @@ and `feedback_submissions.status` and publish `feedback.responded`.
 | `feedback.submitted` | A submission is created                              | Admin notification (Slack/email to staff), analytics ingestion ([97](97-analytics-reporting-architecture.md)), automation fan-in |
 | `feedback.responded` | Staff posts a reply or a notify-worthy status change | `email-worker` (the response email), unread-flag setter, analytics                                                               |
 
-Both ride the canonical `@wizeworks/events` registry and the standard envelope
+Both ride the canonical `@wizeworksllc/events` registry and the standard envelope
 (`{ type, tenantId, actorId, occurredAt, data }`), and tee into the `automation.trigger` fan-in like
 every other event. New event types need their Terraform topic
 ([82](82-event-bus-unification.md) §3) — add it the same session.

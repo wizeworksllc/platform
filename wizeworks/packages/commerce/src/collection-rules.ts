@@ -11,7 +11,7 @@
 // Rule grammar — the CANONICAL shape authored by the dashboard form, the
 // REST create/update routes, collectionService, the presets, and the
 // blueprint installer. It is Zod-validated by `CollectionRuleSet` /
-// `CollectionPredicate` in @wizeworks/commerce-schemas, and THIS compiler
+// `CollectionPredicate` in @wizeworksllc/commerce-schemas, and THIS compiler
 // consumes that exact same type so the two sides can never drift apart:
 //
 //   { match: 'all' | 'any', predicates: CollectionPredicate[] }
@@ -41,10 +41,10 @@
 //     gap: it maps to the denormalized `Product.lowStock` column.)
 //   • Projection is idempotent and the MAX_PROJECTED_PRODUCTS cap holds.
 
-import { CollectionRuleSet } from '@wizeworks/commerce-schemas';
-import type { CollectionPredicate } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { CollectionRuleSet } from '@wizeworksllc/commerce-schemas';
+import type { CollectionPredicate } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from './errors';
 

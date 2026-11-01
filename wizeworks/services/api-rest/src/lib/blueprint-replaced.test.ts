@@ -10,7 +10,7 @@ const artifacts = vi.hoisted(
 );
 const livePages = vi.hoisted(() => new Set<string>());
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(
       fn({

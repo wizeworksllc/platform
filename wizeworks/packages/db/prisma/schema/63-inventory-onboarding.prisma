@@ -27,7 +27,7 @@
 // docs/146 §6 sets a thirty-minute target for inventory setup. A target nobody
 // measures is a slogan, so this measures — but a naive `completedAt - startedAt`
 // measures lunch. The step stamps let `summarizeSetup()` (pure, in
-// @wizeworks/commerce-schemas) report two honest numbers instead of one dishonest
+// @wizeworksllc/commerce-schemas) report two honest numbers instead of one dishonest
 // one: hands-on time, with any gap longer than a sitting excluded, and how many
 // sittings it took. Both are shown; neither is inferred from the other.
 //

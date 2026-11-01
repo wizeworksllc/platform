@@ -4,7 +4,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 const { readInvitation } = vi.hoisted(() => ({ readInvitation: vi.fn() }));
-vi.mock('@wizeworks/auth-client-server', () => ({ readInvitation }));
+vi.mock('@wizeworksllc/auth-client-server', () => ({ readInvitation }));
 
 const { invitationIdFrom, joiningFrom } = await import('./invite-joining');
 

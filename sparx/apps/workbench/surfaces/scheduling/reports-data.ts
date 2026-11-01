@@ -32,8 +32,8 @@
 // set their hours instead of showing a number that isn't real.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useQuery } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 import { formatCentsAmount } from '../../lib/money-format';
 

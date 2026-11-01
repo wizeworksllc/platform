@@ -1,6 +1,6 @@
 'use client';
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../../lib/api/client';
 import { customerKeys } from '../../crm/customers-data';
 import { useInvalidateAccounts, type ContactRole } from '../accounts-data';

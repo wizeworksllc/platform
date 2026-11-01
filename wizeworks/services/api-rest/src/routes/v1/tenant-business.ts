@@ -20,10 +20,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import type { Prisma } from '@prisma/client';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 // Trim-then-empty-to-null: a cleared field arrives as "" from a form, and an
 // empty string is not a business name — it is the absence of one. Storing ""

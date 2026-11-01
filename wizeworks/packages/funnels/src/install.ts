@@ -14,9 +14,9 @@
 // their work on a schedule nobody can see. The recipe is a starting point that
 // is FORKED once; after that the row belongs to the tenant.
 
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { recipesForModules, type FunnelRecipe } from './library.js';
 

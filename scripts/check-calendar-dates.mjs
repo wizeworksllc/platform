@@ -34,7 +34,7 @@
  * ---------------------------------------------------------------------------
  *
  * A field declared `@db.Date` must not be serialized with `.toISOString()`.
- * Use `calendarDate()` from `@wizeworks/inventory`, which writes `YYYY-MM-DD`,
+ * Use `calendarDate()` from `@wizeworksllc/inventory`, which writes `YYYY-MM-DD`,
  * and draw it with `CalendarDate` rather than `Timestamp`.
  *
  * The field list is READ FROM THE SCHEMA, not hard-coded, so a `@db.Date` column
@@ -52,8 +52,8 @@
  *      and still draws the day before. Each server fix has to land with its
  *      render site in the same commit.
  *      [[feedback_a_fix_leaves_its_neighbour_behind]]
- *   2. `calendarDate` lives in `@wizeworks/inventory`, and b2b, commerce, staff
- *      and finance cannot import from there. Its home is `@wizeworks/api-core`,
+ *   2. `calendarDate` lives in `@wizeworksllc/inventory`, and b2b, commerce, staff
+ *      and finance cannot import from there. Its home is `@wizeworksllc/api-core`,
  *      beside `envelope.ts` and `slug.ts`, and moving it means adding a
  *      dependency to four packages, which means an install.
  *
@@ -174,7 +174,7 @@ if (offences.length > 0) {
   for (const o of offences) console.error(`  ${o.where}\n      ${o.code}`);
   console.error(
     '\nA calendar date is the same day in every zone; a timestamp is not. Use\n' +
-      'calendarDate() from @wizeworks/inventory (YYYY-MM-DD) and draw it with\n' +
+      'calendarDate() from @wizeworksllc/inventory (YYYY-MM-DD) and draw it with\n' +
       'CalendarDate, not Timestamp. Fix the render site in the SAME commit:\n' +
       'changing only the wire format leaves the console drawing the day before.\n'
   );

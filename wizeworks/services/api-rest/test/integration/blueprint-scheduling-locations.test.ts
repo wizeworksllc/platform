@@ -18,8 +18,8 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import type { Blueprint } from '@wizeworks/blueprints';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import type { Blueprint } from '@wizeworksllc/blueprints';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 import { installBlueprint } from '../../src/lib/blueprint-installer.js';
 

@@ -18,10 +18,10 @@
 // Interval default is daily; in dev we can run it more aggressively via
 // MEDIA_GC_INTERVAL_MS to exercise the path.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import { countOneAssetUsage } from '@wizeworks/media';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { countOneAssetUsage } from '@wizeworksllc/media';
 import { getStorage } from './storage.js';
 
 const MEDIA_GC_LOCK_KEY = ADVISORY_LOCKS.MEDIA_GC;

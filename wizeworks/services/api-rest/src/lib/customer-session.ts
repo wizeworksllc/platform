@@ -18,10 +18,10 @@ import {
   type CustomerAuthContext,
   type EnsureMembershipNames,
   type EnsureMembershipResult,
-} from '@wizeworks/customer-auth';
-import { customerService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { ApiError, forbidden, unauthorized } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/customer-auth';
+import { customerService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { ApiError, forbidden, unauthorized } from '@wizeworksllc/api-core/errors';
 
 import { resolvePublicPropertyId } from './property.js';
 

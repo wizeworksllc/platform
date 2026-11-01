@@ -34,7 +34,7 @@ claimedZone) return null;`), and nothing on the platform sends one address to
 2. **"Make main address" made a promise nothing keeps.** Its confirm box said the
    old address "sends people here automatically". Nothing redirects. Making an
    address the main one changes the links in customer emails, calendar invites
-   and signing links, and the sitemap (`@wizeworks/db/site-origin`). The old one
+   and signing links, and the sitemap (`@wizeworksllc/db/site-origin`). The old one
    keeps opening the site as before. The sparx console's box said "will redirect
    here automatically".
 3. **A new site's address named her business twice.** "Juniper Row Lookbook" was

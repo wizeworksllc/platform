@@ -28,10 +28,10 @@
 // bigint, so the alternative to a string is a 500. Callers parse what they need.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { capacityReport, type CapacityReport, type MeterReading } from '@wizeworks/usage';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { prisma, withSystem } from '@wizeworks/db';
+import { capacityReport, type CapacityReport, type MeterReading } from '@wizeworksllc/usage';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { prisma, withSystem } from '@wizeworksllc/db';
 
 /** `bigint` → decimal string, `null` → `null`. Null is preserved rather than
  *  coerced to 0: "not measured" is one of the answers this endpoint gives, and a

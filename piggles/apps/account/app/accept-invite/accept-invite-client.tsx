@@ -10,7 +10,7 @@
 import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import { Alert, Button } from '@wizeworks/silicaui-react';
-import { signOut } from '@wizeworks/auth/client';
+import { signOut } from '@wizeworksllc/auth-client/client';
 import { acceptInvitation, resendInviteVerification } from './actions';
 
 /**

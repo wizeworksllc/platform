@@ -71,11 +71,11 @@ const tx = {
   productOption: { delete: optionDelete.mockImplementation(() => Promise.resolve({})) },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/inventory', () => ({ syncProductInStock: vi.fn(() => Promise.resolve()) }));
+vi.mock('@wizeworksllc/inventory', () => ({ syncProductInStock: vi.fn(() => Promise.resolve()) }));
 vi.mock('../audit', () => ({ writeAuditLog: vi.fn(() => Promise.resolve()) }));
 vi.mock('../events', () => ({ publishCommerceEvent: vi.fn(() => Promise.resolve()) }));
 vi.mock('../inventory-gate', () => ({ isInventoryActive: vi.fn(() => Promise.resolve(true)) }));

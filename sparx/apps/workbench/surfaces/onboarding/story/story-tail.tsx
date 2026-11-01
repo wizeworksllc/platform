@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, type ReactNode } from 'react';
-import type { StoryState } from '@wizeworks/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 import { useOnboardingActions } from '../../../lib/onboarding/api';
 import { isSellingSelected } from '../../../lib/onboarding/modules';
 import type { WizardBlueprint } from '../../../lib/onboarding/types';

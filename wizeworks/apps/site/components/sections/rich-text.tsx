@@ -3,7 +3,7 @@
 // produced by the customizer's rich-text editor"), so we render it directly;
 // the storefront is a trusted consumer of its own published content.
 
-import type { RichTextConfig } from '@wizeworks/sitebuilder-schemas';
+import type { RichTextConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 export function RichTextSection({ config }: { config: RichTextConfig }) {
   if (!config.heading && !config.html) return null;

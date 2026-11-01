@@ -16,7 +16,7 @@ import {
   recomputeDay,
   recomputeRange,
   utcMidnight,
-} from '@wizeworks/finance';
+} from '@wizeworksllc/finance';
 
 /**
  * One event shape per thing that can make the rollup stale.

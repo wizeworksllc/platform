@@ -10,7 +10,7 @@ import {
   resolveFirstTouch,
   resolveLastTouch,
   serializeSnapshot,
-} from '@wizeworks/attribution';
+} from '@wizeworksllc/attribution';
 import { SPARX_ATTR } from '../lib/attribution-cookies';
 import { gateTracker, getConsent } from '../lib/consent';
 

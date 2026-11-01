@@ -4,7 +4,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { buildCustomerProjection, customerService } from '../../src/index.js';
 import { disposeTestContext, makeTestContext, type TestContext } from '../helpers.js';
 

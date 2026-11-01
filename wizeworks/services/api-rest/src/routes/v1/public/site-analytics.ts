@@ -34,7 +34,7 @@
 
 import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { captureFunnelStage } from '../../../lib/funnel-entry.js';

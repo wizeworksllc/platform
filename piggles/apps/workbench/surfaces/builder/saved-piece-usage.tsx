@@ -23,7 +23,7 @@ import { Badge, Text } from '@wizeworks/silicaui-react';
 import { faFileText, faTableLayout } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { useConfirm } from '../../lib/confirm';
-import { buildPath } from '@wizeworks/links';
+import { buildPath } from '@wizeworksllc/links';
 import { FormSection } from '../../components/form-section';
 import { useActivePropertyId, useSites, switchSite } from '../../lib/api/shell-data';
 import { useWorkbench } from '../../lib/workbench/context';

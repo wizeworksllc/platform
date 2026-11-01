@@ -25,7 +25,7 @@
 // which is exactly the bug this fixes.
 
 import type { BuilderHost } from '@wizeworks/silicaui-builder/react';
-import { HOST_COMPONENTS, HOST_KEYS } from '@wizeworks/silica-catalog';
+import { HOST_COMPONENTS, HOST_KEYS } from '@wizeworksllc/silica-catalog';
 
 import {
   AccountLinkMark,

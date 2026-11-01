@@ -18,7 +18,7 @@ const SESSION_WINDOW_MS = 30 * 60 * 1000;
 export type AnalyticsSource = 'search' | 'social' | 'referral' | 'direct' | 'email';
 
 /** `utm_medium` value sparx puts on every tracked email link (kept in sync with
- *  `@wizeworks/email/silica`'s `EMAIL_UTM_MEDIUM`). A hit carrying it is classified
+ *  `@wizeworksllc/email/silica`'s `EMAIL_UTM_MEDIUM`). A hit carrying it is classified
  *  `email`, ahead of any referrer-based class. */
 const EMAIL_UTM_MEDIUM = 'email';
 

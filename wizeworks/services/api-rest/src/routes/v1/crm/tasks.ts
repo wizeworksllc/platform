@@ -10,9 +10,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { taskService } from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole, requireAuth } from '@wizeworks/api-core/auth';
+import { taskService } from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole, requireAuth } from '@wizeworksllc/api-core/auth';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { reachableSiteIds } from '../../../lib/property.js';
 

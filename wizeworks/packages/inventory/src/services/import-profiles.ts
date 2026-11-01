@@ -9,7 +9,7 @@
 //   PROFILE   remember the answer, so the second import of the same monthly
 //             export is one click instead of the same eleven decisions.
 //
-// The matching arithmetic is pure and lives in @wizeworks/commerce-schemas. What is
+// The matching arithmetic is pure and lives in @wizeworksllc/commerce-schemas. What is
 // here is the part that touches a database: recording what the tenant confirmed,
 // and counting how often it gets used so a list of six profiles can be ordered
 // by what they actually reach for.
@@ -36,9 +36,9 @@ import {
   type MappingVerdict,
   type MigrationRecipe,
   type NumberFormat,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { parseCsv } from '../csv';

@@ -11,7 +11,7 @@
 // notification must never break the booking the customer just made.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { resolvePrimaryPropertyId } from './property.js';
 import { sendTenantEmailByKey } from './tenant-email.js';

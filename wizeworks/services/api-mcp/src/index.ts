@@ -1,15 +1,15 @@
 // Entry point. Boots the Fastify app and listens.
 
-// FIRST: sets the WizeLens Prisma hook before @wizeworks/db builds its client.
+// FIRST: sets the WizeLens Prisma hook before @wizeworksllc/db builds its client.
 import './wizelens.js';
-import { resolveTransport } from '@wizeworks/events';
+import { resolveTransport } from '@wizeworksllc/events';
 import {
   installCrmWebhookFanout,
   preconnectWebhookFanout,
   registerCrmConsumers,
-} from '@wizeworks/crm';
-import { installCrmPubSubBridge } from '@wizeworks/crm/pubsub';
-import { registerCommerceConsumers } from '@wizeworks/commerce/consumers';
+} from '@wizeworksllc/crm';
+import { installCrmPubSubBridge } from '@wizeworksllc/crm/pubsub';
+import { registerCommerceConsumers } from '@wizeworksllc/commerce/consumers';
 import { env } from './env.js';
 import { createApp } from './app.js';
 import { preconnectAudit } from './audit.js';
@@ -19,12 +19,12 @@ async function main(): Promise<void> {
   const app = await createApp();
   await preconnectAudit();
   // Hand api-core its Pub/Sub config before any tool handler can call publish().
-  // WITHOUT this, `@wizeworks/api-core/pubsub`'s publish() fell back to the stdout stub
+  // WITHOUT this, `@wizeworksllc/api-core/pubsub`'s publish() fell back to the stdout stub
   // in this process, so every MCP write that emits through the api-core path —
   // inventory stock/threshold + `search.entity.changed`, social `social.post.*`
   // (the scheduled-publish worker never woke for an MCP-scheduled post), and CMS
   // events — was silently dropped in prod. The CRM + platform buses are bridged
-  // separately below (their own module state), and tools that emit via @wizeworks/events
+  // separately below (their own module state), and tools that emit via @wizeworksllc/events
   // `createPublisher` (domain, search-admin, b2b) were already real; this closes the
   // api-core gap so ALL three paths reach real Pub/Sub. It also enables api-core's
   // webhook-enqueue for these MCP writes — matching api-rest — and the rows drain on

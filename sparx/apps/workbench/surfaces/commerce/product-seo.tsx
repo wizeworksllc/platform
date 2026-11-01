@@ -41,7 +41,7 @@ import {
   Text,
   Textarea,
 } from '@wizeworks/silicaui-react';
-import { plainText } from '@wizeworks/commerce-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 import { ImageOff } from 'lucide-react';
 import { useActivePropertyId } from '../../lib/api/shell-data';
 import { FormSection } from '../../components/form-section';

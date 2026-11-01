@@ -7,9 +7,9 @@
 // "a reminder before the day".
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { prisma, withTenant } from '@wizeworks/db';
-import { createService } from '@wizeworks/scheduling';
-import { CreateServiceInput } from '@wizeworks/scheduling-schemas';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { createService } from '@wizeworksllc/scheduling';
+import { CreateServiceInput } from '@wizeworksllc/scheduling-schemas';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 
 describe('creating a service', () => {

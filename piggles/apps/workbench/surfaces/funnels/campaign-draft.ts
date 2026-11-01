@@ -4,7 +4,7 @@
 // what is saved, and the two reasons the server would refuse to turn it on.
 
 import { useEffect, useState } from 'react';
-import { ConditionGroup, EMPTY_CONDITION_GROUP } from '@wizeworks/automation-schemas';
+import { ConditionGroup, EMPTY_CONDITION_GROUP } from '@wizeworksllc/automation-schemas';
 import type { Funnel, FunnelStage } from './types';
 
 /**

@@ -6,7 +6,7 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { plainText } from '@wizeworks/commerce-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { SectionRenderer } from '@/components/section-renderer';

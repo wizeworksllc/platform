@@ -177,11 +177,11 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/payments', async (importOriginal) => ({
+vi.mock('@wizeworksllc/payments', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   paymentService: {
     createPaymentIntent: gatewayIntent,
@@ -189,7 +189,7 @@ vi.mock('@wizeworks/payments', async (importOriginal) => ({
     canHoldCards: () => Promise.resolve(canHold),
   },
 }));
-vi.mock('@wizeworks/crm', async (importOriginal) => {
+vi.mock('@wizeworksllc/crm', async (importOriginal) => {
   const real = await importOriginal<Record<string, unknown>>();
   return {
     ...real,
@@ -217,7 +217,7 @@ const holdStockForOrderOnTx = vi.fn((..._args: unknown[]) =>
   Promise.resolve({ reservationIds: [HOLD], unheldQuantity: 0 })
 );
 const commitSaleOnTx = vi.fn((..._args: unknown[]) => Promise.resolve([]));
-vi.mock('@wizeworks/inventory', async (importOriginal) => {
+vi.mock('@wizeworksllc/inventory', async (importOriginal) => {
   const real = await importOriginal<{ inventoryService: Record<string, unknown> }>();
   return {
     ...real,

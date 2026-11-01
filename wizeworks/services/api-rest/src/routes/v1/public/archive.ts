@@ -7,8 +7,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
 
 import { archiveMonths, archiveYears } from '../../../lib/archive.js';
 import { publishedOnSite, siteKindsTx } from '../../../lib/author-roster.js';

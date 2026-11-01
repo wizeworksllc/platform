@@ -24,7 +24,7 @@
 // as passwords and sessions — see the two-factor section at the foot of this
 // file.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { accountGet, accountPost } from './account-api';
 import { api } from '../../lib/api/client';
 

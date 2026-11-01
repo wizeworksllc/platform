@@ -42,10 +42,10 @@ export interface OperatorApiErrorBody {
 // ─── Slice 2: tenant list + detail (representation parity, D7) ───────────────
 // These DTOs are the dashboard-shaped payloads api-rest computes so the operator
 // console renders a tenant's account state exactly as the tenant's own dashboard
-// shows it — same subscription snapshot (via @wizeworks/billing.getBillingState), the
-// same module derivation (@wizeworks/modules.deriveModuleStates), and real storage.
+// shows it — same subscription snapshot (via @wizeworksllc/billing.getBillingState), the
+// same module derivation (@wizeworksllc/modules.deriveModuleStates), and real storage.
 
-/** Billing/annual interval — mirrors `@wizeworks/billing`'s BillingInterval without
+/** Billing/annual interval — mirrors `@wizeworksllc/billing`'s BillingInterval without
  *  taking a runtime dependency on that (server-only) package from this dep-free one. */
 export type OperatorBillingInterval = 'monthly' | 'annual';
 
@@ -102,7 +102,7 @@ export interface OperatorTenantListParams {
 }
 
 /** A single module's enablement state for a tenant (mirrors
- *  `@wizeworks/modules.deriveModuleStates`). */
+ *  `@wizeworksllc/modules.deriveModuleStates`). */
 export interface OperatorTenantModule {
   key: string;
   enabled: boolean;
@@ -119,7 +119,7 @@ export interface OperatorTenantModule {
 }
 
 /** The tenant's subscription snapshot — the exact shape the dashboard's Finance →
- *  subscription page renders (from `@wizeworks/billing.getBillingState`). */
+ *  subscription page renders (from `@wizeworksllc/billing.getBillingState`). */
 export interface OperatorTenantBilling {
   configured: boolean;
   billingActive: boolean;
@@ -367,7 +367,7 @@ export interface OperatorAcquisitionParams {
 
 // ─── Slice 4: billing operations ─────────────────────────────────────────────
 // Cross-tenant billing ops driven through the PLATFORM Stripe account. Shapes are
-// wire-compatible with `@wizeworks/billing`'s operator results (api-rest returns those
+// wire-compatible with `@wizeworksllc/billing`'s operator results (api-rest returns those
 // directly). Reads are empty when billing is unconfigured; writes error clearly.
 
 /** A platform Stripe event — the webhook-log viewer row. */

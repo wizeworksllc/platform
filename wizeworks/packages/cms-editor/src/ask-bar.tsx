@@ -10,7 +10,7 @@
 // `select`), which the consoles already compile for this package.
 
 import * as React from 'react';
-import { cn } from '@wizeworks/silica-corrections';
+import { cn } from '@wizeworksllc/silica-corrections';
 import { readHref, searchesPages, type LinkSuggestFn, type LinkSuggestion } from './ask';
 import { detectProvider } from './nodes';
 

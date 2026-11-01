@@ -14,8 +14,8 @@
 // rows around — disabling is reversible and tenants would be upset to
 // lose their edited pipeline on a brief disable.
 
-import { invalidateModuleCache } from '@wizeworks/modules';
-import { withTenant } from '@wizeworks/db';
+import { invalidateModuleCache } from '@wizeworksllc/modules';
+import { withTenant } from '@wizeworksllc/db';
 
 import * as documentLineTypeService from '../services/document-line-type-service';
 import * as documentWorkflowService from '../services/document-workflow-service';

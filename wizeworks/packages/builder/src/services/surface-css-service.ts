@@ -10,7 +10,7 @@
 // hot path (docs/47 §5.3). So the output is cached per (tenant, class-set hash):
 // a publish that changes the authored class set triggers exactly one recompile;
 // every storefront read after that is a cache hit (a cheap DB read + a hash).
-// The Tailwind compiler itself is process-memoized in @wizeworks/surface-compile.
+// The Tailwind compiler itself is process-memoized in @wizeworksllc/surface-compile.
 //
 // INTERIM (matches the public page/layout reads, which are `no-store` until the
 // Pub/Sub→cache-revalidation slice lands): we compile lazily on first read after
@@ -19,7 +19,7 @@
 // internal change behind this same function.
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   collectClasses,
   compileClasses,
@@ -30,8 +30,8 @@ import {
   SCROLL_MOTION_CSS,
   HOVER_MOTION_CSS,
   type AllowlistConfig,
-} from '@wizeworks/surface-compile';
-import type { BuilderNode } from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/surface-compile';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
 
 import type { PropertyContext, ServiceContext } from '../errors';
 

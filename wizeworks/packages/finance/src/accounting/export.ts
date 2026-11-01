@@ -9,7 +9,7 @@
 // QuickBooks wants an account NAME, Xero wants a code, Sage 50 wants both — and a
 // single "generic" layout would be wrong for all three in different ways.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { toCsv } from './csv';
 import type { AccountingProvider } from '../schemas';

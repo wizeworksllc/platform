@@ -6,7 +6,7 @@
 // transactional, owned by the `commerce` module (returns ship with it), held by the
 // `email.send_campaign` action's `module:'email'` gate until email is active.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 export const RETURN_APPROVED_EMAIL: SystemAutomationSpec = {
   key: 'returns.approved-email',

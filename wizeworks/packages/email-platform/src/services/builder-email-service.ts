@@ -7,8 +7,8 @@
 // authored on the retired sparx builder is converted to a silica document by
 // `emailService` on read, so nothing downstream of here has two paths to reason about.
 //
-// The document is INJECTED by the caller (api-rest loads it from @wizeworks/builder's
-// emailService) so this package stays free of a @wizeworks/builder dependency — the same
+// The document is INJECTED by the caller (api-rest loads it from @wizeworksllc/builder's
+// emailService) so this package stays free of a @wizeworksllc/builder dependency — the same
 // injection pattern templateService uses for section data (docs/31 §8).
 
 import {
@@ -19,17 +19,17 @@ import {
   emailBrandDarkColorDefaults,
   darkModeRules,
   lintEmailRender,
-} from '@wizeworks/email/silica';
+} from '@wizeworksllc/email/silica';
 import type {
   EmailCheck,
   EmailColorDefaults,
   EmailFrame,
   EmailLinkTracking,
   FooterLink,
-} from '@wizeworks/email/silica';
-import { defaultBrand } from '@wizeworks/email';
-import { withSampleEmailData } from '@wizeworks/builder-schemas';
-import type { DataSources, SilicaEmailDocument } from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/email/silica';
+import { defaultBrand } from '@wizeworksllc/email';
+import { withSampleEmailData } from '@wizeworksllc/builder-schemas';
+import type { DataSources, SilicaEmailDocument } from '@wizeworksllc/builder-schemas';
 
 import { TestSendInput } from '../schemas/templates';
 import type { ServiceContext } from '../errors';
@@ -39,7 +39,7 @@ import { buildTenantFrom } from './platform-sender';
 
 /** Resolve a silica email document's bound DataSources (docs/52 §7, docs/120).
  *  Injected by the caller (api-rest's `silicaEmailDataResolver`, which has
- *  @wizeworks/commerce) so this package stays commerce-free. `recipient` is absent for the
+ *  @wizeworksllc/commerce) so this package stays commerce-free. `recipient` is absent for the
  *  render-once path (preview / non-personalized broadcast), where per-recipient sources
  *  resolve empty. `propertyId` scopes per-site sources (today: `{{tenant.name}}`) to the
  *  active site (docs/49 Phase 7) — passed by callers that learn the site at call time
@@ -57,7 +57,7 @@ export type ResolveSilicaEmailData = (
 export const noSilicaEmailDataResolver: ResolveSilicaEmailData = () => Promise.resolve({});
 
 /** A Builder email reduced to what the render needs — the published (or draft) silica
- *  document plus its document fields. The caller loads this from @wizeworks/builder, where
+ *  document plus its document fields. The caller loads this from @wizeworksllc/builder, where
  *  a pre-cutover row is converted from its sparx tree, so `silicaDoc` is always real. */
 export interface BuilderEmailDoc {
   silicaDoc: SilicaEmailDocument;

@@ -39,7 +39,7 @@ places gave two answers, as in issues 223 and 303.
 
 ## The fix
 
-The route reads `GATEWAY_PROCESSORS` from `@wizeworks/payments` (issue 339's list, read from
+The route reads `GATEWAY_PROCESSORS` from `@wizeworksllc/payments` (issue 339's list, read from
 the gateway catalog). Each console's filter adds Your own Stripe, Authorize.net and
 1stPayGateway, by their names in the catalog.
 

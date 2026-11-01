@@ -8,16 +8,16 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   createLocation,
   deleteLocation,
   getLocation,
   listLocations,
   updateLocation,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { resolveListScopeIds } from '../../../lib/property.js';
 import { signalSchedulingLocation } from '../../../lib/scheduling-search.js';

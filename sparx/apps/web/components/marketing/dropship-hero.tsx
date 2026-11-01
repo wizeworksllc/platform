@@ -13,7 +13,7 @@ import { EXAMPLE_BUSINESSES, type ExampleBusiness } from '@/lib/example-business
  * one vertical. Every scene has the same shape (supplier + rule, a routed order
  * with status + tracking, the order-level profit) so the card never reflows.
  *
- * Grounded in docs/14 (Dropship PRD) + the real @wizeworks/dropship vendor catalog
+ * Grounded in docs/14 (Dropship PRD) + the real @wizeworksllc/dropship vendor catalog
  * (Printify, Printful, DSers, Spocket, CSV) and the dashboard routed-order
  * status (submitted → shipped → delivered). Dropship emerald is a signal, not
  * fill; the band is the light emerald tint with near-black ink. See

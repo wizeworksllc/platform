@@ -16,7 +16,7 @@
 // editability is the point: notification policy belongs to the tenant, not to
 // our code.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 /** Money that did not arrive. The clearest "needs a human" event we have. */
 export const NOTIFY_PAYMENT_FAILED: SystemAutomationSpec = {
@@ -36,7 +36,7 @@ export const NOTIFY_PAYMENT_FAILED: SystemAutomationSpec = {
         module: 'commerce',
         title: 'Payment failed on order {{order.number}}',
         body: 'The customer’s payment did not go through, so this order is not paid yet.',
-        // `entityType` is the key in @wizeworks/links' entity table, NOT the Prisma
+        // `entityType` is the key in @wizeworksllc/links' entity table, NOT the Prisma
         // model name — that lookup is an exact, case-sensitive `Map.get`, so
         // 'Order' resolved to nothing and the row led nowhere.
         entityType: 'order',

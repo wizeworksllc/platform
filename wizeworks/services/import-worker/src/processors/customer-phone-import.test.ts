@@ -9,7 +9,7 @@ const findMany = vi.fn((_args: unknown) =>
 const update = vi.fn((_ctx: unknown, _id: string, _patch: unknown) => Promise.resolve({}));
 const create = vi.fn((_ctx: unknown, _input: unknown) => Promise.resolve({ id: 'new' }));
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, run: (tx: unknown) => unknown) =>
     Promise.resolve(
@@ -19,7 +19,7 @@ vi.mock('@wizeworks/db', async (importOriginal) => ({
       })
     ),
 }));
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   checkCustomerInput: () => null,
   describeColumnProblems: () => '',
   describeCustomerError: (err: unknown) => String(err),

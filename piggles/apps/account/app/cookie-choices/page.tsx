@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { requireSession } from '@wizeworks/auth-client-server';
+import { requireSession } from '@wizeworksllc/auth-client-server';
 import { safeInternalPath, PRODUCT } from '@piggles/config';
 import { AuthShell } from '@/components/auth-shell';
 import { ConsentChoice } from '@/components/consent-choice';

@@ -3,7 +3,7 @@
 // their primary write. High-frequency draft-tree saves deliberately do NOT
 // audit (they'd swamp the log). Mirrors wizeworks/packages/sitebuilder/src/audit.ts.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 export interface AuditWriteInput {
   tx: TxClient;

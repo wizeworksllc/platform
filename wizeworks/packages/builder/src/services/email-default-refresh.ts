@@ -33,7 +33,7 @@
 // pass. Empty is a decision; missing is an oversight, and the test tells them apart.
 
 import { createHash } from 'node:crypto';
-import { emailEditSignature, type SilicaEmailDocument } from '@wizeworks/builder-schemas';
+import { emailEditSignature, type SilicaEmailDocument } from '@wizeworksllc/builder-schemas';
 
 /** Strip every `id` (the only per-provision-varying field) and sort object keys, so two
  *  structurally-identical bodies serialise identically regardless of node-id minting. */

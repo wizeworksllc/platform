@@ -126,5 +126,5 @@ pane swapped to its record, "Not on sale — saved but hidden".
   up to five minutes to reach visitors. Now at least the event is published.
 - **A 5000-row import publishes 5000 events**, each opening its own short
   transaction to enqueue webhook deliveries. Correct but not cheap; a batch
-  enqueue in `@wizeworks/api-core`'s `publish` would be the shared fix, and it
+  enqueue in `@wizeworksllc/api-core`'s `publish` would be the shared fix, and it
   belongs there rather than here.

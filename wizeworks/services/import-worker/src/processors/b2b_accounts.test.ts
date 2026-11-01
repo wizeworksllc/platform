@@ -1,6 +1,6 @@
 import pino from 'pino';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ENTITY_FIELDS, mapManually, validateRows } from '@wizeworks/migration';
+import { ENTITY_FIELDS, mapManually, validateRows } from '@wizeworksllc/migration';
 
 // The trade-account contract, end to end without a database: a file mapped the way
 // the Move-in column mapper maps it, validated the way the API validates it, then
@@ -15,7 +15,7 @@ const calls = vi.hoisted(() => ({
   contacts: [] as { accountId: string; input: Record<string, unknown> }[],
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     company: {
       findFirst: () => Promise.resolve(null),
@@ -45,7 +45,7 @@ vi.mock('@wizeworks/db', () => {
   };
 });
 
-vi.mock('@wizeworks/crm', () => {
+vi.mock('@wizeworksllc/crm', () => {
   class CrmConflictError extends Error {}
   return {
     CrmConflictError,

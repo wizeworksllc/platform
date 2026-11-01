@@ -8,9 +8,9 @@
 //
 // A lean sibling of the dashboard's `buildPreviewData`, built fresh for the
 // workbench off the SAME `DataSource`/`FieldSchema` shapes from
-// `@wizeworks/builder-schemas`.
+// `@wizeworksllc/builder-schemas`.
 
-import type { DataSource, DataSources, FieldSchema } from '@wizeworks/builder-schemas';
+import type { DataSource, DataSources, FieldSchema } from '@wizeworksllc/builder-schemas';
 
 /** The tenant's REAL site-chrome identity, shaped exactly like the storefront's
  *  `site.identity` resolver root — so a bound Wordmark/logo/name on the frame

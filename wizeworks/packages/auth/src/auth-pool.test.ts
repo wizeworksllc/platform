@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { authConnectionUrl } from './auth-pool';
 
 // WW-1 / SI-1: authPrisma opened a full default pool in every process with
-// @wizeworks/auth, and DB_CONNECTION_LIMIT never reached it.
+// @wizeworksllc/auth, and DB_CONNECTION_LIMIT never reached it.
 
 const URL_BASE = 'postgresql://sparx_owner:p%40ss@h:5432/sparx?schema=public';
 

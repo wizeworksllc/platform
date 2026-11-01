@@ -2,7 +2,7 @@
 //
 // Plain TS rather than part of the walk so it can be tested without a JSX transform.
 
-import { HOST_KEYS } from '@wizeworks/silica-catalog';
+import { HOST_KEYS } from '@wizeworksllc/silica-catalog';
 
 /** The cores whose component paints itself with the node's class (`silica-host-cores`
  *  hands it on as `className`). Their wrapper must not wear the same class a second

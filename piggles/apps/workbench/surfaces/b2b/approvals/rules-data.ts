@@ -1,6 +1,6 @@
 'use client';
 
-import { useMutation, useQueryClient, type QueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient, type QueryClient } from '@wizeworksllc/query';
 import { api } from '../../../lib/api/client';
 import type { SignOffSide } from '../sign-off-words';
 import { approvalKeys } from '../approvals-data';

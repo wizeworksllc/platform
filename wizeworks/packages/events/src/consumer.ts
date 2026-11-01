@@ -161,7 +161,7 @@ export async function startConsumer(opts: ConsumerOptions): Promise<RunningConsu
   // is what adding an event to a shipped handler's list does — is rejected with
   // 400 / err_code 10148, "consumer already exists".
   //
-  // This file and `@wizeworks/finance-worker` both used to claim add upserts. It
+  // This file and `@wizeworksllc/finance-worker` both used to claim add upserts. It
   // does not, and the cost of believing it was the whole worker fleet:
   // `finance-worker` gained `module.activated`, the add was refused on boot, and
   // because every handler shares ONE process a single refused subscription took

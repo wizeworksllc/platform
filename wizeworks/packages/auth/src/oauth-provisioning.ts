@@ -1,4 +1,4 @@
-import { acceptanceRows } from '@wizeworks/legal';
+import { acceptanceRows } from '@wizeworksllc/legal';
 import { authPrisma } from './prisma';
 import { generateUniqueTenantSlug, provisionTenant, workspaceNameFor } from './provision-tenant';
 

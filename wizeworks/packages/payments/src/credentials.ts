@@ -3,7 +3,7 @@
 // ciphertext in `tenant_gateway_credentials` — NOT Secret Manager (the app SA has no
 // write grant; this mirrors how channel OAuth tokens + market bank accounts store
 // merchant secrets). The adapters here need the DECRYPTED keys to call the vendor API,
-// but @wizeworks/payments must not pull in the DB/crypto closure — so the host (api-rest)
+// but @wizeworksllc/payments must not pull in the DB/crypto closure — so the host (api-rest)
 // INJECTS a reader that reads the row + decrypts, exactly like the secret reader
 // (secrets.ts). Dev/test default to a no-op reader (no configured gateways).
 

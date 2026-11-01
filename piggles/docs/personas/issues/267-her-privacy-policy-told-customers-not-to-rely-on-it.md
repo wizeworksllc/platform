@@ -119,8 +119,8 @@ ready**, and every URL resolves:
 /returns-policy   /shipping-policy   /refund-policy
 ```
 
-None contains "not legal advice" or "stated here". `@wizeworks/legal-templates`,
-`@wizeworks/cms`, api-rest and the workbench all typecheck; 7 template tests
+None contains "not legal advice" or "stated here". `@wizeworksllc/legal-templates`,
+`@wizeworksllc/cms`, api-rest and the workbench all typecheck; 7 template tests
 pass.
 
 ## Related

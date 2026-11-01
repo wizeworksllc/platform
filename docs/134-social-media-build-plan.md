@@ -32,7 +32,7 @@ Last Updated: 2026-07-22
 
 **Goal:** the module can be turned on/off and its event topics exist; no user surface yet.
 
-- `wizeworks/packages/modules/src/index.ts` — add `social` to the `ModuleSlug` union + `ALL_MODULES`
+- `wizeworks/packages/module-roster/src/index.ts` — add `social` to the `ModuleSlug` union + `ALL_MODULES`
   (no `REQUIRES`, no `BUNDLED_FREE`).
 - `wizeworks/services/api-rest/src/lib/module-toggle.ts` — add `social` to the duplicated
   `MODULE_SLUGS` toggle vocabulary.
@@ -68,11 +68,11 @@ the client. New-model code compiles only after that.
 **Acceptance (post-pipeline):** tables exist; a cross-tenant select returns 0 rows
 under a tenant role.
 
-### Slice 2 — `@wizeworks/social` package + `SocialAdapter` contract
+### Slice 2 — `@wizeworksllc/social` package + `SocialAdapter` contract
 
 **Goal:** the network-free core — contract, registry, renderer, crypto — fully tested.
 
-- New workspace package `@wizeworks/social` (new-workspace-package skill): `SocialAdapter`
+- New workspace package `@wizeworksllc/social` (new-workspace-package skill): `SocialAdapter`
   interface + shared types (§4), the adapter **registry**, the AES-GCM secret box
   (`SOCIAL_TOKEN_KEY`, reusing the channels crypto util), and the **renderer**
   (`SocialPost` → `RenderedPost` per target + constraint validation).

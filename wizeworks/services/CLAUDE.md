@@ -6,7 +6,7 @@ Scoped guidance for everything under `services/`. Loads when working in this tre
 
 A service's ENTRYPOINT + start command is `node --import tsx` — **not** `tsx/esm`, **not** `pnpm exec`. The package manager is **build-time only** and must never appear in the release/runtime path. (Regressed 7 services once; fixed in `e2f15d7`.)
 
-New workspace packages a service depends on need explicit `COPY` lines in that service's Dockerfile, plus the transitive closure. `tsc`/`lint` pass without them but the image build fails. Prefer server-safe subpaths (e.g. `@wizeworks/cms-editor/serialize`) to keep React deps out of backends.
+New workspace packages a service depends on need explicit `COPY` lines in that service's Dockerfile, plus the transitive closure. `tsc`/`lint` pass without them but the image build fails. Prefer server-safe subpaths (e.g. `@wizeworksllc/cms-editor/serialize`) to keep React deps out of backends.
 
 ## Side effects are event-driven — and the broker is NOT a cloud service
 
@@ -28,7 +28,7 @@ Workers run as plain Deployments in-cluster on every provider. (`email-worker` +
 
 ## Email path
 
-Outbound email defaults to publishing `email.send` to Pub/Sub. `email-worker` consumes the event, renders `@wizeworks/email` React Email templates, and POSTs to the provider (console in dev, **Mailgun HTTP API** in prod via `/v4/domains` for multi-tenant). Postal is decommissioned.
+Outbound email defaults to publishing `email.send` to Pub/Sub. `email-worker` consumes the event, renders `@wizeworksllc/email` React Email templates, and POSTs to the provider (console in dev, **Mailgun HTTP API** in prod via `/v4/domains` for multi-tenant). Postal is decommissioned.
 
 Direct `sendTemplate()` / `sendEmail()` calls are an escape hatch reserved for **synchronous-required flows only** (OTP codes, future 2FA). A non-OTP direct send needs justification in the PR description.
 

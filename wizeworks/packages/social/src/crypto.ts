@@ -9,8 +9,8 @@
 // constantly and a ref would churn a billed secret version per refresh.
 //
 // Server-only — imported by api-rest (encrypt on connect) and social-worker (decrypt
-// on publish), NEVER by the composer UI. Reached via the `@wizeworks/social/crypto`
-// subpath. Shares the exact bundle format + algorithm as @wizeworks/channels/crypto.
+// on publish), NEVER by the composer UI. Reached via the `@wizeworksllc/social/crypto`
+// subpath. Shares the exact bundle format + algorithm as @wizeworksllc/channels/crypto.
 //
 // Bundle format: `${ivB64}.${tagB64}.${cipherB64}` — a 12-byte random IV (the GCM
 // standard nonce size) + the 16-byte auth tag + the ciphertext, all base64. GCM

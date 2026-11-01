@@ -34,9 +34,9 @@ import { readFileSync } from 'node:fs';
 
 import { PrismaClient, type Prisma } from '@prisma/client';
 
-import { LEGAL_TEMPLATES, legalEntryBody } from '@wizeworks/legal-templates';
-import { PLATFORM_CATALOG } from '@wizeworks/builder-schemas';
-import { BUILT_IN_PRODUCT_TYPES, PLATFORM_TENANT_ID } from '@wizeworks/commerce-schemas';
+import { LEGAL_TEMPLATES, legalEntryBody } from '@wizeworksllc/legal-templates';
+import { PLATFORM_CATALOG } from '@wizeworksllc/builder-schemas';
+import { BUILT_IN_PRODUCT_TYPES, PLATFORM_TENANT_ID } from '@wizeworksllc/commerce-schemas';
 
 // The owner (sparx_owner) connection string, for the few GLOBAL, owner-write
 // tables (e.g. platform_components). Prefers the ambient env (prod sets it on
@@ -75,7 +75,7 @@ export function ownerDatabaseUrl(): string | undefined {
 // Slice 7). New tenants get these from the legal-seed-worker on `tenant.created`;
 // this covers tenants created before that worker existed. Idempotent find-or-create
 // per (tenant, template) — re-running skips everything already present — and it
-// reuses @wizeworks/legal-templates for the canonical bodies, so there is no fragile
+// reuses @wizeworksllc/legal-templates for the canonical bodies, so there is no fragile
 // inline-SQL copy of the legal text.
 //
 // content_entries + site_doc_placements are FORCE-RLS, so each tenant's

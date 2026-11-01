@@ -1,7 +1,7 @@
 /**
  * The canonical launch link set (docs/80 §4.4, Phase 0). Every channel from the
  * launch plan, pre-tagged against the controlled vocabulary. Edit HERE and
- * regenerate `docs/launch/utm-links.csv` via `pnpm --filter @wizeworks/attribution links`.
+ * regenerate `docs/launch/utm-links.csv` via `pnpm --filter @wizeworksllc/attribution links`.
  *
  * `campaign` convention: `{initiative}-{yyyy-mm}`. The general launch is
  * `launch-2026-06`; the Founding-100 promo links carry `founding-100-2026-06`.
@@ -10,7 +10,7 @@
  *
  * This is sparx's own campaign list — its hostname, its launch month, its promo.
  * It is the only file in this package that states a brand value, which is why it
- * is NOT re-exported from the barrel: reachable at `@wizeworks/attribution/launch-links`
+ * is NOT re-exported from the barrel: reachable at `@wizeworksllc/attribution/launch-links`
  * by the brand that owns it, and invisible to the one that does not. It belongs
  * in the sparx tree and moves there with the restructure (piggles/docs/migration,
  * phase A4); the subpath is the seam that makes that move a file rename.

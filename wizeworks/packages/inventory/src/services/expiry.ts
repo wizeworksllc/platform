@@ -26,7 +26,7 @@
 // Shipping expired goods because they happened to sort first is the precise
 // failure FEFO exists to prevent, and the old query would do it every time.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { VARIANT_LABEL_COLUMNS, VARIANT_LABEL_JOINS } from './variant-label';
 import {
   EXPIRY_HORIZON_DAYS,
@@ -35,7 +35,7 @@ import {
   daysUntilExpiry,
   expiryBucket,
   type ExpiryBucket,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../audit';
 import {

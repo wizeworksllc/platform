@@ -19,10 +19,10 @@
 // gaining RLS bypass. Each per-post flip rides `withTenant({tenantId})` so the write
 // still goes through the standard tenant_isolation policy.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 const SOCIAL_SCHEDULED_LOCK_KEY = ADVISORY_LOCKS.SOCIAL_SCHEDULED_PUBLISH;
 const DEFAULT_INTERVAL_MS = 60_000;

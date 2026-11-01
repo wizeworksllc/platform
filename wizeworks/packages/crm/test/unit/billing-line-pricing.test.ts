@@ -4,7 +4,7 @@
 // if touched. markup + catalog-by-variant need a live tx (integration suite).
 
 import { describe, expect, it } from 'vitest';
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { priceBillingLine } from '../../src/services/billing-line-pricing';
 

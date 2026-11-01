@@ -1,5 +1,5 @@
 // Builder MCP tool registry barrel. `builderMcpTools` is the array the MCP server
-// iterates to register tools. Imported via the `@wizeworks/builder/mcp` subpath so the
+// iterates to register tools. Imported via the `@wizeworksllc/builder/mcp` subpath so the
 // api-mcp process never evaluates the surface-css service (and its heavy Tailwind
 // compiler) — these tools wrap only the page service.
 

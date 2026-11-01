@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '@wizeworks/silica-corrections';
+import { cn } from '@wizeworksllc/silica-corrections';
 
 // Low-level styled HTML table primitives. Use directly for static tables;
 // for sortable / paginated / filterable tables, compose these with TanStack

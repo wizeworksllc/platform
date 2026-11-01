@@ -1,6 +1,6 @@
 // The customer Better Auth instance (Layer 2 — site shoppers). See docs/27 v2.
 //
-// A DEDICATED instance, isolated from the staff instance (@wizeworks/auth) in every
+// A DEDICATED instance, isolated from the staff instance (@wizeworksllc/auth) in every
 // dimension: its own secret (CUSTOMER_AUTH_SECRET), its own cookie
 // (sparx_customer_session), its own tenant-scoped tables (customer_*), and
 // application-level multi-tenancy so the same email is a separate account per
@@ -289,7 +289,7 @@ function createCustomerAuth() {
   });
 }
 
-// Lazy + cached, mirroring @wizeworks/auth: importing the barrel for a helper must
+// Lazy + cached, mirroring @wizeworksllc/auth: importing the barrel for a helper must
 // not construct the instance (which throws when CUSTOMER_AUTH_SECRET is unset).
 let cached: ReturnType<typeof createCustomerAuth> | undefined = globalThis.__sparxCustomerAuth;
 

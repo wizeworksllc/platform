@@ -8,9 +8,9 @@
 
 import crypto from 'node:crypto';
 
-import { RecordPaymentInput, VoidPaymentInput } from '@wizeworks/crm-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { OrderPayment, Prisma } from '@wizeworks/db';
+import { RecordPaymentInput, VoidPaymentInput } from '@wizeworksllc/crm-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { OrderPayment, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishPlatformEvent } from '../consumers/platform-bus';
@@ -68,7 +68,7 @@ export async function recordPayment(ctx: ServiceContext, rawInput: unknown): Pro
     // (sparx persona issue 087): a gift card or account credit covering it at
     // checkout lands here while it is held. It is not announced as paid until
     // the sign-off places it, which announces it then (`placedEvents` in
-    // @wizeworks/b2b). Read after the rollup's write to the order row, so an
+    // @wizeworksllc/b2b). Read after the rollup's write to the order row, so an
     // approval writing the same row at the same moment is seen.
     const current = await tx.order.findUnique({
       where: { id: input.orderId },

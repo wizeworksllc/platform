@@ -14,9 +14,9 @@ import {
   CreateCollectionInput,
   SetCollectionProductsInput,
   UpdateCollectionInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, ProductCollection, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, ProductCollection, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { collectionSiteVisibility, shopperVisibleProduct } from './site-visibility';

@@ -5,7 +5,7 @@
 import type { Order } from './order-types';
 
 /** The rate ref checkout writes when a shopper chooses to come and get it.
- *  Mirrors COLLECTION_RATE_REF in @wizeworks/commerce (collection-option.ts);
+ *  Mirrors COLLECTION_RATE_REF in @wizeworksllc/commerce (collection-option.ts);
  *  copied rather than imported because that package is server-side and would
  *  drag Prisma into the browser bundle. */
 const COLLECTION_RATE_REF = 'collection:in-person';

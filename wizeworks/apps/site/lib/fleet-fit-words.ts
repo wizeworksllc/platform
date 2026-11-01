@@ -7,7 +7,7 @@
 // not fit", and printing it as one would tell a buyer that shop rags do not fit their
 // trucks.
 
-import { fitsSentence, type FleetFit } from '@wizeworks/commerce-schemas';
+import { fitsSentence, type FleetFit } from '@wizeworksllc/commerce-schemas';
 import type { SilicaColor } from '@wizeworks/silicaui-react';
 
 /** The badge on a product card, or null for nothing to say. */

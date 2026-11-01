@@ -17,6 +17,6 @@ The add screen saves through the customer records, which accept any "net" plus a
 
 ## Fix
 
-- `b2b/src/accounts.ts`: the account save uses the same terms rule as the customer records (`PaymentTerms`, re-exported from `@wizeworks/crm`).
+- `b2b/src/accounts.ts`: the account save uses the same terms rule as the customer records (`PaymentTerms`, re-exported from `@wizeworksllc/crm`).
 - `b2b/src/account-terms.test.ts`: every term the add screen offers survives an edit; a typo is still refused. The old list fails 4 of them.
 - Typecheck clean (b2b, crm).

@@ -3,10 +3,10 @@
 //
 // Flow:
 //   1. Validate the parsed event shape with zod against TemplateSend.
-//   2. renderTemplate(input) from @wizeworks/email — returns html + plaintext.
+//   2. renderTemplate(input) from @wizeworksllc/email — returns html + plaintext.
 //   3. getEmailProvider().send(rendered) — console or Postal depending on
 //      SPARX_EMAIL_PROVIDER + POSTAL_API_KEY (selection happens inside
-//      @wizeworks/email's providers/index.ts).
+//      @wizeworksllc/email's providers/index.ts).
 //
 // Failure model — three categories:
 //   - Unknown template id / zod parse failure
@@ -18,7 +18,7 @@
 
 import type { Logger } from 'pino';
 import { z } from 'zod';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import {
   defaultBrand,
   getEmailProvider,
@@ -26,21 +26,21 @@ import {
   PostalParameterError,
   renderTemplate,
   senderDomainOf,
-} from '@wizeworks/email';
+} from '@wizeworksllc/email';
 import {
   analyticsService,
   brandService,
   domainService,
   settingsService,
-} from '@wizeworks/email-platform';
-import { appOrigin } from '@wizeworks/links/server';
+} from '@wizeworksllc/email-platform';
+import { appOrigin } from '@wizeworksllc/links/server';
 import {
   platformBrandIdentity,
   platformFrom,
   resolveEmailPalette,
   type EmailPalette,
   type PlatformBrandIdentity,
-} from '@wizeworks/brand-core';
+} from '@wizeworksllc/brand-core';
 
 // The delivery gate lives in its own module — see the header there for why,
 // and for the four templates it silently dropped before it had a test.

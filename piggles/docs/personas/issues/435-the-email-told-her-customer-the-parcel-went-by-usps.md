@@ -45,7 +45,7 @@ page beside the service name, because the local helper's `if (!carrier) return
 
 ## The fix — one list
 
-`carrierLabel()` now lives in `@wizeworks/commerce-schemas/shipping`, beside the
+`carrierLabel()` now lives in `@wizeworksllc/commerce-schemas/shipping`, beside the
 rest of the shipping vocabulary, and all four callers read it: the email render,
 both consoles, and the shopper's order page. An unknown code is returned
 **unchanged** rather than upper-cased — a code nobody has named is a gap in the
@@ -69,7 +69,7 @@ pane still reads "USPS · Standard Delivery" through the shared helper.
 
 ## One thing outstanding, and it needs the user
 
-`wizeworks/apps/site` did not depend on `@wizeworks/commerce-schemas`. The
+`wizeworks/apps/site` did not depend on `@wizeworksllc/commerce-schemas`. The
 dependency is added to its `package.json` and the import is in place, but the
 package is not linked into `apps/site/node_modules` yet, so that one file will
 not typecheck until **`pnpm install`** is run. That is the user's to run — a mid

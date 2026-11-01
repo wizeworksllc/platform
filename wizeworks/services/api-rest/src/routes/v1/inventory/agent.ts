@@ -5,19 +5,19 @@
 //   POST /v1/inventory/sources/:id/heartbeat     ← the agent's API key: liveness ping
 //
 // An `agent` source is fed by an outbound-HTTPS bridge the tenant installs on their
-// network. Pairing mints a tenant-scoped API key (@wizeworks/auth) the agent
+// network. Pairing mints a tenant-scoped API key (@wizeworksllc/auth) the agent
 // authenticates with; we store a reference (id + visible prefix) on the source. The
 // full secret is returned ONCE from /enroll and never again. Liveness (push +
 // heartbeat) drives the online/offline indicator in sync-health.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
-import { issueApiKey, revokeApiKey } from '@wizeworks/auth';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound, conflict } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { issueApiKey, revokeApiKey } from '@wizeworksllc/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound, conflict } from '@wizeworksllc/api-core/errors';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 // The bridge key only needs to push stock; scope it narrowly.

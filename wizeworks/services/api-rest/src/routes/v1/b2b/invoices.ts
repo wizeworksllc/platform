@@ -1,5 +1,5 @@
 // B2B invoices — net-terms accounts-receivable (docs/10 §9, docs/87 §15). Thin
-// transport over @wizeworks/b2b's invoiceService, which projects a B2B-AR "invoice"
+// transport over @wizeworksllc/b2b's invoiceService, which projects a B2B-AR "invoice"
 // over a BillingDocument on the system `net-terms-ar` workflow.
 //
 //   GET    /v1/b2b/invoices                    → list (filtered by account/status)
@@ -11,10 +11,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { invoiceService, type PendingEvent } from '@wizeworks/b2b';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { invoiceService, type PendingEvent } from '@wizeworksllc/b2b';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 import { resolvePropertyId } from '../../../lib/property.js';
 

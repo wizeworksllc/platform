@@ -1,16 +1,16 @@
 // DEPRECATED — not the built dropship path. The live dropship surface uses the
-// bespoke `@wizeworks/dropship` `SupplierAdapter` (wizeworks/packages/dropship) + the
+// bespoke `@wizeworksllc/dropship` `SupplierAdapter` (wizeworks/packages/dropship) + the
 // `dropship_suppliers` table + the `/v1/dropship/*` routes, NOT this provider/
 // marketplace abstraction. This interface predates that decision and is unused;
 // it is kept only so `ProviderBundle.dropship` still type-checks. See docs/14
 // §2 (Architecture) for the reconciliation. Do not build new dropship work
-// against this interface — extend `@wizeworks/dropship` instead.
+// against this interface — extend `@wizeworksllc/dropship` instead.
 //
 // DropshipProvider — supplier integrations. Implements catalog browse + import,
 // order submission, inventory feed, and tracking sync, in the same plugin shape
 // as payment/tax/shipping.
 
-import type { Currency, MoneyCents } from '@wizeworks/commerce-schemas';
+import type { Currency, MoneyCents } from '@wizeworksllc/commerce-schemas';
 
 import type { ProviderRunContext } from './context';
 import type { ProviderMetadataDescriptor } from './metadata';

@@ -1,6 +1,6 @@
 // Invoice print brand resolution (docs/87 §10, Phase 5).
 //
-// The invoicing default renderer (@wizeworks/crm's renderBillingDocumentHtml) is
+// The invoicing default renderer (@wizeworksllc/crm's renderBillingDocumentHtml) is
 // brand-free; the composition root resolves the tenant's brand and hands it in.
 // We reuse the SAME tenant brand the email platform resolves (brandService) for the
 // VISUAL identity (colors/logo/type) — TenantBrand is the platform-wide source of
@@ -11,15 +11,15 @@
 // through the site called "sparx". So that half resolves from TenantBusiness
 // (business-identity.ts), never from a site, and never from brand.
 
-import { brandService } from '@wizeworks/email-platform';
+import { brandService } from '@wizeworksllc/email-platform';
 import {
   billingTemplateService,
   renderBillingDocumentHtml,
   type BillingRenderBrand,
   type BillingRenderData,
   type ServiceContext,
-} from '@wizeworks/crm';
-import type { BuilderNode } from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/crm';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
 
 import { renderInvoiceTree } from './invoice-tree-render.js';
 import { frozenIssuerIdentity, resolveBusinessIdentity } from './business-identity.js';

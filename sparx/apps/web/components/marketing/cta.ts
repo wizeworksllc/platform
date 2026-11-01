@@ -14,7 +14,7 @@
 // a sign-up started on a laptop's sparx.works opened the LIVE app and would have
 // made a real account there (sparx persona issue 002).
 //
-// `SPARX_APP_URL` is the platform's canonical name (see @wizeworks/links/server)
+// `SPARX_APP_URL` is the platform's canonical name (see @wizeworksllc/links/server)
 // and is set in every deployed environment. Unset, a development build goes to
 // the local workbench and a production build to the live one. Client components
 // import this too: there the server-only variable is absent, so they take the

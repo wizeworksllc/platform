@@ -55,7 +55,7 @@
 // and EVERY reader takes it — the checklist query used to spell the old rule
 // inline, which made it a fourth copy free to drift from the other three.
 
-import { Prisma } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
 
 // THE PRISMA `where` FORM IS GONE ON PURPOSE. It expressed the first tier only —
 // the pin the audit row carries — and every one of its four callers needed both.

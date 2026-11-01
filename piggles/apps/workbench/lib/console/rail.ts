@@ -22,7 +22,7 @@
 // per-person layer is Favorites and Recent on the /v1/me spine, plus the access
 // gate — a teammate restricted to Invoices still sees less than the owner does.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '@/lib/api/client';
 
 export const RAIL_KEY = ['tenant', 'rail'];

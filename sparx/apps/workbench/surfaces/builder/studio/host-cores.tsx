@@ -41,7 +41,7 @@ import {
   frameRatioClass,
   mapEmbedSrc,
   type HostComponentMeta,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 // `HostRenderCtx` isn't re-exported by the builder, so derive the exact hook
 // signature from `BuilderHost` — one source of truth, no drift if it changes.

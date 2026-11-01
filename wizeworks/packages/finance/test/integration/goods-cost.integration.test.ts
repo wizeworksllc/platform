@@ -5,11 +5,11 @@
 // read every order's goods cost as zero: By job printed $0.00 and a 100% margin
 // on every sale, and the daily rollup filed the cost under "no site", so a
 // site's Profit took nothing off for goods. The movement below is written the
-// way `@wizeworks/inventory` sell-path.ts writes one.
+// way `@wizeworksllc/inventory` sell-path.ts writes one.
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 import { jobProfitability, provisionFinance, recomputeDay } from '../../src/index';
 import { createTestTenant, day, dropTestTenant, type TestTenant } from '../helpers';

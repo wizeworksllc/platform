@@ -2,7 +2,7 @@
 // that does not exist.
 //
 // WHY THIS IS A SCRIPT AND NOT A TEST. The invariant spans two things that
-// cannot meet at runtime: the route table in `@wizeworks/links` (pure data, imported
+// cannot meet at runtime: the route table in `@wizeworksllc/links` (pure data, imported
 // by Node services) and the surface registry in sparx/apps/workbench (which imports
 // React, silicaui, and all 233 pane components). A vitest that imported the
 // registry would drag the entire UI into a data check. Both sides declare their

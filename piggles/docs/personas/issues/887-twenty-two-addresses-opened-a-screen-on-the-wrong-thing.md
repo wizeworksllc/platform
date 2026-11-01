@@ -129,7 +129,7 @@ mints. They were asserting a contract nobody intended. They now use real record
 ids, and the fixture helper mints one for any parameter that names a record and
 leaves the rest as words.
 
-**Checks:** `@wizeworks/links` 2 files / 65 tests, `check:routes` green (346
+**Checks:** `@wizeworksllc/links` 2 files / 65 tests, `check:routes` green (346
 surfaces addressed, 819 `open()` calls resolving), piggles console 169 files /
 1577 tests (2 failing in `surfaces/migration/column-guess.test.ts`, another
 agent's in-progress file), sparx workbench 138 / 1259 all green. Typecheck 0.

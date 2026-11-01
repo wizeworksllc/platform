@@ -5,7 +5,7 @@
 //   PUT /v1/builder/governance/allowlist  → replace the tenant's additional block rules
 //
 // The utility ALLOWLIST. The platform base denylist (clickjacking / exfiltration /
-// injection guards) is hardcoded in @wizeworks/surface-compile and NEVER relaxable —
+// injection guards) is hardcoded in @wizeworksllc/surface-compile and NEVER relaxable —
 // a tenant may only TIGHTEN. There is deliberately no "allow"/"unblock" field, so
 // the insecure state is un-representable. Reads are viewer; writes are admin
 // (owner satisfies it via the role hierarchy) — governance shapes what every
@@ -13,9 +13,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { governanceService } from '@wizeworks/builder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { governanceService } from '@wizeworksllc/builder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireBuilderModule, toBuilderTenantContext } from '../../../lib/builder-context.js';
 
 // A single tenant block rule. `value` is a literal class fragment — NOT a regex (a
@@ -33,7 +33,7 @@ const Rule = z.object({
     ),
 });
 // Full-replace (the list is small; replace is simpler than per-item merge). No
-// "unblock" key — base rules live only in @wizeworks/surface-compile.
+// "unblock" key — base rules live only in @wizeworksllc/surface-compile.
 const PutAllowlist = z.object({ blocks: z.array(Rule).max(200) });
 
 const builderGovernanceRoutes: FastifyPluginAsync = (app) => {

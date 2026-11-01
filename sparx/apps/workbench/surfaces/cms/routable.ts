@@ -43,7 +43,7 @@
 // it reads the real types out of `wizeworks/apps/site/lib/content.ts`, and fails if
 // the site stops reading kinds by their pattern.
 
-import { kindAddressFromPattern } from '@wizeworks/silica-catalog';
+import { kindAddressFromPattern } from '@wizeworksllc/silica-catalog';
 
 /** The `typeKey`s the site has a route of their own for. Kept honest by
  *  `check:cms-routes`. */

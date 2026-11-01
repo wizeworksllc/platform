@@ -17,12 +17,12 @@
 // rather than diffing two arrays. Reads/writes ride `withTenant` → RLS is the
 // backstop; the tenant scope here is belt-and-suspenders.
 
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 import {
   CreateSavedEmailBlockInput,
   RenameSavedEmailBlockInput,
   type SilicaEmailNode,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 
 import type { ServiceContext } from '../errors';
 

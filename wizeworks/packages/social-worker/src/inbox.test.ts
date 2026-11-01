@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Logger } from 'pino';
-import type * as Social from '@wizeworks/social';
+import type * as Social from '@wizeworksllc/social';
 
 // A refused token refresh during an inbox sync or a reply.
 //
@@ -30,19 +30,19 @@ const adapter = vi.hoisted(() => ({
   replyToInbox: vi.fn(),
 }));
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: typeof db) => unknown) => fn(db),
 }));
-vi.mock('@wizeworks/social', async (importOriginal) => ({
+vi.mock('@wizeworksllc/social', async (importOriginal) => ({
   ...(await importOriginal<typeof Social>()),
   getSocialAdapter: () => adapter,
 }));
-vi.mock('@wizeworks/social/adapters', () => ({ registerBuiltinSocialAdapters: vi.fn() }));
-vi.mock('@wizeworks/social/crypto', () => ({ isSocialTokenCryptoConfigured: () => true }));
+vi.mock('@wizeworksllc/social/adapters', () => ({ registerBuiltinSocialAdapters: vi.fn() }));
+vi.mock('@wizeworksllc/social/crypto', () => ({ isSocialTokenCryptoConfigured: () => true }));
 vi.mock('./auth.js', () => ({ resolveSocialAuth }));
 vi.mock('./health.js', () => ({ markConnectionExpired }));
 
-const { HttpError } = await import('@wizeworks/social');
+const { HttpError } = await import('@wizeworksllc/social');
 const { sendInboxReply, syncInbox } = await import('./inbox.js');
 
 const TENANT = '11111111-1111-4111-8111-111111111111';

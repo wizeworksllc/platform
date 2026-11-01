@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/email-sends",
+  "name": "@wizeworksllc/email-sends",
   "version": "0.0.0",
   "private": true,
-  "description": "Lean, backend-safe email enqueue: writes a ScheduledSend row (suppression-checked) that the api-rest email-dispatch tick later turns into an email.send. NO render/React deps — so backend workers (automation-worker) can enqueue a send without dragging in @wizeworks/email/@wizeworks/ui. @wizeworks/email-platform owns the management surface; this owns only the producer primitive.",
+  "description": "Lean, backend-safe email enqueue: writes a ScheduledSend row (suppression-checked) that the api-rest email-dispatch tick later turns into an email.send. NO render/React deps — so backend workers (automation-worker) can enqueue a send without dragging in @wizeworksllc/email/@wizeworksllc/ui. @wizeworksllc/email-platform owns the management surface; this owns only the producer primitive.",
   "type": "module",
   "exports": {
     ".": {
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/db": "workspace:*"
+    "@wizeworksllc/db": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",

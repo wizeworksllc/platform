@@ -24,7 +24,9 @@ push to main
   2 data           roles → migrate → seed platform rows
   3 containers     pin every image to <sha>, apply k8s/azure/apps, wait,
                    then re-sync system automations from the new code
-    tag            cut the v* tag — only if the release actually shipped
+    publish        publish the platform packages that changed, at the version
+                   the tag is about to cut (docs/153; scripts/publish-packages.mjs)
+    tag            cut the v* tag — only if the release (and its packages) shipped
   4 cleanup        prune old image versions + obsolete workflow-run history
 ```
 

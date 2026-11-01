@@ -11,8 +11,8 @@
 // There is deliberately no MCP tool to acknowledge or publish a legal page.
 
 import { z } from 'zod';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { LEGAL_KINDS, type LegalKind } from '@wizeworks/legal-templates';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { LEGAL_KINDS, type LegalKind } from '@wizeworksllc/legal-templates';
 
 import { getLegalChecklist, createLegalPage } from '../legal-service.js';
 import { serializeEntry } from '../entries.js';

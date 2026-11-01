@@ -27,10 +27,10 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 import { deleteInstall, installBlueprint } from '../../src/lib/blueprint-installer.js';
-import type { Blueprint } from '@wizeworks/blueprints';
+import type { Blueprint } from '@wizeworksllc/blueprints';
 
 const noop = (): void => undefined;
 const logger = {

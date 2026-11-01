@@ -58,7 +58,7 @@ it — the API already carries bulk product operations (`bulk_update_product_sta
 is an addressable tool) — so what is missing is the selection UI, not the
 operation.
 
-Worth noting for whoever picks this up: `@wizeworks/ui`'s `SelectionList` and
+Worth noting for whoever picks this up: `@wizeworksllc/ui`'s `SelectionList` and
 `BulkActionBar` were **deleted** in the workbench cutover, so there is no
 composition to reach for. It has to be built in the workbench's own idiom, and
 then it wants to serve every list rather than this one.

@@ -22,7 +22,7 @@
 // refusal where a helpful button was promised. Typing it is the one path that
 // works for every tenant. [[feedback_a_promise_in_copy_is_a_contract]]
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useState } from 'react';
 import {
   Button,

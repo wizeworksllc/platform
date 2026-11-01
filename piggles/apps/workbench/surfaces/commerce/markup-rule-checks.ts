@@ -1,7 +1,7 @@
 // What is wrong with a markup rule form, and what a $100 cost comes to under it
 // (sparx persona issue 086).
 
-import { applyMarkupRule, type MarkupRuleSpec } from '@wizeworks/commerce-schemas';
+import { applyMarkupRule, type MarkupRuleSpec } from '@wizeworksllc/commerce-schemas';
 import type { BandMethodName } from './markup-rule-words';
 import { rulePayload, typed, type BandDraft, type RuleDraft } from './markup-rule-draft';
 

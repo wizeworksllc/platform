@@ -61,7 +61,7 @@ storefront still serves — the status is cosmetic until this lands.
   (api-rest, api-graphql, api-mcp). A naive `SELECT status FROM tenants` per request adds a DB
   round-trip to the hottest path. Mitigation: a small in-process cache keyed by tenant with a short
   TTL — the **exact pattern already accepted** for module gating
-  ([`wizeworks/packages/modules/src/index.ts`](../../../packages/modules/src/index.ts), `isModuleEnabled`, 60s
+  ([`wizeworks/packages/module-roster/src/index.ts`](../../../packages/module-roster/src/index.ts), `isModuleEnabled`, 60s
   TTL). Invalidate on the suspend/unsuspend write (same as `invalidateModuleCache`). Surface the
   decision before adding per-request cost (memory rule: verify recurring-cost/hot-path changes).
 - **JWT staleness.** Staff JWTs live ~5 min (`auth.ts`), so a just-suspended tenant's existing

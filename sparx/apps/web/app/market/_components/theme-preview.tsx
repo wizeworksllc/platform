@@ -4,14 +4,14 @@
 // no server-side render step in the upload pipeline: an uploaded theme just renders itself.
 //
 // HOW IT'S SCOPED. The theme's token bag is projected to a stylesheet scoped to THIS
-// preview's `.tp-<slug>` class (via @wizeworks/site-themes' `buildSilicaThemeCssFromTheme`,
+// preview's `.tp-<slug>` class (via @wizeworksllc/site-themes' `buildSilicaThemeCssFromTheme`,
 // the same projection the live site uses), so many differently-themed previews sit on
 // one page with no `:root` collision. Emitted as a `<style>` block, never an inline
 // `style` prop (subtree theming via a stylesheet is the sanctioned pattern).
 //
 // FONTS. A theme states Google font families; the preview loads them so its type is real.
 
-import { buildSilicaThemeCssFromTheme } from '@wizeworks/site-themes';
+import { buildSilicaThemeCssFromTheme } from '@wizeworksllc/site-themes';
 import type { ThemeFacets } from '@/lib/marketplace';
 import { ThemePreviewToggle } from './theme-preview-toggle';
 

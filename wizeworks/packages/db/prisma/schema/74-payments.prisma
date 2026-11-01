@@ -57,7 +57,7 @@ model PaymentIntent {
 
 /// Encrypted credentials for a tenant's bring-your-own gateway (docs/111 §2). The
 /// merchant pastes API keys in the dashboard; the secret bundle is AES-256-GCM
-/// ciphertext (@wizeworks/channels/crypto box), never plaintext — a DB leak alone yields
+/// ciphertext (@wizeworksllc/channels/crypto box), never plaintext — a DB leak alone yields
 /// no usable key. `publicMeta` holds the non-secret captured fields (public client
 /// key, location id, hosted URL) safe to render + hand the client SDK. One row per
 /// (tenant, gateway) so switching the active gateway keeps each one's keys.

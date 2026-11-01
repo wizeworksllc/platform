@@ -172,7 +172,7 @@ export async function saveWorkflow(input: SaveWorkflowInput): Promise<DocumentWo
       if (stageChanged(stage, before)) {
         // sortOrder is omitted from the body — step 3 owns ordering, and the
         // PATCH shape no longer fabricates defaults for what we leave out
-        // (see UpdateDocumentStageInput in @wizeworks/crm-schemas).
+        // (see UpdateDocumentStageInput in @wizeworksllc/crm-schemas).
         const { sortOrder: _sortOrder, ...body } = stageBody(stage, index);
         await api.patch(`/v1/invoicing/workflows/${id}/stages/${stage.id}`, body);
       }

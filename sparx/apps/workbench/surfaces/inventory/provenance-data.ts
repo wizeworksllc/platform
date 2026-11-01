@@ -13,7 +13,7 @@
 // research project.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /* ── Shapes (mirror the provenance response exactly) ─────────────────────── */

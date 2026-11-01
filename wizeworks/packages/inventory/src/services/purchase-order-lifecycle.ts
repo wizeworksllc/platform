@@ -12,8 +12,8 @@
 // The approve/reject moves out of `pending_approval` live in
 // ./purchase-order-approvals.ts, because that is where the trail is written.
 
-import { SubmitPurchaseOrderInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+import { SubmitPurchaseOrderInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 import { z } from 'zod';
 
 import { writeAuditLog } from '../audit';

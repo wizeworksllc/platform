@@ -12,7 +12,7 @@
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { invalidateModuleCache } from '@wizeworks/auth';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
 import { createApp } from '../../src/app.js';
 import { authHeader, signToken, createTestTenant, dropTestTenant } from '../helpers.js';
 

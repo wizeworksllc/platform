@@ -6,7 +6,7 @@
 // only emits base + adjustment numbers + add-on lines.
 //
 // All writes follow the locked pattern:
-//   1. Validate input via @wizeworks/commerce-schemas
+//   1. Validate input via @wizeworksllc/commerce-schemas
 //   2. withTenant() transaction with RLS context
 //   3. writeAuditLog inside the same transaction
 //   4. publishCommerceEvent AFTER commit
@@ -24,9 +24,9 @@ import {
   type ResolvedConfiguration,
   UpdateBundleInput,
   UpdateConfigurationTemplateInput,
-} from '@wizeworks/commerce-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError, CommerceValidationError } from '../errors';
@@ -1049,7 +1049,7 @@ async function runResolution(
 //
 // Configurations too bespoke for the rule grammar (or that the merchant
 // wants sales-rep review on) flow into the CRM Quote workflow. The
-// configurator emits the event; a downstream consumer in @wizeworks/crm
+// configurator emits the event; a downstream consumer in @wizeworksllc/crm
 // creates the Quote and links back via metadata.
 
 export async function requestQuote(

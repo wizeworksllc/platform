@@ -1,4 +1,4 @@
-// See @wizeworks/crm-schemas' patch-semantics.test.ts for the full story: a
+// See @wizeworksllc/crm-schemas' patch-semantics.test.ts for the full story: a
 // `.default()` survives `.partial()`, so a PATCH schema built from a create
 // schema fabricates values the caller never sent, and the update service writes
 // them. Here that meant renaming an automation RESET ITS CONDITIONS to the empty

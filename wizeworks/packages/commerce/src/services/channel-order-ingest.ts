@@ -17,10 +17,14 @@
 
 import { randomUUID } from 'node:crypto';
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
-import { inventoryService, type CommittedSale } from '@wizeworks/inventory';
-import { customerService, publishPlatformEvent, recomputeCustomerCommerce } from '@wizeworks/crm';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
+import { inventoryService, type CommittedSale } from '@wizeworksllc/inventory';
+import {
+  customerService,
+  publishPlatformEvent,
+  recomputeCustomerCommerce,
+} from '@wizeworksllc/crm';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

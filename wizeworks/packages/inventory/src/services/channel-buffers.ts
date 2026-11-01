@@ -22,9 +22,9 @@
 // resolves to (see ./freshness.ts). That one does add, because it is a temporary
 // penalty rather than a configured intent.
 
-import { SetChannelBufferInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { SetChannelBufferInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryNotFoundError } from '../errors';

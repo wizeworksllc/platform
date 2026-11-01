@@ -11,7 +11,7 @@
 // they do.
 
 import { describe, expect, it } from 'vitest';
-import { EMAIL_CONTENT_BLOCKS, emailDoc } from '@wizeworks/builder-schemas';
+import { EMAIL_CONTENT_BLOCKS, emailDoc } from '@wizeworksllc/builder-schemas';
 
 import { lintEmailRender } from '../lint';
 import { renderSilicaEmail } from '../render-silica-email';

@@ -2,7 +2,7 @@
 // how a kind reads, whether one is open or closed, where it is, and what the
 // server's refusals mean in plain language.
 
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import type { Tone } from './data';
 import type { Location } from './locations-data';
 import { apiErrorMessage } from '../../lib/api-error';

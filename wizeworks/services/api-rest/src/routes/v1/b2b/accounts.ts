@@ -1,6 +1,6 @@
 // B2B accounts — B2B-module-enriched view of the CRM's b2b_accounts spine
 // (pricing-tier assignment, account-level product overrides, fleet management, and
-// the credit/status data). Thin transport over @wizeworks/b2b's accountService.
+// the credit/status data). Thin transport over @wizeworksllc/b2b's accountService.
 //
 //   GET    /v1/b2b/accounts                          → list (with tier/credit info)
 //   GET    /v1/b2b/accounts/:id                      → fetch one (enriched)
@@ -18,10 +18,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { accountService, fleetService } from '@wizeworks/b2b';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { queryBool } from '@wizeworks/api-core/query';
+import { accountService, fleetService } from '@wizeworksllc/b2b';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });
@@ -31,7 +31,7 @@ const PathIdVid = z.object({ id: z.string().uuid(), vid: z.string().uuid() });
 // `overdue` re-declared for the query string. The service schema spells it
 // `z.coerce.boolean()`, which is `Boolean(value)` — so `?overdue=false` arrives
 // as TRUE and returns the exact opposite list. Overridden here rather than in
-// @wizeworks/b2b so the domain package keeps its own types honest and gains no
+// @wizeworksllc/b2b so the domain package keeps its own types honest and gains no
 // dependency on the HTTP layer.
 const ListAccounts = accountService.AccountListQuery.extend({
   overdue: queryBool.optional(),

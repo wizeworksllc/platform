@@ -5,9 +5,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { layoutService } from '@wizeworks/sitebuilder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { layoutService } from '@wizeworksllc/sitebuilder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireSitebuilderModule,
   toSitebuilderContext,

@@ -6,7 +6,7 @@
 // (`renderSilicaBody`) resolves bindings against.
 //
 // The record SHAPES follow the silica commerce composites' scope-relative refs
-// (@wizeworks/silica-catalog `commerce.ts`): a product card binds `image` / `title` /
+// (@wizeworksllc/silica-catalog `commerce.ts`): a product card binds `image` / `title` /
 // `price` / `compareAtPrice` / `description`, so a product record carries exactly
 // those keys. `price` binds the raw number; the host `format` renders currency —
 // formatting is host territory, never baked into the tree.
@@ -30,9 +30,9 @@ import {
   type NodeBinding,
   type SilicaNode,
   type SilicaResolver,
-} from '@wizeworks/builder-schemas';
-import { PLACEHOLDER_IMAGE } from '@wizeworks/silica-catalog';
-import { cadenceKey, cadenceLabel, plainText } from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/builder-schemas';
+import { PLACEHOLDER_IMAGE } from '@wizeworksllc/silica-catalog';
+import { cadenceKey, cadenceLabel, plainText } from '@wizeworksllc/commerce-schemas';
 
 import {
   isNotFound,
@@ -64,7 +64,7 @@ import { telHref } from './tel-href';
 /** How many products a bounded rail shows at most — a curated handful, never the whole
  *  catalog (the whole-catalog grid binds `commerce.product`).
  *
- *  Re-exported from `@wizeworks/builder-schemas` rather than declared here: the EDITOR needs
+ *  Re-exported from `@wizeworksllc/builder-schemas` rather than declared here: the EDITOR needs
  *  the same number to draw the right count of placeholder cards, and while it lived in
  *  this file the editor could only guess — it guessed three, so every rail previewed
  *  short. It is `DataSource.maxItems` on the rail sources now, and this is that. */
@@ -85,7 +85,7 @@ const FEATURED_LIMIT = RAIL_MAX_ITEMS;
  */
 const COLLECTION_PAGE_SIZE = COLLECTION_PAGE_ITEMS;
 
-/** `ListPaging` and the arithmetic that fills it now live in `@wizeworks/builder-schemas`
+/** `ListPaging` and the arithmetic that fills it now live in `@wizeworksllc/builder-schemas`
  *  (`list-paging.ts`) and are re-exported here for the routes and the pager that already
  *  import them from this module. They moved because three things have to agree on "what
  *  page am I on" — this fetch, the `site.pagination` host core's links, and the bound

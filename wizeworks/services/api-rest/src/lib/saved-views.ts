@@ -13,8 +13,8 @@
 // list shows shared views + the caller's own private views.
 
 import { z } from 'zod';
-import { withTenant, type TenantContext, type TxClient, type SavedView } from '@wizeworks/db';
-import { conflict, forbidden, notFound } from '@wizeworks/api-core/errors';
+import { withTenant, type TenantContext, type TxClient, type SavedView } from '@wizeworksllc/db';
+import { conflict, forbidden, notFound } from '@wizeworksllc/api-core/errors';
 
 // config is opaque to the table; the ListToolbar re-applies `params` verbatim.
 // Kept a permissive string map so a new list filter never needs a schema change.

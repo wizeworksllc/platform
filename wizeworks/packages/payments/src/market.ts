@@ -12,7 +12,7 @@
 // carries `metadata.tenantId` + `metadata.market='true'` so the SAME platform
 // webhook (STRIPE_WEBHOOK_SECRET_SPARX_PAY) reconciles it via the existing path.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { getPlatformStripe } from './client';
 import type { PaymentIntent, RefundResult } from './gateway';

@@ -1,7 +1,7 @@
 // Bound product section — the long-form description block (today's "Details").
 
-import type { ProductDescriptionConfig } from '@wizeworks/sitebuilder-schemas';
-import { plainText } from '@wizeworks/commerce-schemas';
+import type { ProductDescriptionConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 
 import type { SectionContext } from '../section-renderer';
 

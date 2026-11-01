@@ -9,7 +9,7 @@
 // ADJUSTMENT, which is a recorded, reasoned transaction, not a field you type
 // over. That distinction is the whole point of the screen.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useState } from 'react';
 import { PaneLoadError } from '../../components/pane-load-error';
 import { PaneWaiting } from '../../components/pane-waiting';

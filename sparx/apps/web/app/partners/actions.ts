@@ -8,7 +8,7 @@
 // authoritative Zod pass.
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 import type { PartnerKind, PartnerTier } from '@/lib/partners';
 

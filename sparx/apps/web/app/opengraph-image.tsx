@@ -1,4 +1,4 @@
-import { STORY_EXAMPLES } from '@wizeworks/story-schemas';
+import { STORY_EXAMPLES } from '@wizeworksllc/story-schemas';
 import { renderStoryOg } from '@/lib/og-story';
 
 // The site's primary social card is the marketing hero's told story, frozen — the

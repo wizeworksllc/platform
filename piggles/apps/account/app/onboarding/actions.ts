@@ -1,6 +1,6 @@
 'use server';
 
-import { requireSession } from '@wizeworks/auth-client-server';
+import { requireSession } from '@wizeworksllc/auth-client-server';
 import { PIGGLES_GROUPS, type PigglesGroup } from '@piggles/brand';
 import { furnishTenant } from '@/lib/furnish';
 import { heardAboutAnswer, type HeardAbout } from '@/lib/heard-about';

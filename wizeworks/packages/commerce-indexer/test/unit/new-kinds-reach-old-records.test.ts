@@ -28,9 +28,9 @@ const reportIds = vi.fn();
 const projectBoard = vi.fn();
 const projectReport = vi.fn();
 
-vi.mock('@wizeworks/db', () => ({ prisma: { tenant: { findMany } } }));
-vi.mock('@wizeworks/commerce', () => ({}));
-vi.mock('@wizeworks/search', () => ({
+vi.mock('@wizeworksllc/db', () => ({ prisma: { tenant: { findMany } } }));
+vi.mock('@wizeworksllc/commerce', () => ({}));
+vi.mock('@wizeworksllc/search', () => ({
   bulkUpsertEntities,
   deleteEntity,
   indexedKindsForTenant,

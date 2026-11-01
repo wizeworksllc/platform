@@ -11,7 +11,7 @@
 // two things to a form: a real `<form>` with its `form` behavior, and the action
 // ref that behavior hands its host on submit. That is a design system stopping at
 // the seam, correctly — it does not know what an enquiry is. The config type is
-// `@wizeworks/builder-schemas`, the addresses are a `FormDefinition` column, and
+// `@wizeworksllc/builder-schemas`, the addresses are a `FormDefinition` column, and
 // the sending is the automation engine's `form.notify` / `form.autoreply`.
 //
 // Addresses are server-side and stay there: they never enter the published tree,

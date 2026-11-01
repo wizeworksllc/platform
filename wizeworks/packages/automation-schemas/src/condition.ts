@@ -3,7 +3,7 @@
 // Conditions reference RESOLVED entity fields (e.g. `customer.type`), never raw
 // trigger-payload keys — the engine hydrates the referenced entity first. This
 // file owns only the wire shape; the field catalog + evaluation live in the
-// engine (`@wizeworks/automation`).
+// engine (`@wizeworksllc/automation`).
 //
 // A ConditionGroup combines leaf conditions AND/OR nested sub-groups, so a rule
 // can express mixed precedence like `A AND (B OR C)`. Nesting is BOUNDED to

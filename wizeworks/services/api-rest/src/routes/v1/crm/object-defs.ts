@@ -13,7 +13,7 @@
 //   DELETE /v1/crm/records/:id                 → soft-delete one
 //
 // API-first, per the root CLAUDE.md: these ship before the surfaces that use
-// them, and the MCP tools in @wizeworks/crm/mcp wrap the same services — so an AI
+// them, and the MCP tools in @wizeworksllc/crm/mcp wrap the same services — so an AI
 // client can define a business's record types and fill them in without a browser.
 //
 // Records live under `/v1/crm/objects/:key/records` for the collection (the
@@ -23,10 +23,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { crmRecordService, objectDefService } from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { crmRecordService, objectDefService } from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { resolvePropertyId, reachableSiteIds } from '../../../lib/property.js';

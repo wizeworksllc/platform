@@ -17,7 +17,7 @@
 // 30, 60, 90. Rounding it to 15 puts a wrong due date on a real invoice and
 // mis-ages a real debt, and nothing on the screen admits it happened.
 //
-// The column is `VarChar(20)` and `netTermsDays()` in @wizeworks/crm already
+// The column is `VarChar(20)` and `netTermsDays()` in @wizeworksllc/crm already
 // parses whatever digits it finds, so any `netN` has always worked end to end.
 // The only thing standing in the way was a zod enum and two menus.
 //

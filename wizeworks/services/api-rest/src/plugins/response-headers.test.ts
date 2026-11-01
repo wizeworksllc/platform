@@ -1,5 +1,5 @@
 import Fastify from 'fastify';
-import { createErrorsPlugin } from '@wizeworks/api-core/errors-plugin';
+import { createErrorsPlugin } from '@wizeworksllc/api-core/errors-plugin';
 import { describe, expect, it } from 'vitest';
 import responseHeaders from './response-headers.js';
 

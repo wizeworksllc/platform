@@ -3,7 +3,7 @@
 // in the console, and the account's own approver on the site.
 //
 // The decision commits first and hands back the card work it needs
-// (`heldOrderMoney` in @wizeworks/crm); this does it, through commerce's
+// (`heldOrderMoney` in @wizeworksllc/crm); this does it, through commerce's
 // `heldOrderPayments.settle`, the same way each route publishes its events after
 // the transaction. A charge that went through is recorded straight away rather
 // than waiting for the payment webhook, so the order reads paid the moment it is
@@ -11,7 +11,7 @@
 // order and handed to the business as a task; it is logged here too.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { heldOrderPayments } from '@wizeworks/commerce';
+import { heldOrderPayments } from '@wizeworksllc/commerce';
 
 import { reconcileCompletedCheckoutPayment } from './payment-webhook-reconcile.js';
 

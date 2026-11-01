@@ -1,7 +1,7 @@
 // markupService — catalog markup rules (docs/48 Phase 1).
 //
 // A markup rule turns a variant's COST into a charged price. The math lives
-// in the pure `applyMarkupRule` (@wizeworks/commerce-schemas, also used client-
+// in the pure `applyMarkupRule` (@wizeworksllc/commerce-schemas, also used client-
 // side and by the recompute worker); this service owns persistence, scope
 // resolution, and the bind/recompute writes.
 //
@@ -24,9 +24,9 @@ import {
   type MarkupResult,
   type MarkupRuleSpec,
   type RoundingSpec,
-} from '@wizeworks/commerce-schemas';
-import { afterCommit, Prisma, withTenant } from '@wizeworks/db';
-import type { MarkupRule } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { afterCommit, Prisma, withTenant } from '@wizeworksllc/db';
+import type { MarkupRule } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';

@@ -5,7 +5,7 @@
 // file is pure composition (what renders where) and this is the "what data" layer.
 
 import { Flame, Sparkles, Tag } from 'lucide-react';
-import { MARKET_CATEGORIES } from '@wizeworks/commerce-schemas';
+import { MARKET_CATEGORIES } from '@wizeworksllc/commerce-schemas';
 
 import type { PromoCardData } from '@/components/home-promos';
 import type { CategoryTileData } from '@/components/home-sections';

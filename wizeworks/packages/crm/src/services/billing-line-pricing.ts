@@ -2,7 +2,7 @@
 //
 // Resolves a line's unit price from its line-type `pricingMode`. The markup and
 // marked-up pass-through paths reuse the shipped, shared markup engine
-// (document-line-markup.resolveAndPriceLine → @wizeworks/commerce-schemas) so
+// (document-line-markup.resolveAndPriceLine → @wizeworksllc/commerce-schemas) so
 // document-line markup never drifts from catalog markup; the labor / flat / catalog
 // paths are straight arithmetic. Cost-derived modes stamp the reproducibility
 // snapshot (`appliedMarkup`) onto the line. Runs inside the caller's tx so cost
@@ -14,8 +14,8 @@
 // wins; a line naming a part falls back to the part's own cost; with neither,
 // the cost stays null, because an invented zero would report a 100% margin.
 
-import type { Prisma } from '@wizeworks/db';
-import type { LineMarkupInput, LineMarkupSnapshot } from '@wizeworks/commerce-schemas';
+import type { Prisma } from '@wizeworksllc/db';
+import type { LineMarkupInput, LineMarkupSnapshot } from '@wizeworksllc/commerce-schemas';
 
 import { CrmNotFoundError, CrmValidationError } from '../errors';
 import { resolveAndPriceLine } from './document-line-markup';

@@ -29,15 +29,15 @@ import {
   parseSteps,
   type CreateSequenceInput,
   type UpdateSequenceInput,
-} from '@wizeworks/email-sequences';
-import { settingsService } from '@wizeworks/email-platform';
-import { countAutomationsByActionConfig, type ActionUseCount } from '@wizeworks/automation';
+} from '@wizeworksllc/email-sequences';
+import { settingsService } from '@wizeworksllc/email-platform';
+import { countAutomationsByActionConfig, type ActionUseCount } from '@wizeworksllc/automation';
 // Universal search (docs/39): a sequence is an `email_sequence` entity. Its name
 // is what an owner types to find it, so every write that moves one re-indexes.
-import { indexEntity } from '@wizeworks/events';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { indexEntity } from '@wizeworksllc/events';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 import { requireEmailModule, toEmailContext } from '../../../lib/email-context.js';
 import { resolveListScope, resolvePropertyId } from '../../../lib/property.js';
 
@@ -169,7 +169,7 @@ const emailSequenceRoutes: FastifyPluginAsync = (app) => {
     // there IS one. Refused here rather than at the drain, where it would be a
     // silent omission in a worker nobody watches.
     //
-    // The check sits in the ROUTE because `@wizeworks/email-sequences` is
+    // The check sits in the ROUTE because `@wizeworksllc/email-sequences` is
     // deliberately backend-safe (db + email-sends only) and must not take on
     // email-platform. Re-deriving the site fallback inside it would be a second
     // implementation of the identity resolution, which is exactly how the

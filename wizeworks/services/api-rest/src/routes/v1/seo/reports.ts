@@ -18,12 +18,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 // The one list of what each check is CALLED, so the roll-up below stops taking it
 // from whichever stored card happens to be newest (issue 863).
-import { CHECK_LABELS } from '@wizeworks/seo-audit';
+import { CHECK_LABELS } from '@wizeworksllc/seo-audit';
 import { storedPath } from '../../../lib/seo-audit.js';
 import { resolveListScope } from '../../../lib/property.js';
 import { auditsOnSiteSql } from './site-scope.js';

@@ -11,22 +11,22 @@
  * Auth instance, so its pod can run without `sparx-app-secrets` at all.
  *
  * That holds only while nothing in the app imports them again, directly or
- * through a library. One `import { auth } from '@wizeworks/auth'` in a route
+ * through a library. One `import { auth } from '@wizeworksllc/auth'` in a route
  * handler builds a Better Auth server on first use; one
- * `import { capacityReport } from '@wizeworks/usage'` opens a Prisma client.
+ * `import { capacityReport } from '@wizeworksllc/usage'` opens a Prisma client.
  * Both build, pass every test, and fail only in production, where the pod no
  * longer has the secret they need. So this check reads every source file of
  * each app below and refuses:
  *
- *   1. An import of a workspace package that itself depends on `@wizeworks/db`
- *      or `@prisma/client` (that includes `@wizeworks/db` itself and
- *      `@wizeworks/auth`), unless the import names one of the PURE entry
+ *   1. An import of a workspace package that itself depends on `@wizeworksllc/db`
+ *      or `@prisma/client` (that includes `@wizeworksllc/db` itself and
+ *      `@wizeworksllc/auth`), unless the import names one of the PURE entry
  *      points listed below: a file in such a package that imports nothing of
  *      the database or the server. The list is short on purpose; adding to it
  *      means reading the entry point's imports first.
  *   2. An import of `@prisma/client`, or of the server parts of `better-auth`
  *      (its root, `/cookies`, `/crypto`, `/next-js`, `/adapters/*`).
- *   3. A direct dependency on `@wizeworks/db` or `@prisma/client` in the app's
+ *   3. A direct dependency on `@wizeworksllc/db` or `@prisma/client` in the app's
  *      package.json.
  *
  * A whole-statement `import type` / `export type` is allowed from anywhere: the
@@ -44,7 +44,7 @@
  * with no package.json (a placeholder holding a .gitkeep) is not an app.
  *
  * Finding fewer than three apps fails, and so does an app with no source files
- * or a package map in which `@wizeworks/auth` does not read as reaching the
+ * or a package map in which `@wizeworksllc/auth` does not read as reaching the
  * database: a check that scans nothing prints the same "ok" as one that found
  * nothing, which is how a renamed directory turns a guard off without anybody
  * noticing.
@@ -65,18 +65,18 @@ const FEWEST_APPS = 3;
 /** Entry points of database-using packages that import neither the database
  *  nor the auth server. */
 const PURE_ENTRIES = new Set([
-  '@wizeworks/auth/client',
-  '@wizeworks/auth/org-roles',
-  '@wizeworks/auth/module-access',
-  '@wizeworks/auth/property-access',
-  '@wizeworks/auth/friendly-slug',
-  '@wizeworks/auth/mcp-scopes',
-  '@wizeworks/email-sequences/schemas',
-  '@wizeworks/social/cadence',
+  '@wizeworksllc/auth/client',
+  '@wizeworksllc/auth/org-roles',
+  '@wizeworksllc/auth/module-access',
+  '@wizeworksllc/auth/property-access',
+  '@wizeworksllc/auth/friendly-slug',
+  '@wizeworksllc/auth/mcp-scopes',
+  '@wizeworksllc/email-sequences/schemas',
+  '@wizeworksllc/social/cadence',
 ]);
 
 const PACKAGE_ROOTS = ['wizeworks/packages', 'sparx/packages', 'piggles/packages'];
-const DATABASE_PACKAGES = ['@wizeworks/db', '@prisma/client'];
+const DATABASE_PACKAGES = ['@wizeworksllc/db', '@prisma/client'];
 
 const SKIP_DIRS = new Set(['node_modules', '.next', '.turbo', 'dist', 'coverage', 'public']);
 const EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs']);
@@ -93,7 +93,7 @@ function isAuthServer(specifier) {
 
 /** Workspace package names whose own package.json depends on the database. */
 function databasePackages() {
-  const found = new Set(['@wizeworks/db']);
+  const found = new Set(['@wizeworksllc/db']);
   for (const root of PACKAGE_ROOTS) {
     const dir = path.join(ROOT, root);
     if (!fs.existsSync(dir)) continue;
@@ -172,9 +172,9 @@ function main() {
     );
   }
   const reachesDatabase = databasePackages();
-  if (!reachesDatabase.has('@wizeworks/auth')) {
+  if (!reachesDatabase.has('@wizeworksllc/auth')) {
     problems.push(
-      'the package map did not find @wizeworks/auth reaching the database, so it is reading the wrong place'
+      'the package map did not find @wizeworksllc/auth reaching the database, so it is reading the wrong place'
     );
   }
 
@@ -216,7 +216,7 @@ function main() {
     );
     for (const problem of problems) console.error(`  ${problem}`);
     console.error(
-      '\nCall api-rest instead (@wizeworks/auth-client-server, or an api-rest endpoint), or import' +
+      '\nCall api-rest instead (@wizeworksllc/auth-client-server, or an api-rest endpoint), or import' +
         ' a pure entry point (docs/154).'
     );
     process.exit(1);

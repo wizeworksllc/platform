@@ -1,11 +1,11 @@
 // Custom-section renderer (docs/38 Phase C). A thin storefront wrapper over the
-// shared interpreter in @wizeworks/section-template-react: it supplies the storefront
+// shared interpreter in @wizeworksllc/section-template-react: it supplies the storefront
 // adapters (next/link via SbLink, media resolution via mediaUrl) and the section
 // chrome, while the AST walk + `bx-tpl-*` markup live in the shared package — so
 // the dashboard Section Studio preview renders from the exact same path.
 
-import { TemplateRenderer, type TemplateAdapters } from '@wizeworks/section-template-react';
-import type { TemplateNode } from '@wizeworks/sitebuilder-schemas';
+import { TemplateRenderer, type TemplateAdapters } from '@wizeworksllc/section-template-react';
+import type { TemplateNode } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

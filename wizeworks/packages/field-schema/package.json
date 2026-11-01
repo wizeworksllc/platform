@@ -1,8 +1,7 @@
 {
-  "name": "@wizeworks/field-schema",
+  "name": "@wizeworksllc/field-schema",
   "version": "0.0.0",
-  "private": true,
-  "description": "sparx field-schema — the neutral typed-field engine. Declares the 18 field kinds (text, long_text, rich_text, slug, number, boolean, date, datetime, enum, url, email, reference, asset, currency, user, calculated, object, repeater), the FieldSchema shape, the runtime body validator, and the eval-free calculated-field engine. Domain-agnostic: consumed by @wizeworks/cms-schemas (content types), @wizeworks/commerce-schemas (product types) and @wizeworks/crm-schemas (CRM object properties) so one field engine backs all three.",
+  "description": "sparx field-schema — the neutral typed-field engine. Declares the 18 field kinds (text, long_text, rich_text, slug, number, boolean, date, datetime, enum, url, email, reference, asset, currency, user, calculated, object, repeater), the FieldSchema shape, the runtime body validator, and the eval-free calculated-field engine. Domain-agnostic: consumed by @wizeworksllc/cms-schemas (content types), @wizeworksllc/commerce-schemas (product types) and @wizeworksllc/crm-schemas (CRM object properties) so one field engine backs all three.",
   "type": "module",
   "exports": {
     ".": {
@@ -11,8 +10,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/field-schema"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

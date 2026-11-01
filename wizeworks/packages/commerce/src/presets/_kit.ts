@@ -1,16 +1,16 @@
-// Thin commerce wrapper over the shared `definePreset` (in @wizeworks/modules) —
+// Thin commerce wrapper over the shared `definePreset` (in @wizeworksllc/modules) —
 // just pins `module: 'commerce'` so the family files (tax, shipping, …) stay
 // terse. You supply a cheap `marker` (used for the picker's "Installed" state
 // AND the seam's re-install 409 guard) and a `build` that stamps the rows inside
 // one tenant-scoped transaction (its ctx carries the open tx, so every
 // taxService.createZone / … call composes atomically).
 
-// The preset contract is imported from @wizeworks/auth (a commerce dep that
-// re-exports @wizeworks/modules) — packages that don't dep auth import the same
-// symbols from @wizeworks/modules directly.
-import { definePreset, type ModulePreset, type ModulePresetKind } from '@wizeworks/auth';
-import type { ModulePresetSummaryChip } from '@wizeworks/auth';
-import type { TenantContext, TxClient } from '@wizeworks/db';
+// The preset contract is imported from @wizeworksllc/auth (a commerce dep that
+// re-exports @wizeworksllc/modules) — packages that don't dep auth import the same
+// symbols from @wizeworksllc/modules directly.
+import { definePreset, type ModulePreset, type ModulePresetKind } from '@wizeworksllc/auth';
+import type { ModulePresetSummaryChip } from '@wizeworksllc/auth';
+import type { TenantContext, TxClient } from '@wizeworksllc/db';
 
 export interface CommercePresetSpec {
   slug: string;

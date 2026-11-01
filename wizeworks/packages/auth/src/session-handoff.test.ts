@@ -7,7 +7,7 @@ import { createRequire } from 'node:module';
 import { join, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
 
 import { registerAuthBrands } from './server';
 import {

@@ -12,11 +12,11 @@
 // placeholder that matches the REST path.
 
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
-import { tenantZone } from '@wizeworks/db/site-origin';
-import { buildSparxDnsRecords, RegistrarError } from '@wizeworks/registrar';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { tenantZone } from '@wizeworksllc/db/site-origin';
+import { buildSparxDnsRecords, RegistrarError } from '@wizeworksllc/registrar';
 import { getRegistrar } from './registrar.js';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 
 // Module-level publisher — createPublisher caches via internal singleton so
 // subsequent calls are no-ops. Mirrors the pattern in api-rest/domains.ts.
@@ -307,7 +307,7 @@ export const domainMcpTools = [
 
 /** Which zone this tenant's free subdomain sits in: read off the host they already
  *  have rather than assumed, so no shared code branches on brand. The shared
- *  `tenantZone` (`@wizeworks/db/site-origin`), the same answer api-rest mints a new
+ *  `tenantZone` (`@wizeworksllc/db/site-origin`), the same answer api-rest mints a new
  *  site's host from. This used to be a local copy that took the FIRST subdomain row
  *  rather than the primary site's, and gave up on a zone `SPARX_ZONE_DOMAINS` had not
  *  been told about: the two halves of issue 316, fixed in api-rest and still live

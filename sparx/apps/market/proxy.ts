@@ -9,16 +9,16 @@
 // Its jobs: a header-named call to an unknown server action gets Next's own 404
 // here, because on a prerendered page Next's answer to it is a 500; and a form
 // posted from an older build is sent back to a fresh page instead of a 500. See
-// @wizeworks/app-kit/stale-form-action. A request Next cannot read (`/%c0`, a
-// multipart body with no boundary) gets a 400 first; see @wizeworks/app-kit/malformed-path.
+// @wizeworksllc/app-kit/stale-form-action. A request Next cannot read (`/%c0`, a
+// multipart body with no boundary) gets a 400 first; see @wizeworksllc/app-kit/malformed-path.
 
 import { NextResponse, type NextRequest } from 'next/server';
 import {
   runningActionIds,
   staleFormActionRedirect,
   unknownActionResponse,
-} from '@wizeworks/app-kit/stale-form-action';
-import { malformedRequestResponse } from '@wizeworks/app-kit/malformed-path';
+} from '@wizeworksllc/app-kit/stale-form-action';
+import { malformedRequestResponse } from '@wizeworksllc/app-kit/malformed-path';
 
 export async function proxy(req: NextRequest) {
   const known = runningActionIds();

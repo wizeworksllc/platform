@@ -27,17 +27,17 @@ COPY wizeworks/packages/site-themes/package.json wizeworks/packages/site-themes/
 COPY wizeworks/packages/sitebuilder-schemas/package.json wizeworks/packages/sitebuilder-schemas/
 COPY wizeworks/packages/section-template-react/package.json wizeworks/packages/section-template-react/
 COPY wizeworks/packages/builder-schemas/package.json wizeworks/packages/builder-schemas/
-# @wizeworks/silica-catalog — the silica-native domain catalog the storefront renders
+# @wizeworksllc/silica-catalog — the silica-native domain catalog the storefront renders
 # published silica pages through (docs/118). Only npm dep is silicaui-html; no
 # workspace deps of its own.
 COPY wizeworks/packages/silica-catalog/package.json wizeworks/packages/silica-catalog/
 COPY wizeworks/packages/silica-corrections/package.json wizeworks/packages/silica-corrections/
-# @wizeworks/builder-render — the shared canvas↔live render path (docs/builder/02); the
+# @wizeworksllc/builder-render — the shared canvas↔live render path (docs/builder/02); the
 # live storefront renders through it. Its workspace deps (builder-schemas,
 # cms-editor) are above.
 COPY wizeworks/packages/builder-render/package.json wizeworks/packages/builder-render/
 COPY wizeworks/packages/chat-widget/package.json wizeworks/packages/chat-widget/
-# @wizeworks/commerce-schemas — shared selling vocabulary (carrier labels on the
+# @wizeworksllc/commerce-schemas — shared selling vocabulary (carrier labels on the
 # order timeline). It pulls crm-schemas, automation-schemas and field-schema in
 # turn, so all four have to be present for the install to resolve.
 COPY wizeworks/packages/commerce-schemas/package.json wizeworks/packages/commerce-schemas/

@@ -19,11 +19,11 @@ const settle = vi.hoisted(() => vi.fn<(ctx: unknown, moves: unknown[]) => Promis
 const steps = vi.hoisted(() => [] as string[]);
 const published = vi.hoisted(() => [] as { type: string; payload: unknown }[]);
 
-vi.mock('@wizeworks/scheduling', async (importOriginal) => ({
+vi.mock('@wizeworksllc/scheduling', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   ...scheduling,
 }));
-vi.mock('@wizeworks/commerce', async (importOriginal) => ({
+vi.mock('@wizeworksllc/commerce', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   bookingPayments: {
     settle: (ctx: unknown, moves: unknown[]) => {
@@ -32,7 +32,7 @@ vi.mock('@wizeworks/commerce', async (importOriginal) => ({
     },
   },
 }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({
   publish: (_log: unknown, type: string, _tenant: string, _actor: string, payload: unknown) => {
     steps.push('publish');
     published.push({ type, payload });

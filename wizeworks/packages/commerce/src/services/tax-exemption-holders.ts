@@ -16,7 +16,7 @@
 // the owner which certificates cover a customer, so the screen and the till
 // cannot disagree about it.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { resolveActiveB2bAccountId } from './pricing-service';
 

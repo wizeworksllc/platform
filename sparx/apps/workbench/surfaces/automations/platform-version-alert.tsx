@@ -18,7 +18,7 @@ import {
   Button,
   useToast,
 } from '@wizeworks/silicaui-react';
-import type { AutomationStatus } from '@wizeworks/automation-schemas';
+import type { AutomationStatus } from '@wizeworksllc/automation-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { useReaderClock } from '../../lib/business-timezone';
 import { ruleWords } from './automations-presentation';

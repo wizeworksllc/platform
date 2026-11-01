@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 // `withTenant` opens a tenant-scoped transaction; the rule under test is about
 // WHICH existing row a sign-in claims, which is a decision about people's records
 // and should not need a database to assert.
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) => fn(tx),
 }));
 

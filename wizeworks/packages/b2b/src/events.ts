@@ -1,4 +1,4 @@
-import type { EventType } from '@wizeworks/api-core/pubsub';
+import type { EventType } from '@wizeworksllc/api-core/pubsub';
 
 /**
  * A domain event the service asks its caller to publish once the mutation has

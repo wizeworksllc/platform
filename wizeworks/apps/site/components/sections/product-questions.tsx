@@ -6,7 +6,7 @@
 // fetches its own), so they must not differ in what a shopper sees. Reviews already
 // work this way — see the note at the top of `products/product-reviews-view.tsx`.
 
-import type { ProductQuestionsConfig } from '@wizeworks/sitebuilder-schemas';
+import type { ProductQuestionsConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { ProductQuestionsView } from '@/components/products/product-questions-view';
 import type { SectionContext } from '../section-renderer';

@@ -6,7 +6,7 @@
 // managing client accounts). `organization_id` is always a `tenants.id`.
 //
 // Auth-layer tables, exactly like users/sessions/accounts: ENABLE RLS + a
-// policy, but NO FORCE — @wizeworks/auth connects as `sparx_owner` (bypasses
+// policy, but NO FORCE — @wizeworksllc/auth connects as `sparx_owner` (bypasses
 // non-forced RLS) and must resolve "which orgs is this user in?" BEFORE any
 // tenant context exists (login, the client-accounts picker). `sparx_app` stays
 // filtered by the policy as defense-in-depth. See migration
@@ -89,7 +89,7 @@ model Member {
 model MemberModuleAccess {
   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   memberId String @map("member_id") @db.Uuid
-  /// Module slug — matches the ModuleSlug union in @wizeworks/auth. Not an enum:
+  /// Module slug — matches the ModuleSlug union in @wizeworksllc/auth. Not an enum:
   /// the slug list lives in TypeScript and gains entries far more often than a
   /// migration window allows.
   module   String @db.VarChar(32)

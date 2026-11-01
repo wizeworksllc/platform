@@ -1,4 +1,4 @@
-// @wizeworks/blueprints — the Blueprint manifest FORMAT: its schema, integrity
+// @wizeworksllc/blueprints — the Blueprint manifest FORMAT: its schema, integrity
 // validator, three-way merge and site capture (docs/54). Zod-only (no DB, no
 // React): safe to import from the installer worker, api-rest, and the dashboard
 // marketplace alike.

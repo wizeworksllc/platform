@@ -24,10 +24,10 @@ import {
   UpdateBomInput,
   buildableFrom,
   requiredForRun,
-} from '@wizeworks/commerce-schemas';
-import type { BomStatus } from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { BomStatus } from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import {

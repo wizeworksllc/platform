@@ -65,7 +65,7 @@ the difference.
 
 ## The fix
 
-**Count, do not remember.** `countAssetUsage` in `@wizeworks/media` groups over
+**Count, do not remember.** `countAssetUsage` in `@wizeworksllc/media` groups over
 the tables that actually hold the references:
 
 | Source                             | What it means      |

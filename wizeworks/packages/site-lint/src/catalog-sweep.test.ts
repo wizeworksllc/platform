@@ -29,7 +29,7 @@ import {
   SPARX_THEMES,
   TEMPLATE_THEMES,
   CONTENT_THEMES,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import { lintSite } from './lint';
 import type { LintablePage, SiteLintReport } from './types';

@@ -28,7 +28,7 @@
 //   GET       /v1/inventory/reports/valuation-as-of | price-variance | cogs
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { stockKeys, type Tone } from './data';
 import { purchaseOrderKeys } from './purchase-orders-data';

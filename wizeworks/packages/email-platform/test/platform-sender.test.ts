@@ -15,7 +15,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const findUnique = vi.fn<() => Promise<{ platformBrand: string | null } | null>>();
 const siteRow = vi.fn<() => Promise<{ name: string } | null>>();
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: { tenant: { findUnique: () => findUnique() } },
   withTenant: (_ctx: unknown, run: (tx: unknown) => unknown) =>
     run({

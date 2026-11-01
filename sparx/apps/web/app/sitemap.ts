@@ -182,7 +182,7 @@ async function marketplacePages(now: Date): Promise<MetadataRoute.Sitemap> {
 // placeholders in the sitemap invites soft-404 penalties (docs/50 §6: coverage
 // bounds must be explicit, not silent). (/careers is now a real page and is
 // listed above.) Legal `lastModified` tracks the actual document revision from
-// the single source of truth in @wizeworks/legal.
+// the single source of truth in @wizeworksllc/legal.
 function staticPages(now: Date): MetadataRoute.Sitemap {
   const legal = (['privacy', 'terms', 'dpa', 'aup'] as const).map((doc) => ({
     url: `${BASE}/legal/${doc}`,

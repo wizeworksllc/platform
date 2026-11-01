@@ -1,7 +1,7 @@
 // Shared helpers for the bring-your-own gateway adapters (docs/111 §3). They all read
 // merchant credentials through the injected reader, stamp the same metadata so the
 // webhook can resolve the order/invoice, and speak REST over `fetch` (no vendor SDKs —
-// keeps @wizeworks/payments dependency-free and the api-rest image unchanged).
+// keeps @wizeworksllc/payments dependency-free and the api-rest image unchanged).
 
 import { randomBytes } from 'node:crypto';
 

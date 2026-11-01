@@ -10,9 +10,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { bindingService } from '@wizeworks/builder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { bindingService } from '@wizeworksllc/builder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireBuilderModule, toBuilderTenantContext } from '../../../lib/builder-context.js';
 
 // `productTypeKey` (docs/143 Option B) scopes the catalog to a product page's target

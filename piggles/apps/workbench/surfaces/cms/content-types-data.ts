@@ -6,11 +6,11 @@
 // Content types are the SCHEMA behind everything in the Content editor: a type's
 // `schema_json.fields` is exactly what surfaces/cms/schema-form.tsx renders a
 // form from. So this module and that one share one vocabulary of field types —
-// the `FieldDef` union declared in ./data (a mirror of @wizeworks/cms-schemas, which
+// the `FieldDef` union declared in ./data (a mirror of @wizeworksllc/cms-schemas, which
 // validates every schema server-side). This file NEVER invents a field type or a
 // config the editor cannot render; it authors the same shape the editor consumes.
 //
-// The wire is snake_case (see serializeContentType in @wizeworks/cms). We keep those
+// The wire is snake_case (see serializeContentType in @wizeworksllc/cms). We keep those
 // names verbatim — `ContentType` here is that exact shape, re-used from ./data.
 //
 // Writing note: the create route (POST) takes the whole schema in one body under
@@ -19,8 +19,8 @@
 // are platform-owned and read-only: the surface never PATCHes/PUTs/DELETEs one.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 // Read-only imports: the wire shape, the field vocabulary the editor renders, and
 // the shared content key tree — so a type change here also refreshes the Content

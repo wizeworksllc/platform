@@ -6,7 +6,7 @@ import {
   discountRowFromFile,
   mapManually,
   validateRows,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 
 // The discount contract, down both roads a discount file takes.
 //
@@ -23,14 +23,14 @@ const state = vi.hoisted(() => ({
   activated: [] as string[],
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = { discount: { findFirst: () => Promise.resolve(state.existing) } };
   return {
     withTenant: (_ctx: unknown, run: (client: typeof tx) => unknown) => run(tx),
   };
 });
 
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   discountService: {
     createDiscount: (_ctx: unknown, input: Record<string, unknown>) => {
       state.created.push(input);

@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** critical
 **Found by:** P03 · Juniper Row · act 267
-**Surface:** `@wizeworks/db`, `@wizeworks/crm` (orders), `@wizeworks/b2b` (approvals); both consoles
+**Surface:** `@wizeworksllc/db`, `@wizeworksllc/crm` (orders), `@wizeworksllc/b2b` (approvals); both consoles
 **Filed:** 2026-09-20
 **Fixed:** 2026-09-20
 **Confirmed by:** P03, measured three ways against the running database

@@ -3,7 +3,7 @@
 // Reading orders — the list, one order, and the three things that happened to
 // it. Owns the ['commerce','orders'] query key that every mutation invalidates.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { normalizeOrder, num } from './order-types';
 import type { Order, OrderFulfillment, OrderPayment, OrderRefund } from './order-types';

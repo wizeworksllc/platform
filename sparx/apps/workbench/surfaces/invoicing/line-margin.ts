@@ -12,7 +12,7 @@
 //
 // Cost and margin are the business's own figures. Nothing here is ever sent to
 // a customer: the server's buyer-facing output is guarded by
-// `buyer-output-has-no-cost.test.ts` in @wizeworks/crm.
+// `buyer-output-has-no-cost.test.ts` in @wizeworksllc/crm.
 
 import { isBlank, type DraftLine } from './totals';
 import { formatMoney } from './types';

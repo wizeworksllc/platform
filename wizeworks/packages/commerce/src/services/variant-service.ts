@@ -11,7 +11,7 @@
 // setImageBindings for media.
 //
 // All writes follow the locked pattern:
-//   1. Validate input via @wizeworks/commerce-schemas
+//   1. Validate input via @wizeworksllc/commerce-schemas
 //   2. withTenant() transaction with RLS context
 //   3. writeAuditLog inside the same transaction
 //   4. publishCommerceEvent AFTER commit
@@ -25,18 +25,18 @@ import {
   SetProductOptionsInput,
   SetVariantImageBindingsInput,
   UpdateVariantInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import { rememberCoordinates, restoreRememberedCoordinates } from './lattice-memory';
-import { syncProductInStock } from '@wizeworks/inventory';
+import { syncProductInStock } from '@wizeworksllc/inventory';
 import type {
   Prisma,
   ProductOption,
   ProductOptionValue,
   ProductVariant,
   VariantImage,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError, CommerceValidationError } from '../errors';

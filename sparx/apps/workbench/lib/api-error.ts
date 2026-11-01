@@ -3,7 +3,7 @@
 // Eighty-two data modules had written this out by hand, one per app, and the
 // wording it produced could be the schema layer describing itself.
 
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 
 import { refusedWhat } from './refused-fields';
 

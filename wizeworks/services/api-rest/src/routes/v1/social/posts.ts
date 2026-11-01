@@ -23,10 +23,10 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import {
   requireSocialModule,
   resolveSocialProperty,
@@ -52,7 +52,7 @@ import {
   type LifecycleResult,
 } from '../../../lib/social-lifecycle.js';
 import { getPostMetrics } from '../../../lib/social-metrics.js';
-import { SOCIAL_POST_SOURCES } from '@wizeworks/social';
+import { SOCIAL_POST_SOURCES } from '@wizeworksllc/social';
 
 const PathId = z.object({ id: z.string().uuid() });
 const PathIdTarget = z.object({ id: z.string().uuid(), targetId: z.string().uuid() });

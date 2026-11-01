@@ -20,7 +20,7 @@ import {
   UpdatePipelineStageInput,
   UpdateSegmentInput,
   UpdateTaskInput,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 import {
   activityService,

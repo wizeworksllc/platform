@@ -24,9 +24,9 @@
 // see the comment on that constant, which is the one to read before editing any
 // predicate in this file.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
-import type { ConditionGroup } from '@wizeworks/automation-schemas';
+import type { ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 // USER-workflow guard for the 3-day reminder: excludes the B2B AR ledger, which
 // has its own. Never on an overdue notice (issue 139, above).

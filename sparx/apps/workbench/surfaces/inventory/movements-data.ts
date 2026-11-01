@@ -17,7 +17,7 @@
 // exactly one place.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { type StockMovement, type Tone } from './data';
 

@@ -16,10 +16,10 @@
 // read/write then re-enters `withTenant` so it is FORCE-RLS scoped. `db` is the
 // app-role client.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
-import { ConditionGroup } from '@wizeworks/automation-schemas';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
+import { ConditionGroup } from '@wizeworksllc/automation-schemas';
 import type { PrismaClient } from '@prisma/client';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { evaluateConditions } from '../conditions/evaluate';
 import { dispatch } from '../dispatch/dispatcher';

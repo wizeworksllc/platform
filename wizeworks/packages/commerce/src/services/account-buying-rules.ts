@@ -24,7 +24,7 @@
 // basket without them choosing it, and on an account billed later that is a
 // surprise on an invoice. A refusal that offers "12, 24 or 36" costs one click.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import {
   hasQuantityRule,
@@ -34,7 +34,7 @@ import {
   quantityStep,
   startingQuantity,
   type QuantityRule,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { CommerceValidationError } from '../errors';
 
@@ -42,7 +42,7 @@ import { formatCents } from './money';
 
 // ─── Quantity rules ──────────────────────────────────────────────────
 //
-// The arithmetic and the sentences live in @wizeworks/commerce-schemas
+// The arithmetic and the sentences live in @wizeworksllc/commerce-schemas
 // (`quantity-rules.ts`), so a fleet hold refuses in the same words as the cart.
 // Re-exported so callers of this module keep one import.
 export {
@@ -57,7 +57,7 @@ export {
   quantityStep,
   startingQuantity,
   type QuantityRule,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 /** Every version's rule for one account, read in one query. A version with two
  *  override rows takes the oldest that says anything about quantity. */

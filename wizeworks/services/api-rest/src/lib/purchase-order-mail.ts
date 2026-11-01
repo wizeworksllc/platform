@@ -11,9 +11,9 @@
 // no attachment. The MCP tool `email_purchase_order` is the same three steps.
 
 import type { FastifyRequest } from 'fastify';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { inventoryService, type PurchaseOrderDetail } from '@wizeworks/inventory';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { inventoryService, type PurchaseOrderDetail } from '@wizeworksllc/inventory';
 
 import { resolveBusinessIdentity } from './business-identity.js';
 import { toInventoryContext } from './inventory-context.js';

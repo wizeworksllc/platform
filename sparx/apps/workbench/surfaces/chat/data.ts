@@ -21,7 +21,7 @@
 // (lib/api/activity.ts, lib/api/jobs.ts); the socket just makes the common case
 // instant instead of up-to-a-poll late.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { isChatLive } from './live-status';

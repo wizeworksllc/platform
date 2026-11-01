@@ -39,7 +39,7 @@ the real `/builder`.
 
 **What we keep, and why it is not caution.** We keep the _engine_ — the
 `BuilderNode` model ([40](../40-sitebuilder-composition-model.md)), the registry,
-the binding resolver in `@wizeworks/builder-schemas`, the Token Model v2 compile
+the binding resolver in `@wizeworksllc/builder-schemas`, the Token Model v2 compile
 ([33](../33-token-model-v2.md)), and the class-first authoring model
 ([47](../47-class-first-authoring-model.md), [61](../61-utility-authoring-system.md)).
 Rewriting a correct foundation would destroy value and re-incur every

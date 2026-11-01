@@ -27,7 +27,7 @@
 // two in lockstep — they are the same sentence written twice.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { Prisma } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
 
 /**
  * Sellable units for an `inventory_levels` row that the surrounding query MUST

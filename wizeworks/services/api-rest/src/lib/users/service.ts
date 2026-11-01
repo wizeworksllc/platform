@@ -9,13 +9,13 @@
 // Home-tenant names resolve against the non-RLS `tenants` dispatch table with the
 // plain client (no GUC needed) — exactly like the tenant list.
 
-import { prisma, withSystem, type Prisma } from '@wizeworks/db';
+import { prisma, withSystem, type Prisma } from '@wizeworksllc/db';
 import type {
   OperatorUserListItem,
   OperatorUserListResult,
   OperatorUserDetail,
   OperatorUserMembership,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 export interface ListUsersParams {
   q?: string;

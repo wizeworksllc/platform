@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import {
   BOOKING_EMAIL_KEY,

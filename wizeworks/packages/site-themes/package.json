@@ -1,8 +1,7 @@
 {
-  "name": "@wizeworks/site-themes",
+  "name": "@wizeworksllc/site-themes",
   "version": "0.0.0",
-  "private": true,
-  "description": "sparx Site Builder — the tenant theme COMPILER: layers a site's own preset with the tenant brand and presentation overlay into the compiled light+dark theme the storefront renders, plus the platform base a site falls back to. The shipped themes themselves live in @wizeworks/silica-catalog (docs/29-sitebuilder-architecture.md §4).",
+  "description": "sparx Site Builder — the tenant theme COMPILER: layers a site's own preset with the tenant brand and presentation overlay into the compiled light+dark theme the storefront renders, plus the platform base a site falls back to. The shipped themes themselves live in @wizeworksllc/silica-catalog (docs/29-sitebuilder-architecture.md §4).",
   "type": "module",
   "exports": {
     ".": {
@@ -19,8 +18,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/site-themes"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

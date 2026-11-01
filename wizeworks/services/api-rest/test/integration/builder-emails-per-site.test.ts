@@ -18,10 +18,10 @@
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import { DEFAULT_EMAIL_TEMPLATES } from '@wizeworks/builder-schemas';
-import { resetPlatformBusForTesting } from '@wizeworks/crm';
+import { prisma } from '@wizeworksllc/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import { DEFAULT_EMAIL_TEMPLATES } from '@wizeworksllc/builder-schemas';
+import { resetPlatformBusForTesting } from '@wizeworksllc/crm';
 import { createApp } from '../../src/app.js';
 import { registerEmailProvisioningConsumer } from '../../src/lib/email-provisioning.js';
 import { authHeader, signToken, createTestTenant, dropTestTenant } from '../helpers.js';

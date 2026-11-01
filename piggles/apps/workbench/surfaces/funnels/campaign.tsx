@@ -5,7 +5,7 @@
 // A PANE, and creating one is the same pane with `{id:'new'}`. The report sits
 // ABOVE the setup because a campaign is configured once and looked at for months.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect } from 'react';
 import { useToast } from '@wizeworks/silicaui-react';
 import { PANE_SHELL } from '../../components/pane-toolbar';

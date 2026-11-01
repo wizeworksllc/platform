@@ -19,7 +19,7 @@
 // that sends somebody to fix a connection that was never broken has cost them
 // more than saying nothing would have.
 
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 
 export interface WriteFailure {
   /** The sentence shown to the operator. Complete, jargon-free, actionable. */

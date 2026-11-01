@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { TxClient } from '@wizeworks/db';
-import type { PropertyContext } from '@wizeworks/builder';
+import type { TxClient } from '@wizeworksllc/db';
+import type { PropertyContext } from '@wizeworksllc/builder';
 
 const moduleStates = new Map<string, boolean>();
 
-vi.mock('@wizeworks/auth', () => ({
+vi.mock('@wizeworksllc/auth', () => ({
   isModuleEnabled: (_tenantId: string, key: string) =>
     Promise.resolve(moduleStates.get(key) ?? false),
 }));

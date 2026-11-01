@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/marketplace-schemas",
+  "name": "@wizeworksllc/marketplace-schemas",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx Marketplace — Zod schemas + DTO contract for the data-driven, dual-app catalog (docs/60). The normalized MarketplaceListing the browse/detail UI renders, the faceted list response, the browse query, and the publisher + status enums. Zod-only (no DB, no React) so api-rest, the @wizeworks/db seed, the dashboard, and sparx/apps/web can all import it.",
+  "description": "sparx Marketplace — Zod schemas + DTO contract for the data-driven, dual-app catalog (docs/60). The normalized MarketplaceListing the browse/detail UI renders, the faceted list response, the browse query, and the publisher + status enums. Zod-only (no DB, no React) so api-rest, the @wizeworksllc/db seed, the dashboard, and sparx/apps/web can all import it.",
   "type": "module",
   "exports": {
     ".": {

@@ -11,7 +11,7 @@ The Cloud SQL instance is **private-IP only** — you cannot `prisma migrate dep
 
 ```bash
 pnpm db:up                      # docker Postgres
-pnpm --filter @wizeworks/db exec prisma migrate dev --name <change>
+pnpm --filter @wizeworksllc/db exec prisma migrate dev --name <change>
 ```
 
 Edit `wizeworks/packages/db/prisma/schema.prisma`, then re-run `migrate dev`. This writes `wizeworks/packages/db/prisma/migrations/<ts>_<change>/migration.sql`.
@@ -44,8 +44,8 @@ END $$;
 ## 3. Verify no Prisma drift
 
 ```bash
-pnpm --filter @wizeworks/db exec prisma migrate status
-pnpm --filter @wizeworks/db exec prisma validate
+pnpm --filter @wizeworksllc/db exec prisma migrate status
+pnpm --filter @wizeworksllc/db exec prisma validate
 ```
 
 Partial/conditional unique indexes (e.g. `WHERE is_active`) are hand-SQL too — confirm `prisma migrate diff` shows no drift after adding them.

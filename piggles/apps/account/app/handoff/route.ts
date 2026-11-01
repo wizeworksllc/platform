@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { getSession } from '@wizeworks/auth-client-server';
+import { getSession } from '@wizeworksllc/auth-client-server';
 import { mintHandoffUrl } from '@piggles/auth-handoff';
 import { safeInternalPath } from '@piggles/config';
 import { readConsent } from '@/lib/consent';

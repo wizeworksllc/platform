@@ -30,14 +30,14 @@ const crm = vi.hoisted(() => {
   };
 });
 
-vi.mock('@wizeworks/crm', () => crm);
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/crm', () => crm);
+vi.mock('@wizeworksllc/commerce', () => ({
   listFulfillmentLabels: vi.fn(),
   quoteOutboundRates: vi.fn(),
   shippingService: {},
 }));
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: {} }));
-vi.mock('@wizeworks/api-core/auth', () => ({
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: {} }));
+vi.mock('@wizeworksllc/api-core/auth', () => ({
   requireAuth: () => ({ tenantId: 't', actorId: 'u' }),
   requireRole: () => ({ tenantId: 't', actorId: 'u' }),
 }));

@@ -4,11 +4,11 @@
 import { describe, expect, it, vi } from 'vitest';
 
 const reaped: string[] = [];
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   ADVISORY_LOCKS: { RESERVATION_REAPER: 1 },
   withAdvisoryTickLock: (_key: number, _skipped: unknown, fn: () => unknown) => fn(),
 }));
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   commerceSchedulers: {
     listCommerceActiveTenants: () => Promise.resolve([{ id: 't1' }, { id: 't2' }, { id: 't3' }]),
     reapExpiredReservations: ({ tenantId }: { tenantId: string }) => {

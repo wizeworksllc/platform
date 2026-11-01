@@ -10,7 +10,7 @@
 // works with sees a company; a parts wholesaler sees the same record with trade
 // terms on it.
 // The write shapes mirror the CRM's own `CreateCompanyInput` /
-// `UpdateCompanyInput` (Zod in `@wizeworks/crm-schemas`), named locally because
+// `UpdateCompanyInput` (Zod in `@wizeworksllc/crm-schemas`), named locally because
 // that package is not a dependency of this app; the server runs that Zod and has
 // the final say on anything malformed.
 //
@@ -19,14 +19,14 @@
 //   ['crm','accounts', id]          one account, in full
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
-import type { CompanyStatus, PaymentTerms } from '@wizeworks/crm-schemas';
+import type { CompanyStatus, PaymentTerms } from '@wizeworksllc/crm-schemas';
 import { api } from '../../lib/api/client';
 import { formatAmount } from '../../lib/money-format';
 
-// The status + payment-terms enums come straight from `@wizeworks/crm-schemas` (the
+// The status + payment-terms enums come straight from `@wizeworksllc/crm-schemas` (the
 // server's Zod), so they can't drift. `AccountInput` below stays a local, narrow
 // write PAYLOAD on purpose (the `DiscountInput` house pattern): the full
 // `CreateCompanyInput` requires a defaulted `engineProfiles: []`, and because
@@ -101,7 +101,7 @@ export const ACCOUNT_STATUSES: CompanyStatus[] = ['active', 'credit_hold', 'susp
  *      them under this sentence and a green badge.
  *    - Suspended said "cannot order". It can still buy paying up front.
  *    - Inactive said "not trading", and nothing in the order path read the
- *      state at all. It does now (`account-order-gate.ts` in @wizeworks/crm), so
+ *      state at all. It does now (`account-order-gate.ts` in @wizeworksllc/crm), so
  *      this sentence became true rather than being reworded around.
  *    - Active said "Whether they can order on terms depends on the credit limit
  *      below", which was true while an order past the limit was REFUSED. It now

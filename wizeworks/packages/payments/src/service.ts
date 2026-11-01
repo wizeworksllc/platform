@@ -4,7 +4,7 @@
 // Pay; for sparx Pay it's actually collected in Stripe via application_fee_amount —
 // this row is informational, the source of truth for "what sparx earned").
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { getGatewayDescriptor } from './catalog';
 import { sparxPayFeeCents } from './fee';

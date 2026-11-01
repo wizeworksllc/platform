@@ -6,7 +6,7 @@
 // box that moves it reads that. A booking, series or waiting-list entry that does
 // NOT exist yet has no zone of its own, so the box has to work out the one the
 // server will give it, by the same rule the server uses
-// (`findBookingPlaceTx` in @wizeworks/scheduling):
+// (`findBookingPlaceTx` in @wizeworksllc/scheduling):
 //
 //   1. the service's own place, when it has one, and that place's zone;
 //   2. otherwise the business's only active place, when it has exactly one;

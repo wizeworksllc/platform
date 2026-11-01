@@ -3,7 +3,7 @@
 // silica's engine now OWNS the base security floor (deny `fixed` / arbitrary
 // `z-[…]` / `content-[…]` / `url(…)`) as its built-in, unconditional first gate
 // (silicaui-html `class-policy.ts`). So sparx no longer carries that denylist —
-// `@wizeworks/surface-compile`'s `allowlist.ts` retires with the per-tenant compiler.
+// `@wizeworksllc/surface-compile`'s `allowlist.ts` retires with the per-tenant compiler.
 // All the host contributes is a tenant's OPTIONAL tighten rules, which compose
 // ON TOP of the floor (add-only; the insecure "loosen the floor" state is
 // unrepresentable — silica's `buildClassValidator` ANDs with the floor).

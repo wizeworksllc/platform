@@ -11,7 +11,7 @@
 // a failed write leaves a harmless orphan, never a row pointing at a missing object.
 
 import type { Readable } from 'node:stream';
-import type { MarketplaceCategory } from '@wizeworks/marketplace-schemas';
+import type { MarketplaceCategory } from '@wizeworksllc/marketplace-schemas';
 
 import { getStorage, marketplaceArtifactKey } from '../storage.js';
 

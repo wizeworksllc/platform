@@ -17,8 +17,13 @@
 // seven real hours that day, and a promise measured in real time is kept or
 // missed in real time.
 
-import type { LocalCalendarParts } from '@wizeworks/time';
-import { formatLocalDate, localCalendarParts, localWallToUtc, nextLocalDay } from '@wizeworks/time';
+import type { LocalCalendarParts } from '@wizeworksllc/time';
+import {
+  formatLocalDate,
+  localCalendarParts,
+  localWallToUtc,
+  nextLocalDay,
+} from '@wizeworksllc/time';
 
 const MS_PER_MINUTE = 60_000;
 

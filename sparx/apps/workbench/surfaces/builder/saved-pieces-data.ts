@@ -15,19 +15,19 @@
 // only resolves WHICH tenant; the pieces themselves are shared across sites.
 //
 // Unlike the content API (snake_case), the builder component DTOs come off the
-// wire in camelCase — see `toSummary`/`toDto` in @wizeworks/builder's
+// wire in camelCase — see `toSummary`/`toDto` in @wizeworksllc/builder's
 // component-service. We carry those names verbatim rather than re-mapping, so
 // there is one spelling of each field between the server and the screen, and we
-// carry the SHAPE only — no @wizeworks/builder-schemas dependency in the workbench.
+// carry the SHAPE only — no @wizeworksllc/builder-schemas dependency in the workbench.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import type { Placement } from './saved-piece-usage-words';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 
-/* ── Shapes (mirrors of @wizeworks/builder-schemas DTOs, carried not imported) ── */
+/* ── Shapes (mirrors of @wizeworksllc/builder-schemas DTOs, carried not imported) ── */
 
 /** What a piece IS, as a category — how the builder's Add palette files it. */
 export type PieceGroup = 'layout' | 'content' | 'data';

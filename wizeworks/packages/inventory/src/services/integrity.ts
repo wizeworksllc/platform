@@ -25,9 +25,9 @@
 // human act (post a count). And an incident write must never be able to fail the
 // sale it is describing; see `recordOversellIncidentDetached`.
 
-import { RunReconciliationInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { RunReconciliationInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

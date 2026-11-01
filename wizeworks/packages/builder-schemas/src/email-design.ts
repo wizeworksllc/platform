@@ -2,7 +2,7 @@
 // independent of the tenant brand (which only swaps font-family + colors, never
 // the size scale). This is the single source of truth shared by BOTH ends of the
 // email pipeline:
-//   · the real renderer — `@wizeworks/email`'s primitives (`components/tokens.ts`
+//   · the real renderer — `@wizeworksllc/email`'s primitives (`components/tokens.ts`
 //     re-exports these as `typography` / `spacing` / `colors` / `radius` /
 //     `fontFamily`), inlined onto table-based React Email markup at send;
 //   · the Email Builder CANVAS preview — `apps/dashboard`'s email leaf renderer,

@@ -1,26 +1,26 @@
 @import 'tailwindcss';
 
 /* ── silicaui migration: coexistence layer ───────────────────────────────────
-   sparx/apps/web is migrating off @wizeworks/ui onto silicaui (see
+   sparx/apps/web is migrating off @wizeworksllc/ui onto silicaui (see
    project_silicaui_migration). During the migration BOTH token systems load:
      • @sparx/brand/theme.css — the sparx brand as silicaui tokens (the base-100/
        200/300 surface ramp, the semantic palette, and the --color-module-*
        identity hues). Sole source for silicaui's surface ramp + module hues.
-     • @wizeworks/ui/tokens.css — the legacy tokens the un-migrated @wizeworks/ui
+     • @wizeworksllc/ui/tokens.css — the legacy tokens the un-migrated @wizeworksllc/ui
        components + the marketing.css `--color-*` classes still read.
-   Brand is imported FIRST so @wizeworks/ui stays authoritative for the SHARED
+   Brand is imported FIRST so @wizeworksllc/ui stays authoritative for the SHARED
    semantic names during coexistence (identical values in light, so nothing
-   shifts). Phase 3 deletes @wizeworks/ui/tokens.css and brand becomes sole. */
+   shifts). Phase 3 deletes @wizeworksllc/ui/tokens.css and brand becomes sole. */
 @import '@sparx/brand/theme.css';
 /* Rules that close a hole in a silicaui component — see the file header. */
-@import '@wizeworks/silica-corrections/silica-gaps.css';
-@import '@wizeworks/silica-corrections/toast.css';
+@import '@wizeworksllc/silica-corrections/silica-gaps.css';
+@import '@wizeworksllc/silica-corrections/toast.css';
 /* SparkMascot motion — the idle bob, the blink, the wink, and the footer peek.
    marketing.css carried its own copy of the first three for a while; the
    canonical set lives beside the component in @sparx/brand, so the mascot moves
    the same way here, in market, and in the workbench. */
 @import '@sparx/brand/mascot.css';
-@import '@wizeworks/ui/tokens.css';
+@import '@wizeworksllc/ui/tokens.css';
 
 /* silicaui is the incoming component layer — a Tailwind v4 plugin whose semantic
    classes (`.btn`, `.badge`, `.card`, the universal `soft`/`bg-soft` treatment)
@@ -136,27 +136,27 @@
   --color-base-content: var(--color-base-content);
 }
 
-/* Tailwind v4 needs to see @wizeworks/ui sources so utility classes used inside the
+/* Tailwind v4 needs to see @wizeworksllc/ui sources so utility classes used inside the
    (still-present) library are emitted in this app's CSS bundle. Removed in
-   Phase 3 with @wizeworks/ui itself. silicaui-react emits only plugin classes. */
+   Phase 3 with @wizeworksllc/ui itself. silicaui-react emits only plugin classes. */
 @source '../../../packages/ui/src/**/*.{ts,tsx}';
 
-/* @wizeworks/chat-widget (the marketplace "Chat with {publisher}" CTA panel) —
+/* @wizeworksllc/chat-widget (the marketplace "Chat with {publisher}" CTA panel) —
    same reasoning: raw Tailwind utilities, no CSS of its own. */
-@source '../node_modules/@wizeworks/chat-widget/src/**/*.{ts,tsx}';
+@source '../node_modules/@wizeworksllc/chat-widget/src/**/*.{ts,tsx}';
 
 /* Silica catalog vocabulary — the marketplace COMPONENT previews (docs/118) render
    real silica sections IN-BROWSER via `renderSilicaBody`, injecting class strings
-   authored in @wizeworks/silica-catalog (grid-cols-*, @container, aspect-square, snap-x,
+   authored in @wizeworksllc/silica-catalog (grid-cols-*, @container, aspect-square, snap-x,
    rounded-box, the `card`/`navbar` component classes, …). Tailwind only emits classes
    it SCANS in source, and the injected trees aren't source — so without these @source
    scans the previews render unstyled. Mirrors the storefront's harness (wizeworks/apps/site):
    the builder-vocabulary import safelists the DECLARED layout vocabulary (col-span-*,
    order-*, …) an author can compose fresh, and the two @source scans pick up every
    literal class the shipped sections + silicaui-html macros already wear. */
-@import '@wizeworks/silica-catalog/builder-vocabulary.css';
+@import '@wizeworksllc/silica-catalog/builder-vocabulary.css';
 
-@source '../node_modules/@wizeworks/silica-catalog/src/**/*.{ts,tsx}';
+@source '../node_modules/@wizeworksllc/silica-catalog/src/**/*.{ts,tsx}';
 @source '../node_modules/@wizeworks/silicaui-html/dist/**/*.js';
 
 /* Colors are owned entirely by silicaui (the @plugin registers the semantic +

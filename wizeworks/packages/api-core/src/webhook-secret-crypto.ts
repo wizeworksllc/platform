@@ -6,7 +6,7 @@
 // in the database as plaintext. This module encrypts it on write and decrypts
 // it at delivery time (and for the redacted UI preview).
 //
-// Bundle format mirrors @wizeworks/integration-framework's secret-crypto: an
+// Bundle format mirrors @wizeworksllc/integration-framework's secret-crypto: an
 // `enc:iv.tag.cipher` ref (12-byte random GCM nonce + 16-byte auth tag +
 // ciphertext, all base64), prefixed so decrypt can tell an encrypted value
 // from a legacy plaintext one. GCM authenticates on decrypt, so a tampered

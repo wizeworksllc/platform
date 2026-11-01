@@ -3,7 +3,7 @@
  * CSS layer precedence is set by the order in which layer names are FIRST seen.
  * silicaui emits ALL of its output — design tokens AND component rules (`.btn`,
  * `.card`, `.alert`, …) — through Tailwind's `addBase`, so it lands in `@layer
- * base` (NOT `components`, the way the pre-migration @wizeworks/ui did). `components`
+ * base` (NOT `components`, the way the pre-migration @wizeworksllc/ui did). `components`
  * is kept in the order as a harmless slot for any future `addComponents` output.
  *
  * The `sparx` theme block (@sparx/brand/theme.css) is UNLAYERED, so its

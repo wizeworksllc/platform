@@ -9,7 +9,7 @@
 // tenant's Search Console. `access_type=offline` + `prompt=consent` so Google
 // always returns a refresh token the nightly job can use unattended.
 
-import { badRequest } from '@wizeworks/api-core/errors';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import { env } from '../../env.js';
 import { isTokenCryptoConfigured } from './crypto.js';

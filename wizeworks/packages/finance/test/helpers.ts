@@ -1,4 +1,4 @@
-// Per-test fixtures for @wizeworks/finance integration tests.
+// Per-test fixtures for @wizeworksllc/finance integration tests.
 //
 // Every test gets a fresh tenant with a primary site. Teardown is a single
 // tenant delete — every finance table cascades from `tenant_id`, which is also a
@@ -8,7 +8,7 @@
 
 import crypto from 'node:crypto';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 export interface TestTenant {
   tenantId: string;

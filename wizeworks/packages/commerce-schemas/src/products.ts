@@ -8,7 +8,7 @@
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 import { PlainTextField } from './plain-text';
 import { ProductRepeatOptions } from './repeat';
@@ -39,7 +39,7 @@ export const ProductTypeKey = z
   .regex(/^[a-z][a-z0-9_]*$/, 'Product type key must be lower_snake_case.');
 
 // The raw attribute bag at the wire. The service validates its SHAPE against the
-// resolved product type's `attributeSchema` (@wizeworks/field-schema bodyValidatorFor);
+// resolved product type's `attributeSchema` (@wizeworksllc/field-schema bodyValidatorFor);
 // here it is just "a JSON object", because the schema is per-tenant DB data.
 export const AttributesBag = z.record(z.string(), z.unknown());
 export type AttributesBag = z.infer<typeof AttributesBag>;

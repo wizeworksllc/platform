@@ -3,7 +3,7 @@
 **Status:** fixed and proven
 **Severity:** critical
 **Found by:** Devi, reading an order with an invoice on it
-**Surface:** `@wizeworks/crm` billing services, `crm-schemas`, api-rest invoicing route + saved-view presets
+**Surface:** `@wizeworksllc/crm` billing services, `crm-schemas`, api-rest invoicing route + saved-view presets
 **Filed:** 2026-09-15
 
 ## What she saw

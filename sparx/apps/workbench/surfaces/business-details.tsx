@@ -13,7 +13,7 @@
 
 import { CountryField } from '../components/country-field';
 import { useEffect, useMemo, useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import {
   Button,
   Checkbox,

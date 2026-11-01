@@ -22,12 +22,12 @@ const giftCard = {
 const giftCardTransaction = { create: vi.fn().mockResolvedValue({}) };
 const recordPayment = vi.fn().mockResolvedValue({});
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(fn({ giftCard, giftCardTransaction })),
 }));
-vi.mock('@wizeworks/crm', () => ({ orderPaymentsService: { recordPayment } }));
+vi.mock('@wizeworksllc/crm', () => ({ orderPaymentsService: { recordPayment } }));
 vi.mock('../events', () => ({
   publishCommerceEvent: vi.fn().mockResolvedValue(undefined),
   indexCommerceEntity: vi.fn().mockResolvedValue(undefined),

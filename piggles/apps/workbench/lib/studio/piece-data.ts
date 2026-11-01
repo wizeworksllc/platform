@@ -9,8 +9,8 @@
 // the only thing that tells them apart — so every write here routes on it rather
 // than asking the caller to remember which kind it is holding.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import type { SilicaPieceDto } from '@wizeworks/builder-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import type { SilicaPieceDto } from '@wizeworksllc/builder-schemas';
 import type { Node } from '@wizeworks/silicaui-html';
 import { api } from '../api/client';
 import { pieceKeyOf, tenantSymbolId } from './saved-pieces';

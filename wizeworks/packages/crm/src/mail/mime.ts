@@ -1,7 +1,7 @@
 // Reading real mail (docs/144 §5.3) — headers, encodings, and MIME bodies.
 //
 // PURE, and hand-written rather than pulled from a dependency, for the same
-// reason `@wizeworks/scheduling` hand-writes its iCal and CalDAV XML parsers: the
+// reason `@wizeworksllc/scheduling` hand-writes its iCal and CalDAV XML parsers: the
 // subset the platform needs is small and stable, the general libraries are
 // large and carry their own transitive surface, and a parser we own is a parser
 // we can fix on a Tuesday.

@@ -1,21 +1,21 @@
-// @wizeworks/email-sends — the email enqueue primitive.
+// @wizeworksllc/email-sends — the email enqueue primitive.
 //
 // The email module's send pipeline is: a `ScheduledSend` row (pending, due_at) →
 // the api-rest `email-dispatch` tick (lib/email-dispatch.ts) marks it sent and
 // publishes an `email.send` Pub/Sub event → email-worker renders + delivers.
 // `enqueueSend` is the PRODUCER side of that pipeline: suppression-check, then
-// write one ScheduledSend row. It deliberately depends on NOTHING but @wizeworks/db
-// (no @wizeworks/email render lib, no React) so a backend worker — the
+// write one ScheduledSend row. It deliberately depends on NOTHING but @wizeworksllc/db
+// (no @wizeworksllc/email render lib, no React) so a backend worker — the
 // automation-worker's email.send_campaign / send_internal executors — can enqueue
 // a send without pulling the whole email-platform UI/render closure into its
-// image. @wizeworks/email-platform owns the management surface (templates, broadcasts,
+// image. @wizeworksllc/email-platform owns the management surface (templates, broadcasts,
 // automations); this owns only the queue write the engine needs.
 //
 // The body mirrors the `SendPayload` the dispatch tick decodes: a coded
 // `template` + props, a pre-rendered `raw` body, or a `defer` reference to a
 // published Builder email rendered per-recipient at dispatch (docs/52 §6).
 
-import { withTenant, type Prisma, type TenantContext } from '@wizeworks/db';
+import { withTenant, type Prisma, type TenantContext } from '@wizeworksllc/db';
 
 /**
  * A `defer` body references a published Builder email, rendered per-recipient at
@@ -43,7 +43,7 @@ export interface DeferBody {
  *  dispatcher, which knows the business's console address, turns it into a link;
  *  the code that writes the alert does not (sparx persona issue 331). */
 export interface RecordLink {
-  /** A surface key from `@wizeworks/links` ROUTES, e.g. `commerce.order.detail`. */
+  /** A surface key from `@wizeworksllc/links` ROUTES, e.g. `commerce.order.detail`. */
   surface: string;
   id: string;
   /** The route's parameter name. Absent means `id`. */

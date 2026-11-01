@@ -10,7 +10,7 @@ import { existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { RECORD_ADDRESSES } from '@wizeworks/silica-catalog';
+import { RECORD_ADDRESSES } from '@wizeworksllc/silica-catalog';
 import { describe, expect, it } from 'vitest';
 
 const app = dirname(fileURLToPath(import.meta.url));

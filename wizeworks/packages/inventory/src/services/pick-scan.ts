@@ -16,9 +16,9 @@
 // exactly that, and a workflow that accepts a mismatch has spent the trigger pull
 // for nothing.
 
-import { ScanToPackInput, ScanToPickInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { ScanToPackInput, ScanToPickInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryConflictError, InventoryNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

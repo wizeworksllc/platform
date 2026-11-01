@@ -1,15 +1,15 @@
-// @wizeworks/provider-avalara — Avalara AvaTax TaxProvider. Enterprise tier
+// @wizeworksllc/provider-avalara — Avalara AvaTax TaxProvider. Enterprise tier
 // with global jurisdiction coverage and detailed audit trails.
 
-import type { TaxBreakdown, TaxCalculationRequest } from '@wizeworks/commerce-schemas';
-import { ProviderUnsupportedError, registerProvider } from '@wizeworks/integration-framework';
+import type { TaxBreakdown, TaxCalculationRequest } from '@wizeworksllc/commerce-schemas';
+import { ProviderUnsupportedError, registerProvider } from '@wizeworksllc/integration-framework';
 import type {
   NormalizedAddress,
   ProviderBundle,
   ProviderMetadataDescriptor,
   ProviderRunContext,
   TaxProvider,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 
 const AVALARA_SLUG = 'avalara';
 

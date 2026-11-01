@@ -1,11 +1,11 @@
 // TipTap document kit for authoring sample article bodies.
 //
 // A `rich_text` content field stores a TipTap/ProseMirror doc
-// (`{ type: 'doc', content: [...] }`, validated by @wizeworks/cms-schemas). These
+// (`{ type: 'doc', content: [...] }`, validated by @wizeworksllc/cms-schemas). These
 // helpers keep pack articles readable — `doc(h2('…'), p('…'), ul('a','b'))` —
 // instead of hand-writing node JSON. Only StarterKit node types are emitted
 // (paragraph, heading, bullet/ordered list, blockquote, text + hardBreak), which
-// every sparx prose renderer + @wizeworks/cms-editor serializer understands.
+// every sparx prose renderer + @wizeworksllc/cms-editor serializer understands.
 
 interface ProseNode {
   type: string;

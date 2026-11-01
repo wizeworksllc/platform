@@ -9,7 +9,7 @@
 > **⚠️ Superseded for COMMERCE payments (Part B) and the transaction fee.**
 > The commerce payment architecture in this doc — `@sparx/provider-stripe`, the
 > per-installation webhook B-G1, the sparx Pay Connect onboarding B-G2.1 — has been
-> **rebuilt** as the vendor-agnostic `@wizeworks/payments` gateway. See
+> **rebuilt** as the vendor-agnostic `@wizeworksllc/payments` gateway. See
 > [docs/94-ADR-payment-gateway.md](94-ADR-payment-gateway.md), the authority for
 > everything tenant→shopper.
 >
@@ -19,7 +19,7 @@
 > time via Stripe `application_fee_amount` and recorded on `payment_intents.platform_fee`
 > (docs/94 §8).
 >
-> **Part A below — platform module billing (`@wizeworks/billing`) — remains current**, minus
+> **Part A below — platform module billing (`@wizeworksllc/billing`) — remains current**, minus
 > the fee rows.
 >
 > **Reconciled 2026-07-22 (docs-vs-built audit):** `apps/dashboard` was deleted and
@@ -33,7 +33,7 @@
 
 ## Purpose
 
-The single source of truth for **Part A platform module billing** (`@wizeworks/billing`,
+The single source of truth for **Part A platform module billing** (`@wizeworksllc/billing`,
 WizeWorks→tenant) — what's built, what's left, and the exact ops to go live. It
 inventories every Stripe object we need, maps what the connected account has today, and
 sequences the remaining code + ops into checklists. When an item lands, flip its box
@@ -63,11 +63,11 @@ no account, and no code path — conflating them is the classic footgun.
 | -------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | Who pays whom  | tenant → **WizeWorks** (us)                         | shopper → **tenant**                                                                     |
 | Stripe account | one platform account (`STRIPE_SECRET_KEY`)          | sparx Pay = platform account (Connect destination charges); Stripe Direct = tenant's own |
-| Code           | `@wizeworks/billing`                                | `@wizeworks/payments` (gateway abstraction — docs/94)                                    |
+| Code           | `@wizeworksllc/billing`                             | `@wizeworksllc/payments` (gateway abstraction — docs/94)                                 |
 | What           | per-module subscriptions                            | sparx Pay / Stripe Direct at checkout + invoice pay-links + B2B card                     |
 | API version    | `2024-11-20.acacia`                                 | `2024-11-20.acacia`                                                                      |
 | Webhook        | `…/v1/public/webhooks/stripe/billing`               | `…/v1/public/webhooks/{sparx-pay,stripe-direct}`                                         |
-| Status         | engine built; **not yet provisioned/live** (Part A) | re-architected on `@wizeworks/payments` — see docs/94                                    |
+| Status         | engine built; **not yet provisioned/live** (Part A) | re-architected on `@wizeworksllc/payments` — see docs/94                                 |
 
 Platform fee: the only payment fee is **sparx Pay's flat 0.5%**, taken at charge time
 via `application_fee_amount` (docs/94 §8). There is no metered transaction fee.
@@ -84,7 +84,7 @@ Part B Connect surface. Part A is no longer subscriptions-only; see **§11**.
 
 | Area                                               | Status | Note                                                                                                                                                                                                  |
 | -------------------------------------------------- | :----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Billing engine (`@wizeworks/billing`)              |   ✅   | Customer/subscription sync, webhook reconcile, portal, state read — built                                                                                                                             |
+| Billing engine (`@wizeworksllc/billing`)           |   ✅   | Customer/subscription sync, webhook reconcile, portal, state read — built                                                                                                                             |
 | ~~Phase 7 transaction fee~~                        |   ❌   | **REMOVED** — no tiers, only modules. sparx Pay's flat 0.5% (charge-time `application_fee`) is the only payment fee (docs/94 §8)                                                                      |
 | Module Products + Prices in Stripe                 |   ✅   | Verified 2026-07-22 in `acct_1Tn6PfFY8gqB2fvj`: 13 products + 26 prices, correct lookup_keys + amounts (§4)                                                                                           |
 | Billing **webhook endpoint** + secret              |   ⬜   | None — subscription/invoice events won't reach us (§6)                                                                                                                                                |
@@ -215,14 +215,14 @@ Plus two non-module prices:
 
 ## 5. Code work remaining
 
-| #   | Change                                                                                                                                                                                                                                                                            | File(s)                                                                                                        | Done |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | :--: |
-| C1  | Add `STRIPE_PRICE_TRANSACTION_FEE` accessor (the metered price id)                                                                                                                                                                                                                | `wizeworks/packages/billing/src/price-catalog.ts`                                                              |  ✅  |
-| C2  | `syncModuleItems` attaches the transaction-fee metered item to every subscription it creates/reconciles (create path + existing-sub reconcile path)                                                                                                                               | `wizeworks/packages/billing/src/service.ts`                                                                    |  ✅  |
-| C3  | Provisioning script — idempotent create/update of products, prices, meter, metered price, portal config + webhook keyed by deterministic `lookup_key`/metadata; prints the env block to paste into Secret Manager. **Built** — run it (ops, §7) with the sandbox key.             | `wizeworks/packages/billing/scripts/provision-stripe.ts` (`pnpm --filter @wizeworks/billing provision-stripe`) |  ✅  |
-| C4  | Phase 3 — `TrialStatusBanner` (trial-ending / past-due / scheduled-cancel) on the billing page; "choose plan" done Stripe-native via portal `subscription_update` (module products + both intervals) — no duplicate custom plan UI. _Now shipped as the workbench chrome banner._ | `sparx/apps/workbench/components/billing/billing-banner.tsx` + `trial-chip.tsx`, `provision-stripe.ts`         |  ✅  |
-| C5  | Phase 8 — enterprise: `EnterprisePlanCard` + `planType` in `getBillingState` (reads `settings.billing.planType`, no migration) + runbook (§10)                                                                                                                                    | `enterprise-plan-card.tsx`, `wizeworks/packages/billing/src/service.ts`, docs §10                              |  ✅  |
-| C6  | Behaviour tests (mock Stripe + `@wizeworks/db`) — `recordTransactionFee` tiers/guards, `reconcileFromSubscription` flag sync, `syncModuleItems` fee-item attach. _DB-backed integration stays CI-only._                                                                           | `wizeworks/packages/billing/src/service.behavior.test.ts`                                                      |  ✅  |
+| #   | Change                                                                                                                                                                                                                                                                            | File(s)                                                                                                           | Done |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | :--: |
+| C1  | Add `STRIPE_PRICE_TRANSACTION_FEE` accessor (the metered price id)                                                                                                                                                                                                                | `wizeworks/packages/billing/src/price-catalog.ts`                                                                 |  ✅  |
+| C2  | `syncModuleItems` attaches the transaction-fee metered item to every subscription it creates/reconciles (create path + existing-sub reconcile path)                                                                                                                               | `wizeworks/packages/billing/src/service.ts`                                                                       |  ✅  |
+| C3  | Provisioning script — idempotent create/update of products, prices, meter, metered price, portal config + webhook keyed by deterministic `lookup_key`/metadata; prints the env block to paste into Secret Manager. **Built** — run it (ops, §7) with the sandbox key.             | `wizeworks/packages/billing/scripts/provision-stripe.ts` (`pnpm --filter @wizeworksllc/billing provision-stripe`) |  ✅  |
+| C4  | Phase 3 — `TrialStatusBanner` (trial-ending / past-due / scheduled-cancel) on the billing page; "choose plan" done Stripe-native via portal `subscription_update` (module products + both intervals) — no duplicate custom plan UI. _Now shipped as the workbench chrome banner._ | `sparx/apps/workbench/components/billing/billing-banner.tsx` + `trial-chip.tsx`, `provision-stripe.ts`            |  ✅  |
+| C5  | Phase 8 — enterprise: `EnterprisePlanCard` + `planType` in `getBillingState` (reads `settings.billing.planType`, no migration) + runbook (§10)                                                                                                                                    | `enterprise-plan-card.tsx`, `wizeworks/packages/billing/src/service.ts`, docs §10                                 |  ✅  |
+| C6  | Behaviour tests (mock Stripe + `@wizeworksllc/db`) — `recordTransactionFee` tiers/guards, `reconcileFromSubscription` flag sync, `syncModuleItems` fee-item attach. _DB-backed integration stays CI-only._                                                                        | `wizeworks/packages/billing/src/service.behavior.test.ts`                                                         |  ✅  |
 
 > ✅ C1 + C2 landed — Phase 7 now bills end-to-end **once the meter + metered price
 > are provisioned (C3)**. The fee item rides every subscription create + reconcile.
@@ -346,7 +346,7 @@ through sparx, WizeWorks bills the **tenant's saved payment method** for the dom
 — tenant → WizeWorks — **not** the commerce/Connect surface (Part B). Conflating them
 is the footgun this doc opens with: a domain charge runs on `STRIPE_SECRET_KEY` (the
 platform account + the tenant's platform `stripe_customer_id`), and must **never** go
-through `@wizeworks/payments` / sparx Pay, which is shoppers → tenants.
+through `@wizeworksllc/payments` / sparx Pay, which is shoppers → tenants.
 
 **Why it's blocked today.** A domain registration is a HARD pass-through cost: the
 instant we call the registrar's `purchaseDomain`, ICANN/the registrar bills the sparx
@@ -369,13 +369,13 @@ domain checkout is gated OFF.
   are never gated.
 
 > **Registrar note:** the registrar itself is now abstracted behind the
-> `@wizeworks/registrar` `RegistrarClient` contract (GoDaddy today; name.com next). The
+> `@wizeworksllc/registrar` `RegistrarClient` contract (GoDaddy today; name.com next). The
 > registrar swap and the billing seam are independent — none of the above changes when
 > the provider does.
 
 **Requirements for the Stripe build (to open domain checkout):**
 
-1. **Expose a reusable off-session charge helper on `@wizeworks/billing`** — e.g.
+1. **Expose a reusable off-session charge helper on `@wizeworksllc/billing`** — e.g.
    `chargeTenantOffSession({ tenantId, amountCents, description, idempotencyKey })`:
    resolve the tenant's platform `stripe_customer_id` + default payment method, create
    **and confirm** an **off-session** PaymentIntent, throw on decline. Plus

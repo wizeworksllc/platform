@@ -15,9 +15,9 @@ import type {
   CreatePipelineStageInput,
   CreateSegmentInput,
   SegmentRule,
-} from '@wizeworks/crm-schemas';
-import type { TenantContext } from '@wizeworks/db';
-import { definePreset, type ModulePreset } from '@wizeworks/modules';
+} from '@wizeworksllc/crm-schemas';
+import type { TenantContext } from '@wizeworksllc/db';
+import { definePreset, type ModulePreset } from '@wizeworksllc/modules';
 
 import { pipelineService, segmentService } from '../services/index';
 

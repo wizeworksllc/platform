@@ -14,7 +14,7 @@
 
 import { describe, expect, it, vi, beforeEach, type Mock } from 'vitest';
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: {},
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) => fn(globalThis.__tx),
 }));

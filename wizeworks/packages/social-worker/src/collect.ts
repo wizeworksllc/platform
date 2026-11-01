@@ -8,11 +8,11 @@
 // never failing the batch. Each collect writes a fresh snapshot row (a time series), so
 // running it again an hour/day later captures the numbers as they matured.
 
-import { withTenant } from '@wizeworks/db';
-import { getSocialAdapter, type SocialPlatform, type SocialTargetRef } from '@wizeworks/social';
-import { registerBuiltinSocialAdapters } from '@wizeworks/social/adapters';
-import { isSocialTokenCryptoConfigured } from '@wizeworks/social/crypto';
-import type { SocialPostMetrics } from '@wizeworks/social';
+import { withTenant } from '@wizeworksllc/db';
+import { getSocialAdapter, type SocialPlatform, type SocialTargetRef } from '@wizeworksllc/social';
+import { registerBuiltinSocialAdapters } from '@wizeworksllc/social/adapters';
+import { isSocialTokenCryptoConfigured } from '@wizeworksllc/social/crypto';
+import type { SocialPostMetrics } from '@wizeworksllc/social';
 import type { Logger } from 'pino';
 
 import { resolveSocialAuth } from './auth.js';

@@ -26,7 +26,7 @@ import {
   type ConditionGroup,
   evaluateConditions,
   type ResolvedFields,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 
 export const ACCOUNT_SET_UP_TO_DO: ConditionGroup = {
   logic: 'OR',

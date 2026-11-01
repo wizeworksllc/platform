@@ -7,7 +7,7 @@
 // buyer who ships now pays $600.00 + $150.00 rather than $730.15. That has to be
 // said on the row before anything changes, or the owner finds out from a buyer.
 
-import type { CoreChoiceCandidate } from '@wizeworks/commerce-schemas';
+import type { CoreChoiceCandidate } from '@wizeworksllc/commerce-schemas';
 import { describe, expect, it } from 'vitest';
 
 import {

@@ -9,7 +9,7 @@
 //
 // Pure, so the order can be tested without a database.
 
-import { isSampleRow } from '@wizeworks/db';
+import { isSampleRow } from '@wizeworksllc/db';
 
 export interface ChannelCandidate {
   id: string;

@@ -22,7 +22,7 @@ import {
   runAutomationTick,
   type EngineDeps,
   type TriggerEnvelope,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { installModuleActions, seedSystemAutomations } from '../../src/index.js';
@@ -141,7 +141,7 @@ describe('payment failed → in-app notification', () => {
     expect(n.severity).toBe('danger');
     expect(n.module).toBe('commerce');
     // LOWERCASE, and that is the whole point of the field. `entityType` is not a
-    // label — it is the key `routeForEntity` looks up in @wizeworks/links to work
+    // label — it is the key `routeForEntity` looks up in @wizeworksllc/links to work
     // out where the notification LEADS, and every one of the 28 entity keys there
     // is lowercase (`order`, `gift_card`, `cms_page`). Asserting 'Order' asked the
     // seed to write a value that resolves to nothing, which would turn the bell

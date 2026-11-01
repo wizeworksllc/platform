@@ -8,7 +8,7 @@
 // authoritative Zod pass. The slug rides as a hidden form field.
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 const API_BASE = process.env.SPARX_API_REST_URL ?? 'http://localhost:3100';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

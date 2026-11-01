@@ -7,7 +7,7 @@
 // often large, and audit forensics cares about what was requested, not what
 // came back.
 
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 interface AuditArgs {
   tenantId: string;

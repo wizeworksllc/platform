@@ -40,7 +40,7 @@
 // and sends them back untouched. Editing a subset must never silently delete
 // the rest.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useCallback, useMemo, useState } from 'react';
 import { useViewParamHandle } from '../../lib/workbench/view-param';
 import { PaneWaiting } from '../../components/pane-waiting';

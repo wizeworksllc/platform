@@ -10,10 +10,10 @@
 // promised from here on and leaves what was already promised alone — which is
 // the only version a business can defend to a customer.
 
-import { CreateSlaPolicyInput, UpdateSlaPolicyInput } from '@wizeworks/crm-schemas';
-import { DEFAULT_SLA_POLICY_TEMPLATE } from '@wizeworks/crm-schemas/builtins';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TicketSlaPolicy, TicketSlaTarget } from '@wizeworks/db';
+import { CreateSlaPolicyInput, UpdateSlaPolicyInput } from '@wizeworksllc/crm-schemas';
+import { DEFAULT_SLA_POLICY_TEMPLATE } from '@wizeworksllc/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TicketSlaPolicy, TicketSlaTarget } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

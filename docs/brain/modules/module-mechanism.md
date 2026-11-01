@@ -5,6 +5,7 @@ type: pattern
 status: active
 applies-to: [dashboard]
 sources:
+  - wizeworks/packages/module-roster/src/index.ts
   - wizeworks/packages/modules/src/index.ts
   - wizeworks/packages/auth/src/module-gate.ts
   - apps/dashboard/app/(dashboard)/_shell/registry.ts
@@ -12,7 +13,7 @@ sources:
 
 A module is defined in **one canonical place** and referenced from several registries that must agree.
 
-- **Registry:** `ModuleSlug` + `ALL_MODULES` in `wizeworks/packages/modules/src/index.ts` — the closed set of 12. `BUNDLED_FREE` (invoicing + inventory ride free on commerce/b2b) and `REQUIRES` (b2b needs commerce) live here too.
+- **Registry:** `ModuleSlug` + `ALL_MODULES` in `wizeworks/packages/module-roster/src/index.ts` — the closed set of 12. `BUNDLED_FREE` (invoicing + inventory ride free on commerce/b2b) and `REQUIRES` (b2b needs commerce) live here too.
 - **Flag:** enabled at `tenants.settings.modules.<slug>.enabled`, **default-deny**.
 - **Gate:** `requireModule(session, slug)` in `wizeworks/packages/auth/src/module-gate.ts` (composing `isModuleEnabled`). A disabled module returns 404, runs no workers, stores no rows.
 - **Activation is event-driven** (`module.activated` on Pub/Sub) — never gate by reading subscription/billing rows inline ([[billing-model]]).

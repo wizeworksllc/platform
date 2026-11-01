@@ -2,7 +2,7 @@
 //
 // The Builder is "a semantic component library over a tokenized utility layer":
 // every node carries a Tailwind-native `class` string that the per-tenant compile
-// (@wizeworks/surface-compile) tree-shakes and resolves to the tenant's silica `--color-*`
+// (@wizeworksllc/surface-compile) tree-shakes and resolves to the tenant's silica `--color-*`
 // theme. So a class an agent types here — `bg-primary`, `p-6`, `rounded-box`,
 // `@3xl:grid-cols-3` — renders in the tenant's own colors, spacing, and shape.
 // This object is the contract: the class families that resolve, the node-type
@@ -10,9 +10,9 @@
 // safety allowlist. It's static data (no DB), surfaced by `describe_builder_styling`.
 //
 // Kept faithful to the SOURCES it documents: the token theme in
-// @wizeworks/surface-compile/theme.ts, the allowlist in .../allowlist.ts, the node
+// @wizeworksllc/surface-compile/theme.ts, the allowlist in .../allowlist.ts, the node
 // registry the editor ships, and the box→class semantics in
-// @wizeworks/builder-schemas/box-to-class.ts. When those change, change this.
+// @wizeworksllc/builder-schemas/box-to-class.ts. When those change, change this.
 
 export const BUILDER_STYLE_GUIDE = {
   overview:

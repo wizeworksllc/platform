@@ -10,7 +10,7 @@
 import { Badge, DropdownMenuItem, useToast } from '@wizeworks/silicaui-react';
 import { faCheck, faStar, faTrashCan } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { afterCommit, afterMenuClose } from '../../lib/defer';
 import { useConfirm } from '../../lib/confirm';

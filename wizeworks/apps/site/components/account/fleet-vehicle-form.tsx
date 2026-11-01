@@ -22,7 +22,7 @@ import {
   type FleetVehicleForm as FormValues,
   type PortalFleetVehicle,
 } from '@/lib/fleet-client';
-import { chooseLevelLabel } from '@wizeworks/commerce-schemas';
+import { chooseLevelLabel } from '@wizeworksllc/commerce-schemas';
 
 function entriesKey(domainId: string, parentId: string | null): string {
   return `${domainId}:${parentId ?? 'root'}`;

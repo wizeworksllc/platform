@@ -18,7 +18,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 // One dot per market category, in the taxonomy's nav order. Hard-coded here (not
-// imported from @wizeworks/commerce-schemas) so the edge bundle stays tiny and the
+// imported from @wizeworksllc/commerce-schemas) so the edge bundle stays tiny and the
 // card never pulls a zod dependency into the OG runtime.
 const CATEGORY_DOTS = [
   BRAND.primary, // auto — sparx spark

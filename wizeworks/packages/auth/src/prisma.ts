@@ -8,7 +8,7 @@ import { authConnectionUrl } from './auth-pool';
 // accounts without an app.tenant_id GUC set. So this client connects as
 // `sparx_owner` (table owner, NOT subject to ENABLED-but-not-FORCED RLS).
 //
-// Business-data queries should NOT use this client. They use the @wizeworks/db
+// Business-data queries should NOT use this client. They use the @wizeworksllc/db
 // default client (connected as sparx_app, NOBYPASSRLS) wrapped in withTenant()
 // so cross-tenant reads are impossible.
 

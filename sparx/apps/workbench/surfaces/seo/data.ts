@@ -16,11 +16,11 @@
 // engine's terse enums (grade, status, entity type) into that language once, so
 // every surface says the same thing.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 
-/* ── The page scorecard (from @wizeworks/seo-audit) ──────────────────────────── */
+/* ── The page scorecard (from @wizeworksllc/seo-audit) ──────────────────────────── */
 
 /** One graded thing about a page — a title, a description, its images. */
 export interface AuditCheck {

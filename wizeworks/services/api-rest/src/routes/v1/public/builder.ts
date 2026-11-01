@@ -28,12 +28,12 @@ import {
   removedStarterPaths,
   siteService,
   surfaceCssService,
-} from '@wizeworks/builder';
-import type { SiteStage } from '@wizeworks/builder';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
-import { isModuleEnabled } from '@wizeworks/auth';
+} from '@wizeworksllc/builder';
+import type { SiteStage } from '@wizeworksllc/builder';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 import { tryVerifySitePreview } from '../../../lib/preview.js';
 import { resolvePublicPropertyId, siteDisabledModules } from '../../../lib/property.js';
 import { requireTenantIdBySlug } from '../../../lib/tenant-slug.js';

@@ -15,13 +15,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 import type {
   OperatorUserListResult,
   OperatorUserDetail,
   OperatorUserMembershipsResult,
   OperatorPasswordResetResult,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import {
   authorizeOperator,

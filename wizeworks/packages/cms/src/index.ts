@@ -1,8 +1,8 @@
-// @wizeworks/cms — the CMS service layer (docs/12). Extracted from @wizeworks/api-core so
+// @wizeworksllc/cms — the CMS service layer (docs/12). Extracted from @wizeworksllc/api-core so
 // the module owns its content-type resolution, body validation, and the entry
 // revision/reference write path, consistent with every other module package
-// (@wizeworks/commerce, @wizeworks/crm, @wizeworks/scheduling). The field schemas live in the
-// sibling @wizeworks/cms-schemas. Consumed by api-rest, api-graphql, and the CMS MCP
+// (@wizeworksllc/commerce, @wizeworksllc/crm, @wizeworksllc/scheduling). The field schemas live in the
+// sibling @wizeworksllc/cms-schemas. Consumed by api-rest, api-graphql, and the CMS MCP
 // tools.
 
 export * from './content-types.js';

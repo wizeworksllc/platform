@@ -19,10 +19,10 @@ import {
   MoveTicketStageInput,
   TicketQuery,
   UpdateTicketInput,
-} from '@wizeworks/crm-schemas';
-import { DEFAULT_TICKET_PIPELINE_TEMPLATE } from '@wizeworks/crm-schemas/builtins';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, Ticket } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { DEFAULT_TICKET_PIPELINE_TEMPLATE } from '@wizeworksllc/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, Ticket } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

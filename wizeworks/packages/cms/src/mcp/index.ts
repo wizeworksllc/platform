@@ -2,7 +2,7 @@
 //
 // `cmsMcpTools` is the array the MCP server (`wizeworks/services/api-mcp`) iterates to
 // register tools. Read tools open (`read:cms`); write tools confirmation-gated
-// (`write:cms`). Each is a thin wrapper over the @wizeworks/cms service layer (one
+// (`write:cms`). Each is a thin wrapper over the @wizeworksllc/cms service layer (one
 // service, many transports). The api-mcp server additionally gates these on the
 // `cms` module flag, beyond the global `ai` module gate.
 

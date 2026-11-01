@@ -72,7 +72,7 @@ const crm = vi.hoisted(() => ({
   },
   billingDocumentService: { update: vi.fn(() => Promise.resolve()) },
 }));
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   ...crm,
   accountOrderGate: { accountStandingRefusal: () => null },
   billingRenderService: { buildRenderData: vi.fn() },
@@ -93,21 +93,21 @@ const commerce = vi.hoisted(() => ({
     orderLinesFor: vi.fn(() => Promise.resolve([])),
   },
 }));
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   ...commerce,
   pricingService: { resolveForAccount: vi.fn() },
   CommerceNotFoundError: class extends Error {},
   commerceSiteService: { resolveSettingsRow: vi.fn() },
 }));
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: {} }));
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: {} }));
 // The order page asks who a held order waits on (sparx persona issue 087); no
 // order here is held.
-vi.mock('@wizeworks/b2b', () => ({
+vi.mock('@wizeworksllc/b2b', () => ({
   approvalService: { accountOrderSignOff: () => Promise.resolve(null) },
 }));
-vi.mock('@wizeworks/customer-auth', () => ({}));
+vi.mock('@wizeworksllc/customer-auth', () => ({}));
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => Promise<unknown>) =>
     fn({
       b2bAccountContact: {

@@ -7,7 +7,7 @@
 // charges. The API writes the same rows an import would, so the margin on the
 // panel, the order router and the profit reports read it unchanged.
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useSuppliers, type Supplier } from '../dropship/dropship-data';
 import { productKeys, useInvalidateProduct, type ProductDropship } from './products-data';

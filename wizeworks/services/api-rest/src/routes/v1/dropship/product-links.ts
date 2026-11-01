@@ -36,13 +36,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { badRequest, conflict, notFound } from '@wizeworks/api-core/errors';
-import { variantService } from '@wizeworks/commerce';
-import { getVendor, handVersionsOf, handVersionsToStore } from '@wizeworks/dropship';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest, conflict, notFound } from '@wizeworksllc/api-core/errors';
+import { variantService } from '@wizeworksllc/commerce';
+import { getVendor, handVersionsOf, handVersionsToStore } from '@wizeworksllc/dropship';
 import { toCommerceContext } from '../../../lib/commerce-context.js';
 import { requireDropshipModule, toDropshipContext } from '../../../lib/dropship-context.js';
 

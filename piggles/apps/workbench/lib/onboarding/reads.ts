@@ -5,7 +5,7 @@
 //
 // Split out of api.ts so the reads stay reads and the writes stay writes.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../api/client';
 import { pigglesStep } from './piggles-words';
 import type {

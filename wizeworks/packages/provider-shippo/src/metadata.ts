@@ -1,6 +1,6 @@
 // Marketplace metadata for the two bundles this package registers.
 
-import type { ProviderMetadataDescriptor } from '@wizeworks/integration-framework';
+import type { ProviderMetadataDescriptor } from '@wizeworksllc/integration-framework';
 
 export const SHIPPO_SLUG = 'shippo';
 export const SPARX_SHIPPING_SLUG = 'sparx-shipping';

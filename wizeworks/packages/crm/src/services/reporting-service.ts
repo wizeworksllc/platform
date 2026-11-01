@@ -6,8 +6,8 @@
 // query shape stays the same so swapping the data source later is a
 // one-place change.
 
-import { withTenant } from '@wizeworks/db';
-import { channelKeyLabel } from '@wizeworks/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { channelKeyLabel } from '@wizeworksllc/crm-schemas';
 
 import type { ServiceContext } from '../errors';
 

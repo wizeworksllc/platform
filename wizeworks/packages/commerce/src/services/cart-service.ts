@@ -3,7 +3,7 @@
 // Storefront and B2B portal write through this service; never directly
 // to Prisma. Every mutation goes through:
 //
-//   1. Validate input via @wizeworks/commerce-schemas
+//   1. Validate input via @wizeworksllc/commerce-schemas
 //   2. withTenant() transaction with RLS context
 //   3. writeAuditLog inside the same transaction
 //   4. Recompute cached totals on the cart row
@@ -31,10 +31,10 @@ import {
   CreateCartInput,
   MergeCartsInput,
   UpdateCartItemInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 
 import { writeAuditLog } from '../audit';
 import { CommerceCartBoughtError, CommerceNotFoundError, CommerceValidationError } from '../errors';

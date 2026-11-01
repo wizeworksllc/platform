@@ -5,7 +5,7 @@
 // RECORD that a document exists and was signed, not a signing workflow — that
 // is the document-workflow module and a different product.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 import { StaffDocumentNotFoundError, StaffMemberNotFoundError } from './errors.js';
 
 export type StaffDocumentKind = 'contract' | 'handbook' | 'id' | 'certification' | 'other';

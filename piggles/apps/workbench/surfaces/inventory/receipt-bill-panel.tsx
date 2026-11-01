@@ -40,7 +40,7 @@ import {
 import { Table } from '../../components/table';
 import { faReceipt } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useMutation, useQuery } from '@wizeworks/query';
+import { useMutation, useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { FormSection } from '../../components/form-section';
 import { MoneyTextInput, moneyCents } from '../../components/money-input';

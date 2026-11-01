@@ -40,7 +40,7 @@ export interface MarketSettlementReportEmailProps {
   settlementUrl: string;
 }
 
-// Format integer cents to a localized currency string. The @wizeworks/email package
+// Format integer cents to a localized currency string. The @wizeworksllc/email package
 // has no shared cents→currency helper, so this stays local to the one template
 // that needs it; money in sparx is always integer cents.
 function formatCents(cents: number, currency: string): string {

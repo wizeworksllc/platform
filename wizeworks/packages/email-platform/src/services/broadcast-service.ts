@@ -9,15 +9,15 @@
 // separate worker. Cancel removes pending rows. Stats aggregate EmailEvent rows
 // joined by the broadcast_id variable the webhook stamps back.
 
-import { withTenant } from '@wizeworks/db';
-import type { Broadcast, Prisma } from '@wizeworks/db';
-import { renderSilicaEmail, UNSUBSCRIBE_PLACEHOLDER } from '@wizeworks/email/silica';
+import { withTenant } from '@wizeworksllc/db';
+import type { Broadcast, Prisma } from '@wizeworksllc/db';
+import { renderSilicaEmail, UNSUBSCRIBE_PLACEHOLDER } from '@wizeworksllc/email/silica';
 import {
   emailTreeToSilica,
   silicaEmailIsPersonalized,
   type BuilderNode,
   type SilicaEmailDocument,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 
 import { writeAuditLog } from '../audit';
 import { publishEmailEvent } from '../events';
@@ -37,7 +37,7 @@ import { get as getSettings } from './settings-service';
 import { buildTenantFrom } from './platform-sender';
 
 /** The published body of a Builder email (docs/52 §6, docs/120). Read straight from
- *  the shared `builder_emails` table (RLS-scoped) — no @wizeworks/builder dependency, the
+ *  the shared `builder_emails` table (RLS-scoped) — no @wizeworksllc/builder dependency, the
  *  same way this service reads broadcasts / templates / segments. Null when the email
  *  doesn't exist or hasn't been published.
  *

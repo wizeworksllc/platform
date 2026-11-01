@@ -1,13 +1,13 @@
-// @wizeworks/query — the blessed client data layer (TanStack Query).
+// @wizeworksllc/query — the blessed client data layer (TanStack Query).
 //
 // ONE import source for client-interactive server state. Re-exports the full
 // TanStack Query surface (hooks, types, QueryClient, dehydrate, HydrationBoundary,
 // isServer, …) alongside the sparx setup so feature code imports everything from
-// `@wizeworks/query` rather than reaching for `@tanstack/react-query` directly.
+// `@wizeworksllc/query` rather than reaching for `@tanstack/react-query` directly.
 //
-// - The client <QueryProvider> lives at the `@wizeworks/query/provider` subpath
+// - The client <QueryProvider> lives at the `@wizeworksllc/query/provider` subpath
 //   (it carries 'use client'), keeping this barrel safe to import from RSCs.
-// - The server-only SSR-prefetch helper lives at `@wizeworks/query/server`.
+// - The server-only SSR-prefetch helper lives at `@wizeworksllc/query/server`.
 //
 // Boundary rule: server-first by default (RSC reads, server-action writes).
 // Reach for these hooks only for data that is client-owned and changes after

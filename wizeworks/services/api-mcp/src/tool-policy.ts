@@ -10,7 +10,7 @@
 // Read once per request (in buildServerForRequest), under the tenant GUC (withTenant)
 // so RLS scopes it — one small indexed query, not per-tool.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 /**
  * The set of tool names DISABLED for this site.

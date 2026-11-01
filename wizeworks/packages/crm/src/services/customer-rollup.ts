@@ -87,11 +87,11 @@
 // thing it does is stop a buyer being filed as a stranger.
 //
 // A booking is the other door, for a business that sells time: the same rule,
-// forward only, lives in `recognizeBookedCustomers` (@wizeworks/scheduling),
+// forward only, lives in `recognizeBookedCustomers` (@wizeworksllc/scheduling),
 // which cannot import this package (persona issue 113). Change one, change both.
 
-import { UNCOUNTED_ORDER_STATUS } from '@wizeworks/crm-schemas';
-import type { TxClient } from '@wizeworks/db';
+import { UNCOUNTED_ORDER_STATUS } from '@wizeworksllc/crm-schemas';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** Orders that never happened do not count toward anything. Shared with the
  *  order list's `countedOnly`, so a list beside these figures shows the same

@@ -50,7 +50,7 @@ import { CustomPropertiesPanel } from './custom-properties-panel';
 import { AssociationsPanel } from './associations-panel';
 import { useCustomers } from './customers-data';
 import { customerName, lifecycleStageMeta } from './customer-display';
-import { useQuery, shownInPlace } from '@wizeworks/query';
+import { useQuery, shownInPlace } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { ModuleScope } from '../../components/module-scope';
 import { PaymentTermsField } from '../../components/payment-terms-field';

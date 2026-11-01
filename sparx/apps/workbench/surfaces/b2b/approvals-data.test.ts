@@ -7,7 +7,7 @@
 // go through `invalidateAfterRuleChange`, so this pins what it reaches.
 
 import { describe, expect, it } from 'vitest';
-import { QueryClient } from '@wizeworks/query';
+import { QueryClient } from '@wizeworksllc/query';
 import { approvalKeys, heldOrderKey, invalidateAfterRuleChange } from './approvals-data';
 
 function seeded() {

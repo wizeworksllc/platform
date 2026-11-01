@@ -14,7 +14,7 @@
 // want", sparx's answers "what do I do". Nothing here hides a shipped preset,
 // and no name collides with one (the builder would shadow it — see
 // `themeShelves`), nor with the marketplace data themes or the storefront
-// presets in @wizeworks/site-themes.
+// presets in @wizeworksllc/site-themes.
 //
 // Every theme is a COMPLETE look — palette, type pairing, and shape language —
 // and states a full light AND dark palette. `themes.test.ts` holds the bar:

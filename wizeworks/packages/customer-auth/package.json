@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/customer-auth",
+  "name": "@wizeworksllc/customer-auth",
   "version": "0.0.0",
   "private": true,
-  "description": "Layer-2 site shopper authentication on a dedicated tenant-scoped Better Auth instance (application-level multi-tenancy: (tenantId, email) identity). Distinct from @wizeworks/auth (staff). See docs/27-customer-accounts-site-auth.md.",
+  "description": "Layer-2 site shopper authentication on a dedicated tenant-scoped Better Auth instance (application-level multi-tenancy: (tenantId, email) identity). Distinct from @wizeworksllc/auth (staff). See docs/27-customer-accounts-site-auth.md.",
   "type": "module",
   "exports": {
     ".": {
@@ -22,8 +22,8 @@
   "dependencies": {
     "@better-auth/oauth-provider": "1.7.14",
     "@node-rs/argon2": "^2.0.2",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
     "better-auth": "~1.7.14",
     "jose": "^6.2.3",
     "zod": "^4.6.6"

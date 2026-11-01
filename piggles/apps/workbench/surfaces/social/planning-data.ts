@@ -29,7 +29,7 @@
 //   POST   /v1/social/import                  → create the posts        (editor)
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { thisComputersTimezone } from '../../lib/business-timezone';
 import { socialKeys } from './data';

@@ -25,7 +25,7 @@ import {
   useToast,
 } from '@wizeworks/silicaui-react';
 import { useTenant } from '../../lib/api/shell-data';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { useApplyToPartnerProgram, usePartnerApplication } from './data';
 import { formatDate, PARTNER_KINDS } from './format';
 

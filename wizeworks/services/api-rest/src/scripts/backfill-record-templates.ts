@@ -52,12 +52,12 @@
 // and write runs under `withTenant` (set_config('app.tenant_id', …)); a raw `prisma` read
 // would report zero rows and exit looking successful (wizeworks/packages/db/CLAUDE.md).
 
-import { prisma, withTenant, Prisma } from '@wizeworks/db';
+import { prisma, withTenant, Prisma } from '@wizeworksllc/db';
 import {
   RECORD_TEMPLATES,
   ROUTED_RECORD_TYPES,
   type RoutedRecordType,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 import { stampTree } from '@wizeworks/silicaui-html';
 import { createHash } from 'node:crypto';
 

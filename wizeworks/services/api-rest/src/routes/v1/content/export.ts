@@ -17,11 +17,11 @@
 // `x-sparx-property-id` header), `?property=all` for every site they can reach.
 
 import type { FastifyPluginAsync } from 'fastify';
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 import { z } from 'zod';
-import { csvSafeText } from '@wizeworks/inventory';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
+import { csvSafeText } from '@wizeworksllc/inventory';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
 import { contentSiteVisibilityWhere, resolveListScope } from '../../../lib/property.js';
 import { EXPORT_ROW_CAP, sendCsvExport } from '../../../lib/record-export.js';
 

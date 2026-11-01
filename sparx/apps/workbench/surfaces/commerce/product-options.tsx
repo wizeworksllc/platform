@@ -63,7 +63,7 @@ import {
   Text,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { isCoreOptionName } from '@wizeworks/commerce-schemas';
+import { isCoreOptionName } from '@wizeworksllc/commerce-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { ChevronDown, ChevronUp, Plus, Shapes, Trash2, X } from 'lucide-react';
 import { useDirtySource } from '../../lib/workbench/dirty';

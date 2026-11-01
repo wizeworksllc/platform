@@ -10,8 +10,8 @@
 // A slot is a recurring LOCAL time, never a timestamp — see `cadence.ts` for why that
 // distinction matters across a daylight-saving boundary.
 
-import { withTenant } from '@wizeworks/db';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import type { SocialContext } from './context.js';
 

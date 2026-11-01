@@ -10,7 +10,7 @@
 // operator to report either. Between this and WriteFailureReporter, the two
 // classes React cannot catch are both covered.
 
-import { ChunkReloadGuard } from '@wizeworks/app-kit';
+import { ChunkReloadGuard } from '@wizeworksllc/app-kit';
 import { reportCrash } from '../lib/analytics';
 
 // Module scope, so the identity is stable across renders and the guard's

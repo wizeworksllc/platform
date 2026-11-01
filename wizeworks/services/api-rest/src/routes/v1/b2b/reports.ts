@@ -19,11 +19,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { ISSUED_BILL_WHERE, OWED_DOCUMENT_WHERE, companyService } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { ISSUED_BILL_WHERE, OWED_DOCUMENT_WHERE, companyService } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 import { tierBreakdown, tierIdsIn } from '../../../lib/b2b-tier-breakdown.js';
 

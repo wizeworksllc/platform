@@ -23,7 +23,7 @@ COPY wizeworks/packages/app-kit/package.json wizeworks/packages/app-kit/
 COPY wizeworks/packages/brand-core/package.json wizeworks/packages/brand-core/
 COPY wizeworks/packages/ui/package.json wizeworks/packages/ui/
 COPY sparx/packages/brand/package.json sparx/packages/brand/
-# @wizeworks/forms — client form-validation engine behind silica's FieldStatus (react peer only).
+# @wizeworksllc/forms — client form-validation engine behind silica's FieldStatus (react peer only).
 COPY wizeworks/packages/forms/package.json wizeworks/packages/forms/
 COPY wizeworks/packages/legal/package.json wizeworks/packages/legal/
 COPY wizeworks/packages/attribution/package.json wizeworks/packages/attribution/

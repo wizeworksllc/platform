@@ -21,7 +21,7 @@
 // rail beside it.
 
 import { useEffect, useMemo, useState } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import Image from 'next/image';
 import {
   Badge,

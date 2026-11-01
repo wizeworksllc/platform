@@ -9,7 +9,7 @@
 // tenant as a side effect.
 //
 // THE COLUMNS ARE THE CANONICAL FIELD KEYS. `ENTITY_FIELDS.companies` in
-// @wizeworks/migration is what the Move-in mapper offers, and `COMPANY_COLUMNS` below
+// @wizeworksllc/migration is what the Move-in mapper offers, and `COMPANY_COLUMNS` below
 // is what this file reads; the processor test holds the two equal. Phone, address and
 // created date were once offered and never read, so every company a CRM move carried
 // lost them while the mapper showed them as mapped.
@@ -18,9 +18,9 @@
 // when the file has a value for it, and an industry is ADDED to the company's tags
 // rather than replacing them, as a website's domain is added to its domains.
 
-import { companyService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { toDecimal, toInteger, toList } from '@wizeworks/migration';
+import { companyService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { toDecimal, toInteger, toList } from '@wizeworksllc/migration';
 
 import { Resolver } from './resolve';
 import { eachRow, type EntityProcessor, type PreviewResult, type RowResult } from './types';

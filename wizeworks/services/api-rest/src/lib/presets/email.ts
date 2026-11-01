@@ -5,9 +5,9 @@
 // ready-to-review campaign instead of a blank composer.
 //
 // At the composition root because the services it dogfoods live in two packages
-// that don't dep the preset contract: emails come from @wizeworks/builder
-// (emailService) and broadcasts from @wizeworks/email-platform (broadcastService).
-// api-rest deps all three (+ @wizeworks/auth for the contract), so this is the one
+// that don't dep the preset contract: emails come from @wizeworksllc/builder
+// (emailService) and broadcasts from @wizeworksllc/email-platform (broadcastService).
+// api-rest deps all three (+ @wizeworksllc/auth for the contract), so this is the one
 // place they compose without a new dependency edge. Every call threads the open
 // tenant tx (`sx.tx`) so the email + publish + broadcast install atomically.
 //
@@ -17,11 +17,11 @@
 //
 // Data-as-code (line-limit exempt).
 
-import { emailService } from '@wizeworks/builder';
-import { EMAIL_WORDMARK_TYPE, seedNode, type BuilderNode } from '@wizeworks/builder-schemas';
-import { definePreset, type ModulePreset } from '@wizeworks/auth';
-import type { TenantContext } from '@wizeworks/db';
-import { broadcastService } from '@wizeworks/email-platform';
+import { emailService } from '@wizeworksllc/builder';
+import { EMAIL_WORDMARK_TYPE, seedNode, type BuilderNode } from '@wizeworksllc/builder-schemas';
+import { definePreset, type ModulePreset } from '@wizeworksllc/auth';
+import type { TenantContext } from '@wizeworksllc/db';
+import { broadcastService } from '@wizeworksllc/email-platform';
 
 interface EmailContent {
   idPrefix: string;

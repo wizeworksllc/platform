@@ -193,7 +193,7 @@ Both breaks look like improvements. Dropping the guard is the obvious
 simplification and warns a collect-only shop about a chore it does not owe.
 Keeping the denominator on "106 of the 106" reads as though some are fine.
 
-**Checks:** typecheck 0 on `@wizeworks/commerce`, api-rest, and both workbenches.
+**Checks:** typecheck 0 on `@wizeworksllc/commerce`, api-rest, and both workbenches.
 Tests: piggles workbench 153 files / 1464, sparx 129 / 1200, commerce 24 / 241.
 `weight-readiness.ts` is byte-identical in both consoles.
 

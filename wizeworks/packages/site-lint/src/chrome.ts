@@ -11,7 +11,7 @@
 // were built from one of them. Their customers had an order history, a returns flow and
 // a saved address book, and no link to any of it from anywhere on the site.
 //
-// THE HALF `liveChromeGaps` CANNOT COVER. `@wizeworks/silica-catalog`'s `liveChromeGaps`
+// THE HALF `liveChromeGaps` CANNOT COVER. `@wizeworksllc/silica-catalog`'s `liveChromeGaps`
 // answers the other side of the same issue — a site whose chrome the platform CAN
 // repair, waiting only on a publish — and it is deliberately silent here. It reports
 // what the automatic repair would add, and that repair only ever rewrites a control that
@@ -26,7 +26,7 @@
 // rather than anything stronger, and why it stays silent unless the caller has confirmed
 // there are accounts to reach at all.
 
-import { HOST_KEYS } from '@wizeworks/silica-catalog';
+import { HOST_KEYS } from '@wizeworksllc/silica-catalog';
 
 import type { RawFinding } from './finding';
 import { classifyHref, findLinks } from './links';

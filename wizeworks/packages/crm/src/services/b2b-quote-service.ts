@@ -6,9 +6,9 @@
 // `invoicing` (billing_documents is a shared substrate; see that file's
 // MODULE OWNERSHIP note for the full rationale).
 
-import { B2B_QUOTE_WORKFLOW, B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { withTenant } from '@wizeworks/db';
-import type { DocumentStage, DocumentWorkflow, Prisma } from '@wizeworks/db';
+import { B2B_QUOTE_WORKFLOW, B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import type { DocumentStage, DocumentWorkflow, Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError } from '../errors';

@@ -8,7 +8,7 @@
 // the placeholder, or still the address the name before produced. One she typed
 // herself is never touched.
 
-import { isFriendlySlug } from '@wizeworks/auth/friendly-slug';
+import { isFriendlySlug } from '@wizeworksllc/auth-client/friendly-slug';
 import { slugify } from '../../../lib/slugify';
 
 /** A site address is one DNS label. */

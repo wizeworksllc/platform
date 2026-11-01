@@ -1,7 +1,7 @@
 // sparx CRM — schema package barrel.
 //
 // Single source of truth for the shape of every Server Action / REST / MCP
-// write into the CRM. The service layer (@wizeworks/crm) and Server Actions
+// write into the CRM. The service layer (@wizeworksllc/crm) and Server Actions
 // (apps/dashboard/app/(dashboard)/crm) both validate inputs against these
 // Zod schemas before touching Prisma — keeping the JSONB and column writes
 // type-safe across transports.

@@ -125,7 +125,7 @@ Per the DB rule, the schema + migration + dependent code are committed as **file
 only**; the DB-adjacent steps run through the pipeline:
 
 1. Regenerate the Prisma client (adds `FormSubmission` / `FormDefinition`): the
-   DB-dependent packages (`@wizeworks/builder`, `@wizeworks/crm`, `api-rest`) will not
+   DB-dependent packages (`@wizeworksllc/builder`, `@wizeworksllc/crm`, `api-rest`) will not
    typecheck until this runs — expected. The DB-independent packages
    (`builder-schemas`, `events`, `email`, `builder-render`, `wizeworks/apps/site`) already
    typecheck clean.

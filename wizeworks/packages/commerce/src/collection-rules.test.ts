@@ -1,4 +1,4 @@
-import type { CollectionRuleSet } from '@wizeworks/commerce-schemas';
+import type { CollectionRuleSet } from '@wizeworksllc/commerce-schemas';
 import { describe, expect, it, vi } from 'vitest';
 
 import { compileRuleSet } from './collection-rules';

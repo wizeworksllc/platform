@@ -10,8 +10,8 @@
 // file never touches `InventoryLevel.leadTimeDays`, which answers a different
 // question with the same-looking number: how long a SUPPLIER takes to restock.
 
-import type { ProductDeposit } from '@wizeworks/commerce-schemas';
-import { localCalendarParts, localWallToUtc, formatLocalDate } from '@wizeworks/time';
+import type { ProductDeposit } from '@wizeworksllc/commerce-schemas';
+import { localCalendarParts, localWallToUtc, formatLocalDate } from '@wizeworksllc/time';
 
 /** The zone every calculation falls back to when the business has not said
  *  where it is. UTC is the only defensible guess: it is the one that does not

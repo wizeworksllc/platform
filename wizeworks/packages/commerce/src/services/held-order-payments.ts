@@ -1,6 +1,6 @@
 // The gateway half of deciding a held wholesale order (sparx persona issue 087).
 //
-// `heldOrderMoney` in @wizeworks/crm works out, inside the decision's own
+// `heldOrderMoney` in @wizeworksllc/crm works out, inside the decision's own
 // transaction, what each card payment on the order needs: charge a held card
 // when the order is approved, let it go when it is turned down, refund a card
 // that was already charged. This does it, AFTER that transaction has committed,
@@ -14,9 +14,9 @@
 // Nothing here throws either: the decision has been made and said, and the
 // caller is told what did and did not go through.
 
-import { heldOrderMoney, orderRefundsService, taskService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { GatewayNotFoundError, PaymentConfigError, paymentService } from '@wizeworks/payments';
+import { heldOrderMoney, orderRefundsService, taskService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { GatewayNotFoundError, PaymentConfigError, paymentService } from '@wizeworksllc/payments';
 
 import { formatCents } from './money';
 

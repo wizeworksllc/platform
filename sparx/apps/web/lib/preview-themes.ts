@@ -15,7 +15,7 @@ import {
   SPARX_THEME_GROUPS,
   resolveSparxTheme,
   BASE_SILICA_THEME,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 import type { Theme } from '@wizeworks/silicaui-html';
 
 const cap = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);

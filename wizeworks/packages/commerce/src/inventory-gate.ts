@@ -9,7 +9,7 @@
 // `isModuleEnabled` is cached (LRU + 60s TTL), so calling this on the cart/checkout
 // hot path is cheap.
 
-import { isModuleEnabled } from '@wizeworks/auth';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 
 export function isInventoryActive(tenantId: string): Promise<boolean> {
   return isModuleEnabled(tenantId, 'inventory');

@@ -1,4 +1,4 @@
-import { STORY_EXAMPLES } from '@wizeworks/story-schemas';
+import { STORY_EXAMPLES } from '@wizeworksllc/story-schemas';
 import { renderStoryOg } from '@/lib/og-story';
 
 // The /platform card tells the broadest shipped story — the local grocer, whose 7

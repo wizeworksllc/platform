@@ -20,7 +20,7 @@ The toast said: "Could not save that. Something went wrong reaching the server. 
 has been changed. The problem is with Fields."
 
 The server was reached. It refused the save because the list of details was empty. The
-shared field rule (`FieldSchema` in `@wizeworks/field-schema`) needs at least one field,
+shared field rule (`FieldSchema` in `@wizeworksllc/field-schema`) needs at least one field,
 which is right for a CMS content type and wrong for a record type: the create service
 already defaults to an empty list, the form says none is fine, and a record of a type
 with no details has its own "no details on it yet" state.

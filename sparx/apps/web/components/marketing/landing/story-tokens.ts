@@ -6,8 +6,8 @@ import {
   industryOf,
   lineLead,
   tintStyle,
-} from '@wizeworks/story-schemas';
-import type { StoryState } from '@wizeworks/story-schemas';
+} from '@wizeworksllc/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 
 // The hero's story, flattened into the units it gets TOLD in. The onboarding
 // composer renders a story all at once (it's a working surface); the hero types it,
@@ -17,7 +17,7 @@ import type { StoryState } from '@wizeworks/story-schemas';
 //
 // Pure + framework-free so the rendering component stays a renderer: the grammar
 // itself (clause order, Oxford commas, which phrase wears which module hue) still
-// comes from @wizeworks/story-schemas, never from here.
+// comes from @wizeworksllc/story-schemas, never from here.
 
 export interface Tint {
   background: string;

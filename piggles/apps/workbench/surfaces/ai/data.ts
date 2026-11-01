@@ -16,7 +16,7 @@
 // they never put a control in front of someone the server will refuse — the
 // server stays the real gate.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { slugify as slugifyWebSegment } from '../../lib/slugify';

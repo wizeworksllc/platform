@@ -1,9 +1,9 @@
-// @wizeworks/api-client — TypeScript SDK for the sparx public REST API.
+// @wizeworksllc/api-client — TypeScript SDK for the sparx public REST API.
 // (The exported `Sparx` class keeps its PascalCase — it's a code identifier, not brand text.)
 //
 // Quick start:
 //
-//   import { Sparx } from '@wizeworks/api-client';
+//   import { Sparx } from '@wizeworksllc/api-client';
 //   const sparx = new Sparx({
 //     baseUrl: 'https://api.sparx.works',
 //     token: process.env.SPARX_API_KEY!,

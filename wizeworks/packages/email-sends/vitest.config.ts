@@ -1,7 +1,7 @@
 import { configDefaults, defineConfig } from 'vitest/config';
 
 // Integration suites under test/integration/** write real ScheduledSend rows
-// against a live Postgres (the sparx_app role, via @wizeworks/db — so RLS is in force).
+// against a live Postgres (the sparx_app role, via @wizeworksllc/db — so RLS is in force).
 // CI has no database, so skip them there (GH Actions sets CI=true). Locally
 // `pnpm test` runs everything against the docker-compose Postgres from `pnpm db:up`.
 const IS_CI = process.env.CI === 'true' || process.env.CI === '1';

@@ -19,7 +19,7 @@
 > wrong once the code was written, and are corrected below rather than left to mislead:
 >
 > 1. **The dunning policy already existed.** `DunningPolicy` was specified in
->    `@wizeworks/commerce-schemas` and `commerce_site_settings.default_dunning_policy` was already its
+>    `@wizeworksllc/commerce-schemas` and `commerce_site_settings.default_dunning_policy` was already its
 >    per-tenant home — neither had a reader. §4.1's invented shape is replaced by the real one, and
 >    open question 1 is answered: the tenant-level setting needs a UI, not a schema.
 > 2. **`getVaultedMethod` became `completeVault`.** Stripe hands back a server-created SetupIntent
@@ -488,7 +488,7 @@ Nothing above is reachable without these, so they are in scope, not follow-on:
 - **Managing the card later.** The storefront account area lists saved methods, sets a default, adds and
   removes. Removing the method behind an active subscription is blocked by `onDelete: Restrict` and must
   say why rather than surfacing a database error.
-- **Failure emails — NOT `@wizeworks/email` templates.** v1.0 was wrong here. Every tenant→customer email
+- **Failure emails — NOT `@wizeworksllc/email` templates.** v1.0 was wrong here. Every tenant→customer email
   in the platform is a **Builder-authored** template the merchant can edit, dispatched by a system
   automation listening on an event; the `EmailSendPayload.template` union is for sparx→tenant mail only.
   Six subscription emails already existed on that path (`subscription-confirmed` / `-renewed` /

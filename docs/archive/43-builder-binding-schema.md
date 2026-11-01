@@ -82,11 +82,11 @@ container → an `array` source or a `list` field.
 
 ## 4. Where the logic lives
 
-- **`@wizeworks/builder-schemas`** (zod-free TS): the `DataSource`/`FieldSchema` types, the
+- **`@wizeworksllc/builder-schemas`** (zod-free TS): the `DataSource`/`FieldSchema` types, the
   pure `mapCmsContentType(ct) → DataSource[]` mapper (accepts a structural CMS-field
-  shape — no dependency on `@wizeworks/cms-schemas`), and the code-defined `COMMERCE_SOURCES`
+  shape — no dependency on `@wizeworksllc/cms-schemas`), and the code-defined `COMMERCE_SOURCES`
   / `CRM_SOURCES`.
-- **`@wizeworks/builder`** — `bindingService.getSchema(ctx)`: reads the tenant's content
+- **`@wizeworksllc/builder`** — `bindingService.getSchema(ctx)`: reads the tenant's content
   types (`withTenant` → `tx.contentType`, a read-only cross-module introspection — the
   builder must know what types exist to offer them), maps them, and concatenates the
   code-defined Commerce/CRM sources.

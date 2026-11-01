@@ -11,7 +11,7 @@ import {
   kindLayout,
   type ContentKindLike,
   type KindFieldLike,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import { formatPublishedDate, projectByline } from './builder-data';
 import { publicGet, type ApiEntry } from './content';

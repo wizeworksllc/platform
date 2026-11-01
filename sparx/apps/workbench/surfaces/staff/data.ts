@@ -12,8 +12,8 @@
 // below is how a surface tells "you may not see this" apart from "there is
 // nothing to see".
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { downloadServerFile } from '../../lib/api/download';
@@ -728,7 +728,7 @@ export async function downloadPayrollHours(params: {
 
 /* ── Errors ────────────────────────────────────────────────────────────────── */
 
-/** The server's own sentence for a 4xx, verbatim — @wizeworks/staff writes those
+/** The server's own sentence for a 4xx, verbatim — @wizeworksllc/staff writes those
  *  messages for a business owner ("End the existing rate first, or pick a start
  *  date after it"), and nothing this side could infer beats them. */
 export function staffErrorMessage(error: unknown, fallback: string): string {

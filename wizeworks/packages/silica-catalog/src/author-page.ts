@@ -16,7 +16,7 @@ import { repeatOrEmpty, visibleWhen } from './conditional';
 import { PLACEHOLDER_IMAGE } from './placeholder';
 
 /** The list of a site's authors, as the binding catalog names it (`AUTHORS_SOURCE_KEY`
- *  in @wizeworks/builder-schemas, which this package cannot import). The site's
+ *  in @wizeworksllc/builder-schemas, which this package cannot import). The site's
  *  `author-pages.test.ts` holds the two to one answer. */
 export const AUTHORS_LIST_REF = 'cmsAuthors';
 

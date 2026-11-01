@@ -24,7 +24,7 @@
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 // The disposition vocabulary itself lives with the rest of the stock words in
 // ./inventory, where it was declared (unused) in Phase 2. Phase 9 gives it a

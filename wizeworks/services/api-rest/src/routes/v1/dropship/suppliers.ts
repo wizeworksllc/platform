@@ -12,21 +12,21 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 import { Prisma } from '@prisma/client';
-import { withTenant } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound, badRequest, conflict } from '@wizeworks/api-core/errors';
-import { slugify, uniqueSlug } from '@wizeworks/api-core/slug';
+import { withTenant } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound, badRequest, conflict } from '@wizeworksllc/api-core/errors';
+import { slugify, uniqueSlug } from '@wizeworksllc/api-core/slug';
 import {
   createPublisher,
   indexEntity,
   publishEvent,
   type PublisherLogger,
-} from '@wizeworks/events';
-import { createAdapter, VENDOR_CATALOG } from '@wizeworks/dropship';
-import type { PricingRule, SupplierAdapter, SupplierType } from '@wizeworks/dropship';
-import { applyPricingRule } from '@wizeworks/dropship';
-import { plainTextOrNull } from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/events';
+import { createAdapter, VENDOR_CATALOG } from '@wizeworksllc/dropship';
+import type { PricingRule, SupplierAdapter, SupplierType } from '@wizeworksllc/dropship';
+import { applyPricingRule } from '@wizeworksllc/dropship';
+import { plainTextOrNull } from '@wizeworksllc/commerce-schemas';
 import { requireDropshipModule, toDropshipContext } from '../../../lib/dropship-context.js';
 import { feedDeps } from '../../../lib/feed-host.js';
 

@@ -9,7 +9,7 @@
 // dispatch table) so we read with the default prisma client, no
 // withTenant wrapper.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 /** All tenants where `settings.modules.crm.enabled = true`. Status is
  *  filtered to 'active' so suspended/cancelled tenants don't get cycles. */

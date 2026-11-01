@@ -17,7 +17,7 @@ import {
   publishEvent,
   type EventType,
   type PublisherLogger,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 
 const logger: PublisherLogger = {
   info: (obj, msg) => console.info(msg ?? '', obj),

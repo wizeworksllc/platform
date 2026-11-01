@@ -12,17 +12,17 @@
 //   GET   /v1/inventory/alerts        Low-stock alerts
 //
 // A JWT (dashboard) actor bypasses the scope check — staff are gated by role;
-// scopes are a per-API-key concept. Writes route through @wizeworks/inventory's
+// scopes are a per-API-key concept. Writes route through @wizeworksllc/inventory's
 // ledger funnel (audited, concurrency-safe).
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { notFound } from '@wizeworks/api-core/errors';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole, requireScope } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole, requireScope } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const READ = 'read:inventory';

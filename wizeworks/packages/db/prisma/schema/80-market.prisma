@@ -22,13 +22,13 @@
 //     • MarketMerchantProfile — the editable bio/banner/enable flag + commission
 //       override; the source the MarketMerchant projection is built from.
 //     • MarketPayoutAccount   — the ACH bank details (AES-256-GCM ciphertext via
-//       @wizeworks/channels/crypto, never plaintext — the channels token-key box).
+//       @wizeworksllc/channels/crypto, never plaintext — the channels token-key box).
 //     • MarketSettlement      — one accrual per market order (gross/commission/net).
 //     • MarketSettlementRun   — the weekly batch that groups accruals into one ACH.
 //
 // The product-graph opt-in columns (market_listed / market_category / …) live on
 // commerce_products (30-commerce-products.prisma) — a product opts itself in; the
-// projection is derived from that flag. Owned by @wizeworks/commerce (services) + the
+// projection is derived from that flag. Owned by @wizeworksllc/commerce (services) + the
 // channel-sync-worker (projection). Part of the Commerce module (no separate fee).
 
 // ── GLOBAL projection: the public catalog ───────────────────────────────────────
@@ -57,7 +57,7 @@ model MarketListing {
   descriptionSnippet String? @map("description_snippet") @db.VarChar(512)
   imageUrl           String? @map("image_url") @db.Text
   // One of the market category slugs (auto | beauty | home | fashion | food | tech
-  // | general | …) — see @wizeworks/commerce-schemas MARKET_CATEGORIES.
+  // | general | …) — see @wizeworksllc/commerce-schemas MARKET_CATEGORIES.
   category           String  @db.VarChar(50)
   priceMinCents      Int?    @map("price_min_cents")
   priceMaxCents      Int?    @map("price_max_cents")
@@ -75,7 +75,7 @@ model MarketListing {
   featured           Boolean @default(false)
   // Absolute URL of the product's page on the seller's own storefront (the
   // "Visit their store" link): the site's own address + handle
-  // (@wizeworks/db/site-origin).
+  // (@wizeworksllc/db/site-origin).
   productUrl         String? @map("product_url") @db.Text
   // Lowercased title + description + merchant + category, the source of the
   // generated `search_tsv` tsvector (added in the migration; Prisma can't model it).
@@ -189,7 +189,7 @@ model MarketPayoutAccount {
 
   accountHolderName String  @map("account_holder_name") @db.VarChar(255)
   bankName          String? @map("bank_name") @db.VarChar(255)
-  // AES-256-GCM ciphertext (`iv.tag.cipher` base64) via @wizeworks/channels/crypto —
+  // AES-256-GCM ciphertext (`iv.tag.cipher` base64) via @wizeworksllc/channels/crypto —
   // NEVER plaintext. Bank routing/account numbers are sensitive PII; a DB leak
   // alone must not yield them. Reuses the CHANNELS_TOKEN_KEY box (the proven
   // in-repo cipher), not Secret Manager (these never need cross-service decrypt).

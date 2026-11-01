@@ -10,7 +10,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
 import { promises as fs } from 'node:fs';
 import { resolve } from 'node:path';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import { env } from '../../src/env.js';
 import { _resetStorageForTest } from '../../src/lib/storage.js';

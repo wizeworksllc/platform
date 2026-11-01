@@ -4,7 +4,7 @@
 // derived. The evaluator leaves these alone entirely, so adding and removing is
 // the only way membership changes, and the history is the only record of it.
 
-import { useMutation, useQuery } from '@wizeworks/query';
+import { useMutation, useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { Customer } from './customers-data';
 import { segmentKeys } from './segments-types';

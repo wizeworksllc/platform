@@ -28,7 +28,7 @@ import {
   type EngineDeps,
   type SystemAutomationSpec,
   type TriggerEnvelope,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import {
@@ -36,7 +36,7 @@ import {
   companyService,
   dealService,
   taskService,
-} from '@wizeworks/crm/services';
+} from '@wizeworksllc/crm/services';
 
 import { installModuleActions } from '../../src/index.js';
 import { B2B_NEW_ACCOUNT_TASK } from '../../src/seeds/b2b.js';

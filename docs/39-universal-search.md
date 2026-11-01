@@ -159,17 +159,17 @@ export interface EntityProjector<TId = string> {
 
 Projectors live in their **module package** (they need that module's Prisma reader +
 domain knowledge), exactly like `projectCustomer`/`projectOrder` live in
-`@wizeworks/commerce`. The `EntityProjector` interface + `UniversalSearchDocument` type +
-the registry assembler live in `@wizeworks/search`. The indexer imports each module's
+`@wizeworksllc/commerce`. The `EntityProjector` interface + `UniversalSearchDocument` type +
+the registry assembler live in `@wizeworksllc/search`. The indexer imports each module's
 projector bundle and registers them by `entityType`:
 
 ```ts
 const REGISTRY = buildRegistry([
-  ...commerceProjectors, // @wizeworks/commerce
-  ...crmProjectors, // @wizeworks/crm (re-exported via @wizeworks/commerce today)
+  ...commerceProjectors, // @wizeworksllc/commerce
+  ...crmProjectors, // @wizeworksllc/crm (re-exported via @wizeworksllc/commerce today)
   ...cmsProjectors, // @sparx/cms-*  ← new dep edge (see §11)
-  ...emailProjectors, // @wizeworks/email-platform
-  ...sitebuilderProjectors, // @wizeworks/sitebuilder
+  ...emailProjectors, // @wizeworksllc/email-platform
+  ...sitebuilderProjectors, // @wizeworksllc/sitebuilder
 ]);
 ```
 
@@ -177,8 +177,8 @@ Adding an entity to search becomes: **write one `EntityProjector`, register it, 
 the change event from its service.** No schema, no topic, no Terraform.
 
 > **Dependency note ([[feedback_dockerfile_package_wiring]]):** the indexer currently
-> depends on `@wizeworks/commerce` (+ `@wizeworks/crm`, `@wizeworks/db`). Pulling projectors from
-> `@sparx/cms-*`, `@wizeworks/email-platform`, and `@wizeworks/sitebuilder` adds dependency
+> depends on `@wizeworksllc/commerce` (+ `@wizeworksllc/crm`, `@wizeworksllc/db`). Pulling projectors from
+> `@sparx/cms-*`, `@wizeworksllc/email-platform`, and `@wizeworksllc/sitebuilder` adds dependency
 > edges → **every consumer Dockerfile needs the matching COPY lines and the transitive
 > closure**, or `tsc`/lint pass while the image build fails. Use server-safe subpaths so
 > no React/editor deps leak into the worker. Audited per phase.

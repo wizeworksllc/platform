@@ -28,13 +28,13 @@ import {
   useToast,
 } from '@wizeworks/silicaui-react';
 import { Pencil, Plus, Trash2 } from 'lucide-react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import {
   chooseLevelLabel,
   vehicleDescription,
   vehicleLabel,
   type FleetVehicle,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import { useConfirm } from '../../lib/confirm';
 import { useDirtySource } from '../../lib/workbench/dirty';

@@ -15,8 +15,8 @@
 // Daytime.
 
 import type { ReactNode } from 'react';
-import { buildSilicaThemeCssFromTheme } from '@wizeworks/site-themes';
-import { buildCustomColorCss, buildDerivedContentCss } from '@wizeworks/silica-catalog';
+import { buildSilicaThemeCssFromTheme } from '@wizeworksllc/site-themes';
+import { buildCustomColorCss, buildDerivedContentCss } from '@wizeworksllc/silica-catalog';
 import { SEMANTIC_ROLES, type Theme } from '@wizeworks/silicaui-html';
 import type { ThemeMode } from './edit-context';
 

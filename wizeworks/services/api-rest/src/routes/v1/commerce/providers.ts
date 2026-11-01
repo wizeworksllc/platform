@@ -9,9 +9,9 @@ import {
   returnDispositionService,
   returnService,
   subscriptionService,
-} from '@wizeworks/commerce';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/commerce';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import {
   defaultOwningSite,
   requireCommerceModule,

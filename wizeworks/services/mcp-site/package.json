@@ -2,7 +2,7 @@
   "name": "@wizeworks/mcp-site",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx Site MCP server (docs/113) — the shopper-facing MCP plane. A thin, stateless MCP over the public /v1/public/* REST API: shoppers point their own LLM at a store to browse, check availability, book, and check out. No DB, no module packages — every tool is an HTTP adapter over the public API (@wizeworks/site-mcp).",
+  "description": "sparx Site MCP server (docs/113) — the shopper-facing MCP plane. A thin, stateless MCP over the public /v1/public/* REST API: shoppers point their own LLM at a store to browse, check availability, book, and check out. No DB, no module packages — every tool is an HTTP adapter over the public API (@wizeworksllc/site-mcp).",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.0",
-    "@wizeworks/client-ip": "workspace:*",
+    "@wizeworksllc/client-ip": "workspace:*",
     "@wizeworks/lens-node": "0.3.0-alpha.11",
-    "@wizeworks/site-mcp": "workspace:*",
+    "@wizeworksllc/site-mcp": "workspace:*",
     "fastify": "^5.12.5",
     "pino": "^9.5.0",
     "zod": "^4.6.6"

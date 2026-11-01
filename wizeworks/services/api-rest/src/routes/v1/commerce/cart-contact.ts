@@ -10,7 +10,7 @@
 // it is read on the list as well as the detail: a follow-up list you have to open
 // row by row to find out who is in it is not a follow-up list.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** What a shopper told checkout before they stopped, or nulls when they told it
  *  nothing. Every field is independently nullable — somebody who typed a name

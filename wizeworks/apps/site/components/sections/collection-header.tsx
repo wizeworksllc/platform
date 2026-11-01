@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import type { CollectionHeaderConfig } from '@wizeworks/sitebuilder-schemas';
+import type { CollectionHeaderConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

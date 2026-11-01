@@ -23,7 +23,7 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { enableBinsForWarehouse, createBin } from '../../src/services/bins.js';
 import { applyMovement } from '../../src/services/ledger.js';

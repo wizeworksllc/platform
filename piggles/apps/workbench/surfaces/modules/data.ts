@@ -15,7 +15,7 @@
 // requiredBy) let this surface explain WHY a module is on and when it cannot be
 // turned off, which the rail does not need.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { productCopy } from '../../lib/product';
 import { apiErrorMessage } from '../../lib/api-error';
 import {
@@ -85,7 +85,7 @@ export interface ModuleMeta {
 
 // The closed catalogue, in the order it reads best: the everyday building blocks
 // first, then the specialised ones. Every slug here is one the server knows about
-// (@wizeworks/modules ALL_MODULES); a slug the server stops returning simply drops
+// (@wizeworksllc/modules ALL_MODULES); a slug the server stops returning simply drops
 // off the screen, and a new one it returns without an entry here is skipped
 // rather than shown raw — see `MODULE_META_BY_SLUG`.
 //
@@ -93,7 +93,7 @@ export interface ModuleMeta {
 // heard of is INVISIBLE HERE, with no error anywhere, so it can never be turned
 // on from the only screen that turns modules on. `finance` and `staff` were both
 // in exactly that state — shipped end to end, absent from this grid. When you add
-// a slug to @wizeworks/modules, grep an existing one across the repo; several lists
+// a slug to @wizeworksllc/modules, grep an existing one across the repo; several lists
 // re-declare this vocabulary and none of them are exhaustive over the union.
 export const MODULE_META: ModuleMeta[] = [
   {

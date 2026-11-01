@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { evaluateConditions } from '@wizeworks/automation-schemas';
+import { evaluateConditions } from '@wizeworksllc/automation-schemas';
 import { startingGoal } from './library';
 import { FUNNEL_KINDS } from './schemas';
 

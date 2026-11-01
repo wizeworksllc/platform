@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // The module price rules, held level with the server.
 //
-// What a tenant is BILLED for comes from the graph in @wizeworks/modules:
+// What a tenant is BILLED for comes from the graph in @wizeworksllc/modules:
 // REQUIRES (B2B needs Commerce, both billed) and BUNDLED_FREE (Invoicing,
 // Inventory and Finance ride along at $0 with Commerce or B2B). The sparx
 // workbench's setup screen prices the same modules in the browser, and the server
@@ -20,7 +20,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SERVER = join(ROOT, 'wizeworks/packages/modules/src/index.ts');
+const SERVER = join(ROOT, 'wizeworks/packages/module-roster/src/index.ts');
 const COPIES = [join(ROOT, 'sparx/apps/workbench/lib/onboarding/modules.ts')];
 
 for (const p of [SERVER, ...COPIES]) {

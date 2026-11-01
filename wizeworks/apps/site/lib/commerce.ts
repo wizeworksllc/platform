@@ -4,8 +4,8 @@
 // way.
 
 import { cookies, headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
-import type { FleetFit, RepeatCadence } from '@wizeworks/commerce-schemas';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
+import type { FleetFit, RepeatCadence } from '@wizeworksllc/commerce-schemas';
 
 import type { AccountOrdering, BuyingRule } from './account-buying-rules';
 import { resolveReaderLocale } from './locale';

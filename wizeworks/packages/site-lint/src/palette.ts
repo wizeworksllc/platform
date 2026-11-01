@@ -23,14 +23,14 @@
 // Dark mode is a first-class second answer, not an afterthought: `Theme.dark` is a
 // set of per-token deltas, and a site carrying one genuinely renders both ways.
 
-import { SILICA_CONTENT_THRESHOLD, inkForLightness } from '@wizeworks/silica-catalog';
+import { SILICA_CONTENT_THRESHOLD, inkForLightness } from '@wizeworksllc/silica-catalog';
 import {
   contrastOf,
   cssLightness,
   mixOklab,
   parseColor,
   type Rgb,
-} from '@wizeworks/site-themes/color';
+} from '@wizeworksllc/site-themes/color';
 import type { Theme } from '@wizeworks/silicaui-html';
 
 /** The two inks silicaui's auto-derivation flips between — pure white and pure

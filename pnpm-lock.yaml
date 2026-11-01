@@ -89,36 +89,36 @@ importers:
       '@piggles/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@wizeworks/app-kit':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/app-kit
-      '@wizeworks/attribution':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/attribution
-      '@wizeworks/auth':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth
-      '@wizeworks/auth-client-server':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth-client-server
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
       '@wizeworks/lens-react':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11(react@19.2.6)
-      '@wizeworks/links':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/links
       '@wizeworks/silicaui':
         specifier: 'catalog:'
         version: 0.60.3(tailwindcss@4.3.0)
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/usage':
+      '@wizeworksllc/app-kit':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/usage
+        version: link:../../../wizeworks/packages/app-kit
+      '@wizeworksllc/attribution':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/attribution
+      '@wizeworksllc/auth-client':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/auth-client
+      '@wizeworksllc/auth-client-server':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/auth-client-server
+      '@wizeworksllc/links':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/links
+      '@wizeworksllc/usage-meters':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/usage-meters
       better-auth:
         specifier: ~1.7.14
         version: 1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0)))
@@ -177,15 +177,6 @@ importers:
       '@piggles/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@wizeworks/app-kit':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/app-kit
-      '@wizeworks/attribution':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/attribution
-      '@wizeworks/legal':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/legal
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
@@ -198,6 +189,15 @@ importers:
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@wizeworksllc/app-kit':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/app-kit
+      '@wizeworksllc/attribution':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/attribution
+      '@wizeworksllc/legal':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/legal
       next:
         specifier: ^16.4.1
         version: 16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -268,60 +268,12 @@ importers:
       '@piggles/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@wizeworks/api-client':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/api-client
-      '@wizeworks/app-kit':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/app-kit
-      '@wizeworks/attribution':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/attribution
-      '@wizeworks/auth':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth
-      '@wizeworks/auth-client-server':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth-client-server
-      '@wizeworks/automation-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/automation-schemas
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/builder-schemas
-      '@wizeworks/cms-editor':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/cms-editor
-      '@wizeworks/commerce-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/commerce-schemas
-      '@wizeworks/crm-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/crm-schemas
-      '@wizeworks/email-sequences':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/email-sequences
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
       '@wizeworks/lens-react':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11(react@19.2.6)
-      '@wizeworks/links':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/links
-      '@wizeworks/migration':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/migration
-      '@wizeworks/query':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/query
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-catalog
-      '@wizeworks/silica-corrections':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-corrections
       '@wizeworks/silicaui':
         specifier: 'catalog:'
         version: 0.60.3(tailwindcss@4.3.0)
@@ -340,13 +292,61 @@ importers:
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/site-themes':
+      '@wizeworksllc/api-client':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/api-client
+      '@wizeworksllc/app-kit':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/app-kit
+      '@wizeworksllc/attribution':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/attribution
+      '@wizeworksllc/auth-client':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/auth-client
+      '@wizeworksllc/auth-client-server':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/auth-client-server
+      '@wizeworksllc/automation-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/automation-schemas
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/builder-schemas
+      '@wizeworksllc/cms-editor':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/cms-editor
+      '@wizeworksllc/commerce-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/commerce-schemas
+      '@wizeworksllc/crm-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/crm-schemas
+      '@wizeworksllc/email-sequence-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/email-sequence-schemas
+      '@wizeworksllc/links':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/links
+      '@wizeworksllc/migration':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/migration
+      '@wizeworksllc/query':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/query
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-catalog
+      '@wizeworksllc/silica-corrections':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-corrections
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/site-themes
-      '@wizeworks/social':
+      '@wizeworksllc/social-cadence':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/social
-      '@wizeworks/story-schemas':
+        version: link:../../../wizeworks/packages/social-cadence
+      '@wizeworksllc/story-schemas':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/story-schemas
       better-auth:
@@ -413,7 +413,7 @@ importers:
       '@piggles/config':
         specifier: workspace:*
         version: link:../config
-      '@wizeworks/auth-client-server':
+      '@wizeworksllc/auth-client-server':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/auth-client-server
     devDependencies:
@@ -457,7 +457,7 @@ importers:
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
-      '@wizeworks/brand-registry':
+      '@wizeworksllc/brand-registry':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/brand-registry
       typescript:
@@ -490,9 +490,6 @@ importers:
 
   piggles/packages/studio:
     dependencies:
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-catalog
       '@wizeworks/silicaui-builder':
         specifier: 'catalog:'
         version: 0.60.3(@wizeworks/silicaui-react@0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(tailwindcss@4.3.0)
@@ -502,7 +499,10 @@ importers:
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/site-themes':
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-catalog
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/site-themes
       react:
@@ -557,27 +557,27 @@ importers:
       '@stripe/stripe-js':
         specifier: ^5.10.0
         version: 5.10.0
-      '@wizeworks/app-kit':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/app-kit
-      '@wizeworks/commerce-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/commerce-schemas
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
       '@wizeworks/lens-react':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11(react@19.2.6)
-      '@wizeworks/silica-corrections':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-corrections
       '@wizeworks/silicaui':
         specifier: 'catalog:'
         version: 0.60.3(tailwindcss@4.3.0)
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@wizeworksllc/app-kit':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/app-kit
+      '@wizeworksllc/commerce-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/commerce-schemas
+      '@wizeworksllc/silica-corrections':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-corrections
       geist:
         specifier: ^1.3.1
         version: 1.7.1(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))
@@ -621,39 +621,12 @@ importers:
       '@sparx/brand':
         specifier: workspace:*
         version: link:../../packages/brand
-      '@wizeworks/app-kit':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/app-kit
-      '@wizeworks/attribution':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/attribution
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/builder-schemas
-      '@wizeworks/chat-widget':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/chat-widget
-      '@wizeworks/forms':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/forms
-      '@wizeworks/legal':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/legal
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
       '@wizeworks/lens-react':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11(react@19.2.6)
-      '@wizeworks/migration':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/migration
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-catalog
-      '@wizeworks/silica-corrections':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-corrections
       '@wizeworks/silicaui':
         specifier: 'catalog:'
         version: 0.60.3(tailwindcss@4.3.0)
@@ -663,13 +636,40 @@ importers:
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/site-themes':
+      '@wizeworksllc/app-kit':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/app-kit
+      '@wizeworksllc/attribution':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/attribution
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/builder-schemas
+      '@wizeworksllc/chat-widget':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/chat-widget
+      '@wizeworksllc/forms':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/forms
+      '@wizeworksllc/legal':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/legal
+      '@wizeworksllc/migration':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/migration
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-catalog
+      '@wizeworksllc/silica-corrections':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-corrections
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/site-themes
-      '@wizeworks/story-schemas':
+      '@wizeworksllc/story-schemas':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/story-schemas
-      '@wizeworks/ui':
+      '@wizeworksllc/ui':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/ui
       geist:
@@ -742,60 +742,12 @@ importers:
       '@sparx/brand':
         specifier: workspace:*
         version: link:../../packages/brand
-      '@wizeworks/api-client':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/api-client
-      '@wizeworks/app-kit':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/app-kit
-      '@wizeworks/attribution':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/attribution
-      '@wizeworks/auth':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth
-      '@wizeworks/auth-client-server':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth-client-server
-      '@wizeworks/automation-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/automation-schemas
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/builder-schemas
-      '@wizeworks/cms-editor':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/cms-editor
-      '@wizeworks/commerce-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/commerce-schemas
-      '@wizeworks/crm-schemas':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/crm-schemas
-      '@wizeworks/email-sequences':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/email-sequences
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
       '@wizeworks/lens-react':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11(react@19.2.6)
-      '@wizeworks/links':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/links
-      '@wizeworks/migration':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/migration
-      '@wizeworks/query':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/query
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-catalog
-      '@wizeworks/silica-corrections':
-        specifier: workspace:*
-        version: link:../../../wizeworks/packages/silica-corrections
       '@wizeworks/silicaui':
         specifier: 'catalog:'
         version: 0.60.3(tailwindcss@4.3.0)
@@ -814,13 +766,61 @@ importers:
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/site-themes':
+      '@wizeworksllc/api-client':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/api-client
+      '@wizeworksllc/app-kit':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/app-kit
+      '@wizeworksllc/attribution':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/attribution
+      '@wizeworksllc/auth-client':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/auth-client
+      '@wizeworksllc/auth-client-server':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/auth-client-server
+      '@wizeworksllc/automation-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/automation-schemas
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/builder-schemas
+      '@wizeworksllc/cms-editor':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/cms-editor
+      '@wizeworksllc/commerce-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/commerce-schemas
+      '@wizeworksllc/crm-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/crm-schemas
+      '@wizeworksllc/email-sequence-schemas':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/email-sequence-schemas
+      '@wizeworksllc/links':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/links
+      '@wizeworksllc/migration':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/migration
+      '@wizeworksllc/query':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/query
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-catalog
+      '@wizeworksllc/silica-corrections':
+        specifier: workspace:*
+        version: link:../../../wizeworks/packages/silica-corrections
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/site-themes
-      '@wizeworks/social':
+      '@wizeworksllc/social-cadence':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/social
-      '@wizeworks/story-schemas':
+        version: link:../../../wizeworks/packages/social-cadence
+      '@wizeworksllc/story-schemas':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/story-schemas
       better-auth:
@@ -887,7 +887,7 @@ importers:
 
   sparx/packages/brand:
     dependencies:
-      '@wizeworks/ui':
+      '@wizeworksllc/ui':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/ui
     devDependencies:
@@ -915,42 +915,12 @@ importers:
       '@stripe/stripe-js':
         specifier: ^5.10.0
         version: 5.10.0
-      '@wizeworks/app-kit':
-        specifier: workspace:*
-        version: link:../../packages/app-kit
-      '@wizeworks/brand-core':
-        specifier: workspace:*
-        version: link:../../packages/brand-core
-      '@wizeworks/builder-render':
-        specifier: workspace:*
-        version: link:../../packages/builder-render
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../../packages/builder-schemas
-      '@wizeworks/chat-widget':
-        specifier: workspace:*
-        version: link:../../packages/chat-widget
-      '@wizeworks/cms-editor':
-        specifier: workspace:*
-        version: link:../../packages/cms-editor
-      '@wizeworks/commerce-schemas':
-        specifier: workspace:*
-        version: link:../../packages/commerce-schemas
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
       '@wizeworks/lens-react':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11(react@19.2.6)
-      '@wizeworks/section-template-react':
-        specifier: workspace:*
-        version: link:../../packages/section-template-react
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../../packages/silica-catalog
-      '@wizeworks/silica-corrections':
-        specifier: workspace:*
-        version: link:../../packages/silica-corrections
       '@wizeworks/silicaui-behaviors':
         specifier: 'catalog:'
         version: 0.60.3
@@ -960,13 +930,43 @@ importers:
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/site-themes':
+      '@wizeworksllc/app-kit':
+        specifier: workspace:*
+        version: link:../../packages/app-kit
+      '@wizeworksllc/brand-core':
+        specifier: workspace:*
+        version: link:../../packages/brand-core
+      '@wizeworksllc/builder-render':
+        specifier: workspace:*
+        version: link:../../packages/builder-render
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../../packages/builder-schemas
+      '@wizeworksllc/chat-widget':
+        specifier: workspace:*
+        version: link:../../packages/chat-widget
+      '@wizeworksllc/cms-editor':
+        specifier: workspace:*
+        version: link:../../packages/cms-editor
+      '@wizeworksllc/commerce-schemas':
+        specifier: workspace:*
+        version: link:../../packages/commerce-schemas
+      '@wizeworksllc/section-template-react':
+        specifier: workspace:*
+        version: link:../../packages/section-template-react
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../../packages/silica-catalog
+      '@wizeworksllc/silica-corrections':
+        specifier: workspace:*
+        version: link:../../packages/silica-corrections
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../packages/site-themes
-      '@wizeworks/sitebuilder-schemas':
+      '@wizeworksllc/sitebuilder-schemas':
         specifier: workspace:*
         version: link:../../packages/sitebuilder-schemas
-      '@wizeworks/ui':
+      '@wizeworksllc/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       geist:
@@ -1042,13 +1042,13 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/cms-schemas':
+      '@wizeworksllc/cms-schemas':
         specifier: workspace:*
         version: link:../cms-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       fastify:
@@ -1118,31 +1118,34 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/attribution':
+      '@wizeworksllc/attribution':
         specifier: workspace:*
         version: link:../attribution
-      '@wizeworks/brand-core':
+      '@wizeworksllc/auth-client':
+        specifier: workspace:*
+        version: link:../auth-client
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/email':
+      '@wizeworksllc/email':
         specifier: workspace:*
         version: link:../email
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/legal':
+      '@wizeworksllc/legal':
         specifier: workspace:*
         version: link:../legal
-      '@wizeworks/legal-seed':
+      '@wizeworksllc/legal-seed':
         specifier: workspace:*
         version: link:../legal-seed
-      '@wizeworks/links':
+      '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../links
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
       better-auth:
@@ -1177,9 +1180,40 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
+  wizeworks/packages/auth-client:
+    dependencies:
+      '@better-auth/passkey':
+        specifier: 1.7.14
+        version: 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-auth@1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))))(better-call@1.4.4(zod@4.6.7))(nanostores@1.3.0)
+      '@wizeworksllc/attribution':
+        specifier: workspace:*
+        version: link:../attribution
+      '@wizeworksllc/module-roster':
+        specifier: workspace:*
+        version: link:../module-roster
+      better-auth:
+        specifier: ~1.7.14
+        version: 1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0)))
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      '@types/react':
+        specifier: ^19.0.0
+        version: 19.2.15
+      react:
+        specifier: ^19.0.0
+        version: 19.2.6
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
   wizeworks/packages/auth-client-server:
     dependencies:
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
     devDependencies:
@@ -1207,16 +1241,16 @@ importers:
       '@prisma/client':
         specifier: ^6.2.0
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/automation-schemas':
+      '@wizeworksllc/automation-schemas':
         specifier: workspace:*
         version: link:../automation-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/time':
+      '@wizeworksllc/time':
         specifier: workspace:*
         version: link:../time
       zod:
@@ -1235,31 +1269,31 @@ importers:
 
   wizeworks/packages/automation-actions:
     dependencies:
-      '@wizeworks/automation':
+      '@wizeworksllc/automation':
         specifier: workspace:*
         version: link:../automation
-      '@wizeworks/automation-schemas':
+      '@wizeworksllc/automation-schemas':
         specifier: workspace:*
         version: link:../automation-schemas
-      '@wizeworks/builder-schemas':
+      '@wizeworksllc/builder-schemas':
         specifier: workspace:*
         version: link:../builder-schemas
-      '@wizeworks/crm':
+      '@wizeworksllc/crm':
         specifier: workspace:*
         version: link:../crm
-      '@wizeworks/email-sends':
+      '@wizeworksllc/email-sends':
         specifier: workspace:*
         version: link:../email-sends
-      '@wizeworks/email-sequences':
+      '@wizeworksllc/email-sequences':
         specifier: workspace:*
         version: link:../email-sequences
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/inventory':
+      '@wizeworksllc/inventory':
         specifier: workspace:*
         version: link:../inventory
-      '@wizeworks/sms':
+      '@wizeworksllc/sms':
         specifier: workspace:*
         version: link:../sms
       zod:
@@ -1272,7 +1306,7 @@ importers:
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
       typescript:
@@ -1303,28 +1337,28 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/automation':
+      '@wizeworksllc/automation':
         specifier: workspace:*
         version: link:../automation
-      '@wizeworks/automation-actions':
+      '@wizeworksllc/automation-actions':
         specifier: workspace:*
         version: link:../automation-actions
-      '@wizeworks/crm':
+      '@wizeworksllc/crm':
         specifier: workspace:*
         version: link:../crm
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/email-sequences':
+      '@wizeworksllc/email-sequences':
         specifier: workspace:*
         version: link:../email-sequences
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/funnels':
+      '@wizeworksllc/funnels':
         specifier: workspace:*
         version: link:../funnels
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
       pino:
@@ -1352,22 +1386,22 @@ importers:
 
   wizeworks/packages/b2b:
     dependencies:
-      '@wizeworks/api-core':
+      '@wizeworksllc/api-core':
         specifier: workspace:*
         version: link:../api-core
-      '@wizeworks/auth':
+      '@wizeworksllc/auth':
         specifier: workspace:*
         version: link:../auth
-      '@wizeworks/crm':
+      '@wizeworksllc/crm':
         specifier: workspace:*
         version: link:../crm
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/inventory':
+      '@wizeworksllc/inventory':
         specifier: workspace:*
         version: link:../inventory
       zod:
@@ -1386,10 +1420,10 @@ importers:
 
   wizeworks/packages/billing:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
       stripe:
@@ -1408,19 +1442,19 @@ importers:
 
   wizeworks/packages/blueprints:
     dependencies:
-      '@wizeworks/builder-schemas':
+      '@wizeworksllc/builder-schemas':
         specifier: workspace:*
         version: link:../builder-schemas
-      '@wizeworks/cms-schemas':
+      '@wizeworksllc/cms-schemas':
         specifier: workspace:*
         version: link:../cms-schemas
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/silica-catalog':
+      '@wizeworksllc/silica-catalog':
         specifier: workspace:*
         version: link:../silica-catalog
-      '@wizeworks/sitebuilder-schemas':
+      '@wizeworksllc/sitebuilder-schemas':
         specifier: workspace:*
         version: link:../sitebuilder-schemas
       zod:
@@ -1474,22 +1508,22 @@ importers:
       '@google-cloud/pubsub':
         specifier: ^5.3.0
         version: 5.3.0
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../builder-schemas
-      '@wizeworks/db':
-        specifier: workspace:*
-        version: link:../db
-      '@wizeworks/events':
-        specifier: workspace:*
-        version: link:../events
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../silica-catalog
       '@wizeworks/silicaui-html':
         specifier: 'catalog:'
         version: 0.60.3(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))
-      '@wizeworks/surface-compile':
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../builder-schemas
+      '@wizeworksllc/db':
+        specifier: workspace:*
+        version: link:../db
+      '@wizeworksllc/events':
+        specifier: workspace:*
+        version: link:../events
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../silica-catalog
+      '@wizeworksllc/surface-compile':
         specifier: workspace:*
         version: link:../surface-compile
       zod:
@@ -1508,15 +1542,15 @@ importers:
 
   wizeworks/packages/builder-render:
     dependencies:
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../builder-schemas
-      '@wizeworks/cms-editor':
-        specifier: workspace:*
-        version: link:../cms-editor
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../builder-schemas
+      '@wizeworksllc/cms-editor':
+        specifier: workspace:*
+        version: link:../cms-editor
       lucide-react:
         specifier: ^0.577.0
         version: 0.577.0(react@19.2.6)
@@ -1570,10 +1604,10 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       pino:
@@ -1607,13 +1641,13 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/channels':
+      '@wizeworksllc/channels':
         specifier: workspace:*
         version: link:../channels
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       pino:
@@ -1641,10 +1675,10 @@ importers:
 
   wizeworks/packages/channels:
     dependencies:
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/integrations':
+      '@wizeworksllc/integrations':
         specifier: workspace:*
         version: link:../integrations
     devDependencies:
@@ -1701,19 +1735,19 @@ importers:
 
   wizeworks/packages/cms:
     dependencies:
-      '@wizeworks/api-core':
+      '@wizeworksllc/api-core':
         specifier: workspace:*
         version: link:../api-core
-      '@wizeworks/cms-schemas':
+      '@wizeworksllc/cms-schemas':
         specifier: workspace:*
         version: link:../cms-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/legal-templates':
+      '@wizeworksllc/legal-templates':
         specifier: workspace:*
         version: link:../legal-templates
       zod:
@@ -1774,12 +1808,12 @@ importers:
       '@tiptap/suggestion':
         specifier: ^3.30.5
         version: 3.32.0(@floating-ui/dom@1.8.0)(@tiptap/core@3.32.0(@tiptap/pm@3.32.0))(@tiptap/pm@3.32.0)
-      '@wizeworks/silica-corrections':
-        specifier: workspace:*
-        version: link:../silica-corrections
       '@wizeworks/silicaui-html':
         specifier: 'catalog:'
         version: 0.60.3(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))
+      '@wizeworksllc/silica-corrections':
+        specifier: workspace:*
+        version: link:../silica-corrections
       lowlight:
         specifier: ^3.3.0
         version: 3.3.0
@@ -1814,7 +1848,7 @@ importers:
 
   wizeworks/packages/cms-schemas:
     dependencies:
-      '@wizeworks/field-schema':
+      '@wizeworksllc/field-schema':
         specifier: workspace:*
         version: link:../field-schema
       zod:
@@ -1833,52 +1867,52 @@ importers:
 
   wizeworks/packages/commerce:
     dependencies:
-      '@wizeworks/auth':
+      '@wizeworksllc/auth':
         specifier: workspace:*
         version: link:../auth
-      '@wizeworks/channels':
+      '@wizeworksllc/channels':
         specifier: workspace:*
         version: link:../channels
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/crm':
+      '@wizeworksllc/crm':
         specifier: workspace:*
         version: link:../crm
-      '@wizeworks/crm-schemas':
+      '@wizeworksllc/crm-schemas':
         specifier: workspace:*
         version: link:../crm-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/field-schema':
+      '@wizeworksllc/field-schema':
         specifier: workspace:*
         version: link:../field-schema
-      '@wizeworks/integration-framework':
+      '@wizeworksllc/integration-framework':
         specifier: workspace:*
         version: link:../integration-framework
-      '@wizeworks/inventory':
+      '@wizeworksllc/inventory':
         specifier: workspace:*
         version: link:../inventory
-      '@wizeworks/links':
+      '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../links
-      '@wizeworks/media':
+      '@wizeworksllc/media':
         specifier: workspace:*
         version: link:../media
-      '@wizeworks/payments':
+      '@wizeworksllc/payments':
         specifier: workspace:*
         version: link:../payments
-      '@wizeworks/search':
+      '@wizeworksllc/search':
         specifier: workspace:*
         version: link:../search
-      '@wizeworks/time':
+      '@wizeworksllc/time':
         specifier: workspace:*
         version: link:../time
-      '@wizeworks/ui':
+      '@wizeworksllc/ui':
         specifier: workspace:*
         version: link:../ui
       lucide-react:
@@ -1906,16 +1940,16 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/commerce':
+      '@wizeworksllc/commerce':
         specifier: workspace:*
         version: link:../commerce
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/search':
+      '@wizeworksllc/search':
         specifier: workspace:*
         version: link:../search
       pino:
@@ -1943,10 +1977,10 @@ importers:
 
   wizeworks/packages/commerce-schemas:
     dependencies:
-      '@wizeworks/crm-schemas':
+      '@wizeworksllc/crm-schemas':
         specifier: workspace:*
         version: link:../crm-schemas
-      '@wizeworks/field-schema':
+      '@wizeworksllc/field-schema':
         specifier: workspace:*
         version: link:../field-schema
       zod:
@@ -1968,28 +2002,28 @@ importers:
       '@google-cloud/pubsub':
         specifier: ^5.3.0
         version: 5.3.0
-      '@wizeworks/automation-schemas':
+      '@wizeworksllc/automation-schemas':
         specifier: workspace:*
         version: link:../automation-schemas
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/crm-schemas':
+      '@wizeworksllc/crm-schemas':
         specifier: workspace:*
         version: link:../crm-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/field-schema':
+      '@wizeworksllc/field-schema':
         specifier: workspace:*
         version: link:../field-schema
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
-      '@wizeworks/time':
+      '@wizeworksllc/time':
         specifier: workspace:*
         version: link:../time
       zod:
@@ -2008,10 +2042,10 @@ importers:
 
   wizeworks/packages/crm-schemas:
     dependencies:
-      '@wizeworks/automation-schemas':
+      '@wizeworksllc/automation-schemas':
         specifier: workspace:*
         version: link:../automation-schemas
-      '@wizeworks/field-schema':
+      '@wizeworksllc/field-schema':
         specifier: workspace:*
         version: link:../field-schema
       zod:
@@ -2036,10 +2070,10 @@ importers:
       '@node-rs/argon2':
         specifier: ^2.0.2
         version: 2.0.2
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       better-auth:
@@ -2083,22 +2117,22 @@ importers:
       '@types/pg':
         specifier: ^8.11.10
         version: 8.20.0
-      '@wizeworks/blueprints':
+      '@wizeworksllc/blueprints':
         specifier: workspace:*
         version: link:../blueprints
-      '@wizeworks/builder-schemas':
+      '@wizeworksllc/builder-schemas':
         specifier: workspace:*
         version: link:../builder-schemas
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/legal-templates':
+      '@wizeworksllc/legal-templates':
         specifier: workspace:*
         version: link:../legal-templates
-      '@wizeworks/marketplace-schemas':
+      '@wizeworksllc/marketplace-schemas':
         specifier: workspace:*
         version: link:../marketplace-schemas
-      '@wizeworks/silica-catalog':
+      '@wizeworksllc/silica-catalog':
         specifier: workspace:*
         version: link:../silica-catalog
       prisma:
@@ -2119,16 +2153,16 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/links':
+      '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../links
       pino:
@@ -2156,10 +2190,10 @@ importers:
 
   wizeworks/packages/dropship:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/integrations':
+      '@wizeworksllc/integrations':
         specifier: workspace:*
         version: link:../integrations
     devDependencies:
@@ -2175,13 +2209,13 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/dropship':
+      '@wizeworksllc/dropship':
         specifier: workspace:*
         version: link:../dropship
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       pino:
@@ -2215,19 +2249,19 @@ importers:
       '@react-email/render':
         specifier: ^2.0.8
         version: 2.0.8(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/brand-core':
-        specifier: workspace:*
-        version: link:../brand-core
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../builder-schemas
-      '@wizeworks/cms-editor':
-        specifier: workspace:*
-        version: link:../cms-editor
       '@wizeworks/silicaui-builder':
         specifier: 'catalog:'
         version: 0.60.3(@wizeworks/silicaui-react@0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(tailwindcss@4.3.0)
-      '@wizeworks/site-themes':
+      '@wizeworksllc/brand-core':
+        specifier: workspace:*
+        version: link:../brand-core
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../builder-schemas
+      '@wizeworksllc/cms-editor':
+        specifier: workspace:*
+        version: link:../cms-editor
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../site-themes
       zod:
@@ -2255,28 +2289,28 @@ importers:
 
   wizeworks/packages/email-platform:
     dependencies:
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/builder-schemas':
+      '@wizeworksllc/builder-schemas':
         specifier: workspace:*
         version: link:../builder-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/email':
+      '@wizeworksllc/email':
         specifier: workspace:*
         version: link:../email
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/silica-catalog':
+      '@wizeworksllc/silica-catalog':
         specifier: workspace:*
         version: link:../silica-catalog
-      '@wizeworks/site-themes':
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../site-themes
-      '@wizeworks/ui':
+      '@wizeworksllc/ui':
         specifier: workspace:*
         version: link:../ui
       lucide-react:
@@ -2304,7 +2338,7 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
     devDependencies:
@@ -2318,17 +2352,36 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
+  wizeworks/packages/email-sequence-schemas:
+    dependencies:
+      zod:
+        specifier: ^4.6.6
+        version: 4.6.7
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
   wizeworks/packages/email-sequences:
     dependencies:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/email-sends':
+      '@wizeworksllc/email-sends':
         specifier: workspace:*
         version: link:../email-sends
+      '@wizeworksllc/email-sequence-schemas':
+        specifier: workspace:*
+        version: link:../email-sequence-schemas
       zod:
         specifier: ^4.6.6
         version: 4.6.7
@@ -2348,22 +2401,22 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/email':
+      '@wizeworksllc/email':
         specifier: workspace:*
         version: link:../email
-      '@wizeworks/email-platform':
+      '@wizeworksllc/email-platform':
         specifier: workspace:*
         version: link:../email-platform
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/links':
+      '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../links
       pino:
@@ -2426,16 +2479,16 @@ importers:
 
   wizeworks/packages/finance:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/integration-framework':
+      '@wizeworksllc/integration-framework':
         specifier: workspace:*
         version: link:../integration-framework
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
-      '@wizeworks/time':
+      '@wizeworksllc/time':
         specifier: workspace:*
         version: link:../time
       zod:
@@ -2454,13 +2507,13 @@ importers:
 
   wizeworks/packages/finance-worker:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/finance':
+      '@wizeworksllc/finance':
         specifier: workspace:*
         version: link:../finance
       pino:
@@ -2500,19 +2553,19 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/api-core':
+      '@wizeworksllc/api-core':
         specifier: workspace:*
         version: link:../api-core
-      '@wizeworks/automation-schemas':
+      '@wizeworksllc/automation-schemas':
         specifier: workspace:*
         version: link:../automation-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
       zod:
@@ -2531,7 +2584,7 @@ importers:
 
   wizeworks/packages/godaddy:
     dependencies:
-      '@wizeworks/registrar':
+      '@wizeworksllc/registrar':
         specifier: workspace:*
         version: link:../registrar
     devDependencies:
@@ -2547,10 +2600,10 @@ importers:
 
   wizeworks/packages/integration-framework:
     dependencies:
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/integrations':
+      '@wizeworksllc/integrations':
         specifier: workspace:*
         version: link:../integrations
       zod:
@@ -2569,9 +2622,9 @@ importers:
 
   wizeworks/packages/integrations:
     dependencies:
-      '@wizeworks/modules':
+      '@wizeworksllc/module-roster':
         specifier: workspace:*
-        version: link:../modules
+        version: link:../module-roster
     devDependencies:
       typescript:
         specifier: ^5.7.3
@@ -2582,13 +2635,13 @@ importers:
 
   wizeworks/packages/inventory:
     dependencies:
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       zod:
@@ -2613,16 +2666,16 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/inventory':
+      '@wizeworksllc/inventory':
         specifier: workspace:*
         version: link:../inventory
       pino:
@@ -2662,10 +2715,10 @@ importers:
 
   wizeworks/packages/legal-seed:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/legal-templates':
+      '@wizeworksllc/legal-templates':
         specifier: workspace:*
         version: link:../legal-templates
     devDependencies:
@@ -2684,13 +2737,13 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/legal-seed':
+      '@wizeworksllc/legal-seed':
         specifier: workspace:*
         version: link:../legal-seed
       pino:
@@ -2761,13 +2814,13 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       pino:
@@ -2801,10 +2854,10 @@ importers:
       '@google-cloud/storage':
         specifier: ^7.16.0
         version: 7.19.0
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       zod:
@@ -2833,11 +2886,26 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
+  wizeworks/packages/module-roster:
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
   wizeworks/packages/modules:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
+      '@wizeworksllc/module-roster':
+        specifier: workspace:*
+        version: link:../module-roster
     devDependencies:
       '@types/node':
         specifier: ^25.9.1
@@ -2879,13 +2947,13 @@ importers:
 
   wizeworks/packages/payments:
     dependencies:
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/integrations':
+      '@wizeworksllc/integrations':
         specifier: workspace:*
         version: link:../integrations
       stripe:
@@ -2904,16 +2972,16 @@ importers:
 
   wizeworks/packages/platform-crm:
     dependencies:
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/crm':
+      '@wizeworksllc/crm':
         specifier: workspace:*
         version: link:../crm
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
     devDependencies:
@@ -2932,13 +3000,13 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/platform-crm':
+      '@wizeworksllc/platform-crm':
         specifier: workspace:*
         version: link:../platform-crm
       pino:
@@ -2966,10 +3034,10 @@ importers:
 
   wizeworks/packages/provider-avalara:
     dependencies:
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/integration-framework':
+      '@wizeworksllc/integration-framework':
         specifier: workspace:*
         version: link:../integration-framework
       avatax:
@@ -2991,10 +3059,10 @@ importers:
       '@easypost/api':
         specifier: ^7.4.0
         version: 7.5.5
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/integration-framework':
+      '@wizeworksllc/integration-framework':
         specifier: workspace:*
         version: link:../integration-framework
     devDependencies:
@@ -3010,10 +3078,10 @@ importers:
 
   wizeworks/packages/provider-shippo:
     dependencies:
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/integration-framework':
+      '@wizeworksllc/integration-framework':
         specifier: workspace:*
         version: link:../integration-framework
       shippo:
@@ -3032,10 +3100,10 @@ importers:
 
   wizeworks/packages/provider-taxjar:
     dependencies:
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../commerce-schemas
-      '@wizeworks/integration-framework':
+      '@wizeworksllc/integration-framework':
         specifier: workspace:*
         version: link:../integration-framework
       taxjar:
@@ -3057,10 +3125,10 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
       pino:
@@ -3140,13 +3208,13 @@ importers:
 
   wizeworks/packages/scheduling:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/scheduling-schemas':
+      '@wizeworksllc/scheduling-schemas':
         specifier: workspace:*
         version: link:../scheduling-schemas
-      '@wizeworks/time':
+      '@wizeworksllc/time':
         specifier: workspace:*
         version: link:../time
       zod:
@@ -3200,7 +3268,7 @@ importers:
 
   wizeworks/packages/section-template-react:
     dependencies:
-      '@wizeworks/sitebuilder-schemas':
+      '@wizeworksllc/sitebuilder-schemas':
         specifier: workspace:*
         version: link:../sitebuilder-schemas
     devDependencies:
@@ -3272,13 +3340,13 @@ importers:
 
   wizeworks/packages/site-lint:
     dependencies:
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../silica-catalog
       '@wizeworks/silicaui-html':
         specifier: 'catalog:'
         version: 0.60.3(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))
-      '@wizeworks/site-themes':
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../silica-catalog
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../site-themes
     devDependencies:
@@ -3322,19 +3390,19 @@ importers:
 
   wizeworks/packages/sitebuilder:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/silica-catalog':
+      '@wizeworksllc/silica-catalog':
         specifier: workspace:*
         version: link:../silica-catalog
-      '@wizeworks/site-themes':
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../site-themes
-      '@wizeworks/sitebuilder-schemas':
+      '@wizeworksllc/sitebuilder-schemas':
         specifier: workspace:*
         version: link:../sitebuilder-schemas
-      '@wizeworks/ui':
+      '@wizeworksllc/ui':
         specifier: workspace:*
         version: link:../ui
       lucide-react:
@@ -3375,7 +3443,7 @@ importers:
 
   wizeworks/packages/sms:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
     devDependencies:
@@ -3391,18 +3459,21 @@ importers:
 
   wizeworks/packages/social:
     dependencies:
-      '@wizeworks/api-core':
+      '@wizeworksllc/api-core':
         specifier: workspace:*
         version: link:../api-core
-      '@wizeworks/brand-core':
+      '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/integrations':
+      '@wizeworksllc/integrations':
         specifier: workspace:*
         version: link:../integrations
+      '@wizeworksllc/social-cadence':
+        specifier: workspace:*
+        version: link:../social-cadence
       zod:
         specifier: ^4.6.6
         version: 4.6.7
@@ -3417,24 +3488,36 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
+  wizeworks/packages/social-cadence:
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
   wizeworks/packages/social-worker:
     dependencies:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/attribution':
+      '@wizeworksllc/attribution':
         specifier: workspace:*
         version: link:../attribution
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/links':
+      '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../links
-      '@wizeworks/social':
+      '@wizeworksllc/social':
         specifier: workspace:*
         version: link:../social
       pino:
@@ -3487,13 +3570,13 @@ importers:
 
   wizeworks/packages/staff:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/finance':
+      '@wizeworksllc/finance':
         specifier: workspace:*
         version: link:../finance
-      '@wizeworks/modules':
+      '@wizeworksllc/modules':
         specifier: workspace:*
         version: link:../modules
       zod:
@@ -3512,13 +3595,13 @@ importers:
 
   wizeworks/packages/staff-worker:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../events
-      '@wizeworks/staff':
+      '@wizeworksllc/staff':
         specifier: workspace:*
         version: link:../staff
       pino:
@@ -3555,10 +3638,10 @@ importers:
       '@tailwindcss/node':
         specifier: ^4.3.0
         version: 4.3.0
-      '@wizeworks/builder-schemas':
+      '@wizeworksllc/builder-schemas':
         specifier: workspace:*
         version: link:../builder-schemas
-      '@wizeworks/silica-catalog':
+      '@wizeworksllc/silica-catalog':
         specifier: workspace:*
         version: link:../silica-catalog
       tailwindcss:
@@ -3598,15 +3681,15 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.2.8
         version: 1.2.8(@types/react-dom@19.2.3(@types/react@19.2.15))(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      '@wizeworks/brand-core':
-        specifier: workspace:*
-        version: link:../brand-core
-      '@wizeworks/silica-corrections':
-        specifier: workspace:*
-        version: link:../silica-corrections
       '@wizeworks/silicaui-react':
         specifier: 'catalog:'
         version: 0.60.3(@types/react@19.2.15)(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@wizeworksllc/brand-core':
+        specifier: workspace:*
+        version: link:../brand-core
+      '@wizeworksllc/silica-corrections':
+        specifier: workspace:*
+        version: link:../silica-corrections
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -3662,9 +3745,12 @@ importers:
 
   wizeworks/packages/usage:
     dependencies:
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
+      '@wizeworksllc/usage-meters':
+        specifier: workspace:*
+        version: link:../usage-meters
     devDependencies:
       '@types/node':
         specifier: ^25.9.1
@@ -3675,6 +3761,18 @@ importers:
       vitest:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
+  wizeworks/packages/usage-meters:
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
   wizeworks/packages/voice:
     devDependencies:
@@ -3699,36 +3797,36 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/api-core':
-        specifier: workspace:*
-        version: link:../../packages/api-core
-      '@wizeworks/auth':
-        specifier: workspace:*
-        version: link:../../packages/auth
-      '@wizeworks/client-ip':
-        specifier: workspace:*
-        version: link:../../packages/client-ip
-      '@wizeworks/cms':
-        specifier: workspace:*
-        version: link:../../packages/cms
-      '@wizeworks/cms-schemas':
-        specifier: workspace:*
-        version: link:../../packages/cms-schemas
-      '@wizeworks/crm':
-        specifier: workspace:*
-        version: link:../../packages/crm
-      '@wizeworks/crm-schemas':
-        specifier: workspace:*
-        version: link:../../packages/crm-schemas
-      '@wizeworks/db':
-        specifier: workspace:*
-        version: link:../../packages/db
-      '@wizeworks/events':
-        specifier: workspace:*
-        version: link:../../packages/events
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
+      '@wizeworksllc/api-core':
+        specifier: workspace:*
+        version: link:../../packages/api-core
+      '@wizeworksllc/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@wizeworksllc/client-ip':
+        specifier: workspace:*
+        version: link:../../packages/client-ip
+      '@wizeworksllc/cms':
+        specifier: workspace:*
+        version: link:../../packages/cms
+      '@wizeworksllc/cms-schemas':
+        specifier: workspace:*
+        version: link:../../packages/cms-schemas
+      '@wizeworksllc/crm':
+        specifier: workspace:*
+        version: link:../../packages/crm
+      '@wizeworksllc/crm-schemas':
+        specifier: workspace:*
+        version: link:../../packages/crm-schemas
+      '@wizeworksllc/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@wizeworksllc/events':
+        specifier: workspace:*
+        version: link:../../packages/events
       fastify:
         specifier: ^5.12.5
         version: 5.12.7
@@ -3772,82 +3870,82 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/api-core':
-        specifier: workspace:*
-        version: link:../../packages/api-core
-      '@wizeworks/auth':
-        specifier: workspace:*
-        version: link:../../packages/auth
-      '@wizeworks/automation':
-        specifier: workspace:*
-        version: link:../../packages/automation
-      '@wizeworks/automation-schemas':
-        specifier: workspace:*
-        version: link:../../packages/automation-schemas
-      '@wizeworks/b2b':
-        specifier: workspace:*
-        version: link:../../packages/b2b
-      '@wizeworks/builder':
-        specifier: workspace:*
-        version: link:../../packages/builder
-      '@wizeworks/client-ip':
-        specifier: workspace:*
-        version: link:../../packages/client-ip
-      '@wizeworks/cms':
-        specifier: workspace:*
-        version: link:../../packages/cms
-      '@wizeworks/commerce':
-        specifier: workspace:*
-        version: link:../../packages/commerce
-      '@wizeworks/crm':
-        specifier: workspace:*
-        version: link:../../packages/crm
-      '@wizeworks/db':
-        specifier: workspace:*
-        version: link:../../packages/db
-      '@wizeworks/email-platform':
-        specifier: workspace:*
-        version: link:../../packages/email-platform
-      '@wizeworks/events':
-        specifier: workspace:*
-        version: link:../../packages/events
-      '@wizeworks/funnels':
-        specifier: workspace:*
-        version: link:../../packages/funnels
-      '@wizeworks/godaddy':
-        specifier: workspace:*
-        version: link:../../packages/godaddy
-      '@wizeworks/inventory':
-        specifier: workspace:*
-        version: link:../../packages/inventory
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
-      '@wizeworks/links':
+      '@wizeworksllc/api-core':
+        specifier: workspace:*
+        version: link:../../packages/api-core
+      '@wizeworksllc/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@wizeworksllc/automation':
+        specifier: workspace:*
+        version: link:../../packages/automation
+      '@wizeworksllc/automation-schemas':
+        specifier: workspace:*
+        version: link:../../packages/automation-schemas
+      '@wizeworksllc/b2b':
+        specifier: workspace:*
+        version: link:../../packages/b2b
+      '@wizeworksllc/builder':
+        specifier: workspace:*
+        version: link:../../packages/builder
+      '@wizeworksllc/client-ip':
+        specifier: workspace:*
+        version: link:../../packages/client-ip
+      '@wizeworksllc/cms':
+        specifier: workspace:*
+        version: link:../../packages/cms
+      '@wizeworksllc/commerce':
+        specifier: workspace:*
+        version: link:../../packages/commerce
+      '@wizeworksllc/crm':
+        specifier: workspace:*
+        version: link:../../packages/crm
+      '@wizeworksllc/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@wizeworksllc/email-platform':
+        specifier: workspace:*
+        version: link:../../packages/email-platform
+      '@wizeworksllc/events':
+        specifier: workspace:*
+        version: link:../../packages/events
+      '@wizeworksllc/funnels':
+        specifier: workspace:*
+        version: link:../../packages/funnels
+      '@wizeworksllc/godaddy':
+        specifier: workspace:*
+        version: link:../../packages/godaddy
+      '@wizeworksllc/inventory':
+        specifier: workspace:*
+        version: link:../../packages/inventory
+      '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../../packages/links
-      '@wizeworks/media':
+      '@wizeworksllc/media':
         specifier: workspace:*
         version: link:../../packages/media
-      '@wizeworks/registrar':
+      '@wizeworksllc/registrar':
         specifier: workspace:*
         version: link:../../packages/registrar
-      '@wizeworks/scheduling':
+      '@wizeworksllc/scheduling':
         specifier: workspace:*
         version: link:../../packages/scheduling
-      '@wizeworks/scheduling-schemas':
+      '@wizeworksllc/scheduling-schemas':
         specifier: workspace:*
         version: link:../../packages/scheduling-schemas
-      '@wizeworks/search':
+      '@wizeworksllc/search':
         specifier: workspace:*
         version: link:../../packages/search
-      '@wizeworks/sitebuilder':
+      '@wizeworksllc/sitebuilder':
         specifier: workspace:*
         version: link:../../packages/sitebuilder
-      '@wizeworks/social':
+      '@wizeworksllc/social':
         specifier: workspace:*
         version: link:../../packages/social
-      '@wizeworks/socket-bus':
+      '@wizeworksllc/socket-bus':
         specifier: workspace:*
         version: link:../../packages/socket-bus
       fastify:
@@ -3917,196 +4015,196 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/api-core':
-        specifier: workspace:*
-        version: link:../../packages/api-core
-      '@wizeworks/auth':
-        specifier: workspace:*
-        version: link:../../packages/auth
-      '@wizeworks/automation':
-        specifier: workspace:*
-        version: link:../../packages/automation
-      '@wizeworks/automation-schemas':
-        specifier: workspace:*
-        version: link:../../packages/automation-schemas
-      '@wizeworks/b2b':
-        specifier: workspace:*
-        version: link:../../packages/b2b
-      '@wizeworks/billing':
-        specifier: workspace:*
-        version: link:../../packages/billing
-      '@wizeworks/blueprints':
-        specifier: workspace:*
-        version: link:../../packages/blueprints
-      '@wizeworks/brand-core':
-        specifier: workspace:*
-        version: link:../../packages/brand-core
-      '@wizeworks/builder':
-        specifier: workspace:*
-        version: link:../../packages/builder
-      '@wizeworks/builder-schemas':
-        specifier: workspace:*
-        version: link:../../packages/builder-schemas
-      '@wizeworks/channels':
-        specifier: workspace:*
-        version: link:../../packages/channels
-      '@wizeworks/client-ip':
-        specifier: workspace:*
-        version: link:../../packages/client-ip
-      '@wizeworks/cms':
-        specifier: workspace:*
-        version: link:../../packages/cms
-      '@wizeworks/cms-editor':
-        specifier: workspace:*
-        version: link:../../packages/cms-editor
-      '@wizeworks/cms-schemas':
-        specifier: workspace:*
-        version: link:../../packages/cms-schemas
-      '@wizeworks/commerce':
-        specifier: workspace:*
-        version: link:../../packages/commerce
-      '@wizeworks/commerce-schemas':
-        specifier: workspace:*
-        version: link:../../packages/commerce-schemas
-      '@wizeworks/crm':
-        specifier: workspace:*
-        version: link:../../packages/crm
-      '@wizeworks/crm-schemas':
-        specifier: workspace:*
-        version: link:../../packages/crm-schemas
-      '@wizeworks/customer-auth':
-        specifier: workspace:^
-        version: link:../../packages/customer-auth
-      '@wizeworks/db':
-        specifier: workspace:*
-        version: link:../../packages/db
-      '@wizeworks/dropship':
-        specifier: workspace:*
-        version: link:../../packages/dropship
-      '@wizeworks/email':
-        specifier: workspace:*
-        version: link:../../packages/email
-      '@wizeworks/email-platform':
-        specifier: workspace:*
-        version: link:../../packages/email-platform
-      '@wizeworks/email-sequences':
-        specifier: workspace:*
-        version: link:../../packages/email-sequences
-      '@wizeworks/events':
-        specifier: workspace:*
-        version: link:../../packages/events
-      '@wizeworks/finance':
-        specifier: workspace:*
-        version: link:../../packages/finance
-      '@wizeworks/funnels':
-        specifier: workspace:*
-        version: link:../../packages/funnels
-      '@wizeworks/godaddy':
-        specifier: workspace:*
-        version: link:../../packages/godaddy
-      '@wizeworks/integration-framework':
-        specifier: workspace:*
-        version: link:../../packages/integration-framework
-      '@wizeworks/integrations':
-        specifier: workspace:*
-        version: link:../../packages/integrations
-      '@wizeworks/inventory':
-        specifier: workspace:*
-        version: link:../../packages/inventory
-      '@wizeworks/legal':
-        specifier: workspace:*
-        version: link:../../packages/legal
-      '@wizeworks/legal-templates':
-        specifier: workspace:*
-        version: link:../../packages/legal-templates
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
-      '@wizeworks/links':
-        specifier: workspace:*
-        version: link:../../packages/links
-      '@wizeworks/marketplace-schemas':
-        specifier: workspace:*
-        version: link:../../packages/marketplace-schemas
-      '@wizeworks/media':
-        specifier: workspace:*
-        version: link:../../packages/media
-      '@wizeworks/migration':
-        specifier: workspace:*
-        version: link:../../packages/migration
-      '@wizeworks/modules':
-        specifier: workspace:*
-        version: link:../../packages/modules
-      '@wizeworks/operator':
-        specifier: workspace:*
-        version: link:../../packages/operator
-      '@wizeworks/partner-schemas':
-        specifier: workspace:*
-        version: link:../../packages/partner-schemas
-      '@wizeworks/payments':
-        specifier: workspace:*
-        version: link:../../packages/payments
-      '@wizeworks/provider-avalara':
-        specifier: workspace:*
-        version: link:../../packages/provider-avalara
-      '@wizeworks/provider-easypost':
-        specifier: workspace:*
-        version: link:../../packages/provider-easypost
-      '@wizeworks/provider-shippo':
-        specifier: workspace:*
-        version: link:../../packages/provider-shippo
-      '@wizeworks/provider-taxjar':
-        specifier: workspace:*
-        version: link:../../packages/provider-taxjar
-      '@wizeworks/registrar':
-        specifier: workspace:*
-        version: link:../../packages/registrar
-      '@wizeworks/scheduling':
-        specifier: workspace:*
-        version: link:../../packages/scheduling
-      '@wizeworks/scheduling-schemas':
-        specifier: workspace:*
-        version: link:../../packages/scheduling-schemas
-      '@wizeworks/search':
-        specifier: workspace:*
-        version: link:../../packages/search
-      '@wizeworks/seo-audit':
-        specifier: workspace:*
-        version: link:../../packages/seo-audit
-      '@wizeworks/silica-catalog':
-        specifier: workspace:*
-        version: link:../../packages/silica-catalog
       '@wizeworks/silicaui-html':
         specifier: 'catalog:'
         version: 0.60.3(@wizeworks/silicaui@0.60.3(tailwindcss@4.3.0))
-      '@wizeworks/site-lint':
+      '@wizeworksllc/api-core':
+        specifier: workspace:*
+        version: link:../../packages/api-core
+      '@wizeworksllc/auth':
+        specifier: workspace:*
+        version: link:../../packages/auth
+      '@wizeworksllc/automation':
+        specifier: workspace:*
+        version: link:../../packages/automation
+      '@wizeworksllc/automation-schemas':
+        specifier: workspace:*
+        version: link:../../packages/automation-schemas
+      '@wizeworksllc/b2b':
+        specifier: workspace:*
+        version: link:../../packages/b2b
+      '@wizeworksllc/billing':
+        specifier: workspace:*
+        version: link:../../packages/billing
+      '@wizeworksllc/blueprints':
+        specifier: workspace:*
+        version: link:../../packages/blueprints
+      '@wizeworksllc/brand-core':
+        specifier: workspace:*
+        version: link:../../packages/brand-core
+      '@wizeworksllc/builder':
+        specifier: workspace:*
+        version: link:../../packages/builder
+      '@wizeworksllc/builder-schemas':
+        specifier: workspace:*
+        version: link:../../packages/builder-schemas
+      '@wizeworksllc/channels':
+        specifier: workspace:*
+        version: link:../../packages/channels
+      '@wizeworksllc/client-ip':
+        specifier: workspace:*
+        version: link:../../packages/client-ip
+      '@wizeworksllc/cms':
+        specifier: workspace:*
+        version: link:../../packages/cms
+      '@wizeworksllc/cms-editor':
+        specifier: workspace:*
+        version: link:../../packages/cms-editor
+      '@wizeworksllc/cms-schemas':
+        specifier: workspace:*
+        version: link:../../packages/cms-schemas
+      '@wizeworksllc/commerce':
+        specifier: workspace:*
+        version: link:../../packages/commerce
+      '@wizeworksllc/commerce-schemas':
+        specifier: workspace:*
+        version: link:../../packages/commerce-schemas
+      '@wizeworksllc/crm':
+        specifier: workspace:*
+        version: link:../../packages/crm
+      '@wizeworksllc/crm-schemas':
+        specifier: workspace:*
+        version: link:../../packages/crm-schemas
+      '@wizeworksllc/customer-auth':
+        specifier: workspace:^
+        version: link:../../packages/customer-auth
+      '@wizeworksllc/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@wizeworksllc/dropship':
+        specifier: workspace:*
+        version: link:../../packages/dropship
+      '@wizeworksllc/email':
+        specifier: workspace:*
+        version: link:../../packages/email
+      '@wizeworksllc/email-platform':
+        specifier: workspace:*
+        version: link:../../packages/email-platform
+      '@wizeworksllc/email-sequences':
+        specifier: workspace:*
+        version: link:../../packages/email-sequences
+      '@wizeworksllc/events':
+        specifier: workspace:*
+        version: link:../../packages/events
+      '@wizeworksllc/finance':
+        specifier: workspace:*
+        version: link:../../packages/finance
+      '@wizeworksllc/funnels':
+        specifier: workspace:*
+        version: link:../../packages/funnels
+      '@wizeworksllc/godaddy':
+        specifier: workspace:*
+        version: link:../../packages/godaddy
+      '@wizeworksllc/integration-framework':
+        specifier: workspace:*
+        version: link:../../packages/integration-framework
+      '@wizeworksllc/integrations':
+        specifier: workspace:*
+        version: link:../../packages/integrations
+      '@wizeworksllc/inventory':
+        specifier: workspace:*
+        version: link:../../packages/inventory
+      '@wizeworksllc/legal':
+        specifier: workspace:*
+        version: link:../../packages/legal
+      '@wizeworksllc/legal-templates':
+        specifier: workspace:*
+        version: link:../../packages/legal-templates
+      '@wizeworksllc/links':
+        specifier: workspace:*
+        version: link:../../packages/links
+      '@wizeworksllc/marketplace-schemas':
+        specifier: workspace:*
+        version: link:../../packages/marketplace-schemas
+      '@wizeworksllc/media':
+        specifier: workspace:*
+        version: link:../../packages/media
+      '@wizeworksllc/migration':
+        specifier: workspace:*
+        version: link:../../packages/migration
+      '@wizeworksllc/modules':
+        specifier: workspace:*
+        version: link:../../packages/modules
+      '@wizeworksllc/operator':
+        specifier: workspace:*
+        version: link:../../packages/operator
+      '@wizeworksllc/partner-schemas':
+        specifier: workspace:*
+        version: link:../../packages/partner-schemas
+      '@wizeworksllc/payments':
+        specifier: workspace:*
+        version: link:../../packages/payments
+      '@wizeworksllc/provider-avalara':
+        specifier: workspace:*
+        version: link:../../packages/provider-avalara
+      '@wizeworksllc/provider-easypost':
+        specifier: workspace:*
+        version: link:../../packages/provider-easypost
+      '@wizeworksllc/provider-shippo':
+        specifier: workspace:*
+        version: link:../../packages/provider-shippo
+      '@wizeworksllc/provider-taxjar':
+        specifier: workspace:*
+        version: link:../../packages/provider-taxjar
+      '@wizeworksllc/registrar':
+        specifier: workspace:*
+        version: link:../../packages/registrar
+      '@wizeworksllc/scheduling':
+        specifier: workspace:*
+        version: link:../../packages/scheduling
+      '@wizeworksllc/scheduling-schemas':
+        specifier: workspace:*
+        version: link:../../packages/scheduling-schemas
+      '@wizeworksllc/search':
+        specifier: workspace:*
+        version: link:../../packages/search
+      '@wizeworksllc/seo-audit':
+        specifier: workspace:*
+        version: link:../../packages/seo-audit
+      '@wizeworksllc/silica-catalog':
+        specifier: workspace:*
+        version: link:../../packages/silica-catalog
+      '@wizeworksllc/site-lint':
         specifier: workspace:*
         version: link:../../packages/site-lint
-      '@wizeworks/site-mcp':
+      '@wizeworksllc/site-mcp':
         specifier: workspace:*
         version: link:../../packages/site-mcp
-      '@wizeworks/site-themes':
+      '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../packages/site-themes
-      '@wizeworks/sitebuilder':
+      '@wizeworksllc/sitebuilder':
         specifier: workspace:*
         version: link:../../packages/sitebuilder
-      '@wizeworks/sms':
+      '@wizeworksllc/sms':
         specifier: workspace:*
         version: link:../../packages/sms
-      '@wizeworks/social':
+      '@wizeworksllc/social':
         specifier: workspace:*
         version: link:../../packages/social
-      '@wizeworks/socket-bus':
+      '@wizeworksllc/socket-bus':
         specifier: workspace:*
         version: link:../../packages/socket-bus
-      '@wizeworks/staff':
+      '@wizeworksllc/staff':
         specifier: workspace:*
         version: link:../../packages/staff
-      '@wizeworks/usage':
+      '@wizeworksllc/usage':
         specifier: workspace:*
         version: link:../../packages/usage
-      '@wizeworks/voice':
+      '@wizeworksllc/voice':
         specifier: workspace:*
         version: link:../../packages/voice
       fastify:
@@ -4158,55 +4256,55 @@ importers:
 
   wizeworks/services/event-worker:
     dependencies:
-      '@wizeworks/automation-worker':
+      '@wizeworksllc/automation-worker':
         specifier: workspace:*
         version: link:../../packages/automation-worker
-      '@wizeworks/cache-revalidation-worker':
+      '@wizeworksllc/cache-revalidation-worker':
         specifier: workspace:*
         version: link:../../packages/cache-revalidation-worker
-      '@wizeworks/channel-sync-worker':
+      '@wizeworksllc/channel-sync-worker':
         specifier: workspace:*
         version: link:../../packages/channel-sync-worker
-      '@wizeworks/commerce-indexer':
+      '@wizeworksllc/commerce-indexer':
         specifier: workspace:*
         version: link:../../packages/commerce-indexer
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@wizeworks/domain-worker':
+      '@wizeworksllc/domain-worker':
         specifier: workspace:*
         version: link:../../packages/domain-worker
-      '@wizeworks/dropship-worker':
+      '@wizeworksllc/dropship-worker':
         specifier: workspace:*
         version: link:../../packages/dropship-worker
-      '@wizeworks/email-worker':
+      '@wizeworksllc/email-worker':
         specifier: workspace:*
         version: link:../../packages/email-worker
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../../packages/events
-      '@wizeworks/finance-worker':
+      '@wizeworksllc/finance-worker':
         specifier: workspace:*
         version: link:../../packages/finance-worker
-      '@wizeworks/inventory-worker':
+      '@wizeworksllc/inventory-worker':
         specifier: workspace:*
         version: link:../../packages/inventory-worker
-      '@wizeworks/legal-seed-worker':
+      '@wizeworksllc/legal-seed-worker':
         specifier: workspace:*
         version: link:../../packages/legal-seed-worker
-      '@wizeworks/markup-recompute-worker':
+      '@wizeworksllc/markup-recompute-worker':
         specifier: workspace:*
         version: link:../../packages/markup-recompute-worker
-      '@wizeworks/platform-crm-worker':
+      '@wizeworksllc/platform-crm-worker':
         specifier: workspace:*
         version: link:../../packages/platform-crm-worker
-      '@wizeworks/push-worker':
+      '@wizeworksllc/push-worker':
         specifier: workspace:*
         version: link:../../packages/push-worker
-      '@wizeworks/social-worker':
+      '@wizeworksllc/social-worker':
         specifier: workspace:*
         version: link:../../packages/social-worker
-      '@wizeworks/staff-worker':
+      '@wizeworksllc/staff-worker':
         specifier: workspace:*
         version: link:../../packages/staff-worker
       pino:
@@ -4237,31 +4335,31 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/cms':
+      '@wizeworksllc/cms':
         specifier: workspace:*
         version: link:../../packages/cms
-      '@wizeworks/commerce':
+      '@wizeworksllc/commerce':
         specifier: workspace:*
         version: link:../../packages/commerce
-      '@wizeworks/commerce-schemas':
+      '@wizeworksllc/commerce-schemas':
         specifier: workspace:*
         version: link:../../packages/commerce-schemas
-      '@wizeworks/crm':
+      '@wizeworksllc/crm':
         specifier: workspace:*
         version: link:../../packages/crm
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../../packages/events
-      '@wizeworks/inventory':
+      '@wizeworksllc/inventory':
         specifier: workspace:*
         version: link:../../packages/inventory
-      '@wizeworks/media':
+      '@wizeworksllc/media':
         specifier: workspace:*
         version: link:../../packages/media
-      '@wizeworks/migration':
+      '@wizeworksllc/migration':
         specifier: workspace:*
         version: link:../../packages/migration
       pino:
@@ -4314,13 +4412,13 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.32.0
         version: 1.32.1(zod@4.6.7)
-      '@wizeworks/client-ip':
-        specifier: workspace:*
-        version: link:../../packages/client-ip
       '@wizeworks/lens-node':
         specifier: 0.3.0-alpha.11
         version: 0.3.0-alpha.11
-      '@wizeworks/site-mcp':
+      '@wizeworksllc/client-ip':
+        specifier: workspace:*
+        version: link:../../packages/client-ip
+      '@wizeworksllc/site-mcp':
         specifier: workspace:*
         version: link:../../packages/site-mcp
       fastify:
@@ -4363,10 +4461,10 @@ importers:
       '@prisma/client':
         specifier: ^6.19.3
         version: 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
-      '@wizeworks/db':
+      '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@wizeworks/events':
+      '@wizeworksllc/events':
         specifier: workspace:*
         version: link:../../packages/events
       blurhash:
@@ -11053,6 +11151,18 @@ snapshots:
       nanostores: 1.3.0
       zod: 4.6.7
 
+  '@better-auth/passkey@1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-auth@1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))))(better-call@1.4.4(zod@4.6.7))(nanostores@1.3.0)':
+    dependencies:
+      '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0)
+      '@better-auth/utils': 0.5.1
+      '@better-fetch/fetch': 1.3.3
+      '@simplewebauthn/browser': 13.3.0
+      '@simplewebauthn/server': 13.3.2
+      better-auth: 1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0)))
+      better-call: 1.4.4(zod@4.6.7)
+      nanostores: 1.3.0
+      zod: 4.6.7
+
   '@better-auth/prisma-adapter@1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(prisma@6.19.3(typescript@6.0.3))':
     dependencies:
       '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0)
@@ -13854,6 +13964,36 @@ snapshots:
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       vitest: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
+  better-auth@1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))):
+    dependencies:
+      '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0)
+      '@better-auth/drizzle-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)
+      '@better-auth/kysely-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(kysely@0.28.17)
+      '@better-auth/memory-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)
+      '@better-auth/mongo-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)
+      '@better-auth/prisma-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(prisma@6.19.3(typescript@6.0.3))
+      '@better-auth/telemetry': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)
+      '@better-auth/utils': 0.5.1
+      '@better-fetch/fetch': 1.3.3
+      '@noble/ciphers': 2.2.0
+      '@noble/hashes': 2.2.0
+      better-call: 1.4.4(zod@4.6.7)
+      defu: 6.1.7
+      jose: 6.2.3
+      kysely: 0.28.17
+      nanostores: 1.3.0
+      zod: 4.6.7
+    optionalDependencies:
+      '@prisma/client': 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
+      next: 16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      pg: 8.21.0
+      prisma: 6.19.3(typescript@6.0.3)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
+      vitest: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
     transitivePeerDependencies:
       - '@opentelemetry/api'
 

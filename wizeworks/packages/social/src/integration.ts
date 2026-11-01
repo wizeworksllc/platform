@@ -1,4 +1,4 @@
-// Social accounts' entry in the shared integration plane (@wizeworks/integrations).
+// Social accounts' entry in the shared integration plane (@wizeworksllc/integrations).
 //
 // `SocialAdapter` keeps its own contract and its own dispatch — the worker still
 // resolves an adapter and calls `publish`/`getMetrics` against the real type. What
@@ -10,13 +10,13 @@
 // `needs_platform_setup` under a local name. It is spelled the shared way here so
 // every category gets it, rather than the three that happened to invent it.
 
-import { PLATFORM_TOKEN } from '@wizeworks/brand-core';
+import { PLATFORM_TOKEN } from '@wizeworksllc/brand-core';
 
 import {
   defineIntegrationKind,
   type IntegrationAvailability,
   type IntegrationDescriptor,
-} from '@wizeworks/integrations';
+} from '@wizeworksllc/integrations';
 
 import { SOCIAL_CATALOG, type SocialPlatformDescriptor } from './catalog.js';
 import type { SocialAdapter } from './types.js';

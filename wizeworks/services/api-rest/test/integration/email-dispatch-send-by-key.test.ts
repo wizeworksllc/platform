@@ -25,9 +25,9 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import { resetPlatformBusForTesting } from '@wizeworks/crm';
+import { prisma } from '@wizeworksllc/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import { resetPlatformBusForTesting } from '@wizeworksllc/crm';
 import { createApp } from '../../src/app.js';
 import { registerEmailProvisioningConsumer } from '../../src/lib/email-provisioning.js';
 import { runEmailDispatchTick } from '../../src/lib/email-dispatch.js';

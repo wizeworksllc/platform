@@ -2,7 +2,7 @@
 // (docs/44 §2.3, docs/61). Distinct from the dashboard editor canvas only in its
 // PER-NODE WRAPPER (no selection chrome, semantic output) and its DATA (real
 // records vs the canvas sample): the per-type LEAF render is the ONE shared map in
-// `@wizeworks/builder-render` (docs/builder/02), so the canvas and this path can no
+// `@wizeworksllc/builder-render` (docs/builder/02), so the canvas and this path can no
 // longer drift. Each node's Tailwind-native `class` string is applied verbatim and
 // resolves against the compiled per-tenant stylesheet (the same classes the editor
 // canvas previews, so preview == production).
@@ -28,7 +28,7 @@ import {
   type Cardinality,
   type DataSources,
   type Scope,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import {
   BuilderCarousel,
   NavShell,
@@ -39,12 +39,12 @@ import {
   renderLegacyNavLinks,
   resolveBuilderProduct,
   sxAttrs,
-} from '@wizeworks/builder-render';
+} from '@wizeworksllc/builder-render';
 
 // ── Class-only rendering (docs/61) ────────────────────────────────────────────
 //
 // A node's entire styling is its `class` string, compiled per tenant to the
-// `--st-*` tokens by @wizeworks/surface-compile. The renderer applies it verbatim —
+// `--st-*` tokens by @wizeworksllc/surface-compile. The renderer applies it verbatim —
 // no box→CSS engine, no `.bx-*` layout classes, no inline geometry. The ONE inline
 // style that remains is a dynamic background image (a per-node / per-record URL
 // can't be a static utility class), painted from the node's bg-* props.
@@ -274,7 +274,7 @@ function RenderNode({
       bound,
       mode: 'live',
       // The live storefront is page/site (never email — the send path renders email
-      // through @wizeworks/email); renderLeaf treats page and site identically.
+      // through @wizeworksllc/email); renderLeaf treats page and site identically.
       surface: 'page',
       leafClass: leafStylesByClass ? node.class : undefined,
       children: kids.length > 0 ? kids : undefined,

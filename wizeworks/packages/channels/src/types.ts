@@ -1,4 +1,4 @@
-// @wizeworks/channels — the ChannelAdapter contract + normalized types for external
+// @wizeworksllc/channels — the ChannelAdapter contract + normalized types for external
 // sales-channel and sparx.market integrations (docs/106).
 //
 // A "channel" is one of three SHAPES (docs/106 §2):

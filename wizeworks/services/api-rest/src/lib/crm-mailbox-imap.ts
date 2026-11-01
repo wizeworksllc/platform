@@ -1,5 +1,5 @@
 // The IMAP socket (docs/144 §5.2) — the network half of the protocol whose
-// parsing lives, pure and tested, in `@wizeworks/crm/mail`.
+// parsing lives, pure and tested, in `@wizeworksllc/crm/mail`.
 //
 // This is the path for every business not on Gmail or Microsoft 365: Fastmail,
 // Zoho, Rackspace, a host their web agency set up in 2014. It is not a fallback
@@ -34,7 +34,7 @@ import {
   scanImapResponse,
   SENT_FOLDER_CANDIDATES,
   type FetchedMessage,
-} from '@wizeworks/crm/mail';
+} from '@wizeworksllc/crm/mail';
 
 const CONNECT_TIMEOUT_MS = 15_000;
 const COMMAND_TIMEOUT_MS = 45_000;

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/sitebuilder",
+  "name": "@wizeworksllc/sitebuilder",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Site Builder — service layer (theme/section/layout/publish/schedule), events, MCP tools, and dashboard manifest. One service, many transports (docs/29-sitebuilder-architecture.md).",
@@ -25,11 +25,11 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/silica-catalog": "workspace:*",
-    "@wizeworks/site-themes": "workspace:*",
-    "@wizeworks/sitebuilder-schemas": "workspace:*",
-    "@wizeworks/ui": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/silica-catalog": "workspace:*",
+    "@wizeworksllc/site-themes": "workspace:*",
+    "@wizeworksllc/sitebuilder-schemas": "workspace:*",
+    "@wizeworksllc/ui": "workspace:*",
     "lucide-react": "^0.577.0",
     "zod": "^4.6.6"
   },

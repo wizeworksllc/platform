@@ -13,8 +13,8 @@
 // indexed. A kind with entries is left alone; its write signals keep it current,
 // and the full rebuild is still the remedy for drift inside a kind.
 
-import { prisma } from '@wizeworks/db';
-import { indexedKindsForTenant } from '@wizeworks/search';
+import { prisma } from '@wizeworksllc/db';
+import { indexedKindsForTenant } from '@wizeworksllc/search';
 import type { Logger } from 'pino';
 
 import { REGISTRY } from './registry.js';

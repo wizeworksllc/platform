@@ -13,7 +13,7 @@
 //
 // A rules-based collection stores a `CollectionRuleSet` — `{ match, predicates }`
 // — and this UI is the PRODUCER of a format the rule compiler consumes. The
-// types AND the Zod validator come straight from `@wizeworks/commerce-schemas`, so
+// types AND the Zod validator come straight from `@wizeworksllc/commerce-schemas`, so
 // the editor cannot drift from the contract: `buildRuleSet` runs the real schema
 // before a save, and a shape the compiler would reject never reaches the server.
 //
@@ -29,13 +29,13 @@
 // has to appear in all of them.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 // The Zod validator (a VALUE), aliased so it never clashes with the same-named
 // inferred TYPE below. `buildRuleSet` runs `.safeParse` on what the editor made.
-import { CollectionRuleSet as CollectionRuleSetSchema } from '@wizeworks/commerce-schemas';
-import type { CollectionPredicate, CollectionRuleSet } from '@wizeworks/commerce-schemas';
+import { CollectionRuleSet as CollectionRuleSetSchema } from '@wizeworksllc/commerce-schemas';
+import type { CollectionPredicate, CollectionRuleSet } from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import { slugify as slugifyWebSegment } from '../../lib/slugify';
 

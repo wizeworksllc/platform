@@ -27,25 +27,30 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant, type TxClient } from '@wizeworks/db';
+import { prisma, withTenant, type TxClient } from '@wizeworksllc/db';
 // Runtime import: `Prisma.DbNull` (clearing the brandOverride JSON column) is a
 // value, plus the Update/JSON input shapes are used as types (cf. brand.ts).
 import { Prisma } from '@prisma/client';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound, conflict, validationError, paymentRequired } from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { ALL_MODULES, type ModuleSlug } from '@wizeworks/modules';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import {
+  notFound,
+  conflict,
+  validationError,
+  paymentRequired,
+} from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { ALL_MODULES, type ModuleSlug } from '@wizeworksllc/modules';
 // Universal search (docs/39): a property IS a `site` entity. Re-index it after
 // each write so ⌘K stays live; indexEntity never throws into the handler.
-import { indexEntity } from '@wizeworks/events';
+import { indexEntity } from '@wizeworksllc/events';
 import { mintZoneHost, tenantZone } from '../../lib/domain.js';
 import { PropertyBrandOverrideSchema, parseBrandOverride } from '../../lib/property-brand.js';
 import { publishSiteUpdated } from '../../lib/site-events.js';
 import { withoutBusinessName } from '../../lib/site-handle.js';
 
 // A stable per-tenant property handle from a display name: lowercase, hyphenated,
-// ≤63 chars. Mirrors the tenant slugify in @wizeworks/auth.
+// ≤63 chars. Mirrors the tenant slugify in @wizeworksllc/auth.
 function slugifyProperty(input: string): string {
   return input
     .toLowerCase()
@@ -148,7 +153,7 @@ function toView(
 
 const IdParam = z.object({ id: z.string().uuid() });
 
-// Per-site module scope, DERIVED from @wizeworks/modules rather than re-typed.
+// Per-site module scope, DERIVED from @wizeworksllc/modules rather than re-typed.
 //
 // It used to be a hand-written copy under a comment saying it was "kept in step
 // with ALL_MODULES", and it was not: `funnels` was added to the package and

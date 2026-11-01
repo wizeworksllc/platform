@@ -17,7 +17,7 @@
 // 9,000-row file would otherwise evaluate every segment 9,000 times.
 
 import type { Logger } from 'pino';
-import { segmentService } from '@wizeworks/crm';
+import { segmentService } from '@wizeworksllc/crm';
 
 /** Entities whose rows feed a segment rule's projection: the customer's own
  *  fields, their order rollups, and their B2B account. Importing anything else

@@ -19,7 +19,7 @@ import {
   Tooltip,
 } from '@wizeworks/silicaui-react';
 import { Compass, LogOut, MessageSquarePlus } from 'lucide-react';
-import { signOut } from '@wizeworks/auth/client';
+import { signOut } from '@wizeworksllc/auth-client/client';
 import { clearToken } from '../../lib/api/token';
 import { resetClient } from '../../lib/api/client';
 import { launchTour } from '../../lib/tour/first-run-tour';

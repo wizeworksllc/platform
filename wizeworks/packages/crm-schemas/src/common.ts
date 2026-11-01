@@ -109,7 +109,7 @@ export type CompanyStatus = z.infer<typeof CompanyStatus>;
 // 15 or 30, putting a wrong due date on a real invoice and mis-aging a real debt.
 //
 // Nothing downstream ever needed the enum: the column is VarChar(20) and
-// `netTermsDays()` in @wizeworks/crm has always parsed whatever digits it finds,
+// `netTermsDays()` in @wizeworksllc/crm has always parsed whatever digits it finds,
 // so every `netN` already worked end to end. The bound is a typo guard -- a year
 // of credit is a mistake, and a four-digit day count is a due date in 2031.
 export const PaymentTerms = z

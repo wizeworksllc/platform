@@ -2,7 +2,7 @@
 //
 // Zero dependencies on purpose: this is the fallback path that has to work when
 // nothing else does, and an accountant's export is not the place to discover a
-// transitive dependency changed its quoting rules. Same stance @wizeworks/migration
+// transitive dependency changed its quoting rules. Same stance @wizeworksllc/migration
 // took for its own readers.
 //
 // Handles what real accounting exports actually contain: quoted fields, embedded

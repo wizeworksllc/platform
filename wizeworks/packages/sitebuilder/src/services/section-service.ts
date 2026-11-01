@@ -2,7 +2,7 @@
 //
 // Sections are the working set; publishing snapshots them into a SiteVersion.
 // Config is validated/defaulted against the section's Zod schema in
-// @wizeworks/sitebuilder-schemas so every transport stores the same shape.
+// @wizeworksllc/sitebuilder-schemas so every transport stores the same shape.
 //
 // Sections hang off a PageLayout (docs/36 §5). A write targets a layout by
 // `pageLayoutId` (preferred) or by `targetId` (+ `key`, default 'default'); the
@@ -16,9 +16,9 @@ import {
   defaultLayoutName,
   isSectionAllowedInTargetWith,
   parseSectionConfigWith,
-} from '@wizeworks/sitebuilder-schemas';
-import type { PageLayout, Prisma, SiteSection, TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/sitebuilder-schemas';
+import type { PageLayout, Prisma, SiteSection, TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

@@ -8,7 +8,7 @@
 //     and making it one sentence to an assistant rather than four taps on a
 //     screen is how it actually gets recorded.
 //   • Handing a box to shipping is NOT here. It buys a carrier label and spends
-//     money, and it needs `@wizeworks/crm` to write the fulfillment — a dependency
+//     money, and it needs `@wizeworksllc/crm` to write the fulfillment — a dependency
 //     inventory does not and should not have. It lives in commerce's tool set,
 //     next to the rest of the outbound shipping path.
 //
@@ -22,7 +22,7 @@ import {
   PickListKind,
   PickListStatus,
   ShortPickReason,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { inventoryService } from '../services';
 import type { AnyMcpTool, McpToolDefinition } from './registry';

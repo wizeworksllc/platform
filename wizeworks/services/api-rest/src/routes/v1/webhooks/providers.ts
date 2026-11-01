@@ -19,14 +19,14 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { prisma, withTenant } from '@wizeworks/db';
-import { dispatchShippingTrackingWebhook, getSecretReader } from '@wizeworks/commerce';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { dispatchShippingTrackingWebhook, getSecretReader } from '@wizeworksllc/commerce';
 import {
   getProvider,
   verifyInboundWebhook,
   WebhookVerificationError,
-} from '@wizeworks/integration-framework';
-import { ApiError } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/integration-framework';
+import { ApiError } from '@wizeworksllc/api-core/errors';
 
 const PathParams = z.object({
   slug: z.string().min(1).max(63),

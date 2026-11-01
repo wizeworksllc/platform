@@ -17,7 +17,7 @@ import {
   currentPlatformBrand,
   DEFAULT_PLATFORM_BRAND,
   normalizeBrandKey,
-} from '@wizeworks/brand-core';
+} from '@wizeworksllc/brand-core';
 
 export interface AuthBrandConfig {
   /** The brand key (`sparx`, `piggles`). Scopes every user lookup. */

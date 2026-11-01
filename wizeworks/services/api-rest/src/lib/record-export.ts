@@ -3,13 +3,13 @@
 // promises all four, in formats other software can open, without asking).
 //
 // The CSV itself is NOT written here. There is one writer on the platform,
-// `toCsv` in @wizeworks/inventory, and it owns the details that break a
+// `toCsv` in @wizeworksllc/inventory, and it owns the details that break a
 // round-trip (the BOM Excel needs, CRLF, quoting). A second writer would drift
 // from it, and the failure would surface as a file sparx produced that sparx,
 // or a spreadsheet, reads wrongly. These helpers only shape cells and send.
 
 import type { FastifyReply } from 'fastify';
-import { toCsv, type CsvTable } from '@wizeworks/inventory';
+import { toCsv, type CsvTable } from '@wizeworksllc/inventory';
 
 /** The most rows one export will hand over. Matches the customers export. */
 export const EXPORT_ROW_CAP = 10_000;

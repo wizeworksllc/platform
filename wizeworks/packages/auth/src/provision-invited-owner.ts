@@ -1,5 +1,5 @@
 import { randomBytes } from 'node:crypto';
-import { currentPlatformBrand } from '@wizeworks/brand-core';
+import { currentPlatformBrand } from '@wizeworksllc/brand-core';
 import { authPrisma } from './prisma';
 import { auth } from './server';
 import { SignUpError, isEmailUniqueViolation } from './sign-up';

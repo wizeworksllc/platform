@@ -10,7 +10,7 @@
 // (page counts, theme set, etc.) lives server-side so it stays in sync with the
 // domain rather than being guessed in the browser.
 
-import type { BlueprintVertical } from '@wizeworks/story-schemas';
+import type { BlueprintVertical } from '@wizeworksllc/story-schemas';
 
 export type { BlueprintVertical };
 

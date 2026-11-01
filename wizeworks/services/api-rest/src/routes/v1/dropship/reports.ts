@@ -13,15 +13,15 @@
 // recomputed live so "today" is fresh. SLA + activity aggregate live over
 // dropship_orders. All reporting logic lives on the commerce service spine
 // (reportingService owns the dropship margin/timeseries/SLA aggregation), so the
-// reads are sourced from @wizeworks/commerce while staying gated on the dropship
+// reads are sourced from @wizeworksllc/commerce while staying gated on the dropship
 // module. Admin-gated to match the sibling /v1/dropship/analytics surface — same
 // supplier cost/margin/performance sensitivity.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { reportingService } from '@wizeworks/commerce';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { reportingService } from '@wizeworksllc/commerce';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import { requireDropshipModule, toDropshipContext } from '../../../lib/dropship-context.js';
 import { resolveListScope } from '../../../lib/property.js';
 

@@ -9,7 +9,7 @@
 // this surface stays self-contained and does not drag the whole catalog cache
 // in behind one picker.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { getTokenState } from '../../lib/api/token';
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { type BuilderNode } from '@wizeworks/builder-schemas';
+import { type BuilderNode } from '@wizeworksllc/builder-schemas';
 import { collectClasses } from './extract';
 
 function node(partial: Partial<BuilderNode> & { id: string; type: string }): BuilderNode {

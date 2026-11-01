@@ -28,8 +28,8 @@ const tx = vi.hoisted(() => ({
     },
   },
 }));
-vi.mock('@wizeworks/email-platform', () => ({ suppressionService: { add } }));
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/email-platform', () => ({ suppressionService: { add } }));
+vi.mock('@wizeworksllc/db', () => ({
   prisma: {
     tenant: { findUnique: () => Promise.resolve({ name: 'The Marrow Review' }) },
   },

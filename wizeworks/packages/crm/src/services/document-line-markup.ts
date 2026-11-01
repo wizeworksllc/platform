@@ -4,7 +4,7 @@
 // BillingDocumentLine's cost basis and computes the priced line plus the
 // mandatory reproducibility snapshot. The cost basis + markup rule are read
 // inside the caller's transaction (so it stays RLS-scoped and atomic); the
-// cost→price math lives in @wizeworks/commerce-schemas's pure `priceLineByMarkup`,
+// cost→price math lives in @wizeworksllc/commerce-schemas's pure `priceLineByMarkup`,
 // shared with the catalog markup engine so the two never drift.
 //
 // This glue lives in CRM alongside the rest of the invoicing/billing-document
@@ -12,7 +12,7 @@
 // the commerce service layer. Consumed by billing-line-pricing.ts's `markup`
 // and marked-up `pass_through` pricing modes.
 
-import type { MarkupRule, Prisma } from '@wizeworks/db';
+import type { MarkupRule, Prisma } from '@wizeworksllc/db';
 import {
   priceLineByMarkup,
   type LineCostSource,
@@ -21,7 +21,7 @@ import {
   type MarkupBand,
   type MarkupRuleSpec,
   type RoundingSpec,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { CrmNotFoundError, CrmValidationError } from '../errors';
 

@@ -26,7 +26,7 @@ interface Signal {
 
 const signals: Signal[] = [];
 
-vi.mock('@wizeworks/events', () => ({
+vi.mock('@wizeworksllc/events', () => ({
   indexEntity: (input: Signal) => {
     signals.push(input);
     return Promise.resolve();

@@ -1,5 +1,5 @@
 // brandService — resolves a tenant's email brand (the BrandTokens that
-// @wizeworks/email threads through every template/atom).
+// @wizeworksllc/email threads through every template/atom).
 //
 // Brand is the tenant-level source of truth (docs/30 §6): email READS it, never
 // overrides it. We read `TenantBrand` directly — the old cascade (Commerce
@@ -8,7 +8,7 @@
 // `brandingOverride` is removed. Those brand fields are IDENTITY now (name/logo/
 // socials) — the LOOK no longer derives from them. It comes from the site's published
 // silica theme, or BASE_SILICA_THEME until one is stored; see resolveEmailBrand. A
-// tenant with no identity at all still yields null (caller renders @wizeworks/email's
+// tenant with no identity at all still yields null (caller renders @wizeworksllc/email's
 // unbranded floor — achromatic, and nobody's).
 //
 // Light palette is the base; the brand also carries its site's DARK neutrals
@@ -20,11 +20,11 @@
 // The look is the silica theme's own token bag flattened to hex (colorToHex) — we
 // never compile a second theme or fork a registry.
 
-import { withTenant } from '@wizeworks/db';
-import { colorToHex } from '@wizeworks/site-themes';
-import { BASE_SILICA_THEME } from '@wizeworks/silica-catalog';
-import { platformBrandIdentity } from '@wizeworks/brand-core';
-import type { BrandTokens } from '@wizeworks/email';
+import { withTenant } from '@wizeworksllc/db';
+import { colorToHex } from '@wizeworksllc/site-themes';
+import { BASE_SILICA_THEME } from '@wizeworksllc/silica-catalog';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
+import type { BrandTokens } from '@wizeworksllc/email';
 
 import type { ServiceContext } from '../errors';
 
@@ -194,7 +194,7 @@ async function platformIdentityFor(ctx: ServiceContext): Promise<BrandTokens['pl
 
 /**
  * Resolve the email brand for a send, or `null` when there's no brand identity
- * (the caller then renders with @wizeworks/email's unbranded floor). When `propertyId`
+ * (the caller then renders with @wizeworksllc/email's unbranded floor). When `propertyId`
  * is given (docs/49 Phase 7), the site's `brand_override` is merged field-by-field
  * OVER the tenant brand, so an email sent on behalf of a site renders that site's
  * name / colors / fonts / logo — exactly the merge the site payload does.
@@ -292,7 +292,7 @@ function resolveTenantLook(
     // For a site that has published no silica theme yet (an existing brand-only
     // tenant, or the pre-install window) — the look falls back to BASE below, exactly
     // as the site does. The null-returns here preserve the existing contract: a
-    // tenant with NO identity at all yields null, and the caller renders @wizeworks/email's
+    // tenant with NO identity at all yields null, and the caller renders @wizeworksllc/email's
     // sparx defaults (itself the Ember look).
     //
     // A tenant with no brand record AND no per-site override → sparx defaults.

@@ -16,7 +16,7 @@ import {
   FieldStatus,
   Textarea,
 } from '@wizeworks/silicaui-react';
-import { rule, rules, useFieldValidation } from '@wizeworks/forms';
+import { rule, rules, useFieldValidation } from '@wizeworksllc/forms';
 import { Spark } from '@/components/marketing/primitives';
 import { submitApplication, type ApplicationState } from '../actions';
 

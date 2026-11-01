@@ -8,7 +8,7 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HOST_KEYS, functionalShell } from '@wizeworks/silica-catalog';
+import { HOST_KEYS, functionalShell } from '@wizeworksllc/silica-catalog';
 
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { SilicaFunctionalBody } from '@/components/silica-chrome';

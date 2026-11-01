@@ -16,7 +16,7 @@
 // against what is live now, so it answers for a design that has never had an
 // update — which is the ordinary case and the one this is for.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { blueprintKeys } from './blueprints-data';
 

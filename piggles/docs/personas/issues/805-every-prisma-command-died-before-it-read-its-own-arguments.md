@@ -29,7 +29,7 @@ was unreachable from the package that owns the schema.
 
 ## What should have happened
 
-`pnpm --filter @wizeworks/db db:migrate:deploy` applies the pending migrations.
+`pnpm --filter @wizeworksllc/db db:migrate:deploy` applies the pending migrations.
 That is the documented local path in
 [wizeworks/packages/db/CLAUDE.md](../../../../wizeworks/packages/db/CLAUDE.md),
 and it is the one the release pipeline's data stage takes.

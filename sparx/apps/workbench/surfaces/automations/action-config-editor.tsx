@@ -25,7 +25,7 @@ import {
   Textarea,
 } from '@wizeworks/silicaui-react';
 import { Code2, Trash2 } from 'lucide-react';
-import type { Action } from '@wizeworks/automation-schemas';
+import type { Action } from '@wizeworksllc/automation-schemas';
 import {
   actionDef,
   availableActions,

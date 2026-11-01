@@ -7,7 +7,7 @@
 // resolver and the shared site resolver over a faked transaction.
 
 import { beforeEach, describe, expect, it } from 'vitest';
-import { resolveFields, type TenantCtx } from '@wizeworks/automation';
+import { resolveFields, type TenantCtx } from '@wizeworksllc/automation';
 
 import { installEntityResolvers } from './resolvers.js';
 

@@ -4,7 +4,7 @@
 // executor → REAL CRM service → DB effect. The tick runs on the sparx_app client
 // (the worker's prod identity); seeding/asserts use a sparx_owner client.
 //
-// CRM events from the services go to @wizeworks/crm's default LoggingPublisher here
+// CRM events from the services go to @wizeworksllc/crm's default LoggingPublisher here
 // (no Pub/Sub in tests) — we assert the DB effect, which is what the executor
 // owns. The worker installs the real Pub/Sub publisher at boot (runtime.ts).
 
@@ -18,10 +18,10 @@ import {
   setAutomationStatus,
   type EngineDeps,
   type TriggerEnvelope,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { orderService } from '@wizeworks/crm/services';
+import { orderService } from '@wizeworksllc/crm/services';
 
 import { installCrmActions } from '../../src/index.js';
 

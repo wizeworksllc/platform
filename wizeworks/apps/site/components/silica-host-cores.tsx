@@ -3,7 +3,7 @@
 // React walk (`SilicaFunctionalBody`) mounts the component this registry returns at
 // that node, so a tenant's editable shell wraps the LIVE transaction, never a mock.
 //
-// This is the site half of the contract whose keys live in @wizeworks/silica-catalog
+// This is the site half of the contract whose keys live in @wizeworksllc/silica-catalog
 // (`HOST_KEYS`); the dashboard half maps the same keys to canvas skeletons. A key with
 // no case here renders an empty wrapper — so an entry is added only once its real
 // component is wired (never a palette core that renders nothing live).
@@ -11,7 +11,7 @@
 // A server module (no 'use client'): it only RETURNS client-component elements, the
 // standard RSC pattern — the walk runs server-side and each core hydrates as an island.
 
-import { HOST_KEYS } from '@wizeworks/silica-catalog';
+import { HOST_KEYS } from '@wizeworksllc/silica-catalog';
 import type { HostNode } from '@wizeworks/silicaui-html';
 import type { HostRenderer } from '@/components/silica-chrome';
 
@@ -37,7 +37,7 @@ import { Archive } from '@/components/cms/archive';
 import { ArticleBody } from '@/components/cms/article-body';
 import { ModeToggle } from '@/components/mode-toggle';
 import { LegalFooterLinks, toLegalHeading } from '@/components/legal-footer-links';
-import { SocialLinks } from '@wizeworks/builder-render';
+import { SocialLinks } from '@wizeworksllc/builder-render';
 import { ListPagination, type ListPagingFacts } from '@/components/list-pagination';
 import { SiteEmbed } from '@/components/embed/site-embed';
 import { SiteMap } from '@/components/embed/site-map';

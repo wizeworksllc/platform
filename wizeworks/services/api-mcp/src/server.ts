@@ -6,16 +6,16 @@
 // builds an McpServer with handlers closing over the tenant context, then
 // connects + dispatches once.
 //
-// Each tool definition from `@wizeworks/crm`'s `crmMcpTools` is registered with
+// Each tool definition from `@wizeworksllc/crm`'s `crmMcpTools` is registered with
 // the SDK's `registerTool`. Scope is checked before dispatch — a tool whose
 // scope isn't in the caller's grant set returns an error result (the LLM
 // can see why and reroute). Confirmation:true tools surface the
 // `destructiveHint` annotation so the MCP client can prompt the user.
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { isModuleEnabled, type ModuleSlug } from '@wizeworks/auth';
+import { isModuleEnabled, type ModuleSlug } from '@wizeworksllc/auth';
 import type { McpAuthContext } from './auth.js';
-import { readRelay } from '@wizeworks/builder/mcp';
+import { readRelay } from '@wizeworksllc/builder/mcp';
 import { recordToolInvocation } from './audit.js';
 import { relayAgentWrite } from './builder-relay.js';
 import { loadDisabledTools } from './tool-policy.js';

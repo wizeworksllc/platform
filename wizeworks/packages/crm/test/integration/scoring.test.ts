@@ -20,7 +20,7 @@
 //   • RLS. Both new tables are FORCE RLS; a second tenant sees none of it.
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 import { customerService, scoringService, segmentService } from '../../src/services/index.js';
 import {

@@ -6,7 +6,7 @@
 // business, and what expanding it costs is the account app's answer. That is what
 // makes this readable from the console at all (piggles/CLAUDE.md RULE #2).
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 export type Meter =

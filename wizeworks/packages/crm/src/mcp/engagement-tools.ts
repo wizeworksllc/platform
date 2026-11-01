@@ -11,7 +11,7 @@
 
 import { z } from 'zod';
 
-import { LogCallInput, LogNoteInput, SendEmailInput } from '@wizeworks/crm-schemas';
+import { LogCallInput, LogNoteInput, SendEmailInput } from '@wizeworksllc/crm-schemas';
 
 import { engagementService, mailboxService, salesTemplateService } from '../services';
 

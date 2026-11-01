@@ -21,8 +21,8 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
 
-import { withTenant } from '@wizeworks/db';
-import { withGs1CheckDigit } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { withGs1CheckDigit } from '@wizeworksllc/commerce-schemas';
 
 import { createBarcode } from '../../src/services/barcodes.js';
 import { createSupplier } from '../../src/services/suppliers.js';

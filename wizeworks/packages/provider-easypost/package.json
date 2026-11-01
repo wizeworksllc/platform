@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/provider-easypost",
+  "name": "@wizeworksllc/provider-easypost",
   "version": "0.0.0",
   "private": true,
   "description": "EasyPost provider for sparx Commerce — implements ShippingProvider with deep multi-carrier coverage including freight/LTL for oversized items (play structures, industrial parts).",
@@ -20,8 +20,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/integration-framework": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/integration-framework": "workspace:*",
     "@easypost/api": "^7.4.0"
   },
   "devDependencies": {

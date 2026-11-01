@@ -4,7 +4,7 @@
 // Rules are draft-then-publish versioned (Save stages, Publish makes live); a LOCKED rule answers 409.
 // Every write invalidates the ['automations'] root, so every open surface refreshes at once.
 
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 export {
   useCloneAutomation,

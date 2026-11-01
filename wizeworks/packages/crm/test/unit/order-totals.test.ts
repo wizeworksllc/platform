@@ -7,7 +7,7 @@
 // it; neither was ever told it went nowhere (issue 298).
 
 import { describe, expect, it } from 'vitest';
-import type { LineItemInput } from '@wizeworks/crm-schemas';
+import type { LineItemInput } from '@wizeworksllc/crm-schemas';
 
 import { computeLine, computeTotals } from '../../src/services/order-totals';
 

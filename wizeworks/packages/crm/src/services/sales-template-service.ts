@@ -19,9 +19,9 @@ import {
   CreateTemplateInput,
   UpdateSnippetInput,
   UpdateTemplateInput,
-} from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, SalesSnippet, SalesTemplate } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, SalesSnippet, SalesTemplate } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

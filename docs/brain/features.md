@@ -22,7 +22,7 @@ Full cross-link detail in [[modules]]. Keys: builder · commerce · cms · crm �
 
 | Feature | One-liner | Home / anchor |
 |---|---|---|
-| **auth** | Better Auth; orgs = tenants | [[architecture]] · `@wizeworks/auth` |
+| **auth** | Better Auth; orgs = tenants | [[architecture]] · `@wizeworksllc/auth` |
 | **billing / subscriptions** | turns module flags into charges | [[billing-model]] · `v1/billing.ts` |
 | **onboarding** | live site in <5 min | [[onboarding]] |
 | **search** | Typesense projections + universal search | [[api-events]] · [[integrations]] |
@@ -45,4 +45,4 @@ A platform feature grows its own `features/<slug>.md` note when it accrues real 
 
 ## Sources of truth
 
-`wizeworks/packages/modules/src/index.ts` (modules) · `sparx/packages/ui/src/providers/module-provider.tsx` (hue superset — flags each non-module in-file) · `_shell/registry.ts` (manifests).
+`wizeworks/packages/module-roster/src/index.ts` (modules) · `sparx/packages/ui/src/providers/module-provider.tsx` (hue superset — flags each non-module in-file) · `_shell/registry.ts` (manifests).

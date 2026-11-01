@@ -76,7 +76,7 @@ const EnvSchema = z
     // no shared/fan-out topic to configure.
     GCP_PROJECT_ID: z.string().optional(),
     // Optional: when set (e.g. nats://nats:4222), the chat and builder WebSocket
-    // servers share broadcasts over NATS (@wizeworks/socket-bus), so a message
+    // servers share broadcasts over NATS (@wizeworksllc/socket-bus), so a message
     // delivered to one api-rest replica reaches sockets on every other replica.
     // Unset (dev / single-instance) → the default in-memory adapter, which is
     // correct for one process.
@@ -98,12 +98,12 @@ const EnvSchema = z
     SEARCH_CONSOLE_TOKEN_KEY: z.string().optional(),
     // 32-byte AES-256-GCM key (base64 or hex) encrypting outbound-webhook signing
     // secrets (webhook_subscriptions.signing_secret) at rest — see
-    // @wizeworks/api-core/webhook-secret-crypto. When unset the secret is stored
+    // @wizeworksllc/api-core/webhook-secret-crypto. When unset the secret is stored
     // plaintext (dev/test); production MUST set it. Rotating it makes existing
     // encrypted secrets undecryptable (subscriptions must be recreated).
     WEBHOOK_SIGNING_SECRET_KEY: z.string().optional(),
     // Active domain registrar (docs/24). The registrar is abstracted behind the
-    // @wizeworks/registrar `RegistrarClient` contract; this selects the provider.
+    // @wizeworksllc/registrar `RegistrarClient` contract; this selects the provider.
     // 'godaddy' today; 'namecom' lands once its @sparx/namecom client is wired.
     REGISTRAR: z.enum(['godaddy', 'namecom']).default('godaddy'),
     // GoDaddy Reseller API credentials (docs/24 §3, docs/24 §10).
@@ -147,7 +147,7 @@ const EnvSchema = z
     //   one (account.updated) — and Stripe issues each its own signing secret. A
     //   rolled secret overlaps for 24h, which needs the same. Every configured
     //   secret is tried; one value behaves exactly like a plain single secret.
-    //   Read by @wizeworks/payments' SparxPayGateway; declared here so boot validates it
+    //   Read by @wizeworksllc/payments' SparxPayGateway; declared here so boot validates it
     //   and .env.example documents it. (Stripe Direct uses per-tenant secrets in GSM,
     //   not an env var; the BYO gateways verify with their own stored secrets.)
     // STRIPE_CLIENT_ID        — DEPRECATED / unused. Was the Connect OAuth client_id
@@ -166,13 +166,13 @@ const EnvSchema = z
     STRIPE_WEBHOOK_SECRET_SPARX_PAY: z.string().optional(),
     STRIPE_WEBHOOK_SECRET_BILLING: z.string().optional(),
     // The SECOND billing account. WizeWorks bills Piggles out of its own Stripe
-    // account on a flat plan (@wizeworks/billing/plans), so its key and signing
+    // account on a flat plan (@wizeworksllc/billing/plans), so its key and signing
     // secrets are separate values, not extra entries on sparx's. Declared here so
-    // boot validates them and .env.example documents them; @wizeworks/billing reads
+    // boot validates them and .env.example documents them; @wizeworksllc/billing reads
     // them by name off the plan, the same way module price ids are read.
     PIGGLES_STRIPE_SECRET_KEY: z.string().optional(),
     PIGGLES_STRIPE_WEBHOOK_SECRET_BILLING: z.string().optional(),
-    // BILLING_PLANS — a JSON array of plan definitions (@wizeworks/billing/plans).
+    // BILLING_PLANS — a JSON array of plan definitions (@wizeworksllc/billing/plans).
     //   A plan says how a tenant's bill is SHAPED and which Stripe ACCOUNT it is
     //   raised in. The platform ships one built-in (`modules`, per active module out
     //   of STRIPE_SECRET_KEY); every other plan is brand policy and arrives here as
@@ -212,7 +212,7 @@ const EnvSchema = z
     // dashboard can hit /v1/public/media/variants/<key>.
     MEDIA_PUBLIC_URL: z.string().default(''),
     // SMS provider (docs/79 §10) — the Scheduling booking-notification dispatch
-    // tick sends reminders/confirmations over SMS via @wizeworks/sms. Unset (or any
+    // tick sends reminders/confirmations over SMS via @wizeworksllc/sms. Unset (or any
     // value but 'twilio', or 'twilio' without creds) → the console provider, which
     // logs instead of sending, so local + un-provisioned tenants still exercise the
     // full path safely. Real SMS needs SMS_PROVIDER=twilio + the TWILIO_* creds
@@ -340,7 +340,7 @@ const EnvSchema = z
     // AES-256-GCM key encrypting tenant-pasted provider credentials (e.g. a Shippo
     // API token) at rest, keyed by PROVIDER_SECRET_KEY (32 bytes, base64 or hex;
     // rotating it invalidates every stored provider secret — tenants reconnect).
-    // Read directly via process.env in @wizeworks/integration-framework/secret-crypto.
+    // Read directly via process.env in @wizeworksllc/integration-framework/secret-crypto.
     PROVIDER_SECRET_KEY: z.string().optional(),
     META_APP_ID: z.string().optional(),
     META_APP_SECRET: z.string().optional(),
@@ -376,7 +376,7 @@ const EnvSchema = z
     // Where the workbench lives is deliberately NOT declared here. Four variables
     // named that same URL and each emitter read one with its own fallback, so
     // which host an email pointed at depended on which service sent it —
-    // `appOrigin()` in `@wizeworks/links/server` reads them all, in one fixed order.
+    // `appOrigin()` in `@wizeworksllc/links/server` reads them all, in one fixed order.
     MARKET_ENABLED: z.string().optional(),
     MARKET_COMMISSION_BPS: z.string().optional(),
     MARKET_PAYOUTS_PROVIDER: z.string().optional(),

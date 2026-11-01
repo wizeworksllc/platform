@@ -4,8 +4,8 @@
 
 import type { CSSProperties } from 'react';
 
-import type { HeroConfig } from '@wizeworks/sitebuilder-schemas';
-import { focalToPosition } from '@wizeworks/sitebuilder-schemas';
+import type { HeroConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { focalToPosition } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

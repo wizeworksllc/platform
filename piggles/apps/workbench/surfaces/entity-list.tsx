@@ -9,7 +9,7 @@
 
 import { useState, type ReactNode } from 'react';
 import { PaneWaiting } from '../components/pane-waiting';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Badge, Button, Card, EmptyState, SearchInput } from '@wizeworks/silicaui-react';
 import { Table } from '../components/table';
 import { faPlus } from '@fortawesome/pro-solid-svg-icons';

@@ -16,9 +16,9 @@ import {
   type BuilderLayoutDto,
   type BuilderNode,
   type PublishedLayoutDto,
-} from '@wizeworks/builder-schemas';
-import type { BuilderLayout, Prisma } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/builder-schemas';
+import type { BuilderLayout, Prisma } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishBuilderEvent } from '../events';

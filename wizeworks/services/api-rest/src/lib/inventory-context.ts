@@ -1,7 +1,7 @@
 import type { FastifyRequest } from 'fastify';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAnyRole, requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAnyRole, requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 export interface InventoryContext {
   tenantId: string;

@@ -1,7 +1,7 @@
-// @wizeworks/social — the SocialAdapter contract + normalized types for social-posting
+// @wizeworksllc/social — the SocialAdapter contract + normalized types for social-posting
 // integrations (docs/133 §4).
 //
-// A SocialAdapter is the publish-direction sibling of @wizeworks/channels' ChannelAdapter
+// A SocialAdapter is the publish-direction sibling of @wizeworksllc/channels' ChannelAdapter
 // (which pushes product FEEDS). This one publishes native POSTS — text + media — to a
 // tenant's own connected account. Same discipline as ChannelAdapter:
 //   - Adapters are pure I/O against the platform API; they NEVER touch the database.

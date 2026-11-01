@@ -4,12 +4,12 @@
 // place or a set of booking rules is made, changed or removed
 // (`api-rest/src/lib/scheduling-search.ts`). The same writes made through these
 // tools told it nothing, so a service an assistant set up could not be found by
-// its name. `@wizeworks/scheduling` cannot publish events itself (it does not
-// depend on `@wizeworks/events`), so the tools are wrapped here, at the one
+// its name. `@wizeworksllc/scheduling` cannot publish events itself (it does not
+// depend on `@wizeworksllc/events`), so the tools are wrapped here, at the one
 // place they are registered, and signal once the write has returned (committed).
 
-import { withTenant } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { withTenant } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 /** The part of a tool definition this needs. Declared here rather than taken
  *  from `tool-registry.ts`, which imports this file. */

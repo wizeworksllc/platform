@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { getSession } from '@wizeworks/auth-client-server';
+import { getSession } from '@wizeworksllc/auth-client-server';
 import { readBusiness } from '@/lib/account-load';
 import { acquisitionFrom } from '@/lib/attribution';
 import { recordAcquisitionOnce } from '@/lib/late-acquisition';

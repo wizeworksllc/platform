@@ -6,7 +6,7 @@
 // vehicle is called by. The staff console, the tenant website, the portal and the
 // API all print a vehicle the same way, so a buyer who sees "Unit 12, 2019 Ram
 // 3500 6.7L Cummins" on the product page sees the same words on their fleet page.
-// The stored entry, its validation and the fit matching live in @wizeworks/b2b.
+// The stored entry, its validation and the fit matching live in @wizeworksllc/b2b.
 
 /** One fleet vehicle as every reader sees it. `id` is stable for the life of the
  *  vehicle: service bookings and history are linked to it, so an edit never

@@ -29,7 +29,7 @@
 //   GET/POST              /v1/inventory/assemblies (+ release/complete/cancel)
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { stockKeys, type Tone } from './data';
 
@@ -560,4 +560,4 @@ export function buildableTone(quantity: number, wanted: number): Tone {
  * arithmetic: the browser must never be a second place where a pack factor is
  * applied, because two places is one disagreement away.
  */
-export { describeQuantity, describeQuantityShort } from '@wizeworks/commerce-schemas';
+export { describeQuantity, describeQuantityShort } from '@wizeworksllc/commerce-schemas';

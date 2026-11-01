@@ -11,7 +11,7 @@
 // A line one of those refuses is skipped with the shop's own words, and the rest
 // still go in. Nothing here writes a cart line itself.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

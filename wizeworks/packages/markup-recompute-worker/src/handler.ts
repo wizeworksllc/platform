@@ -9,8 +9,8 @@
 // state on replay), so a redelivery after a transient publish failure is safe.
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { createPublisher, publishEvent } from '@wizeworks/events';
+import { withTenant } from '@wizeworksllc/db';
+import { createPublisher, publishEvent } from '@wizeworksllc/events';
 import type { Logger } from 'pino';
 
 import { recomputeBoundVariant } from './recompute.js';

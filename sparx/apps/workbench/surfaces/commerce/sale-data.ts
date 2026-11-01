@@ -15,7 +15,7 @@
 // deposit first.
 
 import { useMemo } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useModuleStates } from '../../lib/api/shell-data';
 import { ORDERS_KEY, type Order } from './data';

@@ -66,7 +66,7 @@ make honest. [[feedback_absent_behaves_like_fine]]
 
 ## The fix
 
-- **`PLATFORM_MODULE`** in `@wizeworks/search`'s projector contract — the one
+- **`PLATFORM_MODULE`** in `@wizeworksllc/search`'s projector contract — the one
   reserved word for records belonging to no module. It is deliberately not a
   `ModuleSlug`: it can never be enabled, disabled, billed or required, and
   `isModuleEnabled` would answer false for it.
@@ -74,7 +74,7 @@ make honest. [[feedback_absent_behaves_like_fine]]
   one module still gets exactly that module; platform records are not smuggled in.
 - **`site` now writes `builder`.**
 
-It lives in `@wizeworks/search` rather than `@wizeworks/modules` because
+It lives in `@wizeworksllc/search` rather than `@wizeworksllc/modules` because
 `commerce-indexer` already depends on the first and not the second, and a new
 dependency edge costs a Dockerfile COPY for a string constant.
 

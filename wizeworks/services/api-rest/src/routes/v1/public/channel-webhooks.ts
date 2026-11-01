@@ -16,9 +16,9 @@
 // a transient ingest failure (the channel retries, ingest dedupes).
 
 import type { FastifyPluginAsync } from 'fastify';
-import { getChannel, type ChannelSlug } from '@wizeworks/channels';
-import { registerBuiltinChannels } from '@wizeworks/channels/adapters';
-import { ingestChannelOrder } from '@wizeworks/commerce';
+import { getChannel, type ChannelSlug } from '@wizeworksllc/channels';
+import { registerBuiltinChannels } from '@wizeworksllc/channels/adapters';
+import { ingestChannelOrder } from '@wizeworksllc/commerce';
 import { resolveConnectionAuth, resolveWebhookConnection } from '../../../lib/channels.js';
 
 // eslint-disable-next-line @typescript-eslint/require-await -- FastifyPluginAsync signature

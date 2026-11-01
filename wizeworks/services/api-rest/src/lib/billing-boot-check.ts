@@ -1,7 +1,7 @@
 // Boot-time billing checks, so a broken offer is a log line at deploy, not a silent banner.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { listBillingPlans, missingOfferCoupons } from '@wizeworks/billing';
+import { listBillingPlans, missingOfferCoupons } from '@wizeworksllc/billing';
 
 /** Loads BILLING_PLANS now, so a bad value fails the rollout instead of the first checkout. */
 export function loadBillingPlansAtBoot(): number {

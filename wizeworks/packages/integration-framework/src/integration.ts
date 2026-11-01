@@ -1,4 +1,4 @@
-// Provider bundles' entry in the shared integration plane (@wizeworks/integrations).
+// Provider bundles' entry in the shared integration plane (@wizeworksllc/integrations).
 //
 // A bundle keeps its own contracts (`ShippingProvider`, `TaxProvider`, …) and its own
 // dispatch through providerService. What this adds is the catalog face, so a carrier
@@ -8,19 +8,19 @@
 // implementing shipping and tax appears under both headings, which is what a tenant
 // looking for "sales tax" expects to find.
 //
-// `payment` is deliberately unmapped. Payments come from @wizeworks/payments' gateway
+// `payment` is deliberately unmapped. Payments come from @wizeworksllc/payments' gateway
 // catalog; this framework has no payment dispatcher and no longer declares a payment
 // contract (see the note on `ProviderBundle`). Mapping it here would rebuild the
 // duplicate abstraction through the back door.
 
-import type { ProviderKind } from '@wizeworks/commerce-schemas';
+import type { ProviderKind } from '@wizeworksllc/commerce-schemas';
 import {
   defineIntegrationKind,
   type CredentialField,
   type IntegrationAvailability,
   type IntegrationCategory,
   type IntegrationDescriptor,
-} from '@wizeworks/integrations';
+} from '@wizeworksllc/integrations';
 
 import type { ProviderMetadataDescriptor } from './metadata';
 import { listProviders, type ProviderBundle } from './registry';
@@ -48,7 +48,7 @@ function kindFacade(category: IntegrationCategory) {
     case 'tax':
       return taxIntegrations;
     default:
-      // `dropship` maps to a category, but @wizeworks/dropship owns that shelf — a bundle
+      // `dropship` maps to a category, but @wizeworksllc/dropship owns that shelf — a bundle
       // declaring the kind would be a second publisher of the same slugs.
       return null;
   }
@@ -117,7 +117,7 @@ export function bundleToIntegrationDescriptors(bundle: ProviderBundle): Integrat
       name: metadata.displayName,
       vendor: metadata.vendor,
       blurb: metadata.description,
-      // See PLATFORM_TOKEN in @wizeworks/brand-core; spelled out because this
+      // See PLATFORM_TOKEN in @wizeworksllc/brand-core; spelled out because this
       // package does not depend on it. `fillPlatformName` replaces it per tenant.
       publisher: '{platform}',
       availability,

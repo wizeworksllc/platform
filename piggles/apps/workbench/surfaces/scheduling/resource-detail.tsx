@@ -13,7 +13,7 @@
 // bookings side by side. Only the controls that make sense for the chosen kind
 // are shown, so nobody sets a party size on a hairdresser.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

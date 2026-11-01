@@ -10,7 +10,7 @@ import { configDefaults, defineConfig } from 'vitest/config';
 // does not run one — GH Actions sets CI=true and so does the pre-push guard,
 // which is what keeps the guard from being stricter than CI. Locally
 // `pnpm test` runs everything against the docker-compose Postgres from
-// `pnpm db:up`. Same split as @wizeworks/finance, whose ledger this writes into.
+// `pnpm db:up`. Same split as @wizeworksllc/finance, whose ledger this writes into.
 const IS_CI = process.env.CI === 'true' || process.env.CI === '1';
 
 export default defineConfig({

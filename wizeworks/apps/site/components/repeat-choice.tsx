@@ -7,7 +7,7 @@
 // order, "Buy once" first and the default, and the same sentence under it, so a
 // shopper meets one promise whichever page they are on.
 
-import { cadenceKey, cadenceLabel, type RepeatCadence } from '@wizeworks/commerce-schemas';
+import { cadenceKey, cadenceLabel, type RepeatCadence } from '@wizeworksllc/commerce-schemas';
 import { useId } from 'react';
 
 import { REPEAT_NOTE } from '@/lib/repeat-copy';

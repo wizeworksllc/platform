@@ -12,7 +12,7 @@
 // keeps saying what it said".
 //
 // So a date-only value travels as `YYYY-MM-DD` (see the server half in
-// `@wizeworks/inventory`'s `calendar-date.ts`) and is drawn here without ever
+// `@wizeworksllc/inventory`'s `calendar-date.ts`) and is drawn here without ever
 // being parsed into a local time. There is no zone in which 19 September is a
 // different day.
 //

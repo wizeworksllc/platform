@@ -14,7 +14,7 @@
 //   ['crm','engagement','snippets']         reusable paragraphs
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 // Imported so the invalidation below cannot drift from the keys it is meant to

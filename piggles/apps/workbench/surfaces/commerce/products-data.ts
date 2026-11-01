@@ -56,9 +56,9 @@
 // endpoint gets fixed rather than the client looping.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
-import type { RepeatCadence } from '@wizeworks/commerce-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
+import type { RepeatCadence } from '@wizeworksllc/commerce-schemas';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 // The API origin, for the ONE request that cannot go through `api`: the media
@@ -1292,7 +1292,7 @@ export class LatticeRebindError extends Error {
  * coordinate left to match on. The server writes the coordinate down as text
  * before that happens and puts it back when the lattice can hold it again; this
  * reads the same record, so the summary can say "these come back" instead of
- * "these have no price". Written by lattice-memory.ts in @wizeworks/commerce.
+ * "these have no price". Written by lattice-memory.ts in @wizeworksllc/commerce.
  */
 export function lastCoordinate(variant: Variant): LatticeCoordinate[] | null {
   const held = variant.metadata.latticeCoordinate;

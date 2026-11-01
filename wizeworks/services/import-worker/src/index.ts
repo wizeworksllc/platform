@@ -17,7 +17,7 @@
 
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import pino from 'pino';
-import { startConsumer } from '@wizeworks/events';
+import { startConsumer } from '@wizeworksllc/events';
 import { env } from './env.js';
 import { handle, parseEvent } from './handler.js';
 

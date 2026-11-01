@@ -3,7 +3,7 @@
 // `socialParams` rather than as columns, because every platform wants a different set and
 // none of them are queried.
 //
-// Lives in @wizeworks/social because three callers now need the same read — the worker's auth
+// Lives in @wizeworksllc/social because three callers now need the same read — the worker's auth
 // resolver, its health sweep, and the readiness check in this package. A fourth copy of a
 // nine-line JSON narrowing is how they drift.
 

@@ -9,9 +9,9 @@
 import {
   CUSTOMER_ESTIMATE_WORKFLOW,
   CUSTOMER_ESTIMATE_WORKFLOW_SLUG,
-} from '@wizeworks/crm-schemas/builtins';
-import { withTenant } from '@wizeworks/db';
-import type { DocumentStage, DocumentWorkflow, Prisma } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import type { DocumentStage, DocumentWorkflow, Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError } from '../errors';

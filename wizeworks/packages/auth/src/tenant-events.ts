@@ -10,8 +10,8 @@ import {
   resolveTransport,
   type PublisherLogger,
   type TenantCreatedPayload,
-} from '@wizeworks/events';
-import { seedLegalPages } from '@wizeworks/legal-seed';
+} from '@wizeworksllc/events';
+import { seedLegalPages } from '@wizeworksllc/legal-seed';
 
 const logger: PublisherLogger = {
   info: (obj, msg) => console.log(JSON.stringify({ level: 'info', ...obj, msg })),

@@ -14,9 +14,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   archiveCategory,
   archiveVendor,
@@ -29,13 +29,13 @@ import {
   updateCategory,
   updateVendor,
   vendorSpendCents,
-} from '@wizeworks/finance';
+} from '@wizeworksllc/finance';
 import {
   createCategorySchema,
   createVendorSchema,
   updateCategorySchema,
   updateVendorSchema,
-} from '@wizeworks/finance/schemas';
+} from '@wizeworksllc/finance/schemas';
 import { requireFinanceModule, toFinanceContext } from '../../../lib/finance-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

@@ -47,7 +47,7 @@
 // Adding a caller here needs an answer to the question at the top. If sparx is
 // not a party to it, it is a rule, and it belongs in the engine.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 export type NoticeSeverity = 'info' | 'success' | 'warning' | 'danger';
 

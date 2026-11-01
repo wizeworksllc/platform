@@ -9,13 +9,13 @@
 // The brand/theme dashboard surface ("My themes" vs the read-only "Prebuilt"
 // presets, docs/33) consumes these. Bodies are validated by the service-layer
 // Zod schemas (the established route ↔ service boundary), so api-rest keeps no
-// @wizeworks/sitebuilder-schemas dependency.
+// @wizeworksllc/sitebuilder-schemas dependency.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { savedThemeService } from '@wizeworks/sitebuilder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { savedThemeService } from '@wizeworksllc/sitebuilder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireSitebuilderModule,
   toSitebuilderContext,

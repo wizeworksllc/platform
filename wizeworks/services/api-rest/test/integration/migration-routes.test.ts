@@ -21,7 +21,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import {
   type TestTenant,
@@ -370,7 +370,7 @@ describe('POST /v1/migration/runs/:runId/cancel', () => {
 //
 // These prove the ROUTE's own contract — who may call it, what it refuses, and that
 // it never reaches the network on a request it should have rejected. The connectors
-// themselves are tested against a stubbed fetch in @wizeworks/migration, which is where
+// themselves are tested against a stubbed fetch in @wizeworksllc/migration, which is where
 // that belongs; a test here that talked to Shopify would be a test of Shopify.
 
 describe('POST /v1/migration/connect', () => {

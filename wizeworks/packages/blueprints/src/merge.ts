@@ -13,7 +13,7 @@
 //
 // Zod/DB/React-free: unit-testable in isolation and safe to import anywhere.
 
-import type { SilicaNode } from '@wizeworks/builder-schemas';
+import type { SilicaNode } from '@wizeworksllc/builder-schemas';
 
 export type ConflictSide = 'mine' | 'theirs';
 

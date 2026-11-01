@@ -2,7 +2,7 @@
 // waits on Stripe: a miss used to cost ~1.9 s once a minute per pod (PG-2.3).
 
 import type { FastifyBaseLogger } from 'fastify';
-import { listBillingPlans, offerStanding, type OfferStanding } from '@wizeworks/billing';
+import { listBillingPlans, offerStanding, type OfferStanding } from '@wizeworksllc/billing';
 
 import { createSwrCache } from './swr-cache.js';
 

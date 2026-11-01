@@ -1,13 +1,13 @@
 // Engine-internal contracts (docs/81 §5.3, §7, §7.1).
 //
 // These reference DB + bus primitives, so they live in the engine rather than
-// `@wizeworks/automation-schemas` (which is the pure persisted/wire shape). The
+// `@wizeworksllc/automation-schemas` (which is the pure persisted/wire shape). The
 // gate contract (`GateResult` / `Gate`) and the dispatch outcome are the
 // keystones of the mandatory policy layer.
 
-import type { ActionType, GateLogEntry, ResolvedFields } from '@wizeworks/automation-schemas';
-import type { TxClient } from '@wizeworks/db';
-import type { Publisher } from '@wizeworks/events';
+import type { ActionType, GateLogEntry, ResolvedFields } from '@wizeworksllc/automation-schemas';
+import type { TxClient } from '@wizeworksllc/db';
+import type { Publisher } from '@wizeworksllc/events';
 
 /**
  * The envelope the engine ingests. Structurally a `SparxEvent` but with
@@ -54,11 +54,11 @@ export interface EngineDeps {
  * `order.total`). Conditions reference these resolved fields, never raw
  * trigger-payload keys (docs/81 §5.3).
  *
- * Defined alongside the evaluator in `@wizeworks/automation-schemas` and re-exported
+ * Defined alongside the evaluator in `@wizeworksllc/automation-schemas` and re-exported
  * here: the map's shape is half of the evaluator's contract, and a second local
  * definition is how the two would drift.
  */
-export type { ResolvedFields } from '@wizeworks/automation-schemas';
+export type { ResolvedFields } from '@wizeworksllc/automation-schemas';
 
 /**
  * Per-dispatch context threaded through resolve → gate → execute. `tx` is the

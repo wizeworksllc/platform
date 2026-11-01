@@ -7,8 +7,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import type { CarouselConfig } from '@wizeworks/sitebuilder-schemas';
-import { focalToPosition } from '@wizeworks/sitebuilder-schemas';
+import type { CarouselConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { focalToPosition } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

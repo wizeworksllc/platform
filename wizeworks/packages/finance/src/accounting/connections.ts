@@ -13,7 +13,7 @@ import {
   type FinanceAccountingMapping,
   type Prisma,
   type TxClient,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 
 import { endOfDayExclusive } from '../rollup';
 import { FinanceError } from '../errors';

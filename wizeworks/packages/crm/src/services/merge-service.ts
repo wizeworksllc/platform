@@ -28,9 +28,9 @@
 // All of the above runs in a single transaction. If any step fails the
 // merge is fully reverted.
 
-import { MergeCustomersInput } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Customer, Prisma } from '@wizeworks/db';
+import { MergeCustomersInput } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Customer, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { crmSettings } from './crm-settings-service';

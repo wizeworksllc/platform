@@ -1,15 +1,15 @@
 // Minimal GoDaddy API subset for the domain-worker: DNS configuration retry
 // and the sparx DNS record set builder. Only configureDNS and buildSparxDnsRecords
-// are needed here — the full client lives in the @wizeworks/godaddy package.
+// are needed here — the full client lives in the @wizeworksllc/godaddy package.
 //
 // NOTE: this is a standalone copy that has NOT yet been migrated to the
-// @wizeworks/registrar `RegistrarClient` contract (unlike api-rest / api-mcp).
+// @wizeworksllc/registrar `RegistrarClient` contract (unlike api-rest / api-mcp).
 // Before name.com goes live this worker must move onto the contract too —
 // otherwise a DNS-config retry for a name.com-registered domain would still
 // call GoDaddy. At that point this copy of buildSparxDnsRecords should be
 // deleted in favour of the contract's.
 
-import { platformBrandIdentity } from '@wizeworks/brand-core';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
 import { env } from './env.js';
 
 const IS_PROD = env.NODE_ENV === 'production';

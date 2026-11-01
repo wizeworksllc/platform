@@ -112,7 +112,7 @@ export function appOrigin(brand: string = DEFAULT_BRAND): string {
   const port = DEV_PORTS[key];
   if (port === undefined) {
     throw new Error(
-      `No dev origin known for brand "${key}". Set ${scopedVarName(key)}, or add its localhost port to DEV_PORTS in @wizeworks/links/server.`
+      `No dev origin known for brand "${key}". Set ${scopedVarName(key)}, or add its localhost port to DEV_PORTS in @wizeworksllc/links/server.`
     );
   }
   return `http://localhost:${port}`;

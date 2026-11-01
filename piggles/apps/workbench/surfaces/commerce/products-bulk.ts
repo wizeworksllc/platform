@@ -4,7 +4,7 @@
 // category (add or remove), what they fit (add or remove). Every one refreshes
 // every product read, since an open product shows what this just changed.
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { categoryKeys } from './categories-data';
 import { productKeys, type ProductFitmentRange, type ProductStatus } from './products-data';

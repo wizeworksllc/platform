@@ -14,7 +14,7 @@
 // "why is this the price?" without recomputing.
 //
 // All writes follow the locked pattern:
-//   1. Validate input via @wizeworks/commerce-schemas
+//   1. Validate input via @wizeworksllc/commerce-schemas
 //   2. withTenant() transaction with RLS context
 //   3. writeAuditLog inside the same transaction
 
@@ -30,10 +30,10 @@ import {
   type PricedLine,
   type PriceTraceStep,
   UpdatePriceListInput,
-} from '@wizeworks/commerce-schemas';
-import { companyService } from '@wizeworks/crm';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { Prisma, PriceList, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { companyService } from '@wizeworksllc/crm';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { Prisma, PriceList, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError, CommerceValidationError } from '../errors';

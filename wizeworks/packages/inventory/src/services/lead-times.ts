@@ -33,9 +33,9 @@
 // completely different confidence and an operator can only tell them apart if
 // they are told.
 
-import { mean, stdDev } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { mean, stdDev } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

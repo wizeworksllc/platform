@@ -6,7 +6,7 @@
 // limit and the lifecycle invariants stay readable.
 //
 // Every state-changing function:
-//   1. Validates input against the Zod schema in @wizeworks/crm-schemas
+//   1. Validates input against the Zod schema in @wizeworksllc/crm-schemas
 //   2. Wraps DB work in withTenant() (RLS context per transaction)
 //   3. Writes an audit_logs row inside the same transaction
 //   4. After the tx commits, publishes a PLATFORM event (`order.created`,
@@ -24,10 +24,10 @@ import {
   NOT_COLLECTABLE_ORDER_STATUSES,
   OWING_PAYMENT_STATUSES,
   UpdateOrderInput,
-} from '@wizeworks/crm-schemas';
-import { unitsHandedOver } from '@wizeworks/commerce-schemas';
-import { afterCommit, nameSearchClauses, withTenant } from '@wizeworks/db';
-import type { Order, OrderItem, Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { unitsHandedOver } from '@wizeworksllc/commerce-schemas';
+import { afterCommit, nameSearchClauses, withTenant } from '@wizeworksllc/db';
+import type { Order, OrderItem, Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishPlatformEvent } from '../consumers/platform-bus';
@@ -54,7 +54,7 @@ export interface OrderCustomerSummary {
    *
    * It used to be a plain `company: { select: … }` on the customer, and it came
    * back `null` on every order ever placed. `Customer.company` is a relation in
-   * the schema AND a computed field on the Prisma client — `@wizeworks/db`'s
+   * the schema AND a computed field on the Prisma client — `@wizeworksllc/db`'s
    * `withDerivedFields` publishes `company` as the customer's typed
    * `companyName` string, because that is the wire name 120 payloads already
    * use — and the computed one wins. MEASURED 2026-09-20:

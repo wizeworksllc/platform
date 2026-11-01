@@ -16,7 +16,7 @@ const state = vi.hoisted(() => ({
   selects: [] as string[],
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     mediaVariant: {
       findMany: ({ where }: { where: { assetId: string } }) =>
@@ -45,7 +45,7 @@ vi.mock('@wizeworks/db', () => {
   };
 });
 
-vi.mock('@wizeworks/media', () => ({
+vi.mock('@wizeworksllc/media', () => ({
   countOneAssetUsage: (_tx: unknown, id: string) =>
     Promise.resolve({ total: state.inUse.has(id) ? 1 : 0 }),
 }));

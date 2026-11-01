@@ -18,7 +18,7 @@
 // still provision fully through the industry starter + sample pack; they just get no
 // template look until silica-native bundles exist. Point a spec at one by name then.
 
-import type { ModuleSlug } from '@wizeworks/auth';
+import type { ModuleSlug } from '@wizeworksllc/auth';
 
 import type { SeedTenantSpec } from './seed-tenant.js';
 

@@ -20,14 +20,14 @@
 //   env:NAME   process.env (dev / test).
 //   projects/… a fully-qualified GSM resource name, passed straight through.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import {
   PaymentSecretNotFoundError,
   registerSparxGateways,
   setGatewayCredentialReader,
   setPaymentSecretReader,
   type PaymentSecretReader,
-} from '@wizeworks/payments';
+} from '@wizeworksllc/payments';
 
 import { buildGatewayCredentialReader } from './gateway-credentials.js';
 

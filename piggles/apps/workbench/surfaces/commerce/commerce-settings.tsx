@@ -9,7 +9,7 @@
 // name which one it is editing. The fulfilment origin (a warehouse) is carried
 // through untouched — it is set elsewhere, and saving here must not clear it.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

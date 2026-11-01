@@ -13,15 +13,15 @@
 // retries the message.
 
 import type { Logger } from 'pino';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
-import type { FeedRow } from '@wizeworks/inventory';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
+import type { FeedRow } from '@wizeworksllc/inventory';
 import {
   publishEvent,
   createPublisher,
   indexEntity,
   type PublisherLogger,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 import { parseCsvInventory } from '../csv.js';
 import { fetchApiRows } from '../adapters/http-api.js';
 

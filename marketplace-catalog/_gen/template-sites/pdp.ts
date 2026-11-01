@@ -172,7 +172,7 @@ export function pdpAttributes(opts: {
 /**
  * The shipping/returns trust line — LINKS to the site's real legal pages instead of
  * reprinting a policy the template can't possibly know. `/shipping-policy` and
- * `/returns-policy` are the canonical legal slugs (@wizeworks/legal-templates `LegalKind`
+ * `/returns-policy` are the canonical legal slugs (@wizeworksllc/legal-templates `LegalKind`
  * shipping / returns). No fabricated copy: a policy is authored once, in the legal page,
  * and every PDP points at it.
  */

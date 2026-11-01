@@ -5,7 +5,7 @@
 //
 // `themes.test.ts` asks silica's `resolveThemeTokens` — which MEASURES contrast in
 // JS — whether every role gets a legible ink. But nothing in sparx calls that at
-// runtime: `buildSilicaThemeCssFromTheme` (@wizeworks/site-themes) emits `theme.tokens`
+// runtime: `buildSilicaThemeCssFromTheme` (@wizeworksllc/site-themes) emits `theme.tokens`
 // and `theme.dark` verbatim into a `:root` block, so the storefront never sees a
 // precomputed `--color-<role>-content`. silicaui's CSS `autoContent` fallback
 // resolves it instead, and CSS cannot measure contrast — it compares OKLCH

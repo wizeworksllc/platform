@@ -13,7 +13,7 @@
 // same reason segments are re-cut once.
 
 import type { Logger } from 'pino';
-import { createPublisher, publishEvent } from '@wizeworks/events';
+import { createPublisher, publishEvent } from '@wizeworksllc/events';
 
 type Collection = 'products' | 'customers' | 'orders' | 'entities';
 

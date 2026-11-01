@@ -16,7 +16,7 @@
 // Now the same duplicate offers **Change the existing one**, which is what the
 // person was reaching for (issue 396).
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useRef, useState } from 'react';
 import {
   Alert,

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/crm",
+  "name": "@wizeworksllc/crm",
   "version": "0.0.0",
   "private": true,
   "description": "sparx CRM — service layer (the single source of truth shared by REST, GraphQL, MCP, and Server Actions), event consumers, and MCP tool registry (docs/11-crm-prd.md, memory/feedback_crm_architecture.md decision #7).",
@@ -34,14 +34,14 @@
   },
   "dependencies": {
     "@google-cloud/pubsub": "^5.3.0",
-    "@wizeworks/automation-schemas": "workspace:*",
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/crm-schemas": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/field-schema": "workspace:*",
-    "@wizeworks/modules": "workspace:*",
-    "@wizeworks/time": "workspace:*",
+    "@wizeworksllc/automation-schemas": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/crm-schemas": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/field-schema": "workspace:*",
+    "@wizeworksllc/modules": "workspace:*",
+    "@wizeworksllc/time": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

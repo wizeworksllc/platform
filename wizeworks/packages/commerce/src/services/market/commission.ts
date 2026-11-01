@@ -3,11 +3,14 @@
 // Commission is a FLAT platform rate in basis points, with an optional per-tenant
 // override (the "Enterprise: negotiated" case) — NOT a plan tier (the platform has
 // modules, not tiers). The pure math + the override-vs-default precedence live in
-// @wizeworks/commerce-schemas; this server-layer wrapper reads the platform default
+// @wizeworksllc/commerce-schemas; this server-layer wrapper reads the platform default
 // from env and the tenant override from the merchant profile.
 
-import type { TxClient } from '@wizeworks/db';
-import { MARKET_COMMISSION_BPS_DEFAULT, resolveCommissionBps } from '@wizeworks/commerce-schemas';
+import type { TxClient } from '@wizeworksllc/db';
+import {
+  MARKET_COMMISSION_BPS_DEFAULT,
+  resolveCommissionBps,
+} from '@wizeworksllc/commerce-schemas';
 
 /** The platform default commission (bps) from env MARKET_COMMISSION_BPS, clamped to
  *  [0, 3000]; falls back to MARKET_COMMISSION_BPS_DEFAULT (200 = 2%). */

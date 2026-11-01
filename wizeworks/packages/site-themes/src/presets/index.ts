@@ -4,7 +4,7 @@
 // This file used to export `THEMES` / `THEME_LIST` / `DEFAULT_THEME_KEY`: six
 // hand-authored presets (apex, industrial, drift, market, fleet, drop) that were the
 // entire theme library before the silica catalog existed. The platform ships FORTY
-// themes now, as code, in @wizeworks/silica-catalog — twenty business-named shelves
+// themes now, as code, in @wizeworksllc/silica-catalog — twenty business-named shelves
 // plus silicaui's twenty presets. The six were not among them, were not reachable
 // from any picker, and matched nothing in the database on any cluster; keeping a
 // second, smaller shelf beside the real one is what made "which themes do we have" a

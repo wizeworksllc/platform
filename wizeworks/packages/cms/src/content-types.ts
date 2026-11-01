@@ -12,13 +12,13 @@
 // (forgiving on dropped fields); required-field errors and shape mismatches
 // surface as VALIDATION_ERROR (422).
 
-import type { ContentType, TxClient } from '@wizeworks/db';
+import type { ContentType, TxClient } from '@wizeworksllc/db';
 import {
   ContentTypeSchema,
   bodyValidatorFor,
   type ContentTypeSchema as ContentTypeSchemaT,
-} from '@wizeworks/cms-schemas';
-import { notFound, validationError } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/cms-schemas';
+import { notFound, validationError } from '@wizeworksllc/api-core/errors';
 
 export interface WireContentType {
   id: string;

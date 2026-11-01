@@ -38,7 +38,7 @@ import {
   Text,
 } from '@wizeworks/silicaui-react';
 import { CircleCheck, Link2, Loader2, Lock, Plug, RotateCcw } from 'lucide-react';
-import { validateRows, type CanonicalEntity, type MappedEntity } from '@wizeworks/migration';
+import { validateRows, type CanonicalEntity, type MappedEntity } from '@wizeworksllc/migration';
 import { ReportProblemButton } from '../../components/feedback/report-problem-button';
 import {
   MAX_LIVE_PAGES,

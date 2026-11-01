@@ -1,7 +1,7 @@
 // Email-sequence action executors (docs/81 §9) — the two effects that were
 // deferred in the ActionType enum until the sequence subsystem existed. They are
 // thin: all the journey logic (re-entry policy, do-not-contact, the drain) lives in
-// @wizeworks/email-sequences; these just translate the triggering entity into an
+// @wizeworksllc/email-sequences; these just translate the triggering entity into an
 // enroll / unenroll, exactly as email.send_campaign translates it into a send.
 //
 //   email.sequence_add     — enrol the trigger's customer into a sequence. The
@@ -21,8 +21,8 @@ import {
   type ActionOutput,
   type EffectInput,
   type TenantCtx,
-} from '@wizeworks/automation';
-import { enroll, unenroll } from '@wizeworks/email-sequences';
+} from '@wizeworksllc/automation';
+import { enroll, unenroll } from '@wizeworksllc/email-sequences';
 import { z } from 'zod';
 
 import { optionalEntityId, requireStringField } from './entity.js';

@@ -2,13 +2,13 @@
 //
 // One service shared by the staff REST routes, the public storefront routes,
 // and (A-2) the WebSocket handler. Every DB call is wrapped in withTenant so
-// RLS scopes rows to the caller's tenant. Throws @wizeworks/api-core ApiError.
+// RLS scopes rows to the caller's tenant. Throws @wizeworksllc/api-core ApiError.
 
 import { randomBytes } from 'node:crypto';
 
-import { withTenant, type Prisma } from '@wizeworks/db';
-import type { TenantContext } from '@wizeworks/db';
-import { forbidden, notFound, validationError } from '@wizeworks/api-core/errors';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import type { TenantContext } from '@wizeworksllc/db';
+import { forbidden, notFound, validationError } from '@wizeworksllc/api-core/errors';
 
 import {
   firstNonEmpty,

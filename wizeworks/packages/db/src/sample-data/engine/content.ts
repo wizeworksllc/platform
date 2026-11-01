@@ -1,7 +1,7 @@
 // CMS content slice — long-form articles (blog posts). CMS-gated.
 //
-// `body` is written raw (no validateAndNormalizeBody — that lives in @wizeworks/api-core,
-// which @wizeworks/db can't import; the legal-page backfill writes raw the same way).
+// `body` is written raw (no validateAndNormalizeBody — that lives in @wizeworksllc/api-core,
+// which @wizeworksllc/db can't import; the legal-page backfill writes raw the same way).
 // It conforms to the built-in `blog_post` schema: { title, excerpt, body } where
 // body is a TipTap doc (see ./prose.ts). Slugs carry the `sample-` prefix so Clear
 // finds them; entries are scoped to the primary site via ContentEntryProperty so

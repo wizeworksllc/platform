@@ -7,7 +7,7 @@
 // I set" and "a percentage off the parts' total" while the parts' total was the
 // one thing nobody would tell her.
 //
-// The arithmetic is NOT here. It lives in `@wizeworks/commerce-schemas`, in the
+// The arithmetic is NOT here. It lives in `@wizeworksllc/commerce-schemas`, in the
 // same two functions the pricing pipeline uses to charge the shopper, because a
 // second copy would be a second answer to "what does this set cost" and the one
 // she reads while setting it up is the one she would never think to doubt. This

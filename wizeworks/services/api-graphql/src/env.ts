@@ -9,7 +9,7 @@
 //
 // This service's env surface is intentionally minimal: GraphQL only reads
 // + mutates content (the same domain api-rest covers) and shares pubsub +
-// webhook delivery via @wizeworks/api-core. Media storage, MEDIA_* knobs, and
+// webhook delivery via @wizeworksllc/api-core. Media storage, MEDIA_* knobs, and
 // rate-limit tuning live on api-rest.
 
 import 'dotenv/config';

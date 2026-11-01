@@ -30,7 +30,7 @@ later.
 | `@sparx/brand/theme.css`       | the **values** (hexes light+dark, radius by role, 18 module hues) |
 | `@wizeworks/silicaui` (plugin) | the **appearance** (fill, ink, border, radius, hover/focus/active/disabled, soft/outline/ghost/dash, sizes, shapes) |
 | `@wizeworks/silicaui-react`    | **behavior + a11y** (Base UI state, roving focus, indicators) |
-| `@wizeworks/ui`                    | sparx **compositions** (shell, `PageHeader`, `ListToolbar`, `Stat`, `statusTone`) |
+| `@wizeworksllc/ui`                    | sparx **compositions** (shell, `PageHeader`, `ListToolbar`, `Stat`, `statusTone`) |
 | feature code in `apps/*`       | the **decision** (which `color × variant × size × shape`) **+ layout** (Tailwind for spacing/sizing/position) |
 
 **Feature code owns no appearance at all.**
@@ -43,7 +43,7 @@ instead of by role.
 
 **Not "never improve" — improve where it propagates.** Ladder: (1) is there a prop? (`get_component`
 first — there usually is); (2) is it a value? change the token in `@sparx/brand/theme.css`; (3) is it
-a missing variant/component? add it to silicaui or a composition to `@wizeworks/ui`; (4) only then, with
+a missing variant/component? add it to silicaui or a composition to `@wizeworksllc/ui`; (4) only then, with
 approval, a local exception documented as debt.
 
 **A call-site patch is a deferred fix, not a fix.** Receipt: `<TabsTab className="text-base-content">`

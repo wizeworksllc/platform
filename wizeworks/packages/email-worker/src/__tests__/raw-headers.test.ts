@@ -9,12 +9,12 @@ import pino from 'pino';
 
 const { sent } = vi.hoisted(() => ({ sent: [] as unknown[] }));
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: { tenant: { findUnique: vi.fn().mockResolvedValue({ platformBrand: 'piggles' }) } },
 }));
 // Only what the worker uses from it. The real package renders React Email, which this
 // suite does not need: a raw send is delivered as drawn.
-vi.mock('@wizeworks/email', () => ({
+vi.mock('@wizeworksllc/email', () => ({
   defaultBrand: {},
   MailgunParameterError: class extends Error {},
   PostalParameterError: class extends Error {},
@@ -28,13 +28,13 @@ vi.mock('@wizeworks/email', () => ({
     },
   }),
 }));
-vi.mock('@wizeworks/email-platform', () => ({
+vi.mock('@wizeworksllc/email-platform', () => ({
   analyticsService: { recordAccepted: vi.fn().mockResolvedValue(undefined) },
   brandService: {},
   domainService: { signingDomainFor: vi.fn().mockResolvedValue(null) },
   settingsService: {},
 }));
-vi.mock('@wizeworks/links/server', () => ({ appOrigin: () => 'https://my.piggles.test' }));
+vi.mock('@wizeworksllc/links/server', () => ({ appOrigin: () => 'https://my.piggles.test' }));
 
 import { handle, parseEvent } from '../handler';
 

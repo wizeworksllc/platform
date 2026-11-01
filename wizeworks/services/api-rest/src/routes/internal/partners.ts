@@ -17,8 +17,8 @@ import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
-import { unauthorized } from '@wizeworks/api-core/errors';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { unauthorized } from '@wizeworksllc/api-core/errors';
 
 import { env } from '../../env.js';
 import { partnerService } from '../../lib/partners/service.js';

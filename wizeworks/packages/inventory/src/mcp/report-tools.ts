@@ -25,7 +25,7 @@
 
 import { z } from 'zod';
 
-import { ReportFilters, ReportKey } from '@wizeworks/commerce-schemas';
+import { ReportFilters, ReportKey } from '@wizeworksllc/commerce-schemas';
 
 import { inventoryService } from '../services';
 import type { AnyMcpTool, McpToolDefinition } from './registry';

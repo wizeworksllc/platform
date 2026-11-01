@@ -16,7 +16,7 @@ Almost every UI mistake starts by conflating them. Every design/component note d
 |---|---|---|
 | Tokens | `--color-base-*` / semantic `--color-*` / `--color-module-*` (silicaui, from `@sparx/brand`) | `--st-*` |
 | Component classes | silicaui plugin classes (`btn-*`, `bg-<color>`, `bg-soft`) | `.st-c-*` |
-| Library | `@wizeworks/silicaui-react` primitives + `@wizeworks/ui` compositions + `ModuleProvider` | `@sparx/site-ui` + `@wizeworks/site-themes` |
+| Library | `@wizeworks/silicaui-react` primitives + `@wizeworksllc/ui` compositions + `ModuleProvider` | `@sparx/site-ui` + `@wizeworksllc/site-themes` |
 | Compiled by | silica plugin + brand theme per app | `wizeworks/packages/surface-compile` per tenant |
 | Themeable | no (house system: silicaui + brand) | yes (per-tenant brand) |
 
@@ -28,7 +28,7 @@ Almost every UI mistake starts by conflating them. Every design/component note d
 
 **Design & build**
 - [[design]] ⚠️ — the visual *language*; applies down onto components, elements, and content. **The acute node.**
-- [[components]] — the silicaui primitives + `@wizeworks/ui` compositions, `SurfaceFrame`/`form-surface`, composition patterns, builder catalog.
+- [[components]] — the silicaui primitives + `@wizeworksllc/ui` compositions, `SurfaceFrame`/`form-surface`, composition patterns, builder catalog.
 
 **Product & business**
 - [[features]] — the master catalog of every capability, each classified **module | program | platform**. Not every feature is a module — *partner* is a program. Owns the module-vs-program taxonomy.

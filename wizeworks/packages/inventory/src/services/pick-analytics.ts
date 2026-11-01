@@ -25,9 +25,9 @@
 // halfway credits both people for what each actually did. Grouping by the list's
 // assignee would give one of them everything and the other nothing.
 
-import { PickThroughputQuery } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { PickThroughputQuery } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

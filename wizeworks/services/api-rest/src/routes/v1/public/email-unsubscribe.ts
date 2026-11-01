@@ -23,8 +23,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
-import { suppressionService } from '@wizeworks/email-platform';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { suppressionService } from '@wizeworksllc/email-platform';
 
 import { verifyUnsubscribeToken } from '../../../lib/email-unsubscribe.js';
 import {

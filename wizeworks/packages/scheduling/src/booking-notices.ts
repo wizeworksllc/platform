@@ -11,7 +11,7 @@
 // IS a message that has not gone yet, and NO rows is the honest answer "nothing
 // will reach them", not a blank.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 /** One entry in a booking's notification ledger, flattened for a caller. */
 export interface BookingNotice {

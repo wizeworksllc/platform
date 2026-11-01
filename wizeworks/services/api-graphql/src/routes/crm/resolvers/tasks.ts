@@ -1,7 +1,7 @@
 // CRM task GraphQL resolvers.
 
-import { taskService } from '@wizeworks/crm';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { taskService } from '@wizeworksllc/crm';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import type { GqlContext } from '../types';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 

@@ -14,7 +14,7 @@
 // written — the consumer costs one indexed lookup per event, and a business that
 // never asked for lead scoring never pays for it.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { gateHandler, type ConsumerContext } from './registry';
 import type { PlatformEvent } from './platform-bus';

@@ -17,10 +17,10 @@
 // email to these contacts needs its own opt-in, exactly as it would for any
 // tenant's customers.
 
-import { platformBrandIdentity } from '@wizeworks/brand-core';
-import { prisma, withTenant } from '@wizeworks/db';
-import { activityService, customerService, dealService } from '@wizeworks/crm/services';
-import { isModuleEnabled } from '@wizeworks/modules';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { activityService, customerService, dealService } from '@wizeworksllc/crm/services';
+import { isModuleEnabled } from '@wizeworksllc/modules';
 
 import {
   isPaymentTrouble,

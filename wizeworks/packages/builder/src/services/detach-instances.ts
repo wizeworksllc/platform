@@ -15,8 +15,8 @@
 // piece may be placed twice on one page and two subtrees sharing ids is the exact
 // state that silently disables drag-reorder and trips React's duplicate-key guard.
 
-import type { Prisma } from '@wizeworks/db';
-import { ensureUniqueIds } from '@wizeworks/silica-catalog';
+import type { Prisma } from '@wizeworksllc/db';
+import { ensureUniqueIds } from '@wizeworksllc/silica-catalog';
 import type { Node as SilicaNode } from '@wizeworks/silicaui-html';
 
 interface Instance {

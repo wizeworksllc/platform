@@ -19,9 +19,9 @@
 // "sent" and "received" are steps that move stock and stamp dates as they happen,
 // and a row cannot replay them.
 
-import { inventoryService } from '@wizeworks/inventory';
-import { withTenant } from '@wizeworks/db';
-import { toCents, toInteger, toIsoDate } from '@wizeworks/migration';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { withTenant } from '@wizeworksllc/db';
+import { toCents, toInteger, toIsoDate } from '@wizeworksllc/migration';
 
 import { Resolver, codeFor } from './resolve';
 import {

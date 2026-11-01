@@ -12,7 +12,7 @@
 // the card path and invoice mode on one code path, and keeps a failed renewal
 // visible in the orders list instead of vanishing.
 
-import { orderService } from '@wizeworks/crm';
+import { orderService } from '@wizeworksllc/crm';
 import {
   CancelSubscriptionInput,
   ChangeSubscriptionAddressInput,
@@ -27,9 +27,9 @@ import {
   type SubscriptionStatus,
   UpdateSubscriptionItemsInput,
   UpdateSubscriptionScheduleInput,
-} from '@wizeworks/commerce-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { Prisma, Subscription, SubscriptionItem, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { Prisma, Subscription, SubscriptionItem, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError, CommerceValidationError } from '../errors';
@@ -1065,7 +1065,7 @@ async function recordSubscriptionEvent(
 }
 
 function computeNextOccurrence(from: Date, unit: string, count: number): Date {
-  // The arithmetic is in @wizeworks/commerce-schemas so the console form can
+  // The arithmetic is in @wizeworksllc/commerce-schemas so the console form can
   // quote the shop owner the same first-delivery date this will store.
   const next = nextOccurrenceAfter(from, unit, count);
   if (!next) throw new CommerceValidationError(`Unknown interval unit: ${unit}`);
@@ -1085,7 +1085,7 @@ function toSummary(
   row: Subscription & { items: SubscriptionItem[]; customer?: CustomerNameParts | null }
 ): SubscriptionSummary {
   // What it is worth a month. `repeatOrderMonthlyCents` lives in
-  // @wizeworks/commerce-schemas because the console's own create form quotes the
+  // @wizeworksllc/commerce-schemas because the console's own create form quotes the
   // same figure back to the shop owner while she is agreeing it with a customer,
   // and two copies of this arithmetic would be two answers to one question.
   return {

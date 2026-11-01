@@ -8,7 +8,7 @@ import {
   shippableUnits,
   unitsWaitingForCore,
   type ShipGateLine,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import type { Order, OrderItem } from './data';
 
 export interface ShipNow {

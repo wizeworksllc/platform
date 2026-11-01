@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P03 · Juniper Row · act 268
-**Surface:** `@wizeworks/b2b` (approval rules), both consoles — Orders to approve
+**Surface:** `@wizeworksllc/b2b` (approval rules), both consoles — Orders to approve
 **Filed:** 2026-09-20
 **Fixed:** 2026-09-20
 **Confirmed by:** P03, on screen and in the database, before and after

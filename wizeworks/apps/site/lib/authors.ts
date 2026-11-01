@@ -1,7 +1,7 @@
 // The people a site's writing is credited to, read for their own pages and for a
 // contributors list. One shape for both, so a card and a page say the same thing.
 
-import { authorPath, type KindFieldLike } from '@wizeworks/silica-catalog';
+import { authorPath, type KindFieldLike } from '@wizeworksllc/silica-catalog';
 
 import { formatPublishedDate } from './builder-data';
 import { publicGet, type ApiEntry } from './content';

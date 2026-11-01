@@ -11,7 +11,7 @@
 //
 // The schema this authors is exactly what surfaces/commerce/product-attributes.tsx
 // renders a form from — the two share the FieldDef vocabulary through
-// product-types-data.ts (a mirror of @wizeworks/field-schema, validated server-side).
+// product-types-data.ts (a mirror of @wizeworksllc/field-schema, validated server-side).
 // Nothing here can author an attribute the product form cannot show.
 //
 // ── Built-ins fork on edit ────────────────────────────────────────────────

@@ -30,10 +30,10 @@ import {
   RecomputeScoresInput,
   UpdateScoringModelInput,
   ScoringRule,
-} from '@wizeworks/crm-schemas';
-import { evaluateConditions, type ResolvedFields } from '@wizeworks/automation-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, ScoreEvent, ScoringModel, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { evaluateConditions, type ResolvedFields } from '@wizeworksllc/automation-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, ScoreEvent, ScoringModel, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

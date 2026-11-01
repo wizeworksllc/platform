@@ -5,7 +5,7 @@
 // `…/pdf` render once published; until then the built-in code renderer is used, so
 // a tenant never *must* design one.
 //
-// A peer of @wizeworks/builder's emailService in the builder framework — same
+// A peer of @wizeworksllc/builder's emailService in the builder framework — same
 // draft/publish lifecycle, same lazy "seed-a-default, edit-a-copy" idiom. The tree
 // is stored opaque here (validated structurally by crm-schemas on write); the
 // api-rest renderer interprets it. Tenant-scoped via withTenant() — a callsite that
@@ -31,11 +31,11 @@ import {
   CreateBillingTemplateInput,
   UpdateBillingTemplateInput,
   type InvoiceTemplateNodeInput,
-} from '@wizeworks/crm-schemas';
-import { DEFAULT_INVOICE_TEMPLATE } from '@wizeworks/crm-schemas/builtins';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { BillingDocumentTemplate, Prisma, TxClient } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+} from '@wizeworksllc/crm-schemas';
+import { DEFAULT_INVOICE_TEMPLATE } from '@wizeworksllc/crm-schemas/builtins';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { BillingDocumentTemplate, Prisma, TxClient } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

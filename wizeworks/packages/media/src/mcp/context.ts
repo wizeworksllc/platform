@@ -2,7 +2,7 @@
 // build the public /v1/public/media/<id>?tenant=<slug> resolver URL we hand
 // back). The tenant table is global (non-RLS), so a direct lookup is correct.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import type { MediaWriteContext } from '../asset-service.js';
 
 export interface McpCtx {

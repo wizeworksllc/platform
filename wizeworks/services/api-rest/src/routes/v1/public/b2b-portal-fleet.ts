@@ -24,12 +24,12 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { fleetService } from '@wizeworks/b2b';
-import { vehicleLabel } from '@wizeworks/commerce-schemas';
-import { ok } from '@wizeworks/api-core/envelope';
-import { forbidden } from '@wizeworks/api-core/errors';
-import type { CustomerAuthContext } from '@wizeworks/customer-auth';
+import { withTenant } from '@wizeworksllc/db';
+import { fleetService } from '@wizeworksllc/b2b';
+import { vehicleLabel } from '@wizeworksllc/commerce-schemas';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { forbidden } from '@wizeworksllc/api-core/errors';
+import type { CustomerAuthContext } from '@wizeworksllc/customer-auth';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { requireCustomer } from '../../../lib/customer-session.js';
 

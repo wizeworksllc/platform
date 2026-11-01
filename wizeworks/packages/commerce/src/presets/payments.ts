@@ -12,8 +12,8 @@
 //
 // Data-as-code (line-limit exempt).
 
-import type { TenantContext, TxClient } from '@wizeworks/db';
-import type { ModulePreset, ModulePresetSummaryChip } from '@wizeworks/auth';
+import type { TenantContext, TxClient } from '@wizeworksllc/db';
+import type { ModulePreset, ModulePresetSummaryChip } from '@wizeworksllc/auth';
 
 import { commercePreset } from './_kit';
 

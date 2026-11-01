@@ -14,15 +14,15 @@
 // `TenantCtx` carrying a publisher and a logger — the machinery an EFFECT needs.
 // Scoring produces no effect: it reads a record and computes a number. Taking the
 // whole engine as a dependency to reach two `findUnique` calls would invert the
-// package graph (`@wizeworks/automation` deliberately knows nothing about the CRM) to
+// package graph (`@wizeworksllc/automation` deliberately knows nothing about the CRM) to
 // save about sixty lines.
 //
 // This file also carries fields the engine's resolvers DON'T, because scoring
 // asks questions automations never had to: how long a deal has sat in its current
 // stage, how recently someone engaged. Those are the questions a score is made of.
 
-import type { ResolvedFields } from '@wizeworks/automation-schemas';
-import type { TxClient } from '@wizeworks/db';
+import type { ResolvedFields } from '@wizeworksllc/automation-schemas';
+import type { TxClient } from '@wizeworksllc/db';
 
 const MS_PER_DAY = 86_400_000;
 

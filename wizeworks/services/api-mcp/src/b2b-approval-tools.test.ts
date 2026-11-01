@@ -1,6 +1,6 @@
 // An AI client approving or rejecting a held wholesale order settles the card
 // that paid for it, the same as the console and the site do (sparx persona issue
-// 087). The tools that lived in @wizeworks/b2b/mcp decided the order and never
+// 087). The tools that lived in @wizeworksllc/b2b/mcp decided the order and never
 // touched the card, so a rejected order kept the buyer's money.
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -16,8 +16,8 @@ const approvalService = vi.hoisted(() => ({
 const settle = vi.hoisted(() => vi.fn<(ctx: unknown, moves: unknown[]) => Promise<unknown[]>>());
 const steps = vi.hoisted(() => [] as string[]);
 
-vi.mock('@wizeworks/b2b', () => ({ approvalService }));
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/b2b', () => ({ approvalService }));
+vi.mock('@wizeworksllc/commerce', () => ({
   heldOrderPayments: {
     settle: (ctx: unknown, moves: unknown[]) => {
       steps.push('settle');
@@ -25,13 +25,13 @@ vi.mock('@wizeworks/commerce', () => ({
     },
   },
 }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({
   publish: () => {
     steps.push('publish');
     return Promise.resolve();
   },
 }));
-vi.mock('@wizeworks/inventory', () => ({
+vi.mock('@wizeworksllc/inventory', () => ({
   inventoryService: { emitSaleEvents: () => Promise.resolve() },
 }));
 

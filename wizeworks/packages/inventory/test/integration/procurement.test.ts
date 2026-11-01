@@ -28,7 +28,7 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { createGoodsReceipt } from '../../src/services/goods-receipts.js';
 import { createPurchaseOrder } from '../../src/services/purchase-orders.js';

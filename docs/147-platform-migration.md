@@ -78,7 +78,7 @@ what will happen.** Two distinct gates, because they answer different questions:
    do not have." So the run is executed against the real tenant DB inside a transaction that is
    always rolled back, and reports create/update/skip/error per row.
 
-The validator is **one implementation in `@wizeworks/migration`**, called from both the browser and
+The validator is **one implementation in `@wizeworksllc/migration`**, called from both the browser and
 the worker. Two validators would drift, and the day they drift is the day the preview tells a
 tenant something different from what the import does.
 
@@ -87,7 +87,7 @@ tenant something different from what the import does.
 code, not schema. This keeps the whole feature outside the migration pipeline and off the
 critical path — see [wizeworks/packages/db/CLAUDE.md](../packages/db/CLAUDE.md) for why that matters.
 
-**Zero new dependencies.** `@wizeworks/migration` ships its own RFC-4180 CSV reader and its own
+**Zero new dependencies.** `@wizeworksllc/migration` ships its own RFC-4180 CSV reader and its own
 WXR/XML reader. Both are ~200 lines, both are tested, and both handle the vendor quirks a
 general-purpose library would fight us on (Shopify's embedded newlines inside `Body (HTML)`,
 WordPress's CDATA-wrapped everything, BOM-prefixed exports from Excel round-trips).
@@ -145,7 +145,7 @@ sparx/apps/workbench/surfaces/migration/          the operator experience
   └─ migration-history      past runs, per-row errors, re-run
         │  parses in-browser via
         ▼
-wizeworks/packages/migration/                         @wizeworks/migration — pure, isomorphic, zero deps
+wizeworks/packages/migration/                         @wizeworksllc/migration — pure, isomorphic, zero deps
   ├─ parse/csv.ts           RFC-4180 reader (quotes, embedded newlines, CRLF, BOM)
   ├─ parse/xml.ts           minimal XML/CDATA reader
   ├─ parse/wxr.ts           WordPress eXtended RSS → canonical content rows
@@ -169,7 +169,7 @@ wizeworks/services/import-worker/src/processors/      one processor per entity
   · content · media · redirects · companies · deals · tickets · discounts · b2b_accounts
 ```
 
-`sparx/apps/web/app/migrate/` reads the **same** `@wizeworks/migration` registry the importer runs on, so
+`sparx/apps/web/app/migrate/` reads the **same** `@wizeworksllc/migration` registry the importer runs on, so
 a marketing page can never claim an entity the importer does not carry. That is the entire
 reason the registry lives in a shared package rather than in the app.
 
@@ -234,11 +234,11 @@ Every page tells ONE story ([[feedback_pages_tell_a_story]]) — promise → rec
 
 ## 7. Task ledger
 
-**Where this stands (2026-08-11). Every phase is built and green.** `@wizeworks/migration`
+**Where this stands (2026-08-11). Every phase is built and green.** `@wizeworksllc/migration`
 (182 tests), every import-worker processor plus an end-to-end walkthrough (26 tests), the
 `/v1/migration` API with 20 route tests, the three live connectors, the workbench surfaces
 including the live-connection flow, and the `/migrate` hub plus twenty vendor pages with
-their OG cards. Lint, typecheck, tests and Prettier are clean across `@wizeworks/migration`,
+their OG cards. Lint, typecheck, tests and Prettier are clean across `@wizeworksllc/migration`,
 `import-worker`, `api-rest`, `workbench` and `web`.
 
 **Seven real bugs were found by testing, and every one was invisible to a unit test.** They are worth recording because each is a shape that will
@@ -276,7 +276,7 @@ anything this work added.
 
 Legend: `[ ]` not started · `[~]` in progress · `[x]` done
 
-### Phase 1 — `@wizeworks/migration` (the shared brain)
+### Phase 1 — `@wizeworksllc/migration` (the shared brain)
 
 - [x] 1.1 Package scaffold, wired into workspace + tsconfig + eslint + vitest
 - [x] 1.2 RFC-4180 CSV reader (quotes, escaped quotes, embedded newlines, CRLF, BOM) + tests
@@ -331,7 +331,7 @@ Legend: `[ ]` not started · `[~]` in progress · `[x]` done
 
 ### Phase 5 — live connectors
 
-- [x] 5.1 Connector contract in `@wizeworks/migration` (paged pull → canonical rows) + the URL guard
+- [x] 5.1 Connector contract in `@wizeworksllc/migration` (paged pull → canonical rows) + the URL guard
 - [x] 5.2 Shopify Admin GraphQL connector — 8 resources, including the three with no export
 - [x] 5.3 WooCommerce / WordPress REST connector — one connector, two APIs, shop optional
 - [x] 5.4 HubSpot CRM v3 connector — pipeline labels and associations resolved per page
@@ -397,7 +397,7 @@ cost something to find out.
 ### Verification commands that actually work here
 
 ```bash
-pnpm --filter @wizeworks/migration test          # 135
+pnpm --filter @wizeworksllc/migration test          # 135
 pnpm --filter @wizeworks/import-worker test      # 19
 pnpm --filter <pkg> lint
 pnpm --filter <pkg> typecheck
@@ -422,7 +422,7 @@ Each of these was a typecheck or lint failure before it was a rule:
   `toast.add({ title, description, type })`, not `toast({ color })`. silica `Select`'s
   `onValueChange` hands back `unknown`.
 - Prisma model names are `productCategory` and `productCollection`, not `category`/`collection`.
-- `publish()` from `@wizeworks/api-core/pubsub` is `(logger, type, tenantId, actorId, data)`.
+- `publish()` from `@wizeworksllc/api-core/pubsub` is `(logger, type, tenantId, actorId, data)`.
 - `no-irregular-whitespace` fires on a literal U+FEFF **in a comment**; strings are exempt.
 
 ### Phase 5 — how the live connections actually work
@@ -441,7 +441,7 @@ and it buys three things at once:
 **Credentials are never stored.** They are typed into the workbench, sent with each pull, used,
 and forgotten; closing the pane loses them. A migration is a one-off, and a key to a platform
 somebody has just left is a liability with no upside. (This replaces the earlier sketch of
-capturing them through `@wizeworks/integration-framework` — the BYO rule that sketch existed to
+capturing them through `@wizeworksllc/integration-framework` — the BYO rule that sketch existed to
 satisfy is satisfied more completely by not keeping them at all.)
 
 **Why these three and no others.** Shopify, WordPress/WooCommerce and HubSpot are the only

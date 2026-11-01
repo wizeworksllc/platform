@@ -19,7 +19,7 @@
 // DATE `UNTIL` meant midnight UTC, the evening before anywhere in the Americas.
 // `expandRecurrenceInZone` steps the WALL clock of the place instead.
 
-import { localWallToUtc, tzOffsetMs } from '@wizeworks/time';
+import { localWallToUtc, tzOffsetMs } from '@wizeworksllc/time';
 
 import type { Interval } from './time';
 

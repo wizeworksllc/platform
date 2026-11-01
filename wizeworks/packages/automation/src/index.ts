@@ -1,4 +1,4 @@
-// @wizeworks/automation — the cross-module rule engine (docs/81, docs/84 Slice C).
+// @wizeworksllc/automation — the cross-module rule engine (docs/81, docs/84 Slice C).
 //
 // Public surface: the engine entry points (ingest + the two ticks), the service
 // layer (CRUD + clone + system seed), and the registration seams (resolvers,
@@ -29,7 +29,7 @@ export { evaluateConditions } from './conditions/evaluate';
 export {
   getScanner,
   // The reserved key a resolver stamps with the record's site (docs/131 §3.1).
-  // Exported because module resolvers live in @wizeworks/automation-actions and must
+  // Exported because module resolvers live in @wizeworksllc/automation-actions and must
   // set it — one that forgets makes its events invisible to site-scoped rules.
   PROPERTY_FIELD,
   propertyOf,
@@ -124,14 +124,14 @@ export {
 
 // ── scheduler surface (docs/97 §5) ──
 // The nightly run-activity rollup reconcile + its tenant enumeration, invoked by
-// api-rest's /internal/automations/* cron route. Mirrors @wizeworks/commerce's
+// api-rest's /internal/automations/* cron route. Mirrors @wizeworksllc/commerce's
 // `commerceSchedulers` namespace.
 export * as automationSchedulers from './schedulers';
 
 // ── MCP tool surface (docs/84 Slice H) ──
 // The AI authoring path. `automationMcpTools` is the array `wizeworks/services/api-mcp`
 // publishes; tools wrap the same service layer above (one service, three
-// transports). Subpath-free so it mirrors `@wizeworks/crm`'s `crmMcpTools` export.
+// transports). Subpath-free so it mirrors `@wizeworksllc/crm`'s `crmMcpTools` export.
 export {
   automationMcpTools,
   type AutomationMcpScope,

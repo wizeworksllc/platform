@@ -18,7 +18,7 @@ import {
   CONSENT_ERROR_PARAM,
   readMcpConsentRequest,
   submitMcpConsent,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 
 const str = (v: FormDataEntryValue | null): string => (typeof v === 'string' ? v : '');
 

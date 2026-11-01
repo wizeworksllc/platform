@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/partner-schemas",
+  "name": "@wizeworksllc/partner-schemas",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Partner Program — Zod input schemas + shared types for partners, applications, referrals, commissions, payouts, and bootcamps (docs/114).",

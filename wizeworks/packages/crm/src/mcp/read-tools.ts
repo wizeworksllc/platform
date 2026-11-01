@@ -23,7 +23,7 @@ import {
   LeadStatus,
   LifecycleStage,
   SegmentRuleSchema,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 import type { McpToolDefinition } from './registry';
 

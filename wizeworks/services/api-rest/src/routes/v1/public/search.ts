@@ -38,14 +38,14 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
+import { ok } from '@wizeworksllc/api-core/envelope';
 import {
   collectionSiteVisibilityWhere,
   contentSiteVisibilityWhere,
   productSiteVisibilityWhere,
   withTenant,
-} from '@wizeworks/db';
-import { searchAll } from '@wizeworks/search';
+} from '@wizeworksllc/db';
+import { searchAll } from '@wizeworksllc/search';
 import { resolvePublicPropertyId, siteDisabledModules } from '../../../lib/property.js';
 import { requireTenantIdBySlug } from '../../../lib/tenant-slug.js';
 import { entryPublicPath } from '../../../lib/content-paths.js';

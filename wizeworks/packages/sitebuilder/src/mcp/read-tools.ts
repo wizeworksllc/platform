@@ -1,8 +1,8 @@
 // Read-only Site Builder MCP tools. No confirmation; scope read:builder.
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { TargetId, LayoutKey } from '@wizeworks/sitebuilder-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { TargetId, LayoutKey } from '@wizeworksllc/sitebuilder-schemas';
 import { themeService, sectionService, publishService, definitionService } from '../services/index';
 import type { AnyMcpTool } from './registry';
 import type { ServiceContext } from '../errors';

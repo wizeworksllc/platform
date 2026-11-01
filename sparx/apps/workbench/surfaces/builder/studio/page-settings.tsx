@@ -76,7 +76,7 @@ import {
   Textarea,
 } from '@wizeworks/silicaui-react';
 import { ChevronDown, ImageOff, ImagePlus, Trash2 } from 'lucide-react';
-import { FRAME_NONE, servedPageTitle } from '@wizeworks/builder-schemas';
+import { FRAME_NONE, servedPageTitle } from '@wizeworksllc/builder-schemas';
 import { useMediaPicker } from '../../cms/media-picker';
 import { usePageSettings, useProductTypeChoices, type PageSettingsDto } from './data';
 
@@ -163,7 +163,7 @@ function sameDraft(a: PageSettingsDraft, b: PageSettingsDraft): boolean {
   );
 }
 
-/** The home page: the slugless singleton, as `isHomeRow` in @wizeworks/builder says. */
+/** The home page: the slugless singleton, as `isHomeRow` in @wizeworksllc/builder says. */
 function isHomePage(page: Pick<PageSettingsDto, 'kind' | 'slug'> | undefined): boolean {
   return page?.kind === 'singleton' && ['', '/'].includes(page.slug ?? '');
 }

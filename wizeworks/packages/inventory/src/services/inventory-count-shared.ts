@@ -3,8 +3,8 @@
 // Split out so the CRUD/lines module (./inventory-counts) and the lifecycle
 // module (./inventory-count-lifecycle) share one serializer + detail shape.
 
-import { Prisma } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError } from '../errors';
 

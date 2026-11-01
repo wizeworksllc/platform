@@ -20,7 +20,7 @@ import {
   isCapturedHeader,
   isOutsideMeasureBand,
   isWidenedMeasure,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 import type { Node } from '@wizeworks/silicaui-html';
 import { describe, expect, it } from 'vitest';
 

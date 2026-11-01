@@ -5,7 +5,7 @@
 // All five invalidate the ['email'] ROOT, so a change is reflected across every
 // open email surface at once — the list, the composer, and the review.
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { emailKeys, type Broadcast } from './broadcasts-data';
 

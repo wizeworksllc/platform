@@ -28,7 +28,7 @@
 // check" into a tick — an unknown step renders as a step with no answer yet,
 // which is the truth.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '@/lib/api/client';
 import { useReachableModules } from '@/lib/surfaces/use-visible-nav';
 import { stepsForAnswer, type FirstRunKey } from './first-run-steps';

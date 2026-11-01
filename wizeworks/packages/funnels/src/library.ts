@@ -25,7 +25,7 @@
 // applied at the recipe, because a campaign about an event the tenant cannot
 // emit is not a partial campaign, it is a wrong one.
 
-import type { ConditionOperator } from '@wizeworks/automation-schemas';
+import type { ConditionOperator } from '@wizeworksllc/automation-schemas';
 import type { FunnelKind, FunnelStage } from './schemas.js';
 
 export interface FunnelRecipe {

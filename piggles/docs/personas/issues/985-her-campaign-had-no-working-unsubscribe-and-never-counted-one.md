@@ -50,7 +50,7 @@ not, ever went out with the List-Unsubscribe header.
 
 ## The fix
 
-- `@wizeworks/email` exports `UNSUBSCRIBE_PLACEHOLDER`. The render-once body is
+- `@wizeworksllc/email` exports `UNSUBSCRIBE_PLACEHOLDER`. The render-once body is
   drawn with it in place of `#`.
 - `email-dispatch.ts` swaps the placeholder, in the HTML and the plain text, for
   each reader's own link at the moment it sends to that reader

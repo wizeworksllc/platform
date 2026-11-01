@@ -4,7 +4,7 @@
  *
  * ─── THE FAILURE THIS EXISTS FOR ────────────────────────────────────────────
  *
- * `@wizeworks/commerce-indexer` — the worker that puts orders, products and
+ * `@wizeworksllc/commerce-indexer` — the worker that puts orders, products and
  * customers into search — routed `order.created` and `order.payment.recorded`.
  * Neither is an event. The catalog's names are `order.placed` and `order.paid`,
  * and CLAUDE.md says in as many words that there is no `order.created`.

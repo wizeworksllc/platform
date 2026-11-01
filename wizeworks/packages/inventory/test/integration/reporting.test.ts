@@ -30,7 +30,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { toCsv } from '../../src/csv.js';
 import { adjust } from '../../src/services/movements.js';
@@ -57,7 +57,7 @@ import {
   listReportSchedules,
   updateReportSchedule,
 } from '../../src/services/report-schedules.js';
-import { checkJournalSendable } from '@wizeworks/commerce-schemas';
+import { checkJournalSendable } from '@wizeworksllc/commerce-schemas';
 import {
   createInventoryFixture,
   createTestTenant,

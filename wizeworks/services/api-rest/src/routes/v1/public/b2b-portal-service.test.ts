@@ -29,12 +29,12 @@ const state = vi.hoisted(() => ({
   fleets: new Map<string, { id: string; label: string }[]>(),
 }));
 
-vi.mock('@wizeworks/auth', () => ({
+vi.mock('@wizeworksllc/auth', () => ({
   isModuleEnabled: (_t: string, slug: string) =>
     Promise.resolve(slug === 'scheduling' ? state.schedulingOn : true),
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     b2bAccountContact: {
       findFirst: ({ where }: { where: { customerId: string; accountId: string } }) => {
@@ -70,7 +70,7 @@ function vehicle(id: string, label: string) {
   };
 }
 
-vi.mock('@wizeworks/b2b', () => ({
+vi.mock('@wizeworksllc/b2b', () => ({
   getAccountFleet: (_ctx: unknown, accountId: string) =>
     Promise.resolve((state.fleets.get(accountId) ?? []).map((v) => vehicle(v.id, v.label))),
   findFleetVehicle: (_ctx: unknown, accountId: string, vehicleId: string) => {
@@ -79,7 +79,7 @@ vi.mock('@wizeworks/b2b', () => ({
   },
 }));
 
-vi.mock('@wizeworks/scheduling', () => ({
+vi.mock('@wizeworksllc/scheduling', () => ({
   listServices: () =>
     Promise.resolve([
       {

@@ -11,7 +11,7 @@ import { PaneLoadError } from '../../components/pane-load-error';
 import { faAward, faLock, faServer } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { PANE_SHELL } from '../../components/pane-toolbar';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { JoinPartnerProgram } from './join';
 import { productCopy, productCopyWith } from '../../lib/product';
 

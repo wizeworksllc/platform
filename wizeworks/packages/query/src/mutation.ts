@@ -56,7 +56,7 @@ export function callerHandledError(meta: unknown): boolean {
 }
 
 /**
- * TanStack's `useMutation`, re-exported from `@wizeworks/query` so every caller
+ * TanStack's `useMutation`, re-exported from `@wizeworksllc/query` so every caller
  * gets this for free. Identical in every other respect — same options, same
  * result, same generics.
  */

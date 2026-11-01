@@ -2,7 +2,7 @@ import type { AppMarketing } from './types';
 
 // Campaigns fronts the `funnels` module. Every line below was checked against
 // piggles/apps/workbench/surfaces/funnels, the /v1/funnels routes and
-// @wizeworks/funnels (library.ts, install.ts, advance.ts, abandon.ts).
+// @wizeworksllc/funnels (library.ts, install.ts, advance.ts, abandon.ts).
 //
 // RECORDING IS AUTOMATIC. The automation worker sees every event and moves
 // people through each running campaign on its site (advance.ts): a step with a

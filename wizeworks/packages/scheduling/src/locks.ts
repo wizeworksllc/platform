@@ -15,7 +15,7 @@
 // is held only for the life of the enclosing `withTenant` transaction (it uses
 // pg_advisory_xact_lock), so it releases on commit/rollback with no manual unlock.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 // Advisory-lock namespaces — the first key of pg_advisory_xact_lock's two-int form,
 // so scheduling's locks occupy a distinct region from any other advisory-lock user

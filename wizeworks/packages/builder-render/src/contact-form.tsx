@@ -24,7 +24,7 @@ import {
   FORM_ATTACHMENT_MIME,
   MAX_FORM_ATTACHMENT_BYTES,
   MAX_FORM_ATTACHMENTS,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { buttonClasses } from '@wizeworks/silicaui-react/server';
 
 import { useBuilderRuntime, type BuilderFormResult } from './runtime-context';

@@ -2,7 +2,7 @@
 //
 // THE BUG THIS EXISTS TO PREVENT. The CMS tools shipped declaring `read:cms` /
 // `write:cms`, and api-mcp mapped those scopes to the `cms` module gate — but the
-// grantable-scope catalog in @wizeworks/auth never learned about them. Nothing failed
+// grantable-scope catalog in @wizeworksllc/auth never learned about them. Nothing failed
 // loudly: the tools registered fine, `tools/list` advertised them, and typecheck was
 // green, because each package declares its own scope union. The only symptom was at
 // runtime, per tenant: the API-key dialog renders the catalog, so the scope could
@@ -14,7 +14,7 @@
 // A scope that no one can hold is a tool that no one can call, so assert the join.
 
 import { describe, expect, it } from 'vitest';
-import { MCP_BUSINESS_SCOPES, grantableScopesForRole } from '@wizeworks/auth';
+import { MCP_BUSINESS_SCOPES, grantableScopesForRole } from '@wizeworksllc/auth';
 
 import { ALL_MCP_TOOLS } from './tool-registry.js';
 

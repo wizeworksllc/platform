@@ -6,7 +6,7 @@ import {
   PlatformRequestError,
   setSessionCookies,
   type SessionCookie,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 import { normalizeEmail, PRODUCT, safeInternalPath } from '@piggles/config';
 import { acquisitionFrom } from '@/lib/attribution';
 import { text } from '@/lib/form';

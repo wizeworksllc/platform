@@ -25,7 +25,7 @@ const tx = {
 
 const HOST = '5944fe23-be83-4ce5-aafc-ef56b8594508';
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withSystem: () =>
     Promise.resolve({
       id: 'bc-1',
@@ -38,7 +38,7 @@ vi.mock('@wizeworks/db', () => ({
     }),
   withTenant: (_ctx: unknown, fn: (t: unknown) => Promise<unknown>) => fn(tx),
 }));
-vi.mock('@wizeworks/crm', () => ({ customerService: { captureLead } }));
+vi.mock('@wizeworksllc/crm', () => ({ customerService: { captureLead } }));
 vi.mock('./events.js', () => ({ publishPartnerEvent: () => Promise.resolve() }));
 
 const { bootcampService } = await import('./bootcamp-service.js');

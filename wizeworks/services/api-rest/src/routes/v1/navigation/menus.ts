@@ -16,12 +16,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import { resolvePropertyId } from '../../../lib/property.js';
 
 const LocationParams = z.object({ location: z.string().min(1).max(63) });

@@ -38,7 +38,7 @@ const state = vi.hoisted(() => ({
   seriesChildren: [] as string[],
 }));
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   Prisma: { DbNull: Symbol('DbNull') },
   withTenant: (_ctx: unknown, fn: (tx: unknown) => Promise<unknown>) =>
     fn({

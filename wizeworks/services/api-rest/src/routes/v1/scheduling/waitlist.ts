@@ -11,14 +11,14 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { WaitlistEntry } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import type { WaitlistEntry } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   AcceptWaitlistInput,
   CreateWaitlistEntryInput,
   OfferWaitlistInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 import {
   acceptWaitlistOffer,
   joinWaitlist,
@@ -26,7 +26,7 @@ import {
   listWaitlistDetailed,
   offerWaitlistEntry,
   type WaitlistEntryDetail,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { publishBookingEvent } from '../../../lib/scheduling-events.js';

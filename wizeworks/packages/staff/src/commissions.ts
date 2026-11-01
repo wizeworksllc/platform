@@ -10,7 +10,7 @@
 // `commission` basis. Counting a sale-based payment in both places would bill
 // the business twice for one person.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 import { StaffMemberNotFoundError } from './errors.js';
 
 export type CommissionSource = 'order' | 'deal';

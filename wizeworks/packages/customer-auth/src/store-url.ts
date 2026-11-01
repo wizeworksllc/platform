@@ -3,7 +3,7 @@
 // site, never a client-supplied origin (a token-phishing vector).
 //
 // The address comes from the one resolver every customer-facing link uses
-// (`@wizeworks/db/site-origin`): the primary site's own domain once it works, the
+// (`@wizeworksllc/db/site-origin`): the primary site's own domain once it works, the
 // tenant's chosen primary domain, else the subdomain it was minted on. This used
 // to be a third copy of that question with its own order (the primary-domain
 // setting first, then ANY live domain row of any site), so a reset link and the
@@ -15,8 +15,8 @@
 // Piggles business was sent to a host under another company's domain. The shared
 // resolver mints in the zone read off the subdomain the tenant was provisioned on.
 
-import { tenantStore, withTenant } from '@wizeworks/db';
-import { resolveSiteOrigin } from '@wizeworks/db/site-origin';
+import { tenantStore, withTenant } from '@wizeworksllc/db';
+import { resolveSiteOrigin } from '@wizeworksllc/db/site-origin';
 
 /** The name the shop goes by on its primary site, for an email sent in its name. */
 export async function resolveStoreName(): Promise<string | null> {

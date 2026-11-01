@@ -10,14 +10,14 @@
 // activation, so a tenant that enables a module later still gets its defaults. It
 // is safe to re-run, and a re-run never overrides the business: an edited rule
 // keeps its edit, a paused one stays paused, a renamed one stays one row (the
-// rules are in @wizeworks/automation `system-seed-sync.ts`).
+// rules are in @wizeworksllc/automation `system-seed-sync.ts`).
 
 import type { Automation } from '@prisma/client';
 import {
   upsertSystemAutomation,
   type ServiceCtx,
   type SystemAutomationSpec,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 
 import {
   B2B_ACCOUNT_APPROVED,

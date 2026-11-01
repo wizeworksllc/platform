@@ -11,7 +11,7 @@
 // "the columns stay at their defaults (null / 0) and the PDP shows 'no reviews
 // yet' no matter how many reviews are approved."
 //
-// The seeds cannot call it: `@wizeworks/db` may not import a module package. So
+// The seeds cannot call it: `@wizeworksllc/db` may not import a module package. So
 // both seeders wrote the columns by hand, and both got it wrong in a different
 // way. Measured 2026-09-16 across 641 products:
 //

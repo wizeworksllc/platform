@@ -4,7 +4,7 @@
 // 'NOT_FOUND', and an { ok:false, error:{ code:'NOT_FOUND', ... } }
 // envelope from a Server Action — all in one place.
 
-import type { TenantContext } from '@wizeworks/db';
+import type { TenantContext } from '@wizeworksllc/db';
 
 export type ServiceContext = TenantContext;
 
@@ -125,7 +125,7 @@ export class CommerceProviderError extends Error {
 }
 
 // Aliased exports so transports can write `import type { NotFoundError }
-// from '@wizeworks/commerce'` without dragging the implementation class
+// from '@wizeworksllc/commerce'` without dragging the implementation class
 // names through their code.
 export type NotFoundError = CommerceNotFoundError;
 export type ValidationError = CommerceValidationError;

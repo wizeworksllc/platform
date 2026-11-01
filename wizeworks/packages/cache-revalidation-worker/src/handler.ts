@@ -2,7 +2,7 @@
 // so tests can assert it without a DB or network; handle() wires it to the
 // tenant lookup and the site's revalidate POST.
 //
-// Failure model (the broker's, see @wizeworks/events consumer.ts):
+// Failure model (the broker's, see @wizeworksllc/events consumer.ts):
 //   - Off-schema envelope → parseEvent returns null; acked, never retried.
 //   - Unmapped event type or unknown tenant → no-op, acked.
 //   - Site POST non-2xx / network error / missing secret → THROW, so the
@@ -13,11 +13,11 @@
 import type { Logger } from 'pino';
 import { z } from 'zod';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 import { env } from './env.js';
 
-/** The minimal SparxEvent envelope this handler reads (see @wizeworks/events). */
+/** The minimal SparxEvent envelope this handler reads (see @wizeworksllc/events). */
 const Envelope = z.object({
   type: z.string().min(1),
   tenantId: z.string().min(1),
@@ -127,7 +127,7 @@ export function planRevalidation(type: string): RevalidateScope | null {
   }
   // A site's own settings changed without a publish: its name, links, contact
   // details, brand, cookie banner, shop display settings, payment method, footer
-  // legal links (see `SiteUpdatedPayload` in @wizeworks/events). EVERY scope,
+  // legal links (see `SiteUpdatedPayload` in @wizeworksllc/events). EVERY scope,
   // because those values are read in more than one family: the business payload
   // is `tenant:`, the footer's legal links are `content:`, and the rare owner
   // save that causes this is not worth a per-field table that drifts.

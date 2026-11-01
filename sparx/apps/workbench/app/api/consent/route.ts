@@ -26,7 +26,7 @@
 // record is that "never asked" stays visible until it is answered.
 
 import { NextResponse } from 'next/server';
-import { platformRequest, PlatformRequestError } from '@wizeworks/auth-client-server';
+import { platformRequest, PlatformRequestError } from '@wizeworksllc/auth-client-server';
 
 export const dynamic = 'force-dynamic';
 

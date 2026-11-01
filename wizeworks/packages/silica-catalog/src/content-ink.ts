@@ -5,7 +5,7 @@
 // relative-color syntax — it cannot measure contrast there, so it compares the color's
 // OKLCH LIGHTNESS against `--silica-content-threshold` and flips. Two places in this
 // repo have to predict that rule: the theme audit (`themes-ink.test.ts`) and the
-// pre-publish contrast check (`@wizeworks/site-lint`'s `palette.ts`). Both had their own
+// pre-publish contrast check (`@wizeworksllc/site-lint`'s `palette.ts`). Both had their own
 // copy of the threshold, and BOTH WENT STALE — see the version note below. A third
 // copy would have gone stale too, so the rule lives here once.
 //

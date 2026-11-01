@@ -16,7 +16,7 @@
 // so a history keyed by property could only say when one of the sites wearing it
 // happened to be saved — never when the look itself changed.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import type { StudioDoc } from '@piggles/studio';
 import { api } from '../api/client';
 import { pieceKeyOf } from './saved-pieces';

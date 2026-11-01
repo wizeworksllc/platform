@@ -8,7 +8,7 @@
 
 import { useEffect } from 'react';
 import { Button, Link } from '@wizeworks/silicaui-react';
-import { useStaleBuildRecovery } from '@wizeworks/app-kit';
+import { useStaleBuildRecovery } from '@wizeworksllc/app-kit';
 import { SparkMascot } from '@/components/marketing/spark-mascot';
 
 export default function Error({

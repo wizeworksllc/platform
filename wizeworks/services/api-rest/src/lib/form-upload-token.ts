@@ -1,5 +1,5 @@
 // Single-use, short-TTL upload token for PUBLIC site-form file attachments
-// (docs/115 Part D). The forms analogue of @wizeworks/media's upload-token — a distinct
+// (docs/115 Part D). The forms analogue of @wizeworksllc/media's upload-token — a distinct
 // token TYPE so a form-upload URL can never be replayed as a media upload (or a
 // session JWT), even though all three share the signing secret.
 //
@@ -18,7 +18,7 @@
 // FORMAT (stable contract — verified by this same module):
 //   token   = base64url(payloadJson) + "." + base64url(hmacSha256(secret, body))
 //   payload = { typ:'form-upload', tid, uid, key, mime, max, name, exp }
-// Signed with SPARX_INTERNAL_JWT_SECRET — the SAME secret api-mcp/api-rest/@wizeworks/media
+// Signed with SPARX_INTERNAL_JWT_SECRET — the SAME secret api-mcp/api-rest/@wizeworksllc/media
 // already share for internal-trust tokens (no new secret, no key distribution).
 
 import { createHmac, timingSafeEqual } from 'node:crypto';

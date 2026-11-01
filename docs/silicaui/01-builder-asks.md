@@ -391,7 +391,7 @@ threshold down to about 0.60.
 > **We adopted the other eleven answers from 0.36.0 and missed this one**, because it is a default
 > inside a CSS string rather than an API — nothing failed to compile. Two copies of `0.68` stayed
 > in the tree: `themes-ink.test.ts`, which then spent five releases failing 10 assertions against
-> **correctly authored themes**, and — the one that mattered — `@wizeworks/site-lint`'s `palette.ts`,
+> **correctly authored themes**, and — the one that mattered — `@wizeworksllc/site-lint`'s `palette.ts`,
 > the live pre-publish contrast check, which predicted WHITE ink for every color between 0.57 and
 > 0.68 where the site actually paints BLACK. A wrong verdict in whichever direction hurt more.
 >
@@ -411,7 +411,7 @@ oklch(from <color> clamp(0, (var(--silica-content-threshold, 0.68) - l) * 1000, 
 
 — white below `l = 0.68`, black above. That is a lightness comparison standing in for a contrast
 comparison, and the two part company across a wide band. Measured over the four shipped
-`THEME_PRESETS` by `@wizeworks/site-lint` (slice 10 of the builder audit, which reproduces this
+`THEME_PRESETS` by `@wizeworksllc/site-lint` (slice 10 of the builder audit, which reproduces this
 derivation exactly in order to check contrast without rendering):
 
 | preset | token     | `l`  | white (chosen) | black (rejected) |
@@ -1066,7 +1066,7 @@ Editing the list means the platform redeploys every time a merchant invents a co
    not as a preview limit.
 
 **What sparx shipped, and why it is a workaround rather than the fix.**
-`@wizeworks/silica-catalog/src/custom-colors.ts` runs the plugin itself against a stub
+`@wizeworksllc/silica-catalog/src/custom-colors.ts` runs the plugin itself against a stub
 Tailwind context — once with the custom names and once without — and keeps the
 difference. That recovers all 41 rules per name, serializes them into `@layer base`,
 and the storefront injects them beside the theme file. It also derives the measured

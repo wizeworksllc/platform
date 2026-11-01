@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 const IS_CI = process.env.CI === 'true' || process.env.CI === '1';
 
 export default defineConfig({
-  // The tool-registry graph pulls in @wizeworks/email-platform → @wizeworks/email, which
+  // The tool-registry graph pulls in @wizeworksllc/email-platform → @wizeworksllc/email, which
   // ships raw .tsx (React Email templates). Without a JSX transform vite's
   // import-analysis can't parse it and EVERY suite fails at import time. Mirror
   // api-rest's config (test-only; production runs through tsx). See

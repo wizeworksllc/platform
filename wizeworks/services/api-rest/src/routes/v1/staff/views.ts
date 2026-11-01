@@ -8,7 +8,7 @@
 // caller may see pay — the flag is decided once in `lib/staff-context.ts` and
 // passed in, never re-derived here.
 
-import { certificationState, type CertificationState } from '@wizeworks/staff';
+import { certificationState, type CertificationState } from '@wizeworksllc/staff';
 
 export interface StaffCertificationRow {
   id: string;

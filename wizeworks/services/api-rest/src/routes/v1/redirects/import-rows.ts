@@ -22,8 +22,8 @@
 //     commonest refusal never reaches the constraint at all and can be explained
 //     in a sentence naming where the existing rule points.
 
-import type { TxClient } from '@wizeworks/db';
-import { ApiError, conflict } from '@wizeworks/api-core/errors';
+import type { TxClient } from '@wizeworksllc/db';
+import { ApiError, conflict } from '@wizeworksllc/api-core/errors';
 
 export interface ImportRowInput {
   from_path: string;

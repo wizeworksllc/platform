@@ -18,7 +18,7 @@ import {
   defaultSilicaFormat,
   type DataSource,
   type DataSources,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { useActiveProperty, useBindingCatalog, useSitePreview } from './site-data';
 import { buildPreviewRoot, type SitePreviewData } from './preview-data';
 import { useActivePropertyId, useTenant } from '../api/shell-data';

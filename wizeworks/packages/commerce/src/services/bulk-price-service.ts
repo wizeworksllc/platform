@@ -14,8 +14,8 @@
 import { randomUUID } from 'node:crypto';
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';

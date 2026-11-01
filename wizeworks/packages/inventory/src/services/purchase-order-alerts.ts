@@ -24,8 +24,8 @@
 // expected arrival date clears the stamp — accepting a new promise re-arms the
 // alert against the new one.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { publishInventoryEvent } from '../events';

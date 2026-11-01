@@ -1,6 +1,6 @@
 // Vitest setup — quiet logs + point the DB env at local docker (mirrors
-// @wizeworks/automation-actions). enqueueSend (called without a tx) uses the default
-// @wizeworks/db client, which reads DATABASE_URL — so it must point at docker here.
+// @wizeworksllc/automation-actions). enqueueSend (called without a tx) uses the default
+// @wizeworksllc/db client, which reads DATABASE_URL — so it must point at docker here.
 
 process.env.NODE_ENV = 'test';
 process.env.LOG_LEVEL ??= 'silent';

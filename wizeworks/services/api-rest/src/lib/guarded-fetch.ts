@@ -5,7 +5,7 @@
 // construction, and the response comes back to the browser as a preview — so anything
 // this can reach, an editor can read.
 //
-// `@wizeworks/migration` already refuses the obvious ones syntactically (localhost, the
+// `@wizeworksllc/migration` already refuses the obvious ones syntactically (localhost, the
 // RFC1918 ranges, the link-local metadata address, a login smuggled in front of the
 // host). That check is necessary and not sufficient: `evil.example.com` can simply
 // have an A record pointing at 169.254.169.254, and no amount of string inspection
@@ -21,7 +21,7 @@
 // replaces.
 
 import { lookup } from 'node:dns/promises';
-import { assertSafeUrl, ConnectorError, type FetchLike } from '@wizeworks/migration';
+import { assertSafeUrl, ConnectorError, type FetchLike } from '@wizeworksllc/migration';
 
 /** Private, loopback, link-local and carrier-grade-NAT space, v4 and v6. */
 function isPrivateAddress(address: string, family: number): boolean {

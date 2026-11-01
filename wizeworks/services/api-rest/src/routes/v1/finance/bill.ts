@@ -12,10 +12,10 @@
 // is edited. Auth-gated only: a tenant's own bill is not a module capability.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { getBillingState, getBillingStripe, planFor } from '@wizeworks/billing';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { prisma } from '@wizeworksllc/db';
+import { getBillingState, getBillingStripe, planFor } from '@wizeworksllc/billing';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 interface CardOnFile {
   brand: string;

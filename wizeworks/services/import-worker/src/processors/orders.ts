@@ -18,9 +18,9 @@
 // is a row nobody can find. That is the one write this processor makes beyond the
 // order itself, and it is reported.
 
-import { customerService, recomputeCustomerCommerce } from '@wizeworks/crm';
-import { withTenant, type Prisma } from '@wizeworks/db';
-import { toDecimal, toInteger, toIsoDate } from '@wizeworks/migration';
+import { customerService, recomputeCustomerCommerce } from '@wizeworksllc/crm';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import { toDecimal, toInteger, toIsoDate } from '@wizeworksllc/migration';
 
 import { Resolver } from './resolve';
 import type { EntityProcessor, ImportRow, PreviewResult, RowResult } from './types';

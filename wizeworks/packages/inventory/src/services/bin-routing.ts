@@ -9,8 +9,8 @@
 // convention is what lets every caller pass the result straight to
 // `applyMovement({ binId })` without first asking whether bins are on.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryValidationError } from '../errors';
 import type { ServiceContext } from '../errors';
@@ -27,7 +27,7 @@ import type { ServiceContext } from '../errors';
  * The public form of {@link systemBinFor} — opens its own tenant transaction.
  *
  * For callers outside the inventory module (returns disposition in
- * `@wizeworks/commerce`) that need to know which shelf a kind of goods belongs on
+ * `@wizeworksllc/commerce`) that need to know which shelf a kind of goods belongs on
  * before they call `adjust`. Returns null on a location that does not use
  * shelves, which the caller treats as "no shelf named, let the ledger decide".
  */

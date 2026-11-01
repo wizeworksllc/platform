@@ -15,7 +15,7 @@ The themed styling system — color/surface fills, borders, radii, shadows, and 
 states — is emitted by **silicaui's Tailwind plugin** (`@wizeworks/silicaui`) as component
 classes (`btn-*`, `badge-*`, `alert-*`, `bg-<color>`, `bg-soft`, …) and consumed through the
 `@wizeworks/silicaui-react` primitives (Button/Badge/Card/Input/…). Feature code imports those
-primitives directly; `@wizeworks/ui` survives as a **22-module set of sparx compositions**
+primitives directly; `@wizeworksllc/ui` survives as a **22-module set of sparx compositions**
 (`ModuleProvider`, `SidebarAppShell`, `PageHeader`, `useConfirm`, `toast`, `statusTone`, `cn`, …)
 rebuilt on silica primitives. Either way feature code consumes semantic component APIs, never
 raw fills. That is how drift is prevented.
@@ -44,23 +44,23 @@ must use the component instead. See §15 for the exact rule the linter enforces.
 
 ## 2. Stack
 
-| Layer                   | Technology                                 | Role                                                                                               |
-| ----------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| Color token authority   | `@sparx/brand/theme.css` (CSS vars)        | Sole source of truth for all colors — semantic palette + `--color-base-*` + modules                |
-| Non-color tokens        | `sparx/packages/ui/src/tokens.css`         | Type / space / radius / shadow / motion + the `--chart-*` palette                                  |
-| Component classes       | `@wizeworks/silicaui` (Tailwind v4 plugin) | Statically emits every color + component utility (`btn-*`, `badge-*`, `bg-<color>`, `bg-soft`, …)  |
-| React primitives        | `@wizeworks/silicaui-react`                | Button/Badge/Card/Input/Select/Table/Tabs/Dialog/Alert/… imported directly by feature code         |
-| Compositions            | `@wizeworks/ui`                            | 22 modules: shell, ModuleProvider, PageHeader, useConfirm, toast, TopProgress, Table, 5 primitives |
-| Primitive accessibility | Base UI (via silicaui)                     | ARIA, keyboard nav, focus. Radix survives only in `@wizeworks/ui`'s `Tooltip` + `Button`'s `Slot`  |
-| Style composition       | `cn()` (clsx + tailwind-merge)             | Class dedup + conditional logic; `extendTailwindMerge` keeps `bg-<color> bg-soft` intact           |
-| Module theming          | `ModuleProvider`                           | Sets `--color-module` on its subtree per active module                                             |
-| Icons                   | Lucide React                               | Consistent, tree-shakeable, outline style                                                          |
+| Layer                   | Technology                                 | Role                                                                                                 |
+| ----------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Color token authority   | `@sparx/brand/theme.css` (CSS vars)        | Sole source of truth for all colors — semantic palette + `--color-base-*` + modules                  |
+| Non-color tokens        | `sparx/packages/ui/src/tokens.css`         | Type / space / radius / shadow / motion + the `--chart-*` palette                                    |
+| Component classes       | `@wizeworks/silicaui` (Tailwind v4 plugin) | Statically emits every color + component utility (`btn-*`, `badge-*`, `bg-<color>`, `bg-soft`, …)    |
+| React primitives        | `@wizeworks/silicaui-react`                | Button/Badge/Card/Input/Select/Table/Tabs/Dialog/Alert/… imported directly by feature code           |
+| Compositions            | `@wizeworksllc/ui`                         | 22 modules: shell, ModuleProvider, PageHeader, useConfirm, toast, TopProgress, Table, 5 primitives   |
+| Primitive accessibility | Base UI (via silicaui)                     | ARIA, keyboard nav, focus. Radix survives only in `@wizeworksllc/ui`'s `Tooltip` + `Button`'s `Slot` |
+| Style composition       | `cn()` (clsx + tailwind-merge)             | Class dedup + conditional logic; `extendTailwindMerge` keeps `bg-<color> bg-soft` intact             |
+| Module theming          | `ModuleProvider`                           | Sets `--color-module` on its subtree per active module                                               |
+| Icons                   | Lucide React                               | Consistent, tree-shakeable, outline style                                                            |
 
 ---
 
 ## 3. Package Structure
 
-Styled primitives no longer live in `@wizeworks/ui` — they are imported from
+Styled primitives no longer live in `@wizeworksllc/ui` — they are imported from
 `@wizeworks/silicaui-react`. This is the package in full, as of 2026-08-01: **22 source modules,
 a 32-name export surface.** It is not a component library and must not be grown back into one.
 
@@ -71,7 +71,7 @@ packages/
 │                              # 18-module palette --color-module-<name> (+ -content). Defined ONCE.
 │
 └── ui/
-    ├── package.json           # name: "@wizeworks/ui"
+    ├── package.json           # name: "@wizeworksllc/ui"
     ├── src/index.ts           # the barrel — 32 names
     ├── src/shell/             # types.ts — ModuleManifest & friends (imported by 4 packages)
     ├── src/tokens.css         # NON-color tokens only: type / space / radius / shadow / motion
@@ -245,7 +245,7 @@ that will ever exist, without a per-color config entry.
 /* apps/dashboard/app/globals.css */
 @import 'tailwindcss';
 @import '@sparx/brand/theme.css'; /* the --color-* authority */
-@import '@wizeworks/ui/tokens.css'; /* type / space / radius / shadow / motion + --chart-* */
+@import '@wizeworksllc/ui/tokens.css'; /* type / space / radius / shadow / motion + --chart-* */
 
 /* Emit the palette. `danger` and `module` are sparx's two registered extras. */
 @plugin '@wizeworks/silicaui' {
@@ -296,7 +296,7 @@ neutral info success warning error danger module`.
 
 **Selection controls follow the same rule, from silicaui directly.** `Checkbox` / `Switch` /
 `RadioGroup` / `Slider` / `Progress` are imported from `@wizeworks/silicaui-react` and take
-`checkbox-<color>`, `switch-<color>`, `progress-<color>`. `@wizeworks/ui` once hand-rolled them on
+`checkbox-<color>`, `switch-<color>`, `progress-<color>`. `@wizeworksllc/ui` once hand-rolled them on
 Radix — where a plugin color class can't attach — and drove each accent off a per-instance
 `--sx-sel` / `--sx-sel-fg` custom property from a `colorVars(color)` helper. That was the last
 parallel token vocabulary in the repo; the components and the helper were **deleted 2026-07-31**.
@@ -306,7 +306,7 @@ See [implementation/st-token-retirement.md](implementation/st-token-retirement.m
 `color-mix(in oklab, <accent> 15%, base)` — theme-aware, computed once, never a baked value. A
 per-module tint is `<ModuleProvider module="…">` + `bg-module bg-soft`. Because default
 tailwind-merge would classify `bg-soft` as a color utility and strip the preceding `bg-<color>`,
-`@wizeworks/ui`'s `cn` uses `extendTailwindMerge` to register the `soft` family as its own class group
+`@wizeworksllc/ui`'s `cn` uses `extendTailwindMerge` to register the `soft` family as its own class group
 so `bg-<color> bg-soft` survives.
 
 ---
@@ -362,7 +362,7 @@ export function useModule(): SparxModule {
 
 ```tsx
 // apps/dashboard/app/(dashboard)/cms/layout.tsx
-import { ModuleProvider } from '@wizeworks/ui';
+import { ModuleProvider } from '@wizeworksllc/ui';
 
 export default function CmsLayout({ children }: { children: React.ReactNode }) {
   return <ModuleProvider module="cms">{children}</ModuleProvider>;
@@ -405,7 +405,7 @@ doc 35 §9. A soft badge is `bg-<color> bg-soft text-<color>`; there are no bake
 
 ### Input, and the rest of the form tier
 
-**`Input` is silicaui's — `@wizeworks/ui` no longer exports one.** Nor `Textarea`, `NativeSelect`,
+**`Input` is silicaui's — `@wizeworksllc/ui` no longer exports one.** Nor `Textarea`, `NativeSelect`,
 `Select`, `PasswordInput`, `Combobox`, `Calendar`, `DatePicker`, `ColorPicker`, `FileUpload`, or
 `Label`. Each once had a hand-rolled twin here; all are deleted.
 
@@ -429,7 +429,7 @@ control already rings itself).
 wires the ids and `aria-describedby` between the parts. Use `<FieldControl render={<Textarea />} />`
 for a non-input control, `<FieldStatus attached={false}>` for checkbox/switch/radio rows (no
 bordered control for a flush panel to sit under), and `floating` when the message must not push
-sibling fields as it appears. `SchemaFieldRenderer` in `@wizeworks/ui` is the worked example.
+sibling fields as it appears. `SchemaFieldRenderer` in `@wizeworksllc/ui` is the worked example.
 
 ### Stat (metric card)
 
@@ -506,7 +506,7 @@ module color prop, it follows the nearest `<ModuleProvider>`.
 ## 9. Component Inventory
 
 The styled primitives below are imported from `@wizeworks/silicaui-react` (their appearance is the
-plugin's `btn-*`/`badge-*`/… classes); `@wizeworks/ui` re-exports a few for API stability and adds the
+plugin's `btn-*`/`badge-*`/… classes); `@wizeworksllc/ui` re-exports a few for API stability and adds the
 compositions. The four-axis `color × variant × size × shape` API (doc 35) applies to the
 action/status primitives.
 
@@ -516,88 +516,88 @@ action/status primitives.
 | ------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `Button`      | color × variant (solid soft outline dash ghost link) | Sizes xs–xl; shapes square / circle / block / wide                                          |
 | `Badge`       | color × variant (solid soft outline dash)            | Default `neutral / soft`; status pills via `statusTone()`                                   |
-| `Input`       | silicaui — `color` × `size`                          | Not in `@wizeworks/ui`. `color` drives border + ring off one `--input-accent`               |
-| `Textarea`    | silicaui — `color` × `size`                          | Not in `@wizeworks/ui`                                                                      |
-| `Select`      | silicaui — `color` × `size`                          | Not in `@wizeworks/ui`. Base UI listbox; `NativeSelect` for a bare platform `<select>`      |
-| `Checkbox`    | silicaui — `color`                                   | Not in `@wizeworks/ui`                                                                      |
-| `RadioGroup`  | silicaui — `color`                                   | Not in `@wizeworks/ui`                                                                      |
-| `Switch`      | silicaui — `color`                                   | Not in `@wizeworks/ui`; module-aware via `color="module"`                                   |
-| `Slider`      | silicaui — `color`                                   | Not in `@wizeworks/ui`                                                                      |
-| `Avatar`      | silicaui — `color` × `shape` × `size`                | Not in `@wizeworks/ui`. `AvatarGroup` for stacks; `status` for a presence dot               |
-| `Skeleton`    | silicaui — `shape`                                   | Not in `@wizeworks/ui`                                                                      |
-| `ButtonGroup` | silicaui `Join`                                      | Not in `@wizeworks/ui`. Segments a row of controls into one welded shape                    |
+| `Input`       | silicaui — `color` × `size`                          | Not in `@wizeworksllc/ui`. `color` drives border + ring off one `--input-accent`            |
+| `Textarea`    | silicaui — `color` × `size`                          | Not in `@wizeworksllc/ui`                                                                   |
+| `Select`      | silicaui — `color` × `size`                          | Not in `@wizeworksllc/ui`. Base UI listbox; `NativeSelect` for a bare platform `<select>`   |
+| `Checkbox`    | silicaui — `color`                                   | Not in `@wizeworksllc/ui`                                                                   |
+| `RadioGroup`  | silicaui — `color`                                   | Not in `@wizeworksllc/ui`                                                                   |
+| `Switch`      | silicaui — `color`                                   | Not in `@wizeworksllc/ui`; module-aware via `color="module"`                                |
+| `Slider`      | silicaui — `color`                                   | Not in `@wizeworksllc/ui`                                                                   |
+| `Avatar`      | silicaui — `color` × `shape` × `size`                | Not in `@wizeworksllc/ui`. `AvatarGroup` for stacks; `status` for a presence dot            |
+| `Skeleton`    | silicaui — `shape`                                   | Not in `@wizeworksllc/ui`                                                                   |
+| `ButtonGroup` | silicaui `Join`                                      | Not in `@wizeworksllc/ui`. Segments a row of controls into one welded shape                 |
 | `Spinner`     | —                                                    | Sizes: sm, md, lg; inherits current color. silica's equivalent is `Loading`                 |
 | `Heading`     | levels 1–6                                           | Visual size via `level`; semantic tag via `as` override (e.g. visually H1, semantically H2) |
 | `Text`        | default, muted, subtle, inverse, danger, success     | Sizes: xs, sm, md, lg; `as` polymorphism for `p` / `span` / `div` / `label`                 |
 
 ### Layout
 
-| Component     | Key variants                             | Notes                                      |
-| ------------- | ---------------------------------------- | ------------------------------------------ |
-| `Card`        | default, module, elevated, ghost, subtle | module = subtle module-tint background     |
-| `CardHeader`  | —                                        | Consistent header within Card              |
-| `CardContent` | —                                        |                                            |
-| `CardFooter`  | —                                        | Border-top, action area                    |
-| `Stack`       | —                                        | Vertical flex with gap prop                |
-| `Grid`        | silicaui — or a Tailwind `grid` utility  | Not in `@wizeworks/ui`                     |
-| `Divider`     | silicaui — `orientation`                 | Not in `@wizeworks/ui`                     |
-| `Container`   | a `max-w-* mx-auto` utility pair         | Not in `@wizeworks/ui`                     |
-| `ScrollArea`  | silicaui — `orientation`                 | Not in `@wizeworks/ui`                     |
-| `Accordion`   | silicaui                                 | Not in `@wizeworks/ui`. Also `Collapsible` |
+| Component     | Key variants                             | Notes                                         |
+| ------------- | ---------------------------------------- | --------------------------------------------- |
+| `Card`        | default, module, elevated, ghost, subtle | module = subtle module-tint background        |
+| `CardHeader`  | —                                        | Consistent header within Card                 |
+| `CardContent` | —                                        |                                               |
+| `CardFooter`  | —                                        | Border-top, action area                       |
+| `Stack`       | —                                        | Vertical flex with gap prop                   |
+| `Grid`        | silicaui — or a Tailwind `grid` utility  | Not in `@wizeworksllc/ui`                     |
+| `Divider`     | silicaui — `orientation`                 | Not in `@wizeworksllc/ui`                     |
+| `Container`   | a `max-w-* mx-auto` utility pair         | Not in `@wizeworksllc/ui`                     |
+| `ScrollArea`  | silicaui — `orientation`                 | Not in `@wizeworksllc/ui`                     |
+| `Accordion`   | silicaui                                 | Not in `@wizeworksllc/ui`. Also `Collapsible` |
 
 ### Overlay
 
-| Component         | Key variants                   | Notes                                           |
-| ----------------- | ------------------------------ | ----------------------------------------------- |
-| `Modal`           | silicaui `Dialog`              | Not in `@wizeworks/ui`                          |
-| `Drawer`          | silicaui — `side`              | Not in `@wizeworks/ui`                          |
-| `Popover`         | silicaui — `side` × `align`    | Not in `@wizeworks/ui`                          |
-| `Tooltip`         | —                              | Wraps Radix Tooltip                             |
-| `Toast`           | success, warning, danger, info | Via sonner                                      |
-| `AlertDialog`     | silicaui                       | Not in `@wizeworks/ui` — use `useConfirm` below |
-| `ConfirmProvider` | —                              | Mounts silica's imperative alert dialog         |
-| `useConfirm`      | `color` (any silica color)     | Async confirm; defaults `danger`, defers a tick |
-| `DropdownMenu`    | silicaui — `side` × `align`    | Not in `@wizeworks/ui`                          |
-| `ContextMenu`     | silicaui                       | Not in `@wizeworks/ui`                          |
-| `CommandPalette`  | silicaui                       | Not in `@wizeworks/ui`. ⌘K global search        |
+| Component         | Key variants                   | Notes                                              |
+| ----------------- | ------------------------------ | -------------------------------------------------- |
+| `Modal`           | silicaui `Dialog`              | Not in `@wizeworksllc/ui`                          |
+| `Drawer`          | silicaui — `side`              | Not in `@wizeworksllc/ui`                          |
+| `Popover`         | silicaui — `side` × `align`    | Not in `@wizeworksllc/ui`                          |
+| `Tooltip`         | —                              | Wraps Radix Tooltip                                |
+| `Toast`           | success, warning, danger, info | Via sonner                                         |
+| `AlertDialog`     | silicaui                       | Not in `@wizeworksllc/ui` — use `useConfirm` below |
+| `ConfirmProvider` | —                              | Mounts silica's imperative alert dialog            |
+| `useConfirm`      | `color` (any silica color)     | Async confirm; defaults `danger`, defers a tick    |
+| `DropdownMenu`    | silicaui — `side` × `align`    | Not in `@wizeworksllc/ui`                          |
+| `ContextMenu`     | silicaui                       | Not in `@wizeworksllc/ui`                          |
+| `CommandPalette`  | silicaui                       | Not in `@wizeworksllc/ui`. ⌘K global search        |
 
 ### Navigation
 
-| Component         | Key variants                   | Notes                                                                                   |
-| ----------------- | ------------------------------ | --------------------------------------------------------------------------------------- |
-| `SidebarAppShell` | —                              | The sparx app chassis — rail + header + detail pane                                     |
-| `Sidebar`         | silicaui                       | Not in `@wizeworks/ui`. `SidebarProvider` / `useSidebar`                                |
-| `Tabs`            | silicaui — `variant` × `color` | Not in `@wizeworks/ui`. `variant="pills"` is the filled selection DESIGN.md §5 requires |
-| `Breadcrumb`      | silicaui                       | Not in `@wizeworks/ui`                                                                  |
-| `Pagination`      | silicaui — `color` × `size`    | Not in `@wizeworks/ui`                                                                  |
-| `Stepper`         | silicaui `Steps`               | Not in `@wizeworks/ui`. Note the name change                                            |
-| `NavigationMenu`  | silicaui                       | Not in `@wizeworks/ui`                                                                  |
+| Component         | Key variants                   | Notes                                                                                      |
+| ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------ |
+| `SidebarAppShell` | —                              | The sparx app chassis — rail + header + detail pane                                        |
+| `Sidebar`         | silicaui                       | Not in `@wizeworksllc/ui`. `SidebarProvider` / `useSidebar`                                |
+| `Tabs`            | silicaui — `variant` × `color` | Not in `@wizeworksllc/ui`. `variant="pills"` is the filled selection DESIGN.md §5 requires |
+| `Breadcrumb`      | silicaui                       | Not in `@wizeworksllc/ui`                                                                  |
+| `Pagination`      | silicaui — `color` × `size`    | Not in `@wizeworksllc/ui`                                                                  |
+| `Stepper`         | silicaui `Steps`               | Not in `@wizeworksllc/ui`. Note the name change                                            |
+| `NavigationMenu`  | silicaui                       | Not in `@wizeworksllc/ui`                                                                  |
 
 ### Data Display
 
-| Component    | Key variants                                                                | Notes                                                  |
-| ------------ | --------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `Table`      | —                                                                           | The one data-display primitive `@wizeworks/ui` keeps   |
-| `Stat`       | silicaui — `Stat`/`Stats` + `StatTitle`/`StatValue`/`StatDesc`/`StatFigure` | Not in `@wizeworks/ui`                                 |
-| `Timeline`   | silicaui — `orientation`                                                    | Not in `@wizeworks/ui`. `TimelineStart`/`Middle`/`End` |
-| `Alert`      | silicaui — `color` × `variant` × `size`                                     | Not in `@wizeworks/ui`                                 |
-| `Kbd`        | silicaui — `size`                                                           | Not in `@wizeworks/ui`                                 |
-| `EmptyState` | silicaui — `size`                                                           | Not in `@wizeworks/ui`                                 |
-| `Code`       | silicaui `MockupCode`, or a `<code>` + utilities                            | Not in `@wizeworks/ui`                                 |
-| `Tag`        | silicaui `Badge` / `TagInput`                                               | Not in `@wizeworks/ui`                                 |
-| `DataTable`  | silicaui `Table` + your own state                                           | Not in `@wizeworks/ui`. The TanStack wrapper is gone   |
+| Component    | Key variants                                                                | Notes                                                     |
+| ------------ | --------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `Table`      | —                                                                           | The one data-display primitive `@wizeworksllc/ui` keeps   |
+| `Stat`       | silicaui — `Stat`/`Stats` + `StatTitle`/`StatValue`/`StatDesc`/`StatFigure` | Not in `@wizeworksllc/ui`                                 |
+| `Timeline`   | silicaui — `orientation`                                                    | Not in `@wizeworksllc/ui`. `TimelineStart`/`Middle`/`End` |
+| `Alert`      | silicaui — `color` × `variant` × `size`                                     | Not in `@wizeworksllc/ui`                                 |
+| `Kbd`        | silicaui — `size`                                                           | Not in `@wizeworksllc/ui`                                 |
+| `EmptyState` | silicaui — `size`                                                           | Not in `@wizeworksllc/ui`                                 |
+| `Code`       | silicaui `MockupCode`, or a `<code>` + utilities                            | Not in `@wizeworksllc/ui`                                 |
+| `Tag`        | silicaui `Badge` / `TagInput`                                               | Not in `@wizeworksllc/ui`                                 |
+| `DataTable`  | silicaui `Table` + your own state                                           | Not in `@wizeworksllc/ui`. The TanStack wrapper is gone   |
 
 ### Form
 
 Almost nothing here is ours. `Field` / `FieldLabel` / `FieldControl` / `FieldDescription` /
 `FieldStatus` / `FieldError` are silicaui's and carry the whole label ↔ control ↔ description ↔
 error contract (§8 above); so are `DatePicker`, `Calendar`, `FileUpload`, `Dropzone` and
-`ColorPicker`. The shadcn-shaped react-hook-form adapter that used to live in `@wizeworks/ui`
+`ColorPicker`. The shadcn-shaped react-hook-form adapter that used to live in `@wizeworksllc/ui`
 (`Form`/`FormField`/`FormItem`/`FormLabel`/`FormControl`/`FormDescription`/`FormMessage`/
 `useFormField`) reimplemented that same wiring and is **deleted** — pair RHF's own `<Controller>`
 with `<Field>`.
 
-What `@wizeworks/ui` still owns:
+What `@wizeworksllc/ui` still owns:
 
 | Component             | Notes                                                                      |
 | --------------------- | -------------------------------------------------------------------------- |
@@ -649,13 +649,13 @@ There is no shadcn bootstrap step — the primitives ship in `@wizeworks/silicau
 styling is emitted by the `@wizeworks/silicaui` Tailwind plugin. To wire a new dashboard-family app:
 
 1. Add the workspace deps: `@wizeworks/silicaui`, `@wizeworks/silicaui-react`, `@sparx/brand`,
-   `@wizeworks/ui`.
+   `@wizeworksllc/ui`.
 2. In `app/globals.css`, `@import 'tailwindcss'`, then `@import '@sparx/brand/theme.css'` (colors)
-   and `@import '@wizeworks/ui/tokens.css'` (non-color), then register the plugin naming the palette
+   and `@import '@wizeworksllc/ui/tokens.css'` (non-color), then register the plugin naming the palette
    (§5): `@plugin '@wizeworks/silicaui' { colors: primary, secondary, accent, neutral, info,
 success, warning, error, danger, module }`.
 3. Import primitives from `@wizeworks/silicaui-react`; import compositions
-   (`ModuleProvider`, shell, `SurfaceFrame`, `statusTone`, `cn`, …) from `@wizeworks/ui`.
+   (`ModuleProvider`, shell, `SurfaceFrame`, `statusTone`, `cn`, …) from `@wizeworksllc/ui`.
 4. Wrap each module layout in `<ModuleProvider module="{module}">` so `--color-module` tracks the
    route.
 
@@ -793,7 +793,7 @@ purpose in utilities throughout the apps: layout, positioning, spacing, sizing, 
 one-off chrome (an absolutely-positioned indicator dot, a flex row, a responsive grid)
 are composition, not design decisions, and belong in feature code. What does **not**
 belong in feature code is rebuilding a styled, themed control out of utilities when a
-`@wizeworks/silicaui-react` primitive (or a `@wizeworks/ui` composition) already exists.
+`@wizeworks/silicaui-react` primitive (or a `@wizeworksllc/ui` composition) already exists.
 
 The dividing line the linter enforces: **a background fill paired with a foreground text
 color.** That pairing is the fingerprint of a re-skinned control (Button / Input / Badge /
@@ -816,7 +816,7 @@ or lone text-coloring is fine; the _pair_ is the tell.
 ```
 
 If no primitive fits, that is a signal to **reach for the right silica variant, or add a genuine
-composition to `@wizeworks/ui`** — not to hand-style it in the app.
+composition to `@wizeworksllc/ui`** — not to hand-style it in the app.
 
 ### ESLint Enforcement
 
@@ -839,7 +839,7 @@ layout false-positives.
         selector:
           'JSXAttribute[name.name="className"][value.type="Literal"][value.value=/(?=.*(?:bg-\\[(?:var\\(|#|rgb|hsl|oklch)|bg-white|bg-black))(?=.*(?:text-\\[(?:var\\(|#|rgb|hsl|oklch)|text-white|text-black))/]',
         message:
-          'This className pairs a background fill with a foreground text color — that reimplements a styled control (Button/Input/Badge/Alert). Use the @wizeworks/ui component or variant. Layout, spacing, and positioning utilities are fine.',
+          'This className pairs a background fill with a foreground text color — that reimplements a styled control (Button/Input/Badge/Alert). Use the @wizeworksllc/ui component or variant. Layout, spacing, and positioning utilities are fine.',
       },
     ],
   },
@@ -859,7 +859,7 @@ When wiring the dashboard component stack, the moving parts are:
 
 1. `@sparx/brand` owns `theme.css` — the `--color-*` authority (semantic palette + `--color-base-*`
    - the 18-module palette). Colors live here and nowhere else.
-2. `@wizeworks/ui` keeps the compositions (§3), the non-color `tokens.css`, and the helpers
+2. `@wizeworksllc/ui` keeps the compositions (§3), the non-color `tokens.css`, and the helpers
    (`cn` with the `soft`-family `extendTailwindMerge`, `pluginColor`, `statusTone`).
 3. Styled primitives come from `@wizeworks/silicaui-react`; their classes from the
    `@wizeworks/silicaui` plugin.
@@ -877,7 +877,7 @@ hand-skinned control. If a `bg-fill + text-color` pair appears, something went w
 
 Every component carries a **composition class** — `basic` or `composite` — alongside
 its other facets. It answers one question the existing axes don't: _is this thing
-built out of other named components?_ It applies across `@wizeworks/ui`,
+built out of other named components?_ It applies across `@wizeworksllc/ui`,
 `@sparx/site-ui`, and the Builder component registry.
 
 - **basic** — self-contained; composes no other named component. Atoms of the

@@ -4,6 +4,7 @@ node: architecture
 type: rule
 status: active
 sources:
+  - wizeworks/packages/module-roster/src/index.ts
   - wizeworks/packages/modules/src/index.ts
   - wizeworks/packages/auth/src/module-gate.ts
   - wizeworks/services/api-rest/src/routes/v1/tenant.ts

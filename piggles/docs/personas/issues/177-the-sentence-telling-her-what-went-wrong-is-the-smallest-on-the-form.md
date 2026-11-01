@@ -81,7 +81,7 @@ The colour is a custom property and the size is a literal, so root RULE #1's
 ladder runs out: there is no prop, there is no token to change, and silicaui is a
 published dependency (`catalog:`), not a package in this repo.
 
-`@wizeworks/silica-corrections/silica-gaps.css` is the sanctioned home for a
+`@wizeworksllc/silica-corrections/silica-gaps.css` is the sanctioned home for a
 silica-level fix both brands need, but its own header rules this out — every rule
 there must be "ADDITIVE to a state silica does not style at all", and "if you
 want a silica component to look DIFFERENT, this is the wrong file". silica does

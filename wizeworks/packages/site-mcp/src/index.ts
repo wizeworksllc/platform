@@ -1,4 +1,4 @@
-// @wizeworks/site-mcp — the shopper-facing tool catalog (docs/113).
+// @wizeworksllc/site-mcp — the shopper-facing tool catalog (docs/113).
 //
 // A thin, declarative set of tools over the public /v1/public/* REST API,
 // shared by the mcp-site service and the site concierge (docs/56).

@@ -18,7 +18,7 @@ const count = vi.fn().mockResolvedValue(0);
 
 // The real `nameSearchClauses`, not a stub: it is a pure function over a
 // string, and the where clause it builds is half of what these assert.
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(fn({ customer: { findMany, count } })),

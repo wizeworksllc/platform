@@ -1,16 +1,16 @@
-// Bridge between Fastify auth context and @wizeworks/crm's ServiceContext.
+// Bridge between Fastify auth context and @wizeworksllc/crm's ServiceContext.
 //
 // Mirrors wizeworks/services/api-rest/src/lib/crm-context.ts byte-for-byte — both
 // transports need the same gate + service-context shape. Promoted to
-// @wizeworks/api-core when a fourth transport appears; until then the
+// @wizeworksllc/api-core when a fourth transport appears; until then the
 // duplication is the smallest correct thing (locked decision #7 is about
 // one *service* layer, not one transport helper layer).
 
 import type { FastifyRequest } from 'fastify';
-import type { ServiceContext } from '@wizeworks/crm';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { ServiceContext } from '@wizeworksllc/crm';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 export function toCrmContext(request: FastifyRequest): ServiceContext {
   const auth = requireAuth(request);

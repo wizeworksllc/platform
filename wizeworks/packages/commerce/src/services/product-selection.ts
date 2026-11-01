@@ -12,9 +12,9 @@ import {
   ProductSelection,
   type ProductMatch,
   type ProductStatus,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

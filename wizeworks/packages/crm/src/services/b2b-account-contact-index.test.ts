@@ -54,7 +54,7 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: async (_ctx: unknown, fn: (t: unknown) => unknown) => {
     order.push('transaction');
@@ -63,7 +63,7 @@ vi.mock('@wizeworks/db', async (importOriginal) => ({
     return result;
   },
 }));
-vi.mock('@wizeworks/events', async (importOriginal) => ({
+vi.mock('@wizeworksllc/events', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   indexEntity,
 }));

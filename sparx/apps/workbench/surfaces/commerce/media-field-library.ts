@@ -3,7 +3,7 @@
 // The media library as the "pick a picture" field lists it: images only, ready
 // only. Split from media-field.tsx so the wire mapping can be tested alone.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { MediaAsset } from './products-data';
 

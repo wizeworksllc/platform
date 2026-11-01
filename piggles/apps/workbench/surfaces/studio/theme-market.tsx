@@ -12,7 +12,7 @@
 // of this" stays answerable later.
 
 import { Badge, Button, useToast } from '@wizeworks/silicaui-react';
-import { buildSilicaThemeCssFromTheme } from '@wizeworks/site-themes';
+import { buildSilicaThemeCssFromTheme } from '@wizeworksllc/site-themes';
 import {
   lookAsTheme,
   useInstallLook,

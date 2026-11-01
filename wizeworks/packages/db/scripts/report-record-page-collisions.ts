@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 // Pre-flight for the record-page address backfill: which properties would collide?
 //
-//   pnpm --filter @wizeworks/db db:report:record-pages
+//   pnpm --filter @wizeworksllc/db db:report:record-pages
 //
 // WHY THIS RUNS BEFORE THE MIGRATION. A page that renders one record used to be
 // identified by `kind='collection'` + `record_type`, with no slug. The backfill gives

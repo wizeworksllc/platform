@@ -18,7 +18,7 @@ const h = vi.hoisted(() => ({
   poll: vi.fn(() => Promise.resolve({ connections: 1, ingested: 0, deduped: 0, errors: 0 })),
 }));
 
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   crmSchedulers: {
     listCrmActiveTenants: () => Promise.resolve([{ id: 'busy' }, { id: 'quiet' }]),
     listTenantsWithDueSlaWork: () => Promise.resolve(new Set(['busy', 'not-crm'])),
@@ -28,7 +28,7 @@ vi.mock('@wizeworks/crm', () => ({
   signatureService: { expireStale: h.expire },
   ticketSlaSweep: { sweepTenant: h.sweep },
 }));
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   commerceSchedulers: {
     listCommerceActiveTenants: () => Promise.resolve([{ id: 'shop' }, { id: 'idle' }]),
     listTenantsWithDueReservations: () => Promise.resolve(new Set(['shop'])),

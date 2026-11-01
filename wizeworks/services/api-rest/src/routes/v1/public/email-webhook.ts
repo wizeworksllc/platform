@@ -16,10 +16,10 @@ import crypto from 'node:crypto';
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { webhookService } from '@wizeworks/email-platform';
-import { publishPlatformEvent } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { ApiError } from '@wizeworks/api-core/errors';
+import { webhookService } from '@wizeworksllc/email-platform';
+import { publishPlatformEvent } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { ApiError } from '@wizeworksllc/api-core/errors';
 
 const WebhookBody = z.object({
   signature: z.object({

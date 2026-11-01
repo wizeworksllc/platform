@@ -1,7 +1,7 @@
 // A trade account's buying rules on one version of a product, as pure arithmetic
 // and sentences (sparx persona issue 086): a minimum, a maximum and a case pack.
 //
-// Here rather than in @wizeworks/commerce because two packages enforce the same
+// Here rather than in @wizeworksllc/commerce because two packages enforce the same
 // rule and must refuse in the same words: the cart and checkout (commerce) and
 // a fleet hold (inventory). Inventory cannot depend on commerce, and both
 // already depend on this package.

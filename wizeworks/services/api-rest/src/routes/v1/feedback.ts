@@ -19,13 +19,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { ApiError, notFound } from '@wizeworks/api-core/errors';
-import { publish } from '@wizeworks/api-core/pubsub';
-import type { FeedbackSubmittedPayload } from '@wizeworks/events';
-import { platformBrandIdentity } from '@wizeworks/brand-core';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { ApiError, notFound } from '@wizeworksllc/api-core/errors';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import type { FeedbackSubmittedPayload } from '@wizeworksllc/events';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
 
 import { tenantPlatformBrand } from '../../lib/tenant-brand.js';
 

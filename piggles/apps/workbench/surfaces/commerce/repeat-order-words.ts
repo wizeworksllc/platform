@@ -8,11 +8,11 @@
 // The two numbers these sentences quote - what it is worth a month, and when the
 // first delivery falls - are NOT computed here. They come from
 // `repeatOrderMonthlyCents` and `nextOccurrenceAfter` in
-// @wizeworks/commerce-schemas, the same two functions the server uses when it
+// @wizeworksllc/commerce-schemas, the same two functions the server uses when it
 // stores the thing. A second copy would let the figure she reads and the figure
 // the platform keeps drift apart, and hers is the one she would never doubt.
 
-import { nextOccurrenceAfter, repeatOrderMonthlyCents } from '@wizeworks/commerce-schemas';
+import { nextOccurrenceAfter, repeatOrderMonthlyCents } from '@wizeworksllc/commerce-schemas';
 import { oneLineAddress } from '../../lib/address-format';
 
 export type RepeatUnit = 'day' | 'week' | 'month' | 'year';

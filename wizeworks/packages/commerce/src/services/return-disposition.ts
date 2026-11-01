@@ -34,10 +34,10 @@
 // quietly changing what an existing column means is worse than carrying a
 // redundant one.
 
-import { SetReturnDispositionInput, dispositionEffect } from '@wizeworks/commerce-schemas';
-import type { ReturnDisposition } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+import { SetReturnDispositionInput, dispositionEffect } from '@wizeworksllc/commerce-schemas';
+import type { ReturnDisposition } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError } from '../errors';

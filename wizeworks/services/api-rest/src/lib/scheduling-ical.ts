@@ -12,7 +12,7 @@
 // in the UI copy — the DB-level no-overlap constraint (§7.4) remains the
 // authoritative double-booking guard.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   buildIcsEvent,
   buildIcsFeed,
@@ -23,7 +23,7 @@ import {
   listBookings,
   type IcsEvent,
   type IcsStatus,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { resolveActivePropertyName } from './property.js';
 import { bookingManagePath, signSchedulingToken } from './scheduling-token.js';

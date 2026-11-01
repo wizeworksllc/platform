@@ -11,8 +11,8 @@
 // list does not remake them and the site does not serve them. Making a page at the
 // address again ends it: an address with a row is the row's.
 
-import type { TxClient } from '@wizeworks/db';
-import { isSiteOwnRoute, starterPages } from '@wizeworks/silica-catalog';
+import type { TxClient } from '@wizeworksllc/db';
+import { isSiteOwnRoute, starterPages } from '@wizeworksllc/silica-catalog';
 
 import type { PropertyContext } from '../errors';
 import { atAddress } from './page-liveness';

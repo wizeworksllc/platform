@@ -24,7 +24,7 @@ import {
 } from '@wizeworks/silicaui-react';
 import { faShieldCheck } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import type { GateLogEntry } from '@wizeworks/automation-schemas';
+import type { GateLogEntry } from '@wizeworksllc/automation-schemas';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { RefreshButton } from '../../components/refresh-button';
 import { FormSection } from '../../components/form-section';

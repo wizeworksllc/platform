@@ -5,7 +5,7 @@
 // sticky, show vendor/sku) is forward-looking — wired into ProductDetail in a
 // later refinement; 3.2 renders it exactly as today's PDP for parity.
 
-import type { ProductBuyBoxConfig } from '@wizeworks/sitebuilder-schemas';
+import type { ProductBuyBoxConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { ProductDetail } from '@/components/product-detail';
 import type { SectionContext } from '../section-renderer';

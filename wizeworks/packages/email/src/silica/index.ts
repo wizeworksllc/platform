@@ -1,4 +1,4 @@
-// `@wizeworks/email/silica` — the React-free silica email render path (docs/120).
+// `@wizeworksllc/email/silica` — the React-free silica email render path (docs/120).
 // Kept off the package root so a backend (email-worker / api-rest) can render a
 // silica email without pulling React-Email into its bundle.
 

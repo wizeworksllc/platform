@@ -4,7 +4,7 @@
 // are people falling out" in one glance. Everything here is derived; nothing is
 // stored, so a definition change is a deploy rather than a backfill.
 
-import { Prisma, withTenant, type TenantContext, type TxClient } from '@wizeworks/db';
+import { Prisma, withTenant, type TenantContext, type TxClient } from '@wizeworksllc/db';
 import type { Funnel } from '@prisma/client';
 
 import { stagesOf } from './index.js';

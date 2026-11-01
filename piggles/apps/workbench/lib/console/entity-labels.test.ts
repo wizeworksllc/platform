@@ -5,7 +5,7 @@
 // every key has to be a real kind of record the search box can show.
 // [[feedback_absent_behaves_like_fine]]
 
-import { ROUTES } from '@wizeworks/links';
+import { ROUTES } from '@wizeworksllc/links';
 import { describe, expect, it } from 'vitest';
 import { PIGGLES_ENTITY_LABELS, PIGGLES_SURFACES } from './vocabulary';
 

@@ -4,7 +4,7 @@
 
 import { z } from 'zod';
 
-import { MarkupScope } from '@wizeworks/commerce-schemas';
+import { MarkupScope } from '@wizeworksllc/commerce-schemas';
 
 import {
   productService,

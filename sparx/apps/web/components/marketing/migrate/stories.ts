@@ -15,7 +15,7 @@
 //   resolution   here is the file, here is the button
 //
 // What the page does NOT contain is a list of what we import. That is computed from
-// `@wizeworks/migration`'s registry at render time, so a page can only ever claim an
+// `@wizeworksllc/migration`'s registry at render time, so a page can only ever claim an
 // entity an adapter genuinely maps. The prose here and the capability there cannot
 // drift, and the reason that rule exists is that this route previously advertised
 // four importers that did not exist.
@@ -26,7 +26,7 @@ export interface Beat {
 }
 
 export interface MigrateStory {
-  /** Matches the vendor slug in `@wizeworks/migration`. */
+  /** Matches the vendor slug in `@wizeworksllc/migration`. */
   slug: string;
   /** How they spell their own name. */
   name: string;

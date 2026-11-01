@@ -1,8 +1,8 @@
-// @wizeworks/sitebuilder-schemas — barrel.
+// @wizeworksllc/sitebuilder-schemas — barrel.
 //
 // Single source of truth for the shape of every Site Builder section config,
 // the site-settings overlay, layout-slot configs, and the write inputs used
-// across the service layer (@wizeworks/sitebuilder), REST/MCP transports, the
+// across the service layer (@wizeworksllc/sitebuilder), REST/MCP transports, the
 // dashboard customizer, and the storefront renderer.
 
 export * from './common';

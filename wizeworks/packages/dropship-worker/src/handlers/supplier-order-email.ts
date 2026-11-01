@@ -12,7 +12,7 @@
 //   - No address. An order to be collected, or one that lost its address, has
 //     nowhere for a parcel to go.
 
-import type { ShippingAddress } from '@wizeworks/dropship';
+import type { ShippingAddress } from '@wizeworksllc/dropship';
 
 export interface SupplierOrderLine {
   /** The product as the business sells it. */
@@ -37,7 +37,7 @@ export interface SupplierOrderEmailInput {
   customerNote?: string | null;
 }
 
-/** The `purchase-order-sent` props, as `@wizeworks/email` takes them. */
+/** The `purchase-order-sent` props, as `@wizeworksllc/email` takes them. */
 export interface SupplierOrderEmailProps {
   fromName: string;
   supplierName: string;

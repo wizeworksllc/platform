@@ -8,8 +8,8 @@
 // We walk the body using the type's schema to identify reference + asset
 // fields, then collect target ids regardless of nesting depth.
 
-import type { TxClient } from '@wizeworks/db';
-import type { ContentTypeSchema, FieldDef } from '@wizeworks/cms-schemas';
+import type { TxClient } from '@wizeworksllc/db';
+import type { ContentTypeSchema, FieldDef } from '@wizeworksllc/cms-schemas';
 
 interface CollectedRef {
   field: string; // dot-path into body

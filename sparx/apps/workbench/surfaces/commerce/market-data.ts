@@ -14,7 +14,7 @@
 // `admin` role; a 403 is a permission answer, not a failure.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /* ── Shapes ─────────────────────────────────────────────────────────────── */

@@ -12,15 +12,15 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
+import { ok } from '@wizeworksllc/api-core/envelope';
 import {
   buildPayrollExport,
   deriveLaborForPeriod,
   deriveLaborForRoster,
   periodLabel,
   timesheetPeriod,
-} from '@wizeworks/staff';
-import { derivePeriodSchema } from '@wizeworks/staff/schemas';
+} from '@wizeworksllc/staff';
+import { derivePeriodSchema } from '@wizeworksllc/staff/schemas';
 import { requirePayAccess, requireStaffModule } from '../../../lib/staff-context.js';
 import { resolveListScopeIds } from '../../../lib/property.js';
 

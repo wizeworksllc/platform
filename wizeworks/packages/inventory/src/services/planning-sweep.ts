@@ -45,7 +45,7 @@
 // and revenue at risk are computed live from the stored rate against the live
 // quantity, so the figure a buyer reads at 4pm is not last night's.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

@@ -22,11 +22,11 @@
 // with `source='evergreen'` so its origin is legible. Nothing about it is special-cased
 // downstream.
 
-import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworks/db';
+import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { nextSlotOccurrence } from '@wizeworks/social';
-import { getSocialSettings } from '@wizeworks/social/service';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { nextSlotOccurrence } from '@wizeworksllc/social';
+import { getSocialSettings } from '@wizeworksllc/social/service';
 
 const DEFAULT_INTERVAL_MS = 15 * 60_000;
 

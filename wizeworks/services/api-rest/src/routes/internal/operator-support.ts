@@ -19,13 +19,13 @@
 import crypto from 'node:crypto';
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 import {
   collectionStats,
   searchOrdersCrossTenant,
   searchCustomersCrossTenant,
-} from '@wizeworks/search';
-import { publish } from '@wizeworks/api-core/pubsub';
+} from '@wizeworksllc/search';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import type {
   OperatorOrderHit,
   OperatorOrderSearchResult,
@@ -36,7 +36,7 @@ import type {
   OperatorEmailEvent,
   OperatorEmailLogResult,
   OperatorResendConfirmationResult,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import { sendTenantEmailByKey } from '../../lib/tenant-email.js';
 import {

@@ -21,13 +21,13 @@
 //                                              leaving every page draft where it is
 //
 // Bodies are validated by the service-layer Zod schemas (the established route ↔
-// service boundary), so api-rest keeps no @wizeworks/builder-schemas dependency.
+// service boundary), so api-rest keeps no @wizeworksllc/builder-schemas dependency.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { layoutService, siteService } from '@wizeworks/builder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { layoutService, siteService } from '@wizeworksllc/builder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireBuilderModule,
   siteChromeOptions,

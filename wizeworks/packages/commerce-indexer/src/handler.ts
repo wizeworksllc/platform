@@ -17,7 +17,7 @@ import {
   projectOrders,
   projectProduct,
   productIdForVariant,
-} from '@wizeworks/commerce';
+} from '@wizeworksllc/commerce';
 import {
   bulkUpsertOrders,
   type CustomerSearchDocument,
@@ -31,7 +31,7 @@ import {
   upsertEntity,
   upsertOrder,
   upsertProduct,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 import type { Logger as PinoLogger } from 'pino';
 
 import { runReindex } from './reindex.js';
@@ -305,7 +305,7 @@ export async function handleEvent(
       // that is not the customer row changes what its document says: being added
       // to or switched off a trade account's contact list writes only a
       // `b2b_account_contacts` row, and the customer's document carries that
-      // account's name (see `companyWords` in @wizeworks/commerce). Without this
+      // account's name (see `companyWords` in @wizeworksllc/commerce). Without this
       // branch the signal was dropped as "no projector", and a contact added on
       // the account's screen could not be found by the account's name until
       // somebody happened to edit them (Gillett Diesel, 2026-10-03).
@@ -318,7 +318,7 @@ export async function handleEvent(
         return { outcome: 'skipped' };
       }
       // An account's orders carry its name too (see `orderAccount` in
-      // @wizeworks/commerce), so a renamed or removed account re-reads them. Only
+      // @wizeworksllc/commerce), so a renamed or removed account re-reads them. Only
       // then: routine account writes (a credit limit, a terms change, the daily
       // near-the-limit signal) leave the name alone and would otherwise re-read
       // every order the account ever placed. This runs BEFORE the account's own

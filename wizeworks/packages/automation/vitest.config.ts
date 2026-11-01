@@ -4,7 +4,7 @@ import { configDefaults, defineConfig } from 'vitest/config';
 // migrations applied (the engine's run state machine + RLS-scoped resolvers are
 // only meaningful against a real DB). CI doesn't run a database yet, so we skip
 // them there (GH Actions sets CI=true). Locally `pnpm test` runs everything
-// against the docker-compose Postgres from `pnpm db:up`. Mirrors @wizeworks/crm.
+// against the docker-compose Postgres from `pnpm db:up`. Mirrors @wizeworksllc/crm.
 const IS_CI = process.env.CI === 'true' || process.env.CI === '1';
 
 export default defineConfig({

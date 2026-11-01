@@ -2,8 +2,8 @@
 // heading / copy, and up to two CTAs. Height, alignment, text color, and a
 // full-bleed (edge-to-edge) toggle come from config.
 
-import type { ImageBannerConfig } from '@wizeworks/sitebuilder-schemas';
-import { focalToPosition } from '@wizeworks/sitebuilder-schemas';
+import type { ImageBannerConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { focalToPosition } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

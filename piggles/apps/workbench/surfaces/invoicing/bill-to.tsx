@@ -25,7 +25,7 @@ import {
   Input,
   Textarea,
 } from '@wizeworks/silicaui-react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { CustomerPicker } from './customer-picker';
 import { useCustomerOnRecord } from './customer-picker-data';
 import { fetchBilledParty, useBilledParty } from './bill-to-party';

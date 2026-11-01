@@ -5,8 +5,8 @@
 // so the corrective delta is computed against LIVE on-hand inside the row lock —
 // a sale that landed mid-count is reconciled, not lost.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntityOnCommit } from '../events';

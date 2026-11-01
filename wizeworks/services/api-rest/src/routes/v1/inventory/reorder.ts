@@ -11,7 +11,7 @@
 //
 // The worklist row also carries a sales-velocity read (units sold per day over a
 // trailing window → days of cover → projected stock-out date). That is NOT
-// recomputed here: it comes straight from `@wizeworks/inventory`'s `reorderAnalysis`,
+// recomputed here: it comes straight from `@wizeworksllc/inventory`'s `reorderAnalysis`,
 // the one implementation shared with the reports route and the MCP supply tools,
 // merged onto each low row by (variant × warehouse). So "how long until this runs
 // out" and "how little is left" are two honest reads of the SAME low set.
@@ -41,10 +41,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { inventoryService } from '@wizeworks/inventory';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const SuggestionsQuery = z.object({

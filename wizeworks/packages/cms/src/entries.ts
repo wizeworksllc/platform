@@ -6,8 +6,8 @@
 // rebuilds references in the same transaction every save — this is the
 // only place autosave / publish / restore should touch a content entry.
 
-import type { ContentEntry, ContentRevision, Prisma, TxClient } from '@wizeworks/db';
-import type { ContentTypeSchema } from '@wizeworks/cms-schemas';
+import type { ContentEntry, ContentRevision, Prisma, TxClient } from '@wizeworksllc/db';
+import type { ContentTypeSchema } from '@wizeworksllc/cms-schemas';
 import { rebuildReferences } from './references.js';
 
 type Json = Prisma.InputJsonValue;

@@ -18,11 +18,16 @@ import {
   ConditionGroup,
   type ScheduleSpec,
   triggerFromColumns,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 import type { PrismaClient } from '@prisma/client';
-import type { Prisma } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
-import { formatLocalDate, localCalendarParts, localMinuteOfDay, tzOffsetMs } from '@wizeworks/time';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
+import {
+  formatLocalDate,
+  localCalendarParts,
+  localMinuteOfDay,
+  tzOffsetMs,
+} from '@wizeworksllc/time';
 
 import { evaluateConditions } from '../conditions/evaluate';
 import type { EngineDeps, TenantCtx, TriggerEnvelope } from '../engine-types';
@@ -209,7 +214,7 @@ export interface BusinessClock {
 
 /**
  * Where the business keeps its books, or null when it has not said. The same
- * read as `businessTimeZone` in `@wizeworks/crm`, which this engine package
+ * read as `businessTimeZone` in `@wizeworksllc/crm`, which this engine package
  * cannot depend on: a blank column is "not set".
  */
 async function businessZone(

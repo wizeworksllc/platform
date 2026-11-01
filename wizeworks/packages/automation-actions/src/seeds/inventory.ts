@@ -6,7 +6,7 @@
 // PO to the preferred supplier (find-or-appended into one open draft per supplier
 // + warehouse, so it never spams). The draft still requires a human submit.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 /** Draft a reorder PO to the preferred supplier when a variant crosses its
  *  reorder point. Seeded `paused` — opt-in (the tenant enables it). The

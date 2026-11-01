@@ -13,13 +13,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
-import type { Prisma, Redirect, TxClient } from '@wizeworks/db';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import type { Prisma, Redirect, TxClient } from '@wizeworksllc/db';
 
 import { resolveListScope, resolvePropertyId } from '../../../lib/property.js';
 import { importRedirectRows } from './import-rows.js';

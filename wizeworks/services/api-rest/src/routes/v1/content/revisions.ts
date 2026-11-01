@@ -11,18 +11,18 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import {
   restoreRevisionTx,
   serializeEntry,
   serializeRevisionFull,
   serializeRevisionMeta,
-} from '@wizeworks/cms';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
+} from '@wizeworksllc/cms';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import { indexContentEntry } from '../../../lib/content-search.js';
 
 const ListParams = z.object({ id: z.string().uuid() });

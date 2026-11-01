@@ -28,7 +28,7 @@
 //
 // `nextRunAt` is DERIVED and stored. Stored because the sweep must find due
 // schedules with an index rather than by evaluating a cadence for every row in
-// the platform; derived by `nextRunAt()` in @wizeworks/commerce-schemas, which is
+// the platform; derived by `nextRunAt()` in @wizeworksllc/commerce-schemas, which is
 // pure and tested, so the date the screen shows and the date the sweep fires on
 // are computed by one function.
 
@@ -36,7 +36,7 @@ model InventoryReportSchedule {
   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId String @map("tenant_id") @db.Uuid
 
-  /// A `ReportKey` from @wizeworks/commerce-schemas. Free text rather than an enum
+  /// A `ReportKey` from @wizeworksllc/commerce-schemas. Free text rather than an enum
   /// for the same reason every other vocabulary column here is: adding a report
   /// must not need a migration.
   reportKey String @map("report_key") @db.VarChar(40)

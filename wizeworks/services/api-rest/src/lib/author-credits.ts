@@ -6,7 +6,7 @@
 // to look. Only top-level fields count: a credit inside a repeating group is a list
 // of people, not a credit for the piece.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { entryPublicPath } from './content-paths.js';
 

@@ -1,5 +1,5 @@
 // Shared HTTP + OAuth helpers for the concrete social adapters — the publish-side
-// mirror of @wizeworks/channels' adapter `_http`. Kept local to @wizeworks/social so a social
+// mirror of @wizeworksllc/channels' adapter `_http`. Kept local to @wizeworksllc/social so a social
 // adapter never reaches into the channels package's internals.
 //
 // Adapters are pure I/O against the platform REST API — no SDKs, just `fetch`. The

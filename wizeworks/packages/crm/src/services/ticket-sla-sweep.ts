@@ -17,8 +17,8 @@
 // deadline is approaching after it has passed is noise, and the four states a
 // row can be in are checked in the order a person would: breached first.
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { publishCrmEvent } from '../events';
 import type { ServiceContext } from '../errors';

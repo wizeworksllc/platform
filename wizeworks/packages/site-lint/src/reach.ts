@@ -42,7 +42,7 @@ import type { RawFinding } from './finding';
 import { addressOf, isTemplate } from './addresses';
 import { classifyHref, findLinks } from './links';
 import { inOpenSubtree, normalizePath } from './routes';
-import { isRecordAddress } from '@wizeworks/silica-catalog';
+import { isRecordAddress } from '@wizeworksllc/silica-catalog';
 
 /**
  * Addresses the storefront reaches by itself, with no authored link involved.

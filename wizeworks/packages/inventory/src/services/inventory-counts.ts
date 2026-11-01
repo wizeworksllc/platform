@@ -2,15 +2,15 @@
 // add/remove lines, and enter counted quantities. A count is scoped to one
 // warehouse; each line snapshots the expected on-hand at line creation. The
 // lifecycle (submit → approve → post → recount movements) lives in
-// ./inventory-count-lifecycle. Owned by @wizeworks/inventory; standalone-usable.
+// ./inventory-count-lifecycle. Owned by @wizeworksllc/inventory; standalone-usable.
 
 import {
   AddCountLineInput,
   CreateInventoryCountInput,
   EnterCountsInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntityOnCommit } from '../events';

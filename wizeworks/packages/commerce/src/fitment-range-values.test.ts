@@ -1,7 +1,7 @@
 // A fit rule with no years fits every year (sparx persona issue 125).
 
 import { describe, expect, it } from 'vitest';
-import { EVERY_FITMENT_YEAR } from '@wizeworks/search';
+import { EVERY_FITMENT_YEAR } from '@wizeworksllc/search';
 import { fitmentRangeValues } from './search-projection';
 
 describe('fitmentRangeValues', () => {

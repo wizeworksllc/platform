@@ -1,7 +1,7 @@
-// Unit tests for @wizeworks/media. The security-relevant REJECTIONS (mime allowlist,
+// Unit tests for @wizeworksllc/media. The security-relevant REJECTIONS (mime allowlist,
 // byte cap, scheme pin, ref length) all throw BEFORE any DB/storage call, so they
 // need no live DB. The happy paths inject a fake storage (_setStorageForTest) and
-// mock @wizeworks/db + @wizeworks/events so we can assert the object write + the
+// mock @wizeworksllc/db + @wizeworksllc/events so we can assert the object write + the
 // media.uploaded fan-out without a Postgres/Prisma client.
 
 import { afterEach, beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
@@ -15,7 +15,7 @@ const { created, publishEventMock } = vi.hoisted(() => ({
   publishEventMock: vi.fn(),
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     mediaAsset: {
       create: vi.fn(({ data, select }: { data: Record<string, unknown>; select?: unknown }) => {
@@ -37,7 +37,7 @@ vi.mock('@wizeworks/db', () => {
   };
 });
 
-vi.mock('@wizeworks/events', () => ({
+vi.mock('@wizeworksllc/events', () => ({
   createPublisher: () => ({ publish: vi.fn() }),
   publishEvent: (...args: unknown[]) => {
     publishEventMock(...args);

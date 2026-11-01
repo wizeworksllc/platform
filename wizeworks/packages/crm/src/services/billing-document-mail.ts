@@ -16,10 +16,10 @@
 // It builds and does not send. The transport stays with each caller, which is
 // why this package still has no dependency on one.
 
-import { withTenant } from '@wizeworks/db';
-import { resolveSiteOrigin, siteUrl } from '@wizeworks/db/site-origin';
-import { paymentTermsOf, paymentTermsWords, poNumberOf } from '@wizeworks/crm-schemas';
-import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworks/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import { resolveSiteOrigin, siteUrl } from '@wizeworksllc/db/site-origin';
+import { paymentTermsOf, paymentTermsWords, poNumberOf } from '@wizeworksllc/crm-schemas';
+import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworksllc/crm-schemas/builtins';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError, CrmValidationError } from '../errors';

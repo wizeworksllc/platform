@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { requireSession } from '@wizeworks/auth-client-server';
+import { requireSession } from '@wizeworksllc/auth-client-server';
 import { readBusiness } from '@/lib/account-load';
 import { acquisitionFrom } from '@/lib/attribution';
 import { readSetupOptions } from '@/lib/furnish';

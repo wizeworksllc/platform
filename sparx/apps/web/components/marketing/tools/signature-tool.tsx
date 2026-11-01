@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Copy, Trash2 } from 'lucide-react';
-import { toast } from '@wizeworks/ui';
+import { toast } from '@wizeworksllc/ui';
 import { Button, FileUpload, Input, Text } from '@wizeworks/silicaui-react';
 import {
   Workbench,

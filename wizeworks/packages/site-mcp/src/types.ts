@@ -16,7 +16,7 @@ import type { SiteApiClient } from './client.js';
  *  - `customer`     — needs a returning-customer identity (Phase 2, docs/113 §5). */
 export type ToolKind = 'read' | 'guest_write' | 'customer';
 
-/** Module slug a tool depends on (matches @wizeworks/auth ModuleSlug values). Kept a
+/** Module slug a tool depends on (matches @wizeworksllc/auth ModuleSlug values). Kept a
  *  plain string so this package stays dependency-light — the public route is the
  *  real gate; this only lets a host skip registering a tool for a disabled
  *  module (cleaner tools/list). */

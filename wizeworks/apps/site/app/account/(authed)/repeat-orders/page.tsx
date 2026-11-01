@@ -12,7 +12,7 @@
 
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
-import { cadenceWords } from '@wizeworks/commerce-schemas';
+import { cadenceWords } from '@wizeworksllc/commerce-schemas';
 import { Alert, Badge, Button } from '@wizeworks/silicaui-react';
 
 import { useCustomer } from '@/components/customer-provider';

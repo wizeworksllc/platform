@@ -7,7 +7,7 @@
 // practice — "undo my import" is not a button anyone can build honestly once the
 // rows are mingled with hand-typed ones.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 import { parseCsvObjects } from './csv';
 import { upsertDerivedExpense } from '../expenses';

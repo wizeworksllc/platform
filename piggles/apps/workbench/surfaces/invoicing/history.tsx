@@ -11,7 +11,7 @@
 // noise on every draft, and the section appearing for the first time when the
 // first record freezes is itself informative.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Badge, Button, Tooltip, useToast } from '@wizeworks/silicaui-react';
 import { faPrint } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';

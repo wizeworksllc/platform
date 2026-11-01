@@ -11,7 +11,7 @@
 // This file is what a sale is made of and what its customer pays. What can be
 // put on one is `sale-sellables.ts`; writing it down is `sale-take.ts`.
 
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { ProductDeposit } from './made-to-order-data';
 import type { CoreOffer } from './sale-core';

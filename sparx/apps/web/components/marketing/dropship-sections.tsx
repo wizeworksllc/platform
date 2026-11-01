@@ -14,7 +14,7 @@ import { EXAMPLE_BUSINESSES, type ExampleBusiness } from '@/lib/example-business
  *
  * The synced product + the margin ledger crossfade through EXAMPLE_BUSINESSES so
  * neither anchors on one vertical. Grounded in docs/14 (Dropship PRD) +
- * @wizeworks/dropship (the vendor catalog, the percentage_markup / multiplier /
+ * @wizeworksllc/dropship (the vendor catalog, the percentage_markup / multiplier /
  * flat_markup / fixed_margin pricing rules). Dropship emerald is a signal, not
  * fill. (The hero + routed-order card live in dropship-hero.tsx; the routing
  * rail, inventory, and tracking devices live in dropship-devices.tsx.)
@@ -22,7 +22,7 @@ import { EXAMPLE_BUSINESSES, type ExampleBusiness } from '@/lib/example-business
 
 const M = getModuleColor('dropship');
 
-// The real selectable vendors from @wizeworks/dropship VENDOR_CATALOG (docs/14 §3).
+// The real selectable vendors from @wizeworksllc/dropship VENDOR_CATALOG (docs/14 §3).
 const VENDORS: { name: string; tag: string; mode: string }[] = [
   { name: 'Printify', tag: 'print-on-demand', mode: 'API' },
   { name: 'Printful', tag: 'print-on-demand', mode: 'API' },

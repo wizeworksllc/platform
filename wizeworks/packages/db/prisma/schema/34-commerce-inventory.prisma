@@ -1,5 +1,5 @@
 // Inventory module — warehouses, levels, the movement ledger, reservations.
-// Owned by @wizeworks/inventory (extracted from commerce per docs/100); commerce,
+// Owned by @wizeworksllc/inventory (extracted from commerce per docs/100); commerce,
 // b2b, and dropship are consumers. Tables are prefixed `inventory_*`.
 //
 // `inventoryService.reserve()` is the single entry point for stock holds —

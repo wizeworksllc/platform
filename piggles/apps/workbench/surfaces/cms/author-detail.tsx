@@ -15,7 +15,7 @@
 // photo, a biography — with no second column to summarise. A bento would float a
 // near-empty rail beside the work. One centred, capped column instead.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useRef, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

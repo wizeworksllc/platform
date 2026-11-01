@@ -12,7 +12,7 @@
 // every finding, the second only costs them the one they already had. So anything
 // this file cannot resolve with certainty resolves as FINE.
 
-import { RECORD_ADDRESSES } from '@wizeworks/silica-catalog';
+import { RECORD_ADDRESSES } from '@wizeworksllc/silica-catalog';
 
 /** Routes the storefront serves that take no parameter. */
 export const BUILTIN_PATHS: readonly string[] = [
@@ -90,14 +90,14 @@ export interface DynamicRoute {
    *  consumers match with `startsWith`, and `/products` would also claim
    *  `/products-archive`.
    *
-   *  DERIVED from `@wizeworks/silica-catalog`'s `RECORD_ADDRESSES`, not written here — see
+   *  DERIVED from `@wizeworksllc/silica-catalog`'s `RECORD_ADDRESSES`, not written here — see
    *  the note on `DYNAMIC_ROUTES`. */
   prefix: string;
   roster: RosterKey;
   /** What the parameter IS, in an owner's words, for the finding text. */
   noun: string;
   /** The builder record type whose collection TEMPLATE renders this route — the same
-   *  keys as `@wizeworks/silica-catalog`'s `ROUTED_RECORD_TYPES`.
+   *  keys as `@wizeworksllc/silica-catalog`'s `ROUTED_RECORD_TYPES`.
    *
    *  Here rather than in a second map because it is the missing half of the same fact.
    *  A collection page's slug is a template address, not a location: visitors land on
@@ -123,7 +123,7 @@ const ROUTE_EXTRAS: Record<string, { roster: RosterKey; noun: string }> = {
 /**
  * The parameterized storefront routes.
  *
- * `prefix` and `recordType` are DERIVED from `@wizeworks/silica-catalog`'s
+ * `prefix` and `recordType` are DERIVED from `@wizeworksllc/silica-catalog`'s
  * `RECORD_ADDRESSES` rather than written out again. They used to be a second five-row
  * list here, kept honest by a test asserting it covered the catalog's exactly — which
  * is a drift detector, not an absence of drift. The catalog now owns the fact (it is

@@ -9,7 +9,7 @@
 // Each function keeps the stored operator in the list even when the builder
 // would not offer it, so a rule authored elsewhere still renders.
 
-import type { SegmentFieldPath, SegmentOperator } from '@wizeworks/crm-schemas';
+import type { SegmentFieldPath, SegmentOperator } from '@wizeworksllc/crm-schemas';
 import { fieldMeta, type CustomFieldIndex, type ValueKind } from './segment-fields';
 
 const OPERATORS_BY_KIND: Record<ValueKind, SegmentOperator[]> = {

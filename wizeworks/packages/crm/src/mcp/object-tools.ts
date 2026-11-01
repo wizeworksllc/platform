@@ -18,7 +18,7 @@ import {
   CreateCrmRecordInput,
   UpdateObjectDefInput,
   UpdateCrmRecordInput,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 import { crmRecordService, objectDefService } from '../services';
 

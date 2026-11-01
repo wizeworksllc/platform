@@ -29,8 +29,8 @@
 //
 // DRY-RUN by default; pass `--apply` to write.
 //
-//   pnpm --filter @wizeworks/db db:backfill:property-name            # dry-run
-//   pnpm --filter @wizeworks/db db:backfill:property-name -- --apply # write
+//   pnpm --filter @wizeworksllc/db db:backfill:property-name            # dry-run
+//   pnpm --filter @wizeworksllc/db db:backfill:property-name -- --apply # write
 
 import { PrismaClient } from '@prisma/client';
 

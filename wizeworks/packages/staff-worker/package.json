@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/staff-worker",
+  "name": "@wizeworksllc/staff-worker",
   "version": "0.0.0",
   "private": true,
   "description": "sparx staff worker (docs/149 §4). Derives approved timesheet hours into a finance wage expense and asks finance to recompute the affected period. A LIBRARY registered by wizeworks/services/event-worker — not a service, not a Deployment.",
@@ -13,9 +13,9 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/staff": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/staff": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

@@ -14,19 +14,19 @@
 // with the crm readers.
 //
 // Write-time signals: reports, boards, print templates and workflows from their
-// services in `@wizeworks/crm`; requests, record types and records through the
+// services in `@wizeworksllc/crm`; requests, record types and records through the
 // `crm.ticket.*`, `crm.object_def.*` and `crm.record.*` events the CRM bridge
 // already publishes (`CRM_UNIVERSAL_BY_ENTITY` in `crm/src/pubsub-bridge.ts`).
 
-import { ownerVisibility, reportCompiler } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
+import { ownerVisibility, reportCompiler } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
 import {
   type EntityProjector,
   type ProjectorContext,
   type UniversalSearchDocument,
   universalId,
   VISIBLE_TO_EVERYONE,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 
 import { codeAsWords } from './search-words';
 import { epoch, keywords, listWords, pickString, snippet } from './universal-projection-kit';

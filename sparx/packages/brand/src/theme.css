@@ -11,7 +11,7 @@
  *
  * Each brand theme answers to TWO selectors: its explicit name (`sparx` /
  * `sparx-dark`, used by market + nested islands) AND the generic `light` / `dark`
- * that the platform theme toggle (@wizeworks/ui `useTheme` / `THEME_INIT_SCRIPT`)
+ * that the platform theme toggle (@wizeworksllc/ui `useTheme` / `THEME_INIT_SCRIPT`)
  * already writes to `data-theme`. So in ANY sparx app, `data-theme="light"` IS the
  * sparx light brand and `data-theme="dark"` IS the sparx dark brand — every app's
  * existing toggle works with zero per-app renaming, and these unlayered blocks
@@ -427,7 +427,7 @@
  * else. No inline `style`, no JS color table — the mapping lives here, beside
  * the tokens it maps, and is the only place that knows a module's hue.
  *
- * This is what BOTH the workbench's <ModuleScope> and @wizeworks/ui's
+ * This is what BOTH the workbench's <ModuleScope> and @wizeworksllc/ui's
  * <ModuleProvider> compile to — the attribute is now the only mechanism either
  * of them uses.
  *

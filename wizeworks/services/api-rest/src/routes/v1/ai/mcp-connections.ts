@@ -13,9 +13,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { listMcpConnections, revokeMcpConnection } from '@wizeworks/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { listMcpConnections, revokeMcpConnection } from '@wizeworksllc/auth';
 
 const ClientParam = z.object({ clientId: z.string().min(1).max(255) });
 

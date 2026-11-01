@@ -44,7 +44,7 @@ behaving correctly: it does not know what an enquiry is, who should be emailed a
 one, or what a confirmation should say, and it must not.
 
 **Everything on this screen is ours.** `SilicaFormConfig` is in
-`@wizeworks/builder-schemas`. The addresses are a `FormDefinition` column in our
+`@wizeworksllc/builder-schemas`. The addresses are a `FormDefinition` column in our
 database. The sending is the automation engine's `form.notify` and `form.autoreply`
 actions. The "Silica" in the type name means "the form engine we build on", not "the
 design system owns this".
@@ -145,7 +145,7 @@ records where it was when the settings were last saved.
 
 ## Tests, and where they are not
 
-`collectSilicaFormIds` is pinned by six tests in `@wizeworks/builder-schemas`, both
+`collectSilicaFormIds` is pinned by six tests in `@wizeworksllc/builder-schemas`, both
 rules proved red: dropping the action-ref check makes it claim a newsletter sign-up is
 a contact form, and collecting nodes without ids puts an unaddressable option in the
 picker.
@@ -162,8 +162,8 @@ and lays out the two shapes the fix could take.
 ## Confirmed by
 
 `builder-schemas` **355 tests across 33 files** (was 349), `builder` 141,
-`silica-catalog` 1350. Typecheck clean on `@piggles/console`, `@wizeworks/builder` and
-`@wizeworks/builder-schemas`; eslint, prettier, `check-boundaries`,
+`silica-catalog` 1350. Typecheck clean on `@piggles/console`, `@wizeworksllc/builder` and
+`@wizeworksllc/builder-schemas`; eslint, prettier, `check-boundaries`,
 `check-surface-routes` (343 surfaces, all addressed), `check-deletability` and the
 piggles toolbar guard all pass. Every new file is inside RULE #0.5's 250 lines.
 

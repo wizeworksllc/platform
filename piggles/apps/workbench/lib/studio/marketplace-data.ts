@@ -11,7 +11,7 @@
 // A pointer would be the other design, and it is the wrong one for a LIVE site: a
 // publisher revising their theme would repaint someone's shop with no warning.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import type { Theme } from '@wizeworks/silicaui-html';
 import { api } from '../api/client';
 import { THEMES_KEY } from './data';

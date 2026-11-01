@@ -5,14 +5,14 @@
 // records the failure. The adapters are pure I/O; every DB write lives here.
 
 import type { Logger } from 'pino';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   getChannel,
   type ChannelAdapter,
   type ChannelProductInput,
   type ChannelProductRef,
   type ChannelSlug,
-} from '@wizeworks/channels';
+} from '@wizeworksllc/channels';
 import { buildChannelProduct, sellableForVariant } from '../lib/projection.js';
 import { resolveChannelAuth, type ConnectionTokenRow } from '../lib/auth.js';
 

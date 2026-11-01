@@ -4,7 +4,7 @@
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 import { AddressSnapshot, HazmatClass } from './common';
 
@@ -654,7 +654,7 @@ export const CountEntryInput = z.object({
    * "two were damaged". Optional, and NULLISH rather than merely optional, so
    * the three states stay distinct on the wire: absent leaves a stored note
    * alone, an empty string or null clears it, text replaces it. `countNoteWrite`
-   * in @wizeworks/inventory is the one place that decides between them.
+   * in @wizeworksllc/inventory is the one place that decides between them.
    *
    * Applying a count rewrites the stock numbers and writes a movement per
    * correction, so without this the figures survive and the reason does not

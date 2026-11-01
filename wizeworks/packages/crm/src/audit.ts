@@ -5,11 +5,11 @@
 // (tenant_id, actor_id, actor_type, action, entity_type, entity_id, diff).
 //
 // We inline this rather than depending on a separate @sparx/audit package
-// because audit_logs is in @wizeworks/db (foundational table) and every module
+// because audit_logs is in @wizeworksllc/db (foundational table) and every module
 // is going to grow its own equivalent helper — making it a separate package
 // just to share six lines of insert SQL is premature.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 export interface AuditWriteInput {
   tx: TxClient;

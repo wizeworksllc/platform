@@ -3,7 +3,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { handVersionsOf, handVersionsToStore, supplierLineFor } from '@wizeworks/dropship';
+import { handVersionsOf, handVersionsToStore, supplierLineFor } from '@wizeworksllc/dropship';
 
 const versions = [
   { variantId: 'oiled', supplierSku: '75-5094', costPriceCents: 25000 },

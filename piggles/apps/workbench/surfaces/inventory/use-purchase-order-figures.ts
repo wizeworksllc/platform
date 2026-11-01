@@ -2,7 +2,7 @@
 // the totals, and which spending limit (if any) will hold it.
 
 import { useMemo } from 'react';
-import { resolveApprovalRule } from '@wizeworks/commerce-schemas';
+import { resolveApprovalRule } from '@wizeworksllc/commerce-schemas';
 import { formatCents, useStockLocations } from './data';
 import { useSuppliers } from './suppliers-data';
 import { usePoApprovalRules } from './po-approvals-data';

@@ -1,7 +1,7 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { requireSession } from '@wizeworks/auth-client-server';
+import { requireSession } from '@wizeworksllc/auth-client-server';
 import { safeInternalPath } from '@piggles/config';
 import { writeConsent } from '@/lib/consent';
 import { text } from '@/lib/form';

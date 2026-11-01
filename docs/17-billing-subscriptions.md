@@ -37,8 +37,8 @@ Each module is independently activatable:
 - Every module is independent and optional — a tenant activates only the ones it uses (minimum one).
 - Builder is optional, not a required base. It hosts and serves a website (pages, themes, domains, SSL, CDN); a tenant that wants a hosted sparx site turns it on.
 - Headless consumers don't need Builder — a content-only publisher (CMS), a CRM-only team, or anyone driving their own frontend off the API/MCP can run without it.
-- **B2B requires Commerce** — enabling B2B auto-activates **and bills** Commerce (B2B is wholesale _on top of_ the commerce engine), and Commerce cannot be turned off while B2B is on. Enforced in the activation handlers (`@wizeworks/modules` `REQUIRES` graph), not just documented.
-- **Invoicing is a bundled-free capability of Commerce and B2B** — either one activates the full Invoicing surface (authoring, AR, aging, templates, MCP tools) at **$0**. A tenant with neither pays **$19** for it standalone (a service business — contractor, repair shop, consultant — that quotes and bills without a site). Modeled as the `@wizeworks/modules` `BUNDLED_FREE` graph: the standalone `invoicing` flag is only ever set on a real $19 purchase, so the bundled case is never billed.
+- **B2B requires Commerce** — enabling B2B auto-activates **and bills** Commerce (B2B is wholesale _on top of_ the commerce engine), and Commerce cannot be turned off while B2B is on. Enforced in the activation handlers (`@wizeworksllc/modules` `REQUIRES` graph), not just documented.
+- **Invoicing is a bundled-free capability of Commerce and B2B** — either one activates the full Invoicing surface (authoring, AR, aging, templates, MCP tools) at **$0**. A tenant with neither pays **$19** for it standalone (a service business — contractor, repair shop, consultant — that quotes and bills without a site). Modeled as the `@wizeworksllc/modules` `BUNDLED_FREE` graph: the standalone `invoicing` flag is only ever set on a real $19 purchase, so the bundled case is never billed.
 - Modules can be added or removed at any time (prorated).
 
 ### Transaction Fees — REMOVED (2026-07-22)
@@ -144,11 +144,11 @@ Modules are chosen up front in onboarding (docs/15 §3), so the trial is about _
 independent of whether Stripe billing has been provisioned, because the trial clock
 lives on the tenant row, not in Stripe:
 
-- **Trial starts at signup**, not at module-select. `@wizeworks/auth` `provisionTenant`
+- **Trial starts at signup**, not at module-select. `@wizeworksllc/auth` `provisionTenant`
   stamps `subscriptionStatus = 'trialing'` + `trialEndsAt = now + 14d` on every new
   tenant. So the trial is real the moment an account exists, with or without Stripe.
 - **One pure gate resolves the phase.** `resolveBillingPhase(tenant, now)` in
-  `@wizeworks/billing` (`gate.ts`) maps the tenant's billing columns → `trialing | active |
+  `@wizeworksllc/billing` (`gate.ts`) maps the tenant's billing columns → `trialing | active |
 grace | suspended | exempt` + a day countdown. No Stripe call, no DB read — the same
   function runs on the public-site hot path and in the dashboard. Platform tenant
   (`SPARX_PLATFORM_TENANT_ID`) + enterprise plans resolve `exempt`.

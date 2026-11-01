@@ -4,7 +4,7 @@
 // the API decides whose fleet this is. The account id in the path is checked
 // there against the signed-in contact's own accounts.
 
-import type { FleetVehicle } from '@wizeworks/commerce-schemas';
+import type { FleetVehicle } from '@wizeworksllc/commerce-schemas';
 
 const API_BASE = '/api/sparx';
 

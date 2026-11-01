@@ -5,7 +5,7 @@
 // JetStream cursor key and must not change.
 
 import type { Logger } from 'pino';
-import { createBrokerHandler, type WorkerSubscription } from '@wizeworks/events';
+import { createBrokerHandler, type WorkerSubscription } from '@wizeworksllc/events';
 
 import { parseDomainPurchasedEvent, handleDomainPurchased } from './handler.js';
 

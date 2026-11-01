@@ -36,9 +36,9 @@ import {
   availabilityLevelOf,
   computeAvailability,
   type AvailabilityLevel,
-} from '@wizeworks/inventory';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/inventory';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

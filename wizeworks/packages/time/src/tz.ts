@@ -5,7 +5,7 @@
 // instants: when a resource is bookable (docs/79), and when a support desk is
 // open to answer you (docs/144 §7.3). Both have to survive daylight saving,
 // and getting that subtly wrong is invisible until twice a year. It lived in
-// `@wizeworks/scheduling` while there was one consumer; the second one arriving is
+// `@wizeworksllc/scheduling` while there was one consumer; the second one arriving is
 // what makes copying it the wrong move — a duplicated hour-offset bug fixed in
 // one copy is still a bug.
 //

@@ -4,8 +4,8 @@
 // Identity is a CRM write (/v1/crm/b2b-accounts), trade terms a B2B write
 // (/v1/b2b/accounts). Keys: ['b2b','accounts'], +'list', +id, +id 'contacts'.
 
-import { useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { formatCentsAmount } from '../../lib/money-format';

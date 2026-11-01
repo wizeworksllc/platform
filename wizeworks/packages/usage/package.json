@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/usage",
+  "name": "@wizeworksllc/usage",
   "version": "0.0.0",
   "private": true,
-  "description": "Platform capacity metering — what each tenant consumes, what their brand allows, and where that leaves them.",
+  "description": "Platform capacity metering \u00e2\u20ac\u201d what each tenant consumes, what their brand allows, and where that leaves them.",
   "type": "module",
   "exports": {
     ".": "./src/index.ts"
@@ -13,7 +13,8 @@
     "test": "vitest run --maxWorkers=1 --passWithNoTests"
   },
   "dependencies": {
-    "@wizeworks/db": "workspace:*"
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/usage-meters": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",

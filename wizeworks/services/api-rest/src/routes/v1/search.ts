@@ -1,4 +1,4 @@
-// Search routes. Thin transport over @wizeworks/search's tenant-scoped query
+// Search routes. Thin transport over @wizeworksllc/search's tenant-scoped query
 // wrappers (Typesense). Every query is forced to the caller's tenant by the
 // wrapper — routes never touch the raw client. The dashboard list pages,
 // ⌘K palette, and staff reindex/status tooling all consume these.
@@ -11,7 +11,7 @@ import crypto from 'node:crypto';
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { productSiteVisibilityWhere, withTenant } from '@wizeworks/db';
+import { productSiteVisibilityWhere, withTenant } from '@wizeworksllc/db';
 import {
   collectionStats,
   findableProductCount,
@@ -27,11 +27,11 @@ import {
   searchCustomers,
   searchOrders,
   searchProducts,
-} from '@wizeworks/search';
-import { listEnabledModules } from '@wizeworks/auth';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
+} from '@wizeworksllc/search';
+import { listEnabledModules } from '@wizeworksllc/auth';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 import { requireCommerceModule } from '../../lib/commerce-context.js';
 import { requireCrmModule } from '../../lib/crm-context.js';

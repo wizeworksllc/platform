@@ -145,6 +145,6 @@ skipped.
   does not see them, and both are really the same open product question: whether the
   second brand has a marketplace at all.
 - **`pnpm install` is required before this pushes.** Three packages gained a
-  `@wizeworks/brand-core` workspace dependency (`channels`, `social`, `platform-crm`)
+  `@wizeworksllc/brand-core` workspace dependency (`channels`, `social`, `platform-crm`)
   and the lockfile has not been regenerated — the pre-push guard runs
   `--frozen-lockfile`. Typecheck was verified locally against hand-made symlinks.

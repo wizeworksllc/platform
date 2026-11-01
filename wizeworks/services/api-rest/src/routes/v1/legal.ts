@@ -15,20 +15,20 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   serializeEntry,
   getLegalChecklistTx,
   createLegalPageTx,
   legalStarterUpdateTx,
   refreshLegalPageTx,
-} from '@wizeworks/cms';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
-import { LEGAL_KINDS, type LegalKind } from '@wizeworks/legal-templates';
+} from '@wizeworksllc/cms';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
+import { LEGAL_KINDS, type LegalKind } from '@wizeworksllc/legal-templates';
 import { resolvePropertyId, type SiteActor } from '../../lib/property.js';
 import { publishSiteUpdated } from '../../lib/site-events.js';
 
@@ -49,7 +49,7 @@ const legalRoutes: FastifyPluginAsync = (app) => {
   });
 
   // ── Instantiate a starter template → draft page (+ footer placement) ──────
-  // The instantiation logic lives in @wizeworks/cms's legal-service (createLegalPageTx), so
+  // The instantiation logic lives in @wizeworksllc/cms's legal-service (createLegalPageTx), so
   // the MCP `create_legal_page` tool scaffolds a draft through the exact same path.
   app.post('/v1/legal/pages', async (request, reply) => {
     const auth = requireRole(request, 'editor');

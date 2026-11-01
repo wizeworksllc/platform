@@ -18,7 +18,7 @@ import {
   embedOutcome,
   frameEmbedProblem,
   mapEmbedProblem,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import type { DocumentInventory, VisitedNode } from './walk';
 import {

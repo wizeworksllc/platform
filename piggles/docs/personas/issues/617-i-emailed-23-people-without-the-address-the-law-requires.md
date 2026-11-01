@@ -160,7 +160,7 @@ Two things it is careful about:
 - **`patch.steps ?? sequence.steps`**, so saving new steps and turning it on in
   one request is judged on the steps that will actually send.
 
-The check sits in the **route**, not in `@wizeworks/email-sequences`. That
+The check sits in the **route**, not in `@wizeworksllc/email-sequences`. That
 package is deliberately backend-safe (db + email-sends only) so the lean worker
 can drain it, and re-deriving the per-site settings fallback inside it would be
 a second implementation of the identity resolution. `settings-service.ts` says

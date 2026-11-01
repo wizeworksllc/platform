@@ -17,7 +17,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import pino from 'pino';
 import { env } from './env.js';
 import { processAsset } from './processor.js';
-import { startConsumer } from '@wizeworks/events';
+import { startConsumer } from '@wizeworksllc/events';
 
 interface MediaUploadedEvent {
   type: 'media.uploaded';

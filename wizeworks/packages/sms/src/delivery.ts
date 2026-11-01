@@ -3,10 +3,10 @@
 //
 // ── WHY THIS IS A SEPARATE SUBPATH ───────────────────────────────────────────
 //
-// `@wizeworks/sms`'s main entry is the provider abstraction and has no database
-// dependency, which is what lets anything import it. This file needs `@wizeworks/db`
+// `@wizeworksllc/sms`'s main entry is the provider abstraction and has no database
+// dependency, which is what lets anything import it. This file needs `@wizeworksllc/db`
 // to read consent, suppressions, settings and the ledger, so it lives on
-// `@wizeworks/sms/delivery` — the same split `@wizeworks/funnels` uses for `./announce`.
+// `@wizeworksllc/sms/delivery` — the same split `@wizeworksllc/funnels` uses for `./announce`.
 //
 // ── WHAT IT REFUSES, AND WHY EACH REFUSAL IS ITS OWN STATUS ──────────────────
 //
@@ -31,7 +31,7 @@
 // send before somebody read the invoice. That ordering is the requirement, not
 // an implementation detail.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { resolveSmsProvider, type SmsEnv } from './registry';
 import {
   estimateSegments,

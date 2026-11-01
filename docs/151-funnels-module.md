@@ -198,12 +198,12 @@ live-overlaid on read.
 
 ## 6. The engine seam
 
-`@wizeworks/funnels` owns the service layer, stage recording, goal evaluation,
+`@wizeworksllc/funnels` owns the service layer, stage recording, goal evaluation,
 the daily reconcile, and the read model that assembles a ladder with counts,
 rates and attributed value.
 
 It re-implements nothing. Goals evaluate through
-`@wizeworks/automation-schemas`' existing evaluator, so there is exactly one
+`@wizeworksllc/automation-schemas`' existing evaluator, so there is exactly one
 condition language in the platform. Follow-up runs through `Automation` and
 `EmailSequence` as they already are.
 
@@ -212,8 +212,8 @@ already receives, via `advanceOnEvent` (docs/152 G3, G4). A rung with a `match`
 records people on its own, and the goal finishes them. Rungs that read only the
 customer (such as "went quiet") are found by the worker's daily pass.
 
-Dependencies are backend-safe only (`@wizeworks/db` + the schemas), the same
-discipline `@wizeworks/email-sequences` keeps, so the reconcile runs in the
+Dependencies are backend-safe only (`@wizeworksllc/db` + the schemas), the same
+discipline `@wizeworksllc/email-sequences` keeps, so the reconcile runs in the
 event-worker without dragging React in. A client-safe `./schemas` subpath carries
 the stage and goal shapes for the workbench editor.
 
@@ -254,7 +254,7 @@ parallel system, and each feeds a funnel stage.
 ## 8. SMS
 
 `sms.send` is registered through the same `registerAction` seam the crm and email
-actions use, calling `@wizeworks/sms` rather than re-implementing it, so events
+actions use, calling `@wizeworksllc/sms` rather than re-implementing it, so events
 and audit fire once at the source.
 
 **It ships fully built and switched off.** The provider credential is absent by

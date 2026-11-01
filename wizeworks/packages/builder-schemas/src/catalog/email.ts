@@ -7,7 +7,7 @@
 // NO behavior runtime. So these blocks are authored from NAMED nodes (`atom`) only,
 // with BASE classes the email pipeline actually honors:
 //   · containers (Section / Stack / Grid) carry `flex flex-col` / `grid grid-cols-N`
-//     / `gap-N` / `p-N` / `bg-*` — the send (@wizeworks/email render-email-tree) parses
+//     / `gap-N` / `p-N` / `bg-*` — the send (@wizeworksllc/email render-email-tree) parses
 //     direction/columns/gap/padding into its Row/Column table layout, and inlines
 //     bg/border/radius via classStyleFor;
 //   · leaves (Heading / Text / Button) carry typography + color + alignment, which

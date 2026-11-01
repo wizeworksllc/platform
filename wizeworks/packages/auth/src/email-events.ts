@@ -1,4 +1,4 @@
-// Auth-side email event publisher. Wraps @wizeworks/events so Better Auth
+// Auth-side email event publisher. Wraps @wizeworksllc/events so Better Auth
 // callbacks (sendResetPassword, sendVerificationEmail when wired) can
 // emit typed `email.send` events with one call.
 //
@@ -7,13 +7,13 @@
 // uses console as a minimal shim. The actual rendering + send happens
 // inside email-worker, which has its own pino logger.
 
-import { currentPlatformBrand } from '@wizeworks/brand-core';
+import { currentPlatformBrand } from '@wizeworksllc/brand-core';
 import {
   createPublisher,
   publishEvent,
   type EmailSendPayload,
   type PublisherLogger,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 
 const logger: PublisherLogger = {
   info: (obj, msg) => console.log(JSON.stringify({ level: 'info', ...obj, msg })),
@@ -40,7 +40,7 @@ export interface PublishAuthEmailInput {
     // The inviter's "someone accepted" notice (workbench accept-invite action).
     | 'invitation-accepted';
   to: string;
-  /** Template-specific props — shape enforced at render time by @wizeworks/email. */
+  /** Template-specific props — shape enforced at render time by @wizeworksllc/email. */
   props: Record<string, unknown>;
   from?: string;
   replyTo?: string;

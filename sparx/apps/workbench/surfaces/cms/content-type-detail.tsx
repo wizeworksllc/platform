@@ -11,7 +11,7 @@
 //
 // The schema this authors is exactly what surfaces/cms/schema-form.tsx renders a
 // form from — the two share the FieldDef vocabulary through content-types-data.ts
-// (a mirror of @wizeworks/cms-schemas, validated server-side). Nothing here can author
+// (a mirror of @wizeworksllc/cms-schemas, validated server-side). Nothing here can author
 // a field the editor cannot show.
 //
 // Built-in types are platform-owned and read-only. When one is opened it renders

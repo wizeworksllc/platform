@@ -8,7 +8,7 @@
 // session-level reminder still fires to the session's own customer.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { withTenant, type BookingAttendee } from '@wizeworks/db';
+import { withTenant, type BookingAttendee } from '@wizeworksllc/db';
 
 import { sendTenantEmailByKey } from './tenant-email.js';
 

@@ -31,7 +31,7 @@ itself is never in the URL. The address bar tracks the **focused pane** so that
 refreshing, pressing back, and copying the URL all do what everyone already
 expects, without the layout leaking into a string.
 
-`@wizeworks/links` is the one address table — pure data, importable from a Node
+`@wizeworksllc/links` is the one address table — pure data, importable from a Node
 service, a server component and the browser alike — mapping a readable path ⇄ a
 surface key ⇄ an indexed entity type. Universal search, the notification bell,
 every emailed link and both copy-link controls resolve through it, and
@@ -265,7 +265,7 @@ a form.
 Standard web-app wiring, one deliberate override:
 
 - `sparx/apps/workbench/Dockerfile` — standalone Next build; the filtered install
-  copies the 15-package `@wizeworks/auth` transitive closure.
+  copies the 15-package `@wizeworksllc/auth` transitive closure.
 - `k8s/apps/workbench.yaml` — 1 replica (browser-rendered; the pod serves only
   the shell + BFF), and a **per-pod `BETTER_AUTH_URL=https://workbench.sparx.works`**
   overriding the ConfigMap's shared `app.sparx.works` value — without it every
@@ -280,7 +280,7 @@ Standard web-app wiring, one deliberate override:
 - Pane surfaces beyond invoicing (commerce, CRM, content) follow the invoicing
   patterns above.
 - **Addressing state INSIDE a surface** — which tab of a product, which section
-  of a settings pane. `?tab=` is reserved for it (`TAB_PARAM` in `@wizeworks/links`)
+  of a settings pane. `?tab=` is reserved for it (`TAB_PARAM` in `@wizeworksllc/links`)
   and the query-parameter passthrough already carries it to `ctx.params`; what is
   left is teaching each detail surface to read it, which is a sweep across ~131
   surfaces and its own pass.

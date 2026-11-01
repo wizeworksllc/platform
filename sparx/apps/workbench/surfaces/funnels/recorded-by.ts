@@ -1,6 +1,6 @@
 // What records a campaign step, in plain words, so an owner can tell an automatic
 // step from one that only counts what they add. Mirrors the worker's rules in
-// @wizeworks/funnels advance.ts: a step with a rule is recorded on events, a
+// @wizeworksllc/funnels advance.ts: a step with a rule is recorded on events, a
 // finishing step when the goal comes true, anything else only when told.
 
 import type { FunnelStage, StageMatch } from './data';

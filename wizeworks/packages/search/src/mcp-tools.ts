@@ -9,7 +9,7 @@ import { z } from 'zod';
 import { palette, searchCustomers, searchOrders, searchProducts } from './search';
 
 // Structural shape the api-mcp registry expects (AnyMcpTool). Kept local so
-// @wizeworks/search doesn't depend on the MCP server. `scope` is a plain string;
+// @wizeworksllc/search doesn't depend on the MCP server. `scope` is a plain string;
 // api-mcp adds 'read:search' to its scope vocabulary + role defaults.
 export interface SearchMcpTool {
   name: string;

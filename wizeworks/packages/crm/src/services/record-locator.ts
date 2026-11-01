@@ -16,7 +16,7 @@
 // registry of callbacks, because there are exactly four built-ins and the
 // compiler checking the switch is worth more than the indirection.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 /** A record as an association panel needs to show it. */
 export interface RecordRef {

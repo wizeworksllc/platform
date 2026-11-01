@@ -4,8 +4,11 @@
 // (po, variant) so re-adding a variant replaces its line rather than tripping the
 // unique constraint.
 
-import { PurchaseOrderLineInput, UpdatePurchaseOrderLineInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+import {
+  PurchaseOrderLineInput,
+  UpdatePurchaseOrderLineInput,
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryNotFoundError } from '../errors';

@@ -1,7 +1,6 @@
 {
-  "name": "@wizeworks/forms",
+  "name": "@wizeworksllc/forms",
   "version": "0.0.0",
-  "private": true,
   "description": "Client form-validation engine for sparx apps — drives silica's Field / FieldStatus treatment (control accent, status icon, message panel) with a uniform touched/submit/server-error state machine and composable rule builders. Consumed by dashboard, admin, and web.",
   "type": "module",
   "exports": {
@@ -11,8 +10,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/forms"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

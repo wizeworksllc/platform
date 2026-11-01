@@ -20,7 +20,7 @@
 // It is deliberately ONE call. The value is being able to answer "why" without
 // a research project, and four round trips to four surfaces is a research project.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

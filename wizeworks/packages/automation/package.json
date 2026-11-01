@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/automation",
+  "name": "@wizeworksllc/automation",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Automation engine — the cross-module rule engine: entity-resolver registry, condition evaluator, gated dispatcher (the only path to an effect), action executors, durable resumable run state machine, and the automation service layer (docs/81-automation-module.md, docs/84-automation-build-log.md).",
@@ -22,10 +22,10 @@
   },
   "dependencies": {
     "@prisma/client": "^6.2.0",
-    "@wizeworks/automation-schemas": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/time": "workspace:*",
+    "@wizeworksllc/automation-schemas": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/time": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

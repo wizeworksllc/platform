@@ -17,9 +17,9 @@
 // VariantImage rows). Optional fields are omitted when unset to keep the canonical
 // JSON stable.
 
-import { withTenant, type Prisma } from '@wizeworks/db';
-import { isAssetRef, type Blueprint } from '@wizeworks/blueprints';
-import type { SilicaNode } from '@wizeworks/builder-schemas';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import { isAssetRef, type Blueprint } from '@wizeworksllc/blueprints';
+import type { SilicaNode } from '@wizeworksllc/builder-schemas';
 
 import { resolveBindingHandles, type InstallResult } from './blueprint-installer.js';
 

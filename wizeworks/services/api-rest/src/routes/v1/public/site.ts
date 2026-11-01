@@ -11,8 +11,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { resolveSiteByHost } from '../../../lib/domain.js';
 
 const HostQuery = z.object({ host: z.string().min(1).max(255) });

@@ -14,11 +14,11 @@
 // "replied to an email: +20" is true regardless of what sits above it — and makes
 // "why is this 74" answerable by listing the rules that matched, in any order.
 //
-// The filter language is `ConditionGroup` from @wizeworks/automation-schemas, the same
+// The filter language is `ConditionGroup` from @wizeworksllc/automation-schemas, the same
 // one automations and reports use. Three surfaces, one thing to learn.
 
 import { z } from 'zod';
-import { ConditionGroup, EMPTY_CONDITION_GROUP } from '@wizeworks/automation-schemas';
+import { ConditionGroup, EMPTY_CONDITION_GROUP } from '@wizeworksllc/automation-schemas';
 
 /**
  * One scoring rule: a question about the record and what it's worth.

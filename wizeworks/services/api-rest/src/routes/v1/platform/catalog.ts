@@ -29,14 +29,14 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { platformCatalogService } from '@wizeworks/builder';
+import { platformCatalogService } from '@wizeworksllc/builder';
 import {
   PlatformComponentKind,
   PlatformComponentCategory,
   PlatformComponentStatus,
-} from '@wizeworks/builder-schemas';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/builder-schemas';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 const IdParam = z.object({ id: z.string().min(1) });
 // Filters reuse the shared catalog vocabulary (one source of truth, docs/98 §5).

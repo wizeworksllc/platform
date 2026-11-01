@@ -32,7 +32,7 @@
 // never the operator's own edits, or the toast becomes something to dismiss.
 
 import { useEffect, useRef, useSyncExternalStore } from 'react';
-import { useIsFetching, useIsMutating } from '@wizeworks/query';
+import { useIsFetching, useIsMutating } from '@wizeworksllc/query';
 import {
   Button,
   DropdownMenu,

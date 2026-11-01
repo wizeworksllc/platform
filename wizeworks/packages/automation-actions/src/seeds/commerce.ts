@@ -5,7 +5,7 @@
 // (abandoned-cart, post-purchase-review) that reference a provisioned Builder-email
 // by `key`; the `module: 'email'` gate holds those sends until email is active.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 /** Alert staff when a high-value order is paid. The $500 default is the ADR's
  *  `highValueThreshold ?? 500`; the alert goes to the tenant's notify address (the

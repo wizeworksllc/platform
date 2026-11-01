@@ -37,10 +37,10 @@ import {
   cadenceIntervalDays,
   CreateCountScheduleInput,
   UpdateCountScheduleInput,
-} from '@wizeworks/commerce-schemas';
-import type { AbcClass, CountCadence } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { AbcClass, CountCadence } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntityOnCommit } from '../events';

@@ -44,7 +44,7 @@
 // against the site whose job they worked.
 //
 // All tables are tenant-scoped with FORCE RLS + the canonical `tenant_isolation`
-// policy. Owned by @wizeworks/staff; the labour deriver runs in the finance-worker.
+// policy. Owned by @wizeworksllc/staff; the labour deriver runs in the finance-worker.
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. The person

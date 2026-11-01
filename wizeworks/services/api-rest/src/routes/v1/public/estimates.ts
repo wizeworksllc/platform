@@ -16,18 +16,18 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { withTenant } from '@wizeworks/db';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { withTenant } from '@wizeworksllc/db';
 import {
   billingDocumentService,
   billingDocumentStageService,
   billingLineService,
   customerEstimateService,
-} from '@wizeworks/crm';
-import { CUSTOMER_ESTIMATE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { moduleDisabled, notFound } from '@wizeworks/api-core/errors';
-import { type CustomerAuthContext } from '@wizeworks/customer-auth';
+} from '@wizeworksllc/crm';
+import { CUSTOMER_ESTIMATE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
+import { type CustomerAuthContext } from '@wizeworksllc/customer-auth';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { requireCustomerId } from '../../../lib/customer-session.js';
 

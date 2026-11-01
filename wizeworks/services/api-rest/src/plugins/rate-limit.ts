@@ -37,8 +37,8 @@
 // details and the status all come out of one object.
 
 import fastifyRateLimit from '@fastify/rate-limit';
-import { ApiError } from '@wizeworks/api-core/errors';
-import { isInClusterCaller } from '@wizeworks/client-ip';
+import { ApiError } from '@wizeworksllc/api-core/errors';
+import { isInClusterCaller } from '@wizeworksllc/client-ip';
 import type { FastifyPluginAsync } from 'fastify';
 import fp from 'fastify-plugin';
 import { isWizeLensPath } from '../lib/wizelens.js';

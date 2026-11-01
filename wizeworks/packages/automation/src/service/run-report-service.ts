@@ -17,7 +17,7 @@
 // `started_at` (when the run began); terminal counters lag `runs_count` for
 // in-flight runs until the reconcile re-buckets them once they settle.
 
-import { Prisma, withTenant, type TxClient } from '@wizeworks/db';
+import { Prisma, withTenant, type TxClient } from '@wizeworksllc/db';
 
 import type { ServiceCtx } from './automation-service';
 

@@ -44,16 +44,16 @@ import {
   starterSite,
   upgradeFrameChrome,
   upgradePageBody,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 import {
   COMMERCE_SOURCES,
   SITE_SOURCES,
   toSilicaDataSources,
   type DataSource,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { Badge, Button, useToast } from '@wizeworks/silicaui-react';
 import { Eye, Save } from 'lucide-react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { useConfirm } from '../../../lib/confirm';
 import { useDirtySource } from '../../../lib/workbench/dirty';
 import { MediaPickerProvider, useMediaPicker } from '../../cms/media-picker';
@@ -88,7 +88,7 @@ import {
   type SiteSyncInput,
   type StoredSilicaSite,
 } from './data';
-import { themeFontFamilies } from '@wizeworks/site-themes';
+import { themeFontFamilies } from '@wizeworksllc/site-themes';
 import { applyBrandOverride, tenantTheme, type BrandColumns } from './brand-theme';
 import { useCanvasBrandFonts } from './canvas-fonts';
 import { BuilderLiveSync, BuilderReloadNotice } from './builder-live';

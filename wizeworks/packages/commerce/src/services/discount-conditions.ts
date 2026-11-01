@@ -11,8 +11,8 @@
 // this layer does not have (`fitment_matches`), or describing a per-line
 // promotion the pricing pipeline builds (`buy_x_get_y`), are not gates.
 
-import type { DiscountCondition } from '@wizeworks/commerce-schemas';
-import type { TxClient } from '@wizeworks/db';
+import type { DiscountCondition } from '@wizeworksllc/commerce-schemas';
+import type { TxClient } from '@wizeworksllc/db';
 import { formatCents } from './money';
 
 /** One basket line, reduced to what a condition can ask about. */

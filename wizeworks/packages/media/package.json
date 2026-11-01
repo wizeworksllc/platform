@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/media",
+  "name": "@wizeworksllc/media",
   "version": "0.0.0",
   "private": true,
   "description": "Media asset service + a focused storage backend for HEADLESS callers (the MCP image tools). Mirrors the api-rest media route's create/validate/publish contract so an agent can upload or reference an image without a browser presigned-PUT. Server-only (@google-cloud/storage) — never import from a client bundle.",
@@ -30,8 +30,8 @@
   "dependencies": {
     "@azure/storage-blob": "^12.33.0",
     "@google-cloud/storage": "^7.16.0",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

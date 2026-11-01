@@ -25,7 +25,7 @@
 // this module owns only the reporting shapes and their own plain-words maps.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { Tone } from './data';
 

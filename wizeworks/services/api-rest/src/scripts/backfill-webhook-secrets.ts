@@ -1,6 +1,6 @@
 // One-time backfill: encrypt any plaintext webhook signing secrets at rest.
 //
-// Before @wizeworks/api-core/webhook-secret-crypto shipped, webhook_subscriptions
+// Before @wizeworksllc/api-core/webhook-secret-crypto shipped, webhook_subscriptions
 // .signing_secret was stored PLAINTEXT. New rows are now encrypted on write and
 // the delivery/read paths tolerate legacy plaintext, so nothing breaks without
 // this — but the old rows remain a secret sitting in cleartext. This rewrites
@@ -22,12 +22,12 @@
 // set. We loop tenants and read/write each inside withTenant — the same idiom
 // the tenant-scoped data migrations use.
 
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   encryptWebhookSecret,
   isEncryptedWebhookSecret,
   isWebhookSecretCryptoConfigured,
-} from '@wizeworks/api-core/webhook-secret-crypto';
+} from '@wizeworksllc/api-core/webhook-secret-crypto';
 
 async function main(): Promise<void> {
   if (!isWebhookSecretCryptoConfigured()) {

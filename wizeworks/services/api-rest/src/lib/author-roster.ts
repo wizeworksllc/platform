@@ -2,7 +2,7 @@
 // or credited. The public author list and the site check's link roster ask the same
 // question, so it is asked here once.
 
-import type { Prisma, TxClient } from '@wizeworks/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { creditWhere, servedKinds, type ServedKindInfo } from './author-credits.js';
 import { contentSiteVisibilityWhere } from './property.js';

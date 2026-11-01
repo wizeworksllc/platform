@@ -17,7 +17,7 @@
 // left to drift.
 //
 // This module imports nothing. It is the entry a non-React caller (or a route
-// handler) can reach for without pulling a component in: `@wizeworks/app-kit/chunk-error`.
+// handler) can reach for without pulling a component in: `@wizeworksllc/app-kit/chunk-error`.
 
 // The wording is BUNDLER-specific, and getting it wrong is silent: an unmatched
 // message doesn't fail loudly, it just routes a routine "we shipped" into an

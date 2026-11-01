@@ -7,7 +7,7 @@
 // [[feedback_absent_behaves_like_fine]]
 
 import { describe, expect, it } from 'vitest';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
 
 import { quoteListWhere } from '../../src/routes/v1/b2b/quotes.js';
 

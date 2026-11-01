@@ -19,7 +19,7 @@
 // on the next read. The thread polls only while something is still in flight.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { socialKeys, type Tone } from './data';
 

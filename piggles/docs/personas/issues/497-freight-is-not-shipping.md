@@ -3,7 +3,7 @@
 **Status:** fixed, and driven on screen end to end
 **Severity:** major
 **Found by:** Brandon, on [496](496-the-25-dollars-of-carriage-she-typed-never-reached-what-the-linen-cost.md)
-**Surface:** the purchasing spine, both consoles + `@wizeworks/inventory` + the schema
+**Surface:** the purchasing spine, both consoles + `@wizeworksllc/inventory` + the schema
 **Filed:** 2026-09-09
 
 ## The distinction
@@ -128,7 +128,7 @@ inventory_purchase_order_charges.is_order_freight  boolean  not null  default fa
   "inventory_po_charges_one_order_freight" UNIQUE btree (purchase_order_id) WHERE is_order_freight
 ```
 
-**1,329 tests pass** — 360 in `@wizeworks/inventory` (including the DB-backed
+**1,329 tests pass** — 360 in `@wizeworksllc/inventory` (including the DB-backed
 integration suites, since docker was up), 459 in `commerce-schemas`, 510 in
 api-rest.
 

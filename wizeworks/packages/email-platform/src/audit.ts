@@ -1,10 +1,10 @@
-// Audit log helper (mirrors @wizeworks/crm audit).
+// Audit log helper (mirrors @wizeworksllc/crm audit).
 //
 // Every state-changing email-platform service function writes an audit_logs
 // row inside the same transaction as its primary write. Shape per docs/16 §7:
 // (tenant_id, actor_id, actor_type, action, entity_type, entity_id, diff).
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 export interface AuditWriteInput {
   tx: TxClient;

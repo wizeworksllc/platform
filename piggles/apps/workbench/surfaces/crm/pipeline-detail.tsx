@@ -33,7 +33,7 @@ import {
   Text,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { fixedStageChance } from '@wizeworks/crm-schemas';
+import { fixedStageChance } from '@wizeworksllc/crm-schemas';
 import { useConfirm } from '../../lib/confirm';
 import {
   faBoxArchive,

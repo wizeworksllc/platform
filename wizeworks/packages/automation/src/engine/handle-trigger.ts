@@ -15,10 +15,10 @@
 // envelope, not the fields — the tick re-resolves at execution time so effects
 // act on fresh state.
 
-import { Action, ConditionGroup, countActions } from '@wizeworks/automation-schemas';
+import { Action, ConditionGroup, countActions } from '@wizeworksllc/automation-schemas';
 import type { PrismaClient } from '@prisma/client';
-import type { Prisma } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { evaluateConditions } from '../conditions/evaluate';
 import type { EngineDeps, TenantCtx, TriggerEnvelope } from '../engine-types';

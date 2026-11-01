@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { HttpError } from '@wizeworks/social';
+import { HttpError } from '@wizeworksllc/social';
 
 import { derivePostStatus, isAuthRejection } from './publish.js';
 

@@ -17,7 +17,7 @@
 // is previewed is exactly what comes out — the only way a label sheet is ever
 // trusted — and it works on a warehouse tablet with no connection.
 //
-// The bars are drawn from `@wizeworks/commerce-schemas`, the same encoder the server
+// The bars are drawn from `@wizeworksllc/commerce-schemas`, the same encoder the server
 // uses, so a label printed from this screen carries the code the registry
 // validated rather than a second implementation's opinion of it.
 //
@@ -59,7 +59,7 @@ import {
   ToggleGroupItem,
   Tooltip,
 } from '@wizeworks/silicaui-react';
-import { barcodeSvg, encodeBarcode } from '@wizeworks/commerce-schemas';
+import { barcodeSvg, encodeBarcode } from '@wizeworksllc/commerce-schemas';
 import { faBarcode, faPrint, faSparkles } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';

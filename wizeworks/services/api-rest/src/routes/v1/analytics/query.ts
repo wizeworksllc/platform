@@ -8,8 +8,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 
 import { executeQuery } from '../../../lib/analytics/execute.js';
 import { resolveRange } from '../../../lib/analytics/range.js';

@@ -15,12 +15,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant, type Prisma } from '@wizeworks/db';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { deliveryNeedsOf, poNumberOf } from '@wizeworks/crm-schemas';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { deliveryNeedsOf, poNumberOf } from '@wizeworksllc/crm-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

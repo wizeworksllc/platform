@@ -4,8 +4,8 @@
 // freeze to the same payload. Decimals are normalized to numbers (lossless at
 // the (12,2)/(12,3) scales the schema uses) so the frozen record is plain JSON.
 
-import { paymentTermsOf, poNumberOf } from '@wizeworks/crm-schemas';
-import type { BillingDocument, BillingDocumentLine, DocumentStage } from '@wizeworks/db';
+import { paymentTermsOf, poNumberOf } from '@wizeworksllc/crm-schemas';
+import type { BillingDocument, BillingDocumentLine, DocumentStage } from '@wizeworksllc/db';
 
 export interface BillingSnapshotLine {
   id: string;

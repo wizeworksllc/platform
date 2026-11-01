@@ -26,7 +26,7 @@ import {
   resetPlatformBusForTesting,
   type PlatformEventBus,
 } from '../../src/index.js';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { disposeTestContext, makeTestContext, type TestContext } from '../helpers.js';
 
 /** A second business under the same tenant — the case site scoping exists for. */

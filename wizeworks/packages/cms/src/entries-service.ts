@@ -7,10 +7,10 @@
 // caller-supplied transaction) and a tx-opening wrapper for callers with no
 // ambient tx (the MCP tools). Reads open their own tenant-scoped tx.
 
-import type { ContentEntry, Prisma, TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
-import { slugify, uniqueSlug } from '@wizeworks/api-core/slug';
+import type { ContentEntry, Prisma, TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
+import { slugify, uniqueSlug } from '@wizeworksllc/api-core/slug';
 import { resolveType, parseTypeSchema, validateAndNormalizeBody } from './content-types.js';
 import { serializeEntry, recordRevision, syncReferences, type WireEntry } from './entries.js';
 import type { CmsWriteContext, CmsEmittedEvent } from './service-support.js';

@@ -24,7 +24,7 @@ const state = vi.hoisted((): FakeDb => ({
 }));
 const { DB_NULL, updates, events } = state;
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   Prisma: { DbNull: state.DB_NULL },
   withTenant: (_ctx: unknown, fn: (tx: unknown) => Promise<unknown>) =>
     fn({

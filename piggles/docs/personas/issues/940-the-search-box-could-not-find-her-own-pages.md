@@ -3,7 +3,7 @@
 **Status:** fixed (P09 standing checks)
 **Severity:** major
 **Found by:** P01 · Thistle & Rye · act 325, fixing her own site
-**Surface:** mypiggles › the search box (both consoles), `@wizeworks/commerce-indexer`
+**Surface:** mypiggles › the search box (both consoles), `@wizeworksllc/commerce-indexer`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-09
 **Confirmed by:** P09 · standing checks, "Contributors" and "Ledger"
@@ -47,7 +47,7 @@ destination without naming a brand, so it got sparx's answer and dropped the hit
 
 ## The fix
 
-- `@wizeworks/links`: `setLinkBrand` lets a console say once which product it is, so
+- `@wizeworksllc/links`: `setLinkBrand` lets a console say once which product it is, so
   a caller that names no brand still gets that product's routes. Piggles sets it in
   `lib/workbench/address.ts`.
 - `routes.ts`: in Piggles, `/builder` opens the page editor (`builder.page`) on the

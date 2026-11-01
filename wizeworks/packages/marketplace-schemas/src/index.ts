@@ -1,6 +1,6 @@
-// @wizeworks/marketplace-schemas — the Zod schemas + DTO contract for the
+// @wizeworksllc/marketplace-schemas — the Zod schemas + DTO contract for the
 // data-driven, dual-app marketplace catalog (docs/60). Zod-only (no DB, no
-// React): safe to import from api-rest, the @wizeworks/db seed, the dashboard, and
+// React): safe to import from api-rest, the @wizeworksllc/db seed, the dashboard, and
 // sparx/apps/web alike.
 
 export * from './enums';

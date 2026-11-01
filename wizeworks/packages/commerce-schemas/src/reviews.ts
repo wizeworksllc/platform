@@ -2,7 +2,7 @@
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 export const ReviewRating = z.number().int().min(1).max(5);
 export type ReviewRating = z.infer<typeof ReviewRating>;

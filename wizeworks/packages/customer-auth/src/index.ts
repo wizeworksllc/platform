@@ -1,4 +1,4 @@
-// @wizeworks/customer-auth — Layer-2 site shopper authentication, on a
+// @wizeworksllc/customer-auth — Layer-2 site shopper authentication, on a
 // dedicated tenant-scoped Better Auth instance (docs/27 v2). Server-only;
 // consumed by api-rest's public account routes + the site-MCP customer
 // tier. The site never imports this directly (it talks to api-rest).

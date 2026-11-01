@@ -154,7 +154,7 @@ gate on falsy instead of undefined  →  1 of 5 fails ("clears the note when the
 drop the trim                       →  2 of 5 fail
 ```
 
-**Checks:** typecheck 0 on `@wizeworks/commerce`, `@wizeworks/commerce-schemas`,
+**Checks:** typecheck 0 on `@wizeworksllc/commerce`, `@wizeworksllc/commerce-schemas`,
 api-rest, the tenant site and both workbenches. Tests: piggles workbench 162
 files / 1512, sparx 133 / 1221, commerce 25 / 246, api-rest 34 / 272.
 `check:console-parity` green, now pairing 1,239 interfaces.

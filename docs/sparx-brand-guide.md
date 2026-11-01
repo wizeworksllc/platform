@@ -50,7 +50,7 @@ use the lowercase **"sx" monogram** from `images/SVG/icon.svg`:
   dark surfaces; the "x" is always sparx Indigo (`#6366F1`), matching the wordmark
 - One-color variants ship alongside it (`icon-black.svg` / `icon-white.svg`, "x" at
   50% opacity) plus a reversed `icon-light.svg` (white "s" + indigo "x") for dark fills
-- In product UI, render it via `<SparxMark>` from `@wizeworks/ui` (s = `currentColor`,
+- In product UI, render it via `<SparxMark>` from `@wizeworksllc/ui` (s = `currentColor`,
   x = `--color-primary`). For the icon + wordmark lockup, use `<Wordmark icon />`
 - As a browser favicon (where CSS variables can't resolve), each app ships a
   static `app/icon.svg` that inlines the hex plus a `prefers-color-scheme` rule

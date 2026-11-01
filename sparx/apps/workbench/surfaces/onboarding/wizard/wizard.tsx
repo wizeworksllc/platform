@@ -16,7 +16,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { Button, Loading, Text } from '@wizeworks/silicaui-react';
-import { industryOf, type StoryState } from '@wizeworks/story-schemas';
+import { industryOf, type StoryState } from '@wizeworksllc/story-schemas';
 import { OnboardingLayout, type StepMark } from '../onboarding-layout';
 import { SummaryCard } from '../../../lib/onboarding/summary-card';
 import { useBlueprints, useOnboarding, useOnboardingActions } from '../../../lib/onboarding/api';

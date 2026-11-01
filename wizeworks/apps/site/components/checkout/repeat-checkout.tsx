@@ -13,7 +13,7 @@
 // about it.
 
 import Link from 'next/link';
-import { cadenceWords } from '@wizeworks/commerce-schemas';
+import { cadenceWords } from '@wizeworksllc/commerce-schemas';
 import { Alert, Button } from '@wizeworks/silicaui-react';
 
 import type { CartLine } from '../cart-provider';

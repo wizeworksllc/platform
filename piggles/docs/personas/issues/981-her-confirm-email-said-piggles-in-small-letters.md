@@ -26,7 +26,7 @@ names for every service.
 - `event-worker/.env.example` and `.env`: `SPARX_BRAND_NAME`, `PIGGLES_BRAND_NAME`,
   `SPARX_ZONE_DOMAIN`, `PIGGLES_ZONE_DOMAIN`, as api-rest has them, with why.
 - `scripts/check-service-env.mjs`, claim 4: a service that renders email (depends on
-  `@wizeworks/email`, `@wizeworks/email-worker` or `@wizeworks/brand-core`) must set every
+  `@wizeworksllc/email`, `@wizeworksllc/email-worker` or `@wizeworksllc/brand-core`) must set every
   brand's `*_BRAND_NAME` in its `.env.example`. Proved red with Piggles' line taken out
   ("renders email but its .env.example does not set PIGGLES_BRAND_NAME"), green restored.
   It reports how many services render email (2).

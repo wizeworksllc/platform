@@ -16,7 +16,7 @@ import {
   Select,
   Text,
 } from '@wizeworks/silicaui-react';
-import type { MarkupScope } from '@wizeworks/commerce-schemas';
+import type { MarkupScope } from '@wizeworksllc/commerce-schemas';
 import { FormSection } from '../../components/form-section';
 import { useCollections } from './products-data';
 import type { DraftErrors, RuleDraft, SetRuleDraft } from './markup-rule-words';

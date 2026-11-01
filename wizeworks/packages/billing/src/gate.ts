@@ -7,7 +7,7 @@
 // works BEFORE the Stripe ops land.
 //
 // The trial clock lives on `tenants.trial_ends_at`, stamped at signup
-// (@wizeworks/auth provisionTenant) — NOT derived from Stripe. Once billing is live,
+// (@wizeworksllc/auth provisionTenant) — NOT derived from Stripe. Once billing is live,
 // Stripe aligns its own trial to this same timestamp (service.syncModuleItems) and
 // the webhook writes status/dates back, so the clock this reads is identical
 // whether or not billing is provisioned. That is what lets the 14-day trial be a

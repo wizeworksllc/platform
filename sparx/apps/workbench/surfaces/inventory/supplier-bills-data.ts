@@ -17,7 +17,7 @@
 // points at no order line at all has not PASSED the check, the check never ran.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 // `plural`, because this file writes sentences a business owner reads. Receiving
 // learned that in issue 495, when a delivery two metres short told a dressmaker

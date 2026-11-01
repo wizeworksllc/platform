@@ -9,7 +9,7 @@
 // between a real broker and a stub. Fixing the silent-event-loss bug in one of
 // them would have left the other still doing it.
 //
-// The transport now lives in @wizeworks/events and is chosen by `EVENT_BROKER`, in
+// The transport now lives in @wizeworksllc/events and is chosen by `EVENT_BROKER`, in
 // exactly one place. What remains here is the thing that is genuinely
 // api-core's: publishing an event AND enqueuing its webhook deliveries as one
 // operation.
@@ -20,13 +20,13 @@ import {
   type EventType,
   type Publisher,
   type SparxEvent,
-} from '@wizeworks/events';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/events';
+import { withTenant } from '@wizeworksllc/db';
 import { enqueueWebhookDeliveries } from './webhook-delivery.js';
 
-// The canonical event registry lives in @wizeworks/events (docs/82 §3.1 — one source
+// The canonical event registry lives in @wizeworksllc/events (docs/82 §3.1 — one source
 // of truth; the two unions had drifted). api-core re-exports it so existing
-// `@wizeworks/api-core/pubsub` importers are unchanged.
+// `@wizeworksllc/api-core/pubsub` importers are unchanged.
 export type { EventType, SparxEvent, Publisher };
 
 /**
@@ -36,7 +36,7 @@ export type { EventType, SparxEvent, Publisher };
  * existed to hand this module a GCP project id, which was both the credential
  * AND the switch deciding whether events went anywhere at all — so a service
  * that forgot the call, or a deployment that dropped the variable, got a
- * silently discarding publisher and no indication of it. `@wizeworks/events` reads
+ * silently discarding publisher and no indication of it. `@wizeworksllc/events` reads
  * `EVENT_BROKER` itself and throws in production when it is missing.
  *
  * Caching lives in `createPublisher`, so repeated calls are free.

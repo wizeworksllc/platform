@@ -7,8 +7,8 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { invalidateModuleCache, issueApiKey } from '@wizeworks/auth';
+import { prisma } from '@wizeworksllc/db';
+import { invalidateModuleCache, issueApiKey } from '@wizeworksllc/auth';
 import { createApp } from '../src/app.js';
 import { ALL_MCP_TOOLS } from '../src/tool-registry.js';
 

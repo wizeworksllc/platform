@@ -5,7 +5,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const calls = vi.hoisted(() => ({ request: vi.fn() }));
 
 vi.mock('server-only', () => ({}));
-vi.mock('@wizeworks/auth-client-server', () => {
+vi.mock('@wizeworksllc/auth-client-server', () => {
   class PlatformRequestError extends Error {
     constructor(
       readonly path: string,
@@ -17,7 +17,7 @@ vi.mock('@wizeworks/auth-client-server', () => {
   return { platformRequest: calls.request, PlatformRequestError };
 });
 
-import { PlatformRequestError } from '@wizeworks/auth-client-server';
+import { PlatformRequestError } from '@wizeworksllc/auth-client-server';
 import { capacityFromWire, loadAccountHome, readBusiness } from './account-load';
 
 const flush = () => new Promise((r) => setTimeout(r, 0));

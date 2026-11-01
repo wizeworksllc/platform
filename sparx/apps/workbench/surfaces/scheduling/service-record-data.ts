@@ -10,7 +10,7 @@
 // Writes refresh the booking root (the booking's own row and history change) and
 // the account's visits.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { bookingKeys } from './bookings-data';
 import type { ServiceRecordPart } from './service-record-words';

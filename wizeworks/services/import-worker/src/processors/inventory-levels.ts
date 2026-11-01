@@ -28,10 +28,10 @@
 // and a file's copy of either has nowhere to go. Unit cost, barcode and bin used to
 // be offered and dropped; they are saved below, each only when the cell has a value.
 
-import { variantService } from '@wizeworks/commerce';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
-import { toCents, toInteger } from '@wizeworks/migration';
+import { variantService } from '@wizeworksllc/commerce';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { toCents, toInteger } from '@wizeworksllc/migration';
 
 import { Resolver } from './resolve';
 import {

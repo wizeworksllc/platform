@@ -3,7 +3,7 @@
 // Scroll-reveal motion controller (docs/61 §9). Watches every `.bx-reveal` and
 // `.bx-reveal-stagger` element and adds `.bx-in` as it scrolls into view, which
 // fires the entrance defined in SCROLL_MOTION_CSS (shipped with the tenant
-// stylesheet, @wizeworks/surface-compile/motion). One-shot per element (unobserved
+// stylesheet, @wizeworksllc/surface-compile/motion). One-shot per element (unobserved
 // after it reveals). Re-scans on route change so client navigations pick up the
 // new page's elements.
 //

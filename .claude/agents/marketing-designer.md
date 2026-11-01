@@ -310,7 +310,7 @@ padding: 40, border: '1px solid var(--color-base-300)', borderRadius: 12 }}`
   (pass `accent={MODULE.color}` for the closing spark — **never** the deprecated
   `eyebrow` prop), `Spark`, `Dot`, `Container`, `Wordmark`, and
   `getModuleColor(module)`.
-- **Controls come from `@wizeworks/ui`**, never hand-built: `Button`, `Badge`,
+- **Controls come from `@wizeworksllc/ui`**, never hand-built: `Button`, `Badge`,
   `Card`, `Input`, etc., via the four-axis `color × variant × size` API
   (`<Button color="primary" variant="soft" size="lg">`) — docs/35. Re-skinning a
   control with a background fill + foreground text color is the banned pattern

@@ -9,18 +9,18 @@ import {
   getSession,
   readMcpConsentRequest,
   toSearchParams,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 import {
   grantableScopesForRole,
   capBusinessScopes,
   MCP_SCOPE_CATALOG,
   type StaffRole,
-} from '@wizeworks/auth/mcp-scopes';
+} from '@wizeworksllc/auth-client/mcp-scopes';
 import { ConsentForm } from './_components/consent-form';
 
 // "Do you want to let this app in?" — the MCP OAuth consent screen (docs/07 §5).
 //
-// The MCP provider in @wizeworks/auth sends every authorization that needs a
+// The MCP provider in @wizeworksllc/auth sends every authorization that needs a
 // person here, with the request signed (`loginPage` and `consentPage` are both
 // this page). The person reviews who is asking and where their access will be
 // sent, then chooses exactly what it may do.

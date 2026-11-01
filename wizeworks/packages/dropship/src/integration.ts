@@ -1,4 +1,4 @@
-// Dropship suppliers' entry in the shared integration plane (@wizeworks/integrations).
+// Dropship suppliers' entry in the shared integration plane (@wizeworksllc/integrations).
 //
 // Dropship is the one system that never got a registry at all — it has a
 // `createAdapter()` factory and a pure `VENDOR_CATALOG`, so there was no lifecycle to
@@ -15,7 +15,7 @@ import {
   defineIntegrationKind,
   type CredentialField,
   type IntegrationDescriptor,
-} from '@wizeworks/integrations';
+} from '@wizeworksllc/integrations';
 
 import type { SupplierAdapter } from './types.js';
 import { VENDOR_CATALOG, type DropshipVendor } from './vendors.js';

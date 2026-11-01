@@ -16,10 +16,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 const ListQuery = z.object({
   state: z.enum(['unread', 'all']).default('all'),

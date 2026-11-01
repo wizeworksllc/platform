@@ -5,7 +5,7 @@
 # much smaller workspace subgraph: sparx/apps/market renders NO tenant themes and NO
 # builder. Its UI layer is silicaui (silicaui + silicaui-react, from npm — NOT a
 # workspace package, so no COPY here; pnpm install pulls them from the registry),
-# leaving @wizeworks/commerce-schemas (which pulls @wizeworks/crm-schemas) as its only
+# leaving @wizeworksllc/commerce-schemas (which pulls @wizeworksllc/crm-schemas) as its only
 # workspace dep. There is no @sparx/site-ui stylesheet build step.
 #
 # Built from the repo root context (per .github/workflows/build-images-gcp.yml):
@@ -25,9 +25,9 @@ FROM base AS builder
 COPY pnpm-workspace.yaml pnpm-lock.yaml package.json tsconfig.base.json ./
 COPY sparx/apps/market/package.json sparx/apps/market/
 # @sparx/brand (the silicaui theme — globals.css @imports @sparx/brand/theme.css),
-# @wizeworks/commerce-schemas (pure-zod: MARKET_CATEGORIES + the category taxonomy) and
-# its workspace deps, @wizeworks/crm-schemas and @wizeworks/field-schema (which now
-# also pulls @wizeworks/automation-schemas — the report builder reuses the
+# @wizeworksllc/commerce-schemas (pure-zod: MARKET_CATEGORIES + the category taxonomy) and
+# its workspace deps, @wizeworksllc/crm-schemas and @wizeworksllc/field-schema (which now
+# also pulls @wizeworksllc/automation-schemas — the report builder reuses the
 # automation condition DSL rather than growing a second filter language).
 # silicaui +
 # silicaui-react are npm deps resolved by pnpm install below, so they need no COPY.

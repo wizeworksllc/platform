@@ -3,9 +3,9 @@
 // Two of them, and the second is the one worth reading.
 
 import type { FastifyRequest } from 'fastify';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth, requireRole, type AuthContext } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth, requireRole, type AuthContext } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 /**
  * Staff is a billable module, so EVERY route here gates on it — unlike finance,

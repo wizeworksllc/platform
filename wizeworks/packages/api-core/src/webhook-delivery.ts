@@ -19,11 +19,11 @@
 //      and schedules next_attempt_at with exponential backoff up to 8
 //      attempts (matches plan §4.1 "24h retry window").
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import { createHmac } from 'node:crypto';
 import type { FastifyBaseLogger } from 'fastify';
-import type { Prisma, TxClient } from '@wizeworks/db';
-import { prisma, withTenant } from '@wizeworks/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { decryptWebhookSecret } from './webhook-secret-crypto.js';
 
 const WEBHOOK_DELIVERY_LOCK_KEY = ADVISORY_LOCKS.WEBHOOK_DELIVERY;

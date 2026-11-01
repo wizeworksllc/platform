@@ -9,7 +9,7 @@
  *
  * Dependency graph (REQUIRES / BUNDLED_FREE) is derived from the module
  * catalog's own `requires` / `includedWith` fields — mirrors the server
- * (@wizeworks/modules): only B2B requires Commerce (auto co-enabled + locked
+ * (@wizeworksllc/modules): only B2B requires Commerce (auto co-enabled + locked
  * on); Invoicing and Inventory ride free ($0, locked) while Commerce or B2B
  * is active.
  *
@@ -108,7 +108,7 @@ export function PricingSwitchboard() {
     Object.fromEntries(MODULES.map((m) => [m.id, DEFAULT_ON.has(m.id)]))
   );
 
-  // Dependency model mirrors the server (@wizeworks/modules graph): only B2B
+  // Dependency model mirrors the server (@wizeworksllc/modules graph): only B2B
   // requires Commerce; a required provider is co-enabled, billed, and locked
   // on. Invoicing/Inventory are BUNDLED_FREE with Commerce/B2B — $0
   // ("Included") while either is on, else their normal price.

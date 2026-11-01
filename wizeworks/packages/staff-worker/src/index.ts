@@ -23,7 +23,7 @@
 // cursor is not reset; only renaming DURABLE does that.
 
 import type { Logger } from 'pino';
-import { createBrokerHandler, type WorkerSubscription } from '@wizeworks/events';
+import { createBrokerHandler, type WorkerSubscription } from '@wizeworksllc/events';
 
 import { handle, parseEvent } from './handler.js';
 

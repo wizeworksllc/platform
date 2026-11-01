@@ -72,7 +72,7 @@ fallback. What one side already has should not be fetched again by the other.
 
 **2. The announcement waits for the commit.** A new
 [`afterCommit`](../../../../wizeworks/packages/db/src/after-commit.ts) in
-`@wizeworks/db` runs work when the OUTERMOST transaction commits, or immediately
+`@wizeworksllc/db` runs work when the OUTERMOST transaction commits, or immediately
 when none is open — so a service says what it means once and gets the right
 timing whether or not somebody later composes it into a larger unit of work.
 `withTenant` opens the queue on the branch that opens a transaction, and

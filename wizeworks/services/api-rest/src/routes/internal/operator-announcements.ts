@@ -15,8 +15,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma } from '@wizeworks/db';
-import type { OperatorAnnouncement, OperatorAnnouncementListResult } from '@wizeworks/operator';
+import { prisma } from '@wizeworksllc/db';
+import type { OperatorAnnouncement, OperatorAnnouncementListResult } from '@wizeworksllc/operator';
 
 import { authorizeOperator, badRequest, notFound, operatorIdOf } from './operator-internal.js';
 import {

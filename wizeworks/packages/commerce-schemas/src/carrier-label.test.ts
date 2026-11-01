@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Carrier } from '@wizeworks/crm-schemas';
+import { Carrier } from '@wizeworksllc/crm-schemas';
 
 import { carrierLabel } from './shipping';
 

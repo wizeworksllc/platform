@@ -80,18 +80,18 @@ let atGateway: { status: string; amountCents?: number } | Error | null;
 let lookups: { tenantId: string; paymentRef: string }[];
 let gatewayCanLookUp: boolean;
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: {},
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   billingPaymentService: {},
   orderPaymentsService: { recomputeOrderPaymentRollup: () => Promise.resolve(true) },
   heldOrderMoney: { REFUND_WHEN_PAID_KEY: 'refundWhenPaid' },
 }));
-vi.mock('@wizeworks/commerce', () => ({ heldOrderPayments: { settle: vi.fn() } }));
-vi.mock('@wizeworks/auth', () => ({ isModuleEnabled: () => Promise.resolve(false) }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({ heldOrderPayments: { settle: vi.fn() } }));
+vi.mock('@wizeworksllc/auth', () => ({ isModuleEnabled: () => Promise.resolve(false) }));
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({
   publish: (_log: unknown, topic: string) => {
     published.push(topic);
     return Promise.resolve();
@@ -99,7 +99,7 @@ vi.mock('@wizeworks/api-core/pubsub', () => ({
 }));
 vi.mock('./tenant-email.js', () => ({ sendTenantEmailByKey: () => Promise.resolve() }));
 vi.mock('./payments-onboarding.js', () => ({ reconcileSparxPayAccount: () => Promise.resolve() }));
-vi.mock('@wizeworks/payments', () => ({
+vi.mock('@wizeworksllc/payments', () => ({
   gatewayRegistry: {
     get: (id: string) => {
       if (id !== 'stripe_direct') throw new Error(`no gateway ${id}`);

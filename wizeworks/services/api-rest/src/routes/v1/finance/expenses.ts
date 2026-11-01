@@ -15,8 +15,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   createExpense,
   deleteExpense,
@@ -29,20 +29,20 @@ import {
   updateExpense,
   type ExpenseWithDetail,
   type JobType,
-} from '@wizeworks/finance';
+} from '@wizeworksllc/finance';
 import {
   allocationTargetSchema,
   createExpenseSchema,
   listExpensesSchema,
   paymentMethodSchema,
   updateExpenseSchema,
-} from '@wizeworks/finance/schemas';
+} from '@wizeworksllc/finance/schemas';
 import {
   headerPropertyId,
   requireFinanceModule,
   toFinanceContext,
 } from '../../../lib/finance-context.js';
-import { queryBool, queryInt } from '@wizeworks/api-core/query';
+import { queryBool, queryInt } from '@wizeworksllc/api-core/query';
 import { resolveListScopeIds, resolvePropertyId } from '../../../lib/property.js';
 import { publishDomainEvent } from '../../../lib/staff-events.js';
 

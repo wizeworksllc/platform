@@ -7,7 +7,7 @@
 // non-empty arrays so partial wiring never produces a half-built product.
 //
 // Every state change:
-//   1. Validates input via @wizeworks/commerce-schemas
+//   1. Validates input via @wizeworksllc/commerce-schemas
 //   2. Runs DB work inside withTenant() (RLS context set per transaction)
 //   3. Writes an audit_logs row in the same transaction
 //   4. Publishes a Pub/Sub event AFTER commit — never inside
@@ -22,9 +22,9 @@ import {
   readRepeatOptions,
   type RepeatCadence,
   UpdateProductInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, Product } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, Product } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { depositFromColumns, depositToColumns } from '../made-to-order';

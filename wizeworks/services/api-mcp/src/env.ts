@@ -2,7 +2,7 @@
 
 import 'dotenv/config';
 import { z } from 'zod';
-import { DEFAULT_BRAND, mcpAuthServerOrigin, mcpResourceUrl } from '@wizeworks/links/server';
+import { DEFAULT_BRAND, mcpAuthServerOrigin, mcpResourceUrl } from '@wizeworksllc/links/server';
 
 const EnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
@@ -16,14 +16,14 @@ const EnvSchema = z.object({
   SPARX_INTERNAL_JWT_SECRET: z.string().min(32),
   // OAuth 2.1 resource-server wiring (docs/07 §5). The resource identifier and
   // the authorization server are BOTH per brand and both resolved through
-  // @wizeworks/links/server from `<BRAND>_MCP_URL` and `<BRAND>_ACCOUNT_URL` —
+  // @wizeworksllc/links/server from `<BRAND>_MCP_URL` and `<BRAND>_ACCOUNT_URL` —
   // one api-mcp serves every brand, and the protected-resource document is
   // fetched before any token exists, so the request's HOST is the only thing
   // carrying the brand (see oauth-metadata.ts). PLATFORM_BRANDS is the list this
   // deployment serves; it is what turns those derived variable names into a
   // host→brand map, and it is the ONLY place a brand key is enumerated.
   //
-  // OAuth token verification reads the shared auth DB via @wizeworks/auth
+  // OAuth token verification reads the shared auth DB via @wizeworksllc/auth
   // (sparx_owner), so AUTH_DATABASE_URL must also be present in the environment.
   PLATFORM_BRANDS: z
     .string()
@@ -45,7 +45,7 @@ const EnvSchema = z.object({
   // the explicit-delete floor keeps it safe.
   SOCKET_BUS_URL: z.string().optional(),
   // Active domain registrar for the domain MCP tools (docs/24). Selects the
-  // provider behind the @wizeworks/registrar `RegistrarClient` contract. 'godaddy'
+  // provider behind the @wizeworksllc/registrar `RegistrarClient` contract. 'godaddy'
   // today; 'namecom' once its @sparx/namecom client is wired.
   REGISTRAR: z.enum(['godaddy', 'namecom']).default('godaddy'),
 });

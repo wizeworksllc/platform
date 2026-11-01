@@ -8,8 +8,8 @@
 // — Phase-1 infra rule, no Typesense. Product DETAIL additionally resolves the
 // seller's purchasable variants under the owning tenant (for add-to-cart).
 
-import { Prisma, withSystem, withTenant } from '@wizeworks/db';
-import { MarketBrowseQuery } from '@wizeworks/commerce-schemas';
+import { Prisma, withSystem, withTenant } from '@wizeworksllc/db';
+import { MarketBrowseQuery } from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../../errors';
 import { mediaPublicUrl } from '../../media-url';

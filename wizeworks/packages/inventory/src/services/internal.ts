@@ -1,9 +1,9 @@
 // Shared internals for the inventory service split — guards + the denormalized
 // in-stock recompute. Imported by the ledger, movements, reservations, and lot
-// modules; depends only on @wizeworks/db + the module error vocabulary, so it never
+// modules; depends only on @wizeworksllc/db + the module error vocabulary, so it never
 // forms a cycle with the higher-level service files.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError } from '../errors';
 import {

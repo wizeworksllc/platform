@@ -13,7 +13,7 @@ import { z } from 'zod';
 import {
   CreateVariantBarcodeInput,
   GenerateVariantBarcodesInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { inventoryService } from '../services';
 import { ALL_KINDS, type ScanKind } from '../services/scan';

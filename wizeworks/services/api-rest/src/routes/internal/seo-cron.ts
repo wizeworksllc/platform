@@ -19,7 +19,7 @@
 
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 import { env } from '../../env.js';
 import { syncConnection, SYNC_CONNECTION_SELECT } from '../../lib/search-console/sync.js';

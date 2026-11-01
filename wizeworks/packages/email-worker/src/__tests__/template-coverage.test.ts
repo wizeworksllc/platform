@@ -11,7 +11,7 @@
 //
 // Four templates lived in that state — `login-otp`, `magic-link`,
 // `team-invitation` and `partner-welcome`. Each was registered in
-// `@wizeworks/email`, listed in the events union, and published from live auth
+// `@wizeworksllc/email`, listed in the events union, and published from live auth
 // code. Two of them are how a person SIGNS IN, so passwordless sign-in could
 // not complete and inviting a teammate delivered nothing at all. Every
 // typecheck, lint and test in the repo passed throughout.
@@ -20,12 +20,12 @@
 // a TypeScript union on the other, and nothing compared them. `TEMPLATE_IDS`
 // exists so something can.
 
-// The JSX-free subpaths on purpose: importing `@wizeworks/email` proper would pull
+// The JSX-free subpaths on purpose: importing `@wizeworksllc/email` proper would pull
 // React and every template into a test that needs only a list of strings and a
 // bag of plain objects.
 import { describe, expect, it } from 'vitest';
-import { TEMPLATE_IDS } from '@wizeworks/email/template-ids';
-import { TEMPLATE_PROPS } from '@wizeworks/email/template-fixtures';
+import { TEMPLATE_IDS } from '@wizeworksllc/email/template-ids';
+import { TEMPLATE_PROPS } from '@wizeworksllc/email/template-fixtures';
 
 import { TemplateSendSchema } from '../template-schema.js';
 
@@ -65,7 +65,7 @@ describe('email-worker accepts every template', () => {
   // string arrives. Every one of those passes "is the template listed" and
   // still drops the email, silently, in production.
   //
-  // These are the SAME objects `@wizeworks/email` renders in its own suite, so the
+  // These are the SAME objects `@wizeworksllc/email` renders in its own suite, so the
   // two ends are pinned to one description of each template.
   describe.each(TEMPLATE_IDS)('%s', (id) => {
     it('accepts the props the renderer is proven against', () => {

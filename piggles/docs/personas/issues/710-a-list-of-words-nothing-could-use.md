@@ -74,7 +74,7 @@ Three decisions behind that shape:
    one answer, so the shape of the control IS the rule.
 
 3. **The preview sentence uses the real formatter.** `describeQuantity` from
-   `@wizeworks/commerce-schemas` is what every other screen says a quantity with,
+   `@wizeworksllc/commerce-schemas` is what every other screen says a quantity with,
    so a wrong factor looks wrong in the editor exactly as it will look on the
    purchase order.
 

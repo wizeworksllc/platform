@@ -6,7 +6,7 @@ status: active
 
 # modules
 
-A **module** is a *feature-flagged product domain* — one of the **14** keys in `ModuleSlug` (`wizeworks/packages/modules/src/index.ts`). Each has a manifest, a catalog entry, and a flag at `tenants.settings.modules.<slug>.enabled` (**default-deny**). That is the strict definition: anything with a hue but no `ModuleSlug` key is a **program** or **platform** capability — see [[features]] and [[taxonomy]].
+A **module** is a *feature-flagged product domain* — one of the **14** keys in `ModuleSlug` (`wizeworks/packages/module-roster/src/index.ts`). Each has a manifest, a catalog entry, and a flag at `tenants.settings.modules.<slug>.enabled` (**default-deny**). That is the strict definition: anything with a hue but no `ModuleSlug` key is a **program** or **platform** capability — see [[features]] and [[taxonomy]].
 
 Most are *paid*, but not all: a Stripe price is not part of the definition. `social` is a registered module with **no** `MODULE_MONTHLY_CENTS` entry, so it activates at $0 through the normal flow — "paid" was in this sentence for the first twelve and stopped being true when social shipped.
 
@@ -29,7 +29,7 @@ See [[module-mechanism]] for how a module is wired and gated. The *principle* (g
 | **scheduling** | rose `#F43F5E` | docs/79 | `scheduling/` | `v1/scheduling/*`, `v1/public/scheduling*` · scheduling mcp | 78 (+64) |
 | **ai** | magenta `#EC4899` | docs/07 | `ai/` + `settings/ai-integrations/` | **is** `wizeworks/services/api-mcp/` · `v1/ai/*` | 82-ai |
 | **social** | blue `#2563EB` | docs/133,134 | workbench `surfaces/social/` *(FREE — no price)* | `v1/social/*` · `social-worker` | 87-social |
-| **finance** | green `#16A34A` | docs/148 | workbench `surfaces/finance/` | `v1/finance/*` *(pending)* · `@wizeworks/finance` | 89-finance |
+| **finance** | green `#16A34A` | docs/148 | workbench `surfaces/finance/` | `v1/finance/*` *(pending)* · `@wizeworksllc/finance` | 89-finance |
 
 Building in a module? Open its row, read its PRD, and **match its existing UI** before adding surfaces ([[design]], [[components]]).
 
@@ -57,4 +57,4 @@ The gate is applied by `surfaceIsVisible`, shared by the rail, the mobile drawer
 
 ## Sources of truth
 
-`wizeworks/packages/modules/src/index.ts` (the registry) · `apps/dashboard/app/(dashboard)/_shell/registry.ts` (manifests + order) · `sparx/packages/ui/src/providers/module-provider.tsx` (hues) · `wizeworks/packages/auth/src/module-gate.ts` (the gate).
+`wizeworks/packages/module-roster/src/index.ts` (the registry) · `apps/dashboard/app/(dashboard)/_shell/registry.ts` (manifests + order) · `sparx/packages/ui/src/providers/module-provider.tsx` (hues) · `wizeworks/packages/auth/src/module-gate.ts` (the gate).

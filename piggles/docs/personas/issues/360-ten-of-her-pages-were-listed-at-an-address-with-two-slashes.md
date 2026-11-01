@@ -96,7 +96,7 @@ _"'Bounce rate' and 'LCP' are jargon; 'Nobody came back' and 'How long it takes 
 appear' are the same facts in the language of someone who runs a business."_ This
 screen was the counter-example.
 
-Rewritten in `@wizeworks/seo-audit` rather than overridden per product: the check
+Rewritten in `@wizeworksllc/seo-audit` rather than overridden per product: the check
 `id`s are the stable keys, nothing reads a label, and both products are for
 non-technical owners. Two tests asserted the old strings; one now asserts the new
 value, and the other — which was really testing WHICH check wins — asserts against
@@ -109,7 +109,7 @@ it claim the wrong check won.
 > without pressing Rescan: `/book`, `/cart`, `/account/login` and the rest all read
 > correctly.
 
-`@wizeworks/seo-audit` 26/26. Typecheck clean on the package and on api-rest.
+`@wizeworksllc/seo-audit` 26/26. Typecheck clean on the package and on api-rest.
 
 ## Rating effect
 

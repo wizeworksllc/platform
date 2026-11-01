@@ -69,7 +69,7 @@ const tx = {
   auditLog: { createMany: vi.fn(() => Promise.resolve({ count: 0 })) },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));

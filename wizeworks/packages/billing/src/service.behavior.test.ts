@@ -1,9 +1,9 @@
 // Behaviour tests for the billing service's decision logic. The service is tightly
 // coupled to Prisma + the platform Stripe client (true integration coverage needs a
-// test DB and runs in CI), so here we mock `@wizeworks/db` and `./client` to exercise
+// test DB and runs in CI), so here we mock `@wizeworksllc/db` and `./client` to exercise
 // the logic that matters most locally: subscription item reconciliation (create,
 // add/remove, cancel-on-empty) and webhook reconciliation of module flags.
-// `@wizeworks/modules` (deriveModuleStates) and `./price-catalog` stay REAL.
+// `@wizeworksllc/modules` (deriveModuleStates) and `./price-catalog` stay REAL.
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -42,7 +42,7 @@ vi.mock('./client', () => ({
   anyBillingConfigured: () => Boolean(h.stub.value),
 }));
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: {
     tenant: {
       findUnique: h.tenantFindUnique,

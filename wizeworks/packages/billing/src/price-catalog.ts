@@ -6,7 +6,7 @@
 // Stripe Price IDs (priceIdFor) are the prod-only Secret-Manager values that the
 // actual subscription items reference.
 
-import type { ModuleSlug } from '@wizeworks/modules';
+import type { ModuleSlug } from '@wizeworksllc/modules';
 
 export type BillingInterval = 'monthly' | 'annual';
 

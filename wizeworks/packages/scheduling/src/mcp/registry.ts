@@ -1,5 +1,5 @@
 // Scheduling MCP tool registry types (docs/79 §11, docs/07). Each tool is a thin
-// wrapper over the @wizeworks/scheduling SERVICE layer — the same functions the REST
+// wrapper over the @wizeworksllc/scheduling SERVICE layer — the same functions the REST
 // routes + public booking widget call (one service, many transports). A fix in
 // createBooking is a fix in the `create_booking` MCP tool automatically; the
 // no-overlap guarantee + lifecycle invariants are enforced once, in the engine.

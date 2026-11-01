@@ -1,5 +1,5 @@
 // Default export is the server instance. Client-side code should import from
-// '@wizeworks/auth/client' explicitly to keep the React/browser-only surface out
+// '@wizeworksllc/auth/client' explicitly to keep the React/browser-only surface out
 // of server bundles.
 
 export {
@@ -29,7 +29,7 @@ export {
 // Using this client means RLS is NOT your tenant guard: every query MUST carry
 // an explicit `organizationId` (or a `member: { organizationId }` relation
 // filter) pinned to the caller's tenant. Business data still belongs on the
-// @wizeworks/db client inside withTenant()/withRequestTenant().
+// @wizeworksllc/db client inside withTenant()/withRequestTenant().
 export { authPrisma } from './prisma';
 export {
   configuredSocialProviders,

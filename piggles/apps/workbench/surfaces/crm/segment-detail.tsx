@@ -10,7 +10,7 @@
 // audience take shape before saving. Identity (name, slug) is fields at the top,
 // not a repeated heading; archiving is the one destructive act, behind a confirm.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

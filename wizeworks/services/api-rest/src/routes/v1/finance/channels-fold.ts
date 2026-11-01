@@ -11,7 +11,7 @@
 // $2,140.50 sold, $212.00 refunded and $325.00 received, and the $1,603.50
 // between them — seven orders nobody had paid for — was in none of them.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 /** The fields of an order this fold needs. Narrower than the model on purpose. */
 export interface FoldableOrder {

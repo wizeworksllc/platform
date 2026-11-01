@@ -13,7 +13,7 @@
 //   • By weight / value / item count — a set of price steps ("bands"), each with
 //     a range and its own price. The unit of the range changes with the choice.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useState } from 'react';
 import {
   Alert,
@@ -35,7 +35,7 @@ import {
 import { useConfirm } from '../../lib/confirm';
 import { faPlus, faTrashCan, faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import type { CreateShippingRateInput } from '@wizeworks/commerce-schemas';
+import type { CreateShippingRateInput } from '@wizeworksllc/commerce-schemas';
 import { MoneyInput } from '../../components/money-input';
 import { SaveFailure } from '@/components/save-failure';
 import {

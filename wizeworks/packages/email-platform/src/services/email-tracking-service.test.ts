@@ -13,7 +13,7 @@ const state = vi.hoisted(() => ({
   domains: [] as { host: string }[],
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     tenant: { findUnique: () => Promise.resolve({ slug: 'bobs', settings: {} }) },
     property: {

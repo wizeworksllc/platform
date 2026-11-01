@@ -12,7 +12,7 @@ import { toTag } from './mirror';
 
 // TagList's constraint, restated: `^[a-zA-Z0-9_-]+$`, 1–63 chars (the Postgres
 // text[] slot is VARCHAR(63)). Restated rather than imported because this
-// package doesn't depend on @wizeworks/crm-schemas directly and a test isn't worth
+// package doesn't depend on @wizeworksllc/crm-schemas directly and a test isn't worth
 // a new dependency edge — if TagList ever loosens, this stays correct, just
 // stricter than it needs to be.
 const isValidTag = (tag: string | null): boolean =>

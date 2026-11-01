@@ -635,7 +635,7 @@ export interface RenderTemplateOptions {
   /**
    * The `From` for this send when the caller does not name one — the SENDING
    * brand's, resolved by whoever knows the tenant (`platformFrom` in
-   * `@wizeworks/brand-core`).
+   * `@wizeworksllc/brand-core`).
    *
    * Omitted, the platform-wide `SPARX_EMAIL_FROM` applies, which puts one
    * brand's name in a second brand's customer's inbox. An explicit `input.from`
@@ -1412,7 +1412,7 @@ export async function sendEmail(email: SendableEmail): Promise<DeliveryResult> {
 export interface AuthoredEmailInput {
   to: string;
   subject: string;
-  /** Sanitized HTML body (e.g. from @wizeworks/cms-editor's renderDocToHtml). */
+  /** Sanitized HTML body (e.g. from @wizeworksllc/cms-editor's renderDocToHtml). */
   bodyHtml: string;
   preheader?: string;
   from?: string;

@@ -19,7 +19,7 @@
 // surfaces read `null` as "we cannot say" and print words, never a figure.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { Tone } from './data';
 

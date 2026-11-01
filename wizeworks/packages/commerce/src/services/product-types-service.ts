@@ -1,5 +1,5 @@
 // Product type service — the read + write + resolution path for typed product
-// types (docs/143), the commerce mirror of @wizeworks/cms's content-types-service.
+// types (docs/143), the commerce mirror of @wizeworksllc/cms's content-types-service.
 //
 // One file owns three concerns that always move together:
 //   - CRUD + fork-on-edit (list/get/create/update/replaceSchema/delete). A tenant
@@ -7,18 +7,18 @@
 //   - resolveProductType — the two-step lookup a product write uses to find the
 //     schema its `attributes` bag must satisfy (tenant row wins over built-in).
 //   - validateAndNormalizeAttributes — runs a product's attribute bag through the
-//     Zod validator built from the resolved type's schema (@wizeworks/field-schema
+//     Zod validator built from the resolved type's schema (@wizeworksllc/field-schema
 //     bodyValidatorFor), 422 on mismatch, exactly like a content entry body.
 
-import type { Prisma, ProductType, TxClient } from '@wizeworks/db';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import { bodyValidatorFor } from '@wizeworks/field-schema';
+import type { Prisma, ProductType, TxClient } from '@wizeworksllc/db';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import { bodyValidatorFor } from '@wizeworksllc/field-schema';
 import {
   ProductTypeSchema,
   type ProductTypeSchema as ProductTypeSchemaT,
   type CreateProductTypeInput,
   type UpdateProductTypeInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../audit';
 import {

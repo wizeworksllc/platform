@@ -8,13 +8,13 @@
 // Signalled from the commerce services (`indexCommerceEntity`) and the b2b tier
 // service; reindex walks these like every other projector.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   type EntityProjector,
   type ProjectorContext,
   type UniversalSearchDocument,
   universalId,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 
 import { codeAsWords } from './search-words';
 import {

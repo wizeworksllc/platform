@@ -44,7 +44,7 @@ import { PaneEmpty } from '../../components/pane-empty';
 import { RefreshButton } from '../../components/refresh-button';
 import { FormSection } from '../../components/form-section';
 import { api } from '../../lib/api/client';
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
 import {
   describeHours,

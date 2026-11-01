@@ -20,7 +20,7 @@
 // produces is a half-finished job. Here a wrong key produces a sentence naming the
 // screen it came from, before anything has begun.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useCallback, useMemo, useState } from 'react';
 import {
   Alert,
@@ -47,7 +47,7 @@ import {
   faSpinner,
 } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { validateRows, type CanonicalEntity, type MappedEntity } from '@wizeworks/migration';
+import { validateRows, type CanonicalEntity, type MappedEntity } from '@wizeworksllc/migration';
 import { ReportProblemButton } from '../../components/feedback/report-problem-button';
 import {
   MAX_LIVE_PAGES,

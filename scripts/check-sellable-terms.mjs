@@ -153,7 +153,7 @@ if (offences.length > 0) {
   for (const o of offences) console.error(`  ${o.where}\n    ${o.code}\n`);
   console.error('Each one lets something be sold, shipped or built out of stock that is');
   console.error('damaged, in quarantine, or awaiting repair.');
-  console.error('Use sellableUnits() / SELLABLE_SQL from @wizeworks/inventory low-stock.ts,');
+  console.error('Use sellableUnits() / SELLABLE_SQL from @wizeworksllc/inventory low-stock.ts,');
   console.error('or add the fourth term to the chain.');
   process.exit(1);
 }

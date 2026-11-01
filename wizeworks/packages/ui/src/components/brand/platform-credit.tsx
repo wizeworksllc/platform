@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { BrandWordmark } from '@wizeworks/brand-core';
+import type { BrandWordmark } from '@wizeworksllc/brand-core';
 
 // The platform attribution badge — a small tab welded to the bottom edge of the
 // viewport on every tenant public site (`wizeworks/apps/site` mounts it as

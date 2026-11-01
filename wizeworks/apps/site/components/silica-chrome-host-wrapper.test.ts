@@ -5,7 +5,7 @@
 // a button inside a button, double padded: "Brynn" measured 95px, and on a 360px phone
 // that was enough to squeeze the logo out of the header (sparx persona issue 291).
 
-import { HOST_KEYS } from '@wizeworks/silica-catalog';
+import { HOST_KEYS } from '@wizeworksllc/silica-catalog';
 import { describe, expect, it } from 'vitest';
 
 import { CLASS_FORWARDING_CORES, hostWrapperClass } from './host-wrapper';

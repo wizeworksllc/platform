@@ -13,7 +13,7 @@
 //               styling (sibling to id).
 //   · class   — the ONE styling surface (docs/61): a Tailwind-native class string
 //               (semantic component classes + token utilities) compiled per tenant
-//               by @wizeworks/surface-compile. There is no separate box/layout object
+//               by @wizeworksllc/surface-compile. There is no separate box/layout object
 //               anymore — arrangement, spacing, surface, and skin are all classes.
 //   · props   — component-specific data (heading level, button label, the bg-image
 //               URL a Section paints, …).
@@ -163,7 +163,7 @@ export interface BuilderNode {
   name?: string;
   /** The Tailwind-native class string (docs/61) — the node's entire styling. A
    *  brand-governed vocabulary of semantic component classes plus token utilities;
-   *  the per-tenant compile (@wizeworks/surface-compile) tree-shakes these literals
+   *  the per-tenant compile (@wizeworksllc/surface-compile) tree-shakes these literals
    *  into the tenant stylesheet, and both render paths apply the string verbatim. */
   class?: string;
   props: Record<string, unknown>;
@@ -177,7 +177,7 @@ export const BuilderNodeSchema: z.ZodType<BuilderNode> = z.lazy(() =>
     type: z.string().min(1).max(63),
     name: z.string().max(120).optional(),
     // Bounded free string; the class VOCABULARY is enforced at compile time by the
-    // allowlist (@wizeworks/surface-compile). The cap is the only guard at this tier.
+    // allowlist (@wizeworksllc/surface-compile). The cap is the only guard at this tier.
     // Raised for Builder v2 (docs/98): a single node can now carry the base layer
     // plus per-breakpoint (@sm…@4xl) and per-state (hover/focus/active/dark) variants
     // of many utilities, so 500 is too tight — 2000 is generous without being a DoS

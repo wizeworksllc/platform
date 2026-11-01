@@ -1,6 +1,6 @@
 // Public customer-account surface for the storefront (Layer 2 — shoppers).
 // See docs/27 v2 — Layer 2 runs on a dedicated tenant-scoped Better Auth instance
-// (@wizeworks/customer-auth). This route layer keeps its external contract unchanged
+// (@wizeworksllc/customer-auth). This route layer keeps its external contract unchanged
 // (paths, envelopes, the sparx_customer_session cookie, enumeration-safety, rate
 // limits, the docs/58 `recognized` signal, cart-claim) so wizeworks/apps/site is untouched.
 //
@@ -21,14 +21,14 @@
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { isModuleEnabled } from '@wizeworks/auth';
-import { approvalService } from '@wizeworks/b2b';
-import { cartService } from '@wizeworks/commerce';
-import { typedCarrierOf } from '@wizeworks/commerce-schemas';
-import { heldOrderMoney, orderService, orderFulfillmentsService } from '@wizeworks/crm';
-import { poNumberOf, unitsWaitingForCore } from '@wizeworks/crm-schemas';
-import { NET_TERMS_AR_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { withTenant } from '@wizeworks/db';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { approvalService } from '@wizeworksllc/b2b';
+import { cartService } from '@wizeworksllc/commerce';
+import { typedCarrierOf } from '@wizeworksllc/commerce-schemas';
+import { heldOrderMoney, orderService, orderFulfillmentsService } from '@wizeworksllc/crm';
+import { poNumberOf, unitsWaitingForCore } from '@wizeworksllc/crm-schemas';
+import { NET_TERMS_AR_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
 import {
   CustomerAuthError,
   confirmCustomerEmail,
@@ -41,15 +41,15 @@ import {
   signUpCustomer,
   type CustomerAuthContext,
   type SessionMeta,
-} from '@wizeworks/customer-auth';
-import { ok, paged } from '@wizeworks/api-core/envelope';
+} from '@wizeworksllc/customer-auth';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
 import {
   conflict,
   moduleDisabled,
   notFound,
   unauthorized,
   validationError,
-} from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/api-core/errors';
 
 import { resolveCoreReturnAddress } from '../../../lib/business-identity.js';
 import { resolvePublicPropertyId, siteDisabledModules } from '../../../lib/property.js';

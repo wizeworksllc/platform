@@ -20,8 +20,12 @@
 // Each addition emits crm.segment.entered + writes a CrmActivity row;
 // each removal emits crm.segment.exited + writes its activity row.
 
-import { withTenant } from '@wizeworks/db';
-import { evaluateSegmentRule, SegmentRuleSchema, type SegmentRule } from '@wizeworks/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import {
+  evaluateSegmentRule,
+  SegmentRuleSchema,
+  type SegmentRule,
+} from '@wizeworksllc/crm-schemas';
 
 import { publishCrmEvent } from '../events';
 import { gateHandler, type ConsumerContext } from './registry';

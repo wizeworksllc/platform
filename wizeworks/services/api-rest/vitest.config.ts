@@ -8,9 +8,9 @@ import react from '@vitejs/plugin-react';
 const IS_CI = process.env.CI === 'true' || process.env.CI === '1';
 
 export default defineConfig({
-  // The app graph pulls in @wizeworks/email, which ships raw .tsx (React Email
+  // The app graph pulls in @wizeworksllc/email, which ships raw .tsx (React Email
   // templates). Without a JSX transform vite's import-analysis can't parse it
-  // and EVERY integration suite fails at import time. Mirror @wizeworks/email's own
+  // and EVERY integration suite fails at import time. Mirror @wizeworksllc/email's own
   // test config so api-rest can transform that JSX (test-only; production runs
   // through tsx). See wizeworks/packages/email/vitest.config.ts.
   plugins: [react()],

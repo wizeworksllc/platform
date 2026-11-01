@@ -11,7 +11,7 @@ import { PLATFORM_PRESET_V2, PLATFORM_TOKEN_DEFAULTS } from './index';
 /**
  * silicaui's `quartz` baseline, verbatim — the OKLCH these hexes are converted FROM.
  *
- * Written out rather than imported because @wizeworks/site-themes is dependency-free
+ * Written out rather than imported because @wizeworksllc/site-themes is dependency-free
  * by design and cannot reach `@wizeworks/silicaui-html`. `colorToHex` is this
  * package's own converter (the one transactional email flattens a theme with), so
  * the check below is a real derivation rather than a restatement of the values.

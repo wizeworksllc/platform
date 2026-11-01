@@ -15,13 +15,13 @@ import 'server-only';
 //
 // ── AND THE CONDITION IS ASKED ONCE ─────────────────────────────────────────
 //
-// This file used to RE-STATE the env test that `@wizeworks/auth`'s server config
+// This file used to RE-STATE the env test that `@wizeworksllc/auth`'s server config
 // makes, which is two copies of one condition and therefore a drift waiting to
 // happen. It now asks api-rest, which answers with the same function it uses to
 // decide whether to register the provider at all, so the button and the
 // provider can never disagree. The credentials live only there (docs/154).
 
-import { readSignInOptions } from '@wizeworks/auth-client-server';
+import { readSignInOptions } from '@wizeworksllc/auth-client-server';
 
 /** True only when api-rest, which holds the Google credentials, says this brand
  *  can sign somebody in with Google. */

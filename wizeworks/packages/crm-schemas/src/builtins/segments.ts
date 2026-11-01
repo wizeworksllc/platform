@@ -1,7 +1,7 @@
 // Built-in CRM segment templates (docs/11 §3, locked decision #4).
 //
 // Seeded per-tenant on CRM module activation by the bootstrap consumer in
-// @wizeworks/crm. Each tenant gets their own editable copy (same pattern as
+// @wizeworksllc/crm. Each tenant gets their own editable copy (same pattern as
 // the default pipeline template) — so a tenant can rename "High Value"
 // to "VIP" or tweak the threshold without touching the platform-wide
 // definition.

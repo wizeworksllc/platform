@@ -22,8 +22,8 @@
 
 import { createHash } from 'node:crypto';
 
-import { Prisma, type TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+import { Prisma, type TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { BuilderNotFoundError, type PropertyContext } from '../errors';
 

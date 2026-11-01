@@ -18,7 +18,7 @@
 // somebody consolidating them into one polite, unactionable message.
 
 import { describe, expect, it } from 'vitest';
-import { HOST_KEYS } from '@wizeworks/silica-catalog';
+import { HOST_KEYS } from '@wizeworksllc/silica-catalog';
 
 import { lintSite } from './lint';
 import type { LintablePage, SiteLintReport } from './types';

@@ -16,7 +16,7 @@
 // by platform as each review clears. A destination whose adapter cannot read is skipped
 // quietly here and labelled honestly in the UI — never an empty tab that looks broken.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   getSocialAdapter,
   isRetryableError,
@@ -24,9 +24,9 @@ import {
   type SocialInboxEntry,
   type SocialPlatform,
   type SocialTargetRef,
-} from '@wizeworks/social';
-import { registerBuiltinSocialAdapters } from '@wizeworks/social/adapters';
-import { isSocialTokenCryptoConfigured } from '@wizeworks/social/crypto';
+} from '@wizeworksllc/social';
+import { registerBuiltinSocialAdapters } from '@wizeworksllc/social/adapters';
+import { isSocialTokenCryptoConfigured } from '@wizeworksllc/social/crypto';
 import type { Logger } from 'pino';
 
 import { resolveSocialAuth } from './auth.js';

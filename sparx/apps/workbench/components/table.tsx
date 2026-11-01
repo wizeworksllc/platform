@@ -21,7 +21,7 @@
 //   • A code stays on one line (issue 238): a monospace cell that is not a figure
 //     never breaks "O-000033" at its hyphen.
 //
-// Workbench-only on purpose: `@wizeworks/ui` is not a general component library.
+// Workbench-only on purpose: `@wizeworksllc/ui` is not a general component library.
 
 import { forwardRef } from 'react';
 import { Table as SilicaTable, type TableProps } from '@wizeworks/silicaui-react';

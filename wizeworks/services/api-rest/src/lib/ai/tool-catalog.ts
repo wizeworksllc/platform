@@ -16,20 +16,20 @@
 // and every api-mcp-local one: about a hundred tools an AI app could call and the
 // Permissions screen could not switch off (sparx persona issue 297).
 
-import { crmMcpTools, invoicingMcpTools } from '@wizeworks/crm';
-import { commerceMcpTools } from '@wizeworks/commerce';
-import { inventoryMcpTools } from '@wizeworks/inventory/mcp';
-import { sitebuilderMcpTools } from '@wizeworks/sitebuilder';
-import { builderMcpTools } from '@wizeworks/builder/mcp';
-import { emailMcpTools } from '@wizeworks/email-platform';
-import { searchMcpTools } from '@wizeworks/search';
-import { automationMcpTools } from '@wizeworks/automation';
-import { schedulingMcpTools } from '@wizeworks/scheduling';
-import { mediaMcpTools } from '@wizeworks/media/mcp';
-import { cmsMcpTools } from '@wizeworks/cms/mcp';
-import { socialMcpTools } from '@wizeworks/social/mcp';
-import { b2bMcpTools } from '@wizeworks/b2b/mcp';
-import { funnelsMcpTools } from '@wizeworks/funnels/mcp';
+import { crmMcpTools, invoicingMcpTools } from '@wizeworksllc/crm';
+import { commerceMcpTools } from '@wizeworksllc/commerce';
+import { inventoryMcpTools } from '@wizeworksllc/inventory/mcp';
+import { sitebuilderMcpTools } from '@wizeworksllc/sitebuilder';
+import { builderMcpTools } from '@wizeworksllc/builder/mcp';
+import { emailMcpTools } from '@wizeworksllc/email-platform';
+import { searchMcpTools } from '@wizeworksllc/search';
+import { automationMcpTools } from '@wizeworksllc/automation';
+import { schedulingMcpTools } from '@wizeworksllc/scheduling';
+import { mediaMcpTools } from '@wizeworksllc/media/mcp';
+import { cmsMcpTools } from '@wizeworksllc/cms/mcp';
+import { socialMcpTools } from '@wizeworksllc/social/mcp';
+import { b2bMcpTools } from '@wizeworksllc/b2b/mcp';
+import { funnelsMcpTools } from '@wizeworksllc/funnels/mcp';
 
 /** The shared shape across every module's tool definition (api-mcp's AnyMcpTool,
  *  narrowed to the metadata the catalog needs — scope is a plain string). */

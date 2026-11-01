@@ -4,7 +4,7 @@
 // (`silica-data.ts`) and the older builder loader (`builder-data.ts`), which
 // `kind-pieces.ts` itself imports from. Keeping this free of either avoids a loop.
 
-import { kindAddressFromPattern, kindPath, type KindFieldLike } from '@wizeworks/silica-catalog';
+import { kindAddressFromPattern, kindPath, type KindFieldLike } from '@wizeworksllc/silica-catalog';
 
 import { publicGet } from './content';
 

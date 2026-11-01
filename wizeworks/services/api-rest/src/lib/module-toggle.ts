@@ -14,8 +14,8 @@
 
 import { randomUUID } from 'node:crypto';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, type Prisma } from '@wizeworks/db';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { prisma, type Prisma } from '@wizeworksllc/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import {
   ALL_MODULES,
   invalidateModuleCache,
@@ -23,14 +23,14 @@ import {
   blockingDependents,
   deriveModuleStates,
   type ModuleSlug,
-} from '@wizeworks/auth';
-import { publishPlatformEvent } from '@wizeworks/crm';
-import { syncModuleItems } from '@wizeworks/billing';
+} from '@wizeworksllc/auth';
+import { publishPlatformEvent } from '@wizeworksllc/crm';
+import { syncModuleItems } from '@wizeworksllc/billing';
 
 /** The closed set of module slugs, in a stable order. Shared so the tenant route
  *  and the operator route probe the same vocabulary.
  *
- *  DERIVED from @wizeworks/modules rather than re-typed. This was a hand-written copy
+ *  DERIVED from @wizeworksllc/modules rather than re-typed. This was a hand-written copy
  *  of that list, and it fell behind twice: `inventory` and `finance` were both
  *  added to the package and forgotten here, which typechecks perfectly (the array
  *  is `ModuleSlug[]`, not exhaustive over the union) and then fails at the one

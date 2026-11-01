@@ -15,8 +15,8 @@
 //   ['b2b','quotes', id]          one quote
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useQuery } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 import { formatAmount } from '../../lib/money-format';
 

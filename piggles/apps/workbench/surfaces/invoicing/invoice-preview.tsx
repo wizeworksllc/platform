@@ -12,7 +12,7 @@
 // draft published it simply previews the saved document.
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Loading } from '@wizeworks/silicaui-react';
 import { PaneLoadError } from '../../components/pane-load-error';
 import { api, apiRequest } from '../../lib/api/client';

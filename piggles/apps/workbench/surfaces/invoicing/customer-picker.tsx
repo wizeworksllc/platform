@@ -17,7 +17,7 @@
 // that decides what they are charged (issue 746).
 
 import { useMemo, useState } from 'react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { useDebouncedValue } from '../../lib/api/search';
 import { SearchPicker } from '../../components/search-picker';
 import { useAccounts } from '../crm/companies-data';

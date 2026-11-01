@@ -27,15 +27,15 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant, type Prisma } from '@wizeworks/db';
-import { deriveModuleStates, blockingDependents, type ModuleSlug } from '@wizeworks/auth';
-import { MODULE_MONTHLY_CENTS } from '@wizeworks/billing';
+import { prisma, withTenant, type Prisma } from '@wizeworksllc/db';
+import { deriveModuleStates, blockingDependents, type ModuleSlug } from '@wizeworksllc/auth';
+import { MODULE_MONTHLY_CENTS } from '@wizeworksllc/billing';
 import type {
   OperatorModuleToggleResult,
   OperatorTenantModule,
   OperatorTenantStatusResult,
   OperatorStorageLimitResult,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import {
   authorizeOperator,

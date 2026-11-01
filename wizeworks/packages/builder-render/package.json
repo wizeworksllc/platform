@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/builder-render",
+  "name": "@wizeworksllc/builder-render",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Builder render path — the single per-type node→element map shared by the live storefront renderer (wizeworks/apps/site) and the dashboard editor canvas (apps/dashboard), plus the interactive islands (commerce buy-box, carousel, signup, icon) and the edit-mode runtime. One render path so the canvas IS production (docs/builder/02).",
@@ -25,8 +25,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/builder-schemas": "workspace:*",
-    "@wizeworks/cms-editor": "workspace:*",
+    "@wizeworksllc/builder-schemas": "workspace:*",
+    "@wizeworksllc/cms-editor": "workspace:*",
     "@wizeworks/silicaui-react": "catalog:",
     "lucide-react": "^0.577.0"
   },

@@ -37,9 +37,9 @@
 // of a customer — one is a constant, and the other is a number the supplier
 // published, not a commitment they made about this order.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { VARIANT_LABEL_COLUMNS, VARIANT_LABEL_JOINS } from './variant-label';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 import {
   backorderStatusFor,
   fillQueue,
@@ -47,7 +47,7 @@ import {
   shouldRenotify,
   type PromiseSource,
   type UpdateBackorderInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { InventoryNotFoundError, InventoryValidationError, type ServiceContext } from '../errors';
 import { publishInventoryEvent } from '../events';

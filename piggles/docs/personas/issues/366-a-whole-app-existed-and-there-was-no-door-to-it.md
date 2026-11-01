@@ -55,14 +55,14 @@ an app catalogue missing an entry typechecks perfectly.
 The same sweep found the same shape in four more places, all `funnels`:
 
 - `api-rest`'s per-site `MODULE_SLUGS`, under a comment reading "kept in step with
-  @wizeworks/modules' ALL_MODULES" — it was not, so **funnels could not be switched
+  @wizeworksllc/modules' ALL_MODULES" — it was not, so **funnels could not be switched
   off for one site** and the per-site toggle silently did nothing for it. Now derived
   from `ALL_MODULES` rather than re-typed, so it cannot drift again.
-- `@wizeworks/ui`'s three hue lists (`MODULE_COLOR_KEYS`, the `SparxModule` union,
+- `@wizeworksllc/ui`'s three hue lists (`MODULE_COLOR_KEYS`, the `SparxModule` union,
   `MODULE_SEGMENTS`). The color-key list's own comment already records this happening
   once — "these three were missing while their tokens existed" — and funnels was the
   next one to go the same way.
-- `@wizeworks/ui`'s `BTN_COLOR`. This one is `Record<ColorKey, string>`, so the moment
+- `@wizeworksllc/ui`'s `BTN_COLOR`. This one is `Record<ColorKey, string>`, so the moment
   the union gained `funnels` the compiler said so. Worth noting: it is the only copy
   of the five that could fail loudly, and it is the only one that did.
 

@@ -28,7 +28,7 @@ import {
   resolveSamplePack,
   sampleDataStatus,
   withTenant,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 
 import { seedPrimaryProperty } from '../helpers.js';
 

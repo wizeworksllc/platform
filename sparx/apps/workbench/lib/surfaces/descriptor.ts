@@ -64,7 +64,7 @@ export function descriptorKey(descriptor: PaneDescriptor): string {
 /**
  * Decodes the LEGACY `?open=<surface>?<k>=<v>` deep-link form.
  *
- * A descriptor's address is now built by `@wizeworks/links` from a readable path
+ * A descriptor's address is now built by `@wizeworksllc/links` from a readable path
  * (`/commerce/orders/:id`), so nothing emits this form any more — but links
  * already sitting in inboxes and push notifications carry it, so it is still
  * read. Its counterpart `encodeDescriptor` is gone: keeping a way to WRITE a

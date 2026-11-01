@@ -2,7 +2,7 @@
    with (apps/dashboard .../story/_components/story.module.css), minus every editable
    affordance: no chevrons, no remove buttons, no dashed "+" slots, no popovers. What
    the homepage shows IS what onboarding renders, so the two must not drift; the chip
-   geometry + the module tint recipe (@wizeworks/story-schemas) are shared deliberately.
+   geometry + the module tint recipe (@wizeworksllc/story-schemas) are shared deliberately.
 
    Type is larger than the composer's here — this is a hero, and the story is the
    headline act rather than a working surface. */

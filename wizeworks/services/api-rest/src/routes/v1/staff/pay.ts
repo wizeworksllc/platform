@@ -20,8 +20,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 import {
   attributeSale,
   clearSaleAttribution,
@@ -37,8 +37,12 @@ import {
   saleAttribution,
   setCommissionStatus,
   setRate,
-} from '@wizeworks/staff';
-import { commissionSchema, commissionStatusSchema, payRateSchema } from '@wizeworks/staff/schemas';
+} from '@wizeworksllc/staff';
+import {
+  commissionSchema,
+  commissionStatusSchema,
+  payRateSchema,
+} from '@wizeworksllc/staff/schemas';
 import { requirePayAccess, requireStaffModule } from '../../../lib/staff-context.js';
 import { displayName, payRateView } from './views.js';
 

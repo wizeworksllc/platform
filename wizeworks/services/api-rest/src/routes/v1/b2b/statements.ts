@@ -1,6 +1,6 @@
 // B2B account statements: what a trade account owed at the start of a period,
 // every invoice, payment and write-off in it with the buyer's PO numbers, what
-// it owes at the end, and how late. Thin transport over @wizeworks/crm's
+// it owes at the end, and how late. Thin transport over @wizeworksllc/crm's
 // b2bStatementService; the email goes out through lib/statement-mail.ts.
 //
 //   GET  /v1/b2b/accounts/:id/statement?from=&to=        → the statement, plus
@@ -13,9 +13,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { b2bStatementService, renderAccountStatementHtml } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { b2bStatementService, renderAccountStatementHtml } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 import { resolveInvoiceBrand } from '../../../lib/invoice-render.js';
 import { sendAccountStatement } from '../../../lib/statement-mail.js';

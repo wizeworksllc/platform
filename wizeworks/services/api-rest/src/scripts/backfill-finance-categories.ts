@@ -36,8 +36,8 @@
 // table outside a tenant context does not report emptiness, it reports nothing,
 // and the two are not the same number.
 
-import { prisma, withTenant } from '@wizeworks/db';
-import { provisionFinance } from '@wizeworks/finance';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { provisionFinance } from '@wizeworksllc/finance';
 
 import { listTenantsWithModule } from '../lib/module-tenants.js';
 

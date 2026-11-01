@@ -6,7 +6,7 @@
 // page placement can PIN a version and opt into upgrades. Editing the tree /
 // propSpec creates a NEW version and bumps `latestVersion`.
 //
-// Trees are validated against @wizeworks/builder-schemas on every write. Tenant-
+// Trees are validated against @wizeworksllc/builder-schemas on every write. Tenant-
 // scoped via withTenant() — a callsite that forgets it sees nothing (FORCE RLS).
 // One service, many transports: REST mounts these; MCP / Server Actions reuse
 // them unchanged.
@@ -29,10 +29,10 @@ import {
   type PropSpec,
   type SilicaNode,
   type SilicaPieceDto,
-} from '@wizeworks/builder-schemas';
-import type { BuilderComponent, BuilderComponentVersion, Prisma } from '@wizeworks/db';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+} from '@wizeworksllc/builder-schemas';
+import type { BuilderComponent, BuilderComponentVersion, Prisma } from '@wizeworksllc/db';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

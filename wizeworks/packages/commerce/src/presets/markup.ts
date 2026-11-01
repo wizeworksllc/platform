@@ -2,7 +2,7 @@
 // catalog-scoped pricing strategy the merchant can drop in and tune. They install
 // active; the merchant typically picks ONE. Marker is the rule name.
 
-import type { CreateMarkupRuleInput } from '@wizeworks/commerce-schemas';
+import type { CreateMarkupRuleInput } from '@wizeworksllc/commerce-schemas';
 
 import { markupService } from '../services';
 

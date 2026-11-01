@@ -5,8 +5,8 @@
 //
 // Split out of api.ts so the reads stay reads and the writes stay writes.
 
-import { useQuery } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useQuery } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../api/client';
 import type {
   OnboardingProgress,

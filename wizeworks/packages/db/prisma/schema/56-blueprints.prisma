@@ -15,7 +15,7 @@ model TenantBlueprintInstall {
   // The web property (site) the blueprint was installed into. App-tier scope.
   propertyId String @map("property_id") @db.Uuid
 
-  // The blueprint key + the version installed (from the @wizeworks/blueprints catalog).
+  // The blueprint key + the version installed (from the @wizeworksllc/blueprints catalog).
   blueprintKey     String @map("blueprint_key") @db.VarChar(63)
   blueprintVersion String @map("blueprint_version") @db.VarChar(20)
 

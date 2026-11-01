@@ -8,7 +8,7 @@ const { mirrorTenant, recordSubscriptionChange, recordModuleChange } = vi.hoiste
   recordModuleChange: vi.fn(),
 }));
 
-vi.mock('@wizeworks/platform-crm', () => ({
+vi.mock('@wizeworksllc/platform-crm', () => ({
   mirrorTenant,
   recordSubscriptionChange,
   recordModuleChange,

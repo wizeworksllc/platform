@@ -14,7 +14,7 @@ import {
   Input,
   PasswordInput,
 } from '@wizeworks/silicaui-react';
-import { authClient } from '@wizeworks/auth/client';
+import { authClient } from '@wizeworksllc/auth-client/client';
 import { normalizeEmail } from '@piggles/config';
 import { AuthShell } from './auth-shell';
 

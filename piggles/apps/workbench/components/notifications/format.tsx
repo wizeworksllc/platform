@@ -11,7 +11,7 @@
 import { faBell, faMessage } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import type { PigglesIcon } from '@piggles/ui';
-import { routeAcceptsId, routeForEntity } from '@wizeworks/links';
+import { routeAcceptsId, routeForEntity } from '@wizeworksllc/links';
 import type { AppNotification } from '../../lib/api/notifications';
 import { moduleIcon } from '../../lib/surfaces/nav';
 import { ModuleScope, WORKBENCH_MODULES, type WorkbenchModule } from '../module-scope';
@@ -71,7 +71,7 @@ export function iconFor(notification: AppNotification): PigglesIcon {
  * find it.
  *
  * This resolves through the SAME entity table that universal search and every
- * emailed link use (`@wizeworks/links`), rather than a list of its own. It used to
+ * emailed link use (`@wizeworksllc/links`), rather than a list of its own. It used to
  * know exactly one type — feedback — so every other notification in the bell was
  * a dead end, while the command palette could already open twenty-four of them.
  * One table means the two cannot disagree about where an order is again.

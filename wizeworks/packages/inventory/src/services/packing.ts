@@ -28,9 +28,9 @@ import {
   orderShipRefusal,
   PackItemInput,
   UpdatePackageInput,
-} from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import {
@@ -418,7 +418,7 @@ export async function cancelPackage(
 }
 
 /** Stamp the shipping record onto the box. Called by the pack → fulfillment
- *  hand-off in @wizeworks/commerce, which is the only place that can see both. */
+ *  hand-off in @wizeworksllc/commerce, which is the only place that can see both. */
 export async function attachFulfillment(
   ctx: ServiceContext,
   packageId: string,

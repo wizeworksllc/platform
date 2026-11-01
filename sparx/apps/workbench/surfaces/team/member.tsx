@@ -91,7 +91,7 @@ interface AccessForm {
   moduleAccessMode: 'all' | 'selected';
   modules: string[];
   /** The SITE axis. Not "which parts of the product" but "whose business" —
-   *  see `roleHasSiteLimits` and `@wizeworks/auth/property-access`. */
+   *  see `roleHasSiteLimits` and `@wizeworksllc/auth-client/property-access`. */
   propertyAccessMode: 'all' | 'selected';
   properties: string[];
 }

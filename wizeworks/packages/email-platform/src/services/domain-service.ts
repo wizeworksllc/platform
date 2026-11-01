@@ -10,13 +10,13 @@
 // State: pending → verifying → verified (or failed/disabled). Maps Mailgun's
 // unverified|active|disabled onto our richer set.
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, SendingDomain } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, SendingDomain } from '@wizeworksllc/db';
 import {
   getMailgunDomainAdmin,
   MailgunAdminError,
   type MailgunDomainResult,
-} from '@wizeworks/email';
+} from '@wizeworksllc/email';
 
 import { writeAuditLog } from '../audit';
 import { publishEmailEvent } from '../events';

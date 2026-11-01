@@ -18,7 +18,7 @@
 // both look right. [[feedback_a_test_that_cannot_go_red]]
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 import {
   billingDocumentConversionService,

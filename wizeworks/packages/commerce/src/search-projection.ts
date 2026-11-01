@@ -1,7 +1,7 @@
 // Product → ProductSearchDocument projection.
 //
 // The commerce-indexer worker calls this every time a product, variant,
-// fitment, or inventory level changes. Reads through @wizeworks/db's
+// fitment, or inventory level changes. Reads through @wizeworksllc/db's
 // withTenant() so the RLS context is set the same way as every other
 // commerce service call.
 //
@@ -15,10 +15,10 @@ import {
   type CustomerSearchDocument,
   type OrderSearchDocument,
   type ProductSearchDocument,
-} from '@wizeworks/search';
-import { type Prisma, withTenant } from '@wizeworks/db';
-import { plainTextOrNull } from '@wizeworks/commerce-schemas';
-import type { CustomerType } from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/search';
+import { type Prisma, withTenant } from '@wizeworksllc/db';
+import { plainTextOrNull } from '@wizeworksllc/commerce-schemas';
+import type { CustomerType } from '@wizeworksllc/crm-schemas';
 
 import type { ServiceContext } from './errors';
 import { mediaPublicUrl } from './media-url';
@@ -282,9 +282,9 @@ export async function computeBestSellerRanks(ctx: ServiceContext): Promise<Map<s
 //
 // Customers + orders are CRM-spine tables, but their projections live here
 // alongside products because the commerce-indexer worker (the only caller)
-// already imports @wizeworks/commerce, and @wizeworks/commerce already depends on
-// @wizeworks/search for the document types. Keeping all three projections in
-// one module avoids adding @wizeworks/search to @wizeworks/crm. The shapes are
+// already imports @wizeworksllc/commerce, and @wizeworksllc/commerce already depends on
+// @wizeworksllc/search for the document types. Keeping all three projections in
+// one module avoids adding @wizeworksllc/search to @wizeworksllc/crm. The shapes are
 // dictated by wizeworks/packages/search/src/schemas/{customers,orders}.ts — keep
 // them in sync.
 

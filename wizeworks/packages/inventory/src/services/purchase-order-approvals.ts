@@ -19,7 +19,7 @@
 //
 // Unlike the B2B rule, these carry an APPROVER, so two matching rules can
 // disagree about who signs. `resolveApprovalRule` (pure, in
-// @wizeworks/commerce-schemas) picks the highest threshold the order clears, then
+// @wizeworksllc/commerce-schemas) picks the highest threshold the order clears, then
 // sort order, then age. A £20k order routes to the £10k approver, not the £500
 // one, and the answer is the same on every run.
 //
@@ -38,9 +38,9 @@ import {
   UpdatePoApprovalRuleInput,
   canSignOff,
   resolveApprovalRule,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntityOnCommit } from '../events';

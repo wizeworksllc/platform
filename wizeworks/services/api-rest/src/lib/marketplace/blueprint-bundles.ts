@@ -32,7 +32,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { z } from 'zod';
 
-import { safeParseBlueprint, type Blueprint } from '@wizeworks/blueprints';
+import { safeParseBlueprint, type Blueprint } from '@wizeworksllc/blueprints';
 
 const here = dirname(fileURLToPath(import.meta.url));
 // wizeworks/services/api-rest/src/lib/marketplace → the repo root is five levels up. In the

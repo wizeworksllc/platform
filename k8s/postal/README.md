@@ -133,7 +133,7 @@ Apply via `gh workflow run bootstrap.yml -f components=app-env`. `email-worker` 
 
 ```powershell
 # After signup is working, trigger a password reset from the dashboard UI —
-# email-worker picks up the email.send event, renders via @wizeworks/email,
+# email-worker picks up the email.send event, renders via @wizeworksllc/email,
 # and POSTs to Postal. Watch logs in two terminals:
 kubectl logs -n sparx-prod -l app=email-worker -f
 kubectl logs -n postal -l app=postal-web -f
@@ -169,7 +169,7 @@ gh workflow run bootstrap.yml -f components=postal
 ## Architecture cross-references
 
 - **Brand decision:** Postal on `sparx.email`, not SendGrid/Postmark/SES — see [CLAUDE.md](../../CLAUDE.md) → "Email goes through self-hosted Postal".
-- **Pub/Sub-default email flow:** publishers → `email.send` topic → `email-worker` → Postal HTTP API. Direct `sendTemplate()` from `@wizeworks/email` is the OTP escape hatch only.
+- **Pub/Sub-default email flow:** publishers → `email.send` topic → `email-worker` → Postal HTTP API. Direct `sendTemplate()` from `@wizeworksllc/email` is the OTP escape hatch only.
 - **DNS / Cloudflare records:** wize-infrastructure's [terraform/envs/prod/cloudflare.tf](https://github.com/wizeworksllc/wize-infrastructure/blob/main/terraform/envs/prod/cloudflare.tf) → `sparx_email_*` resources.
 - **Caddy routing:** the `postal.sparx.email` block was REMOVED from
   the Caddyfile when Postal was decommissioned in favour of Mailgun. The Caddyfile now

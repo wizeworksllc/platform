@@ -173,7 +173,7 @@ Extend product variants with fitment data (JSONB `fitment` array). Product impor
 
 ### Phase 5 — B2B Portal (site-side)
 
-Extend `@wizeworks/customer-auth` (not Better Auth — see docs/27) with B2B account context. B2B portal routes under the tenant site: `/account/b2b/` — credit summary, invoice downloads, quote submission, reorder, saved carts. Access control: `account_admin` / `buyer` / `viewer` roles on `b2b_account_contacts`.
+Extend `@wizeworksllc/customer-auth` (not Better Auth — see docs/27) with B2B account context. B2B portal routes under the tenant site: `/account/b2b/` — credit summary, invoice downloads, quote submission, reorder, saved carts. Access control: `account_admin` / `buyer` / `viewer` roles on `b2b_account_contacts`.
 
 ### Phase 6 — Purchase approval workflows
 
@@ -326,7 +326,7 @@ When unblocked: Windows agent (Node.js + pkg or Tauri) that talks to Fishbowl's 
 
 ## Cross-cutting rules for every phase
 
-- All new Pub/Sub events follow the existing `publishEvent()` helper in `@wizeworks/events`
+- All new Pub/Sub events follow the existing `publishEvent()` helper in `@wizeworksllc/events`
 - All new Cloud Run workers use the `cloud-run-worker` Terraform module pattern (see `services/email-worker/` as reference)
 - New `@sparx/` packages need COPY lines in the consumer service Dockerfiles
 - Module gating: wrap routes in `requireModule('b2b')` / `requireModule('dropship')` — the same middleware used by other module routes

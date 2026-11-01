@@ -1,4 +1,4 @@
-// Vitest setup — quiet logs + point the DB env at local docker (mirrors @wizeworks/crm).
+// Vitest setup — quiet logs + point the DB env at local docker (mirrors @wizeworksllc/crm).
 
 process.env.NODE_ENV = 'test';
 process.env.LOG_LEVEL ??= 'silent';

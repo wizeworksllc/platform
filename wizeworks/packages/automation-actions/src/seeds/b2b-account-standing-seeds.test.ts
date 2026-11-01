@@ -7,7 +7,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { installBuiltinResolvers, registeredResolverEvents } from '@wizeworks/automation';
+import { installBuiltinResolvers, registeredResolverEvents } from '@wizeworksllc/automation';
 
 import { installEntityResolvers } from '../resolvers.js';
 import { B2B_ACCOUNT_CREDIT_HOLD_NOTICE, B2B_ACCOUNT_SUSPENDED_NOTICE } from './b2b.js';

@@ -237,17 +237,17 @@ back.
 ### Files
 
 Schema + migration `20270410000000_a_thing_that_has_to_be_made_before_it_is_sold`;
-`@wizeworks/commerce` (`made-to-order.ts`, `services/made-to-order-service.ts`,
-cart, checkout, product); `@wizeworks/commerce-schemas` (products, cart,
-checkout); `@wizeworks/crm` (`order-ready-on.ts`, order service) and
-`@wizeworks/crm-schemas` (`CreateOrderInput`); `@wizeworks/builder-schemas`
+`@wizeworksllc/commerce` (`made-to-order.ts`, `services/made-to-order-service.ts`,
+cart, checkout, product); `@wizeworksllc/commerce-schemas` (products, cart,
+checkout); `@wizeworksllc/crm` (`order-ready-on.ts`, order service) and
+`@wizeworksllc/crm-schemas` (`CreateOrderInput`); `@wizeworksllc/builder-schemas`
 (binding + both default order confirmations); api-rest (public commerce, public
 cart, the variant catalog, email-data, the payment webhook);
 `wizeworks/apps/site` (buy box note, cart, mini-cart, checkout summary, payment
 step, confirmation); and the console's product editor, order pane, orders list
 and till.
 
-`@wizeworks/commerce` gained a dependency on `@wizeworks/time` — the platform's
+`@wizeworksllc/commerce` gained a dependency on `@wizeworksllc/time` — the platform's
 zone math, rather than a second copy of it here.
 
 ## Still owed
@@ -255,7 +255,7 @@ zone math, rather than a second copy of it here.
 **Nothing has been driven on the screen.** That is the whole of what is left.
 
 The database side is DONE, on 2026-08-24: Brandon stopped dev so `pnpm install`
-(which links `@wizeworks/time` and regenerates the Prisma client on postinstall)
+(which links `@wizeworksllc/time` and regenerates the Prisma client on postinstall)
 and `prisma migrate deploy` could run. Both did. Confirmed against the database
 rather than the command output — `commerce_products` carries `order_ahead_days`,
 `deposit_type` (default `none`), `deposit_amount_cents`, `deposit_percent` and

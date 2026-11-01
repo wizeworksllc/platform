@@ -18,7 +18,7 @@
 // runs in CI with the rest of the unit suite.
 
 import { describe, expect, it } from 'vitest';
-import { Prisma } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
 import { MOVED_MODELS, MERGE_HANDLED_ELSEWHERE } from '../src/services/merge-service';
 
 /** Models with a `customerId`, as Prisma client property names. */

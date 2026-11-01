@@ -8,7 +8,7 @@
 
 import type { FastifyRequest } from 'fastify';
 
-// The shopper OAuth scope vocabulary. SOURCE OF TRUTH is @wizeworks/customer-auth
+// The shopper OAuth scope vocabulary. SOURCE OF TRUTH is @wizeworksllc/customer-auth
 // (CUSTOMER_MCP_SCOPES); duplicated here as a plain list because mcp-site is
 // deliberately DB-less (docs/113 §3.2) and must not import that package. Advertised
 // for discovery only — api-rest enforces the real gate. Keep in sync.

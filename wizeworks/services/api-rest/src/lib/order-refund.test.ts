@@ -14,15 +14,15 @@ let payment = {
   currency: 'USD',
 };
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     fn({
       order: { findUnique: () => Promise.resolve({ amountPaid: 793.5 }) },
       orderPayment: { findFirst: () => Promise.resolve(payment) },
     }),
 }));
-vi.mock('@wizeworks/crm', () => ({ orderRefundsService: { recordRefund } }));
-vi.mock('@wizeworks/payments', () => ({
+vi.mock('@wizeworksllc/crm', () => ({ orderRefundsService: { recordRefund } }));
+vi.mock('@wizeworksllc/payments', () => ({
   GatewayNotFoundError: class extends Error {},
   PaymentConfigError: class extends Error {},
   paymentService: { refund },

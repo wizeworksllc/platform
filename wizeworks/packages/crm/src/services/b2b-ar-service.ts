@@ -21,10 +21,13 @@
 // authority — it derives totals/balance/status AND re-syncs the account's
 // `credit_used`, so every AR mutation keeps credit utilisation consistent.
 
-import { poNumberOf, withPaymentTerms, withPoNumber } from '@wizeworks/crm-schemas';
-import { NET_TERMS_AR_WORKFLOW, NET_TERMS_AR_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { withTenant } from '@wizeworks/db';
-import type { DocumentStage, Prisma } from '@wizeworks/db';
+import { poNumberOf, withPaymentTerms, withPoNumber } from '@wizeworksllc/crm-schemas';
+import {
+  NET_TERMS_AR_WORKFLOW,
+  NET_TERMS_AR_WORKFLOW_SLUG,
+} from '@wizeworksllc/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import type { DocumentStage, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

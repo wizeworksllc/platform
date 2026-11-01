@@ -1,7 +1,7 @@
 // The markup rule form, and its numbers in the server's units (sparx persona
 // issue 086). Pure, so every conversion has a test.
 
-import type { MarkupRuleSpec, MarkupScope } from '@wizeworks/commerce-schemas';
+import type { MarkupRuleSpec, MarkupScope } from '@wizeworksllc/commerce-schemas';
 import {
   toDisplay,
   toEngine,

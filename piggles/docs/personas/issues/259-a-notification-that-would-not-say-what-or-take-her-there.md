@@ -54,7 +54,7 @@ emphatic about what a notification owes its reader:
 > "A notification that only marks itself read is a dead end: it announces
 > something and then makes you go find it."
 
-It resolves the destination through `@wizeworks/links` —
+It resolves the destination through `@wizeworksllc/links` —
 `routeForEntity(entityType)` — which is a plain, case-sensitive `Map.get` over
 the `entity:` keys in
 [routes.ts](../../../../wizeworks/packages/links/src/routes.ts). Those keys are

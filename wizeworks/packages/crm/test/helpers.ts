@@ -1,4 +1,4 @@
-// Per-test fixtures for @wizeworks/crm integration tests.
+// Per-test fixtures for @wizeworksllc/crm integration tests.
 //
 // Strategy: every test gets a fresh tenant + staff user. Tests use
 // ON DELETE CASCADE on tenant_id to teardown via a single tenant delete.
@@ -7,7 +7,7 @@
 
 import crypto from 'node:crypto';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { RecordingPublisher, setPublisher } from '../src/events.js';
 
 export interface TestTenant {

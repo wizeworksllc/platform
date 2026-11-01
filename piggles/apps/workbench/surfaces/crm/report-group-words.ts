@@ -2,7 +2,7 @@
 // ids and sends `groupLabels`; a stored code like `lead` or `credit_hold` is named
 // HERE, with the words this console already uses for it everywhere else.
 
-import { CustomerType, LeadStatus, LifecycleStage } from '@wizeworks/crm-schemas';
+import { CustomerType, LeadStatus, LifecycleStage } from '@wizeworksllc/crm-schemas';
 
 import { formatAmount } from '../../lib/money-format';
 import { paymentTermsLabel } from '../../lib/payment-terms';

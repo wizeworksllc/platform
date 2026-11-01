@@ -18,7 +18,7 @@
 //   · --color-border             the surface ramp's base-300 — a hairline that
 //                                tracks the theme instead of a fixed grey.
 //   · --border / --container-max / --font-heading  the three residuals
-//                                `@wizeworks/site-themes` documents silica doesn't token.
+//                                `@wizeworksllc/site-themes` documents silica doesn't token.
 //
 // So one `SPARX_THEME` drops into a blueprint bundle (or a live site) rendering
 // identically to how the theme picker previews it.

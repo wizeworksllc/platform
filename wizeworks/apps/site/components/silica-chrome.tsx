@@ -36,7 +36,7 @@ import {
   imageAltsOf,
   renderSilicaBody,
   resolveForVisitors,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import { attrProps } from './silica-attrs';
 import { hostWrapperClass } from './host-wrapper';
@@ -73,7 +73,7 @@ export function SilicaBody({
   });
   // No class on the wrapper. `sx-silica-body` used to sit here and nothing in the
   // repo ever styled it — one applied class, zero selectors — so it was a label, not
-  // a hook, and the `sx-` prefix belongs to `@wizeworks/ui` rather than a tenant surface.
+  // a hook, and the `sx-` prefix belongs to `@wizeworksllc/ui` rather than a tenant surface.
   // The div itself stays: `dangerouslySetInnerHTML` needs a container element.
   return <div dangerouslySetInnerHTML={{ __html: html }} />;
 }

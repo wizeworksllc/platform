@@ -2,7 +2,7 @@
 //
 // Attaches a socket.io server at path `/ws/chat` to the Fastify HTTP server.
 // When SOCKET_BUS_URL is set, broadcasts fan out across every api-rest replica
-// over NATS (@wizeworks/socket-bus); unset, the default in-memory adapter is
+// over NATS (@wizeworksllc/socket-bus); unset, the default in-memory adapter is
 // correct for a single process (dev).
 //
 // Only the index.ts bootstrap calls this — createApp() (used by tests) never
@@ -52,7 +52,7 @@ export async function attachChatWebsocket(
   let closeBus: (() => Promise<void>) | null = null;
   if (env.SOCKET_BUS_URL) {
     // Lazy-import so the NATS client is only pulled in when configured.
-    const { connectSocketBus, createSocketBusAdapter } = await import('@wizeworks/socket-bus');
+    const { connectSocketBus, createSocketBusAdapter } = await import('@wizeworksllc/socket-bus');
     const onError = (err: unknown, what: string) =>
       log.error({ err }, `chat socket bus ${what} error`);
     const bus = connectSocketBus(env.SOCKET_BUS_URL, 'api-rest chat', onError);

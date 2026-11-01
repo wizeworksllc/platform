@@ -1,4 +1,4 @@
-// Bridge between Fastify auth context and @wizeworks/crm's ServiceContext.
+// Bridge between Fastify auth context and @wizeworksllc/crm's ServiceContext.
 //
 // Every CRM service function takes `(ctx: ServiceContext, args)`. The REST
 // transport wraps each handler with `requireCrmModule(request)` (which also
@@ -6,10 +6,10 @@
 // the routes vanishingly thin per decision #7 (one service, three transports).
 
 import type { FastifyRequest } from 'fastify';
-import type { ServiceContext } from '@wizeworks/crm';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { ServiceContext } from '@wizeworksllc/crm';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 import { resolvePropertyId } from './property.js';
 
 export function toCrmContext(request: FastifyRequest): ServiceContext {
@@ -52,7 +52,7 @@ export async function requireCrmModule(request: FastifyRequest): Promise<void> {
  *
  *  B2B ACCOUNTS are a B2B-module concept that happens to live under the /v1/crm
  *  URL namespace — the same mis-scoping orders had. B2B requires Commerce, NOT
- *  CRM (wizeworks/packages/modules/src/index.ts REQUIRES graph), so a tenant on B2B +
+ *  CRM (wizeworks/packages/module-roster/src/index.ts REQUIRES graph), so a tenant on B2B +
  *  Commerce could not read their own accounts at all: the /b2b/orders Account
  *  filter came back empty for exactly the tenant it exists to serve.
  *

@@ -4,7 +4,7 @@
 // Save sends only what actually did.
 
 import type { ProductDeposit } from './made-to-order-data';
-import { plainText } from '@wizeworks/commerce-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 
 import type { Product, ProductPatch } from './products-data';
 

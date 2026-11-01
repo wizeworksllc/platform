@@ -6,9 +6,9 @@
 // says no, and throws when it does not answer, which keeps the last good ISR page.
 // Server-only: it reads `process.env`.
 
-import { readPublicData } from '@wizeworks/app-kit/public-api';
+import { readPublicData } from '@wizeworksllc/app-kit/public-api';
 
-export { orWhenUnavailable } from '@wizeworks/app-kit/public-api';
+export { orWhenUnavailable } from '@wizeworksllc/app-kit/public-api';
 
 // In-cluster api-rest URL (k8s/apps/site.yaml injects SPARX_API_REST_URL); the
 // public routes need no auth. Falls back to the local api-rest port for dev.

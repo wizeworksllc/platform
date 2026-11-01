@@ -13,7 +13,7 @@
 // must not pull); this service owns only the read + resolve surfaces consumed by
 // the dashboard via api-rest.
 
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';

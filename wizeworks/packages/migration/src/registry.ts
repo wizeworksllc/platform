@@ -1,6 +1,6 @@
 // The catalogue — what we can take from whom, computed rather than written down.
 //
-// This module is the reason `@wizeworks/migration` is a package instead of living inside
+// This module is the reason `@wizeworksllc/migration` is a package instead of living inside
 // the worker. The marketing site imports it, the workbench imports it, and the API
 // serves it, so all three describe the same capability. A page cannot promise that we
 // bring Squarespace orders unless a Squarespace adapter actually maps orders — the

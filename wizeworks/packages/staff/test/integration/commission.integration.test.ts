@@ -8,7 +8,7 @@
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { createMember } from '../../src/members.js';
 import { deleteRate, listRates, setRate } from '../../src/rates.js';

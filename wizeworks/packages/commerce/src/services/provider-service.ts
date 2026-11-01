@@ -1,6 +1,6 @@
 // providerService — marketplace catalog + per-tenant installations +
 // webhook ingress dispatch. Concrete provider packages register at boot
-// via @wizeworks/integration-framework's registry; this service mediates
+// via @wizeworksllc/integration-framework's registry; this service mediates
 // every read/write a tenant can perform against the marketplace.
 //
 // Encrypted credentials: fields named in `bundle.metadata.secretFields`
@@ -21,16 +21,16 @@ import {
   SetProviderEnabledInput,
   TestProviderInput,
   UpdateProviderConfigInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, ProviderInstallation, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, ProviderInstallation, TxClient } from '@wizeworksllc/db';
 import {
   encryptProviderSecret,
   getProvider,
   isEncryptedProviderSecretRef,
   listProviders,
   type ProviderBundle,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 
 import { writeAuditLog } from '../audit';
 import { CommerceConflictError, CommerceNotFoundError, CommerceValidationError } from '../errors';

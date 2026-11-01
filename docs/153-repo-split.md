@@ -1,6 +1,6 @@
 # Splitting the platform, sparx and Piggles into three repositories
 
-**Version:** 0.4
+**Version:** 0.5
 **Author:** Brandon Korous
 **Last Updated:** 2026-10-31
 
@@ -49,9 +49,9 @@ Measured at `58e3d13c5`.
 2. **The auth server runs inside the apps.** `sparx/apps/workbench` and
    `piggles/apps/account` each mount Better Auth at `app/api/auth/[...all]` and
    run it against the shared user and session tables. sparx's workbench imports
-   `@wizeworks/auth` in 37 files. Both apps' pods load `sparx-app-secrets`,
+   `@wizeworksllc/auth` in 37 files. Both apps' pods load `sparx-app-secrets`,
    including `DATABASE_URL`.
-3. **Direct database reads.** `piggles/apps/account` imports `@wizeworks/db` in
+3. **Direct database reads.** `piggles/apps/account` imports `@wizeworksllc/db` in
    11 places (`lib/account-load.ts`, `lib/onboarding-save.ts`,
    `lib/business-slug.ts`, ...). sparx's workbench has one
    (`app/api/consent/route.ts`).
@@ -76,7 +76,7 @@ Measured at `58e3d13c5`.
 ## How the shared packages publish (D2)
 
 - **Scope `@wizeworksllc`.** GitHub Packages requires a package's scope to
-  match its owner, so `@wizeworks/api-client` becomes
+  match its owner, so `@wizeworks/api-client` became
   `@wizeworksllc/api-client`. `@wizeworks` stays the public npm scope
   (silicaui, the wizelens SDKs). One scope can resolve from only one registry,
   so keeping the two apart is what lets the public packages keep installing
@@ -115,7 +115,7 @@ here.
 - **Server-side session checks become an API call** (or a token the app
   verifies with a public key), replacing `requireSession()` against the
   database. This touches sparx's 37 auth-importing files.
-- **Every `@wizeworks/db` use in an app moves behind an api-rest endpoint.**
+- **Every `@wizeworksllc/db` use in an app moves behind an api-rest endpoint.**
   Piggles' account load, onboarding save and business slug; sparx's consent
   route.
 - **A platform token endpoint replaces both consoles' own JWT minting**, so
@@ -124,7 +124,7 @@ here.
 - Remove the stale `sparx/packages/brand` copy from the account Dockerfile, and
   teach `check:deletability` to read Dockerfiles.
 
-Done when no app imports `@wizeworks/db` or the auth server, and no app pod can
+Done when no app imports `@wizeworksllc/db` or the auth server, and no app pod can
 read `DATABASE_URL`. A test pass on both brands covers sign-up, sign-in, the
 getpiggles.com to mypiggles.com handoff, password reset and two-step
 verification before it ships. This is the riskiest phase.
@@ -135,7 +135,7 @@ Done 2026-10-31.
 
 - The studio engine moved to `piggles/packages/studio` and is now
   `@piggles/studio`. Only the Piggles console used it.
-- Piggles' platform config moved to `@wizeworks/brand-registry`
+- Piggles' platform config moved to `@wizeworksllc/brand-registry`
   (`brands/piggles/billing-plan.json`, `brands/piggles/wordmark.json`). The
   ConfigMap is checked against it by `check:billing-plans` and
   `check:brand-wordmark`, which no longer read `piggles/`. Piggles' own test
@@ -144,16 +144,59 @@ Done 2026-10-31.
   ConfigMap values, so nothing changed at runtime.
 - No app in `piggles/` or `sparx/` reaches into `wizeworks/` by folder path.
   CSS `@source` lines name the package in `node_modules`, and
-  `builder-vocabulary.css` is a `@wizeworks/silica-catalog` export (the compiled
+  `builder-vocabulary.css` is a `@wizeworksllc/silica-catalog` export (the compiled
   CSS is byte-identical). The condition picker's test imports
   `RESOLVED_FIELD_PATHS` and `GOAL_FIELD_PATHS` from
-  `@wizeworks/automation-schemas`, whose own test keeps them true to the
+  `@wizeworksllc/automation-schemas`, whose own test keeps them true to the
   resolvers. That every record address has a page is now the site app's test.
 
 ### Phase 3. Rename and publish the shared packages (D2)
 
-- The `@wizeworks` to `@wizeworksllc` rename sweep for workspace packages.
-- Changesets and a publish job in the release.
+- Done 2026-10-31: the `@wizeworks` to `@wizeworksllc` rename sweep for
+  workspace packages. Applied migrations were left byte-for-byte, because their
+  checksums are keys in every database.
+- Done 2026-10-31: no app installs the database layer. The apps used small,
+  database-free parts of five packages that also carry `@wizeworksllc/db`, so
+  publishing those packages would have shipped the data layer to every app.
+  Each part is now its own package, and the original re-exports it, so platform
+  code did not change:
+
+  | New package                            | Split from                      | What the apps use                                                   |
+  | -------------------------------------- | ------------------------------- | ------------------------------------------------------------------- |
+  | `@wizeworksllc/auth-client`            | `@wizeworksllc/auth`            | the browser client, role and access vocabularies, MCP scopes, slugs |
+  | `@wizeworksllc/module-roster`          | `@wizeworksllc/modules`         | `ModuleSlug`, `ALL_MODULES`, the bundling and requirement rules     |
+  | `@wizeworksllc/usage-meters`           | `@wizeworksllc/usage`           | the meters, how a reading is judged, the capacity report shape      |
+  | `@wizeworksllc/social-cadence`         | `@wizeworksllc/social`          | `slotOccurrences`, the posting-slot maths                           |
+  | `@wizeworksllc/email-sequence-schemas` | `@wizeworksllc/email-sequences` | the sequence zod schemas                                            |
+
+  The user fields Better Auth adds (`tenantId`, `role`, `platformBrand`) are now
+  one list in `@wizeworksllc/auth-client/user-fields` that the server and the
+  browser client both read. The client used to infer them from the server's
+  type, which a frontend cannot import. The three app images that installed the
+  database (both consoles, the account app) no longer copy it or run
+  `prisma generate`.
+
+- Packages publish as TypeScript source, the way the apps consume them today.
+  Every consumer is a Next.js app, and Next.js compiles a dependency's
+  TypeScript when the dependency is in `transpilePackages`. A build step would
+  add a second shape to keep in sync for no reader. Today the workspace links
+  resolve outside `node_modules`, so Next.js compiles them without the list.
+  When an app switches to published versions, every `@wizeworksllc` package it
+  uses must go on its `transpilePackages` list in the same change.
+- Done 2026-10-31: the release publishes. The 28 platform packages sparx and
+  Piggles install carry `publishConfig` for GitHub Packages, and the `publish`
+  job (after `containers`, before `tag`) runs `scripts/publish-packages.mjs`.
+  A package that changed since the previous release tag is published at the
+  version the tag is about to cut; one that did not keeps its last version. A
+  dependent moves with its dependency, because `workspace:*` publishes as an
+  exact version. The tag waits for the job, so a tag means its packages exist.
+  This replaced the Changesets plan: Changesets versions through a pull request
+  a bot opens, and this repository has none. `check:publishable` (push gate and
+  CI) fails when a brand installs a package that does not publish, or when a
+  published package depends on the database. A full set is about 1 MB.
+- **Before the first publish:** in the wizeworksllc org settings, Packages must
+  allow members to publish private packages, or the first `publish` job fails
+  and the tag is held back (the containers will already be live).
 - sparx and Piggles switch from `workspace:*` to published versions **while
   still in this repository**, so the switch is proven before anything moves.
 

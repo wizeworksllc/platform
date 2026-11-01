@@ -13,8 +13,8 @@
 import type { FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { marketService, type ServiceContext } from '@wizeworks/commerce';
-import { notFound } from '@wizeworks/api-core/errors';
+import { marketService, type ServiceContext } from '@wizeworksllc/commerce';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import {
   assertCartToken,

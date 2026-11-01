@@ -3,7 +3,7 @@
 // The same three states as the buyer's note at checkout, and the same reason
 // for spelling them out rather than writing the expression inline: collapsing
 // two of them is invisible, compiles, and makes a box impossible to empty.
-// (`checkout-note.ts` in @wizeworks/commerce is the twin; issue 874 is the one
+// (`checkout-note.ts` in @wizeworksllc/commerce is the twin; issue 874 is the one
 // that found the shape, issue 876 is this one.)
 //
 //   ABSENT   the caller is saving a quantity and is not talking about the note

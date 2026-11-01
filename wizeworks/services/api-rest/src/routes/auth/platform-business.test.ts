@@ -19,7 +19,7 @@ const JOINED = '5944fe23-be83-4ce5-aafc-ef56b8594508';
 const tenantsWritten: string[] = [];
 const platformSession = vi.fn();
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: {},
   SAMPLE_DATA_PACKS: {},
   withTenant: (ctx: { tenantId: string }, fn: (tx: unknown) => Promise<unknown>) => {

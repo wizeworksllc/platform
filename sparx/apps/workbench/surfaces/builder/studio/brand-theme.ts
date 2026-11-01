@@ -7,7 +7,7 @@
 // compiling the brand — and a check that compiled it differently from the canvas
 // would be judging colors nobody sees.
 //
-// So the derivation moved to `@wizeworks/site-themes/v2/brand-theme.ts`, next to the
+// So the derivation moved to `@wizeworksllc/site-themes/v2/brand-theme.ts`, next to the
 // compiler it calls, and both callers read the one copy. This file stays as the
 // import path the studio already uses, and to keep the studio's `Theme` (silicaui's
 // nominal type) lined up with the structural `SilicaTheme` the package returns.
@@ -16,11 +16,11 @@ import {
   storedPresetV2,
   tenantTheme as compileTenantTheme,
   type BrandColumns,
-} from '@wizeworks/site-themes';
+} from '@wizeworksllc/site-themes';
 import type { Theme } from '@wizeworks/silicaui-html';
 
-export { applyBrandOverride, EMPTY_BRAND } from '@wizeworks/site-themes';
-export type { BrandColumns, BrandOverride } from '@wizeworks/site-themes';
+export { applyBrandOverride, EMPTY_BRAND } from '@wizeworksllc/site-themes';
+export type { BrandColumns, BrandOverride } from '@wizeworksllc/site-themes';
 
 /** Compile the site's theme + the tenant's (effective) brand into a silica `Theme`,
  *  so the canvas opens on the real look — colors, type, rounding. `undefined` on any

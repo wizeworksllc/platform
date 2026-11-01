@@ -9,7 +9,7 @@
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { customerService, dealService, pipelineService } from '../../src/services/index.js';
 import { disposeTestContext, makeTestContext, type TestContext } from '../helpers.js';
 

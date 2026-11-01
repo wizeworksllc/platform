@@ -376,9 +376,9 @@ Needs decisions 1 and 2 (both settled).
   schema diff is 25 added lines and 3 changed ones. Do not run `prisma format`
   here without checking what else it moved.
 
-- ☑ **B2 — `@wizeworks/funnels`.** _(2026-08-25)_ Service layer, stage recording,
+- ☑ **B2 — `@wizeworksllc/funnels`.** _(2026-08-25)_ Service layer, stage recording,
   goal evaluation, the daily reconcile and the ladder read model. Deps are
-  `@wizeworks/db` + `@wizeworks/automation-schemas` + zod only, so the
+  `@wizeworksllc/db` + `@wizeworksllc/automation-schemas` + zod only, so the
   event-worker can run the reconcile without React; the client-safe `./schemas`
   subpath is zod-only for the workbench editor.
 
@@ -691,7 +691,7 @@ value=12500`, and the cascade was proven. 16/16 schema tests, tsc and eslint
 
   _A gap `check:routes` caught:_ both surfaces were registered and neither had an
   address, so a deep link or an MCP `open` could not reach them. Added
-  `/campaigns` and `/campaigns/:id` to `@wizeworks/links`. That check exists
+  `/campaigns` and `/campaigns/:id` to `@wizeworksllc/links`. That check exists
   because a surface that is registered and unreachable typechecks green.
 
   _Verified:_ tsc + eslint clean on both workbench apps, `check:routes` (340
@@ -852,7 +852,7 @@ value=12500`, and the cascade was proven. 16/16 schema tests, tsc and eslint
   `explain_crm_score` beside every other reason.
 
   **It lives in the ACTION layer, not in CRM.** The first cut put it in
-  `@wizeworks/crm`'s lead-service and the typecheck refused it: CRM does not
+  `@wizeworksllc/crm`'s lead-service and the typecheck refused it: CRM does not
   depend on the builder's schemas, and it should not start. Reading a form
   definition to write a CRM score is cross-module orchestration, which is what
   the action layer is for — and `automation-actions` already depends on both
@@ -919,7 +919,7 @@ value=12500`, and the cascade was proven. 16/16 schema tests, tsc and eslint
   brand-leak assertion strips URLs before comparing.
 
   _Verified:_ 8 new token tests (tamper, wrong secret, expiry boundary,
-  cross-type replay, malformed, weak secret), 213 in `@wizeworks/email` including the
+  cross-type replay, malformed, weak secret), 213 in `@wizeworksllc/email` including the
   every-template coverage gate whose hardcoded count fired correctly and was
   bumped 38 → 39, and 41 in the worker.
 
@@ -1136,7 +1136,7 @@ WORKING TREE and of the local environment, which no other file records.
 All five migrations are on and the client is regenerated. `prisma migrate status`
 reads "Database schema is up to date" over 313 migrations, and the DB-backed
 suites run: **crm 455**, api-rest 398, builder 125, commerce 118, funnels 41. The
-`@wizeworks/db` RLS audit passes over 441 tables (408 tenant-scoped), which is what
+`@wizeworksllc/db` RLS audit passes over 441 tables (408 tenant-scoped), which is what
 confirms the five new tables carry their POLICIES rather than just their columns.
 
 | Migration                                          | What it added                                                         |
@@ -1207,7 +1207,7 @@ server collides with theirs and with any parallel agent.
 not in the dogfood tenant's module list, so the Campaigns pane was absent from
 the console and every funnels endpoint answered `MODULE_DISABLED`. It is now
 enabled in `prisma/seed.ts` beside chat / ai / scheduling, which are on for the
-same reason. **`pnpm --filter @wizeworks/db db:seed` has to run** for that to take
+same reason. **`pnpm --filter @wizeworksllc/db db:seed` has to run** for that to take
 effect — the flag is a seed change, not a migration.
 
 That is worth remembering as a shape: a module-gated surface built end to end
@@ -1486,7 +1486,7 @@ true even if something had checked.
 
 **Fix:**
 
-- `@wizeworks/funnels` `goals.ts` — `convertOnGoals(ctx, { type, occurredAt,
+- `@wizeworksllc/funnels` `goals.ts` — `convertOnGoals(ctx, { type, occurredAt,
 fields })`. For each ACTIVE campaign on the event's site (or any site when the
   event has none), a person converts when they entered BEFORE the event, have
   not converted, the event is not about the record they entered on, and the goal
@@ -1527,7 +1527,7 @@ repair did not match.
 
 **Fix:**
 
-- `@wizeworks/funnels` `advance.ts` replaces G3's `goals.ts`.
+- `@wizeworksllc/funnels` `advance.ts` replaces G3's `goals.ts`.
   `advanceOnEvent` does three things per running campaign on the event's site:
   1. It puts a person in on the first `capture` rung whose `match` holds. This
      happens on the campaign's own site only, never from a site-less event, and
@@ -1670,7 +1670,7 @@ NO pending order behind, and that a double-tap does not charge twice.
   suites here), but it is the only thing that caught either of B3's two bugs.
 - `prisma validate`, `check:events`, `check:routes`, `check:docker`,
   `check-migration-order` — green
-- `pnpm --filter @wizeworks/db db:rls-audit` — 436 tables audited, 403
+- `pnpm --filter @wizeworksllc/db db:rls-audit` — 436 tables audited, 403
   tenant-scoped, no findings
 - prettier — clean. **It has no parser for `.prisma`** — use
   `prisma format --schema prisma/schema` for those, and read the next paragraph

@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { signOutSession } from '@wizeworks/auth-client-server';
+import { signOutSession } from '@wizeworksllc/auth-client-server';
 import { accountOrigin } from '@piggles/auth-handoff';
 
 // Signing out, from the console side.

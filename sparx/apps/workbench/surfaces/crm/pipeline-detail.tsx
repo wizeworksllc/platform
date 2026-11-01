@@ -31,7 +31,7 @@ import {
   Text,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { fixedStageChance } from '@wizeworks/crm-schemas';
+import { fixedStageChance } from '@wizeworksllc/crm-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { Archive, ChevronDown, ChevronUp, Plus, Trash2 } from 'lucide-react';
 import { useDirtySource } from '../../lib/workbench/dirty';

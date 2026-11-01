@@ -17,7 +17,7 @@
 // ══════════════════════════════════════════════════════════════════════════
 
 import { useMemo } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useActivePropertyId } from '../../lib/api/shell-data';
 import { useDomains } from '../domains/data';

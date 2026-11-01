@@ -22,7 +22,7 @@
 // — hands back the sizes it knows. A source with no entry in that map is counted and
 // reported as unsized rather than assumed to be free.
 
-import { checkClassString, renderSilicaBody } from '@wizeworks/silica-catalog';
+import { checkClassString, renderSilicaBody } from '@wizeworksllc/silica-catalog';
 
 import type { SiteLintInput } from './types';
 import { imageSrc, isImageNode, type ContentNode, type DocumentInventory } from './walk';

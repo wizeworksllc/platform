@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/platform-crm-worker",
+  "name": "@wizeworksllc/platform-crm-worker",
   "version": "0.0.0",
   "private": true,
   "description": "sparx platform-CRM worker. Receives tenant + module lifecycle events via Pub/Sub push (Cloud Run HTTP entrypoint) and mirrors them into the PLATFORM tenant's own CRM (docs/140): a signup becomes a contact + a deal on the 'Tenant Signups' pipeline, and later events move that deal through trial → activated → paying / churned. Idempotent on redelivery.",
@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/platform-crm": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/platform-crm": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

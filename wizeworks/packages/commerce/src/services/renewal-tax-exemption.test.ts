@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import type { RateOption } from '@wizeworks/commerce-schemas';
+import type { RateOption } from '@wizeworksllc/commerce-schemas';
 
 /**
  * A REPEAT DELIVERY READS THE SAME CERTIFICATES CHECKOUT DOES (issue 075).
@@ -56,7 +56,7 @@ const POST: RateOption = {
 
 const calculate = vi.fn();
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));

@@ -5,7 +5,7 @@
 // the page and on every card linking to it, from this one projection.
 
 import { describe, expect, it } from 'vitest';
-import type { KindFieldLike } from '@wizeworks/silica-catalog';
+import type { KindFieldLike } from '@wizeworksllc/silica-catalog';
 
 import type { ApiEntry } from './content';
 import {

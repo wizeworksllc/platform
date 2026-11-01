@@ -34,7 +34,7 @@ screen that is scoped to one site.**
 The platform already had the rule, named and shared:
 
 ```ts
-// @wizeworks/db — contentSiteVisibilityWhere
+// @wizeworksllc/db — contentSiteVisibilityWhere
 {
   OR: [{ propertyLinks: { none: {} } }, { propertyLinks: { some: { propertyId } } }];
 }

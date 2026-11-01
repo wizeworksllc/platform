@@ -11,7 +11,7 @@
 // block, which no code path had ever populated. Both now resolve here, so the
 // two documents cannot disagree about who sent them.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 export interface BusinessIdentity {
   /** Masthead name. Omitted (not empty) when the business has no name at all,

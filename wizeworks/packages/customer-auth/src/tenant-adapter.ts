@@ -1,7 +1,7 @@
 // Tenant-scoping database adapter for the customer Better Auth instance
 // (docs/27 v2 §3.2). This is the load-bearing piece of the application-level
 // multi-tenancy: it hands Better Auth's stock `prismaAdapter` a PROXY over the
-// shared @wizeworks/db client that does exactly three things and nothing else, so all
+// shared @wizeworksllc/db client that does exactly three things and nothing else, so all
 // of Better Auth's audited where/select/join logic is reused verbatim:
 //
 //   1. Remaps the OAuth provider's and jwt() plugin's model keys (oauthClient,
@@ -22,9 +22,9 @@
 // Correctness rests on the DB: FORCE RLS + `@@unique([tenant_id, email])` +
 // `tenant_id DEFAULT current_tenant_id()`. This Proxy guarantees the GUC is set.
 
-import { prisma, tenantStore, withTenant, type TxClient } from '@wizeworks/db';
+import { prisma, tenantStore, withTenant, type TxClient } from '@wizeworksllc/db';
 
-// Better Auth model key → real @wizeworks/db Prisma delegate key. Core keys are the
+// Better Auth model key → real @wizeworksllc/db Prisma delegate key. Core keys are the
 // SAME on both sides (set via server.ts `modelName` options); only the plugin
 // keys are remapped. A plugin key missing here would reach the staff table of
 // the same name, so every model the provider and jwt() declare is listed.
@@ -158,7 +158,7 @@ let dataModel: RuntimeDataModel | undefined;
 
 /** The client handed to `prismaAdapter`. Intercepts model access + `$transaction`
  *  to enforce tenant scoping and plugin-key remapping; everything else is the
- *  real @wizeworks/db client. */
+ *  real @wizeworksllc/db client. */
 export const tenantScopedClient: typeof prisma = new Proxy(prisma, {
   get(target, prop) {
     if (prop === '_runtimeDataModel') {

@@ -17,10 +17,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { TxClient } from '@wizeworks/db';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
+import type { TxClient } from '@wizeworksllc/db';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
 
 /** The normalized lifecycle every ledger collapses to. */
 type JobStatus = 'running' | 'done' | 'failed';

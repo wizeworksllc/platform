@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import { Alert, Button } from '@wizeworks/silicaui-react';
-import { cadenceLabel, type RepeatCadence } from '@wizeworks/commerce-schemas';
+import { cadenceLabel, type RepeatCadence } from '@wizeworksllc/commerce-schemas';
 
 import { checkoutBlock, lineRule, ruleSentence } from '@/lib/account-buying-rules';
 import { ordersClosed } from '@/lib/orders-closed';

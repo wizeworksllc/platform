@@ -25,7 +25,7 @@
 // stored row is live (unexpired, unrevoked, bound to a shopper, client enabled).
 
 import { createHash } from 'node:crypto';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   decodeProtectedHeader,
   errors as joseErrors,

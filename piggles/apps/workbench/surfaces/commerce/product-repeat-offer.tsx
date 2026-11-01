@@ -19,7 +19,7 @@ import {
   cadenceLabel,
   REPEAT_CADENCE_CHOICES,
   type RepeatCadence,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { FormSection } from '../../components/form-section';
 import { useDirtySource } from '../../lib/workbench/dirty';

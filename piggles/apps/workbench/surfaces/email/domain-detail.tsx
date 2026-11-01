@@ -17,7 +17,7 @@
 // "DKIM" or "DMARC" without saying what it DOES in the same breath, and every
 // value is presented as a thing to copy rather than a thing to understand.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

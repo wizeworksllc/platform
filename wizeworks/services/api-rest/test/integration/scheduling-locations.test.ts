@@ -16,7 +16,7 @@
 //     completed appointments. `isActive:false` is the lossless retirement path.
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   createLocation,
   deleteLocation,
@@ -25,7 +25,7 @@ import {
   updateLocation,
   LocationInUseError,
   LocationNotFoundError,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 
 describe('scheduling locations', () => {

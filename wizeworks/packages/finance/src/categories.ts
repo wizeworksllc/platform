@@ -10,7 +10,7 @@
 // vocabulary wins over ours wherever it is only a label) but never deletable,
 // because derivers find `wages` and `software` by slug.
 
-import { withTenant, type FinanceExpenseCategory, type TxClient } from '@wizeworks/db';
+import { withTenant, type FinanceExpenseCategory, type TxClient } from '@wizeworksllc/db';
 
 import {
   CategoryInUseError,
@@ -97,7 +97,7 @@ export interface SeedCategoriesResult {
  * pre-read below is what lets a repeat run say zero and mean it.
  *
  * Accepts an optional open transaction so an industry starter can stamp several
- * modules' presets atomically (the ModulePreset contract in @wizeworks/modules).
+ * modules' presets atomically (the ModulePreset contract in @wizeworksllc/modules).
  */
 export async function seedCategories(
   tenantId: string,

@@ -19,8 +19,8 @@
 // nobody types a catalog string in catalog order. `nameSearchClauses` owns the
 // "every word, somewhere" part; this owns which columns "somewhere" is.
 
-import { nameSearchClauses, productSiteVisibilityWhere } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { nameSearchClauses, productSiteVisibilityWhere } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 /** The places one typed word may match on a version, case-insensitively. */
 export function variantWordClauses(term: string): Prisma.ProductVariantWhereInput[] {

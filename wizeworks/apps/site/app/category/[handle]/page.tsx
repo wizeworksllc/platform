@@ -10,7 +10,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getPublishedSilicaCollection } from '@/lib/silica';
-import { categoryDetailPage } from '@wizeworks/silica-catalog';
+import { categoryDetailPage } from '@wizeworksllc/silica-catalog';
 
 import { SilicaFunctionalBody } from '@/components/silica-chrome';
 import { SiteHostRenderer } from '@/components/silica-host-cores';

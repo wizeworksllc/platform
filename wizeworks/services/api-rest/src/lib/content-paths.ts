@@ -8,7 +8,7 @@
 // pattern gives (`kindAddressFromPattern`, the storefront's own rule), so this asks the
 // same rule, and a pattern the website cannot serve gets no link at all.
 
-import { kindAddressFromPattern, kindPath } from '@wizeworks/silica-catalog';
+import { kindAddressFromPattern, kindPath } from '@wizeworksllc/silica-catalog';
 
 /**
  * The path a published entry is served at, or null when it has none.

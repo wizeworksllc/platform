@@ -4,7 +4,7 @@
 // a line priced by hand keeps the cost typed for it, because that cost is what
 // its margin is worked out from (sparx persona issue 086).
 
-import type { LineMarkupInput } from '@wizeworks/commerce-schemas';
+import type { LineMarkupInput } from '@wizeworksllc/commerce-schemas';
 import type { DraftLine } from './totals';
 
 /** A markup line's priced result, when the line is priced by cost and markup. */

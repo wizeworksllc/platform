@@ -4,7 +4,7 @@
 // card that holds the ONE primary CTA every step commits through.
 
 import { Button, Text } from '@wizeworks/silicaui-react';
-import type { StoryState } from '@wizeworks/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 import type { StepMark } from '../onboarding-layout';
 import { SummaryCard } from '../../../lib/onboarding/summary-card';
 import { StoryExtras, storyPlanItems } from '../story/story-summary';

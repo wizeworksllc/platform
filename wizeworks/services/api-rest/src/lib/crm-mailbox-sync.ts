@@ -14,10 +14,10 @@
 // after the first run it asks only for UIDs above where it left off.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { badRequest } from '@wizeworks/api-core/errors';
-import { engagementService, mailboxService } from '@wizeworks/crm';
-import { isAutomatedMessage, parseRawInbound } from '@wizeworks/crm/mail';
-import type { MailboxConnection } from '@wizeworks/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
+import { engagementService, mailboxService } from '@wizeworksllc/crm';
+import { isAutomatedMessage, parseRawInbound } from '@wizeworksllc/crm/mail';
+import type { MailboxConnection } from '@wizeworksllc/db';
 
 import {
   decryptMailboxSecret,

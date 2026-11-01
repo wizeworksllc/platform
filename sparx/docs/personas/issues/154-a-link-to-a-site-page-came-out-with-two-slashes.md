@@ -15,7 +15,7 @@ Doty pointed his email's button at his booking page the obvious way: `{{site.url
 
 > Book a winter check <https://gillettdiesel.sparx.zone//book?utm_source=…>
 
-`{{site.url}}` is the site's home with a trailing slash (`siteUrl` in `@wizeworks/db/site-origin`, on purpose, "so a mail client never has to guess"). Anything an owner writes after it starts with its own slash.
+`{{site.url}}` is the site's home with a trailing slash (`siteUrl` in `@wizeworksllc/db/site-origin`, on purpose, "so a mail client never has to guess"). Anything an owner writes after it starts with its own slash.
 
 ## What should have happened
 

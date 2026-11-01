@@ -36,7 +36,7 @@ import 'server-only';
 // action), uncached, so each carries that person's client chain: api-rest then
 // rate-limits and audits the person, not this pod's one shared address.
 
-import { platformRequest } from '@wizeworks/auth-client-server';
+import { platformRequest } from '@wizeworksllc/auth-client-server';
 import type { TradeOption } from './trade-options';
 import { tradeOptions } from './trades';
 

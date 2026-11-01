@@ -5,9 +5,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-vi.mock('@wizeworks/auth', () => ({ legacyMcpResponse: vi.fn() }));
-vi.mock('@wizeworks/customer-auth', () => ({ getCustomerAuth: vi.fn() }));
-vi.mock('@wizeworks/db', () => ({ prisma: {}, tenantStore: { run: vi.fn() } }));
+vi.mock('@wizeworksllc/auth', () => ({ legacyMcpResponse: vi.fn() }));
+vi.mock('@wizeworksllc/customer-auth', () => ({ getCustomerAuth: vi.fn() }));
+vi.mock('@wizeworksllc/db', () => ({ prisma: {}, tenantStore: { run: vi.fn() } }));
 vi.mock('./domain.js', () => ({ resolveSiteByHost: vi.fn() }));
 
 const { isForwardedAuthPath } = await import('./customer-oauth.js');

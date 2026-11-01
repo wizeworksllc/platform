@@ -1,33 +1,33 @@
 // Universal-search projectors (docs/39 §5) for the commerce + CRM entity set.
 //
-// These live in @wizeworks/commerce — the same home as projectCustomer/projectOrder
-// — because the commerce-indexer already depends on @wizeworks/commerce, so no new
+// These live in @wizeworksllc/commerce — the same home as projectCustomer/projectOrder
+// — because the commerce-indexer already depends on @wizeworksllc/commerce, so no new
 // dependency edge / Dockerfile COPY is needed. They all read straight through
-// @wizeworks/db's Prisma client (one schema spans Commerce + CRM models), so the
+// @wizeworksllc/db's Prisma client (one schema spans Commerce + CRM models), so the
 // CRM entities (b2b_account, quote, segment, pipeline, deal, task) project here
-// without pulling @wizeworks/crm's service layer.
+// without pulling @wizeworksllc/crm's service layer.
 //
 // Phase 1 (shipped): warehouse, discount, gift_card, b2b_account, quote.
 // Phase 2 (breadth): collection, category, bundle, subscription, review, return,
 // segment, pipeline, deal, task.
 //
 // Each entity becomes live by publishing `search.entity.changed` from its write
-// sites (via @wizeworks/events `indexEntity`); reindex walks
+// sites (via @wizeworksllc/events `indexEntity`); reindex walks
 // `commerceUniversalProjectors` to backfill regardless. The doc shape is
 // dictated by wizeworks/packages/search/src/schemas/entities.ts — keep them in sync.
 
 import {
   B2B_QUOTE_WORKFLOW_SLUG,
   NET_TERMS_AR_WORKFLOW_SLUG,
-} from '@wizeworks/crm-schemas/builtins';
-import { companyService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas/builtins';
+import { companyService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
 import {
   type EntityProjector,
   type ProjectorContext,
   type UniversalSearchDocument,
   universalId,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 import {
   bundlePricingWords,
   collectionKindWords,
@@ -770,7 +770,7 @@ const productProjector: EntityProjector = {
 // projectors and a route holds an id, not a typeKey. It was reindex-only until
 // then, and `check:search-entities` read it as signalled on the strength of an
 // SEO audit snapshot that happens to use the same word.
-// Read via the shared Prisma client (no @wizeworks/cms dep / Dockerfile edge, same
+// Read via the shared Prisma client (no @wizeworksllc/cms dep / Dockerfile edge, same
 // as the CRM projectors). Public storefront search filters status:='published'.
 //
 // A "page" here is a `ContentEntry` with `typeKey = 'page'` — a tenant's policy and
@@ -875,7 +875,7 @@ const siteProjector: EntityProjector = {
 // that shows every product. Gillett Diesel typed "About" with the page open in
 // the editor behind the box and was told "Nothing in your records matches"
 // (sparx persona issue 130): pages were never in the index, though the box says
-// it searches everything. Signalled from `@wizeworks/builder`'s page and site
+// it searches everything. Signalled from `@wizeworksllc/builder`'s page and site
 // services (`page-search.ts`) on every write that adds, renames, re-addresses,
 // publishes or removes a page.
 //

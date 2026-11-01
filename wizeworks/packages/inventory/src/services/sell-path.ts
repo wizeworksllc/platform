@@ -30,8 +30,8 @@
 // commitSaleOnTx get the per-line results back and emit; reverseOrderSale owns
 // its own transaction and emits itself.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { publishInventoryEvent } from '../events';

@@ -113,7 +113,7 @@ enum made `'all'` assignable to a service filter that has no such state, and
 ## Checks
 
 piggles console 172 files / 1613 tests, sparx workbench 141 / 1295,
-`@wizeworks/crm` 29 / 286, `@wizeworks/automation-actions` 3 / 25, api-rest
+`@wizeworksllc/crm` 29 / 286, `@wizeworksllc/automation-actions` 3 / 25, api-rest
 34 / 275 — all green. Typecheck 0 on all five. All 59 structural guards pass.
 ESLint and prettier clean.
 

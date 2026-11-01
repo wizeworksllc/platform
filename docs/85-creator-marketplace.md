@@ -31,7 +31,7 @@ It builds directly on decisions already made:
 
 - **Blueprints** are a declarative manifest, "no code exec, marketplace-safe" ([docs/54](54-tenant-blueprints.md) D2).
 - **Components** are declarative node-trees rendered by expansion — "never code; tenants writing JS would be RCE" ([docs/53](53-builder-tenant-components.md)).
-- **Integrations** ride the typed provider framework (`@wizeworks/integration-framework`) and the external-data connectors of [docs/63](63-external-data-connections.md).
+- **Integrations** ride the typed provider framework (`@wizeworksllc/integration-framework`) and the external-data connectors of [docs/63](63-external-data-connections.md).
 - **Auth/publishers/RLS** per [docs/16](16-auth-security.md); **billing** per [docs/17](17-billing-subscriptions.md).
 
 This doc supersedes docs/60 §15 (public funnel) and §16 (publishing/monetization,
@@ -117,7 +117,7 @@ upload(.zip) → unpack → ALLOW-LIST → COMPILE → VALIDATE → INTEGRITY �
 2. **Allow-list** every path against §4. Any stray file → **deny**.
 3. **Compile** the single payload in an **isolated build** with an allow-listed
    import surface (only the authoring helpers: the `node()` vocabulary from
-   `@wizeworks/builder-schemas`, types from `@wizeworks/marketplace-schemas`). No Node APIs,
+   `@wizeworksllc/builder-schemas`, types from `@wizeworksllc/marketplace-schemas`). No Node APIs,
    no network, no filesystem. Output = the declarative artifact JSON. The build runs
    in the same isolation we will reuse for the integration sandbox (§9).
 4. **Validate** the artifact against its Zod schema (`DataThemePreset`,
@@ -200,7 +200,7 @@ services. No SQL payload, no code-registry lookup by slug, no deploy.
 - **Theme → Apply.** Load `DataThemePreset`; write it into the tenant's
   `SiteConfig.draftSettings.themePreset`; the compile engine compiles from the inline
   preset (the `compileTokensFromDefaults` / `compileThemeForTenant({preset})` seam
-  added in `@wizeworks/site-themes`). Publish snapshots it forward; the site renders
+  added in `@wizeworksllc/site-themes`). Publish snapshots it forward; the site renders
   from the snapshot. **No code preset, no closed enum.**
 - **Blueprint → Install.** `parseBlueprint(artifact)` → `installBlueprint(ctx, bp)`
   (the installer already takes a `Blueprint` object). Routes resolve the manifest from
@@ -232,7 +232,7 @@ _new_ runtime plumbing; the rest reuses existing services.
 ## 9. Integrations: the code tier (deferred)
 
 The open submission tier is declarative (§3.1). Real provider logic — a new payment,
-shipping, or tax provider implementing the `@wizeworks/integration-framework` interfaces —
+shipping, or tax provider implementing the `@wizeworksllc/integration-framework` interfaces —
 is a **sandboxed code tier**:
 
 - Reviewed manually, then run in **isolation** (a V8 isolate / WASM / isolated worker

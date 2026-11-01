@@ -33,7 +33,7 @@ import {
 } from '@wizeworks/silicaui-react';
 import { useConfirm } from '../../lib/confirm';
 import { Plus, Trash2, X } from 'lucide-react';
-import type { CreateShippingRateInput } from '@wizeworks/commerce-schemas';
+import type { CreateShippingRateInput } from '@wizeworksllc/commerce-schemas';
 import { MoneyInput } from '@/components/money-input';
 import { SaveFailure } from '@/components/save-failure';
 import {

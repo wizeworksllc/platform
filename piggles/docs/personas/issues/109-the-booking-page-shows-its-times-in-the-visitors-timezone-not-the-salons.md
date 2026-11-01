@@ -87,7 +87,7 @@ in its own schema comment as "what a customer is shown". Nothing showed it.
 The day window went with it: `startOfDay(date, tz)` resolves midnight where the
 business is, two-pass, so the day of a clocks-change is right rather than an hour
 off for everything after the transition. That is deliberately the same algorithm
-as `@wizeworks/time`'s `localWallToUtc`, which the server side uses — copied
+as `@wizeworksllc/time`'s `localWallToUtc`, which the server side uses — copied
 rather than imported because that package is not a dependency of this app, and
 two implementations that disagreed about the hour the clocks change would be
 worse than the duplication.

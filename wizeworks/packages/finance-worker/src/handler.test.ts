@@ -16,7 +16,7 @@ const { provisionFinance, generateDueExpenses, recomputeDay, recomputeRange } = 
   recomputeRange: vi.fn(),
 }));
 
-vi.mock('@wizeworks/finance', () => ({
+vi.mock('@wizeworksllc/finance', () => ({
   provisionFinance,
   generateDueExpenses,
   recomputeDay,
@@ -98,7 +98,7 @@ describe('module.activated', () => {
 
   it('is safe to receive twice, and says so honestly', async () => {
     // These two return values are the REAL contract, pinned by the
-    // `reports rows it CREATED` integration test in @wizeworks/finance: the seed
+    // `reports rows it CREATED` integration test in @wizeworksllc/finance: the seed
     // upserts all 20 rows every run, but only counts the ones that did not
     // exist. An earlier version of this mock had the second call return
     // `categoriesSeeded: 0` against an implementation that in fact returned 20,

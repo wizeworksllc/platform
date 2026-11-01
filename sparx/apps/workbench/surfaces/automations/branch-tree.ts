@@ -22,7 +22,7 @@
 // Everything here is pure. The editor holds the state; these functions take a
 // tree and return a new one.
 
-import { IfElseConfig, type Action, type ConditionGroup } from '@wizeworks/automation-schemas';
+import { IfElseConfig, type Action, type ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 /** Separates the owning top-level action's id from the path inside it. */
 const PATH_SEP = '::';

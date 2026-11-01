@@ -126,7 +126,7 @@ export function finalizeTree(resolved: Node, imageAlts?: ReadonlyMap<string, str
  *
  * A `ResolveHost` is silica's type and carries no such field; sparx's
  * `createSilicaResolver` adds it. Read structurally rather than by import so this package
- * keeps no dependency on `@wizeworks/builder-schemas`, and so a host that is NOT ours
+ * keeps no dependency on `@wizeworksllc/builder-schemas`, and so a host that is NOT ours
  * simply contributes nothing instead of failing.
  */
 export function imageAltsOf(

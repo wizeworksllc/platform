@@ -13,9 +13,9 @@
 // `recordBooking` is the whole point of the table. Without it this is a prettier
 // URL for something scheduling could already do.
 
-import { CreateMeetingLinkInput, UpdateMeetingLinkInput } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { CrmMeetingLink, Prisma } from '@wizeworks/db';
+import { CreateMeetingLinkInput, UpdateMeetingLinkInput } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { CrmMeetingLink, Prisma } from '@wizeworksllc/db';
 
 import { publishCrmEvent } from '../events';
 import type { ServiceContext } from '../errors';

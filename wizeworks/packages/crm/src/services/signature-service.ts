@@ -31,9 +31,9 @@ import {
   DeclineDocumentInput,
   RequestSignatureInput,
   SignDocumentInput,
-} from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { BillingDocumentSignature, Prisma } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { BillingDocumentSignature, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

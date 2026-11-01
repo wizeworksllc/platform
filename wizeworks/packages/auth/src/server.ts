@@ -4,16 +4,17 @@ import { nextCookies } from 'better-auth/next-js';
 import { emailOTP, jwt, magicLink, oneTap, organization, twoFactor } from 'better-auth/plugins';
 import { mcp } from '@better-auth/mcp';
 import { passkey } from '@better-auth/passkey';
-import { accountOrigin, mcpResourceUrl as brandMcpResourceUrl } from '@wizeworks/links/server';
+import { accountOrigin, mcpResourceUrl as brandMcpResourceUrl } from '@wizeworksllc/links/server';
 import {
   currentPlatformBrand,
   normalizeBrandKey,
   platformBrandIdentity,
-} from '@wizeworks/brand-core';
+} from '@wizeworksllc/brand-core';
 import { authPrisma } from './prisma';
 import { brandScopedAuthPrisma } from './brand-scoped-prisma';
 import { publishAuthEmail } from './email-events';
 import { finalizeOAuthSignup, provisionTenantForOAuth } from './oauth-provisioning';
+import { USER_ADDITIONAL_FIELDS } from '@wizeworksllc/auth-client/user-fields';
 import { MCP_ALL_OAUTH_SCOPES } from './mcp-scopes';
 import { authOwnedColumns } from './auth-owned-columns';
 import { keepAccountsOnEmailProof } from './credential-retention';
@@ -24,7 +25,7 @@ import { isPasswordStep } from './sign-in-step';
 import { startingBusinessFor } from './starting-business';
 import { authBrandConfigFromEnv, type AuthBrandConfig } from './brand-config';
 import { configuredSocialProviders, type SocialProvider } from './social-providers';
-import { scopedPlatformBrand } from '@wizeworks/brand-core/request-scope';
+import { scopedPlatformBrand } from '@wizeworksllc/brand-core/request-scope';
 
 /**
  * Which brand an organization belongs to.
@@ -47,7 +48,7 @@ async function tenantPlatformBrandForOrg(organizationId: string): Promise<string
 }
 
 // sparx Better Auth server instance. One per process — same caching strategy
-// as @wizeworks/db's prisma client so dev HMR does not leak adapters.
+// as @wizeworksllc/db's prisma client so dev HMR does not leak adapters.
 //
 // Schema dependencies (wizeworks/packages/db/prisma/schema.prisma):
 //   - User has sparx extensions `tenantId` + `role` exposed via additionalFields
@@ -129,7 +130,7 @@ function createAuth(config: AuthBrandConfig) {
       revokeSessionsOnPasswordReset: true,
       sendResetPassword: async ({ user, url }) => {
         // Publish an `email.send` Pub/Sub event — email-worker pulls it,
-        // renders via @wizeworks/email, and relays through the active provider.
+        // renders via @wizeworksllc/email, and relays through the active provider.
         // No direct send here so signin/reset latency is decoupled from
         // Postal availability. See CLAUDE.md → "Outbound email".
         //
@@ -197,34 +198,8 @@ function createAuth(config: AuthBrandConfig) {
     },
 
     user: {
-      additionalFields: {
-        tenantId: {
-          type: 'string',
-          required: true,
-          input: false,
-        },
-        role: {
-          type: 'string',
-          required: false,
-          defaultValue: 'editor',
-          input: false,
-        },
-        // Which product this login belongs to. Declared here so the value is
-        // SELECTED on reads — the session carries it, which is what lets an
-        // invitation check that the person accepting belongs to the brand that
-        // owns the tenant.
-        //
-        // `input: false` for the same reason as the two above: it is never
-        // accepted from a client payload. It is not `required`, because the
-        // guarantee lives one layer down — brand-scoped-prisma.ts stamps it on
-        // every create, so a payload that omits it still lands correctly, and a
-        // payload that could contradict it never reaches the database.
-        platformBrand: {
-          type: 'string',
-          required: false,
-          input: false,
-        },
-      },
+      // Shared with the browser client, so useSession() is typed from the same list.
+      additionalFields: USER_ADDITIONAL_FIELDS,
     },
 
     ...(googleReady && googleId && googleSecret
@@ -758,18 +733,18 @@ function mcpResourceUrl(brand: string): string {
 // api-rest serves every brand from one process. It calls `registerAuthBrands()`
 // at startup with each brand's configuration, and from then on `auth` resolves
 // to the instance for the brand of the CURRENT REQUEST (`runAsBrand` in
-// @wizeworks/brand-core/request-scope). That is what makes every helper that
+// @wizeworksllc/brand-core/request-scope). That is what makes every helper that
 // reaches for `auth` (sign-up, session reads, MCP consent, invited-owner
 // provisioning) brand-correct without passing an instance through each call.
 // Outside a scope, request mode makes `currentPlatformBrand()` throw, so a
 // forgotten scope fails closed instead of answering as the default brand.
 //
 // Construction is lazy, on first property access — NOT at module evaluation.
-// Importing `@wizeworks/auth` for a utility (e.g. `isModuleEnabled` from
+// Importing `@wizeworksllc/auth` for a utility (e.g. `isModuleEnabled` from
 // ./module-gate) pulls this module in via the barrel; eager construction would
 // call betterAuth() — which throws in production when the secret is unset — and
 // crash workers that never touch auth at all (e.g. commerce-indexer reaches
-// here through @wizeworks/commerce → @wizeworks/crm).
+// here through @wizeworksllc/commerce → @wizeworksllc/crm).
 
 let cachedAuth: ReturnType<typeof createAuth> | undefined = globalThis.__sparxAuth;
 
@@ -884,7 +859,7 @@ function getAuth(): ReturnType<typeof createAuth> {
   if (brandConfigs.size > 0) return authForBrand(currentPlatformBrand());
   if (cachedAuth) return cachedAuth;
   cachedAuth = createAuth(authBrandConfigFromEnv());
-  // Survive dev HMR without leaking adapters (mirrors @wizeworks/db's prisma client).
+  // Survive dev HMR without leaking adapters (mirrors @wizeworksllc/db's prisma client).
   if (process.env.NODE_ENV !== 'production') globalThis.__sparxAuth = cachedAuth;
   return cachedAuth;
 }

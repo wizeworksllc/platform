@@ -13,7 +13,7 @@ import {
   Text,
   Textarea,
 } from '@wizeworks/silicaui-react';
-import type { ConditionGroup } from '@wizeworks/automation-schemas';
+import type { ConditionGroup } from '@wizeworksllc/automation-schemas';
 import { FormSection } from '../../components/form-section';
 import { ConditionEditor } from '../automations/condition-editor';
 import { STALL_CHOICES, formChoiceLabel, hoursLabel } from './presentation';

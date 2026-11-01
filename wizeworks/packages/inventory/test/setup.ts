@@ -1,4 +1,4 @@
-// Vitest setup — keep noise low and point the @wizeworks/db client at local docker.
+// Vitest setup — keep noise low and point the @wizeworksllc/db client at local docker.
 // Mirrors wizeworks/packages/crm/test/setup.ts so the two integration surfaces behave the
 // same under `pnpm test` (against the docker-compose Postgres from `pnpm db:up`).
 

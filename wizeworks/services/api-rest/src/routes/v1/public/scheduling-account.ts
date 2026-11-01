@@ -21,11 +21,11 @@
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { isModuleEnabled } from '@wizeworks/auth';
-import { getBooking, listBookings, type BookingWithRelations } from '@wizeworks/scheduling';
-import { type CustomerAuthContext } from '@wizeworks/customer-auth';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { moduleDisabled, notFound } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { getBooking, listBookings, type BookingWithRelations } from '@wizeworksllc/scheduling';
+import { type CustomerAuthContext } from '@wizeworksllc/customer-auth';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
 
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { requireCustomerId } from '../../../lib/customer-session.js';

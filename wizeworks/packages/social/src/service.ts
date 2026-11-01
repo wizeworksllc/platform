@@ -1,8 +1,8 @@
-// @wizeworks/social/service — the DB-backed social post + lifecycle service.
+// @wizeworksllc/social/service — the DB-backed social post + lifecycle service.
 //
-// Kept behind this subpath (NOT the main `@wizeworks/social` barrel) exactly like
-// `@wizeworks/social/crypto`: the main barrel is pure types + renderer + registry,
-// safe to pull into the composer UI bundle. This module imports `@wizeworks/db`, so
+// Kept behind this subpath (NOT the main `@wizeworksllc/social` barrel) exactly like
+// `@wizeworksllc/social/crypto`: the main barrel is pure types + renderer + registry,
+// safe to pull into the composer UI bundle. This module imports `@wizeworksllc/db`, so
 // it must never leak into that bundle — only backend transports (api-rest routes,
 // api-mcp tools) import it.
 

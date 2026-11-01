@@ -21,26 +21,26 @@
 import type { FastifyPluginAsync } from 'fastify';
 import type { Prisma } from '@prisma/client';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
+import { queryBool } from '@wizeworksllc/api-core/query';
 
 import type { FastifyRequest } from 'fastify';
 
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
-import { withTenant } from '@wizeworks/db';
-import { isModuleEnabled } from '@wizeworks/auth';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 import {
   AVAILABILITY_LEVEL_SELECT,
   availabilityLevelOf,
   computeAvailability,
-} from '@wizeworks/inventory';
+} from '@wizeworksllc/inventory';
 import {
   bundlePartsTotalCents,
   bundleSetPriceCents,
   plainTextOrNull,
   preorderState,
   readRepeatOptions,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import {
   accountBuyingRules,
   depositFromColumns,
@@ -52,9 +52,9 @@ import {
   readyOnDate,
   relatedProductService,
   remainingToday,
-} from '@wizeworks/commerce';
-import type { ProductTypeSchema as ProductTypeSchemaT } from '@wizeworks/commerce-schemas';
-import { searchProducts } from '@wizeworks/search';
+} from '@wizeworksllc/commerce';
+import type { ProductTypeSchema as ProductTypeSchemaT } from '@wizeworksllc/commerce-schemas';
+import { searchProducts } from '@wizeworksllc/search';
 import {
   resolvePublicPropertyId,
   productSiteVisibilityWhere,

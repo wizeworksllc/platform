@@ -8,7 +8,7 @@
 // request: a first sign-in on a sister site creates a membership with FRESH
 // consent — never inheriting another site's consent (D6).
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 export interface EnsureMembershipContext {
   tenantId: string;

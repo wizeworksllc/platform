@@ -1,7 +1,7 @@
 // A resolved silica token bag → a v2 preset.
 //
 // WHY THIS EXISTS. sparx ships forty themes as authored silica `Theme`s
-// (`FIRST_PARTY_THEMES`, @wizeworks/silica-catalog). The tenant compile path speaks v2
+// (`FIRST_PARTY_THEMES`, @wizeworksllc/silica-catalog). The tenant compile path speaks v2
 // (`compileThemeForTenant` → brand over preset over presentation), so a theme has to
 // arrive as a `ThemePresetV2` to be layered on at all. Before this, it couldn't: a
 // site whose `themeKey` was a catalog slug found nothing in the v1/v2 registries and
@@ -9,7 +9,7 @@
 // produced the same colors. The theme was real, shipped, and unreachable.
 //
 // Deliberately takes plain `Record<string, string>` maps rather than a silicaui
-// `Theme`, so @wizeworks/site-themes keeps its zero runtime dependencies and the silica
+// `Theme`, so @wizeworksllc/site-themes keeps its zero runtime dependencies and the silica
 // types stay on the caller's side of the boundary.
 //
 // The INPUT is expected to be RESOLVED (silicaui's `resolveThemeTokens`, which sparx

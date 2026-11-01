@@ -13,7 +13,7 @@ import { CallOutcome } from './engagement';
 import { Uuid } from './common';
 
 /** E.164, which is the only form a carrier will dial. Normalization from what a
- *  person typed happens in `@wizeworks/voice`'s `toE164`, before this. */
+ *  person typed happens in `@wizeworksllc/voice`'s `toE164`, before this. */
 const PhoneNumber = z
   .string()
   .trim()

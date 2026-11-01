@@ -23,7 +23,7 @@
 //   4. Nothing that fits is an honest answer. The rail drops, rather than fill
 //      itself with parts for somebody else's truck.
 
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { productSiteVisibility } from './site-visibility';

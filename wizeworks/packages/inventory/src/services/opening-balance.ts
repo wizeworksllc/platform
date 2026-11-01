@@ -21,8 +21,8 @@
 // losses the business has ever had — and so the journal credits opening
 // balances rather than stock corrections.
 
-import { StartOpeningBalanceInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+import { StartOpeningBalanceInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import { InventoryValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

@@ -172,7 +172,7 @@ export function SilicaBehaviors({
 
       // Add-to-cart / buy-now: the buy box is a silica <form> whose hidden
       // `variantId` field is bound to the product's default variant, plus a
-      // `quantity` number field (@wizeworks/silica-catalog `buyBox`).
+      // `quantity` number field (@wizeworksllc/silica-catalog `buyBox`).
       //
       // The empty-variant guard is load-bearing, not defensive noise: a product
       // with no live variant resolves `variantId` to '', and `required` is INERT

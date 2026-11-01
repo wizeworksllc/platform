@@ -145,11 +145,11 @@ const tx = {
   crmObjectDef: { findUnique: vi.fn(() => Promise.resolve(null)) },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => fn(tx),
 }));
-vi.mock('@wizeworks/events', () => ({ indexEntity: vi.fn(() => Promise.resolve()) }));
+vi.mock('@wizeworksllc/events', () => ({ indexEntity: vi.fn(() => Promise.resolve()) }));
 vi.mock('../audit', () => ({ writeAuditLog: vi.fn(() => Promise.resolve()) }));
 vi.mock('./report-compiler', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),

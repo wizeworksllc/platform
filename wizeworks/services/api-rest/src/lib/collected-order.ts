@@ -2,7 +2,7 @@
 // never sent. The account pages and the trade portal both say "Collected" for it,
 // so they read it from one place (sparx persona issue 177).
 
-import { COLLECTION_RATE_REF } from '@wizeworks/commerce';
+import { COLLECTION_RATE_REF } from '@wizeworksllc/commerce';
 
 export function isCollectedOrder(metadata: unknown): boolean {
   if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata)) return false;

@@ -7,7 +7,7 @@
 // (dogfood — never a side-channel write).
 //
 // This file owns only the CONTRACT + a pure registry index. It lives in
-// @wizeworks/modules (alongside the enablement primitives) because it must stay
+// @wizeworksllc/modules (alongside the enablement primitives) because it must stay
 // dependency-light — it carries NO module-package closure. The AGGREGATED
 // registry (which imports every module's preset array) is assembled at the
 // composition root (api-rest), exactly like module-provisioning.ts, to keep the
@@ -20,12 +20,12 @@
 //      whose module is off (CLAUDE.md "a disabled module stores no rows").
 //
 // `install(ctx)` receives a TenantContext that MAY carry an open, tenant-scoped
-// `tx` (see @wizeworks/db withTenant): an à-la-carte install passes none and the
+// `tx` (see @wizeworksllc/db withTenant): an à-la-carte install passes none and the
 // preset opens its own transaction; an industry starter (a later wave) opens ONE
 // transaction and threads it through several presets so the whole kit commits
 // atomically.
 
-import { withTenant, type TenantContext, type TxClient } from '@wizeworks/db';
+import { withTenant, type TenantContext, type TxClient } from '@wizeworksllc/db';
 
 import type { ModuleSlug } from './index';
 

@@ -14,7 +14,7 @@
 //   • `builder:agentActivity` — a transient "an assistant is editing" signal plus the
 //     reload hints for changes with no live-appliable op (a body or frame REPLACE).
 //
-// The socket.io wire format and subject naming come from @wizeworks/socket-bus, which
+// The socket.io wire format and subject naming come from @wizeworksllc/socket-bus, which
 // api-rest's adapter uses too. The builder protocol (event names, room naming, adapter
 // key) is DUPLICATED from api-rest here on purpose: services never import each other,
 // the same way the socket client redeclares the protocol. Keep in sync with
@@ -26,10 +26,10 @@ import {
   createSocketBusEmitter,
   type SocketBus,
   type SocketBusEmitter,
-} from '@wizeworks/socket-bus';
+} from '@wizeworksllc/socket-bus';
 
 import { env } from './env.js';
-import type { BuilderRelaySideChannel } from '@wizeworks/builder/mcp';
+import type { BuilderRelaySideChannel } from '@wizeworksllc/builder/mcp';
 
 /** MUST match `BUILDER_ADAPTER_KEY` in api-rest's builder-index.ts, or the emit lands on
  *  a channel the builder server isn't listening to. */

@@ -37,8 +37,8 @@
 
 // ── Why the journal is described here and not imported ──────────────────────
 //
-// The obvious move is to import `InventoryJournal` from @wizeworks/commerce-schemas,
-// where the arithmetic that builds it lives. That would make @wizeworks/finance
+// The obvious move is to import `InventoryJournal` from @wizeworksllc/commerce-schemas,
+// where the arithmetic that builds it lives. That would make @wizeworksllc/finance
 // depend on commerce, and finance is explicitly for a business with no store —
 // a repair shop, a bakery, a consultancy (docs/148 §1). An adapter also does not
 // need to know it is posting an INVENTORY journal; it needs a balanced set of

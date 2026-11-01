@@ -15,9 +15,9 @@
 // by someone forgetting to omit it. The one function that hands it out is named
 // so that nobody calls it by accident.
 
-import { ConnectMailboxInput, syncGateFor, type MailboxScope } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { MailboxConnection } from '@wizeworks/db';
+import { ConnectMailboxInput, syncGateFor, type MailboxScope } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { MailboxConnection } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

@@ -3,19 +3,19 @@
 // The brand-designer's safety/governance policy over the builder. Currently the
 // UTILITY ALLOWLIST: the tenant's ADDITIONAL block rules layered on the PLATFORM
 // base denylist (clickjacking / exfiltration / injection guards, hardcoded in
-// @wizeworks/surface-compile and NEVER relaxable). A tenant can only TIGHTEN — there
+// @wizeworksllc/surface-compile and NEVER relaxable). A tenant can only TIGHTEN — there
 // is no "unblock". One BuilderGovernance row per tenant, upserted lazily on first
 // write. Tenant-scoped via withTenant() (FORCE RLS). One service, many transports.
 
-// @wizeworks/db re-exports the Prisma namespace as a VALUE (its DbNull runtime
+// @wizeworksllc/db re-exports the Prisma namespace as a VALUE (its DbNull runtime
 // sentinel + the input types), so the builder package needs no @prisma/client dep.
-import { withTenant, Prisma } from '@wizeworks/db';
+import { withTenant, Prisma } from '@wizeworksllc/db';
 import {
   BASE_RULES_DESCRIPTION,
   parseAllowlistConfig,
   type AllowlistRule,
   type BaseRuleDescription,
-} from '@wizeworks/surface-compile';
+} from '@wizeworksllc/surface-compile';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

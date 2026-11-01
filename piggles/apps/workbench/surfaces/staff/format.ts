@@ -64,7 +64,7 @@ export function formatCostOrNothing(cents: number | null, currency = 'USD'): str
  * Postgres hands a `@db.Date` back at UTC midnight, so formatting it in local
  * time moves it a day backwards for everyone west of Greenwich. A rate entered
  * as "1 Jan" then reads "Dec 31" on the screen that is supposed to explain which
- * rate priced which shift. `dayKey` in @wizeworks/staff makes the same argument for
+ * rate priced which shift. `dayKey` in @wizeworksllc/staff makes the same argument for
  * the server half.
  *
  * Use this for effective-from/to, worked-on, earned-on and expires-on. For an

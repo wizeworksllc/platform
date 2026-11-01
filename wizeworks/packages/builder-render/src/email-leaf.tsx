@@ -2,18 +2,18 @@
 //
 // The page/site render path renders leaves through silicaui so the canvas
 // preview matches the LIVE SITE. An email never renders through site-ui — it
-// renders through @wizeworks/email's table-based primitives at a FIXED pixel scale
+// renders through @wizeworksllc/email's table-based primitives at a FIXED pixel scale
 // (20px headings, 14px body, a single accent button). Reusing the site-ui
 // Heading/Text/Button for an email is the wrong yardstick: it paints the
 // storefront's hero sizes + the tenant's (often serif) heading font, so the email
 // canvas read "like crap" — oversized, nothing like an inbox message.
 //
-// These components reproduce the @wizeworks/email primitives as REAL DOM, driven by
+// These components reproduce the @wizeworksllc/email primitives as REAL DOM, driven by
 // the SAME `EMAIL_DESIGN` tokens the renderer inlines on send — so the SCALE
 // (sizes, weights, spacing, radius, the accent CTA) is an exact match. Brand-
 // derived values (text/accent color, fonts) read the tenant theme `.bx-canvas`
 // exposes as `--color-*` vars; the EMAIL_DESIGN values are the inlined fallback when
-// no brand is compiled (matching @wizeworks/email's `defaultBrand`).
+// no brand is compiled (matching @wizeworksllc/email's `defaultBrand`).
 //
 // CAVEAT: the true send resolves its brand via email-platform's brand-service —
 // the DEFAULT preset overlaid with the tenant's brand identity — whereas these
@@ -30,7 +30,7 @@
 // as the real send applies its `classStyleFor`, so the editor preview matches the mail.
 
 import * as React from 'react';
-import { EMAIL_DESIGN, type EmailPalette } from '@wizeworks/builder-schemas';
+import { EMAIL_DESIGN, type EmailPalette } from '@wizeworksllc/builder-schemas';
 
 const { typography, colors, spacing, radius } = EMAIL_DESIGN;
 
@@ -51,7 +51,7 @@ const BORDER = `var(--color-border, ${colors.border})`;
 // the built-in colors do, and the documented site-theme-vs-email-brand caveat applies
 // uniformly (no NEW divergence). The non-color axes the compiler emits (size, weight,
 // spacing, alignment, border, radius) are concrete and identical to the real send.
-// The send's analog is `classStyleFor(class, brand)` in @wizeworks/email's render path.
+// The send's analog is `classStyleFor(class, brand)` in @wizeworksllc/email's render path.
 export const CANVAS_EMAIL_PALETTE: EmailPalette = {
   primary: PRIMARY,
   primaryForeground: PRIMARY_FG,
@@ -173,11 +173,11 @@ export function EmailDividerLeaf() {
 }
 
 // Header wordmark size token → px (logo height + name font scale from this). Mirrors
-// @wizeworks/email's render-email-tree mapping so the canvas preview and the send agree.
+// @wizeworksllc/email's render-email-tree mapping so the canvas preview and the send agree.
 const WORDMARK_SIZE_PX: Record<string, number> = { sm: 18, md: 22, lg: 28 };
 
 /** The editable email HEADER (docs/52 §1) at the email scale — the brand wordmark
- *  the merchant edits in /builder/email, mirroring @wizeworks/email's `EmailWordmark` +
+ *  the merchant edits in /builder/email, mirroring @wizeworksllc/email's `EmailWordmark` +
  *  the trailing divider. CONTENT (logo + store name) comes from the active brand
  *  (the canvas frame's sender identity, threaded as `emailBrand`); the node carries
  *  only the TREATMENT/align/size. Each treatment degrades gracefully (logo with no
@@ -260,7 +260,7 @@ function cellText(value: unknown): string {
 }
 
 /** The order/cart/quote/invoice line-item table — name · qty · amount, a compact
- *  three-column layout at the email body scale, mirroring @wizeworks/email's
+ *  three-column layout at the email body scale, mirroring @wizeworksllc/email's
  *  `LineItemTable` (docs/93). Rows are the resolved collection; the canvas passes
  *  representative sample rows when nothing is bound, so the structure always shows. */
 export function EmailLineItemsLeaf({ items }: { items: Record<string, unknown>[] }) {

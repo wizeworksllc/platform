@@ -27,13 +27,13 @@ import {
   type SocialAuth,
   type SocialPlatform,
   type SocialPlatformDescriptor,
-} from '@wizeworks/social';
-import { registerBuiltinSocialAdapters } from '@wizeworks/social/adapters';
-import { encryptSocialToken, isSocialTokenCryptoConfigured } from '@wizeworks/social/crypto';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/social';
+import { registerBuiltinSocialAdapters } from '@wizeworksllc/social/adapters';
+import { encryptSocialToken, isSocialTokenCryptoConfigured } from '@wizeworksllc/social/crypto';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { publishDomainEvent } from '../../../lib/staff-events.js';
-import { badRequest, conflict, notFound } from '@wizeworks/api-core/errors';
+import { badRequest, conflict, notFound } from '@wizeworksllc/api-core/errors';
 import {
   requireSocialModule,
   resolveSocialProperty,
@@ -78,7 +78,7 @@ type RuntimeDescriptor = SocialPlatformDescriptor & {
   availability: 'available' | 'coming_soon';
   // The platform's posting limits, shipped with the catalog so the composer can run
   // its author-time preview/validation (length, media-required, aspect ratios) from
-  // the ONE source of truth without importing the @wizeworks/social renderer client-side.
+  // the ONE source of truth without importing the @wizeworksllc/social renderer client-side.
   constraints: PlatformConstraints;
 };
 

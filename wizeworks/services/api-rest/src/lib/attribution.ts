@@ -41,7 +41,7 @@
 // share one `SITE_ANALYTICS_SALT`. If attribution is ever moved to a separate
 // worker, that worker MUST carry the identical salt or every hash silently misses.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { deriveVisitor } from './site-analytics.js';
 

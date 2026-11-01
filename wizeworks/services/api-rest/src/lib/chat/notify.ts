@@ -12,10 +12,10 @@
 // further emails fire.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import type { TenantContext } from '@wizeworks/db';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { appLink, appOrigin } from '@wizeworks/links/server';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import type { TenantContext } from '@wizeworksllc/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { appLink, appOrigin } from '@wizeworksllc/links/server';
 
 import { resolveActivePropertyName } from '../property.js';
 import { tenantPlatformBrand } from '../tenant-brand.js';

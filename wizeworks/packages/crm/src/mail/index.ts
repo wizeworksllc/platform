@@ -2,7 +2,7 @@
 // network, no database and no clock of its own (docs/144 §5.2–§5.3).
 //
 // api-rest holds the sockets and the credentials; this holds the understanding.
-// The split is deliberate and it is the same one `@wizeworks/scheduling` uses for
+// The split is deliberate and it is the same one `@wizeworksllc/scheduling` uses for
 // calendars — a protocol parser with no I/O is a protocol parser that can be
 // tested against a captured real-world message in a millisecond.
 //

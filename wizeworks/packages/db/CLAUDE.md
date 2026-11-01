@@ -1,6 +1,6 @@
 # wizeworks/packages/db — database, migrations, RLS
 
-Scoped guidance for `@wizeworks/db`. Loads when working in this package. See root [CLAUDE.md](../../CLAUDE.md) for cross-cutting rules.
+Scoped guidance for `@wizeworksllc/db`. Loads when working in this package. See root [CLAUDE.md](../../CLAUDE.md) for cross-cutting rules.
 
 ## Migrations go through the pipeline, not your laptop
 
@@ -132,7 +132,7 @@ Both typecheck either way, because `moduleResolution` resolves both. **Turbopack
 does not.** An extensioned export added to `src/index.ts` compiles clean, passes
 `tsc --noEmit`, and then takes the whole console down with
 `Module not found: Can't resolve './thing.js'` the next time anyone loads a page,
-because every app imports `@wizeworks/db` through that file.
+because every app imports `@wizeworksllc/db` through that file.
 
 Copy the convention off the line above the one you are adding. There is no lint
 rule for it and the typecheck is not the thing that catches it.

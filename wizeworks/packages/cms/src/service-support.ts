@@ -12,7 +12,7 @@
 // Audit stays a route-layer concern (writeAudit needs the FastifyRequest); MCP
 // calls are audited independently by api-mcp's recordToolInvocation.
 
-import type { EventType } from '@wizeworks/events';
+import type { EventType } from '@wizeworksllc/events';
 
 /** Tenant + actor identity for a CMS write. `actorId` is the acting user (staff
  *  member for the dashboard, the MCP token's user for an agent call), or null. */

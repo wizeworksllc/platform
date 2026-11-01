@@ -1,19 +1,19 @@
 // Commerce Pub/Sub event publisher.
 //
-// Mirrors @wizeworks/auth's `publishAuthEmail` pattern: each service emits
-// via this thin wrapper rather than calling @wizeworks/events directly so
+// Mirrors @wizeworksllc/auth's `publishAuthEmail` pattern: each service emits
+// via this thin wrapper rather than calling @wizeworksllc/events directly so
 // the package can attach an audit-log write and a consistent logger in
-// one place. The actual transport is @wizeworks/events, which talks to
+// one place. The actual transport is @wizeworksllc/events, which talks to
 // Google Pub/Sub in prod and a noop-with-logging publisher in dev/test.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   createPublisher,
   indexEntity,
   publishEvent,
   type EventType,
   type PublisherLogger,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 
 const logger: PublisherLogger = {
   info: (obj, msg) => console.log(JSON.stringify({ level: 'info', src: 'commerce', ...obj, msg })),
@@ -24,7 +24,7 @@ const logger: PublisherLogger = {
 
 // Subset of EventType the Commerce module actually publishes. Narrowing
 // here means a typo in a topic surfaces at compile time. Adding a new
-// commerce event requires (1) extending EventType in @wizeworks/events and
+// commerce event requires (1) extending EventType in @wizeworksllc/events and
 // (2) listing it here.
 export type CommerceTopic = Extract<
   EventType,

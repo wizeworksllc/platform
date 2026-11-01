@@ -1,9 +1,9 @@
-// @wizeworks/commerce-schemas — Zod input/output schemas for every Commerce
+// @wizeworksllc/commerce-schemas — Zod input/output schemas for every Commerce
 // write surface (REST, MCP, Server Actions, storefront, B2B portal).
 //
 // One barrel. Per the CRM convention, every schema this package exports
 // is also re-exported here so callers can `import { CreateProductInput,
-// IssueGiftCardInput } from '@wizeworks/commerce-schemas'` without worrying
+// IssueGiftCardInput } from '@wizeworksllc/commerce-schemas'` without worrying
 // about file paths.
 //
 // The numbered groupings below mirror the Phase ordering in the Commerce
@@ -27,7 +27,7 @@ export * from './products';
 export * from './repeat';
 
 // Typed product types + attributes (docs/143) — the commerce mirror of CMS
-// content types, backed by the shared @wizeworks/field-schema engine.
+// content types, backed by the shared @wizeworksllc/field-schema engine.
 export * from './product-types';
 export * from './categories';
 export * from './fitment';

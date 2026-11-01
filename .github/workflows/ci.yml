@@ -259,7 +259,7 @@ jobs:
     name: Surface ↔ address parity
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    # Every workbench surface must have an address in @wizeworks/links, and every
+    # Every workbench surface must have an address in @wizeworksllc/links, and every
     # address must name a surface that exists. A surface with no address is a
     # pane nobody can link to and one the URL bar cannot name; an address with no
     # surface is a link that opens nothing — the failure that left
@@ -346,6 +346,13 @@ jobs:
       # import the database or the auth server again: its pod has neither.
       - name: Check apps off the database stay off it
         run: node scripts/check-app-data-access.mjs
+
+      # The same promise one level down: every platform package sparx and
+      # Piggles install must publish, and none that publishes may carry the
+      # database (docs/153, Phase 3). The workspace hides a gap here until the
+      # day a brand moves to its own repository.
+      - name: Check the packages the brands install all publish
+        run: node scripts/check-publishable.mjs
 
       # The boundary check reads source text, so it catches the import somebody
       # WROTE. This walks the dependency closure and catches the one four

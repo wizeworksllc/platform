@@ -33,10 +33,10 @@ import {
   listEnabledModules,
   provisionTenant,
   type ModuleSlug,
-} from '@wizeworks/auth';
+} from '@wizeworksllc/auth';
 
-import { DEFAULT_PLATFORM_BRAND } from '@wizeworks/brand-core';
-import { publishPlatformEvent } from '@wizeworks/crm';
+import { DEFAULT_PLATFORM_BRAND } from '@wizeworksllc/brand-core';
+import { publishPlatformEvent } from '@wizeworksllc/crm';
 import {
   loadSampleData,
   prisma,
@@ -45,7 +45,7 @@ import {
   type Prisma,
   type SampleDataCounts,
   type TenantContext,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
 
 import { findInstall, installBlueprint } from './blueprint-installer.js';

@@ -1,5 +1,5 @@
 import { arrayMove } from '@dnd-kit/sortable';
-import type { Action, ConditionGroup } from '@wizeworks/automation-schemas';
+import type { Action, ConditionGroup } from '@wizeworksllc/automation-schemas';
 import { TRIGGER_NODE } from '../automations-presentation';
 import { availableActions } from '../automations-catalog';
 import {

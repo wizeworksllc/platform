@@ -1,6 +1,6 @@
 'use client';
 
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import { api } from '../../../lib/api/client';
 import type { Automation, AutomationCreateInput, AutomationUpdateInput } from './wire-types';
 import { useInvalidateAutomations } from './queries';

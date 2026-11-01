@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P01 · Gillett Diesel Service · act 9 (checking the Book page's promises before rewriting it)
-**Surface:** workbench › Scheduling › a service (both consoles); `createService` in `@wizeworks/scheduling`; the MCP and REST service create
+**Surface:** workbench › Scheduling › a service (both consoles); `createService` in `@wizeworksllc/scheduling`; the MCP and REST service create
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 on screen, 2026-10-06

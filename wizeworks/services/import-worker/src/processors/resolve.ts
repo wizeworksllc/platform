@@ -15,8 +15,8 @@
 //   mentioned it is a real thing that appears in the tenant's UI forever, so the row
 //   result says so rather than letting it appear silently.
 
-import { prisma, withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 import type { ProcessorContext } from './types';
 
 /** Per-run memo. Built fresh for each job so a rename between runs is picked up. */

@@ -5,7 +5,7 @@
 // No denormalized stats yet — the Phase 4 engagement aggregator will populate
 // customers.email_opens_30d etc. once that landing surface is real.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { publishCrmEvent } from '../events';
 import { gateHandler, type ConsumerContext } from './registry';

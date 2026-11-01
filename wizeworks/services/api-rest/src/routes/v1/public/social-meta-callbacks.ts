@@ -25,9 +25,9 @@ import crypto from 'node:crypto';
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withSystem } from '@wizeworks/db';
-import type { SocialPlatform } from '@wizeworks/social';
-import { ApiError } from '@wizeworks/api-core/errors';
+import { withSystem } from '@wizeworksllc/db';
+import type { SocialPlatform } from '@wizeworksllc/social';
+import { ApiError } from '@wizeworksllc/api-core/errors';
 
 /** Platforms each app secret is authoritative for. */
 const META_PLATFORMS: SocialPlatform[] = ['facebook_page', 'instagram'];

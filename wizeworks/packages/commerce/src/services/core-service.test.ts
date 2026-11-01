@@ -78,7 +78,7 @@ function row() {
         companyName: account ? 'Wasatch Utility' : null,
         email: 'renee.castaneda@wasatchutility.test',
         companyId: account?.id ?? null,
-        // What the client extension in @wizeworks/db hands back for a `company`
+        // What the client extension in @wizeworksllc/db hands back for a `company`
         // select on a customer: its own typed text again, never the joined record.
         company: account ? 'Wasatch Utility' : null,
       },
@@ -121,16 +121,16 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   billingPaymentService: { recordPayment },
   orderRefundsService: { recordRefund },
   OWED_DOCUMENT_WHERE: {},
 }));
-vi.mock('@wizeworks/payments', () => {
+vi.mock('@wizeworksllc/payments', () => {
   class PaymentConfigError extends Error {}
   class GatewayNotFoundError extends Error {}
   return {

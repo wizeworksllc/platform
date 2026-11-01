@@ -17,9 +17,9 @@
 // Items with no supplier link can't be drafted — they surface separately so the
 // buyer links a supplier first.
 
-import { DraftReorderInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { DraftReorderInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryNotFoundError, InventoryValidationError } from '../errors';

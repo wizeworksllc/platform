@@ -7,15 +7,15 @@
 // touched. Two copies of this would drift, and the drift would be invisible — the
 // Check grading one palette while the seed writes another.
 
-import type { PropertyContext } from '@wizeworks/builder';
-import type { TxClient } from '@wizeworks/db';
+import type { PropertyContext } from '@wizeworksllc/builder';
+import type { TxClient } from '@wizeworksllc/db';
 import {
   applyBrandOverride,
   EMPTY_BRAND,
   storedPresetV2,
   tenantTheme,
   type BrandColumns,
-} from '@wizeworks/site-themes';
+} from '@wizeworksllc/site-themes';
 import type { Theme } from '@wizeworks/silicaui-html';
 
 /**
@@ -24,7 +24,7 @@ import type { Theme } from '@wizeworks/silicaui-html';
  * An authored theme wins. Failing that the site renders from the tenant's BRAND,
  * compiled — which is the case for most sites, because the Design inspector is
  * something an author opens on purpose and many never do. `tenantTheme` is the same
- * derivation the builder canvas opens on (it moved into `@wizeworks/site-themes` so both
+ * derivation the builder canvas opens on (it moved into `@wizeworksllc/site-themes` so both
  * read one copy), including the per-site brand override that makes a second site under
  * one tenant look like itself.
  *

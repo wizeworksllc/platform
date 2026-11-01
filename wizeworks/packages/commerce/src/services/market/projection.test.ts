@@ -28,7 +28,7 @@ const state = vi.hoisted<State>(() => ({
   merchant: null,
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const sites = new Map([
     ['site-parts', { id: 'site-parts', slug: 'primary', isPrimary: true, name: "Bob's Parts" }],
     ['site-donuts', { id: 'site-donuts', slug: 'donuts', isPrimary: false, name: 'Savory Donuts' }],

@@ -40,7 +40,7 @@ function findHost(
   return undefined;
 }
 
-// A trivial host mirroring what @wizeworks/builder-schemas' resolver does — short refs
+// A trivial host mirroring what @wizeworksllc/builder-schemas' resolver does — short refs
 // off the scoped item, `commerce.product`/`product` off fixed data — inline so this
 // package carries no cross-dependency.
 const PRODUCTS = [

@@ -1,4 +1,4 @@
-# @wizeworks/db
+# @wizeworksllc/db
 
 sparx data layer. Owns the Prisma schema, generated client, migrations, and the tenant-context helper that every API request handler uses to wrap its DB work.
 
@@ -17,8 +17,8 @@ pnpm db:up
 cp wizeworks/packages/db/.env.example wizeworks/packages/db/.env
 
 # 3. Generate the Prisma client and apply migrations.
-pnpm --filter @wizeworks/db db:generate
-pnpm --filter @wizeworks/db db:migrate:deploy
+pnpm --filter @wizeworksllc/db db:generate
+pnpm --filter @wizeworksllc/db db:migrate:deploy
 
 # 4. Seed Gillett Diesel + the owner user.
 pnpm db:seed
@@ -56,7 +56,7 @@ therefore never started locally. `pnpm check:service-env` is the guard.
    ```bash
    pnpm db:up
    # Edit prisma/schema.prisma…
-   pnpm --filter @wizeworks/db prisma migrate dev --name <descriptive_name>
+   pnpm --filter @wizeworksllc/db prisma migrate dev --name <descriptive_name>
    ```
 
    Prisma generates `prisma/migrations/<timestamp>_<name>/migration.sql` by diffing the schema against the local DB.
@@ -100,7 +100,7 @@ therefore never started locally. `pnpm check:service-env` is the guard.
 Every API request handler that touches tenant data **must** wrap its DB work in `withTenant`. RLS policies on tenant-scoped tables filter against `app.tenant_id`, set via `SET LOCAL` inside a transaction.
 
 ```ts
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 const orders = await withTenant({ tenantId: req.tenant.id }, (tx) =>
   tx.order.findMany({ where: { status: 'pending' } })

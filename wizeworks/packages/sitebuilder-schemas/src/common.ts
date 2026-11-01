@@ -32,7 +32,7 @@ export type Align = z.infer<typeof Align>;
 export const AppearancePolicy = z.enum(['light-only', 'dark-only', 'auto', 'toggle']);
 export type AppearancePolicy = z.infer<typeof AppearancePolicy>;
 
-// A theme SLUG — one of the forty sparx ships (@wizeworks/silica-catalog) or a
+// A theme SLUG — one of the forty sparx ships (@wizeworksllc/silica-catalog) or a
 // tenant/partner upload. Deliberately not an enum: this was
 // `z.enum(['apex','industrial','drift','market','fleet','drop'])`, the six legacy
 // presets, so the schema rejected every theme a tenant could actually choose. The

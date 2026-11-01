@@ -18,7 +18,7 @@
 import { useEffect, useState } from 'react';
 import { useBusinessZone } from '../../lib/business-timezone';
 import { PaneWaiting } from '../../components/pane-waiting';
-import { useQuery, useQueryClient } from '@wizeworks/query';
+import { useQuery, useQueryClient } from '@wizeworksllc/query';
 import { Badge, Card, EmptyState, SearchInput } from '@wizeworks/silicaui-react';
 import { Table } from '../../components/table';
 import { faArrowDown, faArrowUp, faFileText, faPlus } from '@fortawesome/pro-solid-svg-icons';

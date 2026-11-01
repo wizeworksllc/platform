@@ -8,7 +8,7 @@
 // is a row in `content_references`, so all three are read here.
 
 import { Prisma } from '@prisma/client';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 export interface LinkingThing {
   kind: 'entry' | 'page' | 'layout';

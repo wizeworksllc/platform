@@ -15,9 +15,9 @@
 // customer's inbox stays empty. So the brand comes from the user row and picks
 // the instance, and a brand this process does not serve is a plain "not sent".
 
-import { auth, registeredAuthBrands } from '@wizeworks/auth';
-import { normalizeBrandKey } from '@wizeworks/brand-core';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
+import { auth, registeredAuthBrands } from '@wizeworksllc/auth';
+import { normalizeBrandKey } from '@wizeworksllc/brand-core';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
 
 /** Trigger a Better Auth password-reset email for a staff user, on their own
  *  brand's instance. Returns whether it was dispatched. Never throws: a failure

@@ -19,8 +19,8 @@
 // customer. Every imported request therefore opens in the default queue, and the
 // file report lists those columns as not imported.
 
-import { ticketService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
+import { ticketService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
 
 import { Resolver } from './resolve';
 import { eachRow, type EntityProcessor, type PreviewResult, type RowResult } from './types';

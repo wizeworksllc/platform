@@ -3,7 +3,7 @@
 // JSON Schema instead of a Zod object) so a provider package can declare
 // its install card without depending on Zod at the package surface.
 
-import type { ProviderKind } from '@wizeworks/commerce-schemas';
+import type { ProviderKind } from '@wizeworksllc/commerce-schemas';
 
 /**
  * Whether a tenant can actually install this provider today.

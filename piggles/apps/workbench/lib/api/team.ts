@@ -18,7 +18,7 @@
 // the authority; the UI just never offers what it knows will be refused.
 
 import { useMemo } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from './client';
 
 /** Someone with a login who is already in the account. */

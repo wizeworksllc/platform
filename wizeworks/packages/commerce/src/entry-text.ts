@@ -15,7 +15,7 @@
 // second, and the first version of this read only strings, so it indexed her
 // standfirsts and still not one word of a body.
 
-import { plainText } from '@wizeworks/commerce-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 
 /** The field kinds that hold words a person wrote. */
 const PROSE_KINDS = new Set(['text', 'long_text', 'rich_text']);

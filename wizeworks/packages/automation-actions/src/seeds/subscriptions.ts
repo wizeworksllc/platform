@@ -9,7 +9,7 @@
 // and held by the `email.send_campaign` action's own `module:'email'` gate until email
 // is active.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 // Every subscription email only sends to a customer with an address on file
 // (`customer.email is_set`), inlined per seed to match the other seed files.

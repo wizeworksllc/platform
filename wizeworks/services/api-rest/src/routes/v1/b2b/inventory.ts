@@ -14,11 +14,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { inventoryService } from '@wizeworks/inventory';
-import { fitmentService } from '@wizeworks/commerce';
-import { withTenant } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { fitmentService } from '@wizeworksllc/commerce';
+import { withTenant } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 import { requireInventoryModule } from '../../../lib/inventory-context.js';
 

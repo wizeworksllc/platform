@@ -13,7 +13,7 @@ import {
   Input,
   PasswordInput,
 } from '@wizeworks/silicaui-react';
-import { signIn, twoFactor } from '@wizeworks/auth/client';
+import { signIn, twoFactor } from '@wizeworksllc/auth-client/client';
 import { normalizeEmail, PRODUCT } from '@piggles/config';
 import { AuthDivider, GoogleButton } from './social-sign-in';
 

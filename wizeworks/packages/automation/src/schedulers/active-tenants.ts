@@ -6,7 +6,7 @@
 // automations has no runs and would reconcile an empty window every night for
 // nothing. `automations: { some: {} }` keeps the nightly job's tenant set tight.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 /** Active tenants that own ≥1 automation — the set the run-activity rollup
  *  reconcile iterates. Suspended/cancelled tenants get no cycles. */

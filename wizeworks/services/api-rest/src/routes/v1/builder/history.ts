@@ -17,9 +17,9 @@
 // had. Whole-site rollback is `POST /v1/builder/site/releases/:id/restore`.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { documentHistoryService, type DocumentOwnerKind } from '@wizeworks/builder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { documentHistoryService, type DocumentOwnerKind } from '@wizeworksllc/builder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireBuilderModule, toBuilderContext } from '../../../lib/builder-context.js';
 
 const OWNER_KINDS = new Set<DocumentOwnerKind>(['page', 'layout', 'theme', 'symbol']);

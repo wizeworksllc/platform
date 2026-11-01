@@ -4,7 +4,7 @@
  * warning (unknown source, bad medium, malformed campaign) exits non-zero so
  * CI catches drift.
  *
- *   pnpm --filter @wizeworks/attribution links
+ *   pnpm --filter @wizeworksllc/attribution links
  *   # or: node --import tsx wizeworks/packages/attribution/src/cli.ts
  */
 import { mkdirSync, writeFileSync } from 'node:fs';

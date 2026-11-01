@@ -2,7 +2,7 @@
 // commitment to BUY stock from a Supplier, received into a Warehouse (receiving
 // lands in P3c). A PO carries a per-tenant human number, a lifecycle status,
 // the destination warehouse, default terms (seeded from the supplier), and lines
-// (one per variant — ordered qty + agreed unit cost). Owned by @wizeworks/inventory;
+// (one per variant — ordered qty + agreed unit cost). Owned by @wizeworksllc/inventory;
 // standalone-usable — a WMS-lite tenant raises POs with no commerce.
 
 model PurchaseOrder {

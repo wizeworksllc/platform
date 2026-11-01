@@ -1,5 +1,5 @@
 // Dev seed — idempotent: re-running upserts in place, so it's safe to call
-// `pnpm --filter @wizeworks/db db:seed` repeatedly.
+// `pnpm --filter @wizeworksllc/db db:seed` repeatedly.
 //
 // Creates the "WizeWorks LLC" dogfood tenant (slug `wizeworks`, matching the
 // prod platform tenant) with one staff user
@@ -12,9 +12,9 @@ import { randomUUID } from 'node:crypto';
 
 import { PrismaClient, type Prisma } from '@prisma/client';
 import { hashPassword } from 'better-auth/crypto';
-import { blankPageTree } from '@wizeworks/builder-schemas';
-import { collectionDetailPage, productDetailPage } from '@wizeworks/silica-catalog';
-import { getFitmentDictionary, planFitmentDictionaryRows } from '@wizeworks/commerce-schemas';
+import { blankPageTree } from '@wizeworksllc/builder-schemas';
+import { collectionDetailPage, productDetailPage } from '@wizeworksllc/silica-catalog';
+import { getFitmentDictionary, planFitmentDictionaryRows } from '@wizeworksllc/commerce-schemas';
 
 import { reviewRollup } from '../src/seed-review-rollup.js';
 import { seedPlatformData } from './platform-seed.js';
@@ -2281,7 +2281,7 @@ async function seedDemoCommerceOps(tenantId: string): Promise<void> {
 
 // ─── Demo fitment (wave 3) ──────────────────────────────────
 // Install the Vehicle dictionary tenant-scoped on the diesel tenant — the
-// SAME platform dictionary (@wizeworks/commerce-schemas FITMENT_DICTIONARIES) and
+// SAME platform dictionary (@wizeworksllc/commerce-schemas FITMENT_DICTIONARIES) and
 // the SAME stamping codepath (planFitmentDictionaryRows) the dashboard install
 // uses, so the seeded tree and an installed tree are identical. There is no
 // platform-global Vehicle domain anymore; nothing fitment-shaped exists until a
@@ -3189,7 +3189,7 @@ async function seedSilicaCollectionTemplate(
 async function main(): Promise<void> {
   // tenants has no RLS — safe to upsert outside a tenant context. Default
   // settings (incl. the module activation registry read by
-  // @wizeworks/auth#requireModule) are JSON-merged via raw SQL so re-running
+  // @wizeworksllc/auth#requireModule) are JSON-merged via raw SQL so re-running
   // the seed adds new module flags without clobbering unrelated keys (e.g.
   // the onboarding tracker).
   const defaultSettings = {

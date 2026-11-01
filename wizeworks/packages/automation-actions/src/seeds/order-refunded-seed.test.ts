@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { evaluateConditions } from '@wizeworks/automation-schemas';
+import { evaluateConditions } from '@wizeworksllc/automation-schemas';
 
 import { interpolateFields } from '../entity.js';
 import { COMMERCE_ORDER_REFUNDED_EMAIL, COMMERCE_REFUND_CRM_NOTE } from './commerce.js';

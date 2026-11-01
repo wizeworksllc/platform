@@ -11,7 +11,7 @@
 // is one site over. So a page elsewhere switches site first, asking before it
 // throws away unsaved work, exactly as Where it's used on a saved piece does.
 
-import { buildPath } from '@wizeworks/links';
+import { buildPath } from '@wizeworksllc/links';
 import { useConfirm } from '../../lib/confirm';
 import { switchSite, useActivePropertyId, useSites } from '../../lib/api/shell-data';
 import { useWorkbench } from '../../lib/workbench/context';

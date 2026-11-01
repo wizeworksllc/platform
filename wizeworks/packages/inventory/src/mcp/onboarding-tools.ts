@@ -21,7 +21,7 @@
 // Per the platform's BYOK/MCP-only rule, sparx runs no model here — the tenant
 // brings their own client and these tools serve it.
 
-import { CustomFieldEntity } from '@wizeworks/commerce-schemas';
+import { CustomFieldEntity } from '@wizeworksllc/commerce-schemas';
 import { z } from 'zod';
 
 import { inventoryService } from '../services';

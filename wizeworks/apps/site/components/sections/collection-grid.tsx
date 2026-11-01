@@ -5,7 +5,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { CollectionGridConfig } from '@wizeworks/sitebuilder-schemas';
+import type { CollectionGridConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { listCollections, type PublicCollection } from '@/lib/commerce';
 import { mediaUrl } from '@/lib/media';

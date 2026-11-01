@@ -11,7 +11,7 @@
 // disturbed (docs/104 R1–R4). `tenantId` is scoped explicitly (not just RLS)
 // since the local superuser bypasses RLS.
 
-import { withTenant, type TenantContext } from '@wizeworks/db';
+import { withTenant, type TenantContext } from '@wizeworksllc/db';
 
 const DEFAULT_THRESHOLD_CENTS = 500_000; // $5,000
 

@@ -5,7 +5,7 @@
 // So the bar for attaching a `fix` is two separate questions, and the tests below are
 // organised as those two questions rather than as one "does it work":
 //
-//   1. Is there a single unambiguous answer? (`@wizeworks/silica-catalog`'s `replacement`.)
+//   1. Is there a single unambiguous answer? (`@wizeworksllc/silica-catalog`'s `replacement`.)
 //   2. Would applying it here make the page WORSE? (an ancestor question, so only the
 //      site walk can answer it.)
 //

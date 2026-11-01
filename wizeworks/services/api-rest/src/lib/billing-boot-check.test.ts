@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const h = vi.hoisted(() => ({ missing: vi.fn(), plans: vi.fn(() => []) }));
 
-vi.mock('@wizeworks/billing', () => ({
+vi.mock('@wizeworksllc/billing', () => ({
   listBillingPlans: h.plans,
   missingOfferCoupons: h.missing,
 }));

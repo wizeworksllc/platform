@@ -72,7 +72,7 @@ articles published.
   "8 October 2026". Both follow the site's own language setting now.
 - **The page list said Shop, Cart, Products and Book were live** on a site that had
   switched Selling and Bookings off (issue 944). It now says **Off on this site**,
-  from the same table the website enforces, which moved to `@wizeworks/silica-catalog`
+  from the same table the website enforces, which moved to `@wizeworksllc/silica-catalog`
   so the list and the routes read one answer (`site-module-paths.ts`). Sign-in pages
   stay live, because the site still serves them.
 - **The design's blog-post page was called "Article"**, one row above "Each article".

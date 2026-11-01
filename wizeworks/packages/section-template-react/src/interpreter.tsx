@@ -4,7 +4,7 @@
 // The shared half of the interpreter: it walks the closed node set and emits a
 // closed family of `bx-tpl-*` classes + `data-*` enums (defined once in
 // section-template.css), delegating ALL value resolution to the pure evaluator in
-// @wizeworks/sitebuilder-schemas. App-specific concerns — how a link renders, how a
+// @wizeworksllc/sitebuilder-schemas. App-specific concerns — how a link renders, how a
 // media ref resolves to a URL — are injected as ADAPTERS, so the storefront (SSR)
 // and the dashboard Section Studio preview render identically from this one path.
 //
@@ -23,7 +23,7 @@ import {
   type TemplateNode,
   type EvalContext,
   type EvalScope,
-} from '@wizeworks/sitebuilder-schemas';
+} from '@wizeworksllc/sitebuilder-schemas';
 
 import { TemplateIcon } from './icons';
 

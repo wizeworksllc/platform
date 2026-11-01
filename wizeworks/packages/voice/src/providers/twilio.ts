@@ -1,6 +1,6 @@
 // Twilio voice — talks to the REST API directly over fetch (HTTP Basic auth),
 // so this package carries NO Twilio SDK dependency and stays light in every
-// build that imports it. Mirrors @wizeworks/sms' TwilioSmsProvider exactly.
+// build that imports it. Mirrors @wizeworksllc/sms' TwilioSmsProvider exactly.
 //
 // CREDENTIALS ARE THE TENANT'S OWN. sparx never fronts its own vendor account
 // for a tenant's outbound traffic (memory: no platform-credentialed vendor

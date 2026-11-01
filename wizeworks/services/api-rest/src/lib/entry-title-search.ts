@@ -7,7 +7,7 @@
 // kinds are named, not titled), with the user's own `%` and `_` taken literally.
 
 import { Prisma } from '@prisma/client';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** `%text%` for ILIKE, with the LIKE wildcards in `text` escaped. */
 export function containsPattern(text: string): string {

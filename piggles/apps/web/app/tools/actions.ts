@@ -19,7 +19,7 @@
 // `wizeworks/`, which is where sharing belongs.
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 /** Where api-rest is, from inside a Piggles pod. Same convention as
  *  `@piggles/config`'s notice fetcher: a laptop that configures nothing talks to
@@ -88,7 +88,7 @@ export async function sendToolResult(
     };
   }
 
-  // The visitor's own client chain, verbatim (see @wizeworks/app-kit/forwarded-for).
+  // The visitor's own client chain, verbatim (see @wizeworksllc/app-kit/forwarded-for).
   const client = forwardedFor(await headers());
 
   try {

@@ -4,7 +4,7 @@
 // places (and on terms invoices) the order; rejecting cancels it. Two halves:
 // the QUEUE ['b2b','approval-queue',{…}] and the RULES ['b2b','approval-rules'].
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import type { QueueHoldReason } from './approval-hold-notice';

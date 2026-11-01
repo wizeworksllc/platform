@@ -6,7 +6,7 @@
 // readable the moment it has a published piece.
 
 import type { Metadata } from 'next';
-import { contentKindPage } from '@wizeworks/silica-catalog';
+import { contentKindPage } from '@wizeworksllc/silica-catalog';
 
 import { ArticleJsonLd } from '@/components/article-json-ld';
 import { SilicaFunctionalBody } from '@/components/silica-chrome';

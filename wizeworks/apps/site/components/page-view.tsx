@@ -1,9 +1,9 @@
 // Renders one CMS page entry. Pulls the rich-text body through
-// @wizeworks/cms-editor's serializer, which sanitizes and resolves blocks
+// @wizeworksllc/cms-editor's serializer, which sanitizes and resolves blocks
 // (callouts, embeds, code, tables) into safe HTML. Anything outside
 // `body.content` falls through to a small default title heading.
 
-import { renderDocToHtml } from '@wizeworks/cms-editor';
+import { renderDocToHtml } from '@wizeworksllc/cms-editor';
 import type { ApiEntry, PageBody } from '@/lib/content';
 
 export interface PageViewProps {

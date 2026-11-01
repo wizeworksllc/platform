@@ -7,7 +7,7 @@
 //
 //   pnpm --filter @wizeworks/api-rest exec tsx src/scripts/verify-self-register-prune.ts
 
-import { withSystem } from '@wizeworks/db';
+import { withSystem } from '@wizeworksllc/db';
 import { selfRegisterFirstPartyCatalog } from '../lib/marketplace/self-register.js';
 
 const STALE = 'zz-stale-sparx-theme';

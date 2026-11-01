@@ -20,8 +20,8 @@ const resolveEmailBrand = vi.fn();
 const signingDomainFor = vi.fn();
 const recordAccepted = vi.fn();
 
-vi.mock('@wizeworks/db', () => ({ prisma: { tenant: { findUnique } } }));
-vi.mock('@wizeworks/email', () => ({
+vi.mock('@wizeworksllc/db', () => ({ prisma: { tenant: { findUnique } } }));
+vi.mock('@wizeworksllc/email', () => ({
   defaultBrand: {},
   getEmailProvider: () => ({ send }),
   MailgunParameterError: class extends Error {},
@@ -29,13 +29,13 @@ vi.mock('@wizeworks/email', () => ({
   renderTemplate,
   senderDomainOf: () => 'sparx.email',
 }));
-vi.mock('@wizeworks/email-platform', () => ({
+vi.mock('@wizeworksllc/email-platform', () => ({
   analyticsService: { recordAccepted },
   brandService: { resolveEmailBrand },
   domainService: { signingDomainFor },
   settingsService: { senderHeaders: vi.fn() },
 }));
-vi.mock('@wizeworks/links/server', () => ({ appOrigin: () => 'https://app.example.test' }));
+vi.mock('@wizeworksllc/links/server', () => ({ appOrigin: () => 'https://app.example.test' }));
 
 const { handle, parseEvent } = await import('../handler.js');
 

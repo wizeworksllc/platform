@@ -5,10 +5,10 @@
 // says which record it is about (`raw.link`); this turns that into a link on the
 // business's own console, because only here is the console's address known.
 
-import { appLink } from '@wizeworks/links/server';
-import { prisma } from '@wizeworks/db';
+import { appLink } from '@wizeworksllc/links/server';
+import { prisma } from '@wizeworksllc/db';
 
-/** The record an alert is about: `RecordLink` in `@wizeworks/email-sends`, which
+/** The record an alert is about: `RecordLink` in `@wizeworksllc/email-sends`, which
  *  writes it onto the stored send. */
 export interface RecordLink {
   surface: string;

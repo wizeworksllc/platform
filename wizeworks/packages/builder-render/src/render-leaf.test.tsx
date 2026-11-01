@@ -5,7 +5,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
-import type { BuilderNode } from '@wizeworks/builder-schemas';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
 
 import {
   leafWearsClass,

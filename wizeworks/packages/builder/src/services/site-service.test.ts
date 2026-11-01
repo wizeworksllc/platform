@@ -14,8 +14,8 @@
 
 import { describe, expect, it } from 'vitest';
 
-import type { BuilderLayout, BuilderPage } from '@wizeworks/db';
-import { BuilderOpTarget, SiteSyncInput, resolvePageFrame } from '@wizeworks/builder-schemas';
+import type { BuilderLayout, BuilderPage } from '@wizeworksllc/db';
+import { BuilderOpTarget, SiteSyncInput, resolvePageFrame } from '@wizeworksllc/builder-schemas';
 
 import {
   framesToDelete,

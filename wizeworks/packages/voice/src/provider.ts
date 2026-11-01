@@ -1,5 +1,5 @@
 // The voice provider abstraction (docs/144 §5.6), shaped exactly like
-// @wizeworks/sms' SmsProvider and @wizeworks/payments' PaymentGateway. Every call the
+// @wizeworksllc/sms' SmsProvider and @wizeworksllc/payments' PaymentGateway. Every call the
 // platform places goes through this interface and never knows the vendor.
 // Adding a provider = implementing this interface + one branch in the registry;
 // no caller changes.
@@ -70,7 +70,7 @@ export interface VoiceProvider {
 }
 
 /** A number looks callable — a cheap E.164-ish guard, matching the one
- *  @wizeworks/sms uses, so the two agree on what a phone number is. */
+ *  @wizeworksllc/sms uses, so the two agree on what a phone number is. */
 export function looksLikePhone(value: string | null | undefined): value is string {
   return typeof value === 'string' && /^\+?[1-9]\d{6,14}$/.test(value.replace(/[\s()-]/g, ''));
 }

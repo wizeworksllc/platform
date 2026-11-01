@@ -11,9 +11,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import type { ModulePresetKind, ModuleSlug } from '@wizeworks/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import type { ModulePresetKind, ModuleSlug } from '@wizeworksllc/auth';
 
 import {
   installPreset,

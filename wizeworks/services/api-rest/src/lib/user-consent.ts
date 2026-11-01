@@ -10,7 +10,7 @@
 // asked", which re-asks; `analytics: false` is "asked, declined". Nothing here
 // writes a default: a value lands only when a person answers.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 export interface ConsentRecord {
   analytics: boolean;

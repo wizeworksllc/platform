@@ -9,8 +9,8 @@
 // version per refresh.
 //
 // Server-only — imported by api-rest (encrypt on connect) and channel-sync-worker
-// (decrypt on push), NEVER by the dashboard (which only pulls `@wizeworks/channels/
-// catalog`). Reached via the `@wizeworks/channels/crypto` subpath.
+// (decrypt on push), NEVER by the dashboard (which only pulls `@wizeworksllc/channels/
+// catalog`). Reached via the `@wizeworksllc/channels/crypto` subpath.
 //
 // Bundle format: `${ivB64}.${tagB64}.${cipherB64}` — a 12-byte random IV (the GCM
 // standard nonce size) + the 16-byte auth tag + the ciphertext, all base64. GCM

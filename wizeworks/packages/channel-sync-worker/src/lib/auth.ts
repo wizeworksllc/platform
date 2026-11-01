@@ -1,14 +1,14 @@
 // Resolves the live ChannelAuth for a connection (docs/106 §4.6): decrypts the
 // stored access token and, when it's at/near expiry, refreshes via the adapter and
-// PERSISTS the rotated grant. Tokens are AES-256-GCM at rest (@wizeworks/channels/
+// PERSISTS the rotated grant. Tokens are AES-256-GCM at rest (@wizeworksllc/channels/
 // crypto) — the row never holds plaintext. The worker owns this write; adapters
 // stay pure I/O.
 
 import type { Logger } from 'pino';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { decryptChannelToken, encryptChannelToken } from '@wizeworks/channels/crypto';
-import type { ChannelAdapter, ChannelAuth } from '@wizeworks/channels';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { decryptChannelToken, encryptChannelToken } from '@wizeworksllc/channels/crypto';
+import type { ChannelAdapter, ChannelAuth } from '@wizeworksllc/channels';
 
 // Refresh a token already within a minute of expiry (clock-skew + push latency).
 const REFRESH_SKEW_MS = 60_000;

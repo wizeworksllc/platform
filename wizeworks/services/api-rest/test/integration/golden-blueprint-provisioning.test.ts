@@ -14,7 +14,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 import {
   installGoldenForTenant,

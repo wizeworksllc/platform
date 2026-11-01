@@ -1,4 +1,4 @@
-// @wizeworks/site-themes/brand-palette — the interchange format that connects the
+// @wizeworksllc/site-themes/brand-palette — the interchange format that connects the
 // public color-palette tool (sparx.works/tools/color-palette) to the studio's
 // brand importer. ONE source of truth for the shape, imported by both the
 // marketing site (serialize → "Copy for sparx") and the dashboard (parse →

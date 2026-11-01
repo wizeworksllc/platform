@@ -23,10 +23,10 @@
 // template that renders a thousand different pages.
 
 import type { FastifyRequest } from 'fastify';
-import type { PropertyContext } from '@wizeworks/builder';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { normalizePath, routePrefixForRecordType } from '@wizeworks/site-lint';
+import type { PropertyContext } from '@wizeworksllc/builder';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { normalizePath, routePrefixForRecordType } from '@wizeworksllc/site-lint';
 
 import * as reports from './site-analytics-reports.js';
 

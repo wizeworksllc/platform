@@ -68,7 +68,7 @@ test('maps release images to source directories', () => {
 });
 
 test('classifies packages by the pools they open', () => {
-  assert.equal(poolKind('{"dependencies":{"@wizeworks/auth":"workspace:*"}}'), 'db');
+  assert.equal(poolKind('{"dependencies":{"@wizeworksllc/auth":"workspace:*"}}'), 'db');
   assert.equal(poolKind('{"dependencies":{"@wizeworks/operator-auth":"workspace:*"}}'), 'operator');
   assert.equal(poolKind('{"dependencies":{"next":"16"}}'), null);
 });

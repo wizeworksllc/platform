@@ -11,7 +11,7 @@
 // finance tenant to modules it never bought. They are resolved here only when
 // those modules are on.
 
-import { withTenant, type FinanceVendor } from '@wizeworks/db';
+import { withTenant, type FinanceVendor } from '@wizeworksllc/db';
 
 import { VendorNotFoundError } from './errors';
 import type { CreateVendorInput, UpdateVendorInput } from './schemas';

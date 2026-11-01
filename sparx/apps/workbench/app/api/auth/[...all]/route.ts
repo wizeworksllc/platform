@@ -1,8 +1,8 @@
-import { authProxyHandlers } from '@wizeworks/auth-client-server';
+import { authProxyHandlers } from '@wizeworksllc/auth-client-server';
 
 // Every /api/auth/* request lands here: sign-in, sign-up, session lookup, etc.
 // Mounting it at this path means the client SDK (better-auth/react inside
-// @wizeworks/auth/client) needs no baseURL config.
+// @wizeworksllc/auth-client/client) needs no baseURL config.
 //
 // The handler itself runs in api-rest (`/auth/sparx/*`, docs/154), which holds
 // the only Better Auth instance. This route forwards each request there and

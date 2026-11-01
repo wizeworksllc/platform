@@ -1,4 +1,4 @@
-// Service-layer error types (mirrors @wizeworks/crm errors).
+// Service-layer error types (mirrors @wizeworksllc/crm errors).
 //
 // Each transport maps these to its native error envelope:
 //   - REST: HTTP status (404 / 422 / 409)
@@ -9,7 +9,7 @@
 // reports the same condition the same way without re-deriving HTTP codes
 // from generic exceptions.
 
-import type { TenantContext } from '@wizeworks/db';
+import type { TenantContext } from '@wizeworksllc/db';
 
 export type ServiceContext = TenantContext;
 

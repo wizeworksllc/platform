@@ -1,4 +1,4 @@
-// @wizeworks/operator — dependency-free operator contracts shared across the admin
+// @wizeworksllc/operator — dependency-free operator contracts shared across the admin
 // console (wizeworks/apps/admin), the operator auth package (@wizeworks/operator-auth), and
 // api-rest's /internal/operator/* handlers. See docs/apps/admin/build-plan.md.
 

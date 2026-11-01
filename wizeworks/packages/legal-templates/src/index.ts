@@ -6,8 +6,8 @@
 // of wizeworks/packages/sitebuilder-schemas/src/page-templates.ts.
 //
 // Dependency-free on purpose: the doc nodes are plain JSON in the ProseMirror
-// shape `@wizeworks/cms-editor`'s renderDocToHtml consumes (doc → paragraph /
-// heading / bulletList / listItem / callout). No @wizeworks/cms-editor import so
+// shape `@wizeworksllc/cms-editor`'s renderDocToHtml consumes (doc → paragraph /
+// heading / bulletList / listItem / callout). No @wizeworksllc/cms-editor import so
 // the seed worker and api-rest can pull this without dragging React in.
 
 export type LegalKind = 'privacy' | 'terms' | 'cookie-policy' | 'returns' | 'shipping' | 'refund';

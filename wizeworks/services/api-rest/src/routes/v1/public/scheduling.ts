@@ -10,11 +10,11 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { customerService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest, conflict, moduleDisabled, notFound } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { customerService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest, conflict, moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
 import {
   bookClassSeat,
   createBooking,
@@ -28,7 +28,7 @@ import {
   listBookableResourcesForService,
   listClassSessions,
   listServices,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { resolvePublicPropertyId } from '../../../lib/property.js';
 import { optionalCustomer } from '../../../lib/customer-session.js';

@@ -1,7 +1,7 @@
 // Search signals for the Bookings and team records (persona issue 261).
 //
-// `@wizeworks/scheduling` and `@wizeworks/staff` cannot publish events (neither
-// depends on `@wizeworks/events`), so every caller of their writes signals from
+// `@wizeworksllc/scheduling` and `@wizeworksllc/staff` cannot publish events (neither
+// depends on `@wizeworksllc/events`), so every caller of their writes signals from
 // here, after the service call has committed. The indexer reads each row back,
 // so one upsert covers create, rename, archive, restore and delete alike.
 //
@@ -11,9 +11,9 @@
 // person up, so a stylist added under Bookings is findable by name under the
 // team too.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
-import { bootstrapSchedulingDefaults } from '@wizeworks/scheduling';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
+import { bootstrapSchedulingDefaults } from '@wizeworksllc/scheduling';
 
 interface Who {
   tenantId: string;

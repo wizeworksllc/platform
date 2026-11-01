@@ -21,7 +21,7 @@
 
 import type { Logger } from 'pino';
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 import { getProcessor } from './processors';
 import type { ImportRow, ProcessorContext } from './processors';
@@ -37,7 +37,7 @@ const ImportJobCreatedPayload = z.object({
 /**
  * The event as it is actually published — envelope and all.
  *
- * THIS IS THE SHAPE ON THE WIRE. `publish()` in @wizeworks/api-core wraps every
+ * THIS IS THE SHAPE ON THE WIRE. `publish()` in @wizeworksllc/api-core wraps every
  * payload as `{type, tenantId, actorId, occurredAt, data}`, and both delivery
  * paths carry that: the broker publishes `JSON.stringify(event)`, and the HTTP
  * push path base64s the same object into `message.data`.

@@ -4,7 +4,7 @@
 // 157). Sent by api-rest (docs/154), the same as the invitation flow's resend,
 // and comes back to /verify-email on this console.
 
-import { requestConfirmLink, type SendLinkResult } from '@wizeworks/auth-client-server';
+import { requestConfirmLink, type SendLinkResult } from '@wizeworksllc/auth-client-server';
 
 /** Where the link comes back to. `app/verify-email/page.tsx` is that page. */
 const LANDING = '/verify-email';

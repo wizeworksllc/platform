@@ -3,7 +3,7 @@
 // a rule.
 //
 // These reuse the SAME input schemas as the REST routes (CreateAutomationInput /
-// UpdateAutomationInput / CloneAutomationInput from @wizeworks/automation-schemas),
+// UpdateAutomationInput / CloneAutomationInput from @wizeworksllc/automation-schemas),
 // so the authoring vocabulary the AI sees (trigger kinds, the 12 condition
 // operators, the typed action catalog) is exactly what the dashboard and SDKs
 // see — one schema, no drift. The tier invariants are enforced in the service:
@@ -16,7 +16,7 @@ import {
   CloneAutomationInput,
   CreateAutomationInput,
   UpdateAutomationInput,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 
 import {
   cloneAutomation,

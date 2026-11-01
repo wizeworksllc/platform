@@ -16,10 +16,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { inventoryService } from '@wizeworks/inventory';
-import { InventoryActorType, InventoryAdjustReason } from '@wizeworks/commerce-schemas';
-import { paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { InventoryActorType, InventoryAdjustReason } from '@wizeworksllc/commerce-schemas';
+import { paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const ListQuery = z.object({

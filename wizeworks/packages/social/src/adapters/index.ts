@@ -1,7 +1,7 @@
 // Built-in social adapters + their registration entrypoint (docs/133 §4).
 //
 // Concrete adapters live here (one file per platform) alongside the shared `_http`
-// helpers — mirroring @wizeworks/channels' `src/adapters/`. The server-safe platform
+// helpers — mirroring @wizeworksllc/channels' `src/adapters/`. The server-safe platform
 // CATALOG (display metadata) stays in `../catalog.ts` with NO adapter import, so the
 // composer UI renders the connect cards without pulling network code.
 //

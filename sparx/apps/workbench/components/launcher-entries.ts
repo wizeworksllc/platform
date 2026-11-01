@@ -10,7 +10,7 @@
 // that never turned Commerce on can't open a surface that would 404.
 
 import { useMemo } from 'react';
-import { recordDestination, routeForEntity } from '@wizeworks/links';
+import { recordDestination, routeForEntity } from '@wizeworksllc/links';
 import { switchSite, useActivePropertyId, useFavorites } from '../lib/api/shell-data';
 import { useConfirm } from '../lib/confirm';
 import { useDebouncedValue, useRecordSearch } from '../lib/api/search';

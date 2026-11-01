@@ -14,9 +14,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { sectionService, pageLayoutService } from '@wizeworks/sitebuilder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { sectionService, pageLayoutService } from '@wizeworksllc/sitebuilder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireSitebuilderModule,
   toSitebuilderContext,

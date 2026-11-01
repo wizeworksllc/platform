@@ -17,16 +17,16 @@
 
 import type { FastifyBaseLogger } from 'fastify';
 
-import { prisma, withTenant } from '@wizeworks/db';
-import { billingPaymentService, heldOrderMoney, orderPaymentsService } from '@wizeworks/crm';
-import { heldOrderPayments } from '@wizeworks/commerce';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { gatewayRegistry } from '@wizeworks/payments';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { billingPaymentService, heldOrderMoney, orderPaymentsService } from '@wizeworksllc/crm';
+import { heldOrderPayments } from '@wizeworksllc/commerce';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { gatewayRegistry } from '@wizeworksllc/payments';
 import type {
   LookedUpPayment,
   NormalizedPaymentData,
   ParsedWebhookEvent,
-} from '@wizeworks/payments';
+} from '@wizeworksllc/payments';
 
 import { reconcileSparxPayAccount } from './payments-onboarding.js';
 
@@ -422,7 +422,7 @@ async function handleSucceeded(
     // (sparx persona issue 087). A gateway that charges on its own page cannot
     // hold the card, so the money lands before anybody has approved the order.
     // It is recorded as paid; it is not announced. The sign-off that places it
-    // announces `order.paid` (`placedEvents` in @wizeworks/b2b), or the refund
+    // announces `order.paid` (`placedEvents` in @wizeworksllc/b2b), or the refund
     // gives the money back if it is turned down. Read AFTER the rollup, which
     // writes the order row: that write waits for an approval writing the same
     // row, so this read sees it, and exactly one of the two announces.
@@ -469,7 +469,7 @@ async function handleSucceeded(
     // A scheduling deposit/prepay charge confirmed (docs/79 §9): the booking's
     // intent carries metadata.booking_id. Advance the booking's deposit from `held`
     // (set at creation) to `captured`. A card hold is captured by us in
-    // `bookingPayments.settle` (@wizeworks/commerce, which already sets `captured`),
+    // `bookingPayments.settle` (@wizeworksllc/commerce, which already sets `captured`),
     // so the guard makes this a no-op there; this branch is the real confirmation
     // for deposit/prepay.
     const bookingId = data.bookingId;

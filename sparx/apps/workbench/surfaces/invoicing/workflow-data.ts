@@ -20,7 +20,7 @@
 //     it has any id at all — using the index instead would make React reuse the
 //     wrong row's open/editing state the moment two stages swap places.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { slugify as slugifyWebSegment } from '../../lib/slugify';

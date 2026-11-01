@@ -2,7 +2,7 @@
 // the seeded form, the dirty guard and the save.
 
 import { useEffect, useMemo, useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { useToast } from '@wizeworks/silicaui-react';
 import { api } from '../lib/api/client';
 import { useDirtySource } from '../lib/workbench/dirty';

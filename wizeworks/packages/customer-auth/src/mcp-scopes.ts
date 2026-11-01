@@ -8,7 +8,7 @@
 // and api-rest gates each customer-tier public route on them
 // (lib/customer-session.ts).
 //
-// Mirrors the operator vocabulary (@wizeworks/auth/mcp-scopes) but for the customer
+// Mirrors the operator vocabulary (@wizeworksllc/auth/mcp-scopes) but for the customer
 // tier: no bulk/destructive scopes, no role capping (a shopper is the sole
 // principal — they grant their own account's scopes), a much smaller surface.
 //

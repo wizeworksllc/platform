@@ -3,7 +3,7 @@
 // Composes what a surface can bind to: the tenant's REAL CMS content types
 // (read-only cross-module introspection — the builder must know what types
 // exist to offer them as sources) plus the code-defined domain sources. The
-// CMS→source mapping is the pure `mapCmsContentType` in @wizeworks/builder-schemas;
+// CMS→source mapping is the pure `mapCmsContentType` in @wizeworksllc/builder-schemas;
 // this service only supplies the tenant's content types.
 //
 // Two surfaces, two catalogs (docs/52 §7): a PAGE binds to CMS + Commerce/CRM;
@@ -23,9 +23,9 @@ import {
   type BindingCatalog,
   type CmsFieldLike,
   type DataSource,
-} from '@wizeworks/builder-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+} from '@wizeworksllc/builder-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

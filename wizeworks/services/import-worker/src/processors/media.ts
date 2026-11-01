@@ -10,7 +10,7 @@
 // off that list: a file here has no title of its own (its name and alt text are what
 // it carries), and the date it was added is stamped when it arrives.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { filenameFromUrl, ingestImage, linkedNotice } from './images';
 import { eachRow, type EntityProcessor, type PreviewResult, type RowResult } from './types';

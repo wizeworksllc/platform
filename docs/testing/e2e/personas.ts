@@ -10,7 +10,7 @@
  * accounts, never real ones. Passwords are plaintext by design — same as
  * the existing seed — because this is dev-only, non-prod data.
  *
- * Module keys are exactly the ModuleSlug union from wizeworks/packages/modules/src/index.ts:
+ * Module keys are exactly the ModuleSlug union from wizeworks/packages/module-roster/src/index.ts:
  * builder | commerce | cms | crm | email | b2b | invoicing | dropship |
  * inventory | chat | ai | scheduling
  *

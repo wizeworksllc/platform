@@ -37,7 +37,7 @@ import {
   UpdateTransferLineInput,
   UpdateWarehouseInput,
   UpsertSupplierVariantInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { inventoryService } from '../services';
 import type { AnyMcpTool, McpToolDefinition } from './registry';

@@ -9,7 +9,7 @@
 // reading mail, and it is the only path for the many businesses on Fastmail,
 // Zoho, Rackspace or their own server. The general-purpose IMAP libraries are
 // large, and this repo already hand-writes its iCal and CalDAV parsers for
-// exactly this reason (`@wizeworks/scheduling` caldav-xml.ts, ical-parse.ts). The
+// exactly this reason (`@wizeworksllc/scheduling` caldav-xml.ts, ical-parse.ts). The
 // subset needed here — LOGIN, SELECT, UID SEARCH, UID FETCH — is small, frozen
 // since 2003, and easier to own than to depend on.
 //

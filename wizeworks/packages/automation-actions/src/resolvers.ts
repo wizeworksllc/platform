@@ -1,6 +1,6 @@
 // Module entity resolvers + scanners (docs/81 §5.3, docs/90 ADR).
 //
-// The engine's built-in resolvers (`@wizeworks/automation/resolvers/builtins`) cover
+// The engine's built-in resolvers (`@wizeworksllc/automation/resolvers/builtins`) cover
 // the crm-core entities (customer / deal / order). This module fills the seam for
 // the rest of the baked-in workflow catalog — quote, billing document, B2B
 // account, chat conversation, product/inventory — plus the scheduled SCANNERS the
@@ -22,7 +22,7 @@ import {
   type ResolvedFields,
   type ScannedRow,
   type TenantCtx,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 
 import {
   accountSetUpFields,
@@ -30,12 +30,12 @@ import {
   businessTimeZone,
   daysPastDue,
   OWED_DOCUMENT_WHERE,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 
 // HOW AN ITEM IS NAMED — the one module that answers it, rather than a sixth
 // local attempt built out of `product.title` (issue 861).
-import { variantLabel, VARIANT_LABEL_SELECT } from '@wizeworks/inventory';
-import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworks/db/site-origin';
+import { variantLabel, VARIANT_LABEL_SELECT } from '@wizeworksllc/inventory';
+import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworksllc/db/site-origin';
 
 import { fieldValueToString } from './entity.js';
 
@@ -159,7 +159,7 @@ async function resolveContact(
 // templates key on — one hydrator per event, two field namespaces.
 
 // Not a local copy: the rule about which workflows hold an offer rather than a
-// bill lives once, in @wizeworks/crm-schemas, and is re-exported by the CRM
+// bill lives once, in @wizeworksllc/crm-schemas, and is re-exported by the CRM
 // barrel this package already depends on. Four separate copies is how a quote
 // came to print as an unpaid invoice (issue 764).
 const B2B_QUOTES_WORKFLOW_SLUG = B2B_QUOTE_WORKFLOW_SLUG;
@@ -314,7 +314,7 @@ async function hydrateB2bAccount(ctx: TenantCtx, accountId: string): Promise<Res
     'b2bAccount.status': a.status,
     // Terms and limit through the same builder the set-up rule reads them with,
     // so the automation's condition and the check that closes the set-up task
-    // see one value (`ACCOUNT_SET_UP_TO_DO` in @wizeworks/crm-schemas).
+    // see one value (`ACCOUNT_SET_UP_TO_DO` in @wizeworksllc/crm-schemas).
     ...accountSetUpFields(a),
     'b2bAccount.assignedRepId': a.assignedRepId,
     ...(await resolveContact(ctx, { companyId: a.id })),
@@ -961,7 +961,7 @@ function attachmentNames(value: unknown): string[] {
 // `product.*` / `content.*` fields so a rule can still condition on them.
 
 /** The site's public base URL (`https://host`, no trailing slash): the one resolver
- *  every customer-facing link uses (`@wizeworks/db/site-origin`), so a drafted post
+ *  every customer-facing link uses (`@wizeworksllc/db/site-origin`), so a drafted post
  *  links to the same address as the site's emails, sitemap and sales channels. A
  *  null `propertyId` is the tenant's primary site.
  *
@@ -1192,7 +1192,7 @@ const BILLING_EVENTS = [
 const B2B_ACCOUNT_EVENTS = ['crm.b2b_account.created'];
 
 // B2B AR notifications — the b2b.escalate_overdue executor publishes these on the
-// @wizeworks/events bus (both carry `accountId`), so they hydrate the account (+ its
+// @wizeworksllc/events bus (both carry `accountId`), so they hydrate the account (+ its
 // primary contact as customer.*) exactly like a b2b_account event, plus the
 // overdue/invoice numbers off the payload.
 // `b2b.account.suspended` was published and never resolved, so nothing could

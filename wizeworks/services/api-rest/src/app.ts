@@ -3,7 +3,7 @@
 // handlers. Keeping the two split is a Fastify convention worth observing.
 //
 // Shared Fastify primitives (auth, error envelope, db helpers, audit,
-// pubsub, content-type validation) live in @wizeworks/api-core. This service
+// pubsub, content-type validation) live in @wizeworksllc/api-core. This service
 // composes the factories with its own env config and stays focused on
 // REST-only route plumbing. GraphQL is a separate service (api-graphql).
 
@@ -17,18 +17,18 @@ import cookie from '@fastify/cookie';
 import cors from '@fastify/cors';
 import { EXPOSED_RESPONSE_HEADERS } from './lib/exposed-headers.js';
 import { wizelensPlugin } from './lib/wizelens.js';
-import { TRUSTED_PROXIES } from '@wizeworks/client-ip';
-import { CrmConflictError, CrmNotFoundError, CrmValidationError } from '@wizeworks/crm';
+import { TRUSTED_PROXIES } from '@wizeworksllc/client-ip';
+import { CrmConflictError, CrmNotFoundError, CrmValidationError } from '@wizeworksllc/crm';
 import {
   SitebuilderConflictError,
   SitebuilderNotFoundError,
   SitebuilderValidationError,
-} from '@wizeworks/sitebuilder';
+} from '@wizeworksllc/sitebuilder';
 import {
   BuilderConflictError,
   BuilderNotFoundError,
   BuilderValidationError,
-} from '@wizeworks/builder';
+} from '@wizeworksllc/builder';
 import {
   CommerceCartBoughtError,
   CommerceConflictError,
@@ -37,26 +37,26 @@ import {
   CommercePricingError,
   CommerceProviderError,
   CommerceValidationError,
-} from '@wizeworks/commerce';
+} from '@wizeworksllc/commerce';
 import {
   InventoryConflictError,
   InventoryNotFoundError,
   InventoryOutOfStockError,
   InventoryValidationError,
-} from '@wizeworks/inventory';
+} from '@wizeworksllc/inventory';
 import {
   EmailConflictError,
   EmailNotFoundError,
   EmailProviderError,
   EmailValidationError,
-} from '@wizeworks/email-platform';
+} from '@wizeworksllc/email-platform';
 import {
   AutomationNotFoundError,
   AutomationVersionNotFoundError,
   LockedAutomationError,
   NoDraftError,
   PlatformVersionUnavailableError,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import {
   BookingNotFoundError,
   InvalidBookingStateError,
@@ -66,11 +66,11 @@ import {
   SchedulingError,
   ServiceNotFoundError as SchedulingServiceNotFoundError,
   SlotUnavailableError,
-} from '@wizeworks/scheduling';
-import { FinanceError } from '@wizeworks/finance';
-import { StaffError } from '@wizeworks/staff';
-import { createAuthPlugin } from '@wizeworks/api-core/auth';
-import { createErrorsPlugin, type ErrorEnvelope } from '@wizeworks/api-core/errors-plugin';
+} from '@wizeworksllc/scheduling';
+import { FinanceError } from '@wizeworksllc/finance';
+import { StaffError } from '@wizeworksllc/staff';
+import { createAuthPlugin } from '@wizeworksllc/api-core/auth';
+import { createErrorsPlugin, type ErrorEnvelope } from '@wizeworksllc/api-core/errors-plugin';
 import { env } from './env.js';
 import openapiPlugin from './plugins/openapi.js';
 import rateLimitPlugin from './plugins/rate-limit.js';
@@ -522,7 +522,7 @@ function commerceErrorMapper(
   return undefined;
 }
 
-// Inventory service-layer errors (@wizeworks/inventory — its own error vocabulary,
+// Inventory service-layer errors (@wizeworksllc/inventory — its own error vocabulary,
 // same envelope codes as commerce/crm). Out-of-stock keeps a distinct code so
 // the storefront/dashboard can offer a wait-list / back-order recovery path.
 function inventoryErrorMapper(
@@ -725,7 +725,7 @@ function automationErrorMapper(
   return undefined;
 }
 
-// Scheduling engine errors (@wizeworks/scheduling) — same envelope vocabulary as the
+// Scheduling engine errors (@wizeworksllc/scheduling) — same envelope vocabulary as the
 // other modules. SLOT_UNAVAILABLE (a lost race against the DB no-overlap EXCLUDE)
 // gets a distinct 409 code so the booking surface can re-fetch availability and
 // ask the customer to pick again; invalid-state transitions are also a 409.
@@ -795,7 +795,7 @@ function schedulingErrorMapper(
   return undefined;
 }
 
-// Finance errors (@wizeworks/finance) — same envelope vocabulary as the rest.
+// Finance errors (@wizeworksllc/finance) — same envelope vocabulary as the rest.
 //
 // Three get their own status on purpose. Over-allocating an expense is a 422:
 // the request is well-formed, it just charges jobs for money nobody spent. A
@@ -828,7 +828,7 @@ function financeErrorMapper(
   return reply.code(status).send(body);
 }
 
-// Staff errors (@wizeworks/staff) — same envelope vocabulary again.
+// Staff errors (@wizeworksllc/staff) — same envelope vocabulary again.
 //
 // Three are 409s, and they share a shape: the request is fine, the WORLD is in a
 // state that has to change first, and the message already says which change.
@@ -875,7 +875,7 @@ export async function createApp(): Promise<FastifyInstance> {
     requestIdHeader: 'x-request-id',
     requestIdLogLabel: 'request_id',
     // X-Forwarded-* — sparx-prod sits behind Cloudflare and Caddy. A LIST, not
-    // `true`: see @wizeworks/client-ip for why `true` let any
+    // `true`: see @wizeworksllc/client-ip for why `true` let any
     // caller choose its own `request.ip`.
     trustProxy: TRUSTED_PROXIES,
     disableRequestLogging: false,

@@ -6,7 +6,7 @@
 // said 43 (sparx persona issue 175). Worked out here, on the business's calendar,
 // with the same `daysPastDue` the screens use.
 
-import { daysPastDue } from '@wizeworks/crm';
+import { daysPastDue } from '@wizeworksllc/crm';
 
 /** The status a bill has today, and how many whole days late it is. */
 export function invoiceLateness(

@@ -28,7 +28,7 @@ The list exists to answer "who owes me". It overstated that by $22,389.72, 65% o
 
 ## Where it lives
 
-- `listInvoices`, `getInvoice`, `markInvoicePaid`, `writeOffInvoice` in `@wizeworks/b2b` `invoices.ts` asked only `companyId is not null`. `ISSUED_BILL_WHERE` (crm), written for exactly this kind of list, was never asked.
+- `listInvoices`, `getInvoice`, `markInvoicePaid`, `writeOffInvoice` in `@wizeworksllc/b2b` `invoices.ts` asked only `companyId is not null`. `ISSUED_BILL_WHERE` (crm), written for exactly this kind of list, was never asked.
 - `/v1/b2b/reports/top-accounts` summed every billing document of an account.
 - The search box opened every `billing_document` hit on the entity's home, the list, though the search entry stores the invoice's own address.
 
@@ -36,7 +36,7 @@ The list exists to answer "who owes me". It overstated that by $22,389.72, 65% o
 
 - `TRADE_BILL_WHERE` in `invoices.ts`: an account's issued bills (`ISSUED_BILL_WHERE`). Every read and action there goes through it.
 - The top accounts report counts issued bills only.
-- `recordDestination` in `@wizeworks/links`: a hit opens the address its search entry stored when that address names this exact record on a known pane; anything else (an old address, another record) falls back to the entity's home. Both consoles' search boxes use it.
+- `recordDestination` in `@wizeworksllc/links`: a hit opens the address its search entry stored when that address names this exact record on a known pane; anything else (an old address, another record) falls back to the entity's home. Both consoles' search boxes use it.
 
 Tests, each proved red against the old code:
 

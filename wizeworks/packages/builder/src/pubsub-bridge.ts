@@ -1,4 +1,4 @@
-// Builder → event-broker bridge (docs/127 §6; transport-agnostic, see @wizeworks/events).
+// Builder → event-broker bridge (docs/127 §6; transport-agnostic, see @wizeworksllc/events).
 //
 // `publishBuilderEvent` has always emitted `builder.page.published` /
 // `builder.layout.published` / `builder.layout.activated` / `builder.email.published`,
@@ -16,22 +16,22 @@
 // Mirrors wizeworks/packages/crm/src/pubsub-bridge.ts exactly — same envelope, same
 // topic-name-equals-event-type rule, same wrap-the-active-publisher composition so an
 // already-installed decorator survives. It lives in its OWN module (subpath export
-// `@wizeworks/builder/pubsub`) rather than the package barrel so the heavy
+// `@wizeworksllc/builder/pubsub`) rather than the package barrel so the heavy
 // `@google-cloud/pubsub` gRPC dependency only loads in the backend services that
-// install it — apps/dashboard transpiles `@wizeworks/builder` and must never pull it in.
+// install it — apps/dashboard transpiles `@wizeworksllc/builder` and must never pull it in.
 
 import {
   createPublisher,
   publishRaw,
   resolveTransport,
   type Publisher as EventPublisher,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 
 import { getPublisher, setPublisher, type BuilderEvent, type Publisher } from './events';
 
 export interface BridgeLogger {
   info(obj: object, msg?: string): void;
-  // `warn` is required by @wizeworks/events' PublisherLogger, which this bridge now
+  // `warn` is required by @wizeworksllc/events' PublisherLogger, which this bridge now
   // hands its logger to. Every caller already satisfies it (console, pino) — it
   // was simply never declared, because the old bridge logged through its own
   // Pub/Sub client and never crossed the package boundary.
@@ -50,7 +50,7 @@ interface EventEnvelope {
   data: Record<string, unknown>;
 }
 
-// Publishes through the SHARED transport in @wizeworks/events.
+// Publishes through the SHARED transport in @wizeworksllc/events.
 //
 // This owned `new PubSub({ projectId })` — the FOURTH copy of the publisher in
 // the repo (wizeworks/packages/events, wizeworks/packages/api-core, wizeworks/packages/crm being the others).
@@ -122,7 +122,7 @@ export interface InstallOptions {
  * stubs, but it meant the bridge was permanently disabled on any non-GCP
  * deployment — builder.* events went to the in-process publisher and stopped,
  * with no cache purge ever reaching the storefront. There is nothing to gate on
- * now: the transport in @wizeworks/events decides what a publish does, once, for
+ * now: the transport in @wizeworksllc/events decides what a publish does, once, for
  * every publisher in the platform.
  */
 export function installBuilderPubSubBridge({ logger }: InstallOptions): void {

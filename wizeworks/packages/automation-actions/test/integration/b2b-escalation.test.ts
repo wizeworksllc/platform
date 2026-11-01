@@ -21,8 +21,8 @@ import {
   runAutomationTick,
   runScheduleTick,
   type EngineDeps,
-} from '@wizeworks/automation';
-import type { Publisher, SparxEvent } from '@wizeworks/events';
+} from '@wizeworksllc/automation';
+import type { Publisher, SparxEvent } from '@wizeworksllc/events';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { installB2bActions, seedSystemAutomations } from '../../src/index.js';
@@ -40,7 +40,7 @@ const appDb = new PrismaClient({
     'postgresql://sparx_app:devpassword@localhost:5544/sparx?schema=public',
 });
 
-// Capturing publisher for the @wizeworks/events bus — the executor's b2b.* events.
+// Capturing publisher for the @wizeworksllc/events bus — the executor's b2b.* events.
 class CapturingPublisher implements Publisher {
   readonly events: SparxEvent<Record<string, unknown>>[] = [];
   publish<T>(event: SparxEvent<T>): Promise<void> {

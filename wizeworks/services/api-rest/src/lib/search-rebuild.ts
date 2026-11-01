@@ -3,7 +3,7 @@
 import crypto from 'node:crypto';
 
 import type { FastifyBaseLogger } from 'fastify';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 /**
  * Ask the search worker to rebuild this tenant's index from its real records.

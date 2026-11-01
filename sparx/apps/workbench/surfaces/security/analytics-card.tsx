@@ -22,7 +22,7 @@
 // and "when did I agree to this" is the first thing anyone asks.
 
 import { Badge, Button, Text } from '@wizeworks/silicaui-react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { useToast } from '@wizeworks/silicaui-react';
 import { useState } from 'react';
 import { FormSection } from '../../components/form-section';

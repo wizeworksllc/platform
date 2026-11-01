@@ -13,10 +13,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { dealService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { dealService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { reachableSiteIds } from '../../../lib/property.js';
 import dealAttachmentRoutes from './deal-attachments.js';

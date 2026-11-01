@@ -39,7 +39,7 @@ model CrmObjectDef {
   iconKey     String? @map("icon_key") @db.VarChar(63)
   description String? @db.Text
 
-  /// A `FieldSchema` from @wizeworks/field-schema — the SAME engine behind CMS
+  /// A `FieldSchema` from @wizeworksllc/field-schema — the SAME engine behind CMS
   /// content types and commerce product types. Validated on write; `{"fields":[]}`
   /// for a built-in nobody has extended yet.
   propertySchema Json @default("{\"fields\":[]}") @map("property_schema")
@@ -82,7 +82,7 @@ model CrmRecord {
   objectKey String @map("object_key") @db.VarChar(63)
 
   /// Validated against the object's `property_schema` on every write, with
-  /// calculated fields recomputed server-side (@wizeworks/field-schema `calc`).
+  /// calculated fields recomputed server-side (@wizeworksllc/field-schema `calc`).
   values Json @default("{}")
 
   /// The staff member who owns this record. Same shape as a deal's assigned rep.

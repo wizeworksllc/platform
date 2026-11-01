@@ -14,11 +14,11 @@ import {
   fixedStageChance,
   stageTypesFor,
   type StageType,
-} from '@wizeworks/crm-schemas';
-import { DEFAULT_PIPELINE_TEMPLATE } from '@wizeworks/crm-schemas/builtins';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { Pipeline, PipelineStage, Prisma } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+} from '@wizeworksllc/crm-schemas';
+import { DEFAULT_PIPELINE_TEMPLATE } from '@wizeworksllc/crm-schemas/builtins';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { Pipeline, PipelineStage, Prisma } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

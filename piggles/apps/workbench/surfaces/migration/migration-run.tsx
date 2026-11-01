@@ -16,7 +16,7 @@ import { Button, useToast } from '@wizeworks/silicaui-react';
 import { faPlay, faRotate, faUpload } from '@fortawesome/pro-solid-svg-icons';
 
 import { Icon } from '@piggles/ui';
-import { bringInLabel, type MappedEntity } from '@wizeworks/migration';
+import { bringInLabel, type MappedEntity } from '@wizeworksllc/migration';
 import { RunProgress } from './migration-progress';
 import { PickSource } from './migration-pick-source';
 import { StagedSource } from './migration-staged';

@@ -1,13 +1,13 @@
 // Builder MCP tool registry (the docs/61 node-tree page builder).
 //
 // Each tool is a thin wrapper over a page-service function — one service, many
-// transports. The MCP server imports `builderMcpTools` (via the `@wizeworks/builder/mcp`
+// transports. The MCP server imports `builderMcpTools` (via the `@wizeworksllc/builder/mcp`
 // subpath, which deliberately avoids the surface-css service so the heavy Tailwind
 // compiler never loads at MCP boot) and exposes them; REST exercises the same
 // service functions. Mirrors wizeworks/packages/sitebuilder/src/mcp/registry.ts.
 //
 // NOTE these are the NEW node-tree page tools (Tailwind-native `class` authoring).
-// @wizeworks/sitebuilder's tools (add_section, select_theme, …) drive the separate
+// @wizeworksllc/sitebuilder's tools (add_section, select_theme, …) drive the separate
 // theme/brand + section surface; both share the read:builder / write:builder
 // scopes but have distinct tool names.
 

@@ -52,11 +52,11 @@ commerce got it.
 
 ## The fix
 
-- `@wizeworks/story-schemas`: every `Industry` now carries `blueprintKeys`, the
+- `@wizeworksllc/story-schemas`: every `Industry` now carries `blueprintKeys`, the
   key fragments that make a template that industry's own (fitness:
   `fitness`, `yoga`, `athletic`; wholesale: `b2b-`; auto parts: `auto`, `garage`;
   …). Brand-blind: no brand prefix in any of them.
-- `pickBlueprint` moved into `@wizeworks/story-schemas/src/blueprints.ts`. When
+- `pickBlueprint` moved into `@wizeworksllc/story-schemas/src/blueprints.ts`. When
   the industry names templates, only those qualify, and none installable means a
   blank site. With no industry chosen, the vertical match still decides.
 - Both consoles' local copies are deleted and re-export the shared one, so

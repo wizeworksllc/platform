@@ -21,7 +21,7 @@
 //   ['crm','dashboards', …]               boards
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /* ── Shapes ─────────────────────────────────────────────────────────────── */
@@ -207,7 +207,7 @@ export const VISUALIZATION_LABEL: Record<Visualization, string> = {
 };
 
 /** Only the shapes a definition can honestly draw. Mirrors `allowedVisualizations`
- *  in @wizeworks/crm-schemas — a pie chart of an ungrouped count is one wedge
+ *  in @wizeworksllc/crm-schemas — a pie chart of an ungrouped count is one wedge
  *  covering 100% of itself, which looks like a working chart and says nothing. */
 export function allowedVisualizations(hasGroupBy: boolean, measureCount: number): Visualization[] {
   if (!hasGroupBy) return ['number', 'table'];

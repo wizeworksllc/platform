@@ -3,7 +3,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Button, Heading, Text } from '@wizeworks/silicaui-react';
 import { ExternalLink, Globe } from 'lucide-react';
-import { storySubject, type StoryState } from '@wizeworks/story-schemas';
+import { storySubject, type StoryState } from '@wizeworksllc/story-schemas';
 import { storefrontPreviewUrl, type OnboardingActions } from '../../../lib/onboarding/api';
 import { handleSlug } from '../../../lib/onboarding/story-state';
 import type { WizardBlueprint } from '../../../lib/onboarding/types';

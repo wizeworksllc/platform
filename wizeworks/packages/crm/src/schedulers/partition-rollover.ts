@@ -10,7 +10,7 @@
 // public schema, so we route through ensure_crm_activities_partition() —
 // a SECURITY DEFINER function defined in migration 20260603100000.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 export interface PartitionRolloverResult {
   ensured: string[];

@@ -14,7 +14,7 @@ import { EmptyState } from '@wizeworks/silicaui-react';
 import { Award, Lock, ServerCrash } from 'lucide-react';
 import { PANE_SHELL } from '../../components/pane-toolbar';
 import { PaneLoadError } from '../../components/pane-load-error';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { JoinPartnerProgram } from './join';
 
 /** A centred message that fills the pane — for the states where there is no list

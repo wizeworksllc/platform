@@ -6,7 +6,7 @@
 // refused at the one door every write goes through (`createContentTypeTx` /
 // `updateContentTypeTx`, used by the console and by the MCP tools alike).
 //
-// THE SAME RULE AS THE STOREFRONT'S. `@wizeworks/silica-catalog`'s
+// THE SAME RULE AS THE STOREFRONT'S. `@wizeworksllc/silica-catalog`'s
 // `kindAddressFromPattern` decides which patterns the website serves; this decides which
 // it accepts. This package cannot import that one, so `kind-address-agreement.test.ts`
 // in api-rest (which depends on both) checks the two answer alike, word for word.

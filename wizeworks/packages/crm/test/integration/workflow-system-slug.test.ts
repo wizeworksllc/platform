@@ -21,7 +21,7 @@ import {
   CUSTOMER_ESTIMATE_WORKFLOW_SLUG,
   NET_TERMS_AR_WORKFLOW_SLUG,
   isPriceOfferWorkflow,
-} from '@wizeworks/crm-schemas/builtins';
+} from '@wizeworksllc/crm-schemas/builtins';
 
 import { documentWorkflowService } from '../../src/services/index.js';
 import { CrmValidationError } from '../../src/errors.js';

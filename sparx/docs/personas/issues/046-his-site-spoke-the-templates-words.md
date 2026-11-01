@@ -31,7 +31,7 @@ design's. A footer line meant to describe the business shows the tagline he set.
 
 ## Where it lives
 
-- `@wizeworks/site-lint` had no rule for it, though each install keeps the
+- `@wizeworksllc/site-lint` had no rule for it, though each install keeps the
   design's original pages as baselines (`tenant_blueprint_install_artifacts`).
 - The footer line: issue 851 (Piggles) fixed it in the code starter
   (`siteFooter`), but the golden `sparx` design is captured, not generated, and

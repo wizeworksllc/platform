@@ -2,12 +2,12 @@
 // line under its "Web address" box prints it.
 //
 // The path comes from the one table the site's pages are built from
-// (`RECORD_ADDRESSES` in @wizeworks/silica-catalog), never typed here. This
+// (`RECORD_ADDRESSES` in @wizeworksllc/silica-catalog), never typed here. This
 // console's category hint once said "/c/", which the site has never served
 // (issue 383); fixed here by hand, it stayed wrong in the sparx console until
 // sparx persona issue 225, and every hint said "yoursite.com" in both.
 
-import { recordAddressFor } from '@wizeworks/silica-catalog';
+import { recordAddressFor } from '@wizeworksllc/silica-catalog';
 
 export type AddressedRecord = 'commerce.product' | 'commerce.collection' | 'commerce.category';
 

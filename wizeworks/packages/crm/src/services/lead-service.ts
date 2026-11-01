@@ -8,7 +8,7 @@
 // a re-run (automation retry AND backfill) is always safe. Composes into `ctx.tx`
 // when the caller passes one (the automation engine's per-step tx).
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import * as customerService from './customer-service';

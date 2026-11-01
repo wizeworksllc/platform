@@ -6,15 +6,15 @@
 // special-case the `first_party` shape and call enable/disable here). Enabling
 // surfaces the merchant in the directory; disabling tears down every listing +
 // the directory row. Payout bank details are AES-256-GCM ciphertext (the same
-// @wizeworks/channels/crypto box the OAuth tokens use), never plaintext.
+// @wizeworksllc/channels/crypto box the OAuth tokens use), never plaintext.
 
-import { withTenant } from '@wizeworks/db';
-import { encryptChannelToken, decryptChannelToken } from '@wizeworks/channels/crypto';
+import { withTenant } from '@wizeworksllc/db';
+import { encryptChannelToken, decryptChannelToken } from '@wizeworksllc/channels/crypto';
 import {
   MarketMerchantProfileInput,
   MarketPayoutAccountInput,
   resolveCommissionBps,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../../audit';
 import { CommerceValidationError } from '../../errors';

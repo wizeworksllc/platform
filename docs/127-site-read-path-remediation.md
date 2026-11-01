@@ -133,7 +133,7 @@ missing links — no real publisher, no consumer, no `builder` scope on
    `builder.page.published` / `builder.layout.published` / `builder.layout.activated` /
    `builder.email.published` reach Pub/Sub instead of `console.log`. The site-level
    publish and rollback endpoints emit `builder.published` / `builder.rolled_back`
-   directly through `@wizeworks/events`
+   directly through `@wizeworksllc/events`
    ([api-rest/lib/builder-events.ts](../services/api-rest/src/lib/builder-events.ts)).
 2. **Consumer.** `cache-revalidation-worker` maps `builder.*` **by prefix**, so all six
    names land on the `builder` scope and a seventh needs no worker change.

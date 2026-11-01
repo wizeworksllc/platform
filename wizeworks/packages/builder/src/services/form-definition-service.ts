@@ -25,9 +25,9 @@ import {
   type BuilderNode,
   type SilicaFormConfig,
   type SilicaNode,
-} from '@wizeworks/builder-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/builder-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { BuilderNotFoundError, type PropertyContext } from '../errors';
 import * as siteService from './site-service';

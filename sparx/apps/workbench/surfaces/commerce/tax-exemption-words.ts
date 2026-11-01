@@ -8,7 +8,7 @@
 // ranch supply or a parts counter should have to read, so each one has a plain
 // sentence here, and the standing ("is this covering them today?") is worked
 // out by the same rule checkout uses (`exemptionCovers` in
-// @wizeworks/commerce's tax-exemption.ts): not yet started, past its end, or in
+// @wizeworksllc/commerce's tax-exemption.ts): not yet started, past its end, or in
 // force.
 
 import { calendarDateText } from '../../components/calendar-date-words';

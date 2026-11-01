@@ -1,21 +1,21 @@
 // Inventory Pub/Sub event publisher.
 //
-// Mirrors @wizeworks/commerce's `publishCommerceEvent` pattern: a thin wrapper over
-// @wizeworks/events so the module emits typed `inventory.*` topics from one place,
-// with a consistent logger. The actual transport is @wizeworks/events, which talks
+// Mirrors @wizeworksllc/commerce's `publishCommerceEvent` pattern: a thin wrapper over
+// @wizeworksllc/events so the module emits typed `inventory.*` topics from one place,
+// with a consistent logger. The actual transport is @wizeworksllc/events, which talks
 // to Google Pub/Sub in prod and a noop-with-logging publisher in dev/test.
 //
 // Always called AFTER a DB transaction commits — never inside one. A rolled-back
 // write must never emit a phantom event.
 
-import { afterCommit } from '@wizeworks/db';
+import { afterCommit } from '@wizeworksllc/db';
 import {
   createPublisher,
   indexEntity,
   publishEvent,
   type EventType,
   type PublisherLogger,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 
 const logger: PublisherLogger = {
   info: (obj, msg) => console.log(JSON.stringify({ level: 'info', src: 'inventory', ...obj, msg })),
@@ -27,7 +27,7 @@ const logger: PublisherLogger = {
 
 // Subset of EventType the Inventory module publishes. Narrowing here means a
 // typo in a topic surfaces at compile time. Adding a new inventory event
-// requires (1) extending EventType in @wizeworks/events and (2) listing it here.
+// requires (1) extending EventType in @wizeworksllc/events and (2) listing it here.
 export type InventoryTopic = Extract<
   EventType,
   | 'inventory.adjusted'

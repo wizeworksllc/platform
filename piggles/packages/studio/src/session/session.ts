@@ -12,7 +12,7 @@
 
 import type { ComponentDoc, DocumentRef, LayoutDoc, StudioDoc, ThemeDoc } from '../documents/types';
 import { docKey, isTreeDoc } from '../documents/types';
-import { ensureUniqueIds } from '@wizeworks/silica-catalog';
+import { ensureUniqueIds } from '@wizeworksllc/silica-catalog';
 import type { SymbolDef } from '@wizeworks/silicaui-html';
 import { DocumentStore } from './document-store';
 

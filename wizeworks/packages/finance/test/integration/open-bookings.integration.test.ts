@@ -6,7 +6,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 import { openPastBookingCount } from '../../src/index';
 import { createTestTenant, day, dropTestTenant, type TestTenant } from '../helpers';

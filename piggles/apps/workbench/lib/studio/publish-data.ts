@@ -8,7 +8,7 @@
 // what is published is one connected thing, and a page restored to last week beside
 // saved pieces from today is the breakage the release history exists to prevent.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../api/client';
 // The report shape is CARRIED, not imported — the checker is a server package and
 // this is a client module. Same arrangement as the saved-piece DTOs.

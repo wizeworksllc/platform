@@ -12,7 +12,7 @@
 // audit, so it already appears.
 
 import { useMemo } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from './client';
 
 export interface ActivityItem {

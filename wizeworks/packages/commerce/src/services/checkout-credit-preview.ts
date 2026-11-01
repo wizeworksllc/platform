@@ -8,7 +8,7 @@
 // with no reason given (sparx persona issue 187). This asks the same question
 // the order asks, with the same function, so the two cannot disagree.
 
-import { accountOrderGate } from '@wizeworks/crm';
+import { accountOrderGate } from '@wizeworksllc/crm';
 
 export interface CreditPreview {
   creditLeftCents: number;

@@ -65,4 +65,4 @@ describe('compileTokens', () => {
 //
 // The `theme catalog` block that followed asserted the six presets shipped light +
 // dark defaults. There is no v1 catalog to assert: the shipped themes are the forty
-// in @wizeworks/silica-catalog, guarded by first-party-themes.test.ts.
+// in @wizeworksllc/silica-catalog, guarded by first-party-themes.test.ts.

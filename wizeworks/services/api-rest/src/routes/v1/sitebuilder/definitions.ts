@@ -9,14 +9,14 @@
 //   DELETE /v1/sitebuilder/definitions/:slug   → remove (refused while in use)
 //
 // Bodies are validated by the service-layer Zod schemas (SectionDefinitionInput),
-// so api-rest keeps no @wizeworks/sitebuilder-schemas dependency. The slug is the
+// so api-rest keeps no @wizeworksllc/sitebuilder-schemas dependency. The slug is the
 // immutable type identity, addressed in the path.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { definitionService } from '@wizeworks/sitebuilder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { definitionService } from '@wizeworksllc/sitebuilder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireSitebuilderModule,
   toSitebuilderContext,

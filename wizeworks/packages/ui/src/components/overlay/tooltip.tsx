@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-import { cn } from '@wizeworks/silica-corrections';
+import { cn } from '@wizeworksllc/silica-corrections';
 
 export const TooltipProvider = TooltipPrimitive.Provider;
 

@@ -1,7 +1,7 @@
 import Fastify from 'fastify';
 import { describe, expect, it, vi } from 'vitest';
-import type * as Db from '@wizeworks/db';
-import type * as Commerce from '@wizeworks/commerce';
+import type * as Db from '@wizeworksllc/db';
+import type * as Commerce from '@wizeworksllc/commerce';
 
 // WW-10: one storefront page view called /v1/public/tenants/:slug and each call
 // opened three transactions (the payload batch, payment config, languages).
@@ -21,7 +21,7 @@ const h = vi.hoisted(() => {
   return { tx, withTenant: vi.fn((_ctx: unknown, fn: (t: typeof tx) => unknown) => fn(tx)) };
 });
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<typeof Db>()),
   withTenant: h.withTenant,
   prisma: {
@@ -41,7 +41,7 @@ vi.mock('@wizeworks/db', async (importOriginal) => ({
     },
   },
 }));
-vi.mock('@wizeworks/commerce', async (importOriginal) => {
+vi.mock('@wizeworksllc/commerce', async (importOriginal) => {
   const real = await importOriginal<typeof Commerce>();
   return {
     checkoutService: { paymentModeOf: real.checkoutService.paymentModeOf },

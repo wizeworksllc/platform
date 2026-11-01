@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/blueprints",
+  "name": "@wizeworksllc/blueprints",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Tenant Blueprints (docs/54) — the declarative manifest format for marketplace templates that provision a whole tenant (brand/theme + content + commerce + pages + emails + components), plus the in-repo blueprint catalog and an integrity validator. Zod-only (no DB, no React) so the installer worker, api-rest, and the dashboard can all import it.",
@@ -21,11 +21,11 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/builder-schemas": "workspace:*",
-    "@wizeworks/cms-schemas": "workspace:*",
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/silica-catalog": "workspace:*",
-    "@wizeworks/sitebuilder-schemas": "workspace:*",
+    "@wizeworksllc/builder-schemas": "workspace:*",
+    "@wizeworksllc/cms-schemas": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/silica-catalog": "workspace:*",
+    "@wizeworksllc/sitebuilder-schemas": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

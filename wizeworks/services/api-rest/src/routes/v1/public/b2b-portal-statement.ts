@@ -16,11 +16,11 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { b2bStatementService, renderAccountStatementHtml } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { forbidden } from '@wizeworks/api-core/errors';
-import { type CustomerAuthContext } from '@wizeworks/customer-auth';
+import { withTenant } from '@wizeworksllc/db';
+import { b2bStatementService, renderAccountStatementHtml } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { forbidden } from '@wizeworksllc/api-core/errors';
+import { type CustomerAuthContext } from '@wizeworksllc/customer-auth';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { requireCustomerId } from '../../../lib/customer-session.js';
 import { resolveInvoiceBrand } from '../../../lib/invoice-render.js';

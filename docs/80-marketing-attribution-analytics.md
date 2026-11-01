@@ -49,7 +49,7 @@ Attribution in sparx is **two systems that share one engine**, mirroring the two
 
 Both levels use the **same capture library, the same attribution snapshot shape (§5.2), the same
 identity-stitch pattern (§6), and the same model math (§9).** They differ only in where the cookie
-lives, which identity system resolves the anonymous visitor (Better Auth vs `@wizeworks/customer-auth`),
+lives, which identity system resolves the anonymous visitor (Better Auth vs `@wizeworksllc/customer-auth`),
 and who reads the report. Build the engine once; instantiate it twice.
 
 > **Decision — one engine, two instantiations.** We do **not** build a separate "internal launch
@@ -193,7 +193,7 @@ Attribution is **not** strictly-necessary. It maps onto doc 42's four categories
 
 - **`analytics` consent** gates: first/last-touch snapshots, `attribution_touches`, PostHog person
   profiles, channel/campaign attribution. Use `gateTracker({ category: 'analytics', load })` from
-  `@wizeworks/legal` so capture only initializes when granted, and tears down on withdrawal.
+  `@wizeworksllc/legal` so capture only initializes when granted, and tears down on withdrawal.
 - **`marketing` consent** gates the **click-id capture** (`gclid`/`fbclid`/…) and the §13 ad-platform
   send-back. Without it, `clickIds` is empty and no conversion API fires.
 - **Cookieless essential fallback.** Under strictly-necessary only, we may keep an **aggregate,
@@ -210,7 +210,7 @@ Attribution is **not** strictly-necessary. It maps onto doc 42's four categories
   (Better Auth) reads `sparx_attr_first`/`_last`, attaches them to `tenant.created` (§8.5), writes
   `tenants.acquisition_*`, and calls `posthog.identify(userId, {}, { $set_once: firstTouch })` so the
   PostHog person inherits true first-touch.
-- **L-TEN:** at `@wizeworks/customer-auth` account creation or first authenticated checkout, resolve
+- **L-TEN:** at `@wizeworksllc/customer-auth` account creation or first authenticated checkout, resolve
   `sparx_consent.visitorId → customerId`. The CRM spine ([doc 11](11-crm-prd.md)) gets first/last-touch
   columns; the order gets an attribution snapshot at creation. The **append-only CRM activity**
   timeline records an `attribution.identified` activity, so the journey shows on the customer card.
@@ -237,7 +237,7 @@ probabilistic fingerprinting — see non-goals §18).
 
 A server endpoint `POST /v1/attribution/touch` (`wizeworks/services/api-rest`) accepts the snapshot, validates
 it, writes `attribution_touches` (tenant-scoped) or the platform table, and publishes
-`attribution.touch.recorded` on the Pub/Sub bus (`@wizeworks/events`). Conversions **enrich existing
+`attribution.touch.recorded` on the Pub/Sub bus (`@wizeworksllc/events`). Conversions **enrich existing
 events rather than minting parallel ones**: `tenant.created`, `customer.created` /
 `customer.subscribed`, and `order.created` each carry an `attribution` block. Where a CRM consumer
 needs it, follow the **two-bus rule** (`publishCrmEvent` _and_ the platform bus — see the CRM

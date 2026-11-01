@@ -2,7 +2,7 @@
 // REST list/detail endpoints, and MCP read-tools share. Writes live in
 // booking-service.ts; this file only reads, always under tenant RLS.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 import { latestBookingPayment } from './booking-history';
 import { BookingNotFoundError } from './errors';

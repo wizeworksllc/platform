@@ -7,7 +7,7 @@
 // (sparx persona issue 307). Matching the sentence would break on the first copy
 // edit; the reason is the contract.
 
-import { ApiError } from '@wizeworks/api-core/errors';
+import { ApiError } from '@wizeworksllc/api-core/errors';
 
 export const NOT_A_PARTNER = 'not_a_partner';
 

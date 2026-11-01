@@ -16,9 +16,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest } from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest } from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   cancelTimeOff,
   countTimeOff,
@@ -30,14 +30,14 @@ import {
   publishShifts,
   requestTimeOff,
   updateShift,
-} from '@wizeworks/staff';
+} from '@wizeworksllc/staff';
 import {
   shiftSchema,
   shiftStatusSchema,
   timeOffDecisionSchema,
   timeOffSchema,
   timeOffStatusSchema,
-} from '@wizeworks/staff/schemas';
+} from '@wizeworksllc/staff/schemas';
 import { requireStaffModule } from '../../../lib/staff-context.js';
 import { publishStaffEvent } from '../../../lib/staff-events.js';
 import { displayName } from './views.js';

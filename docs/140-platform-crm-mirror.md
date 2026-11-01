@@ -57,7 +57,7 @@ Two lost stages, on purpose. "Never converted" and "converted then left" look th
 Closed Lost column and are completely different problems to fix.
 
 Stages are addressed by `sortOrder`, never by name, so renaming a stage on the board doesn't break
-the mirror. This pipeline is **not** a `@wizeworks/crm-schemas` built-in: built-ins are seeded into
+the mirror. This pipeline is **not** a `@wizeworksllc/crm-schemas` built-in: built-ins are seeded into
 every tenant on CRM activation, and no customer of ours wants a pipeline modelling sparx's trials.
 
 ## 4. How a signup gets there
@@ -201,7 +201,7 @@ deal rather than duplicating them.
 | D4  | `captureLead`, not `subscribe`                                                            | Signing up for a trial is not consent to marketing email                                                                                                                                            |
 | D5  | Contact per person, deal per tenant                                                       | One owner can hold several tenants, and each is its own trial to win                                                                                                                                |
 | D6  | Two lost stages                                                                           | "Never converted" and "converted then left" are different problems; one Closed Lost column hides which                                                                                              |
-| D7  | Pipeline lives in `@wizeworks/platform-crm`, not in the CRM built-ins                     | Built-ins seed into every tenant; no customer wants a pipeline modelling sparx's own trials                                                                                                         |
+| D7  | Pipeline lives in `@wizeworksllc/platform-crm`, not in the CRM built-ins                  | Built-ins seed into every tenant; no customer wants a pipeline modelling sparx's own trials                                                                                                         |
 | D8  | Dev parity via `SPARX_DEV_WORKER_ROUTES`, not an in-process twin                          | Exercises the real HTTP entry point, and keeps the CRM service layer out of every app that can sign a tenant up                                                                                     |
 | D9  | Backfill as a Cloud Run job on the worker's image, not a `wizeworks/packages/db` backfill | The mirror writes through the CRM service layer under RLS, so it must run as the worker's identity in the worker's runtime — the db-migrate backfills run as the migration owner doing raw rewrites |
 

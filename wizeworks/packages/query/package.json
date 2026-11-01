@@ -1,7 +1,6 @@
 {
-  "name": "@wizeworks/query",
+  "name": "@wizeworksllc/query",
   "version": "0.0.0",
-  "private": true,
   "description": "sparx client data layer — the blessed TanStack Query setup. Server-first stays the default (RSC reads + server-action writes); this package is the standard for client-interactive server state only (polling, debounced search, refetch-on-focus, optimistic mutations). Ships an isomorphic QueryClient factory, a client <QueryProvider>, a server-only SSR-prefetch helper, and the shared query-key factory. See docs/95-client-data-fetching.md.",
   "type": "module",
   "exports": {
@@ -23,8 +22,18 @@
     }
   },
   "files": [
-    "src"
+    "src",
+    "!src/**/*.test.ts",
+    "!src/**/*.test.tsx"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wizeworksllc/sparx.git",
+    "directory": "wizeworks/packages/query"
+  },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

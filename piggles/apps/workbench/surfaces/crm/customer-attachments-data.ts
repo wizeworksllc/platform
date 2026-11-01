@@ -7,7 +7,7 @@
 // still come from `customerKeys` — one root, so a write anywhere invalidates the
 // customer everything else is reading.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 
 import { api } from '../../lib/api/client';
 import { customerKeys, type CustomerAddress, type CustomerDocument } from './customers-data';

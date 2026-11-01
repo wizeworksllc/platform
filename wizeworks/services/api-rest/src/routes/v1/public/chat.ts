@@ -12,7 +12,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
+import { ok } from '@wizeworksllc/api-core/envelope';
 
 import { publicChatContext, readChatToken } from '../../../lib/chat-context.js';
 import { optionalCustomer } from '../../../lib/customer-session.js';

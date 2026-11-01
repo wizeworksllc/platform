@@ -1,7 +1,7 @@
 // Status vocabularies + the persisted gate-decision shape (docs/81 §6, §7, §7.1).
 //
 // The runtime gate CONTRACT (GateResult allow/deny/transform/defer + the Gate
-// function type) lives in the engine (`@wizeworks/automation`) because it references
+// function type) lives in the engine (`@wizeworksllc/automation`) because it references
 // engine-side EffectInput/TenantCtx. Here we own only what is persisted + shared:
 // the enums and the `gate_log` entry shape.
 

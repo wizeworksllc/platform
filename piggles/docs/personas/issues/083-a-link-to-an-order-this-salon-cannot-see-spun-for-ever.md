@@ -120,7 +120,7 @@ longer exists" branch, and drops two wasted requests from every mistyped link.
 
 That is one predicate on the shared query client
 (`retry: (count, error) => !(error instanceof ApiError && error.status >= 400 && error.status < 500) && count < 2`),
-which is `@wizeworks/query` — shared with sparx, so outside the surface under
+which is `@wizeworksllc/query` — shared with sparx, so outside the surface under
 test. Doing it per pane instead would be a call-site patch of a policy that
 belongs in one place (root RULE #1), and there are dozens of panes.
 

@@ -40,14 +40,14 @@ Repair" reads as unfinished, and most owners take what the form already holds.
 
 ## Where it lives
 
-The placeholder is `randomFriendlySlug` in `@wizeworks/auth` (`friendly-slug.ts`),
+The placeholder is `randomFriendlySlug` in `@wizeworksllc/auth` (`friendly-slug.ts`),
 whose comment says owners "personalize it in the onboarding Workspace step". That step
 (`surfaces/onboarding/wizard/wizard.tsx` in sparx, `wizard-inner.tsx` in Piggles) set
 the company name and left the address alone.
 
 ## The fix
 
-- `@wizeworks/auth/friendly-slug`: `isFriendlySlug(slug)`, read from the same word
+- `@wizeworksllc/auth/friendly-slug`: `isFriendlySlug(slug)`, read from the same word
   lists the placeholder is made from, so the two cannot drift. It also knows the
   collision fallback's extra `-xxxx`. Exported as a subpath for the consoles.
 - Both consoles: `surfaces/onboarding/wizard/address-follow.ts`,

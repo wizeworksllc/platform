@@ -9,7 +9,7 @@
 // connect it — which is how "how do I get paid" ended up four tabs deep under
 // commerce while the panel literally called Integrations showed two carriers.
 //
-// The catalog half comes from the shared plane (@wizeworks/integrations), so this route
+// The catalog half comes from the shared plane (@wizeworksllc/integrations), so this route
 // never enumerates vendors: whatever registered at boot is what it returns, first-
 // party or contributed. The connection half is per-category, because each domain
 // stores its own connections in its own table and that is correct — the tables carry
@@ -25,18 +25,18 @@
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { isModuleEnabled } from '@wizeworks/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 import {
   allCategories,
   isCategoryUnlocked,
   listIntegrationDescriptors,
   type IntegrationCategory,
   type IntegrationDescriptor,
-} from '@wizeworks/integrations';
-import { PLATFORM_TOKEN, fillPlatformName } from '@wizeworks/brand-core';
+} from '@wizeworksllc/integrations';
+import { PLATFORM_TOKEN, fillPlatformName } from '@wizeworksllc/brand-core';
 
 import { tenantPlatformBrand } from '../../../lib/tenant-brand.js';
 
@@ -208,7 +208,7 @@ const integrationRoutes: FastifyPluginAsync = async (app) => {
     // defined so a future bundle declaring those kinds lands somewhere real, but
     // nothing implements either today — and a heading with nothing under it reads as a
     // broken panel, not as a roadmap. This is the read-side form of the rule in
-    // @wizeworks/integrations types.ts: a category earns its place by being dispatched.
+    // @wizeworksllc/integrations types.ts: a category earns its place by being dispatched.
     const shown = views.filter((c) => c.integrations.length > 0);
 
     return ok({

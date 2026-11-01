@@ -14,7 +14,7 @@
 // composed document, a `/path` against the page roster, and `/products/<handle>`
 // against the handles the caller supplied.
 
-import { isRecordAddress } from '@wizeworks/silica-catalog';
+import { isRecordAddress } from '@wizeworksllc/silica-catalog';
 
 import type { DocumentInventory, VisitedNode } from './walk';
 import { attr, bindsAttr, isElement, prop, typeOf } from './walk';

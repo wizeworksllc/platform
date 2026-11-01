@@ -17,7 +17,7 @@
 // total, what is still owed, when it is due, and the note) is in the mail, and
 // a trade buyer also gets a button to open it to print or save as a PDF.
 //
-// The email itself is BUILT in @wizeworks/crm (`billingDocumentMail`), because
+// The email itself is BUILT in @wizeworksllc/crm (`billingDocumentMail`), because
 // an invoice issued on an account's terms is emailed by an automation in a
 // worker, not by this button, and the two have to send the same email (sparx
 // persona issue 085). This file keeps what only the button has: the signed-in
@@ -25,9 +25,9 @@
 // still has no transport dependency.
 
 import type { FastifyRequest } from 'fastify';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { billingDocumentMail, CrmValidationError } from '@wizeworks/crm';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { billingDocumentMail, CrmValidationError } from '@wizeworksllc/crm';
 import { tenantSenderHeaders } from './tenant-email.js';
 
 export class InvoiceSendError extends Error {}

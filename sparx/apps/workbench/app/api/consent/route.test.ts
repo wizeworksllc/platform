@@ -22,7 +22,7 @@ const { platformRequest, PlatformRequestError } = vi.hoisted(() => {
   return { platformRequest: vi.fn(), PlatformRequestError };
 });
 
-vi.mock('@wizeworks/auth-client-server', () => ({ platformRequest, PlatformRequestError }));
+vi.mock('@wizeworksllc/auth-client-server', () => ({ platformRequest, PlatformRequestError }));
 
 const { POST } = await import('./route');
 

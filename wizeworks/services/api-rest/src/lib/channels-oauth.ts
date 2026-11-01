@@ -9,8 +9,8 @@
 // Search Console + Stripe Connect state tokens.
 
 import { SignJWT, jwtVerify } from 'jose';
-import { forbidden } from '@wizeworks/api-core/errors';
-import type { ChannelSlug } from '@wizeworks/channels';
+import { forbidden } from '@wizeworksllc/api-core/errors';
+import type { ChannelSlug } from '@wizeworksllc/channels';
 
 import { env } from '../env.js';
 

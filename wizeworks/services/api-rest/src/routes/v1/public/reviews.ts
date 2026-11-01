@@ -12,10 +12,10 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { reviewService } from '@wizeworks/commerce';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { reviewService } from '@wizeworksllc/commerce';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 
 import { publicCommerceContext } from '../../../lib/public-commerce-context.js';
 import { resolvePublicPropertyId } from '../../../lib/property.js';

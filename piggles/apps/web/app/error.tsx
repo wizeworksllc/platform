@@ -9,7 +9,7 @@ import { faTriangleExclamation } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { PRODUCT } from '@piggles/config';
 import { Button, Card, CardBody } from '@wizeworks/silicaui-react';
-import { useStaleBuildRecovery } from '@wizeworks/app-kit';
+import { useStaleBuildRecovery } from '@wizeworksllc/app-kit';
 
 function reload(): void {
   window.location.reload();

@@ -1,7 +1,7 @@
 // What a core on one order line says, and which moves it offers (issues 051, 057).
 // The order pane and the Cores owed list both read this, so they never disagree.
 
-import { splitCoreDeposit } from '@wizeworks/commerce-schemas';
+import { splitCoreDeposit } from '@wizeworksllc/commerce-schemas';
 import { formatMoney, type OrderItem } from './data';
 import type { CoreLine, CoreOwed, OpenInvoice } from './cores-data';
 

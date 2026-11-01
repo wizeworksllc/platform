@@ -19,9 +19,13 @@
 // When the shop no longer delivers to the address at all, the answer is not
 // $0 postage. It is "this renewal cannot go out", and the caller holds it.
 
-import type { Prisma } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
-import { AddressSnapshot, type RateOption, type TaxBreakdown } from '@wizeworks/commerce-schemas';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
+import {
+  AddressSnapshot,
+  type RateOption,
+  type TaxBreakdown,
+} from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../errors';
 import { describeRate, isCollection, rateNames } from './collection-option';

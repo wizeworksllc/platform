@@ -1,7 +1,7 @@
 @import 'tailwindcss';
-@import '@wizeworks/ui/tokens.css';
+@import '@wizeworksllc/ui/tokens.css';
 /* Rules that close a hole in a silicaui component — see the file header. */
-@import '@wizeworks/silica-corrections/silica-gaps.css';
+@import '@wizeworksllc/silica-corrections/silica-gaps.css';
 
 @source '../../../packages/ui/src/**/*.{ts,tsx}';
 @source '../../../packages/chat-widget/src/**/*.{ts,tsx}';
@@ -73,7 +73,7 @@
 
 /* NOTE — what used to live here, and why it is gone.
    An unlayered `:root` block re-asserted the whole brand+base set onto `--st-*`,
-   added because `@wizeworks/ui/tokens.css` once set the dashboard brand `--color-*` in
+   added because `@wizeworksllc/ui/tokens.css` once set the dashboard brand `--color-*` in
    an unlayered `:root` that beat the layered `@theme`. The silicaui migration
    removed the color half of that file (it now only READS `--color-module*`), so the
    reason expired — and the block became the bug: being unlayered, it sat at exactly

@@ -16,7 +16,7 @@
 // new one cannot clear half the caches. Adding a fourth key means adding it here,
 // which is the only place that can forget it.
 
-import type { QueryClient } from '@wizeworks/query';
+import type { QueryClient } from '@wizeworksllc/query';
 
 /** The site's own pieces, as the canvas resolves them. */
 export const SITE_SYMBOLS_KEY = ['studio', 'site-symbols'] as const;

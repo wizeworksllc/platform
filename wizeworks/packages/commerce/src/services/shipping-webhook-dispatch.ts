@@ -4,7 +4,7 @@
 // exists in this repo for this shape, and the pattern elsewhere
 // (stripe-billing.ts) is the same "always-200, reconcile inline" style.
 
-import { orderFulfillmentsService } from '@wizeworks/crm';
+import { orderFulfillmentsService } from '@wizeworksllc/crm';
 
 import type { ServiceContext } from '../errors';
 import { findFulfillmentIdByTrackingNumber } from './fulfillment-label-store';

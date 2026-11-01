@@ -15,8 +15,8 @@ import {
   type BuilderPage,
   type Prisma,
   type TxClient,
-} from '@wizeworks/db';
-import { blankPageTree } from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/db';
+import { blankPageTree } from '@wizeworksllc/builder-schemas';
 import { makePage, stampTree, stripIds, type Node } from '@wizeworks/silicaui-html';
 import {
   contentKindPage,
@@ -25,7 +25,7 @@ import {
   kindAddressFromPattern,
   type ContentKindLike,
   type KindAddress,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import type { PropertyContext } from '../errors';
 import { canonicalJson } from './artifact-service';

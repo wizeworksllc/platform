@@ -11,7 +11,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { customerService, dealService, pipelineService } from '../../src/services/index.js';
 import { createTestTenant, dropTestTenant, type TestTenant } from '../helpers.js';
 

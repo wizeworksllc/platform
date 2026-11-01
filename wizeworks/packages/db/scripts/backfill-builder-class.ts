@@ -8,7 +8,7 @@
 // no `class`, so at render every layout/spacing/surface/grid utility is dropped
 // (only the site-ui component base + inline button styles survive — "as though
 // every style was dropped"). This rewrites each stored tree through
-// @wizeworks/builder-schemas#migrateTree, which replays the SAME compile a fresh seed
+// @wizeworksllc/builder-schemas#migrateTree, which replays the SAME compile a fresh seed
 // runs — lossless (the box/layout data is intact) and idempotent (a class-only
 // tree passes through untouched, so re-running is a no-op).
 //
@@ -34,11 +34,11 @@
 // compiled stylesheet regenerates from the migrated tree (the draft/editor canvas
 // recompiles live, so it's fixed immediately).
 //
-//   pnpm --filter @wizeworks/db db:backfill:builder-class            # dry-run
-//   pnpm --filter @wizeworks/db db:backfill:builder-class -- --apply # write
+//   pnpm --filter @wizeworksllc/db db:backfill:builder-class            # dry-run
+//   pnpm --filter @wizeworksllc/db db:backfill:builder-class -- --apply # write
 
 import { PrismaClient } from '@prisma/client';
-import { migrateTree, type LegacyNode } from '@wizeworks/builder-schemas';
+import { migrateTree, type LegacyNode } from '@wizeworksllc/builder-schemas';
 
 const APPLY = process.argv.includes('--apply');
 

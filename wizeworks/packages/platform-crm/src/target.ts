@@ -12,7 +12,7 @@
 // into an arbitrary tenant's CRM would be a cross-tenant data leak, so "no
 // platform tenant configured" must never degrade into "pick one".
 
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 /** Where a mirrored record lands: the platform tenant + the site that owns its
  *  CRM contacts (its primary site, so per-site CRM views actually show them). */

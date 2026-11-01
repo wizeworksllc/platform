@@ -1,6 +1,6 @@
 'use client';
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../../lib/api/client';
 import type { Booking, BookingSeries, SeriesOccurrence, WaitlistEntry } from './shapes';
 import { bookingKeys, seriesKeys, waitlistKeys } from './keys';

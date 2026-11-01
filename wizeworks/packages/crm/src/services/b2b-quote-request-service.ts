@@ -22,9 +22,9 @@
 // route hands only an account the signed-in contact belongs to.
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { PoNumber, withDeliveryNeeds, type DeliveryNeeds } from '@wizeworks/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { PoNumber, withDeliveryNeeds, type DeliveryNeeds } from '@wizeworksllc/crm-schemas';
 
 import { CrmValidationError } from '../errors';
 import type { ServiceContext } from '../errors';
@@ -113,7 +113,7 @@ type RequestRow = Prisma.B2bQuoteRequestGetPayload<{ include: typeof REQUEST_INC
  * Prisma hands a date-only column back as midnight UTC on that day, so the UTC
  * fields ARE the stored day. Sending it as a full timestamp would make a reader
  * west of UTC draw the day before. Same rule as `calendarDate` in
- * `@wizeworks/inventory`, which this package cannot import.
+ * `@wizeworksllc/inventory`, which this package cannot import.
  */
 function calendarDayOrNull(value: Date | null): string | null {
   return value === null ? null : value.toISOString().slice(0, 10);

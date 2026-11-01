@@ -10,7 +10,7 @@ import { describe, expect, it, vi } from 'vitest';
  * or one typed by hand). A margin can only be shown off a cost that was kept.
  */
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 import { priceBillingLine } from './billing-line-pricing';
 
 const TENANT = '5944fe23-be83-4ce5-aafc-ef56b8594508';

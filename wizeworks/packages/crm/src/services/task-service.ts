@@ -13,10 +13,10 @@ import {
   CompleteTaskInput,
   CreateTaskInput,
   UpdateTaskInput,
-} from '@wizeworks/crm-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { Prisma, Task, TxClient } from '@wizeworks/db';
-import { localCalendarParts, localWallToUtc, nextLocalDay } from '@wizeworks/time';
+} from '@wizeworksllc/crm-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { Prisma, Task, TxClient } from '@wizeworksllc/db';
+import { localCalendarParts, localWallToUtc, nextLocalDay } from '@wizeworksllc/time';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

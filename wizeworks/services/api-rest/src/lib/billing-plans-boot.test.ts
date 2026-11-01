@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { resetBillingPlansForTesting } from '@wizeworks/billing';
+import { resetBillingPlansForTesting } from '@wizeworksllc/billing';
 import { loadBillingPlansAtBoot } from './billing-boot-check.js';
 
 // A malformed BILLING_PLANS only surfaced on the first billing request: 87 errors on

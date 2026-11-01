@@ -14,7 +14,7 @@
 // say it will be a fortnight" — the order simply stayed permanently overdue.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { Tone } from './data';
 import { purchaseOrderKeys } from './purchase-orders-data';

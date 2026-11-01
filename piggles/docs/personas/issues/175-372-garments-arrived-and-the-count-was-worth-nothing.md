@@ -200,7 +200,7 @@ five rows and stops has still fixed most of the number.
 
 **Three states, not two.** The previously invisible one was "partly costed" — a
 figure that is real but short. `uncostedUnits` is now carried on the valuation
-summary (both copies of that query: `@wizeworks/inventory`'s `analytics.ts` and
+summary (both copies of that query: `@wizeworksllc/inventory`'s `analytics.ts` and
 api-rest's own in `reports.ts`), and `costCoverage()` resolves it to
 `none | partial`. Every screen can now tell "nobody has costed anything" from
 "this is real, and short by 354 units' worth".
@@ -231,7 +231,7 @@ Two decisions inside the write worth naming:
 3. **The pane had no address.** `/inventory/costing/uncosted` was written INTO
    the address bar when the pane opened but resolved to "That link doesn't open
    anything" when pasted back — I added the surface to the catalog and never to
-   `@wizeworks/links`'s route table. `scripts/check-surface-routes.mjs` catches
+   `@wizeworksllc/links`'s route table. `scripts/check-surface-routes.mjs` catches
    exactly this and I had not run it; proved it goes red by removing the entry
    again (`1 surface(s) have no address: inventory.costing.uncosted`).
 

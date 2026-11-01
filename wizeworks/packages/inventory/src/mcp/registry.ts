@@ -1,4 +1,4 @@
-// Inventory MCP tool registry. Mirrors @wizeworks/commerce/mcp/registry — same shape,
+// Inventory MCP tool registry. Mirrors @wizeworksllc/commerce/mcp/registry — same shape,
 // a separate scope vocabulary so the MCP server can enforce inventory-only API-key
 // permissions. Inventory is a first-class module with its OWN MCP surface (docs/100
 // §4.0): the supply loop (low stock → reorder suggestion → purchase order → receive)

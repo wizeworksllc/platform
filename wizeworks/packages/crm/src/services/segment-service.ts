@@ -12,9 +12,9 @@ import {
   CreateSegmentInput,
   ListMembershipInput,
   UpdateSegmentInput,
-} from '@wizeworks/crm-schemas';
-import { BUILT_IN_SEGMENT_TEMPLATES } from '@wizeworks/crm-schemas/builtins';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { BUILT_IN_SEGMENT_TEMPLATES } from '@wizeworksllc/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
 import type {
   Customer,
   Prisma,
@@ -22,7 +22,7 @@ import type {
   SegmentMember,
   SegmentMembershipEvent,
   TxClient,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

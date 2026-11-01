@@ -2,7 +2,7 @@
 //
 // The reconcile closes tasks whose reason is gone, and each close is a crm.*
 // event: `crm.task.completed`, or `crm.task.updated` when it was canceled. Those
-// events go to whatever publisher @wizeworks/crm holds, and that is a
+// events go to whatever publisher @wizeworksllc/crm holds, and that is a
 // LoggingPublisher that DISCARDS until `installCrmPubSubBridge` swaps it out.
 // Only the engine's own paths installed the bridge, and the release runs the
 // reconcile on a fresh pod before any tick has.
@@ -17,12 +17,12 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const calls: string[] = [];
 
-vi.mock('@wizeworks/crm/pubsub', () => ({
+vi.mock('@wizeworksllc/crm/pubsub', () => ({
   installCrmPubSubBridge: () => {
     calls.push('bridge');
   },
 }));
-vi.mock('@wizeworks/automation-actions', () => ({
+vi.mock('@wizeworksllc/automation-actions', () => ({
   installModuleActions: () => undefined,
   seedSystemAutomations: () => Promise.resolve(),
   reconcileSystemSeeds: () => {
@@ -30,7 +30,7 @@ vi.mock('@wizeworks/automation-actions', () => ({
     return Promise.resolve({ modules: [], tenantsSeeded: 0, tenantsSkipped: 0 });
   },
 }));
-vi.mock('@wizeworks/automation', () => ({
+vi.mock('@wizeworksllc/automation', () => ({
   getScanner: () => undefined,
   handleTrigger: () => Promise.resolve(),
   installBuiltins: () => undefined,
@@ -38,7 +38,7 @@ vi.mock('@wizeworks/automation', () => ({
   runAutomationTick: () => Promise.resolve({}),
   runScheduleTick: () => Promise.resolve({}),
 }));
-vi.mock('@wizeworks/db', () => ({ prisma: {}, withTenant: () => Promise.resolve() }));
+vi.mock('@wizeworksllc/db', () => ({ prisma: {}, withTenant: () => Promise.resolve() }));
 
 const { reconcileSeeds } = await import('./runtime.js');
 

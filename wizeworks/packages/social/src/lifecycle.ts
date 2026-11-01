@@ -18,10 +18,10 @@
 // these helpers do the DB transition and report which event the caller should emit
 // (`due` / `scheduled`). No publisher plumbing in here.
 //
-// Lives in @wizeworks/social so REST and MCP drive the same lifecycle service.
+// Lives in @wizeworksllc/social so REST and MCP drive the same lifecycle service.
 
-import { prisma, withTenant, type Prisma } from '@wizeworks/db';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { prisma, withTenant, type Prisma } from '@wizeworksllc/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import type { SocialContext } from './context.js';
 import { toPostView, type SocialPostView } from './posts.js';

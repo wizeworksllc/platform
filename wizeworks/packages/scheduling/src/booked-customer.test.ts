@@ -4,7 +4,7 @@
 // booked in" above a term of classes.
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 const tx = vi.hoisted(() => ({
   customer: {
@@ -27,7 +27,7 @@ const tx = vi.hoisted(() => ({
   },
 }));
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => fn(tx),
 }));
 vi.mock('./locks', () => ({ lockClassSession: vi.fn(() => Promise.resolve()) }));

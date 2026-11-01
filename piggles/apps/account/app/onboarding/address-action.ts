@@ -1,6 +1,6 @@
 'use server';
 
-import { requireSession } from '@wizeworks/auth-client-server';
+import { requireSession } from '@wizeworksllc/auth-client-server';
 import { checkAddress, slugifyAddress, type AddressVerdict } from '@/lib/business-slug';
 
 // Is this web address free? Asked while she types, so she finds out before she

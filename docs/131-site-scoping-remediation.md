@@ -406,7 +406,7 @@ preview) the filter is skipped, so the default stays backward-compatible. Becaus
 wrong filter here over- or under-charges a real order AND it is migration-gated (the
 junction does not exist until 20270106 is applied), it MUST ship with
 `price-list-per-site.test.ts` RUN post-migration — never trusted from a typecheck.
-The remaining `@wizeworks/commerce` typecheck error (`propertyLinks` on the where) is the
+The remaining `@wizeworksllc/commerce` typecheck error (`propertyLinks` on the where) is the
 expected stale-client symptom, resolving on `prisma generate`.
 
 The only piece now genuinely open is **marketplace & channels** (the merchant-handle

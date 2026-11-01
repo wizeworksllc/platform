@@ -5,7 +5,7 @@
 // Builder-email template by `key`; the `email.send_campaign` action's `module:
 // 'email'` gate holds those sends until the email module is active (docs/90 §4).
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 /** Tag a customer `vip` once their lifetime spend crosses the default threshold.
  *  A daily scan (not an event) so it's reliable regardless of which write moved the

@@ -31,7 +31,7 @@ import {
   FieldStatus,
   Text,
 } from '@wizeworks/silicaui-react';
-import { rule, rules, useFieldValidation } from '@wizeworks/forms';
+import { rule, rules, useFieldValidation } from '@wizeworksllc/forms';
 import { sendToolResult, type ToolDeliveryState } from '@/app/tools/actions';
 import { Panel } from './ui-kit';
 import { useToolResult } from './tool-result-context';

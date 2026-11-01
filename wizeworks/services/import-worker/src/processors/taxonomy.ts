@@ -17,9 +17,9 @@
 // switch for that (it is on every site unless limited to some), so there is nothing
 // to save it to.
 
-import { categoryService, collectionService } from '@wizeworks/commerce';
-import { withTenant } from '@wizeworks/db';
-import { toInteger, toList, toSlug } from '@wizeworks/migration';
+import { categoryService, collectionService } from '@wizeworksllc/commerce';
+import { withTenant } from '@wizeworksllc/db';
+import { toInteger, toList, toSlug } from '@wizeworksllc/migration';
 
 import { ingestImage, linkedNotice } from './images';
 import { Resolver } from './resolve';

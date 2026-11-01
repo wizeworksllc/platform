@@ -63,10 +63,10 @@ export function subtractIntervals(base: Interval[], cuts: Interval[]): Interval[
 // Availability windows are authored in the resource's LOCAL wall-clock time
 // (minutes from local midnight); bookings are stored as UTC instants.
 //
-// THESE NOW LIVE IN @wizeworks/time. They were written here because scheduling was
+// THESE NOW LIVE IN @wizeworksllc/time. They were written here because scheduling was
 // the only thing that needed them; CRM service-level agreements (docs/144 §7.3)
 // are the second consumer, and a DST bug fixed in one copy of this arithmetic
 // would still be a DST bug in the other. Re-exported rather than moved-and-
 // rewritten so every existing `from './time'` import keeps working.
 
-export { tzOffsetMs, localWallToUtc, localCalendarParts, eachLocalDay } from '@wizeworks/time';
+export { tzOffsetMs, localWallToUtc, localCalendarParts, eachLocalDay } from '@wizeworksllc/time';

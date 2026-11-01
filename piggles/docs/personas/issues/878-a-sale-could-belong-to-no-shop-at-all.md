@@ -172,8 +172,8 @@ tenant's primary are both wrong, and against a single-site fixture they both loo
 right. [[feedback_a_test_that_cannot_go_red]]
 
 **Checks:** api-rest 109 files / 663 (the full suite, database tests included),
-crm 66 files / 597, commerce 25 files / 246. Typecheck 0 on `@wizeworks/crm`,
-`@wizeworks/commerce`, `@wizeworks/commerce-schemas` and api-rest.
+crm 66 files / 597, commerce 25 files / 246. Typecheck 0 on `@wizeworksllc/crm`,
+`@wizeworksllc/commerce`, `@wizeworksllc/commerce-schemas` and api-rest.
 `prisma validate` clean.
 Guards green: `check:migration-order`, `check:migration-drops`,
 `check:prisma-selects`, `check:nullable-inputs`, `check:boundaries`,
@@ -194,7 +194,7 @@ with two sites: a subscription signed on the second one, made due, then put
 through `subscriptionService.processOccurrence`. The order it minted
 (`source: subscription_renewal`) landed on the second shop, not the primary.
 Removing the one line that carries it put the same order back on `null`. That
-check is not a committed test file — `@wizeworks/commerce` has no
+check is not a committed test file — `@wizeworksllc/commerce` has no
 database-backed harness and CI runs without a database, so a `.test.ts` there
 would go red in CI. The contract it exercises is pinned by the two
 `orderService.create` tests above, which do run.

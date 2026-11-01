@@ -7,7 +7,7 @@
 // answer, never an accumulated merge that can show a list the database never
 // held. `total` rides the paged envelope so the surface can page honestly.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 export interface Payment {

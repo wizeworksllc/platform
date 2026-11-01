@@ -40,9 +40,9 @@ import {
   reportCompiler,
   reportService,
   seedBuiltinReports,
-} from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { reachableSiteIds } from '../../../lib/property.js';

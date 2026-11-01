@@ -16,7 +16,7 @@
 // changes key/connection material is admin — mirrored on the surface with
 // useViewer so a control never appears for someone the server will refuse.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 

@@ -9,7 +9,7 @@
 //   - `RegistrarError` (the neutral error every provider throws), and
 //   - the registrar-NEUTRAL DNS helper (the sparx record set).
 //
-// It depends on no provider. Providers (`@wizeworks/godaddy`, future `@sparx/namecom`)
+// It depends on no provider. Providers (`@wizeworksllc/godaddy`, future `@sparx/namecom`)
 // depend on THIS — never the other way round — so the workspace graph stays
 // acyclic. Selection happens in each service's composition root, not here.
 
@@ -174,7 +174,7 @@ export const DEFAULT_TLDS = [
 //
 // Email-authentication records (SPF, DKIM, DMARC) are intentionally NOT here.
 // They are owned entirely by the Mailgun sending-domain flow
-// (@wizeworks/email-platform domain-service + @wizeworks/email admin/mailgun-domains),
+// (@wizeworksllc/email-platform domain-service + @wizeworksllc/email admin/mailgun-domains),
 // which provisions the correct per-domain records — `v=spf1 include:mailgun.org`,
 // a `mx._domainkey` DKIM key, and DMARC — when the tenant verifies their sending
 // domain. Seeding our own SPF here would put a SECOND `v=spf1` record on the

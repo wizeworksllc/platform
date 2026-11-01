@@ -1,10 +1,10 @@
-// Funnel shapes — the client-safe contract (zod only, NO @wizeworks/db import),
+// Funnel shapes — the client-safe contract (zod only, NO @wizeworksllc/db import),
 // so the workbench editor imports these without pulling Prisma into the browser
 // bundle. The server half re-uses the same schemas to validate at the db
-// boundary, the same split @wizeworks/email-sequences keeps.
+// boundary, the same split @wizeworksllc/email-sequences keeps.
 
 import { z } from 'zod';
-import { ConditionGroup } from '@wizeworks/automation-schemas';
+import { ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 // ─── vocabularies ─────────────────────────────────────────────────────────────
 

@@ -12,8 +12,8 @@
 // grants.
 
 import type { FastifyRequest } from 'fastify';
-import { forbidden } from '@wizeworks/api-core/errors';
-import type { CustomerAuthContext } from '@wizeworks/customer-auth';
+import { forbidden } from '@wizeworksllc/api-core/errors';
+import type { CustomerAuthContext } from '@wizeworksllc/customer-auth';
 
 import { requireCustomer, type ResolvedCustomer } from './customer-session.js';
 

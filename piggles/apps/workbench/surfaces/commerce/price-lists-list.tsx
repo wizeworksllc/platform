@@ -9,7 +9,7 @@ import { PaneWaiting } from '../../components/pane-waiting';
 import { Button, Card, SearchInput, Select } from '@wizeworks/silicaui-react';
 import { faPlus, faTag } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { OpenTarget, SurfaceContext } from '../../lib/surfaces/registry';
 import { PaneLoadError } from '../../components/pane-load-error';

@@ -10,8 +10,8 @@
 // change to the stamped markup cannot quietly take the form off the page.
 
 import { describe, expect, it } from 'vitest';
-import { createSilicaResolver } from '@wizeworks/builder-schemas';
-import { productDetailPage } from '@wizeworks/silica-catalog';
+import { createSilicaResolver } from '@wizeworksllc/builder-schemas';
+import { productDetailPage } from '@wizeworksllc/silica-catalog';
 import { resolveTree, toHtml } from '@wizeworks/silicaui-html';
 
 import { applyAccountBuying } from './buying-rules-tree';

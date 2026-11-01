@@ -11,7 +11,7 @@
 //
 // The stored rule still holds the code name. Only the screen speaks in words.
 
-import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworks/crm-schemas';
+import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworksllc/crm-schemas';
 import {
   LEAD_STATUSES,
   LIFECYCLE_STAGES,
@@ -22,7 +22,7 @@ import {
 } from '../crm/customers-data';
 import { orderStatusWords } from '../commerce/orders-list-filters';
 import { STATUS_OPTIONS as BOOKING_STATUS_OPTIONS } from '../scheduling/bookings-list-filters';
-import type { ConditionOperator } from '@wizeworks/automation-schemas';
+import type { ConditionOperator } from '@wizeworksllc/automation-schemas';
 
 /** How a detail's value is entered, which decides the comparisons and the value box. */
 export type ConditionFieldKind = 'text' | 'number' | 'yesno' | 'choice' | 'tags';

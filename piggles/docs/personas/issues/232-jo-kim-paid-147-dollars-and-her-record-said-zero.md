@@ -120,7 +120,7 @@ Five DB-backed tests in
 one per failure shape seen on this shop: an unpaid order counts nothing, money
 followed as it is taken and given back ($170 − $42 = $128), a refund can never
 drive the figure below zero, a cancelled order drops out, and two payments on one
-order stay one order. `@wizeworks/crm` 447/447.
+order stay one order. `@wizeworksllc/crm` 447/447.
 
 ## What is not done yet
 

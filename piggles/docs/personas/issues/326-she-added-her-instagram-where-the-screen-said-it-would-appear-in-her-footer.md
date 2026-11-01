@@ -122,7 +122,7 @@ social media must be able to delete the row rather than carry an empty strip.
 **2. The renderer.**
 [silica-host-cores.tsx](../../../../wizeworks/apps/site/components/silica-host-cores.tsx)
 mounts `<SocialLinks items={ctx.site.socials} />`. **Nothing new was written to
-draw them:** `SocialLinks` already exists in `@wizeworks/builder-render` — marks
+draw them:** `SocialLinks` already exists in `@wizeworksllc/builder-render` — marks
 for Instagram, Facebook, X, TikTok, YouTube, LinkedIn, Pinterest and Threads in
 `currentColor` inside real silica `btn btn-ghost btn-circle` classes, an alias
 table, a text fallback for an unknown platform, and it renders nothing when the

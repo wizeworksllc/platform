@@ -44,12 +44,12 @@ import {
   marketService,
   shippingService,
   type ServiceContext,
-} from '@wizeworks/commerce';
-import { MARKET_CATEGORIES } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
-import { queryBool } from '@wizeworks/api-core/query';
+} from '@wizeworksllc/commerce';
+import { MARKET_CATEGORIES } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
+import { queryBool } from '@wizeworksllc/api-core/query';
 
 import { assertCartToken, publicMarketContext } from '../../../lib/public-market-context.js';
 
@@ -66,7 +66,7 @@ const OrderParam = z.object({ orderId: z.string().uuid() });
 // re-validates), but we normalize here so coercion happens before the service.
 //
 // The local `BooleanFromString` this file used to declare was the first correct
-// version of that idea; it now lives in `@wizeworks/api-core/query` as `queryBool`,
+// version of that idea; it now lives in `@wizeworksllc/api-core/query` as `queryBool`,
 // so the rest of the platform stops reaching for `z.coerce.boolean()` — which is
 // `Boolean(value)`, and therefore reads `'false'` as true.
 const BrowseQuery = z.object({
