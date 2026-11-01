@@ -9,8 +9,8 @@
 // the same ones the storefront renders — in the same colors.
 
 import { useMemo, type ReactNode } from 'react';
-import type { DocumentKind } from '@wizeworks/studio';
-import type { EmailPreviewHost, StudioHost } from '@wizeworks/studio/react';
+import type { DocumentKind } from '@piggles/studio';
+import type { EmailPreviewHost, StudioHost } from '@piggles/studio/react';
 import type { Theme } from '@wizeworks/silicaui-html';
 import type { EmailColorDefaults, EmailFrame } from '@wizeworks/silicaui-builder/email';
 import { BASE_SILICA_THEME, validateResponsiveVocabulary } from '@wizeworks/silica-catalog';

@@ -3,7 +3,7 @@
 **Status:** fixed (act 6)
 **Severity:** major
 **Found by:** P09 · The Marrow Review · act 6, building the journal's front page and Journal
-**Surface:** mypiggles › My Site › a page › Change › Settings (the page editor), her public site's lists, the editor's binding catalog (`@wizeworks/studio`, builder, builder-schemas, api-rest, the site)
+**Surface:** mypiggles › My Site › a page › Change › Settings (the page editor), her public site's lists, the editor's binding catalog (`@piggles/studio`, builder, builder-schemas, api-rest, the site)
 **Filed:** 2026-10-08
 **Fixed:** 2026-10-08
 **Confirmed by:** P09 · The Marrow Review · act 6, `/journal` listing her five articles with their photographs and standfirsts

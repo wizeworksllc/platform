@@ -14,8 +14,8 @@
 import { useEffect } from 'react';
 import { faEye } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import type { DocumentRef, StudioDoc, StudioSession } from '@wizeworks/studio';
-import { useSessionSnapshot } from '@wizeworks/studio/react';
+import type { DocumentRef, StudioDoc, StudioSession } from '@piggles/studio';
+import { useSessionSnapshot } from '@piggles/studio/react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { DocumentNotOpen, NoDocumentNamed, refFrom } from './document-pane';
 import { useStudioBinding } from '../../lib/studio/provider';

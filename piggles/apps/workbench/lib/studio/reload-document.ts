@@ -11,7 +11,7 @@
 // `reset` clears that document's undo stack too, and it should: the stack describes a
 // lineage this document no longer has.
 
-import type { DocumentRef, StudioSession } from '@wizeworks/studio';
+import type { DocumentRef, StudioSession } from '@piggles/studio';
 import { api } from '../api/client';
 import { toLayoutDoc, type LayoutRow } from './layout-data';
 import { toPageDoc } from '../../surfaces/studio/use-page-document';

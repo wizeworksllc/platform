@@ -9,7 +9,7 @@
 // nothing in between.
 
 import { useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 'react';
-import type { ComponentDoc, DocumentStore, StudioSession } from '@wizeworks/studio';
+import type { ComponentDoc, DocumentStore, StudioSession } from '@piggles/studio';
 import { useStudioBinding } from '../../lib/studio/provider';
 import { useSavePiece } from '../../lib/studio/piece-data';
 import { pieceKeyOf } from '../../lib/studio/saved-pieces';

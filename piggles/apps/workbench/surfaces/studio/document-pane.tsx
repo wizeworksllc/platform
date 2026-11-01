@@ -21,7 +21,7 @@
 // normal path, which keeps the one-loader rule intact.
 
 import type { ReactNode } from 'react';
-import type { DocumentKind, DocumentRef } from '@wizeworks/studio';
+import type { DocumentKind, DocumentRef } from '@piggles/studio';
 import { Button } from '@wizeworks/silicaui-react';
 import { PaneEmpty } from '../../components/pane-empty';
 import type { SurfaceContext } from '../../lib/surfaces/registry';

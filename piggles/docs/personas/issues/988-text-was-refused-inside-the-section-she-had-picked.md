@@ -36,7 +36,7 @@ Text with a section selected had nowhere to go, every time. The message promised
 
 ## The fix
 
-`clickedEmailSlot(root, anchorId, node)` in `wizeworks/packages/studio/src/email/drop.ts`:
+`clickedEmailSlot(root, anchorId, node)` in `piggles/packages/studio/src/email/drop.ts`:
 
 - With something selected that can HOLD the block (a section, a column, a link
   group), the block goes inside it, at the end. That is what the message says.

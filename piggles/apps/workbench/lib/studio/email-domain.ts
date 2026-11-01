@@ -27,7 +27,7 @@ import {
   emailSampleData,
   type MergeTag,
 } from '@wizeworks/builder-schemas';
-import type { EmailPreviewHost } from '@wizeworks/studio/react';
+import type { EmailPreviewHost } from '@piggles/studio/react';
 import { useActivePropertyId } from '../api/shell-data';
 import { useActiveProperty, useSiteOrigin } from './site-data';
 import { useCanvasPreview } from './preview';

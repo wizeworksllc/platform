@@ -19,8 +19,8 @@ import {
   EmailBuilder,
   useDocSnapshot,
   type BuilderAction,
-} from '@wizeworks/studio/react';
-import type { EmailDoc } from '@wizeworks/studio';
+} from '@piggles/studio/react';
+import type { EmailDoc } from '@piggles/studio';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { useStudioBinding } from '../../lib/studio/provider';

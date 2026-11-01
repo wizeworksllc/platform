@@ -82,6 +82,6 @@ identical ones.
   here would offer edits that either detach the copy or silently change every
   other one), but nothing on the row says the insides are elsewhere. She watched
   her form fields disappear from the list with no explanation.
-- **This is shared code.** The change is in `@wizeworks/studio`, so it reaches
+- **This is shared code.** The change is in `@piggles/studio`, so it reaches
   the other brand's editor too. That is right — neither brand wants "Saved
   design" over a named piece — but it was not driven there.

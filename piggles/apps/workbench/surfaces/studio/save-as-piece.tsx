@@ -13,9 +13,9 @@ import { useCallback, useState } from 'react';
 import { Button, Input, useToast } from '@wizeworks/silicaui-react';
 import { faBookmark } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import type { TreeDoc } from '@wizeworks/studio';
-import { findNode, idOf } from '@wizeworks/studio';
-import { useApply, useDoc, useDocSnapshot } from '@wizeworks/studio/react';
+import type { TreeDoc } from '@piggles/studio';
+import { findNode, idOf } from '@piggles/studio';
+import { useApply, useDoc, useDocSnapshot } from '@piggles/studio/react';
 import { useCreatePiece } from '../../lib/studio/piece-data';
 
 /** Make the master and put an instance where the design was, in one act. */

@@ -87,7 +87,7 @@ other page starts and still reads at 75 characters a line.
 
 ## Confirmed by
 
-`@wizeworks/studio`: **184 tests across 23 files**, five of them new. Proved red, then
+`@piggles/studio`: **184 tests across 23 files**, five of them new. Proved red, then
 read back off her live console:
 
 ```

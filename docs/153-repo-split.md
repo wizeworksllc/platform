@@ -71,7 +71,7 @@ Measured at `58e3d13c5`.
 9. **Stale.** `piggles/apps/account/Dockerfile` lines 59 and 108 still copy
    `sparx/packages/brand`. `check:deletability` misses it: it walks imports,
    not Dockerfiles.
-10. **`@wizeworks/studio` is used only by Piggles.**
+10. **`@piggles/studio` is used only by Piggles.**
 
 ## How the shared packages publish (D2)
 
@@ -131,7 +131,7 @@ verification before it ships. This is the riskiest phase.
 
 ### Phase 2. Each thing on its own side
 
-- `@wizeworks/studio` moves to `piggles/packages/studio`.
+- `@piggles/studio` moves to `piggles/packages/studio`.
 - Piggles' platform config (the billing plan, the wordmark) moves to a platform
   brand registry that api-rest reads.
 - The three paths that climb out of `piggles/` into `wizeworks/` (the console's

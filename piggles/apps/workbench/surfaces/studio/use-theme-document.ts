@@ -7,7 +7,7 @@
 // edit here repaint an open page pane with no round trip.
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { DocumentStore, ThemeDoc } from '@wizeworks/studio';
+import type { DocumentStore, ThemeDoc } from '@piggles/studio';
 import { useStudioBinding, useSyncSiteContext } from '../../lib/studio/provider';
 import {
   usePublishTheme,

@@ -81,7 +81,7 @@ navigator, the pane chrome, and per-document save/preview/publish.
 
 ## The package
 
-`wizeworks/packages/studio`, published as **`@wizeworks/studio`** — shared platform, per root
+`piggles/packages/studio`, published as **`@piggles/studio`** — shared platform, per root
 CLAUDE.md's ownership table, so sparx can adopt it later. Piggles is the only
 consumer at first; sparx's workbench stays on `<Builder>` untouched.
 
@@ -92,9 +92,9 @@ table permits them, and they are libraries rather than an app.
 
 Two entry points, mirroring silicaui's own split:
 
-- `@wizeworks/studio` — headless. Documents, session, ops, undo, the resolution chain.
+- `@piggles/studio` — headless. Documents, session, ops, undo, the resolution chain.
   No React, so api-rest and workers can import the types.
-- `@wizeworks/studio/react` — the pane-ready builders and their chrome.
+- `@piggles/studio/react` — the pane-ready builders and their chrome.
 
 ## Panes
 

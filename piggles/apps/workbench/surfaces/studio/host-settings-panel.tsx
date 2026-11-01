@@ -18,8 +18,8 @@ import {
 } from '@wizeworks/silicaui-react';
 import { HOST_COMPONENTS, type HostComponentProp } from '@wizeworks/silica-catalog';
 import type { HostNode } from '@wizeworks/silicaui-html';
-import type { AddressableNode } from '@wizeworks/studio';
-import { useApply } from '@wizeworks/studio/react';
+import type { AddressableNode } from '@piggles/studio';
+import { useApply } from '@piggles/studio/react';
 
 export function HostSettingsPanel({ node }: { node: AddressableNode }) {
   if (node.kind !== 'host' || !node.id) return null;

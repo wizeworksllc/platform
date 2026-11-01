@@ -13,8 +13,8 @@
 'use no memo';
 
 import { createContext, useContext, useEffect, useMemo, useRef, type ReactNode } from 'react';
-import { StudioSession, type SiteContext } from '@wizeworks/studio';
-import { StudioProvider, type StudioHost } from '@wizeworks/studio/react';
+import { StudioSession, type SiteContext } from '@piggles/studio';
+import { StudioProvider, type StudioHost } from '@piggles/studio/react';
 import { MediaPickerProvider } from '../../surfaces/cms/media-picker';
 import { useSilicaPieces } from './site-data';
 import { tenantSymbolId } from './saved-pieces';

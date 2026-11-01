@@ -7,8 +7,8 @@
 // product uses, or the one just for a kind of product they sell differently.
 
 import { Field, FieldDescription, FieldLabel, NativeSelect } from '@wizeworks/silicaui-react';
-import type { PageDoc } from '@wizeworks/studio';
-import { useApply } from '@wizeworks/studio/react';
+import type { PageDoc } from '@piggles/studio';
+import { useApply } from '@piggles/studio/react';
 import { kindAddressAt, recordAddressAt } from '@wizeworks/silica-catalog';
 import type { BindingCatalog } from '@wizeworks/builder-schemas';
 import { useBindingCatalog, useProductTypeChoices } from '../../lib/studio/site-data';

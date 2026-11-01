@@ -8,7 +8,7 @@
 
 import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
 import type { Node } from '@wizeworks/silicaui-html';
-import type { LayoutDoc } from '@wizeworks/studio';
+import type { LayoutDoc } from '@piggles/studio';
 import { api } from '../api/client';
 
 export const LAYOUT_KEY = ['studio', 'layout'] as const;

@@ -108,13 +108,13 @@
 @source '../../../../wizeworks/packages/builder-schemas/src/starters.ts';
 @source '../../../../wizeworks/packages/builder-schemas/src/box-to-class.ts';
 
-/* The per-document builders (`@wizeworks/studio`). Its rails and canvas ship className
+/* The per-document builders (`@piggles/studio`). Its rails and canvas ship className
  * strings — the selection ring, the layer indents, the Inspector's whole control
  * vocabulary — and none of them appear in this app's own TSX. Without this line
  * every one of those classes resolves to nothing, while typecheck, lint and the
  * build all pass and the panes render as unstyled boxes. That failure has already
  * happened once here, to @piggles/brand's marks. */
-@source '../../../../wizeworks/packages/studio/src';
+@source '../../../packages/studio/src';
 
 /* THE SHARED AUTHORING VOCABULARY — the same file wizeworks/apps/site imports, so the
  * canvas and the published page cannot disagree about what an author may write.

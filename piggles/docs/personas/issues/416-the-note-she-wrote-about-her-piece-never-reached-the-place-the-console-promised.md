@@ -56,16 +56,16 @@ missing field renders exactly like a correct one.
 
 Four small changes, one per hop:
 
-- **`wizeworks/packages/studio/src/documents/types.ts`** — `ComponentDoc` gains
+- **`piggles/packages/studio/src/documents/types.ts`** — `ComponentDoc` gains
   `note?: string | null`.
 - **`piggles/apps/workbench/lib/studio/provider.tsx`** — `note: piece.description`
   when loading the library. Site-owned pieces carry none: their store keeps a name
   and a tree, and there is nowhere to put one.
-- **`wizeworks/packages/studio/src/session/session.ts`** — `pieceNote(id)`, with
+- **`piggles/packages/studio/src/session/session.ts`** — `pieceNote(id)`, with
   the same live-first rule as `symbols()`, so a piece opened after the library
   loaded wins over the copy loaded with it. A blank or whitespace-only note reads
   as no note.
-- **`wizeworks/packages/studio/src/react/palette/pieces.ts`** — the hint is her
+- **`piggles/packages/studio/src/react/palette/pieces.ts`** — the hint is her
   note when she wrote one, and the original sentence when she did not. A piece
   she has never annotated still needs the one fact a first-timer is missing.
 

@@ -8,7 +8,7 @@
 
 import { useCallback, useState } from 'react';
 import { useToast } from '@wizeworks/silicaui-react';
-import type { DocumentRef } from '@wizeworks/studio';
+import type { DocumentRef } from '@piggles/studio';
 import { useConfirm } from '../../lib/confirm';
 import { useStudioBinding } from '../../lib/studio/provider';
 import { reloadDocument } from '../../lib/studio/reload-document';

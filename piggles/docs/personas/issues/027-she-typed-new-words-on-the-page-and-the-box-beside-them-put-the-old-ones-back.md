@@ -62,7 +62,7 @@ between those two fixes, and it was not there before either of them.
 
 ## Where it lives
 
-[wizeworks/packages/studio/src/react/inspector/settings-tab.tsx](../../../../wizeworks/packages/studio/src/react/inspector/settings-tab.tsx)
+[piggles/packages/studio/src/react/inspector/settings-tab.tsx](../../../packages/studio/src/react/inspector/settings-tab.tsx)
 
 Every box in the Settings tab is **uncontrolled** — `defaultValue` plus a commit
 on blur, which is the right choice (an op per keystroke would bury undo). React
@@ -93,7 +93,7 @@ export function fieldKey(id: string, field: string, value: string): string {
 ```
 
 Fixed at the shared component rather than at the call site, so sparx's workbench
-gets it too — the file is `@wizeworks/studio`, not Piggles.
+gets it too — the file is `@piggles/studio`, not Piggles.
 
 All six were changed together (`text`, `tag`, `href`, `src`, `alt`, `label`);
 fixing only the one that bit would have left the picture-picker version of it in
@@ -101,7 +101,7 @@ place. Typing is never interrupted, because the value only moves on commit, and
 a box mid-edit has not committed.
 
 Five tests in
-[field-key.test.ts](../../../../wizeworks/packages/studio/src/react/inspector/field-key.test.ts)
+[field-key.test.ts](../../../packages/studio/src/react/inspector/field-key.test.ts)
 cover the invariant, including that clearing a value counts as a change. Suite:
 **150 tests / 17 files pass**; the package typechecks clean.
 

@@ -80,7 +80,7 @@ So the rule was extracted and exported, and the new tests import the real functi
 
 ## Confirmed by
 
-`@wizeworks/studio`: **184 tests across 23 files**, nine of them new — five on the
+`@piggles/studio`: **184 tests across 23 files**, nine of them new — five on the
 empty-URL rule (including the two things that must NOT be dropped), four on bindings
 reaching a void tag. Typecheck clean.
 

@@ -400,12 +400,12 @@ const EXCEPTIONS = [
     axis: 'lib',
     only: 'piggles',
     path: 'lib/studio',
-    why: 'the site studio is a Piggles surface built on @wizeworks/studio; sparx edits sites in the builder module instead.',
+    why: 'the site studio is a Piggles surface built on @piggles/studio; sparx edits sites in the builder module instead.',
   },
   {
     axis: 'deps',
     only: 'piggles',
-    path: '@wizeworks/studio',
+    path: '@piggles/studio',
     why: 'see lib/studio.',
   },
   {

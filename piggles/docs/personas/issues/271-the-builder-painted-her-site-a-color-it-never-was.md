@@ -65,7 +65,7 @@ for Juniper Row is `#c77618`. The migration moved the storefront off that tier
 and left the editor on it.
 
 And the studio's own contract
-([resolve/chain.ts](../../../../wizeworks/packages/studio/src/resolve/chain.ts))
+([resolve/chain.ts](../../../packages/studio/src/resolve/chain.ts))
 states the invariant that had quietly stopped being true:
 
 > "A site whose author has never opened the theme builder still renders in its

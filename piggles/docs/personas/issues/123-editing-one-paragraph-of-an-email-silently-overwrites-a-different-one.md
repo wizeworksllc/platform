@@ -45,8 +45,8 @@ The blast radius is every email design a tenant has, which is 44 of them.
 
 ## Where it lives
 
-- [packages/studio/src/react/email/inspector/inspector.tsx](../../../../wizeworks/packages/studio/src/react/email/inspector/inspector.tsx) — `EmailInspector`
-- [packages/studio/src/react/email/inspector/fields.tsx](../../../../wizeworks/packages/studio/src/react/email/inspector/fields.tsx) — `TextRow` / `AreaRow` / `NumberRow`
+- [packages/studio/src/react/email/inspector/inspector.tsx](../../../packages/studio/src/react/email/inspector/inspector.tsx) — `EmailInspector`
+- [packages/studio/src/react/email/inspector/fields.tsx](../../../packages/studio/src/react/email/inspector/fields.tsx) — `TextRow` / `AreaRow` / `NumberRow`
 
 ## The cause
 
