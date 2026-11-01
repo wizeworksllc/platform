@@ -1,8 +1,8 @@
 # Splitting the platform, sparx and Piggles into three repositories
 
-**Version:** 0.6
+**Version:** 0.7
 **Author:** Brandon Korous
-**Last Updated:** 2026-10-31
+**Last Updated:** 2026-11-01
 
 ## Why
 
@@ -209,22 +209,51 @@ Done 2026-10-31.
 
 ### Phase 4. Piggles moves to `wizeworksllc/piggles`
 
-- Created from the history of `piggles/` with `git filter-repo`, so history and
-  blame survive. Decide then whether to drop the doc zips and the 93 MB of
-  `piggles/images` from history.
-- Its own TypeScript, ESLint and Prettier config, turbo pipeline, pre-push hook,
-  CI and release. The 13 `piggles/scripts/*` checks move with it.
-- Infrastructure first (wize-infrastructure releases before Piggles relies on
-  it): a deploy identity, a `piggles` namespace, its own vault, and the Caddy
-  upstreams for meetpiggles.com, getpiggles.com and mypiggles.com.
-- Images publish to `ghcr.io/wizeworksllc/piggles-*`.
-- Cut over one app at a time: web (about 35k lines), then account, then the
-  console.
-- **Console parity (D4):** Piggles' CI checks sparx out (at this point still in
-  today's repository) and runs `check:console-parity` against both, the way
-  wize-infrastructure's CI checks sparx out today.
+Done 2026-11-01. Piggles lives in the private repository `wizeworksllc/piggles`,
+and all three apps run in namespace `piggles`.
 
-Piggles goes first because it is the less critical product, so the playbook is
+- Created from the history of `piggles/` with `git filter-repo`, so history and
+  blame survive. The doc zips and `piggles/images` were dropped from history.
+- Its own TypeScript, ESLint and Prettier config, turbo pipeline, pre-push hook,
+  CI and release. The `piggles/scripts/*` checks moved with it, and they find
+  sparx through `scripts/lib/platform-dir.mjs` (`$PLATFORM_DIR`, or a sibling
+  checkout named `sparx.works` or `sparx`). Two checks were added there:
+  `check-transpile-packages` (each app lists every `@wizeworksllc/*` package it
+  installs, the whole closure) and `check-k8s` (the availability rules that were
+  sparx's `check-k8s-overlays`: two account pods, a PodDisruptionBudget that
+  keeps one, and memory requests at measured use).
+- Infrastructure first: wize-infrastructure PR #10 added the deploy identity
+  `gha-piggles-prod`, the vault `kv-piggles-prod-cus` and the Caddy upstreams
+  for meetpiggles.com, getpiggles.com and mypiggles.com. During the move each
+  host listed the `piggles` namespace first and the `sparx-prod` copy as a
+  fallback, so each app moved with no gap. PR #11 removed the fallback once all
+  three ran in `piggles`.
+- Images publish to `ghcr.io/wizeworksllc/piggles-{web,account,console}`, and
+  the three packages are public, because the cluster pulls without credentials.
+  A package pushed from a private repository starts private, and GitHub has no
+  API to change that, so a new image needs its visibility set once by hand.
+- Cut over one app at a time by listing its manifest in the Piggles repository's
+  `k8s/kustomization.yaml`: web, then account, then the console.
+- **Console parity (D4):** Piggles' CI checks sparx out at `platform/` and
+  Piggles at `platform/piggles/`, then runs 42 of sparx's cross-console checks
+  unchanged (`scripts/platform-checks.mjs`). In sparx alone, those checks read
+  sparx's console only (`scripts/lib/piggles.mjs`).
+- sparx PR #161 removed `piggles/`, its workspace globs, release entries,
+  manifests and Dockerfile entries. Its next release pruned the `sparx-prod`
+  copies of the three apps.
+
+What the first Piggles releases taught, for Phase 5:
+
+- A private repository gets the smaller GitHub runner, and Node sizes its
+  default heap from the machine. The console's type-aware lint ran out of
+  memory, so lint and typecheck carry a heap cap in CI only.
+- turbo passes a task only the environment variables it is told about, so
+  `PLATFORM_DIR` must be listed for the tests that read the platform's source.
+- An app built from published packages fails in `next build` with "Unknown
+  module type" when a package is missing from `transpilePackages`. Nothing
+  before the image build notices, which is why `check-transpile-packages` exists.
+
+Piggles went first because it is the less critical product, so the playbook is
 proven on it before sparx follows.
 
 ### Phase 5. sparx moves to its own repository
@@ -241,8 +270,8 @@ repository.
 
 What is left is the platform: services, packages, tenant sites, schema and
 migrations, the release pipeline and `k8s/`. Its release builds only platform
-images, applies migrations and publishes packages. `check:boundaries`,
-`check:deletability` and the brand-isolation CI job lose their reason to exist:
+images, applies migrations and publishes packages. `check:boundaries`
+and the brand-isolation CI job lose their reason to exist:
 three repositories are the boundary.
 
 ## What this saves
