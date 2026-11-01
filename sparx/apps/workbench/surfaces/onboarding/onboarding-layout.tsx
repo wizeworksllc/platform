@@ -15,7 +15,7 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Check } from 'lucide-react';
 import { Wordmark } from '@sparx/brand/react';
-import { signOut } from '@wizeworksllc/auth/client';
+import { signOut } from '@wizeworksllc/auth-client/client';
 import { Button, useToast } from '@wizeworks/silicaui-react';
 import { enterBusiness, useBusinesses } from '../../lib/api/businesses';
 import { useTenant } from '../../lib/api/shell-data';

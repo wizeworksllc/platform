@@ -45,4 +45,4 @@ A platform feature grows its own `features/<slug>.md` note when it accrues real 
 
 ## Sources of truth
 
-`wizeworks/packages/modules/src/index.ts` (modules) · `sparx/packages/ui/src/providers/module-provider.tsx` (hue superset — flags each non-module in-file) · `_shell/registry.ts` (manifests).
+`wizeworks/packages/module-roster/src/index.ts` (modules) · `sparx/packages/ui/src/providers/module-provider.tsx` (hue superset — flags each non-module in-file) · `_shell/registry.ts` (manifests).

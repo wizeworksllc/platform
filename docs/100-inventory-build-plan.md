@@ -29,7 +29,7 @@ The module is **half-scaffolded** already — completing it, not inventing it:
 
 | Already exists                     | Location                                                                                                           |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `inventory` module slug + type     | `wizeworks/packages/modules/src/index.ts` (`ModuleSlug`, `ALL_MODULES`)                                            |
+| `inventory` module slug + type     | `wizeworks/packages/module-roster/src/index.ts` (`ModuleSlug`, `ALL_MODULES`)                                      |
 | Activation validation slug         | `wizeworks/services/api-rest/src/routes/v1/tenant.ts` `MODULE_SLUGS`; `settings/modules/actions.ts` `VALID_SLUGS`  |
 | Module color (amber `#F59E0B`)     | `sparx/packages/ui/src/providers/module-provider.tsx` `MODULE_COLORS`; `variants.ts` `MODULE_COLOR_KEYS`           |
 | Marketing catalog entry            | `sparx/apps/web/lib/capabilities.ts`; `apps/dashboard/components/module-catalog.ts`                                |
@@ -46,7 +46,7 @@ The module is **half-scaffolded** already — completing it, not inventing it:
 3. `apps/dashboard/lib/modules.ts` — `SWITCHBOARD_MODULES` (pricing switchboard)
 4. `wizeworks/packages/billing/src/price-catalog.ts` — `MODULE_MONTHLY_CENTS.inventory = 2900` ($29/mo)
 5. `wizeworks/packages/blueprints/src/manifest.ts` — `BlueprintModuleSlug` enum (if inventory is blueprintable)
-6. `wizeworks/packages/modules/src/index.ts` + `apps/dashboard/lib/modules.ts` — `BUNDLED_FREE`: bundle `inventory`
+6. `wizeworks/packages/module-roster/src/index.ts` + `apps/dashboard/lib/modules.ts` — `BUNDLED_FREE`: bundle `inventory`
    free when `commerce` **or** `b2b` is active (mirrors invoicing↔b2b). Standalone activation bills $29.
 
 **Packaging (§7):** Inventory is **bundled-free with Commerce or B2B**, and **$29/mo standalone** for
@@ -86,13 +86,13 @@ extraction must also lift the shared primitives inventory currently borrows from
 
 `inventory-service.ts` today imports from `@wizeworksllc/commerce`'s internals:
 
-| Borrowed today                                              | Resolution                                                                                                                                      |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@wizeworksllc/commerce-schemas` (inputs/types)                | **DEFERRED** — Zod inputs stay in `@wizeworksllc/commerce-schemas` (shared leaf, acyclic); `@sparx/inventory-schemas` split postponed (see §2.1 ¹) |
+| Borrowed today                                              | Resolution                                                                                                                                         |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@wizeworksllc/commerce-schemas` (inputs/types)             | **DEFERRED** — Zod inputs stay in `@wizeworksllc/commerce-schemas` (shared leaf, acyclic); `@sparx/inventory-schemas` split postponed (see §2.1 ¹) |
 | `../audit` (`writeAuditLog`)                                | `writeAuditLog` writes the shared `AuditLog` table → lift to a shared util (or `@wizeworksllc/db`) both modules import                             |
-| `../events` (`publishCommerceEvent`, `indexCommerceEntity`) | publish `inventory.*` via the **shared low-level publisher** (`createPublisher`) directly; inventory owns its own event helper                  |
+| `../events` (`publishCommerceEvent`, `indexCommerceEntity`) | publish `inventory.*` via the **shared low-level publisher** (`createPublisher`) directly; inventory owns its own event helper                     |
 | `../errors` (`CommerceOutOfStockError`, …)                  | define `@wizeworksllc/inventory` error classes (or a shared `@sparx/errors`)                                                                       |
-| `@wizeworksllc/db` (Prisma)                                    | unchanged — single shared client                                                                                                                |
+| `@wizeworksllc/db` (Prisma)                                 | unchanged — single shared client                                                                                                                   |
 
 > Prisma is **one shared client over one schema folder** — "extracting a package" is **code
 > organization + ownership**, not a separate database. **Tables are renamed `commerce_* → inventory_*`
@@ -159,14 +159,14 @@ Each phase is independently deployable (docs/03 deploy-early) and the **whole su
 phases are a deploy order, not a scope cut. "Standalone?" = does this phase work with inventory active
 and commerce off.
 
-| Phase | Theme                                                                        | Standalone?       | Ships                                             |
-| ----- | ---------------------------------------------------------------------------- | ----------------- | ------------------------------------------------- |
+| Phase | Theme                                                                           | Standalone?       | Ships                                             |
+| ----- | ------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------- |
 | P1    | Foundation: extract `@wizeworksllc/inventory`, unify to one ledger, re-point UI | ✅                | `/inventory` shows real data + non-zero valuation |
-| P2    | Sell path: wire reserve/commit/release into commerce                         | n/a (integration) | real-time accurate stock, oversell protection     |
-| P3    | Supply path: suppliers, POs, receiving, reorder engine                       | ✅                | inbound + replenishment workflow                  |
-| P4    | Counts, transfers, audit UI                                                  | ✅                | auditable corrections + cross-location moves      |
-| P5    | External sync: Tier C/B/A adapters (Fishbowl)                                | ✅                | ERP/WMS-backed tenants live                       |
-| P6    | API contract + reporting + MCP + B2B                                         | ✅                | headless + AI + wholesale complete                |
+| P2    | Sell path: wire reserve/commit/release into commerce                            | n/a (integration) | real-time accurate stock, oversell protection     |
+| P3    | Supply path: suppliers, POs, receiving, reorder engine                          | ✅                | inbound + replenishment workflow                  |
+| P4    | Counts, transfers, audit UI                                                     | ✅                | auditable corrections + cross-location moves      |
+| P5    | External sync: Tier C/B/A adapters (Fishbowl)                                   | ✅                | ERP/WMS-backed tenants live                       |
+| P6    | API contract + reporting + MCP + B2B                                            | ✅                | headless + AI + wholesale complete                |
 
 ---
 

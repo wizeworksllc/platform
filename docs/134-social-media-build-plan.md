@@ -32,7 +32,7 @@ Last Updated: 2026-07-22
 
 **Goal:** the module can be turned on/off and its event topics exist; no user surface yet.
 
-- `wizeworks/packages/modules/src/index.ts` — add `social` to the `ModuleSlug` union + `ALL_MODULES`
+- `wizeworks/packages/module-roster/src/index.ts` — add `social` to the `ModuleSlug` union + `ALL_MODULES`
   (no `REQUIRES`, no `BUNDLED_FREE`).
 - `wizeworks/services/api-rest/src/lib/module-toggle.ts` — add `social` to the duplicated
   `MODULE_SLUGS` toggle vocabulary.

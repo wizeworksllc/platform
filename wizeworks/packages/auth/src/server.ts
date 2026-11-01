@@ -14,6 +14,7 @@ import { authPrisma } from './prisma';
 import { brandScopedAuthPrisma } from './brand-scoped-prisma';
 import { publishAuthEmail } from './email-events';
 import { finalizeOAuthSignup, provisionTenantForOAuth } from './oauth-provisioning';
+import { USER_ADDITIONAL_FIELDS } from '@wizeworksllc/auth-client/user-fields';
 import { MCP_ALL_OAUTH_SCOPES } from './mcp-scopes';
 import { authOwnedColumns } from './auth-owned-columns';
 import { keepAccountsOnEmailProof } from './credential-retention';
@@ -197,34 +198,8 @@ function createAuth(config: AuthBrandConfig) {
     },
 
     user: {
-      additionalFields: {
-        tenantId: {
-          type: 'string',
-          required: true,
-          input: false,
-        },
-        role: {
-          type: 'string',
-          required: false,
-          defaultValue: 'editor',
-          input: false,
-        },
-        // Which product this login belongs to. Declared here so the value is
-        // SELECTED on reads — the session carries it, which is what lets an
-        // invitation check that the person accepting belongs to the brand that
-        // owns the tenant.
-        //
-        // `input: false` for the same reason as the two above: it is never
-        // accepted from a client payload. It is not `required`, because the
-        // guarantee lives one layer down — brand-scoped-prisma.ts stamps it on
-        // every create, so a payload that omits it still lands correctly, and a
-        // payload that could contradict it never reaches the database.
-        platformBrand: {
-          type: 'string',
-          required: false,
-          input: false,
-        },
-      },
+      // Shared with the browser client, so useSession() is typed from the same list.
+      additionalFields: USER_ADDITIONAL_FIELDS,
     },
 
     ...(googleReady && googleId && googleSecret

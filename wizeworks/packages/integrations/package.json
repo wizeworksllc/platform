@@ -2,7 +2,7 @@
   "name": "@wizeworksllc/integrations",
   "version": "0.0.0",
   "private": true,
-  "description": "sparx Integrations — the one registry every outside service registers into. Categories, the shared descriptor, and typed per-kind facades so each domain keeps its own contract.",
+  "description": "sparx Integrations \u00e2\u20ac\u201d the one registry every outside service registers into. Categories, the shared descriptor, and typed per-kind facades so each domain keeps its own contract.",
   "type": "module",
   "exports": {
     ".": {
@@ -19,7 +19,7 @@
     "test": "vitest run --maxWorkers=1"
   },
   "dependencies": {
-    "@wizeworksllc/modules": "workspace:*"
+    "@wizeworksllc/module-roster": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.7.3",

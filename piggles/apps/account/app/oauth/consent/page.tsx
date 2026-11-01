@@ -15,7 +15,7 @@ import {
   capBusinessScopes,
   MCP_SCOPE_CATALOG,
   type StaffRole,
-} from '@wizeworksllc/auth/mcp-scopes';
+} from '@wizeworksllc/auth-client/mcp-scopes';
 import { ConsentForm } from './_components/consent-form';
 
 // "Do you want to let this app in?" — the MCP OAuth consent screen (docs/07 §5).

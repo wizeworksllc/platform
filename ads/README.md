@@ -20,7 +20,7 @@ invented colors, no gradients, no drop-shadow-as-device.
 ## Per-module set (`modules/<ratio>/sparx-ad-module-<slug>-<ratio>.png`)
 
 Thirteen type-led creatives — one per activatable module (the `ALL_MODULES` set in
-[`wizeworks/packages/modules/src/index.ts`](../packages/modules/src/index.ts)) — built on the
+[`wizeworks/packages/module-roster/src/index.ts`](../packages/module-roster/src/index.ts)) — built on the
 lead creative's template but **without the mascot**, so the headline carries the
 whole frame:
 

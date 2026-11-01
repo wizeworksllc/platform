@@ -6,15 +6,13 @@
 #
 #   docker build -f piggles/apps/account/Dockerfile -t piggles/account:tag .
 #
-# This is the AUTH AUTHORITY for the Piggles brand — mypiggles.com mounts no
-# Better Auth handler and receives its session through the handoff — so it needs
-# the platform's whole account spine: `@wizeworksllc/auth`, `@wizeworksllc/db`, and the
-# transitive closure of `signUpMerchant` (a tenant, its primary site, the
-# subdomain, the owner membership, legal acceptance, the trial clock, the welcome
-# email). Twenty-three `@sparx/*` packages and four `@piggles/*` ones, every one
-# of them because a package DECLARES it, not because a file imports it — the
-# filtered install resolves declarations, so a transitive member left out leaves
-# a dangling symlink the build cannot resolve.
+# Sign-in, sign-up and onboarding run through api-rest (docs/154): this app
+# proxies /api/auth to it and mounts no auth server of its own. So it installs no
+# database layer — only the database-free halves of the platform packages it
+# reads (docs/153, Phase 3): the browser auth client, the module roster and the
+# capacity meters. Every member of the closure is here because a package DECLARES
+# it, not because a file imports it — the filtered install resolves declarations,
+# so a transitive member left out leaves a dangling symlink the build cannot resolve.
 #
 # Verified against the closure by scripts/check-dockerfile-deps.mjs, which now
 # reads piggles/* as well. Do not hand-edit this list without re-running it.
@@ -39,50 +37,20 @@ COPY piggles/packages/config/package.json piggles/packages/config/
 COPY piggles/packages/mascot/package.json piggles/packages/mascot/
 COPY piggles/packages/ui/package.json piggles/packages/ui/
 
-# The platform account spine and everything it drags in. `@wizeworksllc/auth` re-exports
-# server.ts → tenant-events.ts, which pulls legal seeding; `@wizeworksllc/email` pulls
-# the template packages; onboarding's blueprint step pulls the schema family.
+# The platform packages, all database-free.
 COPY wizeworks/packages/app-kit/package.json wizeworks/packages/app-kit/
 COPY wizeworks/packages/attribution/package.json wizeworks/packages/attribution/
-COPY wizeworks/packages/auth/package.json wizeworks/packages/auth/
 COPY wizeworks/packages/auth-client-server/package.json wizeworks/packages/auth-client-server/
+COPY wizeworks/packages/auth-client/package.json wizeworks/packages/auth-client/
+COPY wizeworks/packages/module-roster/package.json wizeworks/packages/module-roster/
+# Capacity metering vocabulary. The account page renders it during the SERVER
+# render — this is the surface that owns the full picture of what a business uses.
+COPY wizeworks/packages/usage-meters/package.json wizeworks/packages/usage-meters/
 COPY wizeworks/packages/brand-core/package.json wizeworks/packages/brand-core/
 COPY wizeworks/packages/brand-registry/package.json wizeworks/packages/brand-registry/
-COPY wizeworks/packages/client-ip/package.json wizeworks/packages/client-ip/
 # The address table. The invite + consent pages build absolute links
 # through it (accountOrigin/appOrigin), during the SERVER render.
 COPY wizeworks/packages/links/package.json wizeworks/packages/links/
-# Capacity metering. The account page reads it during the SERVER render — this is
-# the surface that owns the full picture of what a business is using.
-COPY wizeworks/packages/usage/package.json wizeworks/packages/usage/
-COPY wizeworks/packages/silica-corrections/package.json wizeworks/packages/silica-corrections/
-COPY wizeworks/packages/automation-schemas/package.json wizeworks/packages/automation-schemas/
-COPY wizeworks/packages/blueprints/package.json wizeworks/packages/blueprints/
-COPY sparx/packages/brand/package.json sparx/packages/brand/
-COPY wizeworks/packages/builder-schemas/package.json wizeworks/packages/builder-schemas/
-COPY wizeworks/packages/cms-editor/package.json wizeworks/packages/cms-editor/
-COPY wizeworks/packages/cms-schemas/package.json wizeworks/packages/cms-schemas/
-COPY wizeworks/packages/commerce-schemas/package.json wizeworks/packages/commerce-schemas/
-COPY wizeworks/packages/crm-schemas/package.json wizeworks/packages/crm-schemas/
-COPY wizeworks/packages/db/package.json wizeworks/packages/db/
-COPY wizeworks/packages/email/package.json wizeworks/packages/email/
-COPY wizeworks/packages/events/package.json wizeworks/packages/events/
-COPY wizeworks/packages/field-schema/package.json wizeworks/packages/field-schema/
-COPY wizeworks/packages/legal/package.json wizeworks/packages/legal/
-COPY wizeworks/packages/legal-seed/package.json wizeworks/packages/legal-seed/
-COPY wizeworks/packages/legal-templates/package.json wizeworks/packages/legal-templates/
-COPY wizeworks/packages/marketplace-schemas/package.json wizeworks/packages/marketplace-schemas/
-COPY wizeworks/packages/modules/package.json wizeworks/packages/modules/
-COPY wizeworks/packages/silica-catalog/package.json wizeworks/packages/silica-catalog/
-COPY wizeworks/packages/site-themes/package.json wizeworks/packages/site-themes/
-COPY wizeworks/packages/sitebuilder-schemas/package.json wizeworks/packages/sitebuilder-schemas/
-COPY wizeworks/packages/ui/package.json wizeworks/packages/ui/
-
-# Root postinstall runs `pnpm --filter @wizeworksllc/db db:generate`, which needs the
-# schema source AND the prisma config (the multi-file schema lives in
-# prisma/schema/, declared in prisma.config.ts).
-COPY wizeworks/packages/db/prisma wizeworks/packages/db/prisma
-COPY wizeworks/packages/db/prisma.config.ts wizeworks/packages/db/prisma.config.ts
 
 # The Font Awesome Pro token reaches pnpm as an env var for one command, read
 # from a BuildKit secret mount. It is never COPYed and never lands in a layer.
@@ -99,39 +67,14 @@ COPY piggles/packages/mascot piggles/packages/mascot
 COPY piggles/packages/ui piggles/packages/ui
 COPY wizeworks/packages/app-kit wizeworks/packages/app-kit
 COPY wizeworks/packages/attribution wizeworks/packages/attribution
-COPY wizeworks/packages/auth wizeworks/packages/auth
 COPY wizeworks/packages/auth-client-server wizeworks/packages/auth-client-server
+COPY wizeworks/packages/auth-client wizeworks/packages/auth-client
+COPY wizeworks/packages/module-roster wizeworks/packages/module-roster
+COPY wizeworks/packages/usage-meters wizeworks/packages/usage-meters
 COPY wizeworks/packages/brand-core wizeworks/packages/brand-core
 COPY wizeworks/packages/brand-registry wizeworks/packages/brand-registry
-COPY wizeworks/packages/client-ip wizeworks/packages/client-ip
 COPY wizeworks/packages/links wizeworks/packages/links
-COPY wizeworks/packages/usage wizeworks/packages/usage
-COPY wizeworks/packages/silica-corrections wizeworks/packages/silica-corrections
-COPY wizeworks/packages/automation-schemas wizeworks/packages/automation-schemas
-COPY wizeworks/packages/blueprints wizeworks/packages/blueprints
-COPY sparx/packages/brand sparx/packages/brand
-COPY wizeworks/packages/builder-schemas wizeworks/packages/builder-schemas
-COPY wizeworks/packages/cms-editor wizeworks/packages/cms-editor
-COPY wizeworks/packages/cms-schemas wizeworks/packages/cms-schemas
-COPY wizeworks/packages/commerce-schemas wizeworks/packages/commerce-schemas
-COPY wizeworks/packages/crm-schemas wizeworks/packages/crm-schemas
-COPY wizeworks/packages/db wizeworks/packages/db
-COPY wizeworks/packages/email wizeworks/packages/email
-COPY wizeworks/packages/events wizeworks/packages/events
-COPY wizeworks/packages/field-schema wizeworks/packages/field-schema
-COPY wizeworks/packages/legal wizeworks/packages/legal
-COPY wizeworks/packages/legal-seed wizeworks/packages/legal-seed
-COPY wizeworks/packages/legal-templates wizeworks/packages/legal-templates
-COPY wizeworks/packages/marketplace-schemas wizeworks/packages/marketplace-schemas
-COPY wizeworks/packages/modules wizeworks/packages/modules
-COPY wizeworks/packages/silica-catalog wizeworks/packages/silica-catalog
-COPY wizeworks/packages/site-themes wizeworks/packages/site-themes
-COPY wizeworks/packages/sitebuilder-schemas wizeworks/packages/sitebuilder-schemas
-COPY wizeworks/packages/ui wizeworks/packages/ui
 COPY piggles/apps/account piggles/apps/account
-
-# @wizeworksllc/auth imports @wizeworksllc/db, which re-exports the generated client.
-RUN pnpm --filter @wizeworksllc/db db:generate
 
 ARG APP_VERSION=dev
 ENV NEXT_PUBLIC_APP_VERSION=$APP_VERSION
@@ -141,8 +84,9 @@ ENV NEXT_PUBLIC_POSTHOG_KEY=$NEXT_PUBLIC_POSTHOG_KEY
 ARG NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ENV NEXT_PUBLIC_POSTHOG_HOST=$NEXT_PUBLIC_POSTHOG_HOST
 
-# Eleven routes, but the type program spans @wizeworksllc/auth and the whole schema
-# family, so this sits above the small-app default and below the console's.
+# Sized when the type program spanned @wizeworksllc/auth and the whole schema family.
+# It no longer does (docs/153, Phase 3), so this is a candidate to lower once a
+# release shows the build's real peak.
 # Stable server-action ids across builds (SI-2). No secret = Next picks a random key, as before.
 RUN --mount=type=secret,id=next_actions_key \
     key="$(cat /run/secrets/next_actions_key 2>/dev/null || true)"; \

@@ -15,9 +15,9 @@
 // Deliberately not shared with the dashboard's copy of this vocabulary: that
 // one is written for a settings page, and these screens are not that page.
 
-import { ORG_ROLES, type OrgRole } from '@wizeworksllc/auth/org-roles';
-import { roleIgnoresModuleAccess } from '@wizeworksllc/auth/module-access';
-import { roleIgnoresPropertyAccess } from '@wizeworksllc/auth/property-access';
+import { ORG_ROLES, type OrgRole } from '@wizeworksllc/auth-client/org-roles';
+import { roleIgnoresModuleAccess } from '@wizeworksllc/auth-client/module-access';
+import { roleIgnoresPropertyAccess } from '@wizeworksllc/auth-client/property-access';
 import { canManageBusiness } from '../../lib/manage-rights';
 
 /** The role names as a person reads them. */

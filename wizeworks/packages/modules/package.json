@@ -2,7 +2,7 @@
   "name": "@wizeworksllc/modules",
   "version": "0.0.0",
   "private": true,
-  "description": "Module-enablement primitives (the 'disabled module = zero overhead' gate, locked decision #6). Reads tenants.settings.modules with a small in-process TTL cache. Session-free + dependency-light (only @wizeworksllc/db) so any backend — including lean workers — can probe module flags without pulling the auth/email/UI closure.",
+  "description": "Module-enablement primitives (the 'disabled module = zero overhead' gate, locked decision #6). Reads tenants.settings.modules with a small in-process TTL cache. Session-free + dependency-light (only @wizeworksllc/db) so any backend \u00e2\u20ac\u201d including lean workers \u00e2\u20ac\u201d can probe module flags without pulling the auth/email/UI closure.",
   "type": "module",
   "exports": {
     ".": {
@@ -20,7 +20,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworksllc/db": "workspace:*"
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/module-roster": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",

@@ -7,7 +7,7 @@
 // Wording follows the platform's primary audience: business owners, not developers.
 // "Card payments", not "payment provider installations".
 
-import type { ModuleSlug } from '@wizeworksllc/modules';
+import type { ModuleSlug } from '@wizeworksllc/module-roster';
 
 import type { CategoryDescriptor, IntegrationCategory } from './types.js';
 

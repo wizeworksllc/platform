@@ -2,7 +2,7 @@ import { authProxyHandlers } from '@wizeworksllc/auth-client-server';
 
 // Every /api/auth/* request lands here: sign-in, sign-up, session lookup,
 // password reset, verification. Mounting it at this path means the client SDK
-// inside @wizeworksllc/auth/client needs no baseURL config.
+// inside @wizeworksllc/auth-client/client needs no baseURL config.
 //
 // The handler itself runs in api-rest (`/auth/piggles/*`, docs/154), which holds
 // the only Better Auth instance. This route forwards each request there and

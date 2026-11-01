@@ -79,12 +79,11 @@ const config = {
     '@wizeworksllc/site-themes',
     // The social calendar imports `slotOccurrences` — a RUNTIME value, unlike the
     // type-only schema packages above, whose imports erase at compile time. So this one
-    // ships source that actually has to be compiled. It is imported via the narrow
-    // `@wizeworksllc/social/cadence` entrypoint rather than the package barrel: the barrel's
-    // internal `./thing.js` specifiers are not rewritten to `.ts` by Turbopack, so
-    // reaching for the barrel here fails the production build even though dev and
-    // typecheck pass. `cadence.ts` has no relative imports at all.
-    '@wizeworksllc/social',
+    // ships source that actually has to be compiled. It lives in its own one-file
+    // package with no relative imports: the social barrel's internal `./thing.js`
+    // specifiers are not rewritten to `.ts` by Turbopack, which failed the production
+    // build even though dev and typecheck passed.
+    '@wizeworksllc/social-cadence',
   ],
   typedRoutes: false,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.

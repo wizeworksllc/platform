@@ -30,7 +30,7 @@ const config = {
     '@piggles/config',
     '@piggles/mascot',
     '@wizeworksllc/app-kit',
-    '@wizeworksllc/auth',
+    '@wizeworksllc/auth-client',
     '@wizeworks/silicaui-react',
   ],
   typedRoutes: true,
@@ -38,7 +38,7 @@ const config = {
   serverExternalPackages: ['@wizeworks/lens-node'],
   output: 'standalone',
   // Monorepo: trace from the REPO root, not from `piggles/`. This app pulls
-  // workspace deps from BOTH trees — `@piggles/*` alongside it and `@wizeworksllc/auth`
+  // workspace deps from BOTH trees — `@piggles/*` alongside it and `@wizeworksllc/auth-client`
   // above it — so a tracing root inside `piggles/` would produce a standalone
   // bundle missing the platform half.
   outputFileTracingRoot: join(__dirname, '../../../'),

@@ -20,7 +20,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SERVER = join(ROOT, 'wizeworks/packages/modules/src/index.ts');
+const SERVER = join(ROOT, 'wizeworks/packages/module-roster/src/index.ts');
 const COPIES = [join(ROOT, 'sparx/apps/workbench/lib/onboarding/modules.ts')];
 
 for (const p of [SERVER, ...COPIES]) {

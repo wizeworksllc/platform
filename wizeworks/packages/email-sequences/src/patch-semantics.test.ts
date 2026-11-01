@@ -7,7 +7,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { UpdateSequenceInput } from './schemas';
+import { UpdateSequenceInput } from '@wizeworksllc/email-sequence-schemas';
 
 describe('UpdateSequenceInput', () => {
   it('parses an empty patch into an empty object', () => {

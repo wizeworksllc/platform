@@ -56,7 +56,7 @@ platforms, different capability, different OAuth scopes.
 ## 2. Module wiring
 
 Add `social` to the `ModuleSlug` union and `ALL_MODULES` in
-[wizeworks/packages/modules/src/index.ts](../packages/modules/src/index.ts).
+[wizeworks/packages/module-roster/src/index.ts](../packages/module-roster/src/index.ts).
 
 - **`REQUIRES`:** none. It runs fully standalone.
 - **`BUNDLED_FREE`:** none — it is not "included with" a paid module; it is simply

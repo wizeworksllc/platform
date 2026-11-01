@@ -52,7 +52,7 @@ export async function requireCrmModule(request: FastifyRequest): Promise<void> {
  *
  *  B2B ACCOUNTS are a B2B-module concept that happens to live under the /v1/crm
  *  URL namespace — the same mis-scoping orders had. B2B requires Commerce, NOT
- *  CRM (wizeworks/packages/modules/src/index.ts REQUIRES graph), so a tenant on B2B +
+ *  CRM (wizeworks/packages/module-roster/src/index.ts REQUIRES graph), so a tenant on B2B +
  *  Commerce could not read their own accounts at all: the /b2b/orders Account
  *  filter came back empty for exactly the tenant it exists to serve.
  *

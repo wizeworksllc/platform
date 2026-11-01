@@ -99,7 +99,7 @@ or does it help someone file something?** The first is ours. The second is an ex
 ## 2. Module wiring and price
 
 `finance` is registered in the `ModuleSlug` union and `ALL_MODULES`
-([wizeworks/packages/modules/src/index.ts](../packages/modules/src/index.ts)) and priced at
+([wizeworks/packages/module-roster/src/index.ts](../packages/module-roster/src/index.ts)) and priced at
 `finance: 2900` in `MODULE_MONTHLY_CENTS`
 ([wizeworks/packages/billing/src/price-catalog.ts](../packages/billing/src/price-catalog.ts)).
 

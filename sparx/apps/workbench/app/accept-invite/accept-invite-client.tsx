@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Alert, Button } from '@wizeworks/silicaui-react';
-import { signOut } from '@wizeworksllc/auth/client';
+import { signOut } from '@wizeworksllc/auth-client/client';
 import { acceptInvitation, resendInviteVerification } from './actions';
 
 // The interactive controls on /accept-invite. The server component has already

@@ -21,4 +21,4 @@ The binding cross-cutting commitments — each **verified against code**, not ta
 
 ## Sources of truth
 
-`wizeworks/packages/db/src/tenant-context.ts` · `wizeworks/packages/auth/src/server.ts` · `wizeworks/packages/modules/src/index.ts` · `wizeworks/packages/events/src/` · `wizeworks/packages/links/src/routes.ts` · `wizeworks/services/api-rest` + `wizeworks/services/api-mcp` + `services/CLAUDE.md`.
+`wizeworks/packages/db/src/tenant-context.ts` · `wizeworks/packages/auth/src/server.ts` · `wizeworks/packages/module-roster/src/index.ts` · `wizeworks/packages/events/src/` · `wizeworks/packages/links/src/routes.ts` · `wizeworks/services/api-rest` + `wizeworks/services/api-mcp` + `services/CLAUDE.md`.

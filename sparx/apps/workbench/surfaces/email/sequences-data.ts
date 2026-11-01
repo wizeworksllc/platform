@@ -31,7 +31,7 @@ import type {
   CreateSequenceInput,
   SequenceStep,
   UpdateSequenceInput,
-} from '@wizeworksllc/email-sequences/schemas';
+} from '@wizeworksllc/email-sequence-schemas';
 import { api } from '../../lib/api/client';
 import type { Enrollers } from './sequence-words';
 
@@ -46,7 +46,7 @@ export type ReentryPolicy = 'once' | 'always';
 export type EnrollmentStatus = 'active' | 'completed' | 'exited' | 'cancelled';
 
 /** One sequence, as `GET /v1/email/sequences/:id` returns it. `steps` is the
- *  live authoring document (validated against `@wizeworksllc/email-sequences/schemas`
+ *  live authoring document (validated against `@wizeworksllc/email-sequence-schemas`
  *  on the server); `counts` is a roll-up of its enrollments by status. */
 export interface SequenceRow {
   id: string;

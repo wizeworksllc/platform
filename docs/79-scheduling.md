@@ -36,13 +36,13 @@ It is a **first-class module**, not a B2B add-on. The existing B2B fleet-service
 are the narrow ancestor of this engine; this spec **generalizes them** and makes B2B/fleet
 one _context_ among many (§13.5, §15.7).
 
-|                       |                                                                                                                                                                            |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Module**            | Scheduling · slug `scheduling` · +$29/mo (§18.1)                                                                                                                           |
-| **Requires**          | Nothing. Deposits require a connected payment gateway, not the Commerce module (§9.1).                                                                                     |
-| **Bundled free with** | Nothing — **always standalone** (decided; §18.3).                                                                                                                          |
-| **Surfaces**          | Public booking widget (Builder + embeddable), customer self-service portal, dashboard (calendar / queue / roster / reports), MCP tools                                     |
-| **New service**       | `services/scheduling-worker` — reminder cron, waitlist auto-fill, calendar-sync polling, recurrence materialization                                                        |
+|                       |                                                                                                                                                                                  |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Module**            | Scheduling · slug `scheduling` · +$29/mo (§18.1)                                                                                                                                 |
+| **Requires**          | Nothing. Deposits require a connected payment gateway, not the Commerce module (§9.1).                                                                                           |
+| **Bundled free with** | Nothing — **always standalone** (decided; §18.3).                                                                                                                                |
+| **Surfaces**          | Public booking widget (Builder + embeddable), customer self-service portal, dashboard (calendar / queue / roster / reports), MCP tools                                           |
+| **New service**       | `services/scheduling-worker` — reminder cron, waitlist auto-fill, calendar-sync polling, recurrence materialization                                                              |
 | **Reuses**            | `@wizeworksllc/payments`, `@wizeworksllc/email` + email-worker, CRM, automation engine, Builder catalog, inventory (parts/availability), push-worker, customer-auth, marketplace |
 
 ---
@@ -135,7 +135,7 @@ Each principle below is a direct, enforceable response to §3.
 | **P2**  | **Unlimited staff, resources, locations, and bookings.** Flat module price; no per-seat, no per-cover, no per-booking fee.                                                                                                                                                                                                                                                                 | Hate #2, #6      |
 | **P3**  | **Double-booking is structurally impossible**, enforced at the database with a Postgres `EXCLUDE` constraint (§7.4), not just app logic. Calendar sync is **one-click** (verified platform OAuth app — feasible since Calendar needs no CASA) with BYO + iCal fallbacks, checks **all** connected calendars, and **alerts on token/feed failure** — near-real-time on two-way connections. | Hate #3, Win #3  |
 | **P4**  | **The booking surface is the tenant's own brand on their own domain** — real Builder components, no "Powered by sparx." Embeddable on external sites under the tenant's brand.                                                                                                                                                                                                             | Hate #5, Win #2  |
-| **P5**  | **Bring your own processor.** Deposits/fees run through `@wizeworksllc/payments` (Stripe Direct, sparx Pay, PayPal, Square) at the tenant's own rates. Never locked.                                                                                                                                                                                                                          | Hate #10, Win #4 |
+| **P5**  | **Bring your own processor.** Deposits/fees run through `@wizeworksllc/payments` (Stripe Direct, sparx Pay, PayPal, Square) at the tenant's own rates. Never locked.                                                                                                                                                                                                                       | Hate #10, Win #4 |
 | **P6**  | **No-show protection is first-class and dispute-ready** — Tock-style per-service choice of _prepay / card-hold / free_, plus automatic chargeback evidence (reminder logs, policy acceptance, timestamps).                                                                                                                                                                                 | Win #1, Hate #9  |
 | **P7**  | **Reminders are multi-channel (SMS + email + push) and event-driven** through the existing Pub/Sub + email-worker pipeline; SMS is a new channel, metered as a physical cost.                                                                                                                                                                                                              | Win #1           |
 | **P8**  | **The customer record is the center.** Every booking, no-show, preference, intake answer, and visit writes to the CRM customer / B2B account / asset — cross-visit intelligence by default.                                                                                                                                                                                                | Win #10          |
@@ -234,19 +234,19 @@ engine and the calendar-sync engine; it _reuses_ everything else.
 
 ### 6.2 What it explicitly reuses (do not rebuild)
 
-| Need                                                             | Reused asset                                                                                                                                                                                      |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Need                                                             | Reused asset                                                                                                                                                                                         |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Deposits, holds, no-show fees, refunds                           | `@wizeworksllc/payments` `PaymentService` — `createPaymentIntent({captureMethod:'manual'})`, `capturePayment(amount)`, `cancelPayment`, `refund` ([gateway.ts](../packages/payments/src/gateway.ts)) |
 | Confirmations / reminders / follow-ups (email)                   | `email.send` → Pub/Sub → `email-worker` → `@wizeworksllc/email` React Email templates                                                                                                                |
-| Customer identity, history, segments, B2B accounts, fleet assets | CRM ([20-crm-customers](../packages/db/prisma/schema/20-crm-customers.prisma), [21-crm-b2b](../packages/db/prisma/schema/21-crm-b2b.prisma))                                                      |
-| "When booking.completed → ask for a review" style rules          | Automation engine ([81-automation-module.md](81-automation-module.md))                                                                                                                            |
-| Public booking pages on the tenant's brand/domain                | Builder catalog + per-tenant theme compile                                                                                                                                                        |
-| Customer self-service login                                      | customer-auth ([48-customer-auth](../packages/db/prisma/schema/48-customer-auth.prisma))                                                                                                          |
-| Parts availability at booking, reserve-on-confirm                | Inventory ([66-inventory](../packages/db/prisma/schema/66-inventory.prisma))                                                                                                                      |
-| Booking → work order → invoice                                   | Invoicing ([72-invoicing](../packages/db/prisma/schema/72-invoicing.prisma))                                                                                                                      |
-| Mobile push to staff                                             | push-worker ([70-push-subscriptions](../packages/db/prisma/schema/70-push-subscriptions.prisma))                                                                                                  |
-| Memberships / prepaid packs                                      | commerce subscriptions ([41-commerce-subscriptions](../packages/db/prisma/schema/41-commerce-subscriptions.prisma)) + account credit                                                              |
-| Optional new-client discovery                                    | marketplace ([68-marketplace](../packages/db/prisma/schema/68-marketplace.prisma)), sparx.market                                                                                                  |
+| Customer identity, history, segments, B2B accounts, fleet assets | CRM ([20-crm-customers](../packages/db/prisma/schema/20-crm-customers.prisma), [21-crm-b2b](../packages/db/prisma/schema/21-crm-b2b.prisma))                                                         |
+| "When booking.completed → ask for a review" style rules          | Automation engine ([81-automation-module.md](81-automation-module.md))                                                                                                                               |
+| Public booking pages on the tenant's brand/domain                | Builder catalog + per-tenant theme compile                                                                                                                                                           |
+| Customer self-service login                                      | customer-auth ([48-customer-auth](../packages/db/prisma/schema/48-customer-auth.prisma))                                                                                                             |
+| Parts availability at booking, reserve-on-confirm                | Inventory ([66-inventory](../packages/db/prisma/schema/66-inventory.prisma))                                                                                                                         |
+| Booking → work order → invoice                                   | Invoicing ([72-invoicing](../packages/db/prisma/schema/72-invoicing.prisma))                                                                                                                         |
+| Mobile push to staff                                             | push-worker ([70-push-subscriptions](../packages/db/prisma/schema/70-push-subscriptions.prisma))                                                                                                     |
+| Memberships / prepaid packs                                      | commerce subscriptions ([41-commerce-subscriptions](../packages/db/prisma/schema/41-commerce-subscriptions.prisma)) + account credit                                                                 |
+| Optional new-client discovery                                    | marketplace ([68-marketplace](../packages/db/prisma/schema/68-marketplace.prisma)), sparx.market                                                                                                     |
 
 ### 6.3 The one genuinely new external integration: SMS
 
@@ -1078,7 +1078,7 @@ platform's deploy-early principle. Each phase ends shippable.
 
 Cross-doc updates that land with the build (kept in sync, not after): module map + headline
 in [89-feature-catalog.md](89-feature-catalog.md), the slug set in
-[wizeworks/packages/modules/src/index.ts](../packages/modules/src/index.ts), the
+[wizeworks/packages/module-roster/src/index.ts](../packages/module-roster/src/index.ts), the
 [73-pricing-model.md](73-pricing-model.md) table + toggle UI, and a pointer from
 [10-b2b-wholesale-prd.md](10-b2b-wholesale-prd.md) §10 to this module as the engine.
 

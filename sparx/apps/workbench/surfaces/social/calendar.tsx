@@ -26,7 +26,7 @@ import {
 } from '@dnd-kit/core';
 import { Button, Heading, Text, ToggleGroup, ToggleGroupItem } from '@wizeworks/silicaui-react';
 import { CalendarPlus, ChevronLeft, ChevronRight, Plus, ServerCrash } from 'lucide-react';
-import { slotOccurrences } from '@wizeworksllc/social/cadence';
+import { slotOccurrences } from '@wizeworksllc/social-cadence';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { RefreshButton } from '../../components/refresh-button';
 import type { SurfaceContext } from '../../lib/surfaces/registry';

@@ -1,4 +1,3 @@
-import type { AttributionSnapshot } from '@wizeworksllc/attribution';
 import type { Prisma } from '@prisma/client';
 import { currentPlatformBrand, platformBrandIdentity } from '@wizeworksllc/brand-core';
 import { randomFriendlySlug } from './friendly-slug';
@@ -14,15 +13,8 @@ import { randomFriendlySlug } from './friendly-slug';
 // to end at a literal naming one brand.
 
 /** First-party acquisition attribution read at signup (docs/80 §6.1 / L-PLAT). */
-export interface SignUpAcquisition {
-  /** Denormalized from first-touch — the acquisition model for L-PLAT (docs/80 §9). */
-  channel: string | null;
-  source: string | null;
-  campaign: string | null;
-  /** Full snapshots retained for later model recompute (docs/80 §8.3). */
-  firstTouch: AttributionSnapshot | null;
-  lastTouch: AttributionSnapshot | null;
-}
+import type { SignUpAcquisition } from '@wizeworksllc/auth-client';
+export type { SignUpAcquisition };
 
 // Minimal shape we need to confirm slug availability — satisfied by both the
 // PrismaClient and a transaction client.

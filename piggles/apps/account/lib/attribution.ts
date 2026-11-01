@@ -1,5 +1,5 @@
 import { deserializeSnapshot, type AttributionSnapshot } from '@wizeworksllc/attribution';
-import type { SignUpAcquisition } from '@wizeworksllc/auth';
+import type { SignUpAcquisition } from '@wizeworksllc/auth-client';
 
 // First-touch attribution, carried across the domain boundary in the signup link:
 // `from` (which button; always present, needs no consent) and `a` (the full

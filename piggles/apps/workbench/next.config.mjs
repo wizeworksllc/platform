@@ -93,7 +93,7 @@ const config = {
     '@wizeworksllc/builder-schemas',
     '@wizeworksllc/silica-catalog',
     '@wizeworksllc/site-themes',
-    '@wizeworksllc/social',
+    '@wizeworksllc/social-cadence',
   ],
   typedRoutes: false,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.

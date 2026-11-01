@@ -50,7 +50,7 @@ import {
 import { hasMailingAddress } from './broadcast-ready';
 import { useEmailSettings } from './broadcasts-data';
 import { Icon } from '@piggles/ui';
-import type { SequenceStep } from '@wizeworksllc/email-sequences/schemas';
+import type { SequenceStep } from '@wizeworksllc/email-sequence-schemas';
 import {
   buildEnrollerWords,
   offersToBuildEnroller,

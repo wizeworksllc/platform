@@ -2,7 +2,7 @@
   "name": "@wizeworksllc/email-sequences",
   "version": "0.0.0",
   "private": true,
-  "description": "Reusable multi-touch email journeys (docs/81 §9). A sequence is an ordered list of steps (delay + email); customers are enrolled (by the email.sequence_add action or manually) and a backend drain advances each enrollment on its own clock. Backend-safe like @wizeworksllc/email-sends (deps: @wizeworksllc/db + @wizeworksllc/email-sends only, no render/React) so the automation-worker can run the drain + enroll without dragging in @wizeworksllc/email/@wizeworksllc/ui. The client-safe ./schemas subpath (zod only) is what the workbench editor imports.",
+  "description": "Reusable multi-touch email journeys (docs/81 \u00c2\u00a79). A sequence is an ordered list of steps (delay + email); customers are enrolled (by the email.sequence_add action or manually) and a backend drain advances each enrollment on its own clock. Backend-safe like @wizeworksllc/email-sends (deps: @wizeworksllc/db + @wizeworksllc/email-sends only, no render/React) so the automation-worker can run the drain + enroll without dragging in @wizeworksllc/email/@wizeworksllc/ui. The client-safe ./schemas subpath (zod only) is what the workbench editor imports.",
   "type": "module",
   "exports": {
     ".": {
@@ -28,6 +28,7 @@
     "@prisma/client": "^6.19.3",
     "@wizeworksllc/db": "workspace:*",
     "@wizeworksllc/email-sends": "workspace:*",
+    "@wizeworksllc/email-sequence-schemas": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

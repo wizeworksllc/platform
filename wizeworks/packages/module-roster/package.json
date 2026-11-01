@@ -1,0 +1,27 @@
+{
+  "name": "@wizeworksllc/module-roster",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The module roster: every module slug, what each requires or bundles, and the pure rules over a tenant's module flags. No database, so frontends import it without the data layer; @wizeworksllc/modules re-exports it beside the database-backed reads.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --maxWorkers=1 --passWithNoTests",
+    "clean": "rm -rf .turbo dist *.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.12"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@wizeworksllc/social-cadence",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Posting cadence: turning a recurring local time (\"Tuesdays at 9am\" in a timezone) into the real instants it lands on. Pure, Intl only, so the calendar and the slot filler share it; @wizeworksllc/social re-exports it.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/cadence.ts",
+      "default": "./src/cadence.ts"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --maxWorkers=1 --passWithNoTests",
+    "clean": "rm -rf .turbo dist *.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.12"
+  }
+}

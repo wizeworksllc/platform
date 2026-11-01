@@ -1,6 +1,6 @@
 # Splitting the platform, sparx and Piggles into three repositories
 
-**Version:** 0.4
+**Version:** 0.5
 **Author:** Brandon Korous
 **Last Updated:** 2026-10-31
 
@@ -76,7 +76,7 @@ Measured at `58e3d13c5`.
 ## How the shared packages publish (D2)
 
 - **Scope `@wizeworksllc`.** GitHub Packages requires a package's scope to
-  match its owner, so `@wizeworksllc/api-client` becomes
+  match its owner, so `@wizeworks/api-client` became
   `@wizeworksllc/api-client`. `@wizeworks` stays the public npm scope
   (silicaui, the wizelens SDKs). One scope can resolve from only one registry,
   so keeping the two apart is what lets the public packages keep installing
@@ -152,7 +152,37 @@ Done 2026-10-31.
 
 ### Phase 3. Rename and publish the shared packages (D2)
 
-- The `@wizeworks` to `@wizeworksllc` rename sweep for workspace packages.
+- Done 2026-10-31: the `@wizeworks` to `@wizeworksllc` rename sweep for
+  workspace packages. Applied migrations were left byte-for-byte, because their
+  checksums are keys in every database.
+- Done 2026-10-31: no app installs the database layer. The apps used small,
+  database-free parts of five packages that also carry `@wizeworksllc/db`, so
+  publishing those packages would have shipped the data layer to every app.
+  Each part is now its own package, and the original re-exports it, so platform
+  code did not change:
+
+  | New package                            | Split from                      | What the apps use                                                   |
+  | -------------------------------------- | ------------------------------- | ------------------------------------------------------------------- |
+  | `@wizeworksllc/auth-client`            | `@wizeworksllc/auth`            | the browser client, role and access vocabularies, MCP scopes, slugs |
+  | `@wizeworksllc/module-roster`          | `@wizeworksllc/modules`         | `ModuleSlug`, `ALL_MODULES`, the bundling and requirement rules     |
+  | `@wizeworksllc/usage-meters`           | `@wizeworksllc/usage`           | the meters, how a reading is judged, the capacity report shape      |
+  | `@wizeworksllc/social-cadence`         | `@wizeworksllc/social`          | `slotOccurrences`, the posting-slot maths                           |
+  | `@wizeworksllc/email-sequence-schemas` | `@wizeworksllc/email-sequences` | the sequence zod schemas                                            |
+
+  The user fields Better Auth adds (`tenantId`, `role`, `platformBrand`) are now
+  one list in `@wizeworksllc/auth-client/user-fields` that the server and the
+  browser client both read. The client used to infer them from the server's
+  type, which a frontend cannot import. The three app images that installed the
+  database (both consoles, the account app) no longer copy it or run
+  `prisma generate`.
+
+- Packages publish as TypeScript source, the way the apps consume them today.
+  Every consumer is a Next.js app, and Next.js compiles a dependency's
+  TypeScript when the dependency is in `transpilePackages`. A build step would
+  add a second shape to keep in sync for no reader. Today the workspace links
+  resolve outside `node_modules`, so Next.js compiles them without the list.
+  When an app switches to published versions, every `@wizeworksllc` package it
+  uses must go on its `transpilePackages` list in the same change.
 - Changesets and a publish job in the release.
 - sparx and Piggles switch from `workspace:*` to published versions **while
   still in this repository**, so the switch is proven before anything moves.

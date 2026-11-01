@@ -42,7 +42,7 @@ import {
   faServer,
 } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { slotOccurrences } from '@wizeworksllc/social/cadence';
+import { slotOccurrences } from '@wizeworksllc/social-cadence';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { RefreshButton } from '../../components/refresh-button';
 import type { SurfaceContext } from '../../lib/surfaces/registry';

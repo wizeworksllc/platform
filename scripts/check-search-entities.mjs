@@ -57,7 +57,7 @@ const PROJECTOR_FILES = [
 const ROUTES_FILE = 'wizeworks/packages/links/src/routes.ts';
 
 /** THE closed set of module slugs, read from the one file that declares it. */
-const MODULES_FILE = 'wizeworks/packages/modules/src/index.ts';
+const MODULES_FILE = 'wizeworks/packages/module-roster/src/index.ts';
 
 /** Where `PLATFORM_MODULE` is declared — the reserved word for records that
  *  belong to no module and so can never be gated off. */

@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { platformRequest } from '@wizeworksllc/auth-client-server';
-import type { SignUpAcquisition } from '@wizeworksllc/auth';
+import type { SignUpAcquisition } from '@wizeworksllc/auth-client';
 
 /**
  * Record a Google signup's source, ONCE. The password path writes it at

@@ -107,18 +107,18 @@ importers:
       '@wizeworksllc/attribution':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/attribution
-      '@wizeworksllc/auth':
+      '@wizeworksllc/auth-client':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth
+        version: link:../../../wizeworks/packages/auth-client
       '@wizeworksllc/auth-client-server':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/auth-client-server
       '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/links
-      '@wizeworksllc/usage':
+      '@wizeworksllc/usage-meters':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/usage
+        version: link:../../../wizeworks/packages/usage-meters
       better-auth:
         specifier: ~1.7.14
         version: 1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0)))
@@ -301,9 +301,9 @@ importers:
       '@wizeworksllc/attribution':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/attribution
-      '@wizeworksllc/auth':
+      '@wizeworksllc/auth-client':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth
+        version: link:../../../wizeworks/packages/auth-client
       '@wizeworksllc/auth-client-server':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/auth-client-server
@@ -322,9 +322,9 @@ importers:
       '@wizeworksllc/crm-schemas':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/crm-schemas
-      '@wizeworksllc/email-sequences':
+      '@wizeworksllc/email-sequence-schemas':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/email-sequences
+        version: link:../../../wizeworks/packages/email-sequence-schemas
       '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/links
@@ -343,9 +343,9 @@ importers:
       '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/site-themes
-      '@wizeworksllc/social':
+      '@wizeworksllc/social-cadence':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/social
+        version: link:../../../wizeworks/packages/social-cadence
       '@wizeworksllc/story-schemas':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/story-schemas
@@ -775,9 +775,9 @@ importers:
       '@wizeworksllc/attribution':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/attribution
-      '@wizeworksllc/auth':
+      '@wizeworksllc/auth-client':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/auth
+        version: link:../../../wizeworks/packages/auth-client
       '@wizeworksllc/auth-client-server':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/auth-client-server
@@ -796,9 +796,9 @@ importers:
       '@wizeworksllc/crm-schemas':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/crm-schemas
-      '@wizeworksllc/email-sequences':
+      '@wizeworksllc/email-sequence-schemas':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/email-sequences
+        version: link:../../../wizeworks/packages/email-sequence-schemas
       '@wizeworksllc/links':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/links
@@ -817,9 +817,9 @@ importers:
       '@wizeworksllc/site-themes':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/site-themes
-      '@wizeworksllc/social':
+      '@wizeworksllc/social-cadence':
         specifier: workspace:*
-        version: link:../../../wizeworks/packages/social
+        version: link:../../../wizeworks/packages/social-cadence
       '@wizeworksllc/story-schemas':
         specifier: workspace:*
         version: link:../../../wizeworks/packages/story-schemas
@@ -1121,6 +1121,9 @@ importers:
       '@wizeworksllc/attribution':
         specifier: workspace:*
         version: link:../attribution
+      '@wizeworksllc/auth-client':
+        specifier: workspace:*
+        version: link:../auth-client
       '@wizeworksllc/brand-core':
         specifier: workspace:*
         version: link:../brand-core
@@ -1176,6 +1179,37 @@ importers:
       vitest:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
+  wizeworks/packages/auth-client:
+    dependencies:
+      '@better-auth/passkey':
+        specifier: 1.7.14
+        version: 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-auth@1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))))(better-call@1.4.4(zod@4.6.7))(nanostores@1.3.0)
+      '@wizeworksllc/attribution':
+        specifier: workspace:*
+        version: link:../attribution
+      '@wizeworksllc/module-roster':
+        specifier: workspace:*
+        version: link:../module-roster
+      better-auth:
+        specifier: ~1.7.14
+        version: 1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0)))
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      '@types/react':
+        specifier: ^19.0.0
+        version: 19.2.15
+      react:
+        specifier: ^19.0.0
+        version: 19.2.6
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
   wizeworks/packages/auth-client-server:
     dependencies:
@@ -2318,6 +2352,22 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
+  wizeworks/packages/email-sequence-schemas:
+    dependencies:
+      zod:
+        specifier: ^4.6.6
+        version: 4.6.7
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
   wizeworks/packages/email-sequences:
     dependencies:
       '@prisma/client':
@@ -2329,6 +2379,9 @@ importers:
       '@wizeworksllc/email-sends':
         specifier: workspace:*
         version: link:../email-sends
+      '@wizeworksllc/email-sequence-schemas':
+        specifier: workspace:*
+        version: link:../email-sequence-schemas
       zod:
         specifier: ^4.6.6
         version: 4.6.7
@@ -2569,9 +2622,9 @@ importers:
 
   wizeworks/packages/integrations:
     dependencies:
-      '@wizeworksllc/modules':
+      '@wizeworksllc/module-roster':
         specifier: workspace:*
-        version: link:../modules
+        version: link:../module-roster
     devDependencies:
       typescript:
         specifier: ^5.7.3
@@ -2833,11 +2886,26 @@ importers:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
+  wizeworks/packages/module-roster:
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
   wizeworks/packages/modules:
     dependencies:
       '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
+      '@wizeworksllc/module-roster':
+        specifier: workspace:*
+        version: link:../module-roster
     devDependencies:
       '@types/node':
         specifier: ^25.9.1
@@ -3403,6 +3471,9 @@ importers:
       '@wizeworksllc/integrations':
         specifier: workspace:*
         version: link:../integrations
+      '@wizeworksllc/social-cadence':
+        specifier: workspace:*
+        version: link:../social-cadence
       zod:
         specifier: ^4.6.6
         version: 4.6.7
@@ -3416,6 +3487,18 @@ importers:
       vitest:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
+  wizeworks/packages/social-cadence:
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
   wizeworks/packages/social-worker:
     dependencies:
@@ -3665,6 +3748,9 @@ importers:
       '@wizeworksllc/db':
         specifier: workspace:*
         version: link:../db
+      '@wizeworksllc/usage-meters':
+        specifier: workspace:*
+        version: link:../usage-meters
     devDependencies:
       '@types/node':
         specifier: ^25.9.1
@@ -3675,6 +3761,18 @@ importers:
       vitest:
         specifier: ^4.1.12
         version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+
+  wizeworks/packages/usage-meters:
+    devDependencies:
+      '@types/node':
+        specifier: ^25.9.1
+        version: 25.9.5
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+      vitest:
+        specifier: ^4.1.12
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
 
   wizeworks/packages/voice:
     devDependencies:
@@ -11053,6 +11151,18 @@ snapshots:
       nanostores: 1.3.0
       zod: 4.6.7
 
+  '@better-auth/passkey@1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(better-auth@1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))))(better-call@1.4.4(zod@4.6.7))(nanostores@1.3.0)':
+    dependencies:
+      '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0)
+      '@better-auth/utils': 0.5.1
+      '@better-fetch/fetch': 1.3.3
+      '@simplewebauthn/browser': 13.3.0
+      '@simplewebauthn/server': 13.3.2
+      better-auth: 1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0)))
+      better-call: 1.4.4(zod@4.6.7)
+      nanostores: 1.3.0
+      zod: 4.6.7
+
   '@better-auth/prisma-adapter@1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(prisma@6.19.3(typescript@6.0.3))':
     dependencies:
       '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0)
@@ -13854,6 +13964,36 @@ snapshots:
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
       vitest: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.1)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+
+  better-auth@1.7.14(@opentelemetry/api@1.9.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(next@16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pg@8.21.0)(prisma@6.19.3(typescript@6.0.3))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vitest@4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))):
+    dependencies:
+      '@better-auth/core': 1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0)
+      '@better-auth/drizzle-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)
+      '@better-auth/kysely-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(kysely@0.28.17)
+      '@better-auth/memory-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)
+      '@better-auth/mongo-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)
+      '@better-auth/prisma-adapter': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@prisma/client@6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3))(prisma@6.19.3(typescript@6.0.3))
+      '@better-auth/telemetry': 1.7.14(@better-auth/core@1.7.14(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)(@opentelemetry/api@1.9.1)(better-call@1.4.4(zod@4.6.7))(jose@6.2.3)(kysely@0.28.17)(nanostores@1.3.0))(@better-auth/utils@0.5.1)(@better-fetch/fetch@1.3.3)
+      '@better-auth/utils': 0.5.1
+      '@better-fetch/fetch': 1.3.3
+      '@noble/ciphers': 2.2.0
+      '@noble/hashes': 2.2.0
+      better-call: 1.4.4(zod@4.6.7)
+      defu: 6.1.7
+      jose: 6.2.3
+      kysely: 0.28.17
+      nanostores: 1.3.0
+      zod: 4.6.7
+    optionalDependencies:
+      '@prisma/client': 6.19.3(prisma@6.19.3(typescript@6.0.3))(typescript@6.0.3)
+      next: 16.4.3(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(@types/node@25.9.5)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      pg: 8.21.0
+      prisma: 6.19.3(typescript@6.0.3)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
+      vitest: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@25.9.5)(@vitest/coverage-v8@4.1.7)(jsdom@29.1.1(@noble/hashes@2.2.0))(vite@8.0.14(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.22.3)(yaml@2.9.0))
     transitivePeerDependencies:
       - '@opentelemetry/api'
 
