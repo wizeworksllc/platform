@@ -1,7 +1,7 @@
 // Built-in channel adapters + their registration entrypoint (docs/106 §4.1).
 //
 // Concrete adapters live here (one file per channel), alongside the shared
-// `_http` helpers — mirroring @wizeworks/dropship's `src/adapters/`. The server-safe
+// `_http` helpers — mirroring @wizeworksllc/dropship's `src/adapters/`. The server-safe
 // channel CATALOG (display metadata) stays in `../catalog.ts` with NO adapter
 // import, so the dashboard renders the connect cards without pulling network code.
 //

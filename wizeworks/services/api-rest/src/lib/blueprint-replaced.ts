@@ -4,7 +4,7 @@
 // drafts", and by uninstall, so removing one leaves the site's CURRENT header
 // and footer alone: they are no longer that design's to clear.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 /**
  * The installs on a site whose pages are all gone: a design added later replaced

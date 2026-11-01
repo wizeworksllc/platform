@@ -7,7 +7,7 @@
 //
 // Pure data, zero runtime deps: safe to import from ANY surface, including the
 // edge-runtime OG generators (`next/og`) and the marketing bundles that must not
-// pull the server-coupled @wizeworks/ui shell graph.
+// pull the server-coupled @wizeworksllc/ui shell graph.
 //
 // Colors mirror the `[data-theme="sparx"]` tokens in theme.css. Live UI should
 // prefer the CSS variables (`var(--color-primary)`) so light/dark + module

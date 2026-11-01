@@ -9,7 +9,7 @@
 // That defended the right boundary for the question it was asked — "does Piggles
 // import sparx's app code?" — and the wrong one for the question that matters:
 // **can sparx be deleted without affecting Piggles?** Under the second, a package
-// named `@wizeworks/db` that Piggles cannot boot without is an unanswered question,
+// named `@wizeworksllc/db` that Piggles cannot boot without is an unanswered question,
 // not a pass. So the app-crossing rules below are carried over verbatim, and a
 // third rule counts the scope usage and refuses to let it grow.
 //
@@ -92,7 +92,7 @@ const WIZEWORKS_TO_BRAND = [
  *     its wordmark from `@sparx/brand` because it had no identity of its own to
  *     wear. It does: the palette locked on 2026-07-30 in
  *     docs/wizeworks/04-brand-and-visual-identity.md, now shipped as
- *     `@wizeworks/brand`. This was never a design decision — it was a lookup
+ *     `@wizeworksllc/brand`. This was never a design decision — it was a lookup
  *     nobody had done.
  *
  * If something has to go back on this list, it goes on by FILE with the reason
@@ -122,7 +122,7 @@ const SPARX_SCOPE = /@sparx\/[a-z0-9-]+/g;
  *
  * It used to be two. The other was sparx's old `ui` package, and it no longer
  * exists under that scope: it was brand-blind apart from four re-exported marks,
- * so the tree move split it into `@wizeworks/ui` (the compositions) with the
+ * so the tree move split it into `@wizeworksllc/ui` (the compositions) with the
  * marks returned to `@sparx/brand/react`, where they had always actually lived.
  * That is why the WizeWorks staff console can depend on it at all.
  */
@@ -606,7 +606,7 @@ function checkBanned(banned) {
 /**
  * The soft half — a ratchet over the brand-blind packages.
  *
- * Not a ban, because a ban on `@wizeworks/query` would fail on day one of a
+ * Not a ban, because a ban on `@wizeworksllc/query` would fail on day one of a
  * migration that takes weeks and be switched off by the second afternoon: every
  * new Piggles pane legitimately reaches for the data layer, so the number rises
  * whenever anybody builds anything. What a ratchet buys is a floor — the total

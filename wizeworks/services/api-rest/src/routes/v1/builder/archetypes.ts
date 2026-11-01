@@ -10,13 +10,13 @@
 // Reads are viewer (the palette fetches the enabled set); writes are admin (owner
 // satisfies it via the role hierarchy) — governance shapes what every author can
 // stamp. Bodies are validated by the service-layer Zod schemas (the established
-// route ↔ service boundary), so api-rest keeps no @wizeworks/builder-schemas dep.
+// route ↔ service boundary), so api-rest keeps no @wizeworksllc/builder-schemas dep.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { archetypeService } from '@wizeworks/builder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { archetypeService } from '@wizeworksllc/builder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireBuilderModule, toBuilderTenantContext } from '../../../lib/builder-context.js';
 
 const KeyParam = z.object({ key: z.string().min(1).max(64) });

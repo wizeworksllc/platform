@@ -19,10 +19,10 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { publishService } from '@wizeworks/sitebuilder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { publishService } from '@wizeworksllc/sitebuilder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { resolvePublicPropertyId } from '../../../lib/property.js';
 import { tryVerifySitePreview } from '../../../lib/preview.js';

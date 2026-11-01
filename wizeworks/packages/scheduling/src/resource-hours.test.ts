@@ -15,7 +15,7 @@ const DYNO = '87bd79a1-152b-44de-9ec0-c6485f02903f';
 const findMany = vi.fn(() => Promise.resolve([{ resourceId: BAY }]));
 const tx = { availabilityWindow: { findMany } };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => fn(tx),
 }));

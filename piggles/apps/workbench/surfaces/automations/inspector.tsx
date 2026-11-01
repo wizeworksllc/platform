@@ -25,8 +25,8 @@ import {
 import { faBullseye, faFilter } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import type { PigglesIcon } from '@piggles/ui';
-import { IfElseConfig } from '@wizeworks/automation-schemas';
-import type { Action, ConditionGroup, Trigger } from '@wizeworks/automation-schemas';
+import { IfElseConfig } from '@wizeworksllc/automation-schemas';
+import type { Action, ConditionGroup, Trigger } from '@wizeworksllc/automation-schemas';
 import type { SiteInfo } from '../../lib/api/shell-data';
 import { actionDef, moduleForActionType, moduleLabel } from './automations-catalog';
 import {

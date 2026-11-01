@@ -11,8 +11,8 @@
 // what a person reads, and without it a branching rule's history is a list of
 // numbers that no longer line up with the rule on screen.
 
-import type { GateLogEntry } from '@wizeworks/automation-schemas';
-import type { Prisma, TxClient } from '@wizeworks/db';
+import type { GateLogEntry } from '@wizeworksllc/automation-schemas';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 interface StepKey {
   runId: string;

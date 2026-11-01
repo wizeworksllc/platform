@@ -12,8 +12,8 @@
 // level (operator can re-enqueue manually) rather than thrashing GCS on
 // transient encode failures.
 
-import { withTenant } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { withTenant } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 import { downloadObject, uploadVariant, variantKey } from './storage.js';
 import { transcode } from './transcode.js';
 import { cropSocialAspects } from './crop.js';

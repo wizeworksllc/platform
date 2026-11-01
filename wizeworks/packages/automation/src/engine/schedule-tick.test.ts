@@ -11,7 +11,7 @@
 // once-per-window rule (a key already used is skipped), then reads back when
 // each run happened on the business's clock.
 
-import type { ScheduleSpec } from '@wizeworks/automation-schemas';
+import type { ScheduleSpec } from '@wizeworksllc/automation-schemas';
 import { describe, expect, it } from 'vitest';
 
 import { businessClockAt, isScheduleDue, scheduleWindowKey } from './schedule-tick';

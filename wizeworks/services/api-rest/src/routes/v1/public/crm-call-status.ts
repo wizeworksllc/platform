@@ -14,8 +14,8 @@
 // outcome than a status update landing a second later.
 
 import type { FastifyPluginAsync, FastifyReply } from 'fastify';
-import { callService } from '@wizeworks/crm';
-import { resolveVoiceProvider } from '@wizeworks/voice';
+import { callService } from '@wizeworksllc/crm';
+import { resolveVoiceProvider } from '@wizeworksllc/voice';
 
 import { verifyCallStatusToken } from '../../../lib/crm-voice.js';
 

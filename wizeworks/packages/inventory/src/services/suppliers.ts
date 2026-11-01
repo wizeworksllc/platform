@@ -5,9 +5,9 @@
 // partial) references the supplier — close or cancel it first (P3b). Mirrors the
 // warehouse CRUD shape.
 
-import { CreateSupplierInput, UpdateSupplierInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Supplier } from '@wizeworks/db';
+import { CreateSupplierInput, UpdateSupplierInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Supplier } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntity, indexInventoryEntityOnCommit } from '../events';

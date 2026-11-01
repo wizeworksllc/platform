@@ -1,10 +1,10 @@
 // Embed section — a responsive, sandboxed third-party iframe (map, video,
 // booking widget, …) built from a single pasted URL. The provider normalization
-// lives in @wizeworks/sitebuilder-schemas (resolveEmbed) so the editor preview and
+// lives in @wizeworksllc/sitebuilder-schemas (resolveEmbed) so the editor preview and
 // the storefront agree. Renders nothing for an empty / unusable URL.
 
-import type { EmbedConfig } from '@wizeworks/sitebuilder-schemas';
-import { resolveEmbed } from '@wizeworks/sitebuilder-schemas';
+import type { EmbedConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { resolveEmbed } from '@wizeworksllc/sitebuilder-schemas';
 
 // Aspect-ratio box keeps the iframe from shifting layout while it loads.
 const ASPECT: Record<string, string> = {

@@ -6,7 +6,7 @@
 //   - No match → create new B2B account.
 //
 // THE COLUMNS ARE THE CANONICAL FIELD KEYS. `ENTITY_FIELDS.b2b_accounts` in
-// @wizeworks/migration is the contract: it is what the Move-in column mapper offers,
+// @wizeworksllc/migration is the contract: it is what the Move-in column mapper offers,
 // what the validator checks, and what this file reads, with no translation between
 // them. The two lists once disagreed (`name`/`tier` there, `company_name`/
 // `pricing_tier` here), and every trade account a Move-in carried failed with
@@ -27,9 +27,9 @@ import {
   describeColumnProblems,
   objectDefService,
   propertiesFromRow,
-} from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { toCents, toDecimal, toList } from '@wizeworks/migration';
+} from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { toCents, toDecimal, toList } from '@wizeworksllc/migration';
 
 export interface B2bAccountRow {
   company_name?: string;

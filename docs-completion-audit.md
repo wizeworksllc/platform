@@ -38,7 +38,7 @@ header is **not** trusted (several are stale, e.g. 48 says "nothing built" but m
 | 19-testing-strategy.md                | Testing strategy (k6 load scenarios aspirational).                                          |
 | 20-operational-runbook.md             | Living ops runbook.                                                                         |
 | 21-cost-scaling-guide.md              | Living cost/scaling guide.                                                                  |
-| 23-frontend-component-architecture.md | `@wizeworks/ui` architecture reference.                                                     |
+| 23-frontend-component-architecture.md | `@wizeworksllc/ui` architecture reference.                                                     |
 | 25-monorepo-structure.md              | Monorepo layout reference.                                                                  |
 | 34-dashboard-working-area-standard.md | Working-area standard (compliance sweep ongoing).                                           |
 | 34-platform-glossary.md               | Canonical terminology.                                                                      |
@@ -74,7 +74,7 @@ header is **not** trusted (several are stale, e.g. 48 says "nothing built" but m
 | File                              | Evidence                                                                                |
 | --------------------------------- | --------------------------------------------------------------------------------------- |
 | 24-domain-purchase-management.md  | GoDaddy purchase/renewal/transfer flow + MCP tools + onboarding step all live.          |
-| 27-customer-accounts-site-auth.md | `@wizeworks/customer-auth` shipped (hash/session/service + RLS); only browser E2E left. |
+| 27-customer-accounts-site-auth.md | `@wizeworksllc/customer-auth` shipped (hash/session/service + RLS); only browser E2E left. |
 | 41-builder-page-model.md          | `BuilderPage` table + `/v1/builder/pages/*` + service + schema validation shipped.      |
 | 43-builder-binding-schema.md      | Binding contract + `bindingService.getSchema()` + CMS introspection shipped.            |
 | 44-builder-site-render.md         | Public render path (`/v1/public/builder/page` + `BuilderRenderer`) shipped.             |

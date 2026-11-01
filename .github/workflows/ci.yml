@@ -259,7 +259,7 @@ jobs:
     name: Surface ↔ address parity
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    # Every workbench surface must have an address in @wizeworks/links, and every
+    # Every workbench surface must have an address in @wizeworksllc/links, and every
     # address must name a surface that exists. A surface with no address is a
     # pane nobody can link to and one the URL bar cannot name; an address with no
     # surface is a link that opens nothing — the failure that left

@@ -17,9 +17,9 @@ import {
   CreateCategoryInput,
   ReparentCategoryInput,
   UpdateCategoryInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, ProductCategory, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, ProductCategory, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { categorySiteVisibility, shopperVisibleProduct } from './site-visibility';

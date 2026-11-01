@@ -48,7 +48,7 @@ import { useLineForm, type LineTypeOption } from './use-line-form';
 import { type DraftLine } from './totals';
 import { formatMoney } from './types';
 import type { TradeAccount } from './trade-price';
-import type { BandMethod } from '@wizeworks/commerce-schemas';
+import type { BandMethod } from '@wizeworksllc/commerce-schemas';
 
 // Re-exported so existing importers (invoice-editor, line-items) keep their
 // `from './line-editor-modal'` path — the type just no longer lives here.

@@ -20,8 +20,8 @@
 // two people who really buy for it appeared to be nobody in particular — on the
 // screen where picking the wrong one decides what they are charged.
 
-import { useQuery } from '@wizeworks/query';
-import type { CustomerType } from '@wizeworks/crm-schemas';
+import { useQuery } from '@wizeworksllc/query';
+import type { CustomerType } from '@wizeworksllc/crm-schemas';
 import { api } from '../../lib/api/client';
 import { customerName, customerTypeMeta } from '../crm/customers-data';
 import type { PickerMark, PickerRow } from '../../components/search-picker';

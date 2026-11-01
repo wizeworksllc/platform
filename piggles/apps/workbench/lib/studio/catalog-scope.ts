@@ -24,7 +24,7 @@ import {
   hostCore,
   hostKeysIn,
   moduleForKey,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 /**
  * The sparx-catalog blocks a LAYOUT may use, by group.

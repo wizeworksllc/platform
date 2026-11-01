@@ -168,13 +168,13 @@ The frame every page wears; sets the silicaui-native visual language.
   ([wizeworks/packages/db/CLAUDE.md](../packages/db/CLAUDE.md)). Only **S3** needs a migration
   — keep the rest migration-free by design.
 - **Dockerfiles:** no new workspace package is planned; market already deps
-  `@wizeworks/commerce-schemas`. If a slice adds one, wire every consumer Dockerfile
+  `@wizeworksllc/commerce-schemas`. If a slice adds one, wire every consumer Dockerfile
   COPY (new-workspace-package skill).
 - **Cross-tenant safety:** every on-demand resolve goes `withSystem` (find listing,
   read the projection's `tenantId`) → `withTenant({ tenantId })`. Never expose one
   tenant's private data to another; reviews/Q&A/related read only the resolved
   seller. RLS is the backstop.
-- **Service boundaries:** market reads stay in `@wizeworks/commerce` market service +
+- **Service boundaries:** market reads stay in `@wizeworksllc/commerce` market service +
   the `api-rest` public market route. No new service.
 - **silicaui-native only:** no new `mx-*`. Controls via silicaui-react; layout via
   utilities/local components. Base font ≥16px; status via `statusTone()` +

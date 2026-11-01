@@ -2,7 +2,7 @@
 //
 // One read: every costed movement in a period, grouped by reason. The
 // arithmetic that turns that into double entry is pure and lives in
-// `@wizeworks/commerce-schemas/accounting`, so the entry posted to QuickBooks, the
+// `@wizeworksllc/commerce-schemas/accounting`, so the entry posted to QuickBooks, the
 // entry posted to Xero and the entry shown on screen before either is sent are
 // literally the same object.
 //
@@ -28,8 +28,8 @@ import {
   type InventoryJournal,
   type JournalGateResult,
   type JournalSourceRow,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 
@@ -149,7 +149,7 @@ export function journalMemo(journal: InventoryJournal): string {
  *
  * `mappedRoles` comes from the connection's mapping table and
  * `booksClosedThrough` from its `sync_from_date`. Both are the caller's to
- * supply because this package must not depend on @wizeworks/finance — a business
+ * supply because this package must not depend on @wizeworksllc/finance — a business
  * with no store still runs its books, and inventory reaching into the finance
  * module would invert that.
  */

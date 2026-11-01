@@ -23,7 +23,7 @@ import {
   UpdateShippingProfileInput,
   UpdateShippingZoneInput,
   UpdateTaxZoneInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { closeAndFulfillPackage, fulfillPackedShipment } from '../services/pack-fulfillment';
 import {
@@ -289,8 +289,8 @@ const keepCoreDeposits: McpToolDefinition = {
 
 // ── Warehouse hand-off (docs/146 Phase 4.6) ──────────────────────────────────
 //
-// Lives HERE rather than in @wizeworks/inventory's tool set because it writes an
-// OrderFulfillment, and inventory must not depend on @wizeworks/crm — the dependency
+// Lives HERE rather than in @wizeworksllc/inventory's tool set because it writes an
+// OrderFulfillment, and inventory must not depend on @wizeworksllc/crm — the dependency
 // rule points consumers at inventory, never the reverse. Commerce sees both, and
 // this sits next to the rate quoting and label purchase it feeds.
 

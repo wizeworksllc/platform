@@ -9,7 +9,7 @@
 //     orders/revenue/cost rollup (per dropship-active tenant)
 //
 // Dropship reporting lives on the commerce service spine (reportingService owns
-// the margin/timeseries logic), so the scheduler comes from @wizeworks/commerce —
+// the margin/timeseries logic), so the scheduler comes from @wizeworksllc/commerce —
 // but it enumerates the dropship-active tenant set, not the commerce one.
 //
 // Per-tenant loops are sequential to keep DB load predictable. The reconcile
@@ -19,7 +19,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 
-import { commerceSchedulers } from '@wizeworks/commerce';
+import { commerceSchedulers } from '@wizeworksllc/commerce';
 
 import { env } from '../../env.js';
 import { authorizeCron, forEachTenant } from '../../lib/cron-auth.js';

@@ -10,14 +10,14 @@
 // is idempotent (one `cancel` movement per source `sale`, idempotency-keyed), so a
 // redelivered event restocks exactly once.
 //
-// This lives in @wizeworks/commerce — NOT @wizeworks/crm — so CRM stays inventory-agnostic
+// This lives in @wizeworksllc/commerce — NOT @wizeworksllc/crm — so CRM stays inventory-agnostic
 // (the seam is owned by the consumer, not the order service). It is installed at
 // boot in the API services (api-rest / api-graphql / api-mcp) alongside
 // `registerCrmConsumers`, against the same singleton bus.
 
-import { isModuleEnabled } from '@wizeworks/auth';
-import { getPlatformBus, type PlatformEvent } from '@wizeworks/crm';
-import { inventoryService } from '@wizeworks/inventory';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { getPlatformBus, type PlatformEvent } from '@wizeworksllc/crm';
+import { inventoryService } from '@wizeworksllc/inventory';
 
 import { releaseOrderDiscountUsage } from '../services/discount-service';
 

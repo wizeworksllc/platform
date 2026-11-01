@@ -15,7 +15,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 
-import { crmSchedulers } from '@wizeworks/crm';
+import { crmSchedulers } from '@wizeworksllc/crm';
 
 import { env } from '../../env.js';
 

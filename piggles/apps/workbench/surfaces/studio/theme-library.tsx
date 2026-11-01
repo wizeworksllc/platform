@@ -11,7 +11,7 @@ import { useState } from 'react';
 import { Badge, Button, Dialog, DialogContent, DialogTitle } from '@wizeworks/silicaui-react';
 import { faCheck, faPalette } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { buildSilicaThemeCssFromTheme } from '@wizeworks/site-themes';
+import { buildSilicaThemeCssFromTheme } from '@wizeworksllc/site-themes';
 import type { Theme } from '@wizeworks/silicaui-html';
 import {
   useApplyTheme,

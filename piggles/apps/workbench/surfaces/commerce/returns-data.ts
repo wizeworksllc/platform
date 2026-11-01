@@ -16,7 +16,7 @@
 // OPENING one is not here: that happens from the order a return came from, and
 // lives in ./order-return-data beside the sale (persona issue 219).
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import type {

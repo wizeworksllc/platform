@@ -1,5 +1,5 @@
 import { Card, CardBody, Progress } from '@wizeworks/silicaui-react';
-import type { CapacityReport, MeterReading } from '@wizeworks/usage';
+import type { CapacityReport, MeterReading } from '@wizeworksllc/usage';
 import { METER_LABEL, meterHeadline, meterNote, meterTone } from '@/lib/capacity-copy';
 
 // What this business is using, against what its plan includes.

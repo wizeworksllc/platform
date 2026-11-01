@@ -20,10 +20,10 @@
 // asking them to pay by link. A transient failure is retried on the next two
 // passes first, so a gateway having a bad minute does not cost anyone their card.
 
-import { paymentService, StoredMethodsUnsupportedError } from '@wizeworks/payments';
-import type { Prisma } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
-import { RepeatCadence, cadenceKey } from '@wizeworks/commerce-schemas';
+import { paymentService, StoredMethodsUnsupportedError } from '@wizeworksllc/payments';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
+import { RepeatCadence, cadenceKey } from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../errors';
 import * as paymentMethodService from './payment-method-service';

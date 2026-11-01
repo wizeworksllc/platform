@@ -1,6 +1,6 @@
 /* ── Toast, corrected to the platform's callout language ──────────────────────
    Shared silica correction, imported by every app right after theme.css. Kept in
-   @wizeworks/silica-corrections rather than duplicated into six globals, because
+   @wizeworksllc/silica-corrections rather than duplicated into six globals, because
    "our toasts look like they don't belong" is one platform-wide decision, not
    six app-local ones.
 

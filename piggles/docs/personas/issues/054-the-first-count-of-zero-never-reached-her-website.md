@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** **high** (the most common first count a shop ever records was a no-op to the storefront)
 **Found by:** P01 · Thistle & Rye · act 11 — counting the seeded rye at zero
-**Surface:** `@wizeworks/inventory` › the movement ledger
+**Surface:** `@wizeworksllc/inventory` › the movement ledger
 **Filed:** 2026-08-21 · **Fixed:** 2026-08-21
 **Confirmed by:** P01 · act 11 — **Morning bun**, counted at zero, went sold out everywhere
 

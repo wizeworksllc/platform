@@ -11,7 +11,7 @@
 //
 // The live storefront loads the same families with an SSR `<link>` (wizeworks/apps/site);
 // here we inject the equivalent client-side. Both build the family list with the
-// SHARED `themeFontFamilies` + `brandFontHref` (@wizeworks/site-themes) so the two can't
+// SHARED `themeFontFamilies` + `brandFontHref` (@wizeworksllc/site-themes) so the two can't
 // drift on which faces load.
 //
 // Upsert-only, never removed. The workbench is a multi-pane dock: the site Editor
@@ -22,7 +22,7 @@
 // leave it. Keyed by the shared id so re-mounts and the second pane are idempotent.
 
 import { useEffect } from 'react';
-import { brandFontHref } from '@wizeworks/site-themes';
+import { brandFontHref } from '@wizeworksllc/site-themes';
 
 const LINK_ID = 'sparx-canvas-brand-fonts';
 

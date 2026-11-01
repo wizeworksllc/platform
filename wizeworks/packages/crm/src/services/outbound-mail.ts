@@ -2,7 +2,7 @@
 //
 // The engagement service composes the message, threads it and records it; it
 // does NOT know how mail leaves the building. That is deliberate and it matches
-// the publisher pattern this package already uses for events: @wizeworks/crm has no
+// the publisher pattern this package already uses for events: @wizeworksllc/crm has no
 // transport dependency, so it can be unit-tested without standing one up, and
 // the delivery path can change without a service-layer rewrite.
 //

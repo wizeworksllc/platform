@@ -13,9 +13,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { csvSafeText } from '@wizeworks/inventory';
-import { listBookings, listLocations } from '@wizeworks/scheduling';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { csvSafeText } from '@wizeworksllc/inventory';
+import { listBookings, listLocations } from '@wizeworksllc/scheduling';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { reachableSiteIds } from '../../../lib/property.js';
 import {

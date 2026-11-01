@@ -28,7 +28,7 @@ This is consolidation-friendly with the Finance hub (docs/109/110): all of this 
 ## 1. Binding decisions
 
 - **D1 — The gateway list is a data-driven catalog.** A single `GATEWAY_CATALOG` (data-as-code in
-  `@wizeworks/payments`) declares every gateway: id, display copy, **onboarding style**, **credential
+  `@wizeworksllc/payments`) declares every gateway: id, display copy, **onboarding style**, **credential
   schema**, **capabilities**, **checkout style**, regions, fee note. One source feeds the dashboard UI,
   server-side validation, and the adapters. Adding a gateway = a descriptor + a `PaymentGateway` adapter.
   No new UI branches, no new routes.
@@ -37,7 +37,7 @@ This is consolidation-friendly with the Finance hub (docs/109/110): all of this 
   reader (94 §5) is **read-only** by design — platform secrets (sparx Pay, Stripe Direct) are provisioned
   out-of-band into GSM, the app SA only has accessor. Merchant-entered keys (Square/Authorize.net/1stPay/
   custom) instead follow the **established merchant-secret pattern**: AES-256-GCM envelope encryption via
-  `@wizeworks/channels/crypto` (the same box sparx.market bank numbers and channel OAuth tokens use), stored
+  `@wizeworksllc/channels/crypto` (the same box sparx.market bank numbers and channel OAuth tokens use), stored
   as ciphertext in a new `tenant_gateway_credentials` table. No IAM/Terraform change; a DB leak alone
   yields no usable key. The adapters read+decrypt at runtime through a small reader that knows both
   sources (GSM ref → platform gateways; encrypted row → merchant gateways).
@@ -71,7 +71,7 @@ This is consolidation-friendly with the Finance hub (docs/109/110): all of this 
     checkout URL + return/webhook handling + credentials. sparx redirects out and reconciles on
     return/webhook. Works with almost any processor, no per-vendor code, SAQ-A.
   - **Plugin seam**: the `PaymentGateway` interface IS the extension point. A developer/agency drops a
-    code adapter into `@wizeworks/payments/gateways/*` (or registers one at boot via
+    code adapter into `@wizeworksllc/payments/gateways/*` (or registers one at boot via
     `gatewayRegistry.register`) and adds a `GATEWAY_CATALOG` descriptor — it lights up across checkout,
     invoices, and B2B with zero flow changes. Documented as the contract here.
 
@@ -112,7 +112,7 @@ re-entry. RLS + hand-edited SQL per [wizeworks/packages/db/CLAUDE.md](../package
 1. **Catalog** ✅ — `GATEWAY_CATALOG` descriptors + credential-field schemas for every gateway
    (`wizeworks/packages/payments/src/catalog.ts`).
 2. **Credential model** ✅ — `tenant_gateway_credentials` (migration `20260922000000_gateway_credentials`),
-   `@wizeworks/channels/crypto` envelope, the injected `GatewayCredentialReader` seam
+   `@wizeworksllc/channels/crypto` envelope, the injected `GatewayCredentialReader` seam
    (`wizeworks/packages/payments/src/credentials.ts`) wired in `payments-bootstrap` to read+decrypt the row.
 3. **Webhook normalization** ✅ — `NormalizedPaymentData` on `ParsedWebhookEvent`; the reconciler reads
    that shape (no `Stripe.PaymentIntent` on the payment path); the Stripe normalizer fills it.

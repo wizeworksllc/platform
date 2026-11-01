@@ -25,7 +25,7 @@ import {
   type DragEvent,
   type MouseEvent,
 } from 'react';
-import { buildSilicaThemeCssFromTheme } from '@wizeworks/site-themes';
+import { buildSilicaThemeCssFromTheme } from '@wizeworksllc/site-themes';
 import type { Node } from '@wizeworks/silicaui-html';
 import { defaultMakeId, stampTree } from '@wizeworks/silicaui-html';
 import type { TreeDoc } from '../../documents/types';

@@ -35,7 +35,7 @@ Last Updated: 2026-10-06
 > **The four claims this roadmap could never verify are now closed by tests, not by eyeballing**
 > (2026-07-30): named-layout persistence round-trips (`site-service.test.ts`, 39), `?page=2` walks a
 > 137-product catalog with no gap or overlap (`list-paging.test.ts`, 20 — the arithmetic moved to
-> `@wizeworks/builder-schemas` because no app in this repo has a test runner), the `srcset` ladder
+> `@wizeworksllc/builder-schemas` because no app in this repo has a test runner), the `srcset` ladder
 > survives `toHtml` (`responsive-images.test.ts`, 18), and every section is graded against every
 > shipped theme through the REAL linter (`catalog-sweep.test.ts`, 6).
 >
@@ -95,7 +95,7 @@ Last Updated: 2026-10-06
 > in this tree and are NOT ours.
 >
 > Four `pnpm install`s were needed across these slices as they added workspace edges
-> (`wizeworks/packages/site-lint`, its `@wizeworks/site-themes` dependency, api-rest's dependency on
+> (`wizeworks/packages/site-lint`, its `@wizeworksllc/site-themes` dependency, api-rest's dependency on
 > site-lint, then the 0.36.0 catalog bump); all four ran and the lockfile is current.
 >
 > **Migration `20270123000000_builder_component_silica_tree`** is applied to local docker
@@ -122,13 +122,13 @@ Last Updated: 2026-10-06
 >
 > After the threshold fix below, the workspace typecheck could NOT be re-run end to end: dev was
 > up, and 17 node processes (including api-rest on 3100) hold the Prisma engine DLL, so
-> `@wizeworks/db#build` EPERMs. Freeing it means killing the user's dev stack, which is theirs to
+> `@wizeworksllc/db#build` EPERMs. Freeing it means killing the user's dev stack, which is theirs to
 > restart, so the two changed packages were typechecked directly (`tsc --noEmit`, both clean) and
 > linted directly. Re-run `pnpm typecheck` once dev is down before trusting a green workspace.
 >
 > **RE-RUN ON 0.45.0 (2026-08-02), dev down.** `pnpm format:check` **clean** · `pnpm typecheck`
 > **96/96** · `pnpm lint` **92/94** · `pnpm test` **81/87**. The count fell from 98 because the
-> workspace is now 96 packages (`wizeworks/packages/site-ui` went in the `@wizeworks/ui` prune, `783f47ab`), and
+> workspace is now 96 packages (`wizeworks/packages/site-ui` went in the `@wizeworksllc/ui` prune, `783f47ab`), and
 > ALL 96 declare `typecheck` — so coverage is total, not two short.
 >
 > **Both red stages are other agents' live work, and neither is builder-side.** Lint: 9 errors, all
@@ -149,7 +149,7 @@ Last Updated: 2026-10-06
 > derived ink clears AA. Ten failures, zero defects, one stale constant accusing correct work.
 >
 > **The same stale constant was in LIVE code, which is the part that mattered.**
-> `@wizeworks/site-lint`'s `palette.ts` — the pre-publish contrast check — predicted the ink for
+> `@wizeworksllc/site-lint`'s `palette.ts` — the pre-publish contrast check — predicted the ink for
 > every role from `0.68`, so for any color between the two values it measured against WHITE
 > where the site actually paints BLACK. That is a false alarm on a correct theme or a pass on an
 > illegible button, silently, for five releases. Both copies now read
@@ -373,7 +373,7 @@ is the cheapest wave and the one that moves the score most: 5.5 → roughly 7.5.
 The "Preview & Check" the audit went looking for. It does not exist today in any form, and
 nobody in the comparison set does it well — this is where the builder can lead rather than catch up.
 
-- [x] **9. `@wizeworks/site-lint`.** A pure engine over a resolved tree: broken internal links (against the real page roster plus product/collection handles), missing alt text, heading order, empty CTAs and dead buttons, classes with no backing CSS, missing SEO fields. — _in-our-control · M_
+- [x] **9. `@wizeworksllc/site-lint`.** A pure engine over a resolved tree: broken internal links (against the real page roster plus product/collection handles), missing alt text, heading order, empty CTAs and dead buttons, classes with no backing CSS, missing SEO fields. — _in-our-control · M_
 
   > **What "resolved" turned out to mean.** Not `resolveTree` — that needs a database, and an engine that needs one cannot run from the editor. It means the COMPOSED document: the frame with the page body spliced into its outlet and every symbol instance expanded through `applyOverrides`, walked once per page with each node carrying the tree it was AUTHORED in. That provenance is what makes the report readable: a broken footer link on a twelve-page site is ONE finding whose `seenOn` lists twelve pages, not twelve findings. Data-bound nodes are exempt from every emptiness check — a product template has no words until a product fills them in.
   >
@@ -381,7 +381,7 @@ nobody in the comparison set does it well — this is where the builder can lead
   >
   > **Two contracts worth not re-deriving.** (1) In `LinkTargets`, `undefined` means "the caller did not tell us what exists" and `[]` means "there are none" — so an unsupplied roster is never used to call a working link broken. (2) An ABSENT `alt` is reported and an explicit `alt=""` is not: empty is the correct deliberate marking for a decorative image, and the catalog already uses it that way.
   >
-  > **It found four real defects on its first run, three of them in our own shipped catalog** — which is the validation that matters, and they are fixed: `gap-2.5` in the wordmark's `defaultClass` and `gap-1.5` in the product card (half steps the declared vocabulary does not contain, compiling only while their source file is `@source`-scanned and emitting nothing once copied into a tenant's tree); the footer column heading at `h3` under a page whose body ends at `h1`, leaving a hole in the reading order on four seeded pages; and — from the finding that all six transactional pages had no search description — that `robots.txt` never disallowed `/cart`, `/checkout` or `/account/`, so a password-reset page was crawlable. It also caught a false positive in itself: the product card's `href` arrives through the `bindAttr` carrier, invisible to anything reading the node, so `carrierBoundAttrs` is now exported from `@wizeworks/silica-catalog` and consulted.
+  > **It found four real defects on its first run, three of them in our own shipped catalog** — which is the validation that matters, and they are fixed: `gap-2.5` in the wordmark's `defaultClass` and `gap-1.5` in the product card (half steps the declared vocabulary does not contain, compiling only while their source file is `@source`-scanned and emitting nothing once copied into a tenant's tree); the footer column heading at `h3` under a page whose body ends at `h1`, leaving a hole in the reading order on four seeded pages; and — from the finding that all six transactional pages had no search description — that `robots.txt` never disallowed `/cart`, `/checkout` or `/account/`, so a password-reset page was crawlable. It also caught a false positive in itself: the product card's `href` arrives through the `bindAttr` carrier, invisible to anything reading the node, so `carrierBoundAttrs` is now exported from `@wizeworksllc/silica-catalog` and consulted.
   >
   > `routes.test.ts` reads `wizeworks/apps/site/app` off the filesystem and asserts the route table both covers every route the router serves and declares none it does not — the table is the only part of the package that is knowledge about the rest of the repo, so it is the only part that can go stale silently.
 
@@ -391,7 +391,7 @@ nobody in the comparison set does it well — this is where the builder can lead
   >
   > **Theme pairs are scoped to colors the site actually paints with**, collected from `bg-<c>` and every component variant across every page's composed document. A theme carries eight roles and most sites use three; reporting the other five is a problem the owner does not have on a page that does not exist. It takes a fresh starter site from 3–6 findings to 0 (quartz) or 1 (ocean/grape/sunset — and those are real).
   >
-  > **What had to be reproduced exactly**, in [palette.ts](../../packages/site-lint/src/palette.ts): the OKLCH token format silica's presets are written in; the `-content` auto-derivation (`--silica-content-threshold`, default 0.68, override honoured); and the `soft` tint, `color-mix(in oklab, <accent> 15%, base-100)` — mixed in OKLab because that is where the browser mixes it, and sRGB lands somewhere visibly different. `@wizeworks/site-themes/color` gained `parseColor`, `oklchToRgb`, `mixOklab` and `cssLightness` for it; the module was hex-only and `hexToRgb` falls back to BLACK, so it would have read every silica preset as black-on-black.
+  > **What had to be reproduced exactly**, in [palette.ts](../../packages/site-lint/src/palette.ts): the OKLCH token format silica's presets are written in; the `-content` auto-derivation (`--silica-content-threshold`, default 0.68, override honoured); and the `soft` tint, `color-mix(in oklab, <accent> 15%, base-100)` — mixed in OKLab because that is where the browser mixes it, and sRGB lands somewhere visibly different. `@wizeworksllc/site-themes/color` gained `parseColor`, `oklchToRgb`, `mixOklab` and `cssLightness` for it; the module was hex-only and `hexToRgb` falls back to BLACK, so it would have read every silica preset as black-on-black.
   >
   > **What is deliberately not judged:** an opacity suffix over an unknown backdrop, a gradient, `glass`, or a component painting its own surface with no authored override (a `.badge` paints `base-100` from the plugin's base layer, so inheriting the dark section behind it would invent a failure). Modelling silicaui's component layer here would be re-implementing the plugin, and a copy that drifts is worse than a gap.
   >
@@ -401,11 +401,11 @@ nobody in the comparison set does it well — this is where the builder can lead
 
 - [x] **11. The Check step.** Run the lint in the Publish flow; show pass / warn / fail with click-to-node. **Never block** — the owner decides, the tool advises. — _in-our-control · M_
 
-  > **`GET /v1/builder/site/check` first, panel second** (API-first). The route is `viewer` — reading what is wrong with a site is not a change to it — and `POST /publish` does not call it, does not read its status, and cannot be made to. The assembly lives in [api-rest/lib/site-check.ts](../../services/api-rest/src/lib/site-check.ts) beside `lib/seo-audit.ts`, not in `@wizeworks/builder`: the answer is gathered ACROSS modules (the builder's trees, commerce's handles, the CMS's page entries, the tenant's brand), and a builder service reaching into all of them would be a builder service in name only.
+  > **`GET /v1/builder/site/check` first, panel second** (API-first). The route is `viewer` — reading what is wrong with a site is not a change to it — and `POST /publish` does not call it, does not read its status, and cannot be made to. The assembly lives in [api-rest/lib/site-check.ts](../../services/api-rest/src/lib/site-check.ts) beside `lib/seo-audit.ts`, not in `@wizeworksllc/builder`: the answer is gathered ACROSS modules (the builder's trees, commerce's handles, the CMS's page entries, the tenant's brand), and a builder service reaching into all of them would be a builder service in name only.
   >
   > **A disabled module contributes `undefined`, not `[]`** — and the roster is never even queried. That is the engine's contract from slice 9 held at the boundary: `[]` means "there are none, so that link is broken", so emitting it for a module a tenant simply has not switched on would report every product link on the site as broken. Pinned by a test that asserts the query was not issued, not merely that the result was empty.
   >
-  > **The theme derivation moved rather than being copied.** A site's theme is `null` in the database until an author opens the Design inspector, which most never do — so "what does `bg-primary` actually paint here" is only answerable by compiling the tenant's brand, with the per-site override applied. That lived in the workbench, where the canvas was its only caller. A second copy in the check would eventually disagree, and the failure mode is a check judging colors nobody sees; so `tenantTheme` + `applyBrandOverride` are now `@wizeworks/site-themes/v2/brand-theme.ts` and the studio file is a re-export.
+  > **The theme derivation moved rather than being copied.** A site's theme is `null` in the database until an author opens the Design inspector, which most never do — so "what does `bg-primary` actually paint here" is only answerable by compiling the tenant's brand, with the per-site override applied. That lived in the workbench, where the canvas was its only caller. A second copy in the check would eventually disagree, and the failure mode is a check judging colors nobody sees; so `tenantTheme` + `applyBrandOverride` are now `@wizeworksllc/site-themes/v2/brand-theme.ts` and the studio file is a re-export.
   >
   > **Where the friction is.** The panel is a drawer off the studio toolbar, grouped by what each severity MEANS ("Someone visiting your site right now would hit this and it would not work"), and every finding that names a block has a **Show me** that opens the page, the header and footer, or the saved piece and selects it. Both routes in save the draft first — the endpoint reads the saved draft, and a check that is one save behind says "clean" about work it has not seen. The publish flow interrupts **only on errors**, once, with a confirm whose primary answer is "Publish anyway"; warnings and suggestions never interrupt. A check that fails to run does not hold up a publish that would otherwise succeed.
   >
@@ -576,7 +576,7 @@ Where "no better in the world" is actually won or lost.
   >
   > That is now wired, because it is pure engineering with no ongoing cost and it is the precondition for the rest: `builder.published` and `builder.rolled_back` are real `EventType` members, published best-effort **after** the write commits by `POST /v1/builder/site/publish` and `POST /v1/builder/site/releases/:id/restore` (`api-rest/lib/builder-events.ts`). The worker's test now asserts the two names that genuinely exist rather than four plausible ones nobody emitted, plus the prefix behaviour separately. The brain's [event catalog](../brain/api-events/event-catalog.md) records the shape to watch for: a consumer branch with no publisher is silent until caching is switched on.
   >
-  > **Correction, 2026-10-06.** The "four plausible ones nobody emitted" were emitted: `@wizeworks/builder` publishes `builder.page.published`, `builder.layout.published`, `builder.layout.activated` and `builder.email.published` from its services, and api-rest's `installBuilderPubSubBridge` puts them on the bus. Cutting the worker's list down to two left every header, footer, single page and look published from its own pane on the five-minute cache. All five (plus a new `builder.theme.published`) are `EventType` members now and the worker subscribes to the four a visitor sees (piggles persona issue 921).
+  > **Correction, 2026-10-06.** The "four plausible ones nobody emitted" were emitted: `@wizeworksllc/builder` publishes `builder.page.published`, `builder.layout.published`, `builder.layout.activated` and `builder.email.published` from its services, and api-rest's `installBuilderPubSubBridge` puts them on the bus. Cutting the worker's list down to two left every header, footer, single page and look published from its own pane on the five-minute cache. All five (plus a new `builder.theme.published`) are `EventType` members now and the worker subscribes to the four a visitor sees (piggles persona issue 921).
   >
   > **What remains is the cost decision, and it is the owner's.** Removing `force-dynamic` trades a staleness risk for spend that most likely FALLS (fewer origin renders). Nothing else blocks it.
 

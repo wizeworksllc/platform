@@ -122,7 +122,7 @@ export const PLATFORM_RECORD_PAGE_NAMES: ReadonlySet<string> = new Set([
   'Category detail',
   'Service detail',
   'Blog post',
-  // `STARTER_PAGES` (@wizeworks/builder-schemas), the pre-silica seed for a fresh property.
+  // `STARTER_PAGES` (@wizeworksllc/builder-schemas), the pre-silica seed for a fresh property.
   'Product page',
   'Blog post',
   // What sparx's own blueprints ship in `site.json` — 10 packs each carry a `Product`

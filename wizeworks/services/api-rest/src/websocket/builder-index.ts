@@ -51,7 +51,7 @@ export async function attachBuilderWebsocket(
 
   let closeBus: (() => Promise<void>) | null = null;
   if (env.SOCKET_BUS_URL) {
-    const { connectSocketBus, createSocketBusAdapter } = await import('@wizeworks/socket-bus');
+    const { connectSocketBus, createSocketBusAdapter } = await import('@wizeworksllc/socket-bus');
     const onError = (err: unknown, what: string) =>
       log.error({ err }, `builder socket bus ${what} error`);
     const bus = connectSocketBus(env.SOCKET_BUS_URL, 'api-rest builder', onError);

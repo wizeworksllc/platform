@@ -56,7 +56,7 @@ export type {
   DirectCredentials,
 } from './adapters/index.js';
 
-// Vendor catalog — also available via the server-safe `@wizeworks/dropship/vendors`
+// Vendor catalog — also available via the server-safe `@wizeworksllc/dropship/vendors`
 // subpath for client components that must not bundle adapter code.
 export {
   VENDOR_CATALOG,
@@ -67,7 +67,7 @@ export {
   type VendorCapabilities,
 } from './vendors.js';
 
-// The shared-plane face of the vendor catalog (@wizeworks/integrations).
+// The shared-plane face of the vendor catalog (@wizeworksllc/integrations).
 export {
   dropshipIntegrations,
   vendorToIntegrationDescriptor,

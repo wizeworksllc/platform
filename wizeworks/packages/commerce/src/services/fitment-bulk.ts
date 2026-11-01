@@ -18,9 +18,9 @@ import {
   BulkRemoveFitmentInput,
   type FitmentDimension,
   type ProductFitmentInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLogs } from '../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';

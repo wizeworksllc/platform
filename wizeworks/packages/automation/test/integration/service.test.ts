@@ -2,7 +2,7 @@
 // invariants the schema can't express: system-managed origin/locked, the locked
 // "duplicate to edit" guard, and idempotent system seeding.
 
-import type { Trigger } from '@wizeworks/automation-schemas';
+import type { Trigger } from '@wizeworksllc/automation-schemas';
 import { afterAll, describe, expect, it } from 'vitest';
 
 import {

@@ -2,7 +2,7 @@ import { describe, expect, it, vi, beforeEach } from 'vitest';
 
 // `tenantStore.run` just scopes the adapter; for these tests it only has to
 // invoke the callback.
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   tenantStore: { run: (_tenantId: string, fn: () => unknown) => fn() },
 }));
 

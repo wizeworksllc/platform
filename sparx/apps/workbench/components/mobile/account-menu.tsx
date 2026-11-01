@@ -17,7 +17,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@wizeworks/silicaui-react';
-import { signOut } from '@wizeworks/auth/client';
+import { signOut } from '@wizeworksllc/auth/client';
 import { Wordmark } from '@sparx/brand/react';
 import { clearToken } from '../../lib/api/token';
 import { resetClient } from '../../lib/api/client';

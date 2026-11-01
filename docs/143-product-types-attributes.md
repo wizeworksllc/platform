@@ -11,19 +11,19 @@ Last Updated: 2026-08-06
 >
 > **What shipped beyond the original plan:**
 >
-> - **The field engine was extracted to `@wizeworks/field-schema` and adopted by THREE domains** —
+> - **The field engine was extracted to `@wizeworksllc/field-schema` and adopted by THREE domains** —
 >   a parallel CRM effort (docs/144) added `currency` / `user` / `calculated` field kinds + an
 >   eval-free calc engine to the same package, so CMS content types, commerce product types, and
 >   CRM object properties now share one field engine. The projection (§6.4) handles the new kinds.
 > - **The auto-render floor is in the SHARED PDP, not only the 10 templates.** `buyBox()` /
->   `productDetailPage()` in `@wizeworks/silica-catalog` (the code fallback every site without a
+>   `productDetailPage()` in `@wizeworksllc/silica-catalog` (the code fallback every site without a
 >   bespoke product page uses — the seeded default, a fresh tenant's starter) now renders
 >   `productAttributes()` + `productPolicyLinks()` + `productStockBadge()`. So a typed product
 >   shows its real detail sections on ANY site with zero authoring.
 > - **The demo seed** gives its diesel-parts catalog `auto_part` types + real fitment/specs/warranty.
 >
 > **User-owned steps before the DB-backed end-to-end test:** `pnpm install` (the new
-> `@wizeworks/field-schema` package + workspace deps), `prisma generate` + apply migration
+> `@wizeworksllc/field-schema` package + workspace deps), `prisma generate` + apply migration
 > `20270206000000`, and re-seed. The DB-free preview/screenshot oracle already verifies rendering.
 
 ---
@@ -95,16 +95,16 @@ long-term foundation: attributes become consistent within a type, bindable on th
 
 ## 3. The field-schema engine — reuse, don't rebuild
 
-`@wizeworks/cms-schemas` `src/types.ts` + `src/validate.ts` are **product-agnostic**: the 15 field
+`@wizeworksllc/cms-schemas` `src/types.ts` + `src/validate.ts` are **product-agnostic**: the 15 field
 kinds (`text`, `long_text`, `rich_text`, `slug`, `number`, `boolean`, `date`, `datetime`, `enum`,
 `url`, `email`, `reference`, `asset`, `object`, `repeater`) and `bodyValidatorFor(schema)` just
 validate "does this JSON bag match this field list." Zero CMS coupling.
 
-**Decision — extract to a neutral package `@wizeworks/field-schema`.** Move `FieldDef`,
+**Decision — extract to a neutral package `@wizeworksllc/field-schema`.** Move `FieldDef`,
 `FieldSchema` (today's `ContentTypeSchema` = `{ fields: FieldDef[] }`), `bodyValidatorFor`, and
-`validateBody` into `@wizeworks/field-schema`. `@wizeworks/cms-schemas` re-exports them unchanged
+`validateBody` into `@wizeworksllc/field-schema`. `@wizeworksllc/cms-schemas` re-exports them unchanged
 (`export { FieldSchema as ContentTypeSchema, ... }`) so **no CMS code changes behaviorally**.
-`@wizeworks/commerce-schemas` consumes the same engine for `ProductTypeSchema`. One engine, two
+`@wizeworksllc/commerce-schemas` consumes the same engine for `ProductTypeSchema`. One engine, two
 domains — the "single point of change" rule (root `CLAUDE.md` RULE #1) applied to the field
 system itself.
 
@@ -213,12 +213,12 @@ starting vocabulary, not a ceiling.
 
 ## 6. Layer-by-layer changes
 
-### 6.1 `@wizeworks/field-schema` (new)
+### 6.1 `@wizeworksllc/field-schema` (new)
 
 Move `FieldDef` / `FieldSchema` / `bodyValidatorFor` / `validateBody` out of `cms-schemas`.
 `cms-schemas` re-exports for back-compat. (§3.)
 
-### 6.2 `@wizeworks/commerce-schemas`
+### 6.2 `@wizeworksllc/commerce-schemas`
 
 - `src/product-types/schema.ts` — `ProductTypeSchema` = `FieldSchema`; `ProductTypeDefinition`
   (key/name/pluralName/description/attributeSchema/icon).
@@ -227,13 +227,13 @@ Move `FieldDef` / `FieldSchema` / `bodyValidatorFor` / `validateBody` out of `cm
   the product create/update inputs (`products.ts:224,280`). Attribute validation happens in the
   service against the resolved type schema (not statically here).
 
-### 6.3 `@wizeworks/commerce` — product-types service
+### 6.3 `@wizeworksllc/commerce` — product-types service
 
 - `src/services/product-types-service.ts` — mirror `wizeworks/packages/cms/src/content-types-service.ts`:
   `list` (dedupe by key, tenant shadows built-in), `get`, `create`, `replaceSchema` (fork-on-edit
   of a built-in → tenant-owned copy), `delete` (custom only). Plus the trio from
   `content-types.ts`: `resolveType(tx, key)`, `parseProductTypeSchema(row)`,
-  `validateAndNormalizeAttributes(schema, attributes)` (reusing `@wizeworks/field-schema`
+  `validateAndNormalizeAttributes(schema, attributes)` (reusing `@wizeworksllc/field-schema`
   `bodyValidatorFor`).
 - `src/services/product-service.ts` `create` / `update` — when `productTypeKey` is set, resolve
   the type and `validateAndNormalizeAttributes` before persisting `attributes` (422 on mismatch,
@@ -417,7 +417,7 @@ whatever the product's type defines, which is the entire point.
 
 ## 9. Testing & validation
 
-- Unit: `@wizeworks/field-schema` validator round-trips (reuse existing cms-schemas validate tests as
+- Unit: `@wizeworksllc/field-schema` validator round-trips (reuse existing cms-schemas validate tests as
   the template); `validateAndNormalizeAttributes` 422s on a bad bag.
 - `safeParseBlueprint` + `blueprint-sweep.test.ts` green for all 10 regenerated bundles.
 - Storefront smoke: a product of type `apparel` renders its own fabric/care/fit; a different
@@ -431,7 +431,7 @@ whatever the product's type defines, which is the entire point.
 
 ## 10. Build order (dependency-ordered phases)
 
-1. **Field-schema extraction** — `@wizeworks/field-schema`; cms-schemas re-exports. Verify CMS still
+1. **Field-schema extraction** — `@wizeworksllc/field-schema`; cms-schemas re-exports. Verify CMS still
    builds.
 2. **Schema + migration** — `ProductType` model, product columns, migration (RLS + built-in
    seed). _User regenerates Prisma._
@@ -468,7 +468,7 @@ templates once phase 7 lands.
   (user, 2026-08-06).
 - Fake "Selling fast" + countdown → **removed**; replaced with a **real inventory** low-stock
   badge.
-- Field-schema engine → **extracted to `@wizeworks/field-schema`**, reused by both content and
+- Field-schema engine → **extracted to `@wizeworksllc/field-schema`**, reused by both content and
   product types.
 - `productType` (free-text) kept; `productTypeKey` added as the typed link; `attributes` added as
   the validated bag; `metadata` untouched.

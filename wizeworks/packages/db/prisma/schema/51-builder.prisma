@@ -3,7 +3,7 @@
 // One row per page a tenant has. A page TEMPLATE and a page INSTANCE are the
 // same row: Sparx ships a curated starter set (seeded on the tenant's first
 // list, at runtime by the service), the tenant edits them and creates more.
-// The node-tree JSON is validated by @wizeworks/builder-schemas, never by the DB.
+// The node-tree JSON is validated by @wizeworksllc/builder-schemas, never by the DB.
 //
 // Distinct from the legacy `sitebuilder_*` tables — Builder is the successor
 // surface (docs/40), deliberately kept on its own clean storage so the eventual
@@ -38,7 +38,7 @@ model BuilderPage {
   // Unique per tenant; Postgres treats NULLs as distinct, so many stay null.
   slug          String? @db.VarChar(160)
 
-  // The editable BuilderNode root. Shape validated by @wizeworks/builder-schemas.
+  // The editable BuilderNode root. Shape validated by @wizeworksllc/builder-schemas.
   draftTree           Json      @map("draft_tree")
   // Last published snapshot; null until first publish. No storefront consumer
   // yet (docs/41 §1) — publishing just snapshots draft → published.
@@ -232,7 +232,7 @@ model BuilderSite {
 // one look on both; changing it in one place is the entire point.
 //
 // THREE TIERS, AND ONLY ONE OF THEM IS A ROW:
-//   · SYSTEM presets ship in code (`@wizeworks/silica-catalog`'s theme groups) and
+//   · SYSTEM presets ship in code (`@wizeworksllc/silica-catalog`'s theme groups) and
 //     are offered read-only. "Use this" COPIES one into a row here.
 //   · MARKETPLACE listings live in `marketplace_themes`, with their publisher,
 //     price and install count. Installing COPIES the payload into a row here.
@@ -347,7 +347,7 @@ model BuilderLayout {
 
   name String @db.VarChar(255)
 
-  // The editable BuilderNode root. Shape validated by @wizeworks/builder-schemas.
+  // The editable BuilderNode root. Shape validated by @wizeworksllc/builder-schemas.
   draftTree           Json      @map("draft_tree")
   // Last published snapshot; null until first publish. The storefront renders
   // the ACTIVE published layout as the chrome around every page (docs/45 §2.6).
@@ -593,7 +593,7 @@ model BuilderComponent {
 // One immutable version snapshot of a BuilderComponent (docs/53 §6). Editing a
 // component creates a NEW version and bumps the parent's latestVersion; old
 // versions persist so pages pinned to them keep rendering. The `tree` is a
-// BuilderNode (validated by @wizeworks/builder-schemas, never the DB); `propSpec` is
+// BuilderNode (validated by @wizeworksllc/builder-schemas, never the DB); `propSpec` is
 // the instance-fillable slot schema (docs/53 §5).
 //
 // Tenant-scoped + ENABLE/FORCE RLS (hand-added in the migration).
@@ -603,7 +603,7 @@ model BuilderComponentVersion {
   componentId String @map("component_id") @db.Uuid
   version     Int
 
-  // The editable BuilderNode root for this version. Shape validated by @wizeworks/builder-schemas.
+  // The editable BuilderNode root for this version. Shape validated by @wizeworksllc/builder-schemas.
   //
   // NULLABLE as of the silica cutover. This column is the RETIRED `.bx-*` builder's
   // node format (`{id, type, props, children}`), which the silica `<Builder>` cannot
@@ -641,11 +641,11 @@ model BuilderComponentVersion {
 //
 // `utilityAllowlist` is the tenant's ADDITIONAL block rules (tighten-only). The
 // platform BASE denylist (fixed / url( / content-[ / arbitrary z-[ — clickjacking /
-// exfiltration / injection guards) is hardcoded in @wizeworks/surface-compile and is
+// exfiltration / injection guards) is hardcoded in @wizeworksllc/surface-compile and is
 // NEVER relaxable; this column can only ADD blocks. Shape:
 //   { v: 1, blocks: [{ kind: 'prefix' | 'exact' | 'substring', value: string }] }
 // Null = no tenant additions → the platform base applies unchanged. Validated by
-// @wizeworks/surface-compile's parseAllowlistConfig, never by the DB.
+// @wizeworksllc/surface-compile's parseAllowlistConfig, never by the DB.
 //
 // Tenant-scoped + ENABLE/FORCE RLS (hand-added in the migration), like every other
 // builder_* table. PK = tenantId (one governance row per tenant), upserted lazily
@@ -674,7 +674,7 @@ model BuilderGovernance {
 // first list from PLATFORM_ARCHETYPES) from tenant-authored additions ('tenant').
 // `enabled=false` hides an archetype from the Add palette without deleting it —
 // the lever for curating the platform defaults. `tree` is a BuilderNode validated
-// by @wizeworks/builder-schemas, never the DB.
+// by @wizeworksllc/builder-schemas, never the DB.
 //
 // Tenant-scoped + ENABLE/FORCE RLS (hand-added in the migration), like every other
 // builder_* table.
@@ -693,7 +693,7 @@ model BuilderArchetype {
   description String? @db.VarChar(500)
   // Editor surfaces this archetype appears in (e.g. ["page","site"]).
   surfaces    Json    @default("[\"page\"]")
-  // The BuilderNode root stamped (forked) into the page. Validated by @wizeworks/builder-schemas.
+  // The BuilderNode root stamped (forked) into the page. Validated by @wizeworksllc/builder-schemas.
   tree        Json
   // platform (a seeded default) | tenant (authored by this tenant).
   source      String  @default("tenant") @db.VarChar(16)
@@ -723,7 +723,7 @@ model BuilderArchetype {
 // tree mirror the data-as-code `PlatformCatalogEntry` (so a published row is palette-
 // renderable, docs/98 §5), plus the lifecycle/governance columns. `category` and
 // `surfaces` are validated STRINGS (the shared CatalogCategory / ComponentSurface
-// vocabulary in @wizeworks/builder-schemas) rather than DB enums — category slugs are
+// vocabulary in @wizeworksllc/builder-schemas) rather than DB enums — category slugs are
 // hyphenated (`data-display`), invalid as Postgres enum identifiers, and this matches
 // the package's "validated by builder-schemas, never the DB" convention (cf. `tree`).
 model PlatformComponent {
@@ -733,7 +733,7 @@ model PlatformComponent {
   name        String                      @db.VarChar(120)
   // Palette grouping — the shared CatalogCategory set (layout | navigation | actions
   // | data-display | data-input | feedback | marketing | mockup). VARCHAR, not an
-  // enum (hyphenated slugs); validated by @wizeworks/builder-schemas.
+  // enum (hyphenated slugs); validated by @wizeworksllc/builder-schemas.
   category    String                      @db.VarChar(32)
   // common | comprehensive — the shared CatalogKind composite-size set (docs/98 §5).
   kind        PlatformComponentKind
@@ -742,10 +742,10 @@ model PlatformComponent {
   // One-line palette description.
   description String                      @db.VarChar(280)
   // Editor surfaces this entry appears in — the shared ComponentSurface set
-  // (page | site | email). TEXT[], validated by @wizeworks/builder-schemas.
+  // (page | site | email). TEXT[], validated by @wizeworksllc/builder-schemas.
   surfaces    String[]
   // The BuilderNode root tree (same shape as any archetype/page tree, serialized
-  // JSON). Validated by @wizeworks/builder-schemas, never by the DB.
+  // JSON). Validated by @wizeworksllc/builder-schemas, never by the DB.
   tree        Json
   // Optional declarative behavior config (data-sx-* parameters, validated at
   // the service layer). Null = no runtime behavior (pure composition).

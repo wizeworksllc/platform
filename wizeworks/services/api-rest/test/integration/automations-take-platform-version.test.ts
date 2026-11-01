@@ -14,7 +14,7 @@ import {
   updateAutomation,
   upsertSystemAutomation,
   type SystemAutomationSpec,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import { createApp } from '../../src/app.js';
 import {
   authHeader,

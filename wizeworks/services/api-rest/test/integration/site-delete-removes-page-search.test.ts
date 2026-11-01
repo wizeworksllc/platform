@@ -6,15 +6,15 @@
 // box, opening a site that is gone.
 
 import { describe, expect, it, vi } from 'vitest';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import type * as Events from '@wizeworks/events';
-import { prisma, withTenant } from '@wizeworks/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import type * as Events from '@wizeworksllc/events';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import { authHeader, createTestTenant, dropTestTenant, signToken } from '../helpers.js';
 
 const signals: { entityType: string; recordId: string; op?: string }[] = [];
 
-vi.mock('@wizeworks/events', async (importOriginal) => ({
+vi.mock('@wizeworksllc/events', async (importOriginal) => ({
   ...(await importOriginal<typeof Events>()),
   indexEntity: (input: { entityType: string; recordId: string; op?: string }) => {
     signals.push({ entityType: input.entityType, recordId: input.recordId, op: input.op });

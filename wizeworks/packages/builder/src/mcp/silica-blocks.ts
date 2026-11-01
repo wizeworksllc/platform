@@ -22,7 +22,7 @@ import {
   productsBlock,
   siteFooter,
   siteNavbar,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 /** One servable catalog row: enough to list cheaply, plus a factory to fetch the
  *  full tree on demand. `category` groups native blocks by silica's own

@@ -20,20 +20,20 @@
 //   DELETE /v1/builder/email-blocks/:blockId  → delete a saved block
 //
 // Bodies are validated by the service-layer Zod schemas (the established route ↔
-// service boundary), so api-rest keeps no @wizeworks/builder-schemas dependency. The
-// render path loads the tree here (@wizeworks/builder) and injects it into
-// @wizeworks/email-platform's builderEmailService — keeping that package free of a
-// @wizeworks/builder dependency (docs/52 §6, the section-resolver injection pattern).
+// service boundary), so api-rest keeps no @wizeworksllc/builder-schemas dependency. The
+// render path loads the tree here (@wizeworksllc/builder) and injects it into
+// @wizeworksllc/email-platform's builderEmailService — keeping that package free of a
+// @wizeworksllc/builder dependency (docs/52 §6, the section-resolver injection pattern).
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { emailService, emailVersionService, savedEmailBlockService } from '@wizeworks/builder';
-import { builderEmailService, emailTrackingService } from '@wizeworks/email-platform';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { indexEntity } from '@wizeworks/events';
+import { emailService, emailVersionService, savedEmailBlockService } from '@wizeworksllc/builder';
+import { builderEmailService, emailTrackingService } from '@wizeworksllc/email-platform';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { indexEntity } from '@wizeworksllc/events';
 import {
   requireBuilderModule,
   toBuilderContext,

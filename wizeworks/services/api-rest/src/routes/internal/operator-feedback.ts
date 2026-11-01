@@ -20,12 +20,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant, type Prisma } from '@wizeworks/db';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { appOrigin } from '@wizeworks/links/server';
+import { prisma, withTenant, type Prisma } from '@wizeworksllc/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { appOrigin } from '@wizeworksllc/links/server';
 import { tenantPlatformBrand } from '../../lib/tenant-brand.js';
-import { platformBrandIdentity } from '@wizeworks/brand-core';
-import type { FeedbackRespondedPayload } from '@wizeworks/events';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
+import type { FeedbackRespondedPayload } from '@wizeworksllc/events';
 import { writePlatformNotice } from '../../lib/platform-notice.js';
 import type {
   OperatorFeedbackItem,
@@ -33,7 +33,7 @@ import type {
   OperatorFeedbackCounts,
   OperatorFeedbackDetail,
   OperatorFeedbackMessage,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import {
   authorizeOperator,

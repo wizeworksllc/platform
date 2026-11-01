@@ -25,12 +25,12 @@ import {
   getChannelDescriptor,
   type ChannelDescriptor,
   type ChannelSlug,
-} from '@wizeworks/channels';
-import { registerBuiltinChannels } from '@wizeworks/channels/adapters';
-import { encryptChannelToken, isChannelTokenCryptoConfigured } from '@wizeworks/channels/crypto';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { badRequest, conflict, notFound } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/channels';
+import { registerBuiltinChannels } from '@wizeworksllc/channels/adapters';
+import { encryptChannelToken, isChannelTokenCryptoConfigured } from '@wizeworksllc/channels/crypto';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest, conflict, notFound } from '@wizeworksllc/api-core/errors';
 import { requireChannelsModule, toChannelContext } from '../../../lib/channel-context.js';
 import { resolvePropertyId } from '../../../lib/property.js';
 import {

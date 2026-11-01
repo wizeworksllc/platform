@@ -12,17 +12,17 @@
 
 // The storefront consumes the published snapshot as JSON over HTTP, so it owns
 // the *consumer's view* of that payload rather than depending on the heavy
-// `@wizeworks/sitebuilder` service package (which pulls in @wizeworks/db, @wizeworks/ui,
+// `@wizeworksllc/sitebuilder` service package (which pulls in @wizeworksllc/db, @wizeworksllc/ui,
 // react, and the whole MCP/service layer — none of which belong in this image).
 // These interfaces mirror the publish output in
 // wizeworks/packages/sitebuilder/src/services/publish-internals.ts — keep them in sync.
 
-import type { CompiledThemeV2 } from '@wizeworks/site-themes';
+import type { CompiledThemeV2 } from '@wizeworksllc/site-themes';
 import {
   DEFAULT_TEMPLATES,
   type SectionField,
   type TemplateNode,
-} from '@wizeworks/sitebuilder-schemas';
+} from '@wizeworksllc/sitebuilder-schemas';
 
 // A custom-section definition pinned into the published snapshot (docs/38 Phase
 // C), mirrored from wizeworks/packages/sitebuilder publish-internals.PinnedDefinition. The

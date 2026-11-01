@@ -4,8 +4,8 @@
 // and the two things a parts counter does about one. Every write re-reads orders,
 // invoices and this list, so a core that came back never shows as owed again.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { coresOutstanding, unitsWaitingForCore } from '@wizeworks/commerce-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { coresOutstanding, unitsWaitingForCore } from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { ORDERS_KEY, type OrderItem } from './data';

@@ -37,7 +37,7 @@
 //
 // ── The preview sentence is the real formatter ───────────────────────────
 //
-// `describeQuantity` from `@wizeworks/commerce-schemas` is what every other
+// `describeQuantity` from `@wizeworksllc/commerce-schemas` is what every other
 // screen says a quantity with. Using it here rather than writing the sentence
 // again means a wrong factor looks wrong in the editor exactly as it will look
 // on the purchase order, which is the whole argument for showing the base figure
@@ -60,7 +60,7 @@ import {
   Text,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { describeQuantity } from '@wizeworks/commerce-schemas';
+import { describeQuantity } from '@wizeworksllc/commerce-schemas';
 import { Plus, Save, Trash2 } from 'lucide-react';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { afterPaneChange } from '../../lib/defer';

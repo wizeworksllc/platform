@@ -39,7 +39,7 @@ export interface OAuthFlowDescriptor {
 /** Verify that the OAuth callback `state` value matches the one the
  *  platform signed when redirecting to the provider. The verifier is
  *  injected so this package doesn't take a JWT dependency; callers in
- *  api-rest pass `@wizeworks/auth`'s signer. */
+ *  api-rest pass `@wizeworksllc/auth`'s signer. */
 export function assertStateMatches(input: {
   state: string;
   verify: (state: string) => { tenantId: string; installationId: string } | null;

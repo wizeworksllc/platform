@@ -1,7 +1,7 @@
 // Stock locations = warehouses. The inventory module's stock-holding places are
 // Warehouses (the unified model — docs/100 P1c); "location" is just the module's
 // user-facing word for one. These endpoints delegate to the one warehouse
-// service (@wizeworks/inventory), inventory-module-gated so a tenant running
+// service (@wizeworksllc/inventory), inventory-module-gated so a tenant running
 // Inventory standalone (no commerce) manages locations here.
 //
 //   GET    /v1/inventory/locations
@@ -13,10 +13,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { inventoryService } from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

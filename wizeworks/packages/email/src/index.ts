@@ -1,4 +1,4 @@
-// @wizeworks/email — typed templates, render path, and provider.
+// @wizeworksllc/email — typed templates, render path, and provider.
 //
 // Two ways callers reach the email pipeline:
 //
@@ -56,7 +56,7 @@ export {
 export * from './components';
 
 // Mailgun domain-admin control-plane (create / verify / delete sending
-// domains). Consumed by @wizeworks/email-platform's domain-service.
+// domains). Consumed by @wizeworksllc/email-platform's domain-service.
 export {
   getMailgunDomainAdmin,
   MailgunAdminError,

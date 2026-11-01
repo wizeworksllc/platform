@@ -14,8 +14,8 @@
 // fail a save that succeeded; the worst case is the old wait for the cache.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { publish } from '@wizeworks/api-core/pubsub';
-import type { SiteUpdatedPayload } from '@wizeworks/events';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import type { SiteUpdatedPayload } from '@wizeworksllc/events';
 
 /**
  * Announce that a site's own settings changed.

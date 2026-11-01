@@ -17,7 +17,7 @@
 // A platform that reports neither is `unverifiable`, and says so. That is a real answer
 // and a much better one than a green tick that means "we never checked".
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { SocialAccessProbe, SocialPlatform } from './types.js';
 import type { SocialContext } from './context.js';

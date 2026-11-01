@@ -1,6 +1,6 @@
 // Bound product section — a "you may also like" rail of related products.
 
-import type { ProductRelatedConfig } from '@wizeworks/sitebuilder-schemas';
+import type { ProductRelatedConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { ProductCard } from '@/components/product-card';
 import type { SectionContext } from '../section-renderer';

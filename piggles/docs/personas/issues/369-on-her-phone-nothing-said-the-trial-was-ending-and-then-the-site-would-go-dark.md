@@ -121,7 +121,7 @@ button on a colored fill paints over it and stops being readable on one theme.
 
 ## Still open
 
-- **`grace` gates paid module features in the dashboard** (`@wizeworks/billing`'s
+- **`grace` gates paid module features in the dashboard** (`@wizeworksllc/billing`'s
   own comment). Piggles RULE #1 says a user is never blocked from an ordinary
   business capability because of what they bought. Those are about different
   things — one is not paying at all, the other is tiering — but the interaction

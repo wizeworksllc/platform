@@ -1,4 +1,4 @@
-import { createPublisher, type PublisherLogger } from '@wizeworks/events';
+import { createPublisher, type PublisherLogger } from '@wizeworksllc/events';
 
 export const pubLogger: PublisherLogger = {
   info: (obj, msg) => console.info(msg ?? '', obj),

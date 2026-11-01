@@ -17,7 +17,7 @@
 // still drops the email. Only parsing a REAL payload catches it.
 //
 // So the fixtures live here, importable by both sides, and both assert against
-// the same objects: `@wizeworks/email` renders them, `@wizeworks/email-worker` parses
+// the same objects: `@wizeworksllc/email` renders them, `@wizeworksllc/email-worker` parses
 // them. If the two ever disagree about a template's shape, one of those suites
 // goes red instead of a customer not receiving something.
 //

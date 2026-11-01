@@ -28,7 +28,7 @@ import {
 } from '@wizeworks/silicaui-react';
 import { arrayMove } from '@dnd-kit/sortable';
 import { History, ListChecks, Power, Trash2, Undo2, Upload } from 'lucide-react';
-import type { Action, ConditionGroup, Trigger } from '@wizeworks/automation-schemas';
+import type { Action, ConditionGroup, Trigger } from '@wizeworksllc/automation-schemas';
 import { useActivePropertyId, useModuleStates, useSites } from '../../lib/api/shell-data';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { useConfirm } from '../../lib/confirm';

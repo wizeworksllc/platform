@@ -29,13 +29,13 @@ import {
 } from '@wizeworks/silicaui-react';
 import { faPen, faPlus, faTrashCan } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import {
   chooseLevelLabel,
   vehicleDescription,
   vehicleLabel,
   type FleetVehicle,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import { useConfirm } from '../../lib/confirm';
 import { useDirtySource } from '../../lib/workbench/dirty';

@@ -22,7 +22,7 @@ import {
   SelectGroupLabel,
   SelectItem,
 } from '@wizeworks/silicaui-react';
-import type { ScheduleSpec, Trigger } from '@wizeworks/automation-schemas';
+import type { ScheduleSpec, Trigger } from '@wizeworksllc/automation-schemas';
 import { ConditionEditor } from './condition-editor';
 import {
   DAYS_OF_WEEK,

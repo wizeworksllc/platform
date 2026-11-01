@@ -92,7 +92,7 @@ already right.
 
 The engine no longer needs a hook from the app: `rowLabel` in
 `studio/src/react/navigator/layer-tree.ts` names a live region from
-`HOST_COMPONENTS` in `@wizeworks/silica-catalog`, the same registry the palette
+`HOST_COMPONENTS` in `@wizeworksllc/silica-catalog`, the same registry the palette
 reads, so the list and the palette now use one name. `site.map` and
 `scheduling.services` are both registered there ("Booking services"). On
 Juniper Row's Shop page the Layers list reads **Product listing**, not

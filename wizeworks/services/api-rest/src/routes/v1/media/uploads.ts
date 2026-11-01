@@ -14,15 +14,15 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { indexEntity } from '@wizeworks/events';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { indexEntity } from '@wizeworksllc/events';
 import { getStorage, originalKey } from '../../../lib/storage.js';
 import { resolvePropertyId } from '../../../lib/property.js';
-import { badRequest, conflict, notFound } from '@wizeworks/api-core/errors';
+import { badRequest, conflict, notFound } from '@wizeworksllc/api-core/errors';
 import { env } from '../../../env.js';
 
 // Conservative ceiling — anything bigger than 200 MB the tenant can

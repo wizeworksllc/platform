@@ -23,7 +23,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { toCsv } from '../../src/csv.js';
 import { adjust } from '../../src/services/movements.js';

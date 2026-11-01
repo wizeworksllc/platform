@@ -13,13 +13,13 @@
 // one worked out from what it holds until the next save writes it down.
 //
 // The words a vehicle is called by (`vehicleLabel`) live in
-// @wizeworks/commerce-schemas, which every app can read; this file is the half
+// @wizeworksllc/commerce-schemas, which every app can read; this file is the half
 // that needs the database.
 
 import { createHash, randomUUID } from 'node:crypto';
 import { z } from 'zod';
-import { withTenant, type Prisma } from '@wizeworks/db';
-import { notFound, validationError } from '@wizeworks/api-core/errors';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import { notFound, validationError } from '@wizeworksllc/api-core/errors';
 
 // ── Schemas ──────────────────────────────────────────────────────────────────
 
@@ -160,7 +160,7 @@ interface StoredDimension {
 }
 
 /** A fleet vehicle ready to show. Structurally the `FleetVehicle` of
- *  @wizeworks/commerce-schemas (which this package cannot import), plus what the
+ *  @wizeworksllc/commerce-schemas (which this package cannot import), plus what the
  *  console prints beside it: the fitment list's name and the range values. */
 export interface FleetVehicleView {
   id: string;

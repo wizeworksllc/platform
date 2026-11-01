@@ -8,7 +8,7 @@
 // leaves the bar itself as pure presentation.
 
 import { useEffect, useState } from 'react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { readWriteMeta } from '../lib/api/write-meta';
 import type { DetachedWindow } from '../lib/workbench/pane-host';
 import type { PaneDescriptor } from '../lib/surfaces/descriptor';

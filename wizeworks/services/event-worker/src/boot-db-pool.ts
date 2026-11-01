@@ -1,6 +1,6 @@
-// Set this PROCESS's Prisma pool before anything imports `@wizeworks/db`, whose client reads
+// Set this PROCESS's Prisma pool before anything imports `@wizeworksllc/db`, whose client reads
 // DB_CONNECTION_LIMIT at import (wizeworks/packages/db/src/connection-limit.ts). This module has
-// no `@wizeworks/db` dependency, so importing it FIRST in index.ts lands the value in time.
+// no `@wizeworksllc/db` dependency, so importing it FIRST in index.ts lands the value in time.
 //
 // The floor is 2: `withAdvisoryTickLock` parks one connection on the lock transaction and runs
 // the tick on another, so a pool of 1 deadlocks every tick with P2024.

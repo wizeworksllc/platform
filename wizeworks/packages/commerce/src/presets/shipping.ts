@@ -10,8 +10,8 @@ import type {
   CreateShippingProfileInput,
   CreateShippingRateInput,
   CreateShippingZoneInput,
-} from '@wizeworks/commerce-schemas';
-import type { TenantContext } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { TenantContext } from '@wizeworksllc/db';
 
 import { shippingService } from '../services';
 

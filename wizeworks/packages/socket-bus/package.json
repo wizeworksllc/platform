@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/socket-bus",
+  "name": "@wizeworksllc/socket-bus",
   "version": "0.0.0",
   "private": true,
   "description": "socket.io broadcasts shared between processes over the NATS server the event broker already runs: a cluster adapter for every api-rest replica, and an emitter for a process with no sockets of its own (api-mcp). Replaces the Redis adapter, so running two api-rest replicas needs no Redis.",

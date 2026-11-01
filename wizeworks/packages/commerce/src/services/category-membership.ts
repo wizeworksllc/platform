@@ -8,9 +8,9 @@
 // written twice) and removing a product's MAIN category hands that role to the
 // next one it is in, so no product is left filed with no main category.
 
-import { BulkProductCategoryInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { BulkProductCategoryInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLogs } from '../audit';
 import { CommerceNotFoundError } from '../errors';

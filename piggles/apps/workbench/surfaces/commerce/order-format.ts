@@ -3,7 +3,7 @@
 // An order rendered for reading — the buyer, what is still owed, and dates and
 // amounts in the reader’s own locale.
 
-import { HELD_FOR_SIGN_OFF_STATUS } from '@wizeworks/crm-schemas';
+import { HELD_FOR_SIGN_OFF_STATUS } from '@wizeworksllc/crm-schemas';
 import type { Order, OrderAddress, OrderCustomer } from './order-types';
 import { formatAmount } from '../../lib/money-format';
 import { localityLine } from '../../lib/address-format';
@@ -31,7 +31,7 @@ export function customerName(customer: OrderCustomer | null): string {
 export function amountDue(order: Order): number {
   if (order.status === 'cancelled' || order.status === 'refunded') return 0;
   // Held for sign-off: nothing is owed until it is approved. See
-  // HELD_FOR_SIGN_OFF_STATUS in @wizeworks/crm-schemas.
+  // HELD_FOR_SIGN_OFF_STATUS in @wizeworksllc/crm-schemas.
   if (order.status === HELD_FOR_SIGN_OFF_STATUS) return 0;
   if (order.paymentStatus === 'refunded') return 0;
   return Math.max(0, order.total - order.amountPaid - order.refundTotal);

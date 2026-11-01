@@ -16,7 +16,7 @@ import { useState } from 'react';
 import { Badge, Button, Card, SearchInput, Select, Text } from '@wizeworks/silicaui-react';
 import { Table } from '../../components/table';
 import { Plus, Tag } from 'lucide-react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { OpenTarget, SurfaceContext } from '../../lib/surfaces/registry';
 import { PaneLoadError } from '../../components/pane-load-error';

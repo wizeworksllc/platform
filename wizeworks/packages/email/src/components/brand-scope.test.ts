@@ -3,7 +3,7 @@
 // process, so whichever brand sent first put its name on the other's mail.
 
 import { afterEach, describe, expect, it } from 'vitest';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
 
 import { platformNameOf } from './brand';
 

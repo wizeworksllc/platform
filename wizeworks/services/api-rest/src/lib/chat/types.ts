@@ -1,7 +1,7 @@
 // Live Chat — shared domain types + Zod input schemas (docs/56, docs/69 A-1).
 //
 // The chat backend lives in api-rest (routes are thin wrappers over the
-// services in this folder). Service functions throw `@wizeworks/api-core` ApiError
+// services in this folder). Service functions throw `@wizeworksllc/api-core` ApiError
 // so the envelope plugin renders the canonical error shape — no bespoke mapper.
 
 import { z } from 'zod';
@@ -48,7 +48,7 @@ export interface ChatConfig {
   aiEnabled: boolean;
   /** The tenant's own AI provider — null until they connect one. */
   aiProvider: AiProvider | null;
-  /** AES-256-GCM ciphertext (`@wizeworks/integration-framework`'s provider-secret
+  /** AES-256-GCM ciphertext (`@wizeworksllc/integration-framework`'s provider-secret
    *  box), `enc:iv.tag.cipher`. SERVER-INTERNAL ONLY — never serialize this
    *  field to a client; routes must go through `toPublicChatConfig`. */
   aiApiKeyEncrypted: string | null;

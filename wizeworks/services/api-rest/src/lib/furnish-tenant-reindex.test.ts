@@ -13,9 +13,9 @@ const TENANT = '5944fe23-be83-4ce5-aafc-ef56b8594508';
 const publish = vi.fn();
 const loadSampleData = vi.fn();
 
-vi.mock('@wizeworks/api-core/pubsub', () => ({ publish }));
-vi.mock('@wizeworks/auth', () => ({ listEnabledModules: () => Promise.resolve(['commerce']) }));
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({ publish }));
+vi.mock('@wizeworksllc/auth', () => ({ listEnabledModules: () => Promise.resolve(['commerce']) }));
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     fn({
       user: { findFirst: () => Promise.resolve({ id: 'owner-1' }) },

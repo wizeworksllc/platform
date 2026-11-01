@@ -10,7 +10,7 @@
 
 import { z } from 'zod';
 
-import { MoveBetweenBinsInput } from '@wizeworks/commerce-schemas';
+import { MoveBetweenBinsInput } from '@wizeworksllc/commerce-schemas';
 
 import { inventoryService } from '../services';
 import type { AnyMcpTool, McpToolDefinition } from './registry';

@@ -8,8 +8,8 @@
 // recurring class) a BookingSeries that materializes session bookings. This module
 // only adds the seat/roster layer on top.
 
-import { withTenant, type BookingAttendee, type TxClient } from '@wizeworks/db';
-import type { JoinSessionInput, UpdateAttendeeInput } from '@wizeworks/scheduling-schemas';
+import { withTenant, type BookingAttendee, type TxClient } from '@wizeworksllc/db';
+import type { JoinSessionInput, UpdateAttendeeInput } from '@wizeworksllc/scheduling-schemas';
 
 import { recognizeBookedCustomers } from './booked-customer';
 import { BookingNotFoundError, InvalidBookingStateError } from './errors';

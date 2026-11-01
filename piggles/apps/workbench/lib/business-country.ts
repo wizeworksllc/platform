@@ -11,7 +11,7 @@
 // Shares the `['tenant', 'business']` key with Business details and the
 // business-timezone read, so it is usually already cached.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from './api/client';
 
 /** `undefined` while loading · `''` when Business details has no country · else

@@ -10,13 +10,13 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   listOrderIdsForAccount,
   listOrderIdsForBillingDocument,
   projectCustomer,
   projectOrder,
-} from '@wizeworks/commerce';
+} from '@wizeworksllc/commerce';
 
 const WASATCH = 'Wasatch Front Utility Contractors, LLC';
 const RED_ROCK = 'Red Rock Hotshot Trucking';

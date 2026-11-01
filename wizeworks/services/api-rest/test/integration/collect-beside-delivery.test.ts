@@ -6,9 +6,9 @@
 // "pick up locally". The Shipping screen now carries the choice, per site.
 
 import { describe, expect, it } from 'vitest';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import { prisma } from '@wizeworks/db';
-import { shippingService } from '@wizeworks/commerce';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import { prisma } from '@wizeworksllc/db';
+import { shippingService } from '@wizeworksllc/commerce';
 import { createApp } from '../../src/app.js';
 import { authHeader, createTestTenant, dropTestTenant, signToken } from '../helpers.js';
 

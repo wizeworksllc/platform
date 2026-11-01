@@ -8,7 +8,7 @@
 import { describe, expect, it } from 'vitest';
 import { atom, el } from '@wizeworks/silicaui-html';
 import type { Node } from '@wizeworks/silicaui-html';
-import { HOST_KEYS, hostCore } from '@wizeworks/silica-catalog';
+import { HOST_KEYS, hostCore } from '@wizeworksllc/silica-catalog';
 
 import { lintSite } from './lint';
 import type { LintablePage, SiteLintInput } from './types';

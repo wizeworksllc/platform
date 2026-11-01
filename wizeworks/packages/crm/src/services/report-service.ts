@@ -18,11 +18,11 @@ import {
   type DateRange,
   type GroupBy,
   type Measure,
-} from '@wizeworks/crm-schemas';
-import type { ConditionGroup } from '@wizeworks/automation-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { CrmReport, Prisma } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+} from '@wizeworksllc/crm-schemas';
+import type { ConditionGroup } from '@wizeworksllc/automation-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { CrmReport, Prisma } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

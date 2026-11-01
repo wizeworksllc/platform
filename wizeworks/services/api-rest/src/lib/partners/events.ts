@@ -1,6 +1,6 @@
 // Partner Program + Bootcamp business events (docs/114 §B.9). Every activation /
 // referral / commission / payout / bootcamp-lifecycle path publishes through here
-// onto Bus A (@wizeworks/events → Google Pub/Sub), so future automation + analytics +
+// onto Bus A (@wizeworksllc/events → Google Pub/Sub), so future automation + analytics +
 // notification consumers have one canonical stream. Mirrors scheduling-events.ts.
 // publishEvent never throws — a Pub/Sub hiccup must not fail the request.
 
@@ -10,7 +10,7 @@ import {
   type EmailSendPayload,
   type EventType,
   type PublisherLogger,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 
 const logger: PublisherLogger = {
   info: (obj, msg) => console.info(msg ?? '', obj),

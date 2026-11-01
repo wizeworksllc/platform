@@ -516,7 +516,7 @@ That's it — the `/templates` page, the install API, and the marketplace all re
 
 ## Test it
 
-1. **It validates on build.** `parseBlueprint()` runs when the module loads, so `pnpm --filter @wizeworks/blueprints typecheck` and the package tests catch a malformed manifest, a dangling handle, or a missing asset id immediately.
+1. **It validates on build.** `parseBlueprint()` runs when the module loads, so `pnpm --filter @wizeworksllc/blueprints typecheck` and the package tests catch a malformed manifest, a dangling handle, or a missing asset id immediately.
 2. **Install onto a scratch property.** From the dashboard, switch the active site to a throwaway property, open **Templates**, and click **Install**. Everything lands as drafts.
 3. **Review the drafts.** Walk the pages in the Builder, the products in Commerce, the posts in CMS, the emails in Email. Fix anything that looks off in the manifest and re-test.
 4. **Go live.** Click **Go live** — it publishes every page, activates the layout, sets products live, and publishes content. Open the site and confirm it renders.

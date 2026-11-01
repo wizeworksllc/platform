@@ -8,8 +8,8 @@
 // user-triggered "Sync now" button. Both call syncConnection inside withTenant,
 // so RLS scopes every read/write to the owning tenant.
 
-import type { TxClient } from '@wizeworks/db';
-import { badRequest } from '@wizeworks/api-core/errors';
+import type { TxClient } from '@wizeworksllc/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import { decryptToken, encryptToken } from './crypto.js';
 import { querySearchAnalytics, refreshAccessToken, type GscRow } from './google.js';

@@ -4,7 +4,7 @@
 // escape hatches that re-cut membership by hand. Reads live in ./segments-data,
 // which re-exports this file so call sites see one module.
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { segmentKeys, type Segment } from './segments-types';
 import type { SegmentRule } from './segment-rules';

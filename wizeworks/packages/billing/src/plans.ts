@@ -11,7 +11,7 @@
 // violation under wizeworks/ (wizeworks/CLAUDE.md RULE #0). So nothing here asks. A
 // tenant carries `tenants.billing_plan`, a plan says what that id DOES, and billing
 // reads only the plan. Which plan a new tenant is born on is the brand registry's
-// business (@wizeworks/brand-core `billingPlan`), stamped once at provisioning.
+// business (@wizeworksllc/brand-core `billingPlan`), stamped once at provisioning.
 //
 // ── WHY THE DEFINITIONS ARE LOADED AND NOT LISTED ───────────────────────────
 //
@@ -22,7 +22,7 @@
 // plan as configuration. The brand owns the definition; the platform owns the engine.
 //
 // `BILLING_PLANS` is a JSON array of BillingPlan objects. Each brand's plan is kept
-// in @wizeworks/brand-registry (brands/<brand>/billing-plan.json) and ships into the
+// in @wizeworksllc/brand-registry (brands/<brand>/billing-plan.json) and ships into the
 // API's environment through the ConfigMap — the same shape as every other brand
 // value the platform reads by name.
 

@@ -11,7 +11,7 @@
 // `.sparx-content` is the shared prose stylesheet (wizeworks/apps/site/app/globals.css); it, not
 // this component, owns how a paragraph or a blockquote inside the body looks.
 
-import { renderDocToHtml } from '@wizeworks/cms-editor';
+import { renderDocToHtml } from '@wizeworksllc/cms-editor';
 
 export interface ArticleBodyProps {
   /** The entry's rich-text doc, as stored. Null/absent renders nothing — an entry

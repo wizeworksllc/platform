@@ -11,8 +11,8 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
 import { readPublicConsentConfig } from '../../../lib/consent.js';
 import { requireTenantIdBySlug } from '../../../lib/tenant-slug.js';
 import { resolvePublicPropertyId } from '../../../lib/property.js';

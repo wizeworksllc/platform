@@ -34,13 +34,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { Prisma } from '@wizeworks/db';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { indexEntity } from '@wizeworks/events';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
-import { slugify } from '@wizeworks/api-core/slug';
+import type { Prisma } from '@wizeworksllc/db';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { indexEntity } from '@wizeworksllc/events';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
+import { slugify } from '@wizeworksllc/api-core/slug';
 import { resolveListScope } from '../../../lib/property.js';
 
 const KeyParams = z.object({ key: z.string().min(1).max(63) });

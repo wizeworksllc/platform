@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '@wizeworks/silica-corrections';
+import { cn } from '@wizeworksllc/silica-corrections';
 import { Heading } from '../primitives/heading';
 
 // PageHeader — the canonical working-area page header (docs/34 §5). One row:

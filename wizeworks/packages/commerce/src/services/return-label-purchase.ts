@@ -4,8 +4,8 @@
 // return-service.ts to keep the lifecycle/CRUD file focused; this owns
 // "how does an approved return get a label."
 
-import { withTenant } from '@wizeworks/db';
-import type { AddressSnapshotType, ShipmentRequest } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { AddressSnapshotType, ShipmentRequest } from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../errors';
 import { tryBuyReturnLabel, tryLiveRates } from './shipping-provider-bridge';

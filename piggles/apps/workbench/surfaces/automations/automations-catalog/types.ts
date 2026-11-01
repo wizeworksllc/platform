@@ -1,4 +1,4 @@
-import type { ActionType, ConditionOperator } from '@wizeworks/automation-schemas';
+import type { ActionType, ConditionOperator } from '@wizeworksllc/automation-schemas';
 
 /** The modules that contribute a trigger or an action (the module tags on a rule row). Hand-kept,
  *  NOT the platform-wide `ModuleSlug`: a module that GAINS a trigger must be added here, or

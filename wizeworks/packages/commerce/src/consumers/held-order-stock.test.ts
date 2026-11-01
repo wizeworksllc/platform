@@ -11,13 +11,13 @@ const holdHeldOrderStock = vi.fn((..._args: unknown[]) =>
   Promise.resolve({ reservationIds: [], unheldQuantity: 0 })
 );
 
-vi.mock('@wizeworks/auth', () => ({ isModuleEnabled: () => Promise.resolve(inventoryOn) }));
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: { holdHeldOrderStock } }));
+vi.mock('@wizeworksllc/auth', () => ({ isModuleEnabled: () => Promise.resolve(inventoryOn) }));
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: { holdHeldOrderStock } }));
 vi.mock('../services/discount-service', () => ({
   releaseOrderDiscountUsage: () => Promise.resolve(),
 }));
 
-const { resetPlatformBusForTesting } = await import('@wizeworks/crm');
+const { resetPlatformBusForTesting } = await import('@wizeworksllc/crm');
 const { registerCommerceConsumers } = await import('./index');
 
 const held = {

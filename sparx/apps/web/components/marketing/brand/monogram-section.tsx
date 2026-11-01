@@ -58,7 +58,7 @@ export function MonogramSection() {
             <Text size={13.5}>
               In product UI the mark renders via <Code>&lt;Spark&gt;</Code> (or its{' '}
               <Code>&lt;SparxMark&gt;</Code> alias) and the icon via <Code>&lt;AppIcon&gt;</Code>,
-              both from <Code>@wizeworks/ui</Code>, drawing paths defined once in{' '}
+              both from <Code>@wizeworksllc/ui</Code>, drawing paths defined once in{' '}
               <Code>@sparx/brand</Code>. As a favicon, where CSS variables can’t resolve, each app
               ships static files with the hexes inlined, generated from that same geometry by{' '}
               <Code>scripts/generate-brand-icons.mjs</Code>.

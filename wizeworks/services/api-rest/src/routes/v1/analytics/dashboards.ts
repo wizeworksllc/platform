@@ -9,10 +9,10 @@
 // needs no change to hold a user dashboard eventually.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { listEnabledModules } from '@wizeworks/auth';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { listEnabledModules } from '@wizeworksllc/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import {
   getDashboard,

@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { CONTACT_FORM_ACTIONS as SERVER_CONTACT_ACTIONS } from '@wizeworks/builder-schemas';
+import { CONTACT_FORM_ACTIONS as SERVER_CONTACT_ACTIONS } from '@wizeworksllc/builder-schemas';
 import {
   CONTACT_FORM_ACTIONS,
   HANDLED_ACTIONS,

@@ -3,7 +3,7 @@
 //
 // Registered with `registerAction` like everything else, so events, audit and
 // the gate chain fire once at the source rather than being re-implemented here.
-// The actual send is `@wizeworks/sms/delivery`, which owns consent, suppression,
+// The actual send is `@wizeworksllc/sms/delivery`, which owns consent, suppression,
 // quiet hours and the ceiling; this file is the automation-facing wrapper and
 // deliberately contains no policy of its own.
 //
@@ -14,10 +14,10 @@
 // empty manifest with a note, and the engine's gate chain treats it as spend.
 
 import { z } from 'zod';
-import type { ActionOutput, EffectInput, TenantCtx } from '@wizeworks/automation';
-import { registerAction } from '@wizeworks/automation';
+import type { ActionOutput, EffectInput, TenantCtx } from '@wizeworksllc/automation';
+import { registerAction } from '@wizeworksllc/automation';
 import { interpolateFields } from './entity.js';
-import { sendTenantSms } from '@wizeworks/sms/delivery';
+import { sendTenantSms } from '@wizeworksllc/sms/delivery';
 
 const SmsConfig = z.object({
   /** The message. Supports the same `{{field}}` interpolation the email actions

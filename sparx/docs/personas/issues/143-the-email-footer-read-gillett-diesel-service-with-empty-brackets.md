@@ -37,7 +37,7 @@ Every email whose body does not mention the site has a dead link on the business
 
 ## The fix
 
-- `email/src/silica/frame.ts`: the frame names its own tokens in one place, `EMAIL_FRAME_TOKENS` (today `{{site.url}}`), exported from `@wizeworks/email/silica`.
+- `email/src/silica/frame.ts`: the frame names its own tokens in one place, `EMAIL_FRAME_TOKENS` (today `{{site.url}}`), exported from `@wizeworksllc/email/silica`.
 - `api-rest/src/lib/email-data.ts`, `resolveSilicaEmailData`: every send's data lookup adds the frame's tokens to what the body names. Every send path (the dispatch tick, a direct send, a broadcast) resolves through it.
 - `email/src/silica/to-text.ts`: the plain-text converter decodes the named entities the platform writes (`&middot;`, `&rsquo;`, `&mdash;`, …) and any numeric one.
 

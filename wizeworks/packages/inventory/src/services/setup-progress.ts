@@ -17,7 +17,7 @@
 // ── The thirty minutes ───────────────────────────────────────────────────────
 //
 // docs/146 §6 promises setup inside half an hour. The timing arithmetic is pure
-// and lives in @wizeworks/commerce-schemas (`summarizeSetup`); this file's only job
+// and lives in @wizeworksllc/commerce-schemas (`summarizeSetup`); this file's only job
 // is to stamp each step honestly as it happens. Two numbers come out — hands-on
 // time and how many sittings it took — because one number would have to either
 // count somebody's lunch break or silently discard it.
@@ -29,9 +29,9 @@ import {
   type SetupProgress,
   type SetupStepKey,
   type SetupStepState,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

@@ -11,9 +11,9 @@
 // SUPERUSER that bypasses RLS, so a tenant-wide count can otherwise leak other
 // tenants' rows in tests (defense-in-depth; prod is fine via `sparx_app`).
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
-import type { CreateSourceLinkInput, MapUnmappedSkuInput } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
+import type { CreateSourceLinkInput, MapUnmappedSkuInput } from '@wizeworksllc/commerce-schemas';
 
 import { InventoryConflictError, InventoryNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

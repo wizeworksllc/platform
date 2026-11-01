@@ -53,7 +53,7 @@ against the published field vocabulary + node palette — the four new node type
 placed with **provisional** `props`/`binding`, finalized against the
 `invoicing-overdue` reference template when Step 2 lands. The `BuilderEmail` _table_
 change (§6) is **mine alone** — the automation agent's node work lives in
-`@wizeworks/builder-schemas`' node registry + `renderEmailTree`, not the `BuilderEmail`
+`@wizeworksllc/builder-schemas`' node registry + `renderEmailTree`, not the `BuilderEmail`
 Prisma model — so there is **no shared-table collision**; §6/§7 are unblocked and
 sequence only behind the node-JSON finalization (so provisioned trees ship final).
 
@@ -75,7 +75,7 @@ compliance gate is greenfield.
 
 ## 1. Why Builder-authored, not coded
 
-Coded templates (the `@wizeworks/email` `TemplateSend` union) cannot be edited by a
+Coded templates (the `@wizeworksllc/email` `TemplateSend` union) cannot be edited by a
 tenant, can't render a working CTA without bespoke prop plumbing, and don't carry a
 per-site identity. The default emails become **Builder node-trees** so that:
 
@@ -424,7 +424,7 @@ node it defines). Recorded here for the template side. Three pieces:
 
 | Step | Work                                                                                                           | Owner / blocked on                             |
 | ---- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| 1 ✅ | All 13 trees authored — `DEFAULT_EMAIL_TEMPLATES` in `@wizeworks/builder-schemas` (`default-emails.ts` + test) | mine — **done**                                |
+| 1 ✅ | All 13 trees authored — `DEFAULT_EMAIL_TEMPLATES` in `@wizeworksllc/builder-schemas` (`default-emails.ts` + test) | mine — **done**                                |
 | 2 ✅ | Resolver/`DataSource` reaches the §3 vocabulary (`quote`/`invoice`/`b2bAccount` + every `*Url`)                | automation module — **done**                   |
 | 3 ✅ | The 4 node types render + `{{token}}` interpolation + the `invoicing-overdue` reference (e2e-verified)         | automation module — **done**                   |
 | 4    | `BuilderEmail.property_id` + `key` migration (§6) + partial uniques                                            | mine — **unblocked** (no shared table, see §0) |

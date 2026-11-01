@@ -4,7 +4,7 @@
 // several unrelated businesses (Bob's Parts and Savory Donuts under one login). These
 // fragments are the single answer to which of them a given site may show.
 //
-// WHY THEY LIVE IN @wizeworks/db RATHER THAN IN A SERVICE. They started in api-rest's
+// WHY THEY LIVE IN @wizeworksllc/db RATHER THAN IN A SERVICE. They started in api-rest's
 // `lib/property.ts`, which made them reachable only from routes — so the moment anything
 // else needed the same question answered (the builder resolving a sample record for a
 // record page's preview), the choice was to import across a service boundary or to

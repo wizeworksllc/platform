@@ -194,7 +194,7 @@ never could have. That is the argument for the rule, shown rather than argued.
 
 ## Checks
 
-`@wizeworks/crm` 30 files / 293 tests, `@wizeworks/import-worker` 7 / 81,
+`@wizeworksllc/crm` 30 files / 293 tests, `@wizeworks/import-worker` 7 / 81,
 piggles console 173 / 1619, sparx workbench 142 / 1301 — all green. Typecheck 0
 on crm, import-worker, api-rest and both consoles. 69 of 70 structural checks
 pass; the 70th, `check:deletability:build`, was already red at HEAD, and its

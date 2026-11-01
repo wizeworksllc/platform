@@ -68,7 +68,7 @@ kept at `scratchpad/scan3.mjs`.
 
 Two halves, both in shared code so neither is a call-site patch.
 
-**`shownInPlace`**, exported from `@wizeworks/query`. A named no-op passed where
+**`shownInPlace`**, exported from `@wizeworksllc/query`. A named no-op passed where
 an `onError` goes:
 
     create.mutate(input, { onSuccess: close, onError: shownInPlace });
@@ -81,7 +81,7 @@ conversation. Applied at all 59 sites.
 **Withdrawal.** The reporter now closes a write's failure message when a later
 write from the same hook succeeds, and replaces rather than stacks when the same
 write fails twice. The key is `writeIdentity(meta)` — also new in
-`@wizeworks/query` — because every `mutate()` call is a different `Mutation` with
+`@wizeworksllc/query` — because every `mutate()` call is a different `Mutation` with
 a different id, and the only thing a failure and the retry that fixed it share is
 the hook they came from. The bookkeeping is `createWriteAnnouncements()`, in the
 same package: both consoles' reporters need it and neither owns the other.

@@ -11,7 +11,7 @@
 // wearing the owner's name.
 
 import { describe, expect, it } from 'vitest';
-import { starterFrame, starterPages, SPARX_THEMES } from '@wizeworks/silica-catalog';
+import { starterFrame, starterPages, SPARX_THEMES } from '@wizeworksllc/silica-catalog';
 
 import { lintSite } from './lint';
 import type { LintablePage } from './types';

@@ -12,8 +12,8 @@
 // produces — a plausible-looking email sent under the wrong business's name — is
 // invisible in review and only surfaces in a customer's inbox.
 
-import { prisma, withTenant } from '@wizeworks/db';
-import type { EmailSettings } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import type { EmailSettings } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishEmailEvent } from '../events';

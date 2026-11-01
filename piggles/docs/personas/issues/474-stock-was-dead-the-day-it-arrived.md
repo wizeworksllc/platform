@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** blocker
 **Found by:** Devi opening "Not selling" on a boutique that opened a fortnight ago
-**Surface:** `inventory.planning.idle` (both consoles) · `@wizeworks/inventory` slow-mover report
+**Surface:** `inventory.planning.idle` (both consoles) · `@wizeworksllc/inventory` slow-mover report
 **Filed:** 2026-09-09
 
 ## What was wrong

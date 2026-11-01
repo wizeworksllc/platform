@@ -14,7 +14,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import { authHeader, createTestTenant, dropTestTenant, signToken } from '../helpers.js';
 import type { TestTenant } from '../helpers.js';

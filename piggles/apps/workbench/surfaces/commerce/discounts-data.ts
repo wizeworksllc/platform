@@ -6,7 +6,7 @@
 // A discount reduces what a shopper pays at checkout. It is either a CODE they
 // type ("SAVE10") or an AUTOMATIC one that applies on its own to any order that
 // qualifies. Everything this layer sends satisfies `CreateDiscountInput` /
-// `UpdateDiscountInput` from `@wizeworks/commerce-schemas` exactly — the same Zod the
+// `UpdateDiscountInput` from `@wizeworksllc/commerce-schemas` exactly — the same Zod the
 // server validates on write, imported here so the editor cannot drift from it.
 //
 // ── The key contract ──────────────────────────────────────────────────────
@@ -19,8 +19,8 @@
 // retired discount shows correctly in both the list and the detail at once.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import {
   CreateDiscountInput as CreateDiscountInputSchema,
@@ -28,7 +28,7 @@ import {
   type DiscountScope,
   type DiscountStacking,
   type DiscountType,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import type { Tone } from './products-data';
 

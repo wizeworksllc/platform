@@ -71,7 +71,7 @@ RULE #4).
 The original spinner was already gone for orders and returns: the shared
 `PaneLoadError` reads a 404 as "That order is no longer here". So the act swept
 **every** detail address in the console (99 routes with a required id, from
-`@wizeworks/links`) with an id that belongs to nobody, and read what each pane
+`@wizeworksllc/links`) with an id that belongs to nobody, and read what each pane
 said. Most were right. These were not, and are fixed in both consoles:
 
 **Spun for ever** (the API answered an empty 200, which the pane cannot tell

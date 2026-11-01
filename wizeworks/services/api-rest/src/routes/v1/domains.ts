@@ -30,19 +30,19 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
 import {
   notFound,
   conflict,
   validationError,
   badRequest,
   forbidden,
-} from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireVerifiedEmail } from '../../lib/verified-email-guard.js';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
-import type { DomainPurchasedPayload } from '@wizeworks/events';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
+import type { DomainPurchasedPayload } from '@wizeworksllc/events';
 import {
   normalizeHost,
   isValidHost,

@@ -21,9 +21,9 @@
 // changes no availability, because the goods are on a lorry and the supplier's
 // word is not a receipt. Every quantity on this record is what they SAID.
 
-import { CreateAsnInput, UpdateAsnInput, type AsnLineInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { CreateAsnInput, UpdateAsnInput, type AsnLineInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import {

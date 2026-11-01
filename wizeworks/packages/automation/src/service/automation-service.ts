@@ -21,8 +21,8 @@ import {
   type Trigger,
   UpdateAutomationInput as UpdateSchema,
   triggerToColumns,
-} from '@wizeworks/automation-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/automation-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
 import type { z } from 'zod';
 
 import {

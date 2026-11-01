@@ -1,15 +1,15 @@
 import type { FastifyRequest } from 'fastify';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
-import type { SocialContext } from '@wizeworks/social/service';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
+import type { SocialContext } from '@wizeworksllc/social/service';
 import { resolvePropertyId } from './property.js';
 
 // Social posting is its own free, standalone module (docs/133 §1) — gated on `social`,
 // NOT folded into commerce the way channels are.
 //
 // `SocialContext` (the pure {tenantId, userId} the service runs under) now lives in
-// @wizeworks/social so REST + MCP share it; re-exported here so route imports of
+// @wizeworksllc/social so REST + MCP share it; re-exported here so route imports of
 // `./social-context.js` are unchanged. The Fastify request→context helpers stay here
 // (the package must not depend on Fastify).
 

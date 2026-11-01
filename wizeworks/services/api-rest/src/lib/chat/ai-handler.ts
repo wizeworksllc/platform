@@ -19,12 +19,12 @@
 // here once it is, without touching callers.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { withTenant, prisma } from '@wizeworks/db';
-import type { TenantContext } from '@wizeworks/db';
-import { decryptProviderSecret } from '@wizeworks/integration-framework';
-import { isModuleEnabled } from '@wizeworks/auth';
+import { withTenant, prisma } from '@wizeworksllc/db';
+import type { TenantContext } from '@wizeworksllc/db';
+import { decryptProviderSecret } from '@wizeworksllc/integration-framework';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 import type { Message, ToolCall, ToolDefinition, ToolParameter } from 'llm-harness';
-import { SITE_TOOLS, toAnthropicTools, SiteApiClient, SiteApiError } from '@wizeworks/site-mcp';
+import { SITE_TOOLS, toAnthropicTools, SiteApiClient, SiteApiError } from '@wizeworksllc/site-mcp';
 
 import { resolveActivePropertyName, resolvePrimaryPropertyId } from '../property.js';
 import { getActivePersona } from '../ai/prompt-templates.js';

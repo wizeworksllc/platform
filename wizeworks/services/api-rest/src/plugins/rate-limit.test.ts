@@ -18,9 +18,9 @@
 // read correctly on its own.
 
 import Fastify from 'fastify';
-import { createErrorsPlugin } from '@wizeworks/api-core/errors-plugin';
+import { createErrorsPlugin } from '@wizeworksllc/api-core/errors-plugin';
 import { describe, expect, it } from 'vitest';
-import { TRUSTED_PROXIES } from '@wizeworks/client-ip';
+import { TRUSTED_PROXIES } from '@wizeworksllc/client-ip';
 import rateLimitPlugin from './rate-limit.js';
 
 interface Envelope {

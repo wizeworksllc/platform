@@ -1,15 +1,15 @@
 // Bridge between Fastify auth context and the invoicing services' ServiceContext.
 //
 // The invoicing module (docs/87) lives on the CRM customer spine, so its
-// services reuse @wizeworks/crm's ServiceContext. Routes gate on the dedicated
+// services reuse @wizeworksllc/crm's ServiceContext. Routes gate on the dedicated
 // `invoicing` module flag (not `crm`) — a tenant can bill without running the
 // full CRM surface, and vice versa.
 
 import type { FastifyRequest } from 'fastify';
-import type { ServiceContext } from '@wizeworks/crm';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { ServiceContext } from '@wizeworksllc/crm';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 export function toInvoicingContext(request: FastifyRequest): ServiceContext {
   const auth = requireAuth(request);

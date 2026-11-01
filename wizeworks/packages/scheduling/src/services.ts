@@ -1,9 +1,9 @@
 // Service setup CRUD — what can be booked. resourceRequirements + settings are
 // JSONB; soft-delete keeps historical bookings' service reference valid.
 
-import type { Prisma } from '@wizeworks/db';
-import { withTenant, type SchedulingService, type TxClient } from '@wizeworks/db';
-import type { CreateServiceInput, UpdateServiceInput } from '@wizeworks/scheduling-schemas';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant, type SchedulingService, type TxClient } from '@wizeworksllc/db';
+import type { CreateServiceInput, UpdateServiceInput } from '@wizeworksllc/scheduling-schemas';
 
 import { ServiceNotFoundError } from './errors';
 

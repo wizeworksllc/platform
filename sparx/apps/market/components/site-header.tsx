@@ -4,14 +4,14 @@
 // the primary destinations, a cart entry, and the full category taxonomy strip.
 //
 // The category nav is driven by MARKET_CATEGORIES (the single source of truth in
-// @wizeworks/commerce-schemas) so the header can never drift from the indexed category
+// @wizeworksllc/commerce-schemas) so the header can never drift from the indexed category
 // landing pages. On small screens the search moves to its own row and the category
 // strip scrolls horizontally — the platform's responsive top-2 rule keeps the whole
 // taxonomy reachable on mobile without a hamburger.
 
 import Link from 'next/link';
 import { Heart, ShoppingBag, Store, Tag } from 'lucide-react';
-import { MARKET_CATEGORIES } from '@wizeworks/commerce-schemas';
+import { MARKET_CATEGORIES } from '@wizeworksllc/commerce-schemas';
 import { Button } from '@wizeworks/silicaui-react';
 
 import { Wordmark } from '@/components/sparx-brand';

@@ -12,7 +12,7 @@
 // seven hours out in the owner's own diary (issue 108). The place is the honest
 // source: an appointment happens where the business is.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 /** A place, in the forms the three surfaces need. */
 export interface BookingPlace {

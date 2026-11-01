@@ -7,7 +7,7 @@
 // The scoring model lookup had the identical blind spot (issue 910).
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { customerService } from '../../src/services/index.js';
 import { startLeadClock } from '../../src/services/lead-clock.js';

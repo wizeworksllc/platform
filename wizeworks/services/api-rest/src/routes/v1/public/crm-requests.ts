@@ -23,11 +23,11 @@
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { isModuleEnabled } from '@wizeworks/auth';
-import { ticketService, type TicketView } from '@wizeworks/crm';
-import { type CustomerAuthContext } from '@wizeworks/customer-auth';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { moduleDisabled, notFound } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { ticketService, type TicketView } from '@wizeworksllc/crm';
+import { type CustomerAuthContext } from '@wizeworksllc/customer-auth';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
 
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { resolvePublicPropertyId } from '../../../lib/property.js';

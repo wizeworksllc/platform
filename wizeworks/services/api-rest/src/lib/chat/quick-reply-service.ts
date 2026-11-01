@@ -1,11 +1,11 @@
 // Live Chat — quick replies (canned responses) service (docs/56, docs/69 A-1).
 //
 // Tenant-authored snippets the staff inbox inserts via a "/" autocomplete.
-// Tenant-scoped through withTenant; throws @wizeworks/api-core ApiError.
+// Tenant-scoped through withTenant; throws @wizeworksllc/api-core ApiError.
 
-import { withTenant } from '@wizeworks/db';
-import type { TenantContext } from '@wizeworks/db';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import type { TenantContext } from '@wizeworksllc/db';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
 
 import type { CreateQuickReplyInputT, UpdateQuickReplyInputT } from './types.js';
 

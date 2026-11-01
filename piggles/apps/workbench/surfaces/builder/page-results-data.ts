@@ -15,7 +15,7 @@
 // see one site's revenue against the other's home page.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { formatCentsAmount } from '../../lib/money-format';
 

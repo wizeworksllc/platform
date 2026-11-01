@@ -11,20 +11,20 @@
 
 import { promises as dns } from 'node:dns';
 import { randomBytes } from 'node:crypto';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   SPARX_ZONE,
   normalizeHost,
   tenantZone as readTenantZone,
   zoneOf,
   zoneToUse,
-} from '@wizeworks/db/site-origin';
+} from '@wizeworksllc/db/site-origin';
 import { createTtlCache } from './ttl-cache.js';
 
 // ── THE ZONES WE OWN, AND THE HOST A SITE IS MINTED ON ──────────────────────
 //
 // The zone list, host normalization, `mintZoneHost` and `tenantZone` live in
-// `@wizeworks/db/site-origin` (its `site-zones` module, with the full rationale),
+// `@wizeworksllc/db/site-origin` (its `site-zones` module, with the full rationale),
 // because code outside api-rest names a site's address too: the marketplace
 // projection, the channel-sync worker's product feed, the MCP domain tools (sparx
 // persona issue 064). They are re-exported here so every api-rest call site is
@@ -38,7 +38,7 @@ export {
   zoneOf,
   mintZoneHost,
   mintedZoneOf,
-} from '@wizeworks/db/site-origin';
+} from '@wizeworksllc/db/site-origin';
 
 /** The zone a tenant's sites live in, read off the subdomain it already has. */
 export function tenantZone(tenantId: string): Promise<string> {

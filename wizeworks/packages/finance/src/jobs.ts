@@ -16,8 +16,8 @@
 // surface prints it, because a list-price margin quietly mixed in with collected
 // ones is a number that misleads exactly the person relying on it.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { businessDayRange, businessDayStart } from '@wizeworks/time';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { businessDayRange, businessDayStart } from '@wizeworksllc/time';
 
 import { businessZone } from './business-clock';
 import { ORDER_MOVEMENT_REFERENCE } from './stock-movements';

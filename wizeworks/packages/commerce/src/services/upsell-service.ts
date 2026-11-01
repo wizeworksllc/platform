@@ -27,7 +27,7 @@
 // from the order a moment ago. It is not a charge without a decision — the
 // customer still presses the button.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { CommerceValidationError } from '../errors';
@@ -35,7 +35,7 @@ import {
   paymentService,
   PaymentConfigError,
   StoredMethodsUnsupportedError,
-} from '@wizeworks/payments';
+} from '@wizeworksllc/payments';
 import * as cartService from './cart-service';
 import * as checkoutService from './checkout-service';
 import * as offerService from './offer-service';

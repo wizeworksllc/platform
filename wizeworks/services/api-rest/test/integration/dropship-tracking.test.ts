@@ -16,8 +16,8 @@
 
 import crypto from 'node:crypto';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import type { SupplierAdapter, TrackingInfo } from '@wizeworks/dropship';
-import { withTenant } from '@wizeworks/db';
+import type { SupplierAdapter, TrackingInfo } from '@wizeworksllc/dropship';
+import { withTenant } from '@wizeworksllc/db';
 
 import { pollDropshipTracking } from '../../src/lib/dropship-tracking.js';
 import { createTestTenant, dropTestTenant, type TestTenant } from '../helpers.js';

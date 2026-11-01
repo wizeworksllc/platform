@@ -8,7 +8,7 @@
 // Required columns: email (for upsert lookup; otherwise creates a no-email prospect).
 //
 // Columns: the canonical customer field keys (`ENTITY_FIELDS.customers` in
-// @wizeworks/migration), held equal to what this file reads by `contract.test.ts`.
+// @wizeworksllc/migration), held equal to what this file reads by `contract.test.ts`.
 // A full name fills first and last name when the file has no separate columns, and
 // a note lands on the person's timeline. SMS opt-in, lifetime spend, order count and
 // "customer since" are NOT on that list: there is no SMS consent to record here, the
@@ -22,7 +22,7 @@
 // importing, and dropping it silently is the failure this guards against.
 
 import type { Logger } from 'pino';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   checkCustomerInput,
   customerService,
@@ -31,7 +31,7 @@ import {
   engagementService,
   objectDefService,
   propertiesFromRow,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 
 import type { EntityProcessor, PreviewResult } from './types';
 

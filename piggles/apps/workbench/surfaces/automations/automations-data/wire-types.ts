@@ -5,7 +5,7 @@ import type {
   AutomationStatus,
   ConditionGroup,
   Trigger,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 
 /* ── Semantic tone (shared with the Badge/Button color axis) ────────────── */
 
@@ -18,7 +18,7 @@ export type Tone = 'success' | 'warning' | 'danger' | 'info' | 'neutral' | 'modu
 
 /** One rule as `GET /v1/automations/:id` returns it: the live PUBLISHED document plus a staged
  *  `draft`. The JSON sub-parts are `unknown` on the wire and parsed with the canonical
- *  `@wizeworks/automation-schemas` parsers in presentation.tsx, never trusted raw. */
+ *  `@wizeworksllc/automation-schemas` parsers in presentation.tsx, never trusted raw. */
 export interface Automation {
   id: string;
   tenantId: string;

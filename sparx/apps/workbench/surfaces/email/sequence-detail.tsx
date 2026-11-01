@@ -35,7 +35,7 @@ import {
   useToast,
 } from '@wizeworks/silicaui-react';
 import { ArrowDown, ArrowUp, Clock, Mail, Plus, Power, Trash2, Users } from 'lucide-react';
-import type { SequenceStep } from '@wizeworks/email-sequences/schemas';
+import type { SequenceStep } from '@wizeworksllc/email-sequences/schemas';
 import {
   buildEnrollerWords,
   offersToBuildEnroller,

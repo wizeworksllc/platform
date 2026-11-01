@@ -35,7 +35,7 @@ import {
   UpdateFitmentDomainInput,
   UpdateFitmentNodeInput,
   UpsertProductTranslationInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import {
   categoryService,

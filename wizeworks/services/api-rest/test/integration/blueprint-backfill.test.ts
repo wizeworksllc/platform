@@ -13,7 +13,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyBaseLogger } from 'fastify';
-import { type Prisma, prisma } from '@wizeworks/db';
+import { type Prisma, prisma } from '@wizeworksllc/db';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 import { backfillInstallForModule } from '../../src/lib/blueprint-backfill.js';
 

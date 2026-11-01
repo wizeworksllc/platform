@@ -93,7 +93,7 @@ export function accountOperationHandlers(): Record<
 
 // ── Cross-domain handoff ────────────────────────────────────────────────────
 
-/** A cookie to set exactly as given. Mirrors `@wizeworks/auth`'s SessionCookie. */
+/** A cookie to set exactly as given. Mirrors `@wizeworksllc/auth`'s SessionCookie. */
 export interface SessionCookie {
   name: string;
   /** Already signed. Do not encode it. */

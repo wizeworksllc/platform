@@ -39,8 +39,8 @@
  *      see from above and nearly invisible from inside one service, which is
  *      the definition of something a structural check should own.
  *
- *   4. A service that renders email (it depends on @wizeworks/email,
- *      @wizeworks/email-worker or @wizeworks/brand-core) names every brand in
+ *   4. A service that renders email (it depends on @wizeworksllc/email,
+ *      @wizeworksllc/email-worker or @wizeworksllc/brand-core) names every brand in
  *      its `.env.example`: `<BRAND>_BRAND_NAME`. Claim 2 cannot see this one,
  *      because the name is never REQUIRED: brand-core falls back to the brand's
  *      lowercase key. So event-worker, which renders every queued email, sent
@@ -67,7 +67,7 @@ const SCAN_ROOTS = ['wizeworks/services'];
  *  is added here, which is the point: every email-rendering service then has to
  *  name it. */
 const BRANDS = ['SPARX', 'PIGGLES'];
-const EMAIL_DEPS = ['@wizeworks/email', '@wizeworks/email-worker', '@wizeworks/brand-core'];
+const EMAIL_DEPS = ['@wizeworksllc/email', '@wizeworksllc/email-worker', '@wizeworksllc/brand-core'];
 
 /** Services with no environment of their own to declare. Each is a decision. */
 const NO_ENV = new Set([]);

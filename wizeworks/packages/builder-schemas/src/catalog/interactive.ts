@@ -4,7 +4,7 @@
 // Everything else in the catalog is presentational (CSS-only): the earlier files
 // build carousels from scroll-snap, accordions from <details>, tabs from a static
 // underline — because they predate the behavior runtime. THIS file is what that
-// runtime (Pillar 5, @wizeworks/builder-render behaviors) unlocks: real autoplay
+// runtime (Pillar 5, @wizeworksllc/builder-render behaviors) unlocks: real autoplay
 // carousels, a continuously-scrolling marquee, a scroll-adaptive nav, a click-open
 // mega-menu, a single-open FAQ accordion, JS-wired tabs, plus a side drawer and an
 // anchored popover (both the same `menu` trigger→panel disclosure).

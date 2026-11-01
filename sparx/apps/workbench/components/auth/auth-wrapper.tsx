@@ -16,7 +16,7 @@
 
 import { useEffect, useState, type FormEvent } from 'react';
 import { KeyRound, LogIn, Mail, ShieldCheck, UserPlus } from 'lucide-react';
-import { authClient, emailOtp, signIn, twoFactor } from '@wizeworks/auth/client';
+import { authClient, emailOtp, signIn, twoFactor } from '@wizeworksllc/auth/client';
 import {
   Alert,
   Button,

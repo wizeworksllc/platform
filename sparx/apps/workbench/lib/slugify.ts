@@ -12,7 +12,7 @@
 // That is a real bakery's real product, and that is its public web address.
 // Issue #013.
 //
-// The server already gets this right — `slugify` in `@wizeworks/commerce`'s
+// The server already gets this right — `slugify` in `@wizeworksllc/commerce`'s
 // product-service normalises to NFKD and strips the combining marks first, so
 // the API would have produced `ham-gruyere-and-mustard-baguette`. It never got
 // the chance: the console fills the "Web address" field from the typed name and

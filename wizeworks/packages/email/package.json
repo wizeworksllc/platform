@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/email",
+  "name": "@wizeworksllc/email",
   "version": "0.0.0",
   "private": true,
-  "description": "Platform email infrastructure — React Email templates, provider abstraction (Mailgun in prod, console in dev), and the high-level sendEmail() called by Better Auth, signup flows, and api-rest event consumers. Brand-blind: the sending product's name and palette arrive per send from @wizeworks/brand-core.",
+  "description": "Platform email infrastructure — React Email templates, provider abstraction (Mailgun in prod, console in dev), and the high-level sendEmail() called by Better Auth, signup flows, and api-rest event consumers. Brand-blind: the sending product's name and palette arrive per send from @wizeworksllc/brand-core.",
   "type": "module",
   "exports": {
     ".": {
@@ -42,10 +42,10 @@
   "dependencies": {
     "@react-email/components": "^1.0.12",
     "@react-email/render": "^2.0.8",
-    "@wizeworks/brand-core": "workspace:*",
-    "@wizeworks/builder-schemas": "workspace:*",
-    "@wizeworks/cms-editor": "workspace:*",
-    "@wizeworks/site-themes": "workspace:*",
+    "@wizeworksllc/brand-core": "workspace:*",
+    "@wizeworksllc/builder-schemas": "workspace:*",
+    "@wizeworksllc/cms-editor": "workspace:*",
+    "@wizeworksllc/site-themes": "workspace:*",
     "@wizeworks/silicaui-builder": "catalog:",
     "zod": "^4.6.6"
   },

@@ -121,8 +121,8 @@ The second line is the honest one for THIS shop, which settles in person — see
 **360px** (checked in an iframe, not by resizing): the panel fills the column and
 both sentences wrap with no horizontal overflow.
 
-Typecheck, lint and prettier clean across the site app, `@wizeworks/silica-catalog`,
-`@wizeworks/commerce` and api-rest.
+Typecheck, lint and prettier clean across the site app, `@wizeworksllc/silica-catalog`,
+`@wizeworksllc/commerce` and api-rest.
 
 ## What is not proven
 

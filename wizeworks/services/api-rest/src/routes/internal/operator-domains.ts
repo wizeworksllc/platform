@@ -18,13 +18,13 @@
 
 import { promises as dns } from 'node:dns';
 import type { FastifyPluginAsync } from 'fastify';
-import { prisma, withTenant, type Prisma } from '@wizeworks/db';
+import { prisma, withTenant, type Prisma } from '@wizeworksllc/db';
 import {
   createPublisher,
   publishEvent,
   type PublisherLogger,
   type DomainPurchasedPayload,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 import type {
   OperatorDomainListItem,
   OperatorDomainListResult,
@@ -35,7 +35,7 @@ import type {
   OperatorDomainReverifyResult,
   OperatorDomainSslStatus,
   OperatorDomainVerificationMethod,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import { CNAME_TARGET, isSubdomainHost, verifyCname, verifyTxtToken } from '../../lib/domain.js';
 import { authorizeOperator, badRequest, notFound, operatorIdOf } from './operator-internal.js';

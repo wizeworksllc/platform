@@ -7,17 +7,17 @@
 // the BookingNotification ledger, which is bookingId-keyed) — a direct transactional
 // send, since there's no booking yet.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   expireWaitlistOffers,
   getAvailability,
   listWaitlist,
   offerWaitlistEntry,
   renderWaitlistOfferSms,
-} from '@wizeworks/scheduling';
-import { sendTenantSms } from '@wizeworks/sms/delivery';
+} from '@wizeworksllc/scheduling';
+import { sendTenantSms } from '@wizeworksllc/sms/delivery';
 
 import { env } from '../env.js';
 import { resolveActivePropertyName } from './property.js';

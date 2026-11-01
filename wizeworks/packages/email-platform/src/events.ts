@@ -1,8 +1,8 @@
-// Email-platform domain-event publisher (mirrors @wizeworks/crm events).
+// Email-platform domain-event publisher (mirrors @wizeworksllc/crm events).
 //
 // These are MANAGEMENT/domain events the email module emits (broadcast sent,
 // domain verified, suppression added, …) — distinct from the `email.send`
-// Pub/Sub event in @wizeworks/events that the dispatch path publishes to actually
+// Pub/Sub event in @wizeworksllc/events that the dispatch path publishes to actually
 // deliver mail. Keeping the publisher abstract lets unit tests inject a
 // RecordingPublisher and assert emissions without standing up Pub/Sub.
 

@@ -40,8 +40,8 @@
 // you happen to be holding" — the wrong answer dressed as the right one.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 import type { Tone } from './data';
 

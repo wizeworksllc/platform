@@ -31,16 +31,16 @@ The dropship stack is **built and live** (docs/64 Ph1–Ph5). The pieces:
 
 | Layer       | Where                                                                 | What                                                                                                      |
 | ----------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Adapters    | [`@wizeworks/dropship`](../packages/dropship)                         | `SupplierAdapter` interface + `createAdapter()` registry + `applyPricingRule()` + the `VENDOR_CATALOG`    |
+| Adapters    | [`@wizeworksllc/dropship`](../packages/dropship)                         | `SupplierAdapter` interface + `createAdapter()` registry + `applyPricingRule()` + the `VENDOR_CATALOG`    |
 | Data        | [65-dropship.prisma](../packages/db/prisma/schema/65-dropship.prisma) | `DropshipSupplier`, `DropshipProduct`, `DropshipProductLink`, `DropshipOrder`, `DropshipSupplierProperty` |
 | API         | [v1/dropship](../services/api-rest/src/routes/v1/dropship)            | `suppliers` (connect/configure/sync/catalog/import) + `orders` + `analytics` + `vendors`                  |
 | Operator UI | [workbench dropship surface](../apps/workbench/surfaces/dropship)     | Suppliers, products, analytics; the vendor picker + per-vendor connect form                               |
 
-> **One dropship abstraction, not two.** `@wizeworks/integration-framework` also declares a
+> **One dropship abstraction, not two.** `@wizeworksllc/integration-framework` also declares a
 > `DropshipProvider` interface (so `ProviderBundle.dropship` type-checks). It is **dead** — the
-> built path is `@wizeworks/dropship`, which has its own table and routes rather than riding the
+> built path is `@wizeworksllc/dropship`, which has its own table and routes rather than riding the
 > provider/marketplace install flow. The framework interface is annotated deprecated; new
-> dropship work extends `@wizeworks/dropship`. (Supersedes the docs/88 §5 "framework speced" note.)
+> dropship work extends `@wizeworksllc/dropship`. (Supersedes the docs/88 §5 "framework speced" note.)
 
 ---
 
@@ -257,7 +257,7 @@ Do not block the deferred work: when POD authoring lands, it is additive.
 
 | #   | Decision                       | Choice                                                                                             |
 | --- | ------------------------------ | -------------------------------------------------------------------------------------------------- |
-| D1  | Dropship abstraction           | Extend the built `@wizeworks/dropship` `SupplierAdapter`; the framework `DropshipProvider` is dead |
+| D1  | Dropship abstraction           | Extend the built `@wizeworksllc/dropship` `SupplierAdapter`; the framework `DropshipProvider` is dead |
 | D2  | Which vendors                  | Only self-serve documented APIs: Printify, Printful, DSers, Spocket, CSV                           |
 | D3  | No-API vendors                 | Hidden from the picker (not stubbed): Tapstitch, PODPartner, Zendrop, AutoDS, Faire                |
 | D4  | POD pick (replacing Tapstitch) | Printify + Printful (both real APIs)                                                               |

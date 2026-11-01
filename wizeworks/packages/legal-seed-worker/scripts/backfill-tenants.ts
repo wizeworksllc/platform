@@ -10,8 +10,8 @@
 // Without GCP_PROJECT_ID the publisher is a logging stub (dry run — prints what
 // it WOULD publish), which is handy for a local sanity check.
 
-import { prisma } from '@wizeworks/db';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { prisma } from '@wizeworksllc/db';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 
 const SENTINEL_TENANT = '00000000-0000-0000-0000-000000000000';
 

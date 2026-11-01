@@ -44,13 +44,13 @@ import {
   orderFulfillmentsService,
   orderRefundsService,
   billingFromOrderService,
-} from '@wizeworks/crm';
-import { listFulfillmentLabels, quoteOutboundRates, shippingService } from '@wizeworks/commerce';
-import { inventoryService } from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/crm';
+import { listFulfillmentLabels, quoteOutboundRates, shippingService } from '@wizeworksllc/commerce';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { withTenant } from '@wizeworksllc/db';
 import { requireOrderAccess, toOrderContext } from '../../lib/order-context.js';
 import { sendTenantEmailByKey } from '../../lib/tenant-email.js';
 import { refundOrderThroughGateway } from '../../lib/order-refund.js';
@@ -97,7 +97,7 @@ const ListQuery = z.object({
   payment_status: z.string().optional(),
   // Orders with money still to collect — NOT the same as payment_status=unpaid,
   // which a cancelled order carries forever and a part-paid one never does. The
-  // rule is `isOwingOrder` in @wizeworks/crm-schemas.
+  // rule is `isOwingOrder` in @wizeworksllc/crm-schemas.
   owing: z
     .enum(['true', 'false'])
     .transform((v) => v === 'true')

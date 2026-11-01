@@ -1,7 +1,7 @@
 // What to SAY when a write comes back refused, and what a failed READ means.
 // One home for both, so no data module words them by hand.
 
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 
 import { refusedWhat } from './refused-fields';
 

@@ -6,7 +6,7 @@
 // Nulls stay nulls in the PER-POST view (a platform that can't report reach must not read
 // as 0 reach); in the aggregate rollups a null simply contributes 0 to a sum.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import type { SocialContext } from './social-context.js';
 
 export interface MetricSnapshot {

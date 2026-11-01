@@ -83,7 +83,7 @@ STATUS). Whatever is decided here has to be what that checker enforces.
 **Bites when:** a sparx deployment runs without `GOOGLE_CLIENT_ID` /
 `GOOGLE_CLIENT_SECRET`
 
-The Piggles half of the old item 5 is fixed: `@wizeworks/auth` now answers
+The Piggles half of the old item 5 is fixed: `@wizeworksllc/auth` now answers
 "which social sign-ins does this deployment actually have" in ONE place
 (`social-providers.ts`), its own server config asks that function before
 registering the provider, and the account app asks the same function before
@@ -102,7 +102,7 @@ inherited from the previous note rather than re-verified.
 **The fix is now one line there**, because the primitive exists:
 
 ```ts
-import { socialProviderConfigured } from '@wizeworks/auth';
+import { socialProviderConfigured } from '@wizeworksllc/auth';
 // …
 {socialProviderConfigured('google') ? <GoogleButton /> : null}
 ```

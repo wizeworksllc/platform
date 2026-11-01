@@ -5,9 +5,9 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import { inventoryService } from '@wizeworks/inventory';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import { inventoryService } from '@wizeworksllc/inventory';
 import { createApp } from '../../src/app.js';
 import { authHeader, seedPrimaryProperty, signToken } from '../helpers.js';
 

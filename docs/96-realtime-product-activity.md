@@ -5,7 +5,7 @@
 **Last Updated:** 2026-10-21
 
 > **1.1 — Read "Redis adapter" below as "socket bus".** The cross-replica transport
-> for api-rest's socket.io servers is now `@wizeworks/socket-bus`: plain NATS
+> for api-rest's socket.io servers is now `@wizeworksllc/socket-bus`: plain NATS
 > publish/subscribe on the event broker's server, selected by `SOCKET_BUS_URL`. Redis
 > no longer carries socket traffic anywhere. Room-size viewer counts (below) still
 > work: `fetchSockets` and room cardinality are answered across replicas by the
@@ -51,7 +51,7 @@ The realtime layer **must not** be required for correctness. If the socket never
 
 ```
  order.paid / review.published / question.* / inventory.low
-        │  (Google Pub/Sub — @wizeworks/events)
+        │  (Google Pub/Sub — @wizeworksllc/events)
         ▼
  activity-fanout-worker            (Cloud Run, Pub/Sub push — new)
    • resolve event → affected productId(s)
@@ -135,7 +135,7 @@ type ActivityEvent =
 
 Source-event → `ActivityEvent` mapping (owned by the fanout worker):
 
-| Domain event (@wizeworks/events)           | Activity   | Notes                                                                                                                             |
+| Domain event (@wizeworksllc/events)           | Activity   | Notes                                                                                                                             |
 | ------------------------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `order.paid`                               | `purchase` | Canonical "money received." Resolve order → line items → productIds; one event per distinct product. `qty` bucketed, never exact. |
 | `review.published`                         | `review`   | Reuses the public review shape (author = displayName, excerpt = first ~140 chars).                                                |

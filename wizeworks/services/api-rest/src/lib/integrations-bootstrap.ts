@@ -14,14 +14,14 @@
 // Adding an integration means registering it here (or, for a contributor's uploaded
 // bundle, landing in the same plane through the marketplace). Nothing else.
 
-import { registerBuiltinChannels } from '@wizeworks/channels/adapters';
-import { registerDropshipIntegrations } from '@wizeworks/dropship';
-import { registerProviderIntegrations } from '@wizeworks/integration-framework';
-import { registerAvalaraProviders } from '@wizeworks/provider-avalara';
-import { registerEasypostProviders } from '@wizeworks/provider-easypost';
-import { registerShippoProviders } from '@wizeworks/provider-shippo';
-import { registerTaxjarProviders } from '@wizeworks/provider-taxjar';
-import { registerBuiltinSocialAdapters } from '@wizeworks/social/adapters';
+import { registerBuiltinChannels } from '@wizeworksllc/channels/adapters';
+import { registerDropshipIntegrations } from '@wizeworksllc/dropship';
+import { registerProviderIntegrations } from '@wizeworksllc/integration-framework';
+import { registerAvalaraProviders } from '@wizeworksllc/provider-avalara';
+import { registerEasypostProviders } from '@wizeworksllc/provider-easypost';
+import { registerShippoProviders } from '@wizeworksllc/provider-shippo';
+import { registerTaxjarProviders } from '@wizeworksllc/provider-taxjar';
+import { registerBuiltinSocialAdapters } from '@wizeworksllc/social/adapters';
 
 import { registerAiIntegrations } from './ai/integrations.js';
 

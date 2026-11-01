@@ -13,16 +13,16 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   createCertification,
   deleteCertification,
   getMember,
   listCertifications,
   updateCertification,
-} from '@wizeworks/staff';
-import { certificationSchema } from '@wizeworks/staff/schemas';
+} from '@wizeworksllc/staff';
+import { certificationSchema } from '@wizeworksllc/staff/schemas';
 import { requireStaffModule } from '../../../lib/staff-context.js';
 import { certificationView, displayName } from './views.js';
 

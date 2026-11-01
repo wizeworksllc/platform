@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import * as React from 'react';
 import Link from 'next/link';
 import { Alert, Badge, Button, Text } from '@wizeworks/silicaui-react';
-import { getSession, readInvitation, type InvitationDetail } from '@wizeworks/auth-client-server';
+import { getSession, readInvitation, type InvitationDetail } from '@wizeworksllc/auth-client-server';
 import { AuthShell } from '@/components/auth-shell';
 import {
   AcceptInviteButton,

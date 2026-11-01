@@ -10,10 +10,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { AvailabilityException, AvailabilityWindow } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { AvailabilityExceptionInput, AvailabilityWindowInput } from '@wizeworks/scheduling-schemas';
+import type { AvailabilityException, AvailabilityWindow } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { AvailabilityExceptionInput, AvailabilityWindowInput } from '@wizeworksllc/scheduling-schemas';
 import {
   setAvailabilityWindows,
   listAvailabilityWindows,
@@ -22,7 +22,7 @@ import {
   deleteAvailabilityException,
   getAvailability,
   type ComputedSlot,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

@@ -18,7 +18,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 
-import { automationSchedulers } from '@wizeworks/automation';
+import { automationSchedulers } from '@wizeworksllc/automation';
 
 import { env } from '../../env.js';
 

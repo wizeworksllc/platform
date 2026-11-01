@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/scheduling",
+  "name": "@wizeworksllc/scheduling",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Scheduling engine (docs/79) — availability/slot computation, the booking lifecycle with a DB-level no-overlap guarantee, and resource/service/availability setup. One model, every booking shape (appointment / class / reservation / rental).",
@@ -21,9 +21,9 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/scheduling-schemas": "workspace:*",
-    "@wizeworks/time": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/scheduling-schemas": "workspace:*",
+    "@wizeworksllc/time": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

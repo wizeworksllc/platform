@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/automation-schemas",
+  "name": "@wizeworksllc/automation-schemas",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Automation — Zod schemas + types for the automation rule document (trigger / condition / action / gate-log) shared across engine, REST, MCP (docs/81-automation-module.md, docs/84-automation-build-log.md).",

@@ -1,7 +1,7 @@
 // What each role actually MEANS, said in words a business owner uses.
 //
 // The roles themselves are the platform's vocabulary (`ORG_ROLES` in
-// @wizeworks/auth) and are not up for reinterpretation here. What lives in this
+// @wizeworksllc/auth) and are not up for reinterpretation here. What lives in this
 // file is the explanation — and it is the whole point of the team screens.
 //
 // "Editor" tells nobody anything. Someone deciding whether their new bookkeeper
@@ -15,9 +15,9 @@
 // Deliberately not shared with the dashboard's copy of this vocabulary: that
 // one is written for a settings page, and these screens are not that page.
 
-import { ORG_ROLES, type OrgRole } from '@wizeworks/auth/org-roles';
-import { roleIgnoresModuleAccess } from '@wizeworks/auth/module-access';
-import { roleIgnoresPropertyAccess } from '@wizeworks/auth/property-access';
+import { ORG_ROLES, type OrgRole } from '@wizeworksllc/auth/org-roles';
+import { roleIgnoresModuleAccess } from '@wizeworksllc/auth/module-access';
+import { roleIgnoresPropertyAccess } from '@wizeworksllc/auth/property-access';
 import { canManageBusiness } from '../../lib/manage-rights';
 
 /** The role names as a person reads them. */

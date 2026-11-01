@@ -5,7 +5,7 @@
 // theme names (apex / industrial / drift / market / fleet / drop). Those six were
 // the whole theme library before the silica catalog, and they are gone: the
 // platform now ships FORTY themes as code (`FIRST_PARTY_THEMES`,
-// @wizeworks/silica-catalog), each carrying its own complete palette. A theme that
+// @wizeworksllc/silica-catalog), each carrying its own complete palette. A theme that
 // brings its own preset does not need a registry to look one up in — so what is
 // left here is the ONE fallback, not a shelf.
 //

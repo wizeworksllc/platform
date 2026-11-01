@@ -1,8 +1,8 @@
 // Module-enablement primitives — the "disabled module = zero overhead" rule
-// (locked decision #6). Extracted from @wizeworks/auth so it carries NO auth/email/UI
+// (locked decision #6). Extracted from @wizeworksllc/auth so it carries NO auth/email/UI
 // closure: it only reads `tenants.settings.modules.<slug>.enabled`.
 //
-// The session-coupled `requireModule(session, …)` stays in @wizeworks/auth (it needs
+// The session-coupled `requireModule(session, …)` stays in @wizeworksllc/auth (it needs
 // SparxSession); it composes the session-free `isModuleEnabled` exported here.
 //
 // Storage: per-tenant flags live in `tenants.settings.modules.<slug>.enabled`.
@@ -14,7 +14,7 @@
 // avoids hammering the DB for the same flag on every request. Invalidation happens
 // via the module.activated / module.deactivated event consumer.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 // The module-preset contract + pure registry index (the reusable install seam).
 // Type-only dep on ModuleSlug below, so no runtime cycle.

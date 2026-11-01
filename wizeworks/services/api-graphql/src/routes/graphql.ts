@@ -2,14 +2,14 @@
 //
 // Mirrors the REST surface for content reads and the common content
 // mutations. Same auth model (internal-trust JWT verified by
-// @wizeworks/api-core/auth), same tenant scoping (withRequestTenant). SDL is
+// @wizeworksllc/api-core/auth), same tenant scoping (withRequestTenant). SDL is
 // hand-written rather than generated via Pothos — keeps the dependency
 // surface small, and our type set is narrow enough that a single SDL string
 // is easier to grep than a half-dozen builder calls.
 //
 // Resolvers are intentionally thin wrappers around the same service /
 // repository helpers the REST routes use (everything imported here lives
-// in @wizeworks/api-core), so the two surfaces can't drift.
+// in @wizeworksllc/api-core), so the two surfaces can't drift.
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import mercurius, { type MercuriusContext } from 'mercurius';
@@ -22,9 +22,9 @@ declare module 'mercurius' {
     request: FastifyRequest;
   }
 }
-import type { ContentEntry, Prisma } from '@wizeworks/db';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import type { ContentEntry, Prisma } from '@wizeworksllc/db';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import {
   parseTypeSchema,
   publishTimestamp,
@@ -33,12 +33,12 @@ import {
   recordRevision,
   serializeEntry,
   syncReferences,
-} from '@wizeworks/cms';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { slugify, uniqueSlug } from '@wizeworks/api-core/slug';
-import { computeEntryEtag, assertIfMatch } from '@wizeworks/api-core/etag';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/cms';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { slugify, uniqueSlug } from '@wizeworksllc/api-core/slug';
+import { computeEntryEtag, assertIfMatch } from '@wizeworksllc/api-core/etag';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
 import { crmResolvers, crmSdl } from './crm/index.js';
 
 type Json = Prisma.InputJsonValue;

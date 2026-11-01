@@ -12,9 +12,9 @@
 // a single event-dispatch batch but premature — every event invalidates the
 // snapshot anyway.
 
-import { withTenant } from '@wizeworks/db';
-import type { Customer } from '@wizeworks/db';
-import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworks/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Customer } from '@wizeworksllc/db';
+import type { CustomerType, LeadStatus, LifecycleStage } from '@wizeworksllc/crm-schemas';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError } from '../errors';

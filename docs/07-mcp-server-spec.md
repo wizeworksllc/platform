@@ -155,8 +155,8 @@ Best performing product: Bosch Injector Set at $12,400."
 The transport accepts **three** bearer credentials, discriminated by token shape at `wizeworks/services/api-mcp/src/auth.ts`:
 
 1. **Internal JWT** (HS256, three dot-separated segments) — minted by the dashboard for first-party staff calls.
-2. **API key** (`sk_live_<8>_<32>`) — issued in AI Integrations, verified via `@wizeworks/auth/api-keys`.
-3. **OAuth 2.1 access token** (opaque 32-char) — issued by the MCP OAuth flow below and verified by `verifyMcpOAuthToken` in `@wizeworks/auth/mcp-oauth`.
+2. **API key** (`sk_live_<8>_<32>`) — issued in AI Integrations, verified via `@wizeworksllc/auth/api-keys`.
+3. **OAuth 2.1 access token** (opaque 32-char) — issued by the MCP OAuth flow below and verified by `verifyMcpOAuthToken` in `@wizeworksllc/auth/mcp-oauth`.
 
 In all three the tenant must have the `ai` module active; per-tool scopes then decide which tools run.
 
@@ -200,7 +200,7 @@ Its validator meanwhile compared the requested `resource` against sparx's addres
 so it would have refused a genuine Piggles request as "for a different service".
 
 The resolution is `mcpResourceUrl(brand)` / `mcpAuthServerOrigin(brand)` in
-`@wizeworks/links/server`, alongside `appOrigin` and `accountOrigin` and derived the
+`@wizeworksllc/links/server`, alongside `appOrigin` and `accountOrigin` and derived the
 same way — the variable **name** comes from the brand key, so a third brand is
 configuration rather than an edit. api-mcp builds a host→brand map at boot from
 `PLATFORM_BRANDS` and **exits 78** when a listed brand has no usable address: a brand

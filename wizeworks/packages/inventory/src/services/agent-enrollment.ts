@@ -1,14 +1,14 @@
 // Tier A on-prem bridge enrollment — the source-side state (docs/100 P5d, docs/28
 // §3). An `agent` source is fed by an outbound-HTTPS bridge the tenant installs on
 // their network; pairing mints a tenant-scoped API key (done in the api-rest route
-// via @wizeworks/auth — key issuance stays out of this server-only domain package) and
+// via @wizeworksllc/auth — key issuance stays out of this server-only domain package) and
 // records a reference here so the connection can show "paired" + rotate/revoke.
 //
 // `touchAgent` is the liveness bump every push AND heartbeat calls — it drives the
 // online/offline indicator. The key MINT/REVOKE itself lives in the route (it owns
-// @wizeworks/auth); this module owns the source row.
+// @wizeworksllc/auth); this module owns the source row.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

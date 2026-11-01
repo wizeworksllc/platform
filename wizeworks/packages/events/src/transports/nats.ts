@@ -112,7 +112,7 @@ export class NatsJetStreamPublisher implements Publisher {
       // actually SELECTED, so a Pub/Sub deployment never pays for it and a
       // unit test on the logging stub does not need a broker library resolved
       // at all. Static-importing it here would pull the whole NATS client into
-      // every service that imports @wizeworks/events, which is all of them.
+      // every service that imports @wizeworksllc/events, which is all of them.
       const { connect } = await import('nats');
       const conn = await connect({
         servers: this.url,

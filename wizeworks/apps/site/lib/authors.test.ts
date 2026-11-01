@@ -3,8 +3,8 @@
 // author's page lists what they did in the role they did it.
 
 import { describe, expect, it } from 'vitest';
-import { AUTHORS_SOURCE_KEY } from '@wizeworks/builder-schemas';
-import { AUTHORS_LIST_REF, type KindFieldLike } from '@wizeworks/silica-catalog';
+import { AUTHORS_SOURCE_KEY } from '@wizeworksllc/builder-schemas';
+import { AUTHORS_LIST_REF, type KindFieldLike } from '@wizeworksllc/silica-catalog';
 
 import { authorPieceCard, authorRecord, type PublicAuthorPage } from './authors';
 import type { ApiEntry } from './content';

@@ -13,7 +13,7 @@
 // in that sentence — which the plain version does not contain.
 
 import { describe, expect, it } from 'vitest';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 
 import { isDuplicateRedirectError, redirectErrorMessage } from './redirects-format';
 

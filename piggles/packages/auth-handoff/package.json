@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@piggles/config": "workspace:*",
-    "@wizeworks/auth-client-server": "workspace:*"
+    "@wizeworksllc/auth-client-server": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",

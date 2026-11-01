@@ -1,6 +1,6 @@
 // Which tenants the payment-reconcile sweep has anything to look at (WW-9).
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 /** The sweep leaves a payment alone for its first two minutes (sweepStrandedCheckoutPayments). */
 const STRANDED_AFTER_MS = 2 * 60_000;

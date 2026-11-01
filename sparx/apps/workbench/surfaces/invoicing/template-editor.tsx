@@ -19,7 +19,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { PaneLoadError } from '../../components/pane-load-error';
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import {
   Alert,
   Badge,

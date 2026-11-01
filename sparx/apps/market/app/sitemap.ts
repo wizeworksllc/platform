@@ -1,12 +1,12 @@
 import type { MetadataRoute } from 'next';
-import { MARKET_CATEGORIES } from '@wizeworks/commerce-schemas';
+import { MARKET_CATEGORIES } from '@wizeworksllc/commerce-schemas';
 
 import { listMerchantSlugs, listProductSlugs } from '@/lib/sitemap-data';
 import { SITE_ORIGIN as BASE } from '@/lib/site';
 
 // Static marketplace routes + one indexed landing page per market category +
 // the live catalog (every product + merchant). The category list comes from
-// MARKET_CATEGORIES (the single source of truth in @wizeworks/commerce-schemas), so
+// MARKET_CATEGORIES (the single source of truth in @wizeworksllc/commerce-schemas), so
 // the sitemap can never drift from the category pages that actually render. The
 // catalog fan-out is best-effort: each slug read degrades to [] so the sitemap
 // always ships at least its static routes.

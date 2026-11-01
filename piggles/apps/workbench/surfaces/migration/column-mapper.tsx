@@ -41,7 +41,7 @@ import {
   type CanonicalEntity,
   type MappedEntity,
   type SourceRow,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 import { guessEntity, guessMapping } from './column-guess';
 
 export interface ColumnMapperProps {

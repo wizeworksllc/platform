@@ -159,7 +159,7 @@ resolves references in dependency order. This is the only "new" logic in the ins
 it is mechanical.
 
 **Trees are authored, not generated.** `layout`, `pages[].tree`, `emails[].tree`, and
-`components[].tree` are real `@wizeworks/builder-schemas` node trees — the same JSON the visual
+`components[].tree` are real `@wizeworksllc/builder-schemas` node trees — the same JSON the visual
 editor produces. The fastest way to author the flagship is to build it in `/builder` against
 a scratch tenant, then export the published trees into the manifest. The trees reference
 brand via tokens (never hardcoded colors), so they re-theme automatically per installing
@@ -351,7 +351,7 @@ bootstrap endpoints; per-property scoping.
 
 **Net-new:**
 
-1. `Blueprint` manifest type + validator (`@wizeworks/blueprints`, a new package).
+1. `Blueprint` manifest type + validator (`@wizeworksllc/blueprints`, a new package).
 2. `template-installer` service (`services/template-installer/`) — orchestration + id map.
 3. The three events (§10).
 4. `mediaPublicUrl` absolute-URL pass-through + a `MediaAsset` "external" creation helper (§6).
@@ -393,7 +393,7 @@ renders the themed home/PDP/blog and the product add-to-cart works.
 
 **Build order (each shippable):**
 
-1. ✅ **BUILT (2026-06-04)** — `@wizeworks/blueprints` manifest type + integrity validator + the
+1. ✅ **BUILT (2026-06-04)** — `@wizeworksllc/blueprints` manifest type + integrity validator + the
    `retail-store-blog` flagship (ships the Driftwood theme). Typecheck + lint + 15 tests green.
    (`wizeworks/packages/blueprints/`).
 2. ✅ **BUILT (2026-06-05)** — the installer (`wizeworks/services/api-rest/src/lib/blueprint-installer.ts`):
@@ -407,7 +407,7 @@ renders the themed home/PDP/blog and the product add-to-cart works.
 4. ✅ **BUILT (2026-06-05)** — REST: `GET /v1/blueprints`, `GET /v1/blueprints/:key`,
    `POST /v1/blueprints/:key/install`, `GET /v1/blueprints/installs[/:id]`,
    `POST /v1/blueprints/installs/:id/go-live` (install/go-live admin-only, install into the
-   ACTIVE property). `@wizeworks/blueprints` wired into api-rest (dep + Dockerfile COPY).
+   ACTIVE property). `@wizeworksllc/blueprints` wired into api-rest (dep + Dockerfile COPY).
 5. ✅ **BUILT (2026-06-05)** — dashboard **Templates** marketplace (`/templates`): browse cards
    with contents breakdown, confirm-gated **Install**, draft → **Go live**, rail-nav entry.
 

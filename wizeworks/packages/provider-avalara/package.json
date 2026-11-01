@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/provider-avalara",
+  "name": "@wizeworksllc/provider-avalara",
   "version": "0.0.0",
   "private": true,
   "description": "Avalara provider for sparx Commerce — implements TaxProvider. Enterprise-grade tax compliance with global jurisdiction coverage.",
@@ -20,8 +20,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/integration-framework": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/integration-framework": "workspace:*",
     "avatax": "^25.1.0"
   },
   "devDependencies": {

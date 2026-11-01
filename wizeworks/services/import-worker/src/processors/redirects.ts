@@ -14,8 +14,8 @@
 // `/specials` means one thing on a donut site and another on a parts site — so an
 // imported rule belongs to the site being migrated, never to all of them.
 
-import { withTenant } from '@wizeworks/db';
-import { toPath } from '@wizeworks/migration';
+import { withTenant } from '@wizeworksllc/db';
+import { toPath } from '@wizeworksllc/migration';
 
 import {
   eachRow,

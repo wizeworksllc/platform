@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Inter } from 'next/font/google';
-import { Toaster } from '@wizeworks/ui';
-import { ChunkReloadGuard } from '@wizeworks/app-kit';
+import { Toaster } from '@wizeworksllc/ui';
+import { ChunkReloadGuard } from '@wizeworksllc/app-kit';
 import { PostHogProvider } from '../components/posthog-provider';
 import { TopProgressBar } from '../components/top-progress-bar';
 import { WizeLens } from '../components/wizelens';
@@ -13,7 +13,7 @@ import { Nav } from '../components/marketing/nav';
 import { Footer } from '../components/marketing/footer';
 
 // Inter powers the sparx wordmark (bold, to match the monogram mark). Exposed
-// as --font-wordmark, which @wizeworks/ui's <Wordmark> consumes.
+// as --font-wordmark, which @wizeworksllc/ui's <Wordmark> consumes.
 const interWordmark = Inter({
   subsets: ['latin'],
   weight: ['700'],

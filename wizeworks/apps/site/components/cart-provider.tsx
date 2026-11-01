@@ -22,7 +22,7 @@ import {
   useState,
 } from 'react';
 
-import type { RepeatCadence } from '@wizeworks/commerce-schemas';
+import type { RepeatCadence } from '@wizeworksllc/commerce-schemas';
 
 import type { CartAccountRules } from '@/lib/account-buying-rules';
 import { errorCodeOf, isBoughtCart, isBoughtCartError } from '@/lib/bought-cart';

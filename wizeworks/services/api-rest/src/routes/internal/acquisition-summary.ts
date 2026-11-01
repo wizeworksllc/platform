@@ -18,12 +18,12 @@
 // reporting different totals for the same week, with nothing to say which is
 // right. One aggregation, two doors.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 import type {
   OperatorAcquisitionBucket,
   OperatorAcquisitionSummary,
   OperatorAcquisitionTotals,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 /**
  * NULL `acquisitionChannel` = signed up before attribution shipped, or arrived

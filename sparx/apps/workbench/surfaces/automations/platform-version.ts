@@ -9,8 +9,8 @@
 // for each part come in as `RuleWords`, which the confirm builds from the same
 // presentation helpers the editor's flow map uses, so the two never disagree.
 
-import { ConditionGroup as ConditionGroupSchema } from '@wizeworks/automation-schemas';
-import type { AutomationStatus, ConditionGroup } from '@wizeworks/automation-schemas';
+import { ConditionGroup as ConditionGroupSchema } from '@wizeworksllc/automation-schemas';
+import type { AutomationStatus, ConditionGroup } from '@wizeworksllc/automation-schemas';
 import type { PlatformDocument } from './automations-data';
 
 /** What the business is told when sparx has improved a rule it set up, and held

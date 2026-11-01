@@ -3,7 +3,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { checkFeedAddress, FeedAddressError, isPrivateAddress } from '@wizeworks/dropship';
+import { checkFeedAddress, FeedAddressError, isPrivateAddress } from '@wizeworksllc/dropship';
 
 const resolvesTo =
   (...addresses: string[]) =>

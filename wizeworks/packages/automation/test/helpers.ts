@@ -1,4 +1,4 @@
-// Integration fixtures for @wizeworks/automation.
+// Integration fixtures for @wizeworksllc/automation.
 //
 // The engine ticks scan cross-tenant, so they run on a sparx_owner (BYPASSRLS)
 // connection — exactly the worker's prod role. We mirror that here with an
@@ -9,7 +9,7 @@ import crypto from 'node:crypto';
 
 import type { Prisma } from '@prisma/client';
 import { PrismaClient } from '@prisma/client';
-import type { Publisher, SparxEvent } from '@wizeworks/events';
+import type { Publisher, SparxEvent } from '@wizeworksllc/events';
 
 import type { EngineDeps, EngineLogger } from '../src/engine-types';
 import { _resetTenantStateCache } from '../src/gates/tenant-state';

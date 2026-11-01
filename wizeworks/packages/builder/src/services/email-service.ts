@@ -3,7 +3,7 @@
 // One row per email (BuilderEmail); the editor edits the DRAFT tree, publishing
 // snapshots it. An email is ONE self-contained body tree — no site/page split,
 // no Outlet, no layout tier. Two document fields the page model lacks: `subject`
-// and `preheader`. Trees are validated against @wizeworks/builder-schemas on every
+// and `preheader`. Trees are validated against @wizeworksllc/builder-schemas on every
 // write so every transport stores the same shape. Tenant-scoped via withTenant()
 // — a callsite that forgets it sees nothing (FORCE RLS).
 //
@@ -26,9 +26,9 @@ import {
   type BuilderNode,
   type PublishedEmailDto,
   type SilicaEmailDocument,
-} from '@wizeworks/builder-schemas';
-import type { BuilderEmail } from '@wizeworks/db';
-import { Prisma, withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/builder-schemas';
+import type { BuilderEmail } from '@wizeworksllc/db';
+import { Prisma, withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishBuilderEvent } from '../events';
@@ -140,7 +140,7 @@ const emptyToNull = (v: string | null | undefined): string | null =>
 
 /** The code-shipped fallback for a keyed default (docs/93 §2): a tenant that
  *  predates provisioning — or whose default row was dropped — still renders the
- *  default tree shipped in `@wizeworks/builder-schemas`, so a transactional send never
+ *  default tree shipped in `@wizeworksllc/builder-schemas`, so a transactional send never
  *  has "no renderer". The 6-hour provisioning reconcile then back-fills the real
  *  row (which the tenant can edit). Only the keyed defaults have a fallback; an
  *  unknown key returns null. `publishedAt: null` marks it as not-yet-materialized. */

@@ -1,4 +1,4 @@
-// @wizeworks/section-template-react — the shared React interpreter for custom-section
+// @wizeworksllc/section-template-react — the shared React interpreter for custom-section
 // templates (docs/38 Phase C). The storefront renders published custom sections
 // with it (SSR); the dashboard Section Studio renders the live preview with it —
 // one render path, injected adapters, so the preview can't drift from production.

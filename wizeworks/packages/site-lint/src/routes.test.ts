@@ -8,7 +8,7 @@ import {
   RESERVED_KIND_SEGMENTS,
   ROUTED_RECORD_TYPES,
   SITE_OWN_ROUTES,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import {
   BUILTIN_PATHS,

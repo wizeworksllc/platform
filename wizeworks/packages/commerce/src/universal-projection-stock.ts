@@ -10,14 +10,14 @@
 // write-time signals come from the inventory services (`indexInventoryEntity`),
 // the stock-source and dropship-supplier routes, and the workers that sync them.
 
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 import {
   type EntityProjector,
   type ProjectorContext,
   type UniversalSearchDocument,
   universalId,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 
 import { codeAsWords } from './search-words';
 import { epoch, keywords, snippet } from './universal-projection-kit';

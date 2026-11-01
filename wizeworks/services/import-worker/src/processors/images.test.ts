@@ -82,10 +82,10 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/media', () => ({
+vi.mock('@wizeworksllc/media', () => ({
   ALLOWED_IMAGE_MIME: new Set(['image/jpeg', 'image/png']),
   MAX_PROXIED_UPLOAD_BYTES: 20 * 1024 * 1024,
   createImageAssetFromBytes: vi.fn((_w: unknown, input: { filename: string; data: Buffer }) => {

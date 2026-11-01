@@ -31,7 +31,7 @@
 // tell two sizes apart and the version alone does not say what it is a version
 // of. A caller that squashes them into a single string is the bug coming back.
 
-import { Prisma } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
 
 /**
  * The two naming columns, for a raw query.

@@ -6,8 +6,8 @@
 // lets three page panes stay open at once without any two of them holding rival
 // copies of the same draft.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import type { Node } from '@wizeworks/silicaui-html';
 import { api } from '../api/client';
 

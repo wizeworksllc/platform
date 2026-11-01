@@ -6,7 +6,7 @@
 // 2026-10-18 a scraper on the marketing site's marketplace spent that budget and
 // every real visitor got an empty catalog. Passing the visitor's own chain lets
 // api-rest limit (and record) the person who asked, while the pod's address stays
-// a hop it trusts and skips (@wizeworks/client-ip).
+// a hop it trusts and skips (@wizeworksllc/client-ip).
 //
 // ── Forward it on UNCACHED calls only ─────────────────────────────────────────
 //

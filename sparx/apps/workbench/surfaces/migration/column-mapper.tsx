@@ -41,7 +41,7 @@ import {
   type CanonicalEntity,
   type MappedEntity,
   type SourceRow,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 
 /** Compare form for a header — the same normalisation the adapters use. */
 function normalize(value: string): string {

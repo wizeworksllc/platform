@@ -14,7 +14,7 @@
 // for why adding a table is never free here).
 //
 // Rows arrive already mapped to canonical shape and already validated in the browser
-// by `@wizeworks/migration`. This layer re-checks rather than trusts: the same validator
+// by `@wizeworksllc/migration`. This layer re-checks rather than trusts: the same validator
 // runs again server-side, because "the client checked it" is not a security model and
 // the API is a public surface in its own right.
 
@@ -34,14 +34,14 @@ import {
   validateRows,
   type CanonicalEntity,
   type EntityModule,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 import { guardedFetch } from '../../lib/guarded-fetch.js';
-import { isModuleEnabled, listEnabledModules } from '@wizeworks/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { isModuleEnabled, listEnabledModules } from '@wizeworksllc/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 
 /** One import job's worth of rows. Chunked by the client so a 40,000-row catalogue
  *  does not become one JSONB blob the size of a novel. */

@@ -8,10 +8,10 @@
 // `properties` is FORCE RLS, so these lookups go through withTenant. property_id
 // is application-tier scoping, not a security boundary (docs/49 §2).
 
-import { withTenant } from '@wizeworks/db';
-import type { AuthContext } from '@wizeworks/api-core/auth';
-import { forbidden, notFound } from '@wizeworks/api-core/errors';
-import { memberCanReachProperty } from '@wizeworks/auth';
+import { withTenant } from '@wizeworksllc/db';
+import type { AuthContext } from '@wizeworksllc/api-core/auth';
+import { forbidden, notFound } from '@wizeworksllc/api-core/errors';
+import { memberCanReachProperty } from '@wizeworksllc/auth';
 import { createTtlCache } from './ttl-cache.js';
 
 /**
@@ -81,7 +81,7 @@ const propertyIdCache = createTtlCache<string>({ hitTtlMs: 60_000 });
 // only global + primary-scoped items, never another site's exclusive items.
 // Single-site tenants have no scope rows → everything matches.
 //
-// The fragments themselves MOVED to `@wizeworks/db` (`src/site-scope.ts`) once the builder
+// The fragments themselves MOVED to `@wizeworksllc/db` (`src/site-scope.ts`) once the builder
 // needed the same question answered when resolving a record page's preview target —
 // a visibility filter with two spellings is one drift away from leaking another site's
 // rows. Re-exported here so every existing `lib/property.js` import is untouched.
@@ -91,7 +91,7 @@ export {
   collectionSiteVisibilityWhere,
   categorySiteVisibilityWhere,
   mediaSiteVisibilityWhere,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 
 /** Model B (docs/49 §3): default a NEW catalog item (product / collection / category)
  *  to the ACTIVE site, so "different catalogs per site" is the default the moment a

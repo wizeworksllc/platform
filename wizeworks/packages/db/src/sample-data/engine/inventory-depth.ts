@@ -189,7 +189,7 @@ export async function applyInventoryDepth(ctx: ApplyCtx, pack: SampleDataPack): 
   //
   // The SKU, as a Code 128 label. Not a fabricated EAN-13: a made-up EAN is a
   // number that belongs to somebody else's product, and the check digit would
-  // have to be computed here as well as in @wizeworks/commerce-schemas — two
+  // have to be computed here as well as in @wizeworksllc/commerce-schemas — two
   // implementations of one arithmetic, which is how a barcode that scans on
   // screen and fails on paper gets shipped. A business with no barcodes really
   // does start by printing its own codes, so this is also what they would have.

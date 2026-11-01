@@ -1,10 +1,10 @@
-// Per-test fixtures for @wizeworks/sitebuilder integration tests. Mirrors
+// Per-test fixtures for @wizeworksllc/sitebuilder integration tests. Mirrors
 // wizeworks/packages/crm/test/helpers.ts: every test gets a fresh tenant + staff user,
 // torn down via a single ON DELETE CASCADE tenant delete.
 
 import crypto from 'node:crypto';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { RecordingPublisher, setPublisher } from '../src/events.js';
 
 export interface TestTenant {

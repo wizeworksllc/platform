@@ -11,9 +11,9 @@
 // picked from this list is one the check will call working. Each roster is gathered
 // only when its module is on; a module that is off serves none of these routes.
 
-import type { PropertyContext } from '@wizeworks/builder';
-import { isModuleEnabled } from '@wizeworks/auth';
-import type { TxClient } from '@wizeworks/db';
+import type { PropertyContext } from '@wizeworksllc/builder';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import type { TxClient } from '@wizeworksllc/db';
 import {
   categorySiteVisibilityWhere,
   collectionSiteVisibilityWhere,

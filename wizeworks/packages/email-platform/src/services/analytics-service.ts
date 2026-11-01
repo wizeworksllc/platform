@@ -4,7 +4,7 @@
 // Per-broadcast stats live on broadcastService.stats; per-automation rollups
 // are here for the automations surface + MCP.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import type { ServiceContext } from '../errors';
 
 export interface EngagementCounts {

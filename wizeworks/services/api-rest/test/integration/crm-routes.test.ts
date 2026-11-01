@@ -1,6 +1,6 @@
 // CRM routes — wiring smoke + module-gate behavior.
 //
-// Covers the bits that aren't already exercised by @wizeworks/crm's own service
+// Covers the bits that aren't already exercised by @wizeworksllc/crm's own service
 // integration tests: requireCrmModule fires before the handler, the envelope
 // matches docs/06 §3, and the auth boundary (no token / wrong role) lands
 // the right status.
@@ -8,8 +8,8 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { invalidateModuleCache } from '@wizeworks/auth';
+import { prisma } from '@wizeworksllc/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
 import { createApp } from '../../src/app.js';
 import { authHeader, seedPrimaryProperty, signToken } from '../helpers.js';
 

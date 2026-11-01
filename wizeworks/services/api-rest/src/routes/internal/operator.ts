@@ -19,8 +19,8 @@
 //   • GET /internal/operator/acquisition   — where our tenants came from (docs/80 §10)
 //
 // Representation parity (D7): the tenant reads compute the SAME values the tenant's
-// own dashboard shows — the subscription snapshot via `@wizeworks/billing.getBillingState`,
-// module enablement via `@wizeworks/modules.deriveModuleStates`, and real storage from
+// own dashboard shows — the subscription snapshot via `@wizeworksllc/billing.getBillingState`,
+// module enablement via `@wizeworksllc/modules.deriveModuleStates`, and real storage from
 // media `byteSize` — so operators understand an account without impersonating it.
 //
 // The `tenants` + `domains` tables are non-RLS dispatch rows, read with the plain
@@ -30,9 +30,9 @@
 // reach; the admin app audits each read at the action level before calling here.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { prisma, withTenant, withSystem, type Prisma } from '@wizeworks/db';
-import { deriveModuleStates, blockingDependents, type ModuleSlug } from '@wizeworks/modules';
-import { getBillingState, MODULE_MONTHLY_CENTS } from '@wizeworks/billing';
+import { prisma, withTenant, withSystem, type Prisma } from '@wizeworksllc/db';
+import { deriveModuleStates, blockingDependents, type ModuleSlug } from '@wizeworksllc/modules';
+import { getBillingState, MODULE_MONTHLY_CENTS } from '@wizeworksllc/billing';
 import type {
   OperatorWhoAmIResult,
   OperatorTenantListItem,
@@ -40,7 +40,7 @@ import type {
   OperatorTenantDetail,
   OperatorBillingInterval,
   OperatorAcquisitionSummary,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import { computeMetrics } from './operator-metrics.js';
 import {
@@ -87,7 +87,7 @@ function planTypeOf(settings: unknown): 'standard' | 'enterprise' {
 }
 
 /** MRR = the sum of EXPLICIT billable modules (bundled-free capabilities are $0),
- *  matching the dashboard plan total in `@wizeworks/billing.getBillingState`. */
+ *  matching the dashboard plan total in `@wizeworksllc/billing.getBillingState`. */
 function mrrCentsOf(states: ReturnType<typeof deriveModuleStates>): number {
   return (Object.keys(MODULE_MONTHLY_CENTS) as ModuleSlug[])
     .filter((m) => states[m].source === 'explicit')

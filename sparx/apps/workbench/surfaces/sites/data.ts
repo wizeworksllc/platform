@@ -8,8 +8,8 @@
 // the same keys — the toolbar's site switcher reads `['properties']` too, and a
 // rename that doesn't reach it leaves the chrome showing the old name.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 
 /** The full `PropertyView` api-rest returns — wider than the chrome's `SiteInfo`,

@@ -21,7 +21,7 @@
 // other editor: type freely, one Save, one dirty guard.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { plural, type Tone } from './data';
 

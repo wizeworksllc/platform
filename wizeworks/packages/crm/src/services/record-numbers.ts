@@ -13,7 +13,7 @@
 // Quotes numbered through their own scheme — see nextBillingDocumentSeq /
 // formatBillingNumber below (they are BillingDocuments, not a separate model).
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 const ORDER_PREFIX = 'O';
 const PAD_LENGTH = 6; // O-000001

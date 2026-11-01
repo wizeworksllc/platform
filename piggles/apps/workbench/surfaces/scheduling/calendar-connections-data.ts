@@ -3,7 +3,7 @@
 // A resource's linked outside calendars: reads, writes, and what their state
 // means. Split out of calendar-data.ts, which keeps the diary's own reads.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { Tone } from './bookings-data';
 import { calendarKeys } from './calendar-data';

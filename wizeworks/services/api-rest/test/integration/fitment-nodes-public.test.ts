@@ -8,7 +8,7 @@
 // truck finder was empty (sparx persona issue 125).
 
 import { describe, expect, it } from 'vitest';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 

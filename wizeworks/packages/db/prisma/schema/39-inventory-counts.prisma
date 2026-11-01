@@ -5,7 +5,7 @@
 // writes a `recount` movement through the ledger (an absolute `setOnHand`, so the
 // corrective delta is computed against LIVE on-hand inside the row lock, immune to
 // a sale landing mid-count). Variance value over a per-count threshold gates the
-// post behind an admin approval. Owned by @wizeworks/inventory; standalone-usable.
+// post behind an admin approval. Owned by @wizeworksllc/inventory; standalone-usable.
 
 model InventoryCount {
   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid

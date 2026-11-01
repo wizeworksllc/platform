@@ -52,9 +52,9 @@ The manifests currently have **no `preview` field** (the 4 new ones) — that's 
 ## Gate (must be green before handing back)
 
 ```
-pnpm --filter @wizeworks/blueprints test        # parseBlueprint runs via registry; expect 15 passed
-pnpm --filter @wizeworks/blueprints typecheck
-pnpm --filter @wizeworks/blueprints lint
+pnpm --filter @wizeworksllc/blueprints test        # parseBlueprint runs via registry; expect 15 passed
+pnpm --filter @wizeworksllc/blueprints typecheck
+pnpm --filter @wizeworksllc/blueprints lint
 pnpm exec prettier --check "wizeworks/packages/blueprints/src/**/*.ts" "apps/dashboard/public/blueprint-previews/*"  # png not formatted; check the .ts
 ```
 

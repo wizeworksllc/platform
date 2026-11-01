@@ -42,7 +42,7 @@ import {
   createWriteAnnouncements,
   useQueryClient,
   writeIdentity,
-} from '@wizeworks/query';
+} from '@wizeworksllc/query';
 import { useToast } from '@wizeworks/silicaui-react';
 import { describeWriteFailure } from '../lib/api/write-failure';
 import { readWriteMeta, writeFailureTitle } from '../lib/api/write-meta';
@@ -109,7 +109,7 @@ export function WriteFailureReporter(): null {
       // observer's private `#mutateOptions`, and the mutation the cache carries
       // is built from the hook's options alone. So 496 call sites that had just
       // apologised in their own words got a second toast saying the same
-      // sentence, one of which never dismisses itself (issue 304). @wizeworks/query's
+      // sentence, one of which never dismisses itself (issue 304). @wizeworksllc/query's
       // useMutation now records the answer where the cache can read it.
       if (typeof event.mutation.options.onError === 'function') return;
       if (callerHandledError(event.mutation.meta)) return;

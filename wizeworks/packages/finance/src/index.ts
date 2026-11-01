@@ -2,7 +2,7 @@
 //
 // The spend ledger, job allocation, recurring costs, and the daily profit rollup.
 // Consumed by the REST API, Server Actions, the finance-worker, and (later) the
-// MCP tools — every transport validates against `@wizeworks/finance/schemas` first,
+// MCP tools — every transport validates against `@wizeworksllc/finance/schemas` first,
 // then calls these.
 //
 // What this module is NOT is as load-bearing as what it is: there is no general

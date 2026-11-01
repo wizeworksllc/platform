@@ -1,6 +1,6 @@
 // Better Auth 1.7 compares its tables with the Prisma schema before its first
 // database call and refuses every request on a mismatch. The staff instance
-// shipped with one (@wizeworks/auth schema-check.test.ts); this runs the SAME
+// shipped with one (@wizeworksllc/auth schema-check.test.ts); this runs the SAME
 // check on the shopper instance's real configuration. No database is reached.
 
 import { describe, expect, it } from 'vitest';

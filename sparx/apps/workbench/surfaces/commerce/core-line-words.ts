@@ -11,7 +11,7 @@
 // The order pane and the Cores owed list both read this module, so the same line
 // offers the same buttons in the same words from either screen.
 
-import { splitCoreDeposit } from '@wizeworks/commerce-schemas';
+import { splitCoreDeposit } from '@wizeworksllc/commerce-schemas';
 import { formatMoney, type OrderItem } from './data';
 import type { CoreLine, CoreOwed, OpenInvoice } from './cores-data';
 

@@ -29,11 +29,11 @@
 // ── WHY THEY LIVE HERE AND NOT IN THE EMAIL PACKAGES ─────────────────────────
 //
 // A projector reads Prisma directly — `tx.broadcast`, never a service — so
-// it needs `@wizeworks/db` and nothing else. Putting these in
-// `@wizeworks/email-platform` or `@wizeworks/automation` would add a dependency
+// it needs `@wizeworksllc/db` and nothing else. Putting these in
+// `@wizeworksllc/email-platform` or `@wizeworksllc/automation` would add a dependency
 // edge from the indexer to a service layer it does not otherwise use, for code
 // that does not use that service layer either. The commerce bundle is in
-// `@wizeworks/commerce` for the mirror-image reason: the indexer already
+// `@wizeworksllc/commerce` for the mirror-image reason: the indexer already
 // depended on it.
 //
 // The package is called `commerce-indexer` and its own description already says
@@ -41,14 +41,14 @@
 // record on the platform, commerce or not. This file is named for what it
 // carries so the next reader is not looking for email inside commerce.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   type EntityProjector,
   type ProjectorContext,
   type UniversalSearchDocument,
   universalId,
   PLATFORM_MODULE,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 
 function epoch(d: Date | null | undefined): number {
   return d ? Math.floor(d.getTime() / 1000) : 0;

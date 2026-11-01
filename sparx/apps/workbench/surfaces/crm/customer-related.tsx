@@ -21,7 +21,7 @@ import {
   Repeat,
   StickyNote,
 } from 'lucide-react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import type { OpenTarget, SurfaceContext } from '../../lib/surfaces/registry';
 import { api } from '../../lib/api/client';
 import { ModuleScope } from '../../components/module-scope';

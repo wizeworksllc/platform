@@ -11,7 +11,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const row = { id: 'about', name: 'About' };
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(
       fn({
@@ -49,9 +49,9 @@ vi.mock('@wizeworks/db', () => ({
       })
     ),
 }));
-vi.mock('@wizeworks/events', () => ({ indexEntity: () => Promise.resolve() }));
+vi.mock('@wizeworksllc/events', () => ({ indexEntity: () => Promise.resolve() }));
 
-const { blankPageTree } = await import('@wizeworks/builder-schemas');
+const { blankPageTree } = await import('@wizeworksllc/builder-schemas');
 const { RecordingPublisher, setPublisher } = await import('../events');
 const { update } = await import('./page-service');
 

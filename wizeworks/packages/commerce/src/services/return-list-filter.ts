@@ -3,9 +3,9 @@
 // issue 196). It used to read the shop's latest 200 returns and keep hers, so in
 // a shop with more, her older returns were not on her list.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
-import type { ReturnStatus } from '@wizeworks/commerce-schemas';
+import type { ReturnStatus } from '@wizeworksllc/commerce-schemas';
 
 /** The `where` for a return list. `customerOrderIds` is null for the console,
  *  and the buyer's own order ids for her list: an empty array finds nothing,

@@ -1,5 +1,5 @@
 // B2B purchase approval — rules configuration + approval queue (docs/10 §12,
-// docs/64 B2B Ph6). Thin transport over @wizeworks/b2b's approvalService.
+// docs/64 B2B Ph6). Thin transport over @wizeworksllc/b2b's approvalService.
 //
 //   GET    /v1/b2b/approval-rules              → list all rules
 //   POST   /v1/b2b/approval-rules              → create rule
@@ -16,11 +16,11 @@
 
 import type { FastifyBaseLogger, FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { approvalService, type PendingEvent } from '@wizeworks/b2b';
-import { inventoryService } from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { approvalService, type PendingEvent } from '@wizeworksllc/b2b';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 import { resolvePropertyId } from '../../../lib/property.js';
 import { settleHeldOrderMoney } from '../../../lib/held-order-money.js';

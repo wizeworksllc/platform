@@ -16,7 +16,7 @@
 // decision back to `/oauth2/consent`, which records it and finishes the flow.
 
 import { verifyOAuthQueryParams } from '@better-auth/oauth-provider';
-import { tenantStore, withTenant } from '@wizeworks/db';
+import { tenantStore, withTenant } from '@wizeworksllc/db';
 
 import { capCustomerScopes, CUSTOMER_OIDC_BASE_SCOPES } from './mcp-scopes';
 import { customerAuthSecret, getCustomerAuth } from './server';

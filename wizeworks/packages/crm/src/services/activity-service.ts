@@ -7,9 +7,9 @@
 // meetings via the dashboard) come through here, so the audit log and
 // `crm.activity.recorded` event emission live in one place.
 
-import { CreateActivityInput, ListActivitiesInput } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { CrmActivity, Prisma } from '@wizeworks/db';
+import { CreateActivityInput, ListActivitiesInput } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { CrmActivity, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

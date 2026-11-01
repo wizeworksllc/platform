@@ -272,7 +272,7 @@ If the tenant has no content types defined yet, this step shows an empty state: 
 
 Renders only the fields from the selected content type's schema that are marked `required: true`. Optional fields are intentionally withheld — the goal is to get the record created with the minimum viable data and let the user fill the rest in the full entry editor.
 
-The fields are rendered by `<SchemaFieldRenderer>`, a dynamic component that maps field type → the appropriate `@wizeworks/ui` input:
+The fields are rendered by `<SchemaFieldRenderer>`, a dynamic component that maps field type → the appropriate `@wizeworksllc/ui` input:
 
 | Schema field type | Rendered as                                                                        |
 | ----------------- | ---------------------------------------------------------------------------------- |
@@ -487,7 +487,7 @@ Files:
 
 - `apps/app/src/app/(dashboard)/commerce/products/_components/product-wizard.tsx`
 - `apps/app/src/app/(dashboard)/commerce/products/_components/product-wizard-steps/` (step-1.tsx through step-4.tsx)
-- Reuse the existing `Stepper` from `@wizeworks/ui`
+- Reuse the existing `Stepper` from `@wizeworksllc/ui`
 
 ### Phase 2 — Import/Export (Products + Customers)
 
@@ -505,7 +505,7 @@ Files:
 
 ### Phase 3 — Bulk operations (Products + Customers)
 
-Bulk action bar as a shared `@wizeworks/ui` component, entity-specific action configs registered per list page.
+Bulk action bar as a shared `@wizeworksllc/ui` component, entity-specific action configs registered per list page.
 
 Files:
 

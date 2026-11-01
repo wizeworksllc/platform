@@ -10,12 +10,12 @@
 // marked as a sample server-side, so Clear can find it all without touching a
 // single real record.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { WORKBENCH_MODULES, type WorkbenchModule } from '../../components/module-scope';
 
 import { api } from '../../lib/api/client';
 
-/** Per-entity counts — mirrors `SampleDataCounts` from @wizeworks/db. */
+/** Per-entity counts — mirrors `SampleDataCounts` from @wizeworksllc/db. */
 export interface SampleDataCounts {
   /** Sample locations. Durable — Remove leaves these, so they are never counted
    *  in anything that says "removes" (issue 174). */
@@ -45,7 +45,7 @@ export interface SampleDataCounts {
   toolCalls: number;
 }
 
-/** Mirrors `SampleDataStatus` from @wizeworks/db. */
+/** Mirrors `SampleDataStatus` from @wizeworksllc/db. */
 export interface SampleDataStatus {
   industry: string | null;
   packIndustry: string;

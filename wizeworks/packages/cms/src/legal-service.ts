@@ -9,9 +9,9 @@
 // draft, but a person reviews the starter text, acknowledges it (legal_disclaimer_ack_at),
 // and takes it live. The REST route keeps those two handlers; nothing here approves legal.
 
-import type { ContentEntry, Prisma, TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
-import { conflict } from '@wizeworks/api-core/errors';
+import type { ContentEntry, Prisma, TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
+import { conflict } from '@wizeworksllc/api-core/errors';
 import {
   LEGAL_TEMPLATES,
   getLegalTemplate,
@@ -19,7 +19,7 @@ import {
   legalEntryBody,
   type LegalKind,
   type LegalTemplate,
-} from '@wizeworks/legal-templates';
+} from '@wizeworksllc/legal-templates';
 
 import { recordRevision } from './entries.js';
 import type { CmsWriteContext, CmsEmittedEvent } from './service-support.js';

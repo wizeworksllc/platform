@@ -6,8 +6,8 @@
 // DRAFT instead — the editor's "Preview" tab (docs/45 §2.6).
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
-import type { PublishedLayoutDto, PublishedPageDto } from '@wizeworks/builder-schemas';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
+import type { PublishedLayoutDto, PublishedPageDto } from '@wizeworksllc/builder-schemas';
 
 import { resolveActivePropertySlug } from './site-context';
 
@@ -55,7 +55,7 @@ async function previewHeaders(previewToken: string): Promise<Record<string, stri
  * builder content changes on publish, no tag-purge was wired, so a TTL would only
  * have served stale pages. The purge is now whole: api-rest publishes
  * `builder.published` / `builder.rolled_back`, the event worker's
- * `@wizeworks/cache-revalidation-worker` handler maps them to the `builder` scope,
+ * `@wizeworksllc/cache-revalidation-worker` handler maps them to the `builder` scope,
  * and app/api/revalidate purges `builder:<slug>` (and `tenant:<slug>`). That handler
  * was a Cloud Run push service nothing ran until sparx persona issue 040 moved it
  * into the fleet; until then this TTL was the only thing that ever refreshed a

@@ -4,7 +4,7 @@
 // persona issues 057 and 058): anything on a B2B order still waiting for
 // approval, and a rebuilt part bought by sending the old part first whose old
 // part has not arrived. The server applies it to every way out, and the rule is
-// a pure function in @wizeworks/crm-schemas. The order pane reads the SAME
+// a pure function in @wizeworksllc/crm-schemas. The order pane reads the SAME
 // function rather than a second spelling of it, so the buttons it offers and the
 // sentences it prints are the ones the server would answer with.
 
@@ -14,7 +14,7 @@ import {
   shippableUnits,
   unitsWaitingForCore,
   type ShipGateLine,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import type { Order, OrderItem } from './data';
 
 export interface ShipNow {

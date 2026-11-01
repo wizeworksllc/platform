@@ -1,10 +1,10 @@
 // Email Platform — management featureset (docs/13-email-platform-prd.md).
 //
 // The send PIPELINE already exists (email.send Pub/Sub → email-worker →
-// @wizeworks/email render → Mailgun). These tables are the MANAGEMENT surface the
+// @wizeworksllc/email render → Mailgun). These tables are the MANAGEMENT surface the
 // PRD §3–§10 describes: settings, sending domains, templates, automations,
 // the scheduled-send queue, broadcasts, the append-only event log, and the
-// suppression list. @wizeworks/email stays the render lib; @wizeworks/email-platform
+// suppression list. @wizeworksllc/email stays the render lib; @wizeworksllc/email-platform
 // owns this domain logic (mirrors the wizeworks/packages/crm split).
 //
 // All tenant-scoped + ENABLE+FORCE RLS (tenant_isolation on current_tenant_id()).
@@ -101,7 +101,7 @@ model SendingDomain {
 // NOTE: the legacy `EmailTemplate` model (the built-in transactional override
 // surface + the retired authored-section marketing body) was removed in docs/93.
 // Every tenant→customer email is now a Builder-authored node tree (BuilderEmail,
-// rendered by key at dispatch); platform/auth emails are coded @wizeworks/email
+// rendered by key at dispatch); platform/auth emails are coded @wizeworksllc/email
 // components. Broadcasts reference a published Builder email via `builderEmailId`.
 
 // The dispatch queue — drives delayed automation sends and scheduled/batched

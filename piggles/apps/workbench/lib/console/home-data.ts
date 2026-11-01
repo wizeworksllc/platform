@@ -58,7 +58,7 @@
 // surfaces/home.tsx — because a tile needs a written sentence and a greeting has
 // room for a handful, not for everything measured.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '@/lib/api/client';
 import { useReachableModules } from '@/lib/surfaces/use-visible-nav';
 

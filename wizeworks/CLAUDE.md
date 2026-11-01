@@ -88,15 +88,19 @@ it used. It still depends on three things in this repo: api-rest's
 tables (migrations in `packages/db`), and `email.send`. Change any of those and
 the console has to follow, in that repo.
 
-### Scope rename in flight
+### Package scope
 
-Platform packages currently published as `@sparx/*` are being renamed to
-`@wizeworks/*`. They were always brand-neutral in fact and never in name, which
-is exactly the confusion this tree exists to end. Until the rename completes,
-treat an `@sparx/*` import inside `wizeworks/` as a rename pending — not as a
-boundary violation. New packages take `@wizeworks/*` from the start.
+Every package under `packages/` is named `@wizeworksllc/*` (docs/153, D2 and
+Phase 3). GitHub Packages requires a package's scope to match its owner, the
+`wizeworksllc` org, and these packages publish there. `@wizeworks/*` is the
+public npm scope (silicaui, the wizelens SDKs) and the name of the services and
+apps under `services/` and `apps/`, which do not publish. New packages take
+`@wizeworksllc/*` from the start.
 
-The scope is the boundary, self-documenting: **`@wizeworks/*` is brand-blind,
+A platform package still named `@sparx/*` is a rename pending, not a boundary
+violation.
+
+The scope is the boundary, self-documenting: **`@wizeworksllc/*` is brand-blind,
 `@sparx/*` and `@piggles/*` are brand expression.**
 
 ## The design contract this layer owns

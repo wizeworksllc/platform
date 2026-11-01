@@ -1,7 +1,7 @@
 // pageService — the Builder page catalog and draft/publish lifecycle (docs/41).
 //
 // One row per page (BuilderPage); the editor edits the DRAFT tree, publishing
-// snapshots it. Trees are validated against @wizeworks/builder-schemas on every
+// snapshots it. Trees are validated against @wizeworksllc/builder-schemas on every
 // write so every transport stores the same shape. Tenant-scoped via
 // withTenant() — a callsite that forgets it sees nothing (FORCE RLS).
 //
@@ -18,10 +18,10 @@ import {
   type BuilderPageKind,
   type BuilderPageSummaryDto,
   type PublishedPageDto,
-} from '@wizeworks/builder-schemas';
-import type { BuilderPage, Prisma } from '@wizeworks/db';
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { hostKeysIn, starterPages, type SiteChromeOptions } from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/builder-schemas';
+import type { BuilderPage, Prisma } from '@wizeworksllc/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { hostKeysIn, starterPages, type SiteChromeOptions } from '@wizeworksllc/silica-catalog';
 import type { Node as SilicaNode } from '@wizeworks/silicaui-html';
 
 import { writeAuditLog } from '../audit';

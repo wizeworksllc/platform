@@ -1,5 +1,5 @@
 import { headers } from 'next/headers';
-import { callAccountOperation } from '@wizeworks/auth-client-server';
+import { callAccountOperation } from '@wizeworksllc/auth-client-server';
 
 // The businesses this person may act as, and the act of moving between them.
 //

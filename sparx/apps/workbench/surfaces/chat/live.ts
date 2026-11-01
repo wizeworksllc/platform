@@ -19,7 +19,7 @@
 // the socket drops.
 
 import { io, type Socket } from 'socket.io-client';
-import { useQueryClient, type QueryClient } from '@wizeworks/query';
+import { useQueryClient, type QueryClient } from '@wizeworksllc/query';
 import { useEffect } from 'react';
 import { getTokenState, peekToken } from '../../lib/api/token';
 import { notifyTyping, setChatLive } from './live-status';

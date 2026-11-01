@@ -9,8 +9,8 @@
 // Mirrors the channels connect state (`channels-oauth.ts`).
 
 import { SignJWT, jwtVerify } from 'jose';
-import { forbidden } from '@wizeworks/api-core/errors';
-import type { SocialPlatform } from '@wizeworks/social';
+import { forbidden } from '@wizeworksllc/api-core/errors';
+import type { SocialPlatform } from '@wizeworksllc/social';
 
 import { env } from '../env.js';
 

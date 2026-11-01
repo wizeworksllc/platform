@@ -17,8 +17,8 @@
 //   • a template belongs to ONE business, or to every one. `propertyId` null is
 //     the shared tier, and it is a real answer rather than a missing value.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { DEFAULT_INVOICE_TEMPLATE } from '@wizeworks/crm-schemas/builtins';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { DEFAULT_INVOICE_TEMPLATE } from '@wizeworksllc/crm-schemas/builtins';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { blocksToTree, treeRoot, treeToBlocks, type TemplateBlock } from './template-blocks';
@@ -26,7 +26,7 @@ import { blocksToTree, treeRoot, treeToBlocks, type TemplateBlock } from './temp
 export const TEMPLATES_KEY = ['invoicing', 'templates'];
 
 /** One template as the server holds it. Mirrors `BillingTemplateDto` in
- *  @wizeworks/crm's billing-template-service. */
+ *  @wizeworksllc/crm's billing-template-service. */
 export interface BillingTemplate {
   id: string;
   name: string;

@@ -28,8 +28,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 
-import { findAbandoned, reconcileFunnelDaily } from '@wizeworks/funnels';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { findAbandoned, reconcileFunnelDaily } from '@wizeworksllc/funnels';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 import { authorizeCron, forEachTenant } from '../../lib/cron-auth.js';
 import { listTenantsWithModule } from '../../lib/module-tenants.js';

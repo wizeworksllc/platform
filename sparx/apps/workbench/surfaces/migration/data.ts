@@ -5,11 +5,11 @@
 //
 // The interesting part of this module is what is NOT here: reading and checking
 // the tenant's file. That happens entirely in the browser through
-// `@wizeworks/migration`, with no network call at all, so a file that cannot be read
+// `@wizeworksllc/migration`, with no network call at all, so a file that cannot be read
 // is rejected in the same second it is dropped rather than after an upload and a
 // failed job. The API is only asked once the tenant has seen what will happen.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import {
   ENTITY_LABEL,
   readSource,
@@ -17,7 +17,7 @@ import {
   type CanonicalRow,
   type ReadResult,
   type ValidationReport,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 import type { WorkbenchModule } from '../../components/module-scope';
 import { api } from '../../lib/api/client';
 

@@ -26,7 +26,7 @@ reason this row is on Wholesale orders rather than on Orders.
 
 The business was already on the row, three layers deep and drawn nowhere.
 
-`ORDER_CUSTOMER_SELECT` in `@wizeworks/crm` joins it, and says why in its own
+`ORDER_CUSTOMER_SELECT` in `@wizeworksllc/crm` joins it, and says why in its own
 comment:
 
 ```ts

@@ -6,8 +6,8 @@
 // an agent to emit a tree the service will reject.
 
 import { describe, expect, it } from 'vitest';
-import { parsePageImport } from '@wizeworks/builder-schemas';
-import { validateClasses } from '@wizeworks/surface-compile';
+import { parsePageImport } from '@wizeworksllc/builder-schemas';
+import { validateClasses } from '@wizeworksllc/surface-compile';
 
 import { builderMcpTools } from './index';
 import { BUILDER_STYLE_GUIDE } from './vocabulary';

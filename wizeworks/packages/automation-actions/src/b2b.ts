@@ -5,7 +5,7 @@
 // it was never deployed). A scheduled automation scans `b2b_account`; each account
 // with past-due invoices runs the `b2b.escalate_overdue` action, which CALLS the
 // reusable `b2bEscalationService.escalateAccount` and then publishes the resulting
-// `b2b.*` notifications on the `@wizeworks/events` bus — the reminder / credit-hold /
+// `b2b.*` notifications on the `@wizeworksllc/events` bus — the reminder / credit-hold /
 // suspension events the email-worker consumes.
 
 import {
@@ -17,17 +17,17 @@ import {
   type ResolvedFields,
   type ScannedRow,
   type TenantCtx,
-} from '@wizeworks/automation';
-import { accountOrderGate, b2bEscalationService } from '@wizeworks/crm/services';
+} from '@wizeworksllc/automation';
+import { accountOrderGate, b2bEscalationService } from '@wizeworksllc/crm/services';
 import {
   billingDocumentMail,
   NOT_OWED_STAGE_TYPES,
   poNumberOf,
   PRICE_OFFER_WORKFLOW_SLUGS,
-} from '@wizeworks/crm';
-import { resolveSiteOrigin, siteUrl } from '@wizeworks/db/site-origin';
-import { enqueueSend } from '@wizeworks/email-sends';
-import { publishEvent } from '@wizeworks/events';
+} from '@wizeworksllc/crm';
+import { resolveSiteOrigin, siteUrl } from '@wizeworksllc/db/site-origin';
+import { enqueueSend } from '@wizeworksllc/email-sends';
+import { publishEvent } from '@wizeworksllc/events';
 import { z } from 'zod';
 
 import { optionalEntityId, requireEntityId } from './entity.js';
@@ -153,7 +153,7 @@ export const installB2bActions = installOnce((): void => {
         { creditHoldDays: cfg.creditHoldDays, suspendDays: cfg.suspendDays }
       );
 
-      // Publish downstream notifications on the @wizeworks/events bus — the same
+      // Publish downstream notifications on the @wizeworksllc/events bus — the same
       // topics the cron emitted (email-worker consumes them). EngineLogger
       // satisfies PublisherLogger structurally.
       const { publisher, logger } = ctx.deps;

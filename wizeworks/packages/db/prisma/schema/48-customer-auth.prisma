@@ -4,7 +4,7 @@
 // 03-auth*.prisma) with APPLICATION-LEVEL MULTI-TENANCY: the same email is a
 // separate account per tenant. Better Auth normally keys sign-in on a GLOBALLY
 // unique email; here the tenant is known before auth (the storefront host), so a
-// request-scoped AsyncLocalStorage (@wizeworks/db tenantStore) carries it and the
+// request-scoped AsyncLocalStorage (@wizeworksllc/db tenantStore) carries it and the
 // customer-auth tenant-scoping adapter runs every Better Auth op inside a
 // `SET LOCAL app.tenant_id` transaction. Correctness is DB-enforced: every table
 // is ENABLE + FORCE RLS with a tenant_isolation policy, `tenant_id` DEFAULTs to
@@ -213,7 +213,7 @@ model CustomerOauthClient {
 }
 
 // The store's own MCP endpoint(s), written by the authorize guard in
-// @wizeworks/customer-auth the first time a client names one (an MCP resource is
+// @wizeworksllc/customer-auth the first time a client names one (an MCP resource is
 // per store origin, so it cannot be a boot-time config value).
 model CustomerOauthResource {
   id                            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid

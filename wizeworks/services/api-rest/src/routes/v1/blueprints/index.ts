@@ -18,12 +18,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
+import { queryBool } from '@wizeworksllc/api-core/query';
 
-import { withTenant } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { conflict, notFound } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { conflict, notFound } from '@wizeworksllc/api-core/errors';
 import { requireTenantProperty, resolvePropertyId } from '../../../lib/property.js';
 import { resolveBlueprintManifest } from '../../../lib/marketplace/resolve.js';
 import {
@@ -89,7 +89,7 @@ function activePropertyHeader(headers: Record<string, unknown>): string | null {
 
 // Blueprint manifests resolve through lib/marketplace/resolve.js — one publisher-
 // blind path (row's pinned version → storage artifact) shared with the tenant seeder.
-// The in-code `@wizeworks/blueprints` registry that used to back a fallback here is gone;
+// The in-code `@wizeworksllc/blueprints` registry that used to back a fallback here is gone;
 // it was deliberately empty, so the branch could only ever return null.
 
 interface InstallRow {

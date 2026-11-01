@@ -41,7 +41,7 @@
 // step in fidelity rather than a correction of something the canvas got wrong.
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import {
   Badge,
   Button,
@@ -102,7 +102,7 @@ import {
   compileThemeForTenant,
   compiledToSilicaTheme,
   storedPresetV2,
-} from '@wizeworks/site-themes';
+} from '@wizeworksllc/site-themes';
 import {
   createSilicaResolver,
   defaultSilicaFormat,
@@ -115,7 +115,7 @@ import {
   SAMPLE_EMAIL_DATA,
   toSilicaDataSources,
   type MergeTag,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { MediaPickerProvider } from '../../cms/media-picker';
 import { emailInspectorPanels } from './email-asset-panel';
 import { PaneScope } from '../../../lib/dock/window-boundary';
@@ -168,7 +168,7 @@ import { ActionLabel } from '../../../components/action-label';
  *  look. */
 const FALLBACK_THEME: Theme = THEME_PRESETS[0]!;
 
-/** The FIXED semantic status colors the send applies (`@wizeworks/email/silica`
+/** The FIXED semantic status colors the send applies (`@wizeworksllc/email/silica`
  *  `brand-colors.ts` SEMANTIC) — a success is green for every tenant, a warning
  *  amber, independent of the brand palette. Overlaid onto the canvas theme's own
  *  `--color-{info,success,warning,error}` tokens so silica's live repaint

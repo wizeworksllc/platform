@@ -15,7 +15,7 @@ import {
   useToast,
   type BadgeSize,
 } from '@wizeworks/silicaui-react';
-import { isConditionGroup, type AutomationStatus } from '@wizeworks/automation-schemas';
+import { isConditionGroup, type AutomationStatus } from '@wizeworksllc/automation-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { useReaderClock } from '../../lib/business-timezone';
 import {

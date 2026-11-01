@@ -6,7 +6,7 @@
 // persona issue 008).
 
 import { useMemo, useState } from 'react';
-import { industryOf, type StoryState } from '@wizeworks/story-schemas';
+import { industryOf, type StoryState } from '@wizeworksllc/story-schemas';
 import { pickBlueprint } from '../../../lib/onboarding/story-state';
 import type { WizardBlueprint } from '../../../lib/onboarding/types';
 import { SCRATCH } from './step-blueprint';

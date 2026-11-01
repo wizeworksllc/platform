@@ -13,7 +13,7 @@ import {
   OrderPaymentStatus,
   OrderStatus,
   isOwingOrder,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 const { OWING_ORDER_WHERE } = await import('./order-service.js');
 

@@ -76,10 +76,10 @@ and the evidence is specific:
 So the transport did its whole job.
 
 > **A correction, 2026-09-01.** This paragraph used to claim that
-> `@google-cloud/pubsub`, imported eagerly by `@wizeworks/events`, "deadlocks tsx on
+> `@google-cloud/pubsub`, imported eagerly by `@wizeworksllc/events`, "deadlocks tsx on
 > Node 24, which is what makes every service hang at startup locally". Measured on
 > tsx 4.22.3 / Node 24.16.0: `@google-cloud/pubsub` loads in **1,147 ms** and
-> `@wizeworks/events` in **577 ms**, neither hangs, and `api-rest` — which imports
+> `@wizeworksllc/events` in **577 ms**, neither hangs, and `api-rest` — which imports
 > the package from `src/index.ts` — was answering on 3100 while this was written, as
 > was `event-worker` on 8086. Whatever produced that symptom, it was not this, and it
 > is not happening now. Left as a correction rather than deleted, because the claim

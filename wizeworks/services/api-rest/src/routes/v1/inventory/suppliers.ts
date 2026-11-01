@@ -1,7 +1,7 @@
 // Inventory module — Suppliers + per-variant purchasing detail (docs/100 P3a).
 // The inbound vendor record; purchase orders + receiving build on these. All
 // `requireInventoryModule` + `toInventoryContext`, so a standalone WMS tenant
-// (no commerce) manages suppliers here; writes delegate to @wizeworks/inventory.
+// (no commerce) manages suppliers here; writes delegate to @wizeworksllc/inventory.
 //
 //   GET    /v1/inventory/suppliers                       ?search&include_archived&take&skip
 //   POST   /v1/inventory/suppliers
@@ -14,10 +14,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { inventoryService } from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const PathId = z.object({ id: z.string().uuid() });

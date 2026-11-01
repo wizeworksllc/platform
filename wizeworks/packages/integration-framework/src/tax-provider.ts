@@ -2,7 +2,7 @@
 // transaction so refunds can reverse it, optionally validates ship-to
 // addresses. Stripe Tax, TaxJar, Avalara implement this.
 
-import type { TaxBreakdown, TaxCalculationRequest } from '@wizeworks/commerce-schemas';
+import type { TaxBreakdown, TaxCalculationRequest } from '@wizeworksllc/commerce-schemas';
 
 import type { ProviderRunContext } from './context';
 import type { ProviderMetadataDescriptor } from './metadata';

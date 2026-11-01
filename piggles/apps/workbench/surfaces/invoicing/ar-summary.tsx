@@ -12,7 +12,7 @@
 // Summing the visible page would quietly under-report the moment there are more
 // than fifty invoices — a number that looks authoritative and is wrong.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import {
   Card,
   Skeleton,

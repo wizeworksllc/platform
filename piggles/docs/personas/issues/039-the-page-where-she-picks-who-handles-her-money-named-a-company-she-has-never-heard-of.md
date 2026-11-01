@@ -35,7 +35,7 @@ screen and reading it as her.
 
 ## The fix — the shape the check's own header predicted
 
-- The data carries **`{platform}`** (`PLATFORM_TOKEN`, `@wizeworks/brand-core`)
+- The data carries **`{platform}`** (`PLATFORM_TOKEN`, `@wizeworksllc/brand-core`)
   instead of a product name.
 - `gatewayCatalog(brand)` and `getGatewayDescriptor(id, brand)` resolve it,
   memoised per resolved name.

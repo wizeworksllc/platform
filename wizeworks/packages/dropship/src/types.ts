@@ -1,4 +1,4 @@
-// @wizeworks/dropship — core types for the dropship connector framework.
+// @wizeworksllc/dropship — core types for the dropship connector framework.
 // (docs/14, docs/64 Dropship Ph1)
 //
 // The SupplierAdapter interface defines the contract every adapter must

@@ -6,7 +6,7 @@
 // of the site's pages — the failure `recordPagePlan` was rewritten for.
 
 import { describe, expect, it } from 'vitest';
-import { kindAddressFromPattern } from '@wizeworks/silica-catalog';
+import { kindAddressFromPattern } from '@wizeworksllc/silica-catalog';
 
 import {
   kindPagePlan,

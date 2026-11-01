@@ -5,7 +5,7 @@
 //   GET  /v1/inventory/costing/uncosted
 //   POST /v1/inventory/costing/uncosted
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { apiErrorMessage } from '../../lib/api-error';
 

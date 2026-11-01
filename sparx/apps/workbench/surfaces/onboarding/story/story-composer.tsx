@@ -8,7 +8,7 @@ import {
   industryOf,
   storySubject,
   type StoryState,
-} from '@wizeworks/story-schemas';
+} from '@wizeworksllc/story-schemas';
 import {
   fulfillment,
   handleSlug,

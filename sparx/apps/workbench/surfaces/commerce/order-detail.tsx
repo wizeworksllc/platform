@@ -31,7 +31,7 @@ import {
   Text,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { HELD_FOR_SIGN_OFF_STATUS, poNumberOf } from '@wizeworks/crm-schemas';
+import { HELD_FOR_SIGN_OFF_STATUS, poNumberOf } from '@wizeworksllc/crm-schemas';
 import { orderDeliveryRows } from './order-delivery-needs';
 import { useConfirm } from '../../lib/confirm';
 import { ExternalLink, Ban, Route, Undo2 } from 'lucide-react';

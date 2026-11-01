@@ -2,7 +2,7 @@
 // pass a transaction cost through to the customer at checkout. They install
 // active (the merchant explicitly chose to add a fee). Marker is the rule name.
 
-import type { CreateSurchargeRuleInput } from '@wizeworks/commerce-schemas';
+import type { CreateSurchargeRuleInput } from '@wizeworksllc/commerce-schemas';
 
 import { surchargeService } from '../services';
 

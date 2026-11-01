@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** critical
 **Found by:** P03 · Juniper Row · act 266
-**Surface:** mypiggles + sparx workbench — Customers (the Wholesale customer field), Wholesale customers (Who can order); `@wizeworks/crm`
+**Surface:** mypiggles + sparx workbench — Customers (the Wholesale customer field), Wholesale customers (Who can order); `@wizeworksllc/crm`
 **Filed:** 2026-09-19
 **Fixed:** 2026-09-19
 **Confirmed by:** P03, on both screens and in the database

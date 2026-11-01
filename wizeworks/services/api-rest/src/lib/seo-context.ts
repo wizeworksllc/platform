@@ -8,7 +8,7 @@
 // tenant's primary). Mirrors toBuilderContext.
 
 import type { FastifyRequest } from 'fastify';
-import { requireAuth } from '@wizeworks/api-core/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
 
 import { resolvePropertyId } from './property.js';
 

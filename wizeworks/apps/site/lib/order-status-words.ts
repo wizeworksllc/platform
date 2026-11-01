@@ -9,7 +9,7 @@ import { formatMoney } from './format';
 
 /**
  * Semantic tone for an order status: the house status rule (`statusTone` in
- * `@wizeworks/ui`), where info is in motion, success is done and good, warning
+ * `@wizeworksllc/ui`), where info is in motion, success is done and good, warning
  * is waiting and danger is a failure.
  *
  * "Placed" was the theme's primary. On a shop whose brand color is red, every

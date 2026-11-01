@@ -23,8 +23,8 @@
 // tenant id must go through `withTenant` — see the header of
 // `scripts/backfill-finance-categories.ts` for what happens when it does not.
 
-import { prisma } from '@wizeworks/db';
-import { deriveModuleStates, type ModuleSlug } from '@wizeworks/modules';
+import { prisma } from '@wizeworksllc/db';
+import { deriveModuleStates, type ModuleSlug } from '@wizeworksllc/modules';
 
 export interface ModuleTenant {
   id: string;

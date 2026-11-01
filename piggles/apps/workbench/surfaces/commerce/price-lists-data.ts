@@ -12,7 +12,7 @@
 //
 // This is the AUTHORING home the product Pricing tab and the B2B panes already
 // point at (they READ `price-list-entries`; this is the WRITE side). Everything
-// sent here satisfies the pricing Zod schemas in `@wizeworks/commerce-schemas`.
+// sent here satisfies the pricing Zod schemas in `@wizeworksllc/commerce-schemas`.
 //
 //   ['commerce','price-lists']                the root every read nests under
 //   ['commerce','price-lists','list',{…}]     the list surface's window
@@ -24,8 +24,8 @@
 // show up there too.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 

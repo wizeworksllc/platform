@@ -15,22 +15,22 @@
 // `entitySnapshot` fallback.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { withTenant } from '@wizeworks/db';
-import { publish } from '@wizeworks/api-core/pubsub';
-import type { RawEmailSendPayload } from '@wizeworks/events';
-import { renderSilicaEmail } from '@wizeworks/email/silica';
-import { emailService } from '@wizeworks/builder';
+import { withTenant } from '@wizeworksllc/db';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import type { RawEmailSendPayload } from '@wizeworksllc/events';
+import { renderSilicaEmail } from '@wizeworksllc/email/silica';
+import { emailService } from '@wizeworksllc/builder';
 import {
   brandService,
   buildTenantFrom,
   emailTrackingService,
   settingsService,
-} from '@wizeworks/email-platform';
+} from '@wizeworksllc/email-platform';
 import {
   interpolateEmailTokens,
   resolvePath,
   type PublishedEmailDto,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 
 import {
   applyEntitySnapshot,

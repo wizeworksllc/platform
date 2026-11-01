@@ -1,7 +1,7 @@
 import type { FastifyRequest } from 'fastify';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 // Channels are part of the Commerce module (no separate fee — docs/106 §8), so
 // the channel surface is gated on `commerce`.

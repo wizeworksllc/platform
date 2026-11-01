@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/site-lint",
+  "name": "@wizeworksllc/site-lint",
   "version": "0.0.0",
   "private": true,
   "description": "Pre-publish check engine for silica sites (docs/builder-audit slices 9–10). lintSite() walks the COMPOSED document — frame ⊕ page body ⊕ expanded symbols — and reports broken links, missing image descriptions, heading-outline gaps, dead buttons, classes that emit no CSS, unreadable color pairings and missing/duplicate SEO fields. Pure, deterministic, no I/O, advisory only — it never blocks a publish.",
@@ -21,8 +21,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/silica-catalog": "workspace:*",
-    "@wizeworks/site-themes": "workspace:*",
+    "@wizeworksllc/silica-catalog": "workspace:*",
+    "@wizeworksllc/site-themes": "workspace:*",
     "@wizeworks/silicaui-html": "catalog:"
   },
   "devDependencies": {

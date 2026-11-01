@@ -36,14 +36,14 @@ import {
   type SilicaSymbolDef,
   type SilicaTheme,
   type StoredSilicaSite,
-} from '@wizeworks/builder-schemas';
-import type { BuilderLayout, BuilderPage, BuilderSite } from '@wizeworks/db';
-// @wizeworks/db re-exports the Prisma namespace as a VALUE (its `DbNull` runtime
+} from '@wizeworksllc/builder-schemas';
+import type { BuilderLayout, BuilderPage, BuilderSite } from '@wizeworksllc/db';
+// @wizeworksllc/db re-exports the Prisma namespace as a VALUE (its `DbNull` runtime
 // sentinel is needed to write SQL NULL into a nullable Json column).
-import { Prisma, withTenant, type TxClient } from '@wizeworks/db';
+import { Prisma, withTenant, type TxClient } from '@wizeworksllc/db';
 // The authoring kit (docs/118 Stage N — the MCP single-item writers below). Only
 // the 3 primitives needed to turn a caller's section list into a stamped page
-// body; every other kit helper stays in @wizeworks/silica-catalog / the MCP tools.
+// body; every other kit helper stays in @wizeworksllc/silica-catalog / the MCP tools.
 import { defaultMakeId, pageBody, stampTree } from '@wizeworks/silicaui-html';
 // The starter chrome factory — the one definition of "the default header + footer",
 // shared with the studio's seed path so a reset restores today's chrome, not a copy.
@@ -69,7 +69,7 @@ import {
   type ChromeGap,
   type RecordAddress,
   type SiteChromeOptions,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import { writeAuditLog } from '../audit';
 import { isLive as isPageLive } from './page-liveness';
@@ -277,7 +277,7 @@ async function healFramesTx(tx: TxClient, layouts: BuilderLayout[]): Promise<Bui
 /** The same repair, for a stale stored PAGE BODY.
  *
  *  `upgradePageBody` is the frame heal's sibling and had the identical problem one
- *  layer down: written, tested, exported from `@wizeworks/silica-catalog`, and called
+ *  layer down: written, tested, exported from `@wizeworksllc/silica-catalog`, and called
  *  by NOTHING. Its own header describes a contract ("runs on the DRAFT at studio
  *  load") that no code implemented, so every repair anybody put in it — the product
  *  card's dead `gap-1.5`, the lazy product hero (issue 345), the form action routed
@@ -3165,11 +3165,11 @@ export function getPublishedSite(ctx: PropertyContext): Promise<StoredSilicaSite
 // the per-page domain columns (`kind`/`recordType`/`isDefault`/SEO) that `load` and
 // `getPublishedSite` drop because silica's flat `Page` doesn't model them. The
 // api-rest capture orchestration projects this straight into a `SiteDecl` via
-// `@wizeworks/blueprints`' `captureSite`, so a captured collection template keeps
+// `@wizeworksllc/blueprints`' `captureSite`, so a captured collection template keeps
 // binding to its record type on reinstall.
 
 /** One page as the capture path needs it — the source silica body `root` PLUS the
- *  domain columns. Structurally mirrors `@wizeworks/blueprints`' `CapturedPageInput` so
+ *  domain columns. Structurally mirrors `@wizeworksllc/blueprints`' `CapturedPageInput` so
  *  the projector consumes it directly, without this package importing that one. */
 export interface CapturablePage {
   id: string;

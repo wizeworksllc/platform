@@ -1,4 +1,4 @@
-// Vitest setup — quiet logs + point the DB env at local docker (mirrors @wizeworks/crm).
+// Vitest setup — quiet logs + point the DB env at local docker (mirrors @wizeworksllc/crm).
 // GCP_PROJECT_ID is intentionally unset so publishCrmEvent uses the logging stub.
 
 process.env.NODE_ENV = 'test';

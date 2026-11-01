@@ -18,7 +18,7 @@ const state = vi.hoisted(() => ({
   properties: new Map<string, { id: string; slug: string; isPrimary: boolean }>(),
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tenant = { findUnique: () => Promise.resolve(state.tenant) };
   const domain = {
     findFirst: ({

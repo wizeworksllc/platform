@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { PLATFORM_TOKEN } from '@wizeworks/brand-core';
+import { PLATFORM_TOKEN } from '@wizeworksllc/brand-core';
 import { bootstrapProviders } from '../../src/lib/providers-bootstrap.js';
 import { firstPartyIntegrations } from '../../src/lib/marketplace/first-party-integrations.js';
 

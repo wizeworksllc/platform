@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import { STORY_EXAMPLES } from '@wizeworks/story-schemas';
+import { STORY_EXAMPLES } from '@wizeworksllc/story-schemas';
 import { StoryProse } from './story-prose';
 import { allTokens, storyPlainText, storyTokens, tokenSteps } from './story-tokens';
 import { useOnScreen } from './use-on-screen';
@@ -12,7 +12,7 @@ import styles from './hero-story.module.css';
  * one after another. This replaces the old device vignette — rather than mocking up a
  * product screen, the hero shows the actual first thing a new owner does, in the
  * actual grammar they'll do it in (the examples and the clause vocabulary are the
- * shipped ones, read from `@wizeworks/story-schemas`).
+ * shipped ones, read from `@wizeworksllc/story-schemas`).
  *
  * Typing is the point, not decoration: an owner describes their business and watches
  * modules switch on as they say them, so the prose types at reading speed and each

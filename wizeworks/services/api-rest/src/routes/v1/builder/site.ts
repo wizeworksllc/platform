@@ -63,7 +63,7 @@
 // The silica `<Builder>` owns the multi-page site in memory and hands back the
 // WHOLE `Site` on every edit, so persistence is one whole-site reconcile — not the
 // per-page PATCH the sparx studio uses. Bodies are validated by the service-layer
-// Zod schema (`SiteSyncInput`), keeping api-rest free of @wizeworks/builder-schemas.
+// Zod schema (`SiteSyncInput`), keeping api-rest free of @wizeworksllc/builder-schemas.
 
 import type { FastifyPluginAsync } from 'fastify';
 import {
@@ -73,11 +73,11 @@ import {
   opLogService,
   recordSampleService,
   siteService,
-} from '@wizeworks/builder';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
+} from '@wizeworksllc/builder';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
 import {
   requireBuilderModule,
   siteChromeOptions,

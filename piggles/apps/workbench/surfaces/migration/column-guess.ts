@@ -5,7 +5,7 @@
 // no state, no I/O: given a list of headers, which entity is this and which field
 // does each column mean?
 
-import { CANONICAL_ENTITIES, ENTITY_FIELDS, type CanonicalEntity } from '@wizeworks/migration';
+import { CANONICAL_ENTITIES, ENTITY_FIELDS, type CanonicalEntity } from '@wizeworksllc/migration';
 
 /** Compare form for a header — the same normalisation the adapters use. */
 function normalize(value: string): string {

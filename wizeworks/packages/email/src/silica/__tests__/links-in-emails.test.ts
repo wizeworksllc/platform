@@ -4,7 +4,7 @@
 // fixed gray (dark text on a dark email) and were missing from the text copy.
 
 import { describe, expect, it } from 'vitest';
-import { contentCards, emailDoc } from '@wizeworks/builder-schemas';
+import { contentCards, emailDoc } from '@wizeworksllc/builder-schemas';
 import type { EmailDocument } from '@wizeworks/silicaui-builder/email';
 
 import { applyBrandColors } from '../brand-colors';

@@ -4,8 +4,8 @@
 //  • card:  a light surface card — image on top, content below.
 // Stacks to one column on narrow screens (CSS).
 
-import type { PanelsConfig } from '@wizeworks/sitebuilder-schemas';
-import { focalToPosition } from '@wizeworks/sitebuilder-schemas';
+import type { PanelsConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { focalToPosition } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

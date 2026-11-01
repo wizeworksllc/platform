@@ -1,4 +1,4 @@
-// Per-test fixtures for @wizeworks/staff integration tests.
+// Per-test fixtures for @wizeworksllc/staff integration tests.
 //
 // Every test gets a fresh tenant with a primary site and the finance categories
 // seeded — the labour deriver files into the `wages` category, so a fixture
@@ -9,8 +9,8 @@
 
 import crypto from 'node:crypto';
 
-import { prisma } from '@wizeworks/db';
-import { seedCategories } from '@wizeworks/finance';
+import { prisma } from '@wizeworksllc/db';
+import { seedCategories } from '@wizeworksllc/finance';
 
 export interface TestTenant {
   tenantId: string;

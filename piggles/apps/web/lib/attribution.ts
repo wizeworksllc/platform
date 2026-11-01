@@ -33,7 +33,7 @@ import {
   resolveLastTouch,
   serializeSnapshot,
   type AttributionSnapshot,
-} from '@wizeworks/attribution';
+} from '@wizeworksllc/attribution';
 import { getConsent } from './consent';
 
 /** Piggles' own names. Fixed forever — a rename silently discards the recorded

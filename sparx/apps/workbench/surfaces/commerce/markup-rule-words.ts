@@ -13,7 +13,7 @@ import {
   applyMarkupRule,
   type MarkupRuleSpec,
   type MarkupScope,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import { formatCentsAmount } from '../../lib/money-format';
 
 /* ── The server's row ───────────────────────────────────────────────────── */

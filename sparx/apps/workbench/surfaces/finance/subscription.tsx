@@ -15,8 +15,8 @@
 import { useEffect, useState } from 'react';
 import { Alert, Badge, Button, Card, Heading, Text } from '@wizeworks/silicaui-react';
 import { Table } from '../../components/table';
-import { ApiError } from '@wizeworks/api-client';
-import { buildPath } from '@wizeworks/links';
+import { ApiError } from '@wizeworksllc/api-client';
+import { buildPath } from '@wizeworksllc/links';
 import { CreditCard, ExternalLink } from 'lucide-react';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { PaneLoadError } from '../../components/pane-load-error';

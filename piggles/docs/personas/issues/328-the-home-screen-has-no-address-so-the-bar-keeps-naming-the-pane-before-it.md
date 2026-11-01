@@ -129,7 +129,7 @@ exits 1.
 
 ## Confirmed by
 
-The check, red then green, and 60 tests in `@wizeworks/links` including four that
+The check, red then green, and 60 tests in `@wizeworksllc/links` including four that
 pin the behaviour directly: each product's Home at the same path, both building
 `/home`, every non-varying address still resolving for a branded caller, and an
 unknown brand getting the shared answer rather than nothing.

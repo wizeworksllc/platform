@@ -11,7 +11,7 @@
 // ── WHY IT PUBLISHES AN EVENT RATHER THAN SENDING AN EMAIL ───────────────────
 // docs/149 asked for "an email template behind it". This follows the platform's
 // existing reminder pattern instead — `emitOverdueTaskReminders` in
-// `@wizeworks/crm` publishes `crm.task.updated` "so the email automation engine can
+// `@wizeworksllc/crm` publishes `crm.task.updated` "so the email automation engine can
 // fire a templated reminder" — because the alternative is sparx deciding, on a
 // tenant's behalf, who should be emailed about a forklift licence. That answer
 // differs per business: the person, their supervisor, a compliance mailbox, or
@@ -31,7 +31,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 
-import { certificationsNeedingReminder, markReminded } from '@wizeworks/staff';
+import { certificationsNeedingReminder, markReminded } from '@wizeworksllc/staff';
 
 import { authorizeCron, forEachTenant } from '../../lib/cron-auth.js';
 import { listTenantsWithModule } from '../../lib/module-tenants.js';

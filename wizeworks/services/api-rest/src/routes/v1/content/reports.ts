@@ -23,11 +23,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { Prisma } from '@wizeworks/db';
-import { contentSiteVisibilityWhere } from '@wizeworks/db';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import type { Prisma } from '@wizeworksllc/db';
+import { contentSiteVisibilityWhere } from '@wizeworksllc/db';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { resolveListScope } from '../../../lib/property.js';
 
 const CONTENT_STATUSES = ['draft', 'scheduled', 'published', 'archived'] as const;

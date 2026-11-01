@@ -1,4 +1,4 @@
-// See @wizeworks/crm-schemas' patch-semantics.test.ts for the full story: a
+// See @wizeworksllc/crm-schemas' patch-semantics.test.ts for the full story: a
 // `.default()` survives `.partial()`, so a PATCH body built from a create body
 // fabricates values the caller never sent, and the route writes them. Here that
 // meant renaming a wholesale pricing tier widened it from a few collections to

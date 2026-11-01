@@ -24,15 +24,15 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { marketService } from '@wizeworks/commerce';
+import { marketService } from '@wizeworksllc/commerce';
 import {
   MarketBulkOptInInput,
   MarketMerchantProfileInput,
   MarketPayoutAccountInput,
   MarketProductOptInInput,
-} from '@wizeworks/commerce-schemas';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/commerce-schemas';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import { requireChannelsModule, toChannelContext } from '../../../lib/channel-context.js';
 

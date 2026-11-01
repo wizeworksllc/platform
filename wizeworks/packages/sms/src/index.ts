@@ -1,4 +1,4 @@
-// @wizeworks/sms — provider-agnostic SMS, Twilio-first and swappable (docs/79 §10).
+// @wizeworksllc/sms — provider-agnostic SMS, Twilio-first and swappable (docs/79 §10).
 
 export { type SmsProvider, type SendSmsParams, type SmsResult, looksLikePhone } from './provider';
 export { ConsoleSmsProvider } from './providers/console';

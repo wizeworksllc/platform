@@ -12,7 +12,7 @@
 
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
-import { QueryClient, QueryClientProvider } from '@wizeworks/query';
+import { QueryClient, QueryClientProvider } from '@wizeworksllc/query';
 import { describe, expect, it } from 'vitest';
 
 import { resourceKindIcon } from './resource-kind-icon';

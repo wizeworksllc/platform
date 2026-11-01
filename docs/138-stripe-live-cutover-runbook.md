@@ -153,7 +153,7 @@ isn't registered (docs/92 §1). When you turn this on **in live**:
 1. Run the provisioner with the **live** key — creates products, prices, meter, portal
    config in live mode and **prints the `STRIPE_PRICE_*` env block**:
    ```bash
-   STRIPE_SECRET_KEY=sk_live_… pnpm --filter @wizeworks/billing provision-stripe
+   STRIPE_SECRET_KEY=sk_live_… pnpm --filter @wizeworksllc/billing provision-stripe
    ```
 2. Add each printed `STRIPE_PRICE_<MODULE>_MONTHLY` / `_ANNUAL` (+ `MANAGED_HOSTING`) to
    Secret Manager via `gcloud secrets versions add`. The secret **containers, the

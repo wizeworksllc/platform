@@ -1,7 +1,7 @@
 // Fails if a notification a rule writes cannot lead anywhere.
 //
 // A notification row carries `entity_type` + `entity_id` and NOTHING else about
-// where it goes: the consumer looks the type up in `@wizeworks/links`' entity table
+// where it goes: the consumer looks the type up in `@wizeworksllc/links`' entity table
 // and builds the address from that. So two mistakes make a notification a dead
 // end, and neither one is visible from the seed that made it:
 //

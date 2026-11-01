@@ -15,7 +15,7 @@
 
 import { repeatStartService, subscriptionBilling, subscriptionService } from '../services';
 import type { CollectionResult } from '../services/subscription-billing';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 export interface SubscriptionTickResult {
   tenantId: string;

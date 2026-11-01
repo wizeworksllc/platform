@@ -77,7 +77,7 @@ mine to do. The seed is right for the next site; hers is one edit in the studio.
 ## Confirmed by
 
 **Not yet on screen.** The dev stack was down. What did run:
-`@wizeworks/silica-catalog` **1147 tests in 31 files, all passing** (including
+`@wizeworksllc/silica-catalog` **1147 tests in 31 files, all passing** (including
 `site-chrome.test.ts`, which asserts the footer's legal links and brand binding),
 and the api-rest `blueprint-bundles.test.ts` **10/10**, which validates all 191
 committed bundles still parse.

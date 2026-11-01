@@ -13,7 +13,7 @@ import type { DocumentKind } from '@piggles/studio';
 import type { EmailPreviewHost, StudioHost } from '@piggles/studio/react';
 import type { Theme } from '@wizeworks/silicaui-html';
 import type { EmailColorDefaults, EmailFrame } from '@wizeworks/silicaui-builder/email';
-import { BASE_SILICA_THEME, validateResponsiveVocabulary } from '@wizeworks/silica-catalog';
+import { BASE_SILICA_THEME, validateResponsiveVocabulary } from '@wizeworksllc/silica-catalog';
 import { makeRenderHostNode } from './host-cores';
 import { useMediaPicker, type PickedAsset } from '../../surfaces/cms/media-picker';
 import { PageSettingsPanel } from '../../surfaces/studio/page-settings-panel';
@@ -27,7 +27,7 @@ import { useCanvasPreview, type CanvasPreview } from './preview';
 import { EMAIL_CONTENT_BLOCKS, useEmailIdentity, useEmailPreview } from './email-domain';
 import { useEmailChrome } from './email-data';
 import { emailWritingKinds, writingListChoices } from './list-sources';
-import { writingBlocks } from '@wizeworks/builder-schemas';
+import { writingBlocks } from '@wizeworksllc/builder-schemas';
 import { useActiveProperty, useBindingCatalog } from './site-data';
 import { useActivePropertyId } from '../api/shell-data';
 

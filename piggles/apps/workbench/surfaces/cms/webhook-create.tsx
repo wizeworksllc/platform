@@ -5,7 +5,7 @@
 // Creating does NOT swap straight to the manage view: a `replace` would refetch
 // the record with the secret already redacted and the real value gone for good.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useState } from 'react';
 import {
   Alert,

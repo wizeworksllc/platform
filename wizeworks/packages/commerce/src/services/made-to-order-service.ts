@@ -9,9 +9,9 @@
 // All of it is counted in the BUSINESS's own zone. "24 a day" means her day —
 // counting in UTC would roll her allowance over at 6pm in Denver, mid-service.
 
-import type { CartMadeToOrder } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import type { CartMadeToOrder } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

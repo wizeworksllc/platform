@@ -31,7 +31,7 @@ import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { faExclamationTriangle } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { Button } from '@wizeworks/silicaui-react';
-import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworks/app-kit';
+import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworksllc/app-kit';
 import { reportCrash } from '../lib/analytics';
 
 interface ChromeBoundaryProps {

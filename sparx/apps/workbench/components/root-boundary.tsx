@@ -26,7 +26,7 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { Button } from '@wizeworks/silicaui-react';
-import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworks/app-kit';
+import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworksllc/app-kit';
 import { reportCrash } from '../lib/analytics';
 import { productName } from '../lib/product';
 

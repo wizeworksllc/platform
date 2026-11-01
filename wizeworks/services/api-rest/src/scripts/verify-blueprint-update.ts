@@ -11,10 +11,10 @@
 
 import type { FastifyBaseLogger } from 'fastify';
 
-import { prisma, withTenant } from '@wizeworks/db';
-import { safeParseBlueprint, type Blueprint } from '@wizeworks/blueprints';
-import { savedThemeService } from '@wizeworks/sitebuilder';
-import { productService, variantService } from '@wizeworks/commerce';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { safeParseBlueprint, type Blueprint } from '@wizeworksllc/blueprints';
+import { savedThemeService } from '@wizeworksllc/sitebuilder';
+import { productService, variantService } from '@wizeworksllc/commerce';
 
 import { installBlueprint } from '../lib/blueprint-installer.js';
 import { applyUpdate, planUpdate } from '../lib/blueprint-updater.js';

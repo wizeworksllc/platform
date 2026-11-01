@@ -4,7 +4,7 @@
 // driven by MARKET_CATEGORIES so the footer tracks the same taxonomy as the header.
 
 import Link from 'next/link';
-import { MARKET_CATEGORIES } from '@wizeworks/commerce-schemas';
+import { MARKET_CATEGORIES } from '@wizeworksllc/commerce-schemas';
 import { Button } from '@wizeworks/silicaui-react';
 
 import { SparkFooterPeek, Wordmark } from '@/components/sparx-brand';

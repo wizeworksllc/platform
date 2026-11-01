@@ -2,7 +2,7 @@
 // boot; the providerService.listAvailable() call reads from this registry
 // to render the marketplace catalog.
 
-import type { ProviderKind } from '@wizeworks/commerce-schemas';
+import type { ProviderKind } from '@wizeworksllc/commerce-schemas';
 
 import type { DropshipProvider } from './dropship-provider';
 import type { ProviderMetadataDescriptor } from './metadata';
@@ -24,11 +24,11 @@ import type { TaxProvider } from './tax-provider';
  * two other files described recurring charges as "backed by a SubscriptionBilling
  * provider" that subscription-service never called.
  *
- * Real payments have always run through `@wizeworks/payments`' gateway registry — so
+ * Real payments have always run through `@wizeworksllc/payments`' gateway registry — so
  * payments were modelled twice, and the dead copy was the one that looked official
  * enough to make a working Stripe integration read as missing.
  *
- * Payments belong to `@wizeworks/payments`. A new processor is a `GATEWAY_CATALOG`
+ * Payments belong to `@wizeworksllc/payments`. A new processor is a `GATEWAY_CATALOG`
  * descriptor plus a `PaymentGateway` adapter; if it is not written yet the descriptor
  * carries `availability: 'coming_soon'` and no stub is needed at all. Recurring
  * billing, when it is built, belongs there too — beside the code that already charges

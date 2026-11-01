@@ -11,7 +11,7 @@
 
 import { useEffect, useState } from 'react';
 import { Button, EmptyState, Loading, Textarea, useToast } from '@wizeworks/silicaui-react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { MessageSquare } from 'lucide-react';
 import { describeAgo } from '../../lib/api/activity';
 import {

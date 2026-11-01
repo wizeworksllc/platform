@@ -9,11 +9,11 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 import type { Prisma } from '@prisma/client';
-import { withTenant } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound, validationError } from '@wizeworks/api-core/errors';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { withTenant } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound, validationError } from '@wizeworksllc/api-core/errors';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 import { requireDropshipModule, toDropshipContext } from '../../../lib/dropship-context.js';
 import { nextDropshipStatus, recordDropshipShipment } from '../../../lib/dropship-shipment.js';
 import { publishDomainEvent } from '../../../lib/staff-events.js';

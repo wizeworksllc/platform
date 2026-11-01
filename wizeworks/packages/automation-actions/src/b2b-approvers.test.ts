@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
-import type { EffectInput, TenantCtx } from '@wizeworks/automation';
+import type { EffectInput, TenantCtx } from '@wizeworksllc/automation';
 
 // Sparx persona issue 087. A trade account's contact with the role "Can approve
 // orders" was never asked anything: an order held over a spending limit the
@@ -9,7 +9,7 @@ import type { EffectInput, TenantCtx } from '@wizeworks/automation';
 // asked" is decided exactly as the Approve buttons decide it.
 
 const enqueueSend = vi.fn();
-vi.mock('@wizeworks/email-sends', () => ({
+vi.mock('@wizeworksllc/email-sends', () => ({
   enqueueSend: (...args: unknown[]) => enqueueSend(...args) as unknown,
 }));
 

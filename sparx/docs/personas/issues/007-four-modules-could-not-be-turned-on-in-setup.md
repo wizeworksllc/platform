@@ -32,7 +32,7 @@ hears.
 ## Where it lives
 
 - `lib/onboarding/modules.ts` `SWITCHBOARD_MODULES` (both consoles): 12 rows.
-- `@wizeworks/story-schemas` `CLAUSE`: no phrase for the four modules.
+- `@wizeworksllc/story-schemas` `CLAUSE`: no phrase for the four modules.
 - `story-state.ts` `MODULE_PRIMARY_CLAUSE` (both consoles): no switch ⇄ phrase
   link for them.
 - `story-summary.tsx` `storyPlanItems`: only modules the story chose.

@@ -15,9 +15,9 @@ import { createServer, type IncomingMessage, type Server, type ServerResponse } 
 import { createHmac } from 'node:crypto';
 import { afterAll, afterEach, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { withTenant } from '@wizeworks/db';
-import { runWebhookDeliveryTick } from '@wizeworks/api-core/webhook-delivery';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { withTenant } from '@wizeworksllc/db';
+import { runWebhookDeliveryTick } from '@wizeworksllc/api-core/webhook-delivery';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import { createApp } from '../../src/app.js';
 import {
   type TestTenant,

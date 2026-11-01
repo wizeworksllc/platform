@@ -1,6 +1,6 @@
 // Announcing a stage — the one part of this package that knows about the bus.
 //
-// It is a SEPARATE ENTRY POINT (`@wizeworks/funnels/announce`) rather than part
+// It is a SEPARATE ENTRY POINT (`@wizeworksllc/funnels/announce`) rather than part
 // of the main barrel, and the split is load-bearing. `./index` is deliberately
 // backend-safe with nothing but the database and the schema packages behind it,
 // which is what lets the event-worker run the nightly reconcile without dragging
@@ -13,8 +13,8 @@
 // anything else means "did it come in through MCP?" becomes a thing somebody has
 // to know.
 
-import { publish } from '@wizeworks/api-core/pubsub';
-import type { EventType, FunnelStageEventPayload } from '@wizeworks/events';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import type { EventType, FunnelStageEventPayload } from '@wizeworksllc/events';
 import type { Funnel, FunnelStageEvent } from '@prisma/client';
 
 import { getFunnel, stagesOf } from './index.js';

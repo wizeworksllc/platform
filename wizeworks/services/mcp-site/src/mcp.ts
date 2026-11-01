@@ -1,6 +1,6 @@
 // Per-request McpServer factory (docs/113 §3.2). Mirrors api-mcp's pattern: a
 // fresh McpServer per HTTP request (stateless transport). Tools come from the
-// shared @wizeworks/site-mcp catalog; each dispatch is an HTTP call to a
+// shared @wizeworksllc/site-mcp catalog; each dispatch is an HTTP call to a
 // public route. Phase 1 registers `read` + `guest_write` tools only.
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
@@ -12,7 +12,7 @@ import {
   type SiteApiClient,
   type SiteCtx,
   type SiteTool,
-} from '@wizeworks/site-mcp';
+} from '@wizeworksllc/site-mcp';
 
 const SERVER_INFO = { name: 'sparx-site-mcp', version: '1.0.0' };
 

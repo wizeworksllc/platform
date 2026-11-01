@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 const h = vi.hoisted(() => ({ standing: vi.fn() }));
 
-vi.mock('@wizeworks/billing', () => ({
+vi.mock('@wizeworksllc/billing', () => ({
   listBillingPlans: () => [{ id: 'flat_offer', offer: { coupon: 'INTRO' } }, { id: 'no_offer' }],
   offerStanding: h.standing,
 }));

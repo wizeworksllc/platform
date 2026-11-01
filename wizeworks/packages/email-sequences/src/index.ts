@@ -1,4 +1,4 @@
-// @wizeworks/email-sequences — the reusable multi-touch email JOURNEY (docs/81 §9).
+// @wizeworksllc/email-sequences — the reusable multi-touch email JOURNEY (docs/81 §9).
 //
 // A sequence is an ordered list of steps (delay + email). A customer is ENROLLED
 // (by the `email.sequence_add` action, or a manual REST call), which creates one
@@ -7,7 +7,7 @@
 // run tick) advances each due enrollment: send the current step, schedule the
 // next, exit on a goal, complete at the end.
 //
-// Backend-safe like @wizeworks/email-sends: depends ONLY on @wizeworks/db + @wizeworks/email-sends
+// Backend-safe like @wizeworksllc/email-sends: depends ONLY on @wizeworksllc/db + @wizeworksllc/email-sends
 // (no render/React), so the lean automation-worker can enroll + drain. Sends go
 // through the SAME `enqueueSend` producer a one-shot `email.send_campaign` uses —
 // suppression, per-recipient render, and Mailgun delivery stay exactly where they
@@ -19,8 +19,8 @@ import {
   withTenant,
   type Prisma,
   type TenantContext,
-} from '@wizeworks/db';
-import { enqueueSend, type ScheduledSendBody } from '@wizeworks/email-sends';
+} from '@wizeworksllc/db';
+import { enqueueSend, type ScheduledSendBody } from '@wizeworksllc/email-sends';
 import type { EmailSequence, EmailSequenceEnrollment, PrismaClient } from '@prisma/client';
 
 import {

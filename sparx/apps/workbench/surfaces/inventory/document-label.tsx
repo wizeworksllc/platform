@@ -31,7 +31,7 @@
 
 import { useMemo, useState } from 'react';
 import { Alert, Button, NativeSelect, Text } from '@wizeworks/silicaui-react';
-import { barcodeSvg, encodeBarcode } from '@wizeworks/commerce-schemas';
+import { barcodeSvg, encodeBarcode } from '@wizeworksllc/commerce-schemas';
 import { Printer } from 'lucide-react';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { PrintSheet } from '../../components/print-sheet';

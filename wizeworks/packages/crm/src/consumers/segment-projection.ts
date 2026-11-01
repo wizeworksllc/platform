@@ -1,15 +1,15 @@
 // Build the segment-rule projection for a single customer.
 //
-// The shape mirrors the @wizeworks/crm-schemas CustomerProjection (used by the
+// The shape mirrors the @wizeworksllc/crm-schemas CustomerProjection (used by the
 // rule editor's autocomplete). One tenant-scoped transaction loads the
 // customer, its trade account (by id) and its email-engagement counts; the result feeds
 // evaluateSegmentRule. Keeping the builder centralized means there's one
 // place to add a new addressable field — segment rules, evaluator, and
 // dashboard preview-count all see it at the same time.
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import type { RuleProjection } from '@wizeworks/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import type { RuleProjection } from '@wizeworksllc/crm-schemas';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError } from '../errors';

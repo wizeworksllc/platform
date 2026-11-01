@@ -14,7 +14,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const announceCustomer = vi.fn();
 
-vi.mock('@wizeworks/crm', async (importOriginal) => {
+vi.mock('@wizeworksllc/crm', async (importOriginal) => {
   const real = await importOriginal<Record<string, unknown>>();
   return {
     ...real,

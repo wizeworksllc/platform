@@ -13,7 +13,7 @@
 // you have looked at it" promise holds. A connector that wrote directly to the
 // database would be a second, unreviewed path into a tenant's account.
 //
-// Network access is INJECTED rather than imported. `@wizeworks/migration` is isomorphic
+// Network access is INJECTED rather than imported. `@wizeworksllc/migration` is isomorphic
 // and dependency-free, and the connectors have to stay testable without a Shopify
 // store to point them at — so every request goes through a `FetchLike` the caller
 // supplies. In production that is api-rest's guarded fetch (which resolves the host

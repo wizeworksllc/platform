@@ -1,7 +1,7 @@
 // The zones this deployment serves sites on, and the free host a site is minted in
 // (docs/49 §5). Moved here from api-rest's `lib/domain.ts` so that everything that
 // names a site's public address (api-rest's mailers and sitemap, the marketplace
-// projection in @wizeworks/commerce, the channel-sync worker's product feed, the
+// projection in @wizeworksllc/commerce, the channel-sync worker's product feed, the
 // MCP domain tools) asks ONE implementation. api-rest re-exports every name here,
 // so its existing call sites are unchanged (sparx persona issue 064).
 //

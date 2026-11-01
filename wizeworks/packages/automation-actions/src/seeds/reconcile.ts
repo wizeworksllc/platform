@@ -11,8 +11,8 @@
 // POST /internal/cron/reconcile-seeds).
 
 import type { PrismaClient } from '@prisma/client';
-import { upsertSystemAutomation } from '@wizeworks/automation';
-import { taskService } from '@wizeworks/crm/services';
+import { upsertSystemAutomation } from '@wizeworksllc/automation';
+import { taskService } from '@wizeworksllc/crm/services';
 
 import { SYSTEM_AUTOMATIONS, seedSystemAutomations } from './index.js';
 
@@ -46,7 +46,7 @@ interface ReconcileLogger {
  * Back-fill system automations for every tenant whose owning module is already
  * active. `db` is used ONLY for the cross-tenant discovery scan (the SECURITY
  * DEFINER `find_tenants_with_active_module`); the per-tenant upsert rides
- * `seedSystemAutomations`' own `withTenant` on the default `@wizeworks/db` client
+ * `seedSystemAutomations`' own `withTenant` on the default `@wizeworksllc/db` client
  * (sparx_app — the worker's identity), so every write stays RLS-scoped.
  * Idempotent (upsert by each seed's `key`), and it never overrides a business's
  * own edit, pause or rename; safe to run on a daily cadence.

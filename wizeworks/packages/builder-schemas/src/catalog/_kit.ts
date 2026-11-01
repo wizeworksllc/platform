@@ -90,7 +90,7 @@ export function catalogSummary(e: PlatformCatalogEntry): PlatformCatalogSummary 
 // Catalog trees are written with these instead of the box/layout `seedNode`
 // vocabulary, because a daisyUI-grade component is most readable as explicit
 // utility classes (the exact strings a power user or AI agent would type, which
-// compile through @wizeworks/surface-compile to the tenant's silica theme tokens). Ids only
+// compile through @wizeworksllc/surface-compile to the tenant's silica theme tokens). Ids only
 // need to be unique within a single entry's tree — stamping re-ids the whole
 // fork — but a monotonic counter keeps them unique across the catalog too, which
 // keeps module-load deterministic (cf. STARTER_PAGES).
@@ -184,7 +184,7 @@ export function act(node: BuilderNode, action: BindingAction, href?: string): Bu
 // render walkers lower to the controlled `data-sx-*` vocabulary (NOT raw `data-*`,
 // which the element whitelist would strip): `props.behavior` = the behavior ROOT
 // (`{ type, ...params }`), `props.sxRole` = an inner STRUCTURAL marker. The runtime
-// (`@wizeworks/builder-render` behaviors) is the source of truth for the closed sets;
+// (`@wizeworksllc/builder-render` behaviors) is the source of truth for the closed sets;
 // the unions below MIRROR it and are pinned together by a cross-package drift test
 // (behaviors.test.ts asserts BEHAVIOR_NAMES/SX_ROLES match these). builder-schemas
 // is the lower package, so it cannot import the runtime — hence the mirror.

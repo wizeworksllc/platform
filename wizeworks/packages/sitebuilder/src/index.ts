@@ -1,8 +1,8 @@
-// @wizeworks/sitebuilder — public package barrel.
+// @wizeworksllc/sitebuilder — public package barrel.
 //
 // The service layer is the single source of truth shared by REST, MCP, and
 // Server Actions (one service, many transports). The dashboard imports the
-// manifest via `@wizeworks/sitebuilder/manifest`.
+// manifest via `@wizeworksllc/sitebuilder/manifest`.
 
 export * from './services/index';
 export * from './events';

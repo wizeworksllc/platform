@@ -33,7 +33,7 @@
 // Byte-identical in both consoles.
 
 import { useEffect, useState } from 'react';
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import {
   Button,
   Field,

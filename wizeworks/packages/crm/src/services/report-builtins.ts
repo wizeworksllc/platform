@@ -33,9 +33,9 @@
 // `created_at = updated_at`. See
 // `20270518000000_the_ready_made_reports_say_what_this_file_says`.
 
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import type { ServiceContext } from '../errors';
 

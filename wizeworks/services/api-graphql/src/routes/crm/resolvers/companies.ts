@@ -1,7 +1,7 @@
 // CRM company GraphQL resolvers (docs/144 §11).
 
-import { companyService } from '@wizeworks/crm';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { companyService } from '@wizeworksllc/crm';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import type { GqlContext } from '../types';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 

@@ -10,8 +10,8 @@
 // That is what makes a reply redeliverable without ever double-posting an answer to a
 // customer — the row is the idempotency anchor, not the message.
 
-import { withTenant } from '@wizeworks/db';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import type { SocialContext } from './context.js';
 

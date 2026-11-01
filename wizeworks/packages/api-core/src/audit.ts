@@ -9,7 +9,7 @@
 // Schema reference: wizeworks/packages/db/prisma/schema.prisma — model AuditLog
 // (entityType / entityId / action / diff / ipAddress / userAgent).
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 import { Prisma } from '@prisma/client';
 import type { FastifyRequest } from 'fastify';
 import type { AuthContext } from './auth.js';

@@ -16,19 +16,19 @@
 // you cannot render an entry without its type.
 //
 // api-rest is snake_case on the wire (see serializeEntry / serializeContentType
-// in @wizeworks/cms). We keep those names verbatim rather than re-mapping, so there
+// in @wizeworksllc/cms). We keep those names verbatim rather than re-mapping, so there
 // is exactly one spelling of each field between the server and the screen.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { formatShopDateTime } from '../../lib/shop-clock';
 
 /* ── The content-type field schema ──────────────────────────────────────────
  *
- * A local mirror of the `FieldDef` union that @wizeworks/cms-schemas validates on
+ * A local mirror of the `FieldDef` union that @wizeworksllc/cms-schemas validates on
  * the server. The browser only READS this — it renders a control per field and
  * never validates — so it carries the shape, not the zod schema, and the
  * workbench stays free of a schemas dependency. If the server union grows a

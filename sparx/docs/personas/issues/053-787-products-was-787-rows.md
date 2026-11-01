@@ -28,7 +28,7 @@ grammatical.
 
 ## Where it lives
 
-`@wizeworks/migration` `validate.ts` `summarize` counted rows for every entity;
+`@wizeworksllc/migration` `validate.ts` `summarize` counted rows for every entity;
 the consoles' `migration-run.tsx` built the badge and button from row counts with
 no noun.
 

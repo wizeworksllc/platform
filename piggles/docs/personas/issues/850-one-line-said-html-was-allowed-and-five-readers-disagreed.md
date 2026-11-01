@@ -107,12 +107,12 @@ own loader all receive. It passed `row.description` through untouched.
 ### And one the note got wrong
 
 **No email template reads a product description.** Checked every template in
-`@wizeworks/email`. The note listed it; it is not there.
+`@wizeworksllc/email`. The note listed it; it is not there.
 
 ## One rule, in one place
 
 `plainText` was living in `wizeworks/apps/site/lib/`, which is why nothing else
-could use it. It now lives in `@wizeworks/commerce-schemas` beside the field it
+could use it. It now lives in `@wizeworksllc/commerce-schemas` beside the field it
 describes, and all four trees already depended on that package, so nothing new
 was wired up to reach it.
 

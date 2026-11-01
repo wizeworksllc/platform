@@ -15,7 +15,7 @@
 // each event (checkout records `order.placed`, email records `email.opened`).
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /** One row of the timeline. Mirrors the serialized Prisma `CrmActivity` the CRM

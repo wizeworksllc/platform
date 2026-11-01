@@ -1,12 +1,12 @@
 // Availability setup — recurring weekly windows (replace-all per resource) and
 // one-off exceptions (time off / custom hours / blackout / special pricing).
 
-import type { Prisma } from '@wizeworks/db';
-import { withTenant, type AvailabilityException, type AvailabilityWindow } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant, type AvailabilityException, type AvailabilityWindow } from '@wizeworksllc/db';
 import type {
   AvailabilityExceptionInput,
   SetAvailabilityWindowsInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
 /** Replace a resource's entire weekly schedule in one transaction (the editor
  *  saves the whole week at once). */

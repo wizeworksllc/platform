@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** critical
 **Found by:** P03 · Juniper Row · act 268
-**Surface:** `@wizeworks/crm-schemas` + `@wizeworks/crm` (document workflows); both consoles
+**Surface:** `@wizeworksllc/crm-schemas` + `@wizeworksllc/crm` (document workflows); both consoles
 **Filed:** 2026-09-20
 **Fixed:** 2026-09-20
 **Confirmed by:** P03, on screen and measured against the running database

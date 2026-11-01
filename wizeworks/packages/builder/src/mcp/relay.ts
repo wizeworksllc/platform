@@ -9,7 +9,7 @@
 // route strips `relay` from its HTTP response for the same reason — the writer already
 // holds it; only co-editors need it.
 //
-// This keeps @wizeworks/builder free of any socket/transport dependency: the tool DESCRIBES
+// This keeps @wizeworksllc/builder free of any socket/transport dependency: the tool DESCRIBES
 // what to relay; api-mcp (which owns the Redis emitter) decides how.
 
 import type { SilicaWriteChange } from '../services/site-service';

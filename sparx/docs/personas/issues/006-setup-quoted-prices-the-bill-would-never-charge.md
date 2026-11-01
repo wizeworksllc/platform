@@ -18,7 +18,7 @@ Two wrong prices in setup, both about modules that come free with Commerce or B2
    **Inventory: Included**, total unchanged. The menu quoted $29 for something
    that costs nothing.
 2. The server's billing rules make **Finance** free with Commerce or B2B too
-   (`BUNDLED_FREE` in `@wizeworks/modules`). The workbench keeps its own copy of
+   (`BUNDLED_FREE` in `@wizeworksllc/modules`). The workbench keeps its own copy of
    those rules for the browser, and the copy had only Invoicing and Inventory. So
    anywhere setup priced Finance it would have said $29 a month for a module the
    bill charges $0 for.
@@ -54,7 +54,7 @@ contradicting it makes neither number believable.
 - Piggles checked: it has no price rules in setup (one flat price), so nothing to
   mirror there.
 
-Follow-up worth doing when `pnpm install` can run: give `@wizeworks/modules` a
+Follow-up worth doing when `pnpm install` can run: give `@wizeworksllc/modules` a
 pure, database-free `graph` subpath and import it in the workbench, so there is no
 copy to guard at all.
 

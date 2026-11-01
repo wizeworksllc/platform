@@ -127,7 +127,7 @@ export async function fetchPartnerSlugs(): Promise<string[]> {
   return slugs;
 }
 
-/** Tier display metadata — label + the @wizeworks/ui Badge color slot. Certified
+/** Tier display metadata — label + the @wizeworksllc/ui Badge color slot. Certified
  *  wears the platform Ember (primary, top of directory); registered reads as a
  *  reviewed cyan/info; informal is a neutral, unverified pill. */
 export const TIER_META: Record<PartnerTier, { label: string; color: string }> = {

@@ -64,7 +64,7 @@ none of this is explained anywhere today.
 | PLAT-01 | Panes, not pages           | Everything opens as a pane you place, not a route that replaces what you were on     | `lib/workbench/controller.ts`                                      |         | topical  |
 | PLAT-02 | Windows or tabs            | Two presentations, chosen, each keeping its **own** remembered arrangement           | `lib/window-mode.ts`, `lib/mode-layouts.ts`                        |         | topical  |
 | PLAT-03 | Saved layouts              | Named arrangements per business and per site, restored on reload                     | `lib/workbench/persistence.ts`, `components/rail/layouts-menu.tsx` |         | none     |
-| PLAT-04 | Deep links to any pane     | A readable address for a screen, copyable and shareable                              | `lib/workbench/deep-link.ts`, `@wizeworks/links`                   |         | none     |
+| PLAT-04 | Deep links to any pane     | A readable address for a screen, copyable and shareable                              | `lib/workbench/deep-link.ts`, `@wizeworksllc/links`                   |         | none     |
 | PLAT-05 | The launcher               | Command palette with ranking; the modifier decides tab, alongside, or own window     | `components/launcher.tsx`                                          |         | none     |
 | PLAT-06 | Universal search           | One search across records, not per-list filters                                      | `search_all`, `components/search-picker.tsx`                       |         | topical  |
 | PLAT-07 | Saved views                | Per-list saved filters, sorts and column choices                                     | `components/saved-views/`                                          |         | none     |
@@ -260,7 +260,7 @@ none of this is explained anywhere today.
 | Id      | Feature              | What it is                                                                          | Console                                               | Article | Coverage |
 | ------- | -------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------- | ------- | -------- |
 | TEAM-01 | Adding somebody      | Invite, they accept, they are in — on their own login                               | `platform.settings.team`, accept-invite               |         | none     |
-| TEAM-02 | Who can see what     | Nine roles, each described by what it **cannot** do, including a warehouse-only one | `staff.people`, `@wizeworks/auth/org-roles`           |         | topical  |
+| TEAM-02 | Who can see what     | Nine roles, each described by what it **cannot** do, including a warehouse-only one | `staff.people`, `@wizeworksllc/auth/org-roles`           |         | topical  |
 | TEAM-03 | Hours                | Timesheets, the schedule, and time off                                              | `staff.timesheets`, `staff.schedule`, `staff.timeoff` |         | topical  |
 | TEAM-04 | Tickets and licences | Certifications with expiry, so a lapsed licence is not a surprise                   | `staff.certifications`                                |         | none     |
 | TEAM-05 | Keeping it safe      | Password, active sessions, two-factor with backup codes, an activity log            | `platform.settings.security`, `surfaces/security/`    |         | none     |
@@ -283,7 +283,7 @@ none of this is explained anywhere today.
 | Id      | Feature                    | What it is                                                                         | Where                                           | Article | Coverage |
 | ------- | -------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------- | ------- | -------- |
 | COMM-01 | One plan, everything in it | No tiers, no per-app pricing, no capability behind a paywall                       | `@piggles/config/pricing`                       |         | topical  |
-| COMM-02 | What counts against it     | Storage, email volume, contacts and seats — metered, and shown before they bite    | `@wizeworks/usage`, `components/capacity.tsx`   |         | topical  |
+| COMM-02 | What counts against it     | Storage, email volume, contacts and seats — metered, and shown before they bite    | `@wizeworksllc/usage`, `components/capacity.tsx`   |         | topical  |
 | COMM-03 | A limit never stops work   | The thing in flight finishes; nothing already made is taken away or hidden         | `docs/initial/docs/commercial/BILLING_RULES.md` |         | topical  |
 | COMM-04 | Expanding in one tap       | The price is on the button, in place — and reducing again is equally self-serve    | account app                                     |         | none     |
 | COMM-05 | Onboarding that hides      | The answer to "what do you do?" shapes the workspace; it never takes anything away | `apps/account/components/onboarding/`           |         | topical  |

@@ -13,7 +13,7 @@ import type { ReactNode } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import { Button, cx, Text } from '@wizeworks/silicaui-react';
 import { SparkMascot, Wordmark } from '@sparx/brand/react';
-import { signIn } from '@wizeworks/auth/client';
+import { signIn } from '@wizeworksllc/auth/client';
 import { SparkField } from './spark-field';
 
 /** "Sparky" idling behind the pane. ONE mascot (one DOM node — so two can never

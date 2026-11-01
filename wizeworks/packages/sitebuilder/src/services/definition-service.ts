@@ -20,9 +20,9 @@ import {
   type CustomSectionDefinition,
   type SectionField,
   type TemplateNode,
-} from '@wizeworks/sitebuilder-schemas';
-import type { Prisma, TenantSectionDefinition, TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/sitebuilder-schemas';
+import type { Prisma, TenantSectionDefinition, TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

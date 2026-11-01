@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { ALL_MODULES } from '@wizeworks/modules';
-import { ConditionGroup } from '@wizeworks/automation-schemas';
+import { ALL_MODULES } from '@wizeworksllc/modules';
+import { ConditionGroup } from '@wizeworksllc/automation-schemas';
 import { FUNNEL_LIBRARY, recipesForModules } from './library';
 import { DEFAULT_STALL_HOURS, FunnelStages, stallHoursOf } from './schemas';
 

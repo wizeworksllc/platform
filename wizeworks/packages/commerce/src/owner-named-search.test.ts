@@ -10,7 +10,7 @@
 // something NEW under it, and (3) open its own screen: the stored address is fed
 // through the same `recordDestination` the search box uses.
 
-import { recordDestination, routeForEntity } from '@wizeworks/links';
+import { recordDestination, routeForEntity } from '@wizeworksllc/links';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 type Row = Record<string, unknown>;
@@ -44,7 +44,7 @@ const tx = new Proxy(
   }
 );
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));

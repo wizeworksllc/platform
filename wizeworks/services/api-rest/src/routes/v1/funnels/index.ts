@@ -39,14 +39,14 @@ import {
   stagesOf,
   stallHoursOf,
   updateFunnel,
-} from '@wizeworks/funnels';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { badRequest, moduleDisabled, notFound } from '@wizeworks/api-core/errors';
-import type { StaffRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/funnels';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest, moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
+import type { StaffRole } from '@wizeworksllc/api-core/auth';
 
-import { announceStage } from '@wizeworks/funnels/announce';
+import { announceStage } from '@wizeworksllc/funnels/announce';
 import { resolveListScope } from '../../../lib/property.js';
 
 const IdParam = z.object({ id: z.string().uuid() });

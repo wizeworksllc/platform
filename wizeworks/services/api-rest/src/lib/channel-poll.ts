@@ -7,10 +7,10 @@
 // then advance the cursor. The deterministic order number per externalId makes the
 // re-poll overlap window safe — a boundary order seen twice commits once.
 
-import { prisma, withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { getChannel, type ChannelSlug } from '@wizeworks/channels';
-import { ingestChannelOrder } from '@wizeworks/commerce';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { getChannel, type ChannelSlug } from '@wizeworksllc/channels';
+import { ingestChannelOrder } from '@wizeworksllc/commerce';
 import { resolveConnectionAuth, type ChannelConnectionAuthRow } from './channels.js';
 
 // First poll (no cursor yet) looks back this far — bounded so connecting a shop

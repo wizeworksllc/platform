@@ -82,11 +82,11 @@ export default tseslint.config(
     },
     settings: {
       react: { version: 'detect' },
-      // Map @wizeworks/ui field components to the DOM elements they render, so
+      // Map @wizeworksllc/ui field components to the DOM elements they render, so
       // jsx-a11y resolves a `<Label>`/`<label>` wrapping a `<Checkbox>` /
       // `<RadioGroupItem>` / `<Input>` / … as an associated control (the native
       // control is nested at runtime). wizeworks/apps/site does the same for its Sparx*
-      // components; this covers the shared @wizeworks/ui primitives.
+      // components; this covers the shared @wizeworksllc/ui primitives.
       'jsx-a11y': {
         components: {
           Checkbox: 'input',

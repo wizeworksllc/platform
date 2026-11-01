@@ -34,12 +34,12 @@
 // prune leaves it alone — the same "one shelf, many publishers" contract that themes,
 // components and blueprints already run on.
 
-import { PLATFORM_TOKEN, fillPlatformName } from '@wizeworks/brand-core';
+import { PLATFORM_TOKEN, fillPlatformName } from '@wizeworksllc/brand-core';
 import {
   categoryInfo,
   listIntegrationDescriptors,
   type IntegrationDescriptor,
-} from '@wizeworks/integrations';
+} from '@wizeworksllc/integrations';
 
 /** This shelf is sparx's own marketplace, so a descriptor written with the brand
  *  token is filled with sparx's name as it is published. */

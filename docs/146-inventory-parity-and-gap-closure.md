@@ -381,7 +381,7 @@ seat are listed on their own surface rather than silently dropped.
 
 **Also landed with it:**
 
-- **`@wizeworks/commerce-schemas` gained the symbology engine** — check digits, UPC-E expansion, scan
+- **`@wizeworksllc/commerce-schemas` gained the symbology engine** — check digits, UPC-E expansion, scan
   equivalence, and the bar patterns for Code 128 / the EAN-UPC family / ITF-14, all pure. One
   implementation, so a label printed in the browser carries the code the server validated. Written
   rather than installed: a symbology is a published table and a checksum, and owning it means label
@@ -445,7 +445,7 @@ believes were shipped.
 - [x] **4.3** Guided pick surface — shelf, then item, then quantity, in that order of size, because the first question in an aisle is always "am I in the right place". Scan-to-verify (wrong item refused, wrong shelf refused and told where to go), and a short-pick reason from a closed list that raises a blind count on the shelf **[P3] UI**
 - [x] **4.4** Pack verification — `ShipmentPackage` + `ShipmentPackageLine`, scan every item in, anything not on the order REFUSED, per-line scanned-vs-typed recorded, weight and dimensions captured for the rate quote. Splitting an order across boxes is assumed rather than treated as an exception **[P3] UI**
 - [x] **4.5** Packing slip on the PO document's build path — pure renderer plus tenant-scoped loader. No prices (the box may be a gift, a dropship, or one of four), a scanned-verified tick per line, and an "also in this order, sent separately" block that costs four lines of paper and prevents a support ticket every time **[P3]**
-- [x] **4.6** Sealed box → `OrderFulfillment`, one fulfillment PER BOX so a three-parcel order gets three tracking numbers, feeding the existing rate quote and label purchase unchanged. Lives in `@wizeworks/commerce` — the only package that can see both the warehouse and the order **[P3]**
+- [x] **4.6** Sealed box → `OrderFulfillment`, one fulfillment PER BOX so a three-parcel order gets three tracking numbers, feeding the existing rate quote and label purchase unchanged. Lives in `@wizeworksllc/commerce` — the only package that can see both the warehouse and the order **[P3]**
 - [x] **4.7** Throughput — units per hour measured against time actually spent picking, scan-verified rate, short-pick rate, per picker AND per shelf, with the reasons grouped **[P3][P21]**
 
 **Also landed with it:**
@@ -464,7 +464,7 @@ believes were shipped.
 - **`inventory_scan_events` gained a `pack` context**, so a bench scan is recorded on the same terms
   as every other trigger pull — same idempotency, same evidence trail.
 - 21 REST endpoints, 16 MCP tools (15 on inventory, plus `fulfill_package` on commerce, which is
-  there because it writes an order and inventory must not depend on `@wizeworks/crm`), five workbench
+  there because it writes an order and inventory must not depend on `@wizeworksllc/crm`), five workbench
   surfaces, and two new jobs in warehouse mode.
 
 **Outstanding, stated rather than hidden:**
@@ -1270,7 +1270,7 @@ the workbench interface listed nine safe fields while the server sent twenty.
 **`IntegrationCategory` deliberately did NOT gain `accounting`.** docs/148 §6 says to add
 it with the first adapter; the rule behind that instruction is that a category is added the
 day something DISPATCHES through it. These adapters are called directly by the finance and
-inventory services rather than through the `@wizeworks/integrations` registry, so adding the
+inventory services rather than through the `@wizeworksllc/integrations` registry, so adding the
 category would produce exactly the empty panel heading that file warns about.
 
 **Two things this phase deliberately did not do.** Group/pivot on lists (the third clause of
@@ -1449,7 +1449,7 @@ appearing in the grid → edited → persisted through a server reload.
   against the unpatched module before it was accepted green.
   **RESOLVED 2026-08-18.** Fixed upstream: `@base-ui/react@1.7.0` gives `recalculateHeight` an
   explicit `flushSync?: boolean` — bare from the layout effect, `true` from the observers, the same
-  distinction the patch drew. silicaui 0.55 moved to `@base-ui/react`, `@wizeworks/ui` followed, and
+  distinction the patch drew. silicaui 0.55 moved to `@base-ui/react`, `@wizeworksllc/ui` followed, and
   the patch plus `pnpm.patchedDependencies` are deleted. The test stays; it guards the behaviour, not
   the patch.
 
@@ -1502,7 +1502,7 @@ are now, grouped in the picker as Stock, Warehouse, Supply and Stock feeds, each
 words a business owner would use.
 
 **The twenty-sixth is `inventory.levels.updated`, and it is deliberately absent.** It is declared in
-`@wizeworks/events` and published by nothing. It is also the single most tempting key on the list — the
+`@wizeworksllc/events` and published by nothing. It is also the single most tempting key on the list — the
 one an ERP integrator reaches for first — and subscribing to it would leave an endpoint silent
 forever while the box sat ticked, which reads to whoever set it up as their own server being broken.
 That is the same rule as everywhere else in this plan: **absence must never be presented as a
@@ -1675,7 +1675,7 @@ and backorder allocations are all written inside the same transaction as their `
 `reporting.ts` · `accounting.ts`
 
 Phase 10 added ONE report endpoint rather than one per report: `GET /v1/inventory/reports/:key`
-resolves through the registry in `@wizeworks/inventory`, so the API's coverage IS the registry's
+resolves through the registry in `@wizeworksllc/inventory`, so the API's coverage IS the registry's
 coverage permanently. The four named report URLs that shipped before it (`/reports/valuation`,
 `/reports/turnover`, `/reports/aging`, `/reports/reorder-analysis`, `/reports/shrinkage`) keep
 their own handlers — breaking a published URL to tidy a file is not a trade worth making.

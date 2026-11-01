@@ -61,7 +61,7 @@ Last Updated: 2026-08-23
 >   **booking confirmation, owner "new booking" alert, order confirmation, shipping.** Chat +
 >   automations + OTP were unaffected (they carry `to`) — which is why chat emails DID arrive.
 >   Fix: add `to: args.to` to the publish. Prevention: new **`RawEmailSendPayload`** type in
->   `@wizeworks/events` mirroring the worker schema, applied via `satisfies` at both raw publish
+>   `@wizeworksllc/events` mirroring the worker schema, applied via `satisfies` at both raw publish
 >   sites (tenant-email + email-dispatch) so a missing `to` is now a COMPILE error. Typecheck +
 >   lint clean. See [[bug_raw_email_send_needs_to]]. **After deploy: re-book → confirm the email.**
 >   (This CORRECTS session-5's wrong "delivery/spam, not a code bug" conclusion.)
@@ -305,7 +305,7 @@ fontHeading:'Space Grotesk', fontBody:'Inter', tokens:{} }, apply:true }`. (This
 symbols}`, drop runtime ids, home slug `''`→omit. Validate through `captureSite`/schema.
   Keep `site.theme` (ship the Ember tokens verbatim, per decision #2).
 
-**Validate:** `safeParseBlueprint(manifest)` (from `@wizeworks/blueprints`) — write a throwaway
+**Validate:** `safeParseBlueprint(manifest)` (from `@wizeworksllc/blueprints`) — write a throwaway
 node/vitest check, or lean on `marketplace:ingest`'s own validation locally.
 **Media:** `icon.png` 512×512 + `preview.png` ~1600×1000 — screenshot the live Home for
 preview; icon is a design asset (sparx spark mark from `@sparx/brand`).
@@ -407,7 +407,7 @@ dark`**, so `dark:` compiles to `prefers-color-scheme` — while the storefront'
 `create_product`. Details in the two subsections below.
 
 **Batch 2 — written this session, gate-green, awaiting a deploy.** Full-workspace
-`pnpm typecheck` passes (exit 0); `@wizeworks/commerce`, `@wizeworks/scheduling`, and the api-mcp
+`pnpm typecheck` passes (exit 0); `@wizeworksllc/commerce`, `@wizeworksllc/scheduling`, and the api-mcp
 `tool-scopes` suite all pass; all touched files prettier-clean.
 
 | Tool                                                             | Where                                                  | Why it had to exist                                                                                                                                                                                                                                          |
@@ -417,8 +417,8 @@ dark`**, so `dark:` compiles to `prefers-color-scheme` — while the storefront'
 | `list_scheduling_resources`, `list_resource_hours`               | `wizeworks/packages/scheduling/src/mcp/read-tools.ts`  | "Availability is empty" is almost always one of these two; an agent needs to be able to see which.                                                                                                                                                           |
 | `rebuild_search_index`                                           | `wizeworks/services/api-mcp/src/search-admin-tools.ts` | BUG-004: no tenant-reachable reindex existed — only `POST /v1/search/reindex` (admin role) and the platform-operator endpoint. Publishes the same `search.reindex.requested` event.                                                                          |
 
-`rebuild_search_index` lives in **api-mcp**, not `@wizeworks/search`, on purpose: publishing
-needs `@wizeworks/events` → `@google-cloud/pubsub`, and `@wizeworks/search` is imported by the Next
+`rebuild_search_index` lives in **api-mcp**, not `@wizeworksllc/search`, on purpose: publishing
+needs `@wizeworksllc/events` → `@google-cloud/pubsub`, and `@wizeworksllc/search` is imported by the Next
 apps for the ⌘K palette. Same precedent as `domain-tools.ts`. It introduces a new
 **`write:search`** scope (`wizeworks/packages/auth/src/mcp-scopes.ts`), `sensitive`, and — matching the
 REST route it mirrors — **owner/admin only**, excluded from the editor grant. A new scope
@@ -746,7 +746,7 @@ self-indexes).
 acking` — `sendTenantEmailByKey` published the raw payload **without `to`**, which the worker's
   `RawSendSchema` requires, so it dropped EVERY raw transactional send (booking, order, shipping).
   Chat/automations/OTP were fine (they carry `to`). Fixed (`to: args.to`) + added prevention type
-  **`RawEmailSendPayload`** in `@wizeworks/events` + `satisfies` guards at both raw publish sites so a
+  **`RawEmailSendPayload`** in `@wizeworksllc/events` + `satisfies` guards at both raw publish sites so a
   missing `to` is a compile error. Typecheck + lint clean. Left in working tree for Brandon to
   commit/deploy. See [[bug_raw_email_send_needs_to]].
 - **2026-07-25 (session 6b — `to` fix VERIFIED live + per-site email-logo bug fixed)** — Brandon
@@ -769,7 +769,7 @@ processed` (no schema-drop), confirming the `to` fix end-to-end. Brandon flagged
   `sparx.json` (category:blueprint, payload:blueprint.ts, requires builder/commerce/cms/crm/email,
   media entries, accent Ember), `blueprint.ts` (the manifest default-export), `README.md` (the
   capture + fill runbook), a placeholder `site.json` (1 page, schema-valid, marked REPLACE), and a
-  real `welcome-email.json` (generated from the `@wizeworks/builder-schemas` email kit —
+  real `welcome-email.json` (generated from the `@wizeworksllc/builder-schemas` email kit —
   `emailDoc`/`section`/`heading`/`text`/`button` — since a blueprint is imported as pure data).
   **Authored real:** `brand` (sparx Ember `#e04631`/accent `#c1652e`/secondary `#4c9a8e`, Space
   Grotesk/Inter), `theme` (ThemeDecl: base `apex` + Ember brand look + `{v:2,containerWidth:'1152px'}`,

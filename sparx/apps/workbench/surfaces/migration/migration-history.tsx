@@ -19,7 +19,7 @@ import { RefreshButton } from '../../components/refresh-button';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
 import { entityLabel, runTone, useMigrationRuns, type RunSummary } from './data';
 import { landedBreakdown } from './run-outcome';
-import { getVendor, type CanonicalEntity } from '@wizeworks/migration';
+import { getVendor, type CanonicalEntity } from '@wizeworksllc/migration';
 
 function when(iso: string): string {
   const date = new Date(iso);

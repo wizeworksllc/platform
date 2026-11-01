@@ -17,7 +17,7 @@
 // empty (an empty list would pass every "is it real" check vacuously).
 
 import { describe, expect, it } from 'vitest';
-import { commerceMcpTools } from '@wizeworks/commerce';
+import { commerceMcpTools } from '@wizeworksllc/commerce';
 
 import {
   ALL_MCP_TOOLS,

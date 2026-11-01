@@ -11,8 +11,8 @@
 import {
   listFitmentDictionarySummaries,
   type FitmentDictionarySummary,
-} from '@wizeworks/commerce-schemas';
-import type { ModulePreset, ModulePresetSummaryChip } from '@wizeworks/auth';
+} from '@wizeworksllc/commerce-schemas';
+import type { ModulePreset, ModulePresetSummaryChip } from '@wizeworksllc/auth';
 
 import {
   installFitmentDictionary,

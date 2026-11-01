@@ -17,7 +17,7 @@
 // business's own timezone, skipping the days it is shut" is arithmetic the
 // server owns; this surface only chooses the color.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

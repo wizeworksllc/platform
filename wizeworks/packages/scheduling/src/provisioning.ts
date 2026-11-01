@@ -9,7 +9,7 @@
 // the module is empty, so a tenant's own setup is never duplicated or clobbered.
 // Re-running (re-activation or the 6h reconcile) is a safe no-op.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 export async function bootstrapSchedulingDefaults(tenantId: string): Promise<void> {
   await withTenant({ tenantId }, async (tx) => {

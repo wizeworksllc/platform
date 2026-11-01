@@ -9,7 +9,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { mergeCatalog, paletteGroups, type PaletteGroup } from '@wizeworks/silicaui-builder/react';
-import { SITE_CATALOG, SPARX_CATALOG } from '@wizeworks/silica-catalog';
+import { SITE_CATALOG, SPARX_CATALOG } from '@wizeworksllc/silica-catalog';
 
 describe('the Insert list', () => {
   it('gives every row a key no other row has', () => {

@@ -52,7 +52,7 @@ the schema and false about the data.
 
 ## The hook was already there, and already documented
 
-`databaseHooks.session.create.after` in `@wizeworks/auth` carries the new-device
+`databaseHooks.session.create.after` in `@wizeworksllc/auth` carries the new-device
 security email, under a comment saying exactly what was needed:
 
 > `create` fires on a **genuine sign-in**, NOT on the 5-min cookie refresh
@@ -218,7 +218,7 @@ the placeholder is not a real encrypted secret — which is a fact about the
 fixture and not about the product, so it is recorded here and not filed.
 [[feedback_a_test_that_cannot_go_red]]
 
-**Checks:** typecheck 0 on `@wizeworks/auth`, both workbenches and the staff
+**Checks:** typecheck 0 on `@wizeworksllc/auth`, both workbenches and the staff
 console. Tests: piggles workbench 141 files / 1322, auth 3 / 19. Guards:
 `em-dashes`, `american-spelling`, `piggles-plain-words`, `console-parity`,
 `boundaries`, `copy-key-sentences`. ESLint and prettier clean.

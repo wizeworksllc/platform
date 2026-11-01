@@ -14,7 +14,7 @@ import {
   SquareGateway,
   setGatewayCredentialReader,
   type GatewayCredentials,
-} from '@wizeworks/payments';
+} from '@wizeworksllc/payments';
 
 const TENANT = '2e78fb6c-a823-4698-bcb9-58a4f17710a0';
 const BASE = 'https://api.example.test';

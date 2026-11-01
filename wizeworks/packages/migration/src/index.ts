@@ -1,4 +1,4 @@
-// @wizeworks/migration — turning another platform's export into sparx data.
+// @wizeworksllc/migration — turning another platform's export into sparx data.
 //
 // Pure and isomorphic by design. The workbench imports it to read and check a file in
 // the browser before anything is uploaded; the API imports it to serve the catalogue

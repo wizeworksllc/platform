@@ -30,7 +30,7 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { applyMovement } from '../../src/services/ledger.js';
 import { createSupplier } from '../../src/services/suppliers.js';

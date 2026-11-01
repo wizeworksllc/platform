@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import * as React from 'react';
 import Link from 'next/link';
 import { Badge, Button, Text } from '@wizeworks/silicaui-react';
-import { getSession, readInvitation, type InvitationDetail } from '@wizeworks/auth-client-server';
+import { getSession, readInvitation, type InvitationDetail } from '@wizeworksllc/auth-client-server';
 import { InviteShell } from './invite-shell';
 import { roleDescription, roleLabel } from '../../surfaces/team/roles';
 import {

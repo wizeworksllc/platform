@@ -27,10 +27,10 @@
 //   summary two to five lines of plain language for the scheduled email and the
 //           picker's preview. Written for an owner, not an analyst.
 //
-// Every `csv` here goes through `@wizeworks/inventory`'s one serializer, so an
+// Every `csv` here goes through `@wizeworksllc/inventory`'s one serializer, so an
 // export re-imports (10.6) and a note containing a comma survives the trip.
 
-import type { ReportKey, ReportFilters } from '@wizeworks/commerce-schemas';
+import type { ReportKey, ReportFilters } from '@wizeworksllc/commerce-schemas';
 
 import { type CsvTable, csvMoney, csvSafeText } from '../csv';
 import type { ServiceContext } from '../errors';

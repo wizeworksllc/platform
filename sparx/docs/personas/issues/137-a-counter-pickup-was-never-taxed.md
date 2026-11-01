@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P01 · Gillett Diesel Service · act 9 (Utah sales tax)
-**Surface:** site › checkout › payment; `quoteTaxForSession` in `@wizeworks/commerce`
+**Surface:** site › checkout › payment; `quoteTaxForSession` in `@wizeworksllc/commerce`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 on screen, 2026-10-06

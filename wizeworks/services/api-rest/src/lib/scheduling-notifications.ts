@@ -22,17 +22,17 @@
 // rides the SECURITY DEFINER function, while per-row work runs under
 // withTenant({tenantId}) so every read + the status UPDATE pass tenant_isolation.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   BOOKING_EMAIL_KEY,
   renderBookingSms,
   smsNoticeStatus,
   type BookingNoticeStatus,
   type BookingNotificationType,
-} from '@wizeworks/scheduling';
-import { sendTenantSms } from '@wizeworks/sms/delivery';
+} from '@wizeworksllc/scheduling';
+import { sendTenantSms } from '@wizeworksllc/sms/delivery';
 
 import { env } from '../env.js';
 import { resolveActivePropertyName } from './property.js';

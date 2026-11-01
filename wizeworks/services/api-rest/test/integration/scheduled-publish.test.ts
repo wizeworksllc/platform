@@ -9,7 +9,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { runScheduledPublishTick } from '../../src/lib/scheduled-publish.js';
 import { createApp } from '../../src/app.js';
 import {

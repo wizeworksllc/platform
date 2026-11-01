@@ -1,7 +1,7 @@
 // Live Chat — WebSocket wire contract (docs/56, docs/69 A-2).
 //
 // The typed socket.io event maps shared by the `/ws/chat` server. The widget
-// (@wizeworks/chat-widget) and the dashboard useChat hook each redeclare the same
+// (@wizeworksllc/chat-widget) and the dashboard useChat hook each redeclare the same
 // shapes on their side — api-rest can't be imported by frontends (it would drag
 // server deps into the bundle), so the contract is duplicated across the
 // client/server boundary the way the REST DTOs already are. Keep the three in

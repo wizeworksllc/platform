@@ -10,7 +10,7 @@ Reach for `@wizeworks/silicaui-react` first, always. If silicaui ships it —
 Card, Button, Badge, Input, Select, Tabs, Dialog, Alert — it does not belong
 here, at any size, for any reason.
 
-`@wizeworks/ui` is the cautionary precedent: it grew into a component library, and
+`@wizeworksllc/ui` is the cautionary precedent: it grew into a component library, and
 undoing that meant deleting most of it. The root file now carries an explicit
 "must not be grown back into one". Same rule here, from day one.
 

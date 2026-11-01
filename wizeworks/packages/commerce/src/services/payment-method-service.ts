@@ -10,10 +10,10 @@
 // row. Nothing is stored in between, so a shopper who abandons the card form
 // leaves no trace.
 
-import { paymentService, StoredMethodsUnsupportedError } from '@wizeworks/payments';
-import type { VaultedMethod } from '@wizeworks/payments';
-import { withTenant } from '@wizeworks/db';
-import type { CustomerPaymentMethod, TxClient } from '@wizeworks/db';
+import { paymentService, StoredMethodsUnsupportedError } from '@wizeworksllc/payments';
+import type { VaultedMethod } from '@wizeworksllc/payments';
+import { withTenant } from '@wizeworksllc/db';
+import type { CustomerPaymentMethod, TxClient } from '@wizeworksllc/db';
 
 import { CommerceConflictError, CommerceNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

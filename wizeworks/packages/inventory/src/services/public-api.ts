@@ -10,12 +10,12 @@
 // A bulk adjustment runs each row in its OWN transaction so one bad row can't
 // roll back the rest; the per-row result carries the outcome.
 
-import { BulkAdjustmentInput, UpdateInventoryCountInput } from '@wizeworks/commerce-schemas';
-import type { InventoryAdjustReason } from '@wizeworks/commerce-schemas';
+import { BulkAdjustmentInput, UpdateInventoryCountInput } from '@wizeworksllc/commerce-schemas';
+import type { InventoryAdjustReason } from '@wizeworksllc/commerce-schemas';
 // `Prisma` is a VALUE import here, not just a type: the level list builds its
 // WHERE/ORDER BY out of `Prisma.sql` fragments (see `listInventory`).
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

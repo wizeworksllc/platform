@@ -13,7 +13,7 @@
 
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 import { env } from '../../env.js';
 import { addUtcDays, reconcileSiteDaily, startOfUtcDay } from '../../lib/site-analytics-reports.js';

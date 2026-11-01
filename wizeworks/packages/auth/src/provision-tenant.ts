@@ -1,6 +1,6 @@
-import type { AttributionSnapshot } from '@wizeworks/attribution';
+import type { AttributionSnapshot } from '@wizeworksllc/attribution';
 import type { Prisma } from '@prisma/client';
-import { currentPlatformBrand, platformBrandIdentity } from '@wizeworks/brand-core';
+import { currentPlatformBrand, platformBrandIdentity } from '@wizeworksllc/brand-core';
 import { randomFriendlySlug } from './friendly-slug';
 
 // Tenant provisioning shared by every account-creation path: email/password
@@ -106,11 +106,11 @@ export interface ProvisionTenantInput {
  * (authPrisma connects as sparx_owner, which IS subject to FORCE RLS). The GUC
  * is transaction-local, so it never leaks past the caller's commit.
  */
-// The free trial length in days (docs/17 §6). MUST match @wizeworks/billing's
+// The free trial length in days (docs/17 §6). MUST match @wizeworksllc/billing's
 // TRIAL_PERIOD_DAYS — provisioning is the AUTHORITATIVE clock (it stamps
 // tenants.trial_ends_at at signup); billing aligns Stripe to this persisted value
 // when the subscription is later created. Kept local so the signup path (bundled
-// into Next server actions) doesn't pull the Stripe SDK closure via @wizeworks/billing.
+// into Next server actions) doesn't pull the Stripe SDK closure via @wizeworksllc/billing.
 const TRIAL_PERIOD_DAYS = 14;
 
 export async function provisionTenant(
@@ -139,7 +139,7 @@ export async function provisionTenant(
       // name one, because the hook runs before the tenant exists to carry it.
       platformBrand: brand,
       // WHAT this account is charged, and out of which Stripe account
-      // (@wizeworks/billing/plans). Stamped ONCE here, from the brand's configured
+      // (@wizeworksllc/billing/plans). Stamped ONCE here, from the brand's configured
       // default, and read from the column forever after — which is what lets the
       // billing engine stay free of brand checks, and lets a tenant later sit on a
       // plan its brand does not sell.

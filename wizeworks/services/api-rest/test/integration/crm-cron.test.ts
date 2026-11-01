@@ -1,6 +1,6 @@
 // Internal CRM cron endpoints — auth boundary + happy path for each
 // scheduled job. We don't need to exercise the schedulers themselves
-// (those have dedicated unit tests in @wizeworks/crm); the point here is to
+// (those have dedicated unit tests in @wizeworksllc/crm); the point here is to
 // prove the route is wired, the token check is enforced, and that the
 // per-tenant fan-out finds the active tenant.
 
@@ -9,7 +9,7 @@ import crypto from 'node:crypto';
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 import { createApp } from '../../src/app.js';
 import { seedPrimaryProperty } from '../helpers.js';

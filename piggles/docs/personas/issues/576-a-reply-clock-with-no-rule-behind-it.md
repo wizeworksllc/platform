@@ -87,7 +87,7 @@ consequence beneath it.
 
 **Now:** the starter promise is created alongside the queue, the same way the
 slice already creates the support pipeline "kept in step by hand" because
-`@wizeworks/db` sits below `@wizeworks/crm`. The hand-placed dates are unchanged.
+`@wizeworksllc/db` sits below `@wizeworksllc/crm`. The hand-placed dates are unchanged.
 Every sample request names the policy, so the owner can find, read and edit the
 rule they are measured against. It is not removed by Clear, for the same reason
 the support queue is not: it is the setup a business keeps, and it is exactly the

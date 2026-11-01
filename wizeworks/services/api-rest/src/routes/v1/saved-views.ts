@@ -28,9 +28,9 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 import type { FastifyRequest } from 'fastify';
-import type { TenantContext } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import type { TenantContext } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import {
   CreateSavedViewInput,
   UpdateSavedViewInput,

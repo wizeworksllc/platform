@@ -4,9 +4,9 @@
 // document scope, serializes Prose, lays out containers, and ignores unknown nodes.
 
 import { describe, expect, it } from 'vitest';
-import type { BuilderNode } from '@wizeworks/builder-schemas';
-import { DEFAULT_INVOICE_TEMPLATE } from '@wizeworks/crm-schemas/builtins';
-import type { BillingRenderData } from '@wizeworks/crm';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
+import { DEFAULT_INVOICE_TEMPLATE } from '@wizeworksllc/crm-schemas/builtins';
+import type { BillingRenderData } from '@wizeworksllc/crm';
 
 import { renderInvoiceTree } from '../../src/lib/invoice-tree-render.js';
 

@@ -158,7 +158,7 @@ three canonical values — `base`, `current`, `incoming` — and classifies:
 | **Detached**      | —                   | —                    | Skip entirely (U8).                                                                                                                                                                            |
 
 Equality is **canonical structural equality** (stable-key JSON serialization; a bespoke helper
-in `@wizeworks/blueprints` — no existing util in the repo to reuse). The crucial property: because
+in `@wizeworksllc/blueprints` — no existing util in the repo to reuse). The crucial property: because
 the merge recurses to the smallest unit, the **automatic** path (Unchanged → fast-forward)
 fires for every field the tenant didn't touch, so the tenant receives almost all upstream
 improvements with zero interaction, while the only things that ever stop for review are genuine
@@ -297,7 +297,7 @@ Write path by surface:
 
 ## 8. The merge engine (where the code lives)
 
-A pure, DB-free **`@wizeworks/blueprints` merge module** holds the algorithm — `canonicalEqual`,
+A pure, DB-free **`@wizeworksllc/blueprints` merge module** holds the algorithm — `canonicalEqual`,
 `threeWayField`, `mergeTokens` (deep), `mergeTree` (node-keyed), and the per-kind
 classifiers — returning a typed **changeset** (no I/O, fully unit-testable, mirrors how the
 manifest validator already lives there). The **applier** lives next to the installer
@@ -341,7 +341,7 @@ positioned as the way to "get a new version." That is now **Update** (§6).
 - `POST /v1/blueprints/installs/:id/artifacts/:artifactId/detach` — detach (U8).
 - `DELETE /v1/blueprints/installs/:id` — delete/uninstall (§9, replaces `…/reset`).
 
-**Events** (`@wizeworks/events`):
+**Events** (`@wizeworksllc/events`):
 
 - `blueprint.version_published` — `{ blueprintKey, version }` — catalog ingest emits; the
   dashboard may notify installed tenants (no auto-apply).
@@ -379,7 +379,7 @@ fields fast-forward, conflicts keep the tenant's value by default. 30 merge unit
 1. ✅ **Substrate** — `tenant_blueprint_install_artifacts` table + RLS migration
    (`20260914000000`); Prisma model; installer captures the per-artifact `baseline` at stamp;
    `delete` cascades the rows. (commit `18dbcce9`)
-2. ✅ **Merge core + Theme & Brand** — the pure `@wizeworks/blueprints` merge module (`merge.ts`,
+2. ✅ **Merge core + Theme & Brand** — the pure `@wizeworksllc/blueprints` merge module (`merge.ts`,
    unit-tested); the updater's theme (per-token) + brand path; preview + apply endpoints;
    re-publish parity; version bump + baseline advance. (commit `606741c3`)
 3. ✅ **Trees** — `mergeTree` (node-keyed by id) for pages / layout / emails / components;

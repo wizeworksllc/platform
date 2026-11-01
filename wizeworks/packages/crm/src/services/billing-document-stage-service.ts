@@ -25,14 +25,14 @@ import {
   AdvanceBillingDocumentInput,
   paymentTermsOf,
   withPaymentTerms,
-} from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
 import type {
   BillingDocument,
   BillingDocumentSnapshot,
   DocumentStage,
   Prisma,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent, type CrmTopic } from '../events';

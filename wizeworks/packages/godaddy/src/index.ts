@@ -1,5 +1,5 @@
 // GoDaddy Reseller API client (docs/24 §3, docs/24 §5) — one implementation of
-// the provider-agnostic `RegistrarClient` contract in @wizeworks/registrar.
+// the provider-agnostic `RegistrarClient` contract in @wizeworksllc/registrar.
 //
 // Reads OTE vs production credentials from process.env. All domain purchase,
 // DNS configuration, and lifecycle operations go through this module.
@@ -22,9 +22,9 @@ import {
   type DomainSuggestion,
   type RegistrantContact,
   type RegistrarClient,
-} from '@wizeworks/registrar';
+} from '@wizeworksllc/registrar';
 
-// Re-export the contract surface so existing `@wizeworks/godaddy` importers keep
+// Re-export the contract surface so existing `@wizeworksllc/godaddy` importers keep
 // working: the shared types, the TLD menu, the neutral DNS helper, and the
 // error.
 export {
@@ -209,7 +209,7 @@ async function checkAvailabilityBulk(
 }
 
 // The curated TLD menu (`DEFAULT_TLDS`) is registrar-neutral and lives in
-// @wizeworks/registrar — the suggest endpoint surfaces exactly these. Callers can
+// @wizeworksllc/registrar — the suggest endpoint surfaces exactly these. Callers can
 // override `tlds` for a narrower/wider set.
 export async function getDomainSuggestions(
   query: string,

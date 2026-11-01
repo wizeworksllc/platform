@@ -12,7 +12,7 @@ The killer footgun: `tsc`, `lint`, and `typecheck` all pass locally, but the pro
 Create `packages/<name>/` with `package.json` (`"name": "@sparx/<name>"`, `"type": "module"`), `tsconfig.json` extending [tsconfig.base.json](../../../tsconfig.base.json), and `src/index.ts`. Match an existing sibling package's shape exactly (e.g. `wizeworks/packages/events`).
 
 - `declaration: false` is the house default — no `.d.ts` emit; consumers read source types via project references.
-- If the package will be imported by a **backend service**, expose **server-safe subpaths** (e.g. `@sparx/<name>/serialize`) so React/client deps never get pulled into a Node service bundle. See how `@wizeworks/cms-editor/serialize` is used.
+- If the package will be imported by a **backend service**, expose **server-safe subpaths** (e.g. `@sparx/<name>/serialize`) so React/client deps never get pulled into a Node service bundle. See how `@wizeworksllc/cms-editor/serialize` is used.
 
 ## 2. Add it as a dependency where used
 

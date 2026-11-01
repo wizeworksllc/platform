@@ -216,7 +216,7 @@ model ProductVariantOptionValue {
 }
 
 // Per-variant image — solves the per-color-image case PRD §3 flagged as
-// TBD. mediaAssetId references the shared @wizeworks/db MediaAsset row from
+// TBD. mediaAssetId references the shared @wizeworksllc/db MediaAsset row from
 // the CMS module; images live in the shared media library, not a
 // commerce-specific table.
 

@@ -8,7 +8,7 @@
 // than being re-guessed at each reader.
 //
 // Read structurally, not through a module augmentation of TanStack's `Register`
-// — that would retype `meta` for every app sharing @wizeworks/query in order to
+// — that would retype `meta` for every app sharing @wizeworksllc/query in order to
 // serve one app's convention.
 
 export interface WriteMeta {

@@ -17,10 +17,10 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { meetingLinkService, signatureService } from '@wizeworks/crm';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
-import { prisma, withTenant } from '@wizeworks/db';
+import { meetingLinkService, signatureService } from '@wizeworksllc/crm';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 import { resolvePublicPropertyId } from '../../../lib/property.js';
 
@@ -46,7 +46,7 @@ async function tenantFromSlug(request: FastifyRequest): Promise<string> {
 }
 
 /** The caller's address, for the signature record — `request.ip`, which the
- *  app's trusted-proxy list resolves (@wizeworks/client-ip).
+ *  app's trusted-proxy list resolves (@wizeworksllc/client-ip).
  *
  *  This used to parse X-Forwarded-For itself and keep the FIRST hop, on the
  *  belief that everything after it was client-supplied. It is the other way

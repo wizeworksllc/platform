@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/silica-corrections",
+  "name": "@wizeworksllc/silica-corrections",
   "version": "0.0.0",
   "private": true,
   "description": "Platform-level corrections to silicaui — written against silica's own classes and custom properties, so they inherit whatever a brand's tokens set. Brand-blind by construction: every brand imports these, none of them may state a value.",

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/cache-revalidation-worker",
+  "name": "@wizeworksllc/cache-revalidation-worker",
   "version": "0.0.0",
   "private": true,
   "description": "sparx cache-revalidation handler, run by services/event-worker. Consumes catalog, content, site-publish and site-settings events, resolves the event's tenant to its slug, and POSTs the site's /api/revalidate route so the cached reads a visitor sees (products, pages, the business payload with its name, logo, socials, cookie banner and billing phase) are purged the moment the owner saves, instead of waiting out the cache.",
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

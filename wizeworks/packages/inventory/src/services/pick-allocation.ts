@@ -29,10 +29,10 @@
 // All four fall back to richest-shelf-first as the final tiebreak, so every one
 // of them is total and none can leave a unit unassignable.
 
-import { Prisma } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
-/** Mirrors `AllocationStrategy` in @wizeworks/commerce-schemas; kept as a local
+/** Mirrors `AllocationStrategy` in @wizeworksllc/commerce-schemas; kept as a local
  *  string union so the ledger can import this file without a schema dependency
  *  on its hot path. */
 export type PickStrategy = 'fifo' | 'fefo' | 'nearest_bin' | 'single_bin';

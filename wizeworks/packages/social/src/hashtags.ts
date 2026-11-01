@@ -9,8 +9,8 @@
 // "#NewArrival" and "newarrival" the same tag, keeps a set comparable, and leaves the UI
 // free to render them however it likes.
 
-import { withTenant } from '@wizeworks/db';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import type { SocialContext } from './context.js';
 

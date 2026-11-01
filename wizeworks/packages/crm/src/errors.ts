@@ -10,7 +10,7 @@
 // reports the same condition the same way without re-deriving HTTP codes
 // from generic exceptions.
 
-import type { TenantContext } from '@wizeworks/db';
+import type { TenantContext } from '@wizeworksllc/db';
 
 export type ServiceContext = TenantContext;
 

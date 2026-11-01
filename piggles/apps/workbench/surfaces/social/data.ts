@@ -42,8 +42,8 @@
 // sub-tree so the queue, the inbox and the open composer all refresh at once.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { canManageBusiness } from '../../lib/manage-rights';
@@ -123,7 +123,7 @@ export interface SocialOverview {
 }
 
 /** What a platform will and won't let one connected account do. Mirrors
- *  `SocialConnectionReadiness` in @wizeworks/social. */
+ *  `SocialConnectionReadiness` in @wizeworksllc/social. */
 export type ReadinessVerdict =
   'ready' | 'permissions_missing' | 'awaiting_review' | 'reconnect_required' | 'unverifiable';
 

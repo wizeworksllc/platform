@@ -1,6 +1,6 @@
 // Provider selection — the one place that decides which vendor dials.
 //
-// UNLIKE @wizeworks/sms, THE CREDENTIALS COME FROM THE TENANT, NOT THE ENVIRONMENT.
+// UNLIKE @wizeworksllc/sms, THE CREDENTIALS COME FROM THE TENANT, NOT THE ENVIRONMENT.
 // sparx does not front its own vendor account for a tenant's outbound calls:
 // their account, their number, their bill, and their compliance posture on a
 // call their business is making. So `resolveVoiceProvider` takes credentials

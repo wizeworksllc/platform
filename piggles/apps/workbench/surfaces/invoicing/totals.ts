@@ -1,8 +1,8 @@
-// Line + document totals, a browser mirror of @wizeworks/crm's billing-totals.ts
+// Line + document totals, a browser mirror of @wizeworksllc/crm's billing-totals.ts
 // (which drags Prisma, so it cannot be imported). The server wins on save. Order:
 // lines, subtotal, discount, per-line tax, shipping, surcharge, core deposits.
 
-import type { LineMarkupInput } from '@wizeworks/commerce-schemas';
+import type { LineMarkupInput } from '@wizeworksllc/commerce-schemas';
 
 /** The server's frozen record of how a markup/pass-through line was priced —
  *  enough to re-seed the editor and show the margin it locked in. */

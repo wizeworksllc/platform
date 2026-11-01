@@ -25,7 +25,7 @@ import {
   type ConditionGroup,
   type ConditionNode,
   type ConditionOperator,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 import { CONDITION_OPERATORS, operatorDef, primitiveText } from './automations-catalog';
 import {
   conditionField,

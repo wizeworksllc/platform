@@ -16,7 +16,7 @@ import {
   NativeSelect,
   Switch,
 } from '@wizeworks/silicaui-react';
-import { HOST_COMPONENTS, type HostComponentProp } from '@wizeworks/silica-catalog';
+import { HOST_COMPONENTS, type HostComponentProp } from '@wizeworksllc/silica-catalog';
 import type { HostNode } from '@wizeworks/silicaui-html';
 import type { AddressableNode } from '@piggles/studio';
 import { useApply } from '@piggles/studio/react';

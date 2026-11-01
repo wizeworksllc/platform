@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** sweeping the rest of Stock for the shape behind [474](474-stock-was-dead-the-day-it-arrived.md)
-**Surface:** `inventory.reports` (both consoles) · `@wizeworks/inventory` `agingReport`
+**Surface:** `inventory.reports` (both consoles) · `@wizeworksllc/inventory` `agingReport`
 **Filed:** 2026-09-09
 
 ## Why this was looked for at all

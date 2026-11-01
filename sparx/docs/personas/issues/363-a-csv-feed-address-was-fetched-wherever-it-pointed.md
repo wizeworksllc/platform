@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** blocker (security)
 **Found by:** P01 · Gillett Diesel Service · setting up issue 170's CSV supplier, reading the code
-**Surface:** workbench › Dropshipping › Connect a supplier › CSV feed; `@wizeworks/dropship` `CsvAdapter`
+**Surface:** workbench › Dropshipping › Connect a supplier › CSV feed; `@wizeworksllc/dropship` `CsvAdapter`
 **Filed:** 2026-10-19
 **Fixed:** 2026-10-19
 **Confirmed by:** P01 on screen as Doty, 2026-10-19
@@ -37,7 +37,7 @@ supplier.
 
 ## The fix
 
-`feed-fetch.ts` in `@wizeworks/dropship`: `fetchFeed` checks the address before fetching
+`feed-fetch.ts` in `@wizeworksllc/dropship`: `fetchFeed` checks the address before fetching
 (http or https; every address the host has must be public: no loopback, private, carrier-grade
 NAT, link-local or cloud metadata, multicast or unique-local ranges), and checks each redirect
 the same way, three at most. The host is looked up with the server's DNS, handed in by the

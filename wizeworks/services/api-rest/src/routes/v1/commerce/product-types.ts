@@ -8,7 +8,7 @@
 //   DELETE /v1/commerce/product-types/:key       → remove a tenant-custom type (built-ins read-only)
 //
 // Attribute schemas are validated against the FieldDef union from
-// @wizeworks/field-schema (via @wizeworks/commerce-schemas ProductTypeSchema) — the same
+// @wizeworksllc/field-schema (via @wizeworksllc/commerce-schemas ProductTypeSchema) — the same
 // validator used at product-write time, so a schema can never persist in a shape
 // the attribute validator won't accept.
 //
@@ -21,15 +21,15 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { productTypeService } from '@wizeworks/commerce';
+import { productTypeService } from '@wizeworksllc/commerce';
 import {
   CreateProductTypeInput,
   UpdateProductTypeInput,
   ReplaceProductTypeSchemaInput,
-} from '@wizeworks/commerce-schemas';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/commerce-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { toCommerceContext, requireCommerceModule } from '../../../lib/commerce-context.js';
 
 const KeyParams = z.object({ key: z.string().min(1).max(63) });

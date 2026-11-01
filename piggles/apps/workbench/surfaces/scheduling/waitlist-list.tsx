@@ -20,7 +20,7 @@
 // pick a time inside their window, then hands off to the booking it creates.
 
 import { CANVAS_CORNER_CLEARANCE } from '../../components/canvas-corner';
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useId, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { ListEmptyState } from '../../components/list-empty-state';

@@ -444,7 +444,7 @@ keeps producing: **absent behaves like a confident wrong answer.**
 | Check                                                           | Result                          |
 | --------------------------------------------------------------- | ------------------------------- |
 | `@piggles/studio` typecheck · lint · tests                      | clean · clean · **58 passing**  |
-| `@wizeworks/builder` typecheck · lint · tests                   | clean · clean · **112 passing** |
+| `@wizeworksllc/builder` typecheck · lint · tests                   | clean · clean · **112 passing** |
 | `wizeworks/services/api-rest` typecheck · lint                  | clean                           |
 | `piggles/apps/workbench` typecheck · lint                       | clean                           |
 | `check:routes` · `check:events` · `check:boundaries` · order    | all pass                        |
@@ -453,15 +453,15 @@ keeps producing: **absent behaves like a confident wrong answer.**
 
 `check:boundaries` landed mid-slice — a ratchet on `@sparx/*` usage under
 `piggles/`, which may only go down. The new studio code sits inside it (432,
-baseline 432): the only platform packages it reaches for are `@wizeworks/query`,
-`@wizeworks/builder-schemas` and `@wizeworks/silica-catalog`, all brand-blind and all in
+baseline 432): the only platform packages it reaches for are `@wizeworksllc/query`,
+`@wizeworksllc/builder-schemas` and `@wizeworksllc/silica-catalog`, all brand-blind and all in
 the rename waves.
 
 **Not clean, and not this slice.** The `@sparx/*` → `@wizeworks/*` migration is
 in flight in the same tree, and it currently breaks three things this work has to
 share a repo with: `wizeworks/packages/auth/src/server.ts` cannot resolve
-`@wizeworks/links/server`, `wizeworks/packages/cms-editor/src/editor.tsx` cannot resolve
-`@wizeworks/silica-corrections`, and `check:docker` wants 14 COPY lines for
+`@wizeworksllc/links/server`, `wizeworks/packages/cms-editor/src/editor.tsx` cannot resolve
+`@wizeworksllc/silica-corrections`, and `check:docker` wants 14 COPY lines for
 `silica-corrections` / `ui` / `brand`. One knock-on lands in api-rest's own lint:
 `routes/internal/operator-feedback.ts` reports six unsafe-type errors, all from an
 import it can no longer resolve. `piggles/packages/studio` is copied correctly in the
@@ -489,7 +489,7 @@ make.
 - [x] Q1 Package name — ANSWERED 2026-08-16. `@piggles/studio` in root
       `piggles/packages/studio`. Piggles takes no new `@sparx/*` dependency; the twenty it
       already has are unchanged, and the package itself may still import
-      `@wizeworks/silica-catalog` + `@wizeworks/site-themes`.
+      `@wizeworksllc/silica-catalog` + `@wizeworksllc/site-themes`.
 - [ ] Q2 Does `frameId = 'none'` survive the one-layout-per-site decision?
       (Assumed yes — the column and its CHECK constraint already exist.)
       answer: yes

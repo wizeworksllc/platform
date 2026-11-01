@@ -82,7 +82,7 @@ confirmation as something that exists elsewhere.
 **A test was asserting a value that would have re-broken notification links.**
 `notify.test.ts` expected `entityType` to be `'Order'`; the seed writes `'order'`.
 Lowercase is correct and load-bearing: `entityType` is the key `routeForEntity`
-looks up in `@wizeworks/links` to decide where a notification LEADS, and all 28
+looks up in `@wizeworksllc/links` to decide where a notification LEADS, and all 28
 entity keys there are lowercase (`order`, `gift_card`, `cms_page`). `'Order'`
 resolves to nothing, which would turn the notification bell back into the dead
 end its own code comments say it used to be. The assertion is corrected, with the

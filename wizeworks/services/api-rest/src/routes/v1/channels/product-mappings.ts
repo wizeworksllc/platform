@@ -23,11 +23,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { getChannelDescriptor, type ChannelSlug } from '@wizeworks/channels';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { getChannelDescriptor, type ChannelSlug } from '@wizeworksllc/channels';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { requireChannelsModule, toChannelContext } from '../../../lib/channel-context.js';
 
 const ProductQuery = z.object({ product_id: z.string().uuid() });

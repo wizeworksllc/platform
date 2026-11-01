@@ -1,4 +1,4 @@
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { countSeats } from './seats';
 

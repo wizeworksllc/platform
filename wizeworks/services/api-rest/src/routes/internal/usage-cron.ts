@@ -29,7 +29,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 
-import { snapshotAllTenants } from '@wizeworks/usage';
+import { snapshotAllTenants } from '@wizeworksllc/usage';
 
 import { env } from '../../env.js';
 

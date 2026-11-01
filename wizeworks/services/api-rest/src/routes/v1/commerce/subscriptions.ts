@@ -16,11 +16,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { subscriptionService } from '@wizeworks/commerce';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
-import { withTenant } from '@wizeworks/db';
+import { subscriptionService } from '@wizeworksllc/commerce';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
 import { requireCommerceModule, toCommerceContext } from '../../../lib/commerce-context.js';
 
 const ProductIdParam = z.object({ productId: z.string().uuid() });

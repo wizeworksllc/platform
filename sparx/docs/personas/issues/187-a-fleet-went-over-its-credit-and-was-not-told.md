@@ -57,7 +57,7 @@ The payment step now asks the question the order asks, with the same function.
   `creditPreview` (`commerce-schemas/src/checkout.ts`; the comment that said credit "is
   not foreseen here" is gone).
 - `complete`'s approval (`CheckoutApproval`) carries `overCredit` from the order's own
-  hold reasons, and `@wizeworks/b2b` `accountOrderSignOff` carries it to the order page
+  hold reasons, and `@wizeworksllc/b2b` `accountOrderSignOff` carries it to the order page
   (`creditHoldOf`).
 - The site (`lib/sign-off-words.ts`): on "Bill to your account" the notice gives both
   reasons and both approvers; the confirmation adds the credit sentence; the order page

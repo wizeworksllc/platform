@@ -14,9 +14,9 @@
 // Eligibility (all must hold): product.marketListed && marketApproved &&
 // status='active' && not deleted && the tenant's merchant profile is enabled.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
-import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworks/db/site-origin';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
+import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworksllc/db/site-origin';
 
 import { mediaPublicUrl } from '../../media-url';
 import type { ServiceContext } from '../../errors';

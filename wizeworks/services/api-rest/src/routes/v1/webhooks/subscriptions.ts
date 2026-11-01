@@ -13,16 +13,16 @@
 import { randomBytes } from 'node:crypto';
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { indexEntity } from '@wizeworks/events';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { indexEntity } from '@wizeworksllc/events';
 import {
   decryptWebhookSecret,
   storeWebhookSecret,
-} from '@wizeworks/api-core/webhook-secret-crypto';
+} from '@wizeworksllc/api-core/webhook-secret-crypto';
 
 import { webhookHealth } from './deliveries.js';
 
@@ -38,7 +38,7 @@ import { webhookHealth } from './deliveries.js';
 //   1. It must actually be EMITTED. An event that exists only in the type union
 //      is a subscription that stays silent forever, which reads to the person
 //      who set it up as their endpoint being broken. `inventory.levels.updated`
-//      is declared in @wizeworks/events and published by nothing — it is the most
+//      is declared in @wizeworksllc/events and published by nothing — it is the most
 //      tempting key on the list and is deliberately absent until something
 //      emits it.
 //   2. The workbench's human catalogue must carry it too, or it is subscribable

@@ -37,10 +37,10 @@ import {
   chooseForecast,
   coefficientOfVariation,
   seasonalityIndex,
-} from '@wizeworks/commerce-schemas';
-import type { ForecastBasis } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { ForecastBasis } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

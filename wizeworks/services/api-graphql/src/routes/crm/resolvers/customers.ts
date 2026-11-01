@@ -1,9 +1,9 @@
-// CRM customer GraphQL resolvers — thin wrappers over @wizeworks/crm's
+// CRM customer GraphQL resolvers — thin wrappers over @wizeworksllc/crm's
 // customerService. Same service functions REST + MCP call, so a bug fixed
 // in customerService.list() is fixed here on next deploy.
 
-import { customerService } from '@wizeworks/crm';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { customerService } from '@wizeworksllc/crm';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import type { GqlContext } from '../types';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 

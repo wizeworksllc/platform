@@ -12,8 +12,8 @@
 // payload, so the withTenant write is still RLS-scoped to the right tenant.
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { recordFromWebhook } from './suppression-service';
 
@@ -64,7 +64,7 @@ function mapEventType(event: string, severity?: string): string | null {
 // EmailEvent.type → the in-process platform-bus topic the CRM email-event
 // consumer reacts to (engagement activity rows + unsubscribe → do-not-contact),
 // or null when no consumer acts on it. The api-rest webhook route publishes this
-// post-ingest — kept as a pure mapping here so @wizeworks/email-platform doesn't take
+// post-ingest — kept as a pure mapping here so @wizeworksllc/email-platform doesn't take
 // a dependency on the CRM platform bus. `accepted`/`delivered`/`complained`/
 // `failed` have no in-process consumer topic today (complaint/bounce still
 // suppress at send time via the EmailSuppression list).

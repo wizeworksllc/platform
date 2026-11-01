@@ -5,9 +5,9 @@
 // code-resolved item) resolves to null so callers can fall back to the in-code
 // registry — the no-deploy data path and the code path coexist during migration.
 
-import { withTenant } from '@wizeworks/db';
-import { readDataThemePreset, type DataThemePreset } from '@wizeworks/marketplace-schemas';
-import { safeParseBlueprint, type Blueprint } from '@wizeworks/blueprints';
+import { withTenant } from '@wizeworksllc/db';
+import { readDataThemePreset, type DataThemePreset } from '@wizeworksllc/marketplace-schemas';
+import { safeParseBlueprint, type Blueprint } from '@wizeworksllc/blueprints';
 
 import { readArtifact } from './artifacts.js';
 
@@ -15,7 +15,7 @@ import { readArtifact } from './artifacts.js';
  * Resolve a marketplace DATA theme's full `DataThemePreset` by slug, or null when
  * the slug is not a marketplace data theme (no catalog row, or a row whose payload
  * was never ingested — e.g. a code foundation). The theme route injects this into
- * `themeService.selectTheme` (the @wizeworks/sitebuilder package can't reach storage).
+ * `themeService.selectTheme` (the @wizeworksllc/sitebuilder package can't reach storage).
  */
 export async function resolveThemePreset(
   tenantId: string,
@@ -43,7 +43,7 @@ export async function resolveThemePreset(
  * to keep working separately from the one an upload will exercise.
  *
  * This is the ONLY resolver. The route and the tenant seeder each carried their own
- * copy, and both also fell back to an in-code `@wizeworks/blueprints` registry that was
+ * copy, and both also fell back to an in-code `@wizeworksllc/blueprints` registry that was
  * deliberately empty — a branch that could only ever return null.
  */
 export async function resolveBlueprintManifest(

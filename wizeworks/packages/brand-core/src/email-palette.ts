@@ -3,7 +3,7 @@
 // This is the other half of `platformBrandIdentity`. That one fixed the NAME on a
 // platform email — the masthead wordmark, the subjects, the "your … account"
 // copy. The colors were left, and they were sparx's: Ember `#e04631` on a
-// `#0c1433` ink masthead, hardcoded as a module constant in `@wizeworks/email`'s
+// `#0c1433` ink masthead, hardcoded as a module constant in `@wizeworksllc/email`'s
 // `signal` tokens. One email worker drains the queue for both brands, so a
 // Piggles owner's password reset arrived correctly named and painted in another
 // company's palette.

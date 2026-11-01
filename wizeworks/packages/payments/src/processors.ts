@@ -8,7 +8,7 @@
 //
 // This lives in the payments package because it is a fact about gateways, and
 // because two refund paths need the same answer: the returns flow in
-// `@wizeworks/commerce` (return-service) and the order refund in api-rest. It
+// `@wizeworksllc/commerce` (return-service) and the order refund in api-rest. It
 // was a private const in the first of those, so the second went on asking a
 // DIFFERENT question and got a different answer for the same shop (persona
 // issues 223, then 303).

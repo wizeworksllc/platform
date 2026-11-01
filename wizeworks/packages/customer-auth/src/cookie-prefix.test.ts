@@ -11,7 +11,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   tenantScopedClient: {},
   prisma: {},
   tenantStore: { run: (_tenantId: string, fn: () => unknown) => fn(), getStore: () => undefined },

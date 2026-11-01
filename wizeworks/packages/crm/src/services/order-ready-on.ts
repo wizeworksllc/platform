@@ -10,8 +10,8 @@
 // till, an import, a marketplace — and none of those have a cart to read. The
 // caller says how many days; this says which day that is.
 
-import { localCalendarParts, localWallToUtc } from '@wizeworks/time';
-import type { Prisma } from '@wizeworks/db';
+import { localCalendarParts, localWallToUtc } from '@wizeworksllc/time';
+import type { Prisma } from '@wizeworksllc/db';
 
 /** The zone used when the business has not said where it is. UTC is the only
  *  defensible fallback: it is the one that does not claim to know. */

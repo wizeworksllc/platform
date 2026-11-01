@@ -1,5 +1,5 @@
 // Redeeming a cross-domain session handoff, against the real `verifications`
-// table (routes/auth/brand-auth.ts → @wizeworks/auth session-handoff).
+// table (routes/auth/brand-auth.ts → @wizeworksllc/auth session-handoff).
 //
 // The redeem is the security-relevant half: it must hand out the session's
 // cookies exactly once, refuse a token meant for another domain, and refuse one
@@ -16,8 +16,8 @@ process.env.PIGGLES_BETTER_AUTH_SECRET = 'piggles-test-secret-that-is-at-least-3
 process.env.PIGGLES_BETTER_AUTH_URL = 'https://getpiggles.test';
 process.env.PIGGLES_BETTER_AUTH_COOKIE_PREFIX = 'piggles-account';
 
-const { auth, authPrisma } = await import('@wizeworks/auth');
-const { runAsBrand } = await import('@wizeworks/brand-core/request-scope');
+const { auth, authPrisma } = await import('@wizeworksllc/auth');
+const { runAsBrand } = await import('@wizeworksllc/brand-core/request-scope');
 const { createTestTenant, dropTestTenant } = await import('../helpers.js');
 const { default: brandAuthRoutes } = await import('../../src/routes/auth/brand-auth.js');
 

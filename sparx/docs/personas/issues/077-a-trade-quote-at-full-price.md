@@ -48,7 +48,7 @@ The cause of each, found in the code and the dev database:
 3. `product-picker.tsx` appended `(variant.title ?? variant.sku)` to a title that already carries the code. The invoice raised from an order did the same (`crm/src/services/billing-from-order-service.ts`, `${it.name} (${it.sku})`).
 4. Nothing asked for a trade price. And `/v1/b2b/resolve-price` (b2b `pricingTierService.resolveB2bPrice`) called the `resolve_b2b_price()` SQL function directly, which never reads a signed agreement (`commerce_contract_prices`) although its own comment and the MCP tool's description said it did; it also ran on the bare client, outside the tenant's RLS context. Checkout charges through `pricingService.resolve`, contract first. On the line editor, "Cost" on the default "Product" type is the cost basis for a markup, not the charge.
 5. `bill-to.tsx` filled the name through `billingName(customer)` (the typed employer, else the person) and never read the account or the addresses.
-6. Web checkout writes `order.metadata.poNumber`; nothing in `@wizeworks/crm` read it. No input for it existed on the editor or on the API.
+6. Web checkout writes `order.metadata.poNumber`; nothing in `@wizeworksllc/crm` read it. No input for it existed on the editor or on the API.
 7. `invoice-summary.tsx` (sparx) took the stored fraction.
 
 ## The fix

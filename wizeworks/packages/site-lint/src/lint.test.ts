@@ -10,7 +10,7 @@ import {
   type ElementNode,
   type Node,
 } from '@wizeworks/silicaui-html';
-import { bindAttr, starterFrame, starterPages } from '@wizeworks/silica-catalog';
+import { bindAttr, starterFrame, starterPages } from '@wizeworksllc/silica-catalog';
 
 import { lintSite } from './index';
 import { resolveTargets } from './links';

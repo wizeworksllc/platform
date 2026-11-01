@@ -27,7 +27,7 @@ two external specs `sparx-partners-page-spec.md` and `sparx-bootcamp-page-spec.m
 (staff tier, deferred), [80-marketing-attribution-analytics.md](80-marketing-attribution-analytics.md)
 
 - [83-tenant-attribution-l-ten.md](83-tenant-attribution-l-ten.md) (attribution the `?ref=`
-  capture extends), [94-ADR-payment-gateway.md](94-ADR-payment-gateway.md) + `@wizeworks/payments`
+  capture extends), [94-ADR-payment-gateway.md](94-ADR-payment-gateway.md) + `@wizeworksllc/payments`
   (Stripe Connect Express, the payout rail precedent).
 
 ---
@@ -187,7 +187,7 @@ recruit + list partners and bootcamps; the portal is where a partner runs its pr
 ## B.1 Data model (Part B)
 
 New FORCE-RLS, `organization_id`-scoped tables unless noted. Enums are
-`varchar` + inline comment (house convention), validated in Zod (`@wizeworks/partner-schemas`).
+`varchar` + inline comment (house convention), validated in Zod (`@wizeworksllc/partner-schemas`).
 
 ```
 partners                         (tenant truth; visibility policy for the public directory)
@@ -256,7 +256,7 @@ partner_payout_runs              (organization_id = partner's org)
     provisions/activates the `partners` row at the requested (or overridden) tier.
     - **Accountless applicants** (public form, email only): a partner IS a tenant, so there
       must be an account to key the `partners` row to. Approval **provisions one**: api-rest
-      runs `@wizeworks/auth`'s `provisionInvitedOwner` on its own sparx Better Auth instance
+      runs `@wizeworksllc/auth`'s `provisionInvitedOwner` on its own sparx Better Auth instance
       (`lib/partners/provision-account.ts`; it was a token-gated call into the workbench until
       the apps came off the database, docs/154), which mints the tenant + owner login
       (module-less, so $0 under modules-not-plans), skips platform-legal acceptance (the
@@ -274,14 +274,14 @@ partner_payout_runs              (organization_id = partner's org)
       status to a pre-existing tenant — keeps partner payouts separate from any store billing
       and avoids a "which tenant?" picker. `EMAIL_TAKEN` is now reachable only on a
       concurrent-signup race → retry.)
-    - Both branches send a branded **`partner-welcome`** email (`@wizeworks/email`); new accounts
+    - Both branches send a branded **`partner-welcome`** email (`@wizeworksllc/email`); new accounts
       additionally get the set-password invite.
 - **Self-serve "Become a partner"** (D7) — the same provisioning, reachable one-click from
   signup/onboarding and from the dashboard for an existing org.
 
-## B.3 Referral attribution (extends `@wizeworks/attribution`)
+## B.3 Referral attribution (extends `@wizeworksllc/attribution`)
 
-1. `?ref=CODE` on any `sparx.works` / `app.sparx.works` link → `@wizeworks/attribution`
+1. `?ref=CODE` on any `sparx.works` / `app.sparx.works` link → `@wizeworksllc/attribution`
    `capture.ts` writes a `sparx_ref` first-party cookie (30-day, set-once), mirroring the
    UTM capture it already does. localStorage mirror per the spec.
 2. At **signup** (`apps/dashboard/app/(auth)/actions.ts`), read `sparx_ref` and call the
@@ -301,7 +301,7 @@ partner_payout_runs              (organization_id = partner's org)
 - Rates by tier: **Informal 20%** first-payment · **Registered 30%** first-payment ·
   **Certified 30%** first-payment **+ 5% ongoing** on managed accounts. Snapshotted onto
   the referral at credit time (rate changes never rewrite history).
-- **Payout rail = Stripe Connect Express**, reusing the `@wizeworks/payments` /
+- **Payout rail = Stripe Connect Express**, reusing the `@wizeworksllc/payments` /
   `stripe-connect` onboarding precedent (the tenant already onboards a Connect account for
   Sparx Pay; partners onboard a _payout_ Express account → `partners.stripe_payout_account_id`).
 - **Monthly payout run** (cron worker): groups `approved` commissions per partner ≥
@@ -403,7 +403,7 @@ POST  /internal/partners/referrals             signup hook
 GET   /internal/partners  · PATCH /:id/approve · PATCH /:id/tier · PATCH /:id/suspend
 ```
 
-## B.9 Events (Bus A — `@wizeworks/events`; provision topics in wize-infrastructure's `terraform/envs/prod/main.tf`)
+## B.9 Events (Bus A — `@wizeworksllc/events`; provision topics in wize-infrastructure's `terraform/envs/prod/main.tf`)
 
 `partner.application.submitted`, `partner.activated`, `partner.referral.created`,
 `partner.commission.accrued`, `partner.payout.paid`, `bootcamp.published`,
@@ -417,7 +417,7 @@ GET   /internal/partners  · PATCH /:id/approve · PATCH /:id/tier · PATCH /:id
    `organization()` plugin, JWT `tid`/`role` from active org, tenant switcher + Team UI + invites.
 1. **Partner data model** — `83-partners.prisma` + `84-bootcamps.prisma` (partners,
    applications, referrals, commissions, payout_runs, bootcamps, registrations) + migration +
-   RLS + `@wizeworks/partner-schemas`.
+   RLS + `@wizeworksllc/partner-schemas`.
 2. **Partner API + events** — public/partner/internal routes, services, TF topics.
 3. **Attribution + Stripe Connect payouts** — `?ref` capture, signup hook, commission
    accrual, monthly payout worker.

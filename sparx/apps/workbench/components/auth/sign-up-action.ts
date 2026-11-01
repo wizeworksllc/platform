@@ -16,7 +16,7 @@ import {
   PlatformRequestError,
   setSessionCookies,
   type SessionCookie,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 
 export interface SignUpActionInput {
   name: string;

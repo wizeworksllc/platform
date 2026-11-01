@@ -14,7 +14,7 @@ const projectOrder = vi.fn();
 const upsertOrder = vi.fn();
 const deleteOrder = vi.fn();
 
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   marketService: {},
   projectAllCollectionRulesForTenant: vi.fn(),
   projectCollectionRules: vi.fn(),
@@ -24,7 +24,7 @@ vi.mock('@wizeworks/commerce', () => ({
   projectProduct: vi.fn(),
   productIdForVariant: vi.fn(),
 }));
-vi.mock('@wizeworks/search', () => ({
+vi.mock('@wizeworksllc/search', () => ({
   deleteCustomer: vi.fn(),
   deleteEntity: vi.fn(),
   deleteOrder,

@@ -1,7 +1,7 @@
 // Event dispatcher — routes a decoded event to the correct handler by type.
 
 import type { Logger } from 'pino';
-import type { SparxEvent } from '@wizeworks/events';
+import type { SparxEvent } from '@wizeworksllc/events';
 import { handleSyncStarted } from './handlers/sync.js';
 import { handleOrderRoute } from './handlers/route.js';
 

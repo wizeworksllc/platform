@@ -94,7 +94,7 @@ them:
   money really did change hands.
 
 **All three builders set them** from the workflow slug, through the one shared
-rule in `@wizeworks/crm-schemas/builtins`. The snapshot builder reads the
+rule in `@wizeworksllc/crm-schemas/builtins`. The snapshot builder reads the
 workflow live rather than from the frozen payload — safe here and only here,
 because a document's workflow is set at create and never changes, and the
 alternative was a payload field every snapshot frozen before today would be

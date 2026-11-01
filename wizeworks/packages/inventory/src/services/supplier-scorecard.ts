@@ -29,9 +29,9 @@
 // owns that, and the sweep COPIES it. Two independent measurements of one thing
 // is how a scorecard starts disagreeing with the screen it links to.
 
-import { scoreSupplier, type ScorecardComponents } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { scoreSupplier, type ScorecardComponents } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

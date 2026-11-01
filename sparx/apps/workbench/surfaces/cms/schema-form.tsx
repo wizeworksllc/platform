@@ -31,7 +31,7 @@ import {
   Textarea,
 } from '@wizeworks/silicaui-react';
 import { Plus, Trash2 } from 'lucide-react';
-import { ContentBlockEditor } from '@wizeworks/cms-editor/editor';
+import { ContentBlockEditor } from '@wizeworksllc/cms-editor/editor';
 import {
   entryTitle,
   useContentEntries,
@@ -164,7 +164,7 @@ function FieldInput({ field, value, onChange, disabled }: SchemaFieldProps) {
       );
 
     case 'rich_text':
-      // The real block editor from @wizeworks/cms-editor. It reads and writes the
+      // The real block editor from @wizeworksllc/cms-editor. It reads and writes the
       // exact TipTap document the content API validates and the storefront
       // renders, so rich content round-trips natively — no lossy mapping.
       return <RichTextField field={field} value={value} onChange={onChange} disabled={disabled} />;

@@ -45,7 +45,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { GripVertical, Plus, Target } from 'lucide-react';
 import { Badge } from '@wizeworks/silicaui-react';
-import type { Action, ConditionGroup, Trigger } from '@wizeworks/automation-schemas';
+import type { Action, ConditionGroup, Trigger } from '@wizeworksllc/automation-schemas';
 import {
   CONDITIONS_NODE,
   GOAL_NODE,

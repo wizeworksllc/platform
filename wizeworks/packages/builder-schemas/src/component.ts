@@ -4,7 +4,7 @@
 // function). It renders by EXPANSION through the trusted registry renderers, so
 // it can be stored, validated, and versioned as plain data — never user code.
 //
-// Zod-only (no DB, no React), like the rest of @wizeworks/builder-schemas: safe to
+// Zod-only (no DB, no React), like the rest of @wizeworksllc/builder-schemas: safe to
 // import from the editor's client components AND the server service layer.
 
 import { z } from 'zod';
@@ -353,7 +353,7 @@ export type UpdateComponentInput = z.infer<typeof UpdateComponentInput>;
 // ── Tree validation (docs/53 §7) ──────────────────────────────────────────────
 // Structural validation beyond the BuilderNodeSchema parse: type resolution,
 // nesting, no nested custom (v1), and prop-slot resolution. The system/tenant
-// type predicates are injected by the caller — @wizeworks/builder-schemas is
+// type predicates are injected by the caller — @wizeworksllc/builder-schemas is
 // React-free and can't import the dashboard registry, so the service supplies a
 // server-safe known-type set + acceptsChildren map.
 

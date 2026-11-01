@@ -58,7 +58,7 @@ Listed because nine of the eleven workstreams below are extensions of these, not
 | Pipelines + ordered typed stages     | `Pipeline` / `PipelineStage` (probability, `stage_type`)                            | Gains `objectKey` so tickets reuse it wholesale (§7.2)                  |
 | dnd-kit board patterns               | `automations/flow-canvas`, `invoicing/stage-canvas`, `social/calendar`              | The deal board and ticket board (§4)                                    |
 | BYO-credential provider registry     | `wizeworks/packages/sms` (provider + registry + console fallback)                   | Shape copied for `wizeworks/packages/voice` (§5.6)                      |
-| Tenant secret encryption             | `@wizeworks/integration-framework` `secret-crypto`                                  | BYO telephony + BYO mailbox credentials (§5.6)                          |
+| Tenant secret encryption             | `@wizeworksllc/integration-framework` `secret-crypto`                                  | BYO telephony + BYO mailbox credentials (§5.6)                          |
 | Report query services                | `wizeworks/packages/crm/src/services/reporting-service.ts` (7 reports)              | Re-expressed as seeded built-in report definitions (§8.4)               |
 
 ## 3. Workstream A — the CRM object registry (custom properties, then custom objects)
@@ -90,7 +90,7 @@ model CrmObjectDef {
   label      String @db.VarChar(120)
   labelPlural String @map("label_plural") @db.VarChar(120)
   iconKey    String? @map("icon_key") @db.VarChar(63)
-  // A FieldSchema (@wizeworks/field-schema). For `builtin`, the TENANT-ADDED
+  // A FieldSchema (@wizeworksllc/field-schema). For `builtin`, the TENANT-ADDED
   // properties only — the spine stays in columns. For `custom`, the whole record.
   propertySchema Json @map("property_schema")
   // custom objects only: which property is the record's display title
@@ -140,7 +140,7 @@ model change. This limit gets stated in the plan rather than discovered in produ
 
 ### 3.3 Property types
 
-Everything `@wizeworks/field-schema` already ships — text, long text, rich text, slug, number, boolean,
+Everything `@wizeworksllc/field-schema` already ships — text, long text, rich text, slug, number, boolean,
 date, datetime, enum (single + multi), url, email, reference, asset, object, repeater — plus three
 CRM-specific additions to the shared engine (they belong upstream, not in a CRM fork, per RULE #1):
 
@@ -264,9 +264,9 @@ chain. A copy is then filed in the mailbox's Sent folder over IMAP `APPEND`, bec
 do that and a rep who cannot find their own sent mail concludes sparx emailed a customer behind
 their back.
 
-**Everything about the protocols is pure and unit-tested** in `@wizeworks/crm/mail` (`mime.ts`,
+**Everything about the protocols is pure and unit-tested** in `@wizeworksllc/crm/mail` (`mime.ts`,
 `inbound.ts`, `rfc822.ts`, `imap.ts`, `smtp.ts`), hand-written for the same reason
-`@wizeworks/scheduling` hand-writes its iCal and CalDAV parsers. The sockets live in api-rest
+`@wizeworksllc/scheduling` hand-writes its iCal and CalDAV parsers. The sockets live in api-rest
 (`crm-mailbox-imap.ts`, `crm-mailbox-smtp.ts`).
 
 **Automated mail is filtered before the privacy gate, not after** — `Auto-Submitted`, the `List-*`
@@ -320,7 +320,7 @@ model EngagementMessage {
 ### 5.4 Templates and snippets
 
 `SalesTemplate` (name, subject, HTML body, folder, owner, shared flag, send/open/reply counters) and
-`SalesSnippet` (shortcut, body). Both compose the existing `@wizeworks/email` atomic components rather
+`SalesSnippet` (shortcut, body). Both compose the existing `@wizeworksllc/email` atomic components rather
 than carrying raw markup, per the email-template rule in the root `CLAUDE.md`. Merge tags reuse the
 existing `list_merge_tags` vocabulary, extended with custom properties from §3.
 
@@ -476,7 +476,7 @@ existing. Modules are independent and never default on, and a CRM-only tenant ha
 also different facts — when the support desk is staffed is not when bay 2 can be booked. The policy
 therefore carries its **own** calendar (weekly windows + IANA timezone + holidays).
 
-What IS shared is the arithmetic underneath, extracted to **`@wizeworks/time`**: two unrelated promises
+What IS shared is the arithmetic underneath, extracted to **`@wizeworksllc/time`**: two unrelated promises
 in this platform are stated in local time and stored as UTC instants, both have to survive daylight
 saving, and a DST bug fixed in one copy would still be a bug in the other.
 
@@ -601,9 +601,9 @@ Six deviations from the above, all deliberate — read these before changing any
    built for intake routing in §7.4 and takes the same config, resolves the same assignee, and opens
    the same request. A second name for it would put two indistinguishable entries in the palette.
    Six of the seven planned actions shipped; this is the seventh, and it already existed.
-4. **The condition evaluator MOVED to `@wizeworks/automation-schemas`.** `ConditionGroup` is now the
+4. **The condition evaluator MOVED to `@wizeworksllc/automation-schemas`.** `ConditionGroup` is now the
    filter language of three things — automations, the report builder (§8) and scoring — which only
-   works if all three agree on what a condition MEANS. With the evaluator inside `@wizeworks/automation`,
+   works if all three agree on what a condition MEANS. With the evaluator inside `@wizeworksllc/automation`,
    packages that cannot depend on the engine had two options: take the whole engine for one pure
    function, or write their own comparison semantics. The second is how `contains` comes to mean
    something subtly different in scoring than in automations, and nobody finds out until a
@@ -883,7 +883,7 @@ Everything listed here previously — the duplicates confidence model, the signa
 `/meet/[slug]` page, the domain-match offer, launcher entries for custom objects and the
 integration suite — is BUILT and was driven in a browser on 2026-08-10. **Saved views now cover
 every CRM list**, also driven in a browser: Customers, Companies, Deals (board and table),
-Requests, and the generic list that serves a tenant's own record types. `pnpm --filter @wizeworks/db
+Requests, and the generic list that serves a tenant's own record types. `pnpm --filter @wizeworksllc/db
 build` is verified (it needed one run with dev stopped — `prisma generate` cannot replace the
 query-engine DLL while a dev server holds it). The NULL-site uniqueness finding is now FIXED, and
 chasing it turned up a considerably worse bug in `mergeService`; both are below.
@@ -1327,7 +1327,7 @@ still refused **by name** rather than answered with an empty table.
 Three things fell out of doing it that were worse than the headline gap:
 
 - **camelCase property keys were unreportable, everywhere.** The compiler's `custom.<key>` rule was
-  lowercase-only while `@wizeworks/field-schema` has always minted camelCase keys — the shape the property
+  lowercase-only while `@wizeworksllc/field-schema` has always minted camelCase keys — the shape the property
   editor itself produces. So `seatsLeft`, `renewalMonth`, and any property with a capital in it,
   picked out of the builder's own field list, answered "there is no field called that." This was live
   for custom properties on **contacts and deals** too, not only for invented types. The rule must
@@ -1717,8 +1717,8 @@ the `b2b_accounts` → `companies` rename, the trade-terms panel gated on the `b
 domain association, e-sign on quotes, meeting links, saved views, and duplicate management at scale.
 Nothing else in this plan is outstanding.
 
-At this checkpoint, with all migrations applied and the client regenerated: `@wizeworks/crm` 41 files /
-**400 tests**, `@wizeworks/automation` 5 files / **70 tests**, `automation-schemas` 13,
+At this checkpoint, with all migrations applied and the client regenerated: `@wizeworksllc/crm` 41 files /
+**400 tests**, `@wizeworksllc/automation` 5 files / **70 tests**, `automation-schemas` 13,
 `automation-actions` 54, api-rest 81. Typecheck clean across crm, crm-schemas, automation,
 automation-schemas, automation-actions, api-rest and workbench; eslint and prettier clean
 repo-wide; all four structural checks passing; and the RLS audit clean across **351 tables (319
@@ -1739,7 +1739,7 @@ than a deal-specific one, so §7's ticket board is a parameterisation rather tha
 Dragging into a lost stage asks why, and that reason is now editable on the deal — it was being
 captured and then never shown, which made a typo in it permanent.
 
-**Phase 1** put the field engine in `@wizeworks/field-schema` (shared with CMS content types and
+**Phase 1** put the field engine in `@wizeworksllc/field-schema` (shared with CMS content types and
 commerce product types) and added `coerce.ts` there — text→typed values, so the CSV importer can
 read `"$4,800"` and `"3/14/2027"` and REFUSE what it cannot read rather than guessing. Import and
 export both carry declared properties; export heads them `custom.<key>` so a round-trip does not
@@ -1765,8 +1765,8 @@ beside it. Then the two halves that were outstanding:
   table that stores no tokens is an invitation to half-build the thing again. Polling, not IDLE;
   `UIDVALIDITY` stored with the cursor; sending over the mailbox's own SMTP with a Sent-folder
   `APPEND`; automated mail filtered before the privacy gate. Protocols are pure and tested in
-  `@wizeworks/crm/mail`; sockets are in api-rest.
-- **Calling (§5.6).** `wizeworks/packages/voice` mirrors `@wizeworks/sms` — provider contract, Twilio adapter,
+  `@wizeworksllc/crm/mail`; sockets are in api-rest.
+- **Calling (§5.6).** `wizeworks/packages/voice` mirrors `@wizeworksllc/sms` — provider contract, Twilio adapter,
   console fallback, registry — except that the credentials are the **tenant's own**, never the
   platform's. Click-to-call rings the rep's phone FIRST and bridges to the customer, because dialling
   from a browser tab needs WebRTC, a mic permission and a headset, and fails exactly when someone

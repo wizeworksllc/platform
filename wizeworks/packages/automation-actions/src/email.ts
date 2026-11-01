@@ -1,12 +1,12 @@
 // Email action executors (docs/81 §5.4, docs/84 Slice F1).
 //
 // Two effects that PUBLISH a send (never direct-deliver — docs/81 §5.4): they
-// enqueue a `ScheduledSend` via `@wizeworks/email-sends`' `enqueueSend`, which the
+// enqueue a `ScheduledSend` via `@wizeworksllc/email-sends`' `enqueueSend`, which the
 // api-rest email-dispatch tick later turns into an `email.send`. That keeps
 // suppression, the per-recipient render, and Mailgun delivery exactly where they
 // already live, and — crucially — lets these run inside the lean automation-worker
-// WITHOUT dragging the @wizeworks/email/@wizeworks/ui render closure into its image
-// (`@wizeworks/email-sends` depends only on @wizeworks/db). The render half stays in
+// WITHOUT dragging the @wizeworksllc/email/@wizeworksllc/ui render closure into its image
+// (`@wizeworksllc/email-sends` depends only on @wizeworksllc/db). The render half stays in
 // api-rest's dispatch tick, which has the email/builder libs.
 //
 //   email.send_campaign  — customer-addressed marketing send. Recipient is the
@@ -38,8 +38,8 @@ import {
   type ActionOutput,
   type EffectInput,
   type TenantCtx,
-} from '@wizeworks/automation';
-import { enqueueSend, type RecordLink, type ScheduledSendBody } from '@wizeworks/email-sends';
+} from '@wizeworksllc/automation';
+import { enqueueSend, type RecordLink, type ScheduledSendBody } from '@wizeworksllc/email-sends';
 import { z } from 'zod';
 
 import {

@@ -35,7 +35,7 @@ A billing document had no record of its terms. The PO number already rode the ri
 
 The terms follow that path exactly:
 
-- `paymentTermsOf`, `withPaymentTerms`, `paymentTermsWords` in `@wizeworks/crm-schemas` (`invoicing.ts`). Only a day count is stored or printed ("Net 45"); "pay up front" and "nothing agreed" print nothing. A bill that already has terms keeps them.
+- `paymentTermsOf`, `withPaymentTerms`, `paymentTermsWords` in `@wizeworksllc/crm-schemas` (`invoicing.ts`). Only a day count is stored or printed ("Net 45"); "pay up front" and "nothing agreed" print nothing. A bill that already has terms keeps them.
 - Frozen when a bill is issued: `createOrderArDocument` (orders on account, quotes accepted, bills raised by hand) and a bill entering its payable stage in the editor (`payerTermsOf`, the account's or the payer's employer's).
 - Printed: "Terms Net 45" under Due in the bill's header (`billing-document-html.ts`), from the live document, a frozen copy, or the draft preview; never on a quote. The email: "It is due by November 20, 2026 (Net 45)."
 - The email prints the PO number once.

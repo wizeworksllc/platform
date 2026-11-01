@@ -63,7 +63,7 @@ export const NOT_COLLECTABLE_ORDER_STATUSES: readonly OrderStatus[] = ['cancelle
  * chip (sparx persona issue 091).
  *
  * Not one of `OrderStatus`, which predates sign-off; the approval gate in
- * @wizeworks/b2b stores it.
+ * @wizeworksllc/b2b stores it.
  */
 export const HELD_FOR_SIGN_OFF_STATUS = 'pending_approval';
 

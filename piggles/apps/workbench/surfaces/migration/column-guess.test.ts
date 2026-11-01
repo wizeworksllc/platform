@@ -17,7 +17,7 @@
 // [[feedback_copy_edit_breaks_identity_lookups]]
 
 import { describe, expect, it } from 'vitest';
-import { ENTITY_FIELDS } from '@wizeworks/migration';
+import { ENTITY_FIELDS } from '@wizeworksllc/migration';
 import { guessMapping } from './column-guess';
 
 describe('the postal code column, after the rename', () => {

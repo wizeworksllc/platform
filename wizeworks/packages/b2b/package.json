@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/b2b",
+  "name": "@wizeworksllc/b2b",
   "version": "0.0.0",
   "private": true,
   "description": "sparx B2B / wholesale — the trade service layer (pricing tiers + overrides, account trade config + fleet, purchase-approval rules + queue, net-terms AR invoices) extracted from the api-rest routes so REST and MCP share one implementation (one service, many transports). Its MCP subpath exposes the trade write surface as agent tools (docs/10).",
@@ -22,12 +22,12 @@
     "src"
   ],
   "dependencies": {
-    "@wizeworks/api-core": "workspace:*",
-    "@wizeworks/auth": "workspace:*",
-    "@wizeworks/crm": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/inventory": "workspace:*",
+    "@wizeworksllc/api-core": "workspace:*",
+    "@wizeworksllc/auth": "workspace:*",
+    "@wizeworksllc/crm": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/inventory": "workspace:*",
     "zod": "^4.6.6"
   },
   "scripts": {

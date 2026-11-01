@@ -109,7 +109,7 @@ everywhere it was checked — the marketplace projection prefers `property.name`
 ([210]), the site chrome reads `Property.name`, and invoice rendering reads
 `TenantBusiness.businessName`, which is null for her. There is already a
 sanctioned script whose stated job is to strip the dead key
-(`packages/db/scripts/backfill-property-name.ts`, `pnpm --filter @wizeworks/db
+(`packages/db/scripts/backfill-property-name.ts`, `pnpm --filter @wizeworksllc/db
 db:backfill:property-name`); running a backfill is a pipeline decision, not a
 code one, and the key is inert until then.
 

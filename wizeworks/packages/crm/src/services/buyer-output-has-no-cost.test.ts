@@ -12,7 +12,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
  * name, and fails if any of them comes out the other side.
  */
 
-import type { BillingDocument, BillingDocumentLine, DocumentStage } from '@wizeworks/db';
+import type { BillingDocument, BillingDocumentLine, DocumentStage } from '@wizeworksllc/db';
 import { buildSnapshotPayload } from './billing-snapshot';
 
 const DOC = '6e1f4a0c-7d0b-4c55-8a4e-3b9f6f0c2a11';
@@ -154,11 +154,11 @@ const tx = {
   tenantBusiness: { findUnique: vi.fn(() => Promise.resolve(null)) },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/db/site-origin', () => ({
+vi.mock('@wizeworksllc/db/site-origin', () => ({
   resolveSiteOrigin: vi.fn(() => Promise.resolve('https://gillett.test')),
   siteUrl: (origin: string, path: string) => `${origin}${path}`,
 }));

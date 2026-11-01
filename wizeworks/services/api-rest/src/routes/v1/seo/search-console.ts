@@ -16,12 +16,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
-import { platformBrandIdentity } from '@wizeworks/brand-core';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
 
 import { tenantPlatformBrand } from '../../../lib/tenant-brand.js';
 import { toSeoContext } from '../../../lib/seo-context.js';

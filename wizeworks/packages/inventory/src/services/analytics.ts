@@ -3,7 +3,7 @@
 // and reorder analysis (velocity → days-of-cover → projected stockout). All read
 // the MASTER stock model (`inventory_levels`) + the movement ledger
 // (`inventory_movements`), so they reconcile exactly to operational stock. Lives
-// in @wizeworks/inventory so BOTH the REST reports route AND the MCP supply tools
+// in @wizeworksllc/inventory so BOTH the REST reports route AND the MCP supply tools
 // (P6c) share one implementation.
 //
 // Cost basis everywhere falls back avg_cost_cents → unit_cost_cents →
@@ -11,7 +11,7 @@
 // explicitly `tenant_id`-scoped: the local superuser bypasses RLS, so a broad
 // scan without it leaks other tenants' rows (RLS enforces it in prod).
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import type { ServiceContext } from '../errors';
 import { loadPlanningPolicy } from './planning-policy';
 

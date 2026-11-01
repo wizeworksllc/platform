@@ -464,7 +464,7 @@ and to their **business profile listing**, which drives the "menu" panel custome
 search results. No partnership, no commission, no approval. For a food vendor, that listing is
 frequently their **highest-traffic surface**, and it is usually years out of date.
 
-sparx already emits JSON-LD from the site render path and audits it with `@wizeworks/seo-audit`
+sparx already emits JSON-LD from the site render path and audits it with `@wizeworksllc/seo-audit`
 ([50-seo-aio-discoverability.md](../50-seo-aio-discoverability.md)).
 Emitting menu structured data from the menu model is a small amount of work with an outsized,
 immediate, demonstrable payoff — the kind of thing a vendor can _see_ working in a week. It should
@@ -482,22 +482,22 @@ No new top-level architecture. Every piece attaches to an existing seam.
 
 | Capability                        | Home                                                                                | Shape                                                     |
 | --------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| Menu model + modifier reuse       | `@wizeworks/commerce` + `@wizeworks/commerce-schemas`, over `ConfigurationTemplate` | Shared modifier groups + a join; the rest is authoring UX |
+| Menu model + modifier reuse       | `@wizeworksllc/commerce` + `@wizeworksllc/commerce-schemas`, over `ConfigurationTemplate` | Shared modifier groups + a join; the rest is authoring UX |
 | Menu authoring surface            | `sparx/apps/workbench`                                                              | New panes; menu editor, modifier library                  |
-| Item availability / 86            | `@wizeworks/commerce`, event-published                                              | New availability state + a fan-out event                  |
-| Store hours, dayparting, prep     | `@wizeworks/scheduling` primitives, consumed by commerce                            | Second consumer of resource-hours + exceptions            |
-| Order throttling                  | `@wizeworks/scheduling` capacity windows                                            | Same primitive as booking slots                           |
-| Tips / gratuity                   | `@wizeworks/commerce` + `@wizeworks/payments`                                       | New non-revenue order line + settlement handling          |
+| Item availability / 86            | `@wizeworksllc/commerce`, event-published                                              | New availability state + a fan-out event                  |
+| Store hours, dayparting, prep     | `@wizeworksllc/scheduling` primitives, consumed by commerce                            | Second consumer of resource-hours + exceptions            |
+| Order throttling                  | `@wizeworksllc/scheduling` capacity windows                                            | Same primitive as booking slots                           |
+| Tips / gratuity                   | `@wizeworksllc/commerce` + `@wizeworksllc/payments`                                       | New non-revenue order line + settlement handling          |
 | Food order lifecycle              | Order spine, optional lifecycle                                                     | New states; not a fork of `Order`                         |
 | Expo / kitchen screen             | New surface (own app or a dedicated workbench route)                                | Tablet-first, always-on, its own layout rules             |
 | Fulfillment method, pickup, zones | **107 Phase 2** — prerequisite, not built here                                      | `Order.fulfillmentMethod`, pickup locations, zones        |
-| On-demand courier                 | `@wizeworks/integration-framework` — **new `DeliveryProvider` kind**                | quote / dispatch / cancel / status + webhooks             |
+| On-demand courier                 | `@wizeworksllc/integration-framework` — **new `DeliveryProvider` kind**                | quote / dispatch / cancel / status + webhooks             |
 | Courier provider implementations  | `packages/provider-*` (matching `provider-shippo`, `provider-easypost`)             | One package per network                                   |
-| Delivery marketplaces             | `@wizeworks/channels` — new `ChannelSlug`s + adapters                               | `shape: 'order'` + the §5.2 optional members              |
+| Delivery marketplaces             | `@wizeworksllc/channels` — new `ChannelSlug`s + adapters                               | `shape: 'order'` + the §5.2 optional members              |
 | Marketplace sync + order ingest   | `services/channel-sync-worker`                                                      | Existing worker; new job types only                       |
-| Menu structured data              | `wizeworks/apps/site` render path (JSON-LD), checked by `@wizeworks/seo-audit`      | Emit from the menu model                                  |
-| Allergens / nutrition             | `@wizeworks/commerce` product metadata                                              | Fields + ticket display                                   |
-| Ordering site surfaces            | `@wizeworks/builder-schemas` catalog + `@wizeworks/silica-catalog`                  | Menu blocks as composed node trees — never new node types |
+| Menu structured data              | `wizeworks/apps/site` render path (JSON-LD), checked by `@wizeworksllc/seo-audit`      | Emit from the menu model                                  |
+| Allergens / nutrition             | `@wizeworksllc/commerce` product metadata                                              | Fields + ticket display                                   |
+| Ordering site surfaces            | `@wizeworksllc/builder-schemas` catalog + `@wizeworksllc/silica-catalog`                  | Menu blocks as composed node trees — never new node types |
 
 ### 6.1 Module strategy — no `food` module
 
@@ -510,7 +510,7 @@ they gate **capabilities**, never customer segments.
 The one genuinely food-only cluster is menu dayparting, allergen/nutrition disclosure and the expo
 surface. Two viable homes, to be decided when the work is live:
 
-- **Preferred: an industry starter plus commerce configuration.** `@wizeworks/modules` already has an
+- **Preferred: an industry starter plus commerce configuration.** `@wizeworksllc/modules` already has an
   `IndustryStarter` registry; "food service" becomes a starter that seeds a menu-shaped catalog,
   turns on the right commerce configuration, and installs the ordering blueprint. No new flag, no new
   billing line, and it composes with whatever else the tenant enables.

@@ -6,7 +6,7 @@
 //
 // They live together here because the CRM package owns the services they install
 // through (the B2B account spine, the invoicing document services) and already
-// deps @wizeworks/modules — so authoring against `definePreset` needs no new edge.
+// deps @wizeworksllc/modules — so authoring against `definePreset` needs no new edge.
 
 export { crmPresets } from './crm';
 export { b2bPresets } from './b2b';

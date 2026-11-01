@@ -42,7 +42,7 @@
 // symptom is silence, not an error: `applyDeals` finds no pipeline and returns
 // having written nothing at all.
 
-import { listEnabledModules, type ModuleSlug } from '@wizeworks/auth';
+import { listEnabledModules, type ModuleSlug } from '@wizeworksllc/auth';
 import {
   loadSampleData,
   prisma,
@@ -50,7 +50,7 @@ import {
   withTenant,
   type SampleDataCounts,
   type TenantContext,
-} from '@wizeworks/db';
+} from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
 
 import { findInstall, installBlueprint } from './blueprint-installer.js';

@@ -9,11 +9,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import type { SchedulingResource } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { CreateResourceInput, UpdateResourceInput } from '@wizeworks/scheduling-schemas';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import type { SchedulingResource } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { CreateResourceInput, UpdateResourceInput } from '@wizeworksllc/scheduling-schemas';
 import {
   createResource,
   updateResource,
@@ -23,7 +23,7 @@ import {
   getResourcePropertyIds,
   getResourcePropertyIdsFor,
   resourcesWithWeeklyHours,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { resolveListScopeIds } from '../../../lib/property.js';
 import { resourceFeedUrl } from '../../../lib/scheduling-ical.js';

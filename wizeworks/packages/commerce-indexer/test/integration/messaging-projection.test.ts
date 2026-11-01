@@ -15,9 +15,9 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { messagingUniversalProjectors } from '../../src/messaging-projection.js';
-import type { UniversalSearchDocument } from '@wizeworks/search';
+import type { UniversalSearchDocument } from '@wizeworksllc/search';
 
 const byType = new Map(messagingUniversalProjectors.map((p) => [p.entityType, p]));
 

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/operator",
+  "name": "@wizeworksllc/operator",
   "version": "0.0.0",
   "private": true,
   "description": "Dependency-free operator contracts for the WizeWorks admin console (docs/apps/admin/build-plan.md): the capability vocabulary (D5), the named-role capability bundles, and the typed api-rest /internal/operator/* client (D6). Importable by wizeworks/apps/admin, @wizeworks/operator-auth, and wizeworks/services/api-rest without pulling in Better Auth or a DB client.",

@@ -13,7 +13,7 @@
 
 import type { FastifyPluginAsync, FastifyReply } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 
 import { loadBookingIcs, loadResourceFeed } from '../../../lib/scheduling-ical.js';
 import { readSchedulingToken } from '../../../lib/scheduling-token.js';

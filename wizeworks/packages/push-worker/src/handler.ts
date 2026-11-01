@@ -10,7 +10,7 @@
 
 import webpush, { WebPushError } from 'web-push';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import type { Logger } from 'pino';
 
 import { env } from './env.js';

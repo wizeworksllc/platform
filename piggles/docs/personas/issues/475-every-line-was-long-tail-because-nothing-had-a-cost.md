@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** counting the badges on "What matters most" instead of reading them
-**Surface:** `inventory.planning.classes` (both consoles) · `@wizeworks/inventory` classification
+**Surface:** `inventory.planning.classes` (both consoles) · `@wizeworksllc/inventory` classification
 **Filed:** 2026-09-09
 
 ## What was wrong

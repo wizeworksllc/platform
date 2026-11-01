@@ -11,10 +11,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { getBillingState, createPortalSession, createCheckoutSession } from '@wizeworks/billing';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { getBillingState, createPortalSession, createCheckoutSession } from '@wizeworksllc/billing';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 const PortalBody = z.object({ returnUrl: z.string().url() });
 
@@ -24,7 +24,7 @@ const PortalBody = z.object({ returnUrl: z.string().url() });
  * the bill.
  *
  * It used to also append `?open=finance.subscription` — a surface key hardcoded
- * in a service, which is the exact coupling `@wizeworks/links` exists to remove: rename
+ * in a service, which is the exact coupling `@wizeworksllc/links` exists to remove: rename
  * that surface and every Checkout already in flight comes back to a dead link. The
  * caller now sends its own address (`/settings/billing`, built from the table), so
  * this only has to add the marker. `billing` reaches the surface as a pane

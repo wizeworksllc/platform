@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { QueryProvider } from '@wizeworks/query/provider';
+import { QueryProvider } from '@wizeworksllc/query/provider';
 import { ImperativeAlertDialogProvider, ToastProvider } from '@wizeworks/silicaui-react';
 import { PostHogProvider } from '../components/posthog-provider';
 import { CrashListeners } from '../components/crash-listeners';

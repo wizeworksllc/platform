@@ -1,13 +1,13 @@
 // Product types (docs/143) — the commerce mirror of CMS content types.
 //
-// A ProductType declares an `attributeSchema` (a @wizeworks/field-schema
+// A ProductType declares an `attributeSchema` (a @wizeworksllc/field-schema
 // FieldSchema — the same 15 field kinds content types use) that governs a
 // product's `attributes` JSONB bag. The fixed commerce spine (variants, prices,
 // inventory, images, SEO) is NEVER type-defined; only the descriptive attribute
 // layer is. This file owns the schema shapes; ./builtins owns the starter set.
 
 import { z } from 'zod';
-import { FieldSchema } from '@wizeworks/field-schema';
+import { FieldSchema } from '@wizeworksllc/field-schema';
 import { ProductTypeKey } from '../products';
 
 // A product type's attribute schema IS a field schema — one engine, two domains.

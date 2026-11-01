@@ -1,6 +1,6 @@
 // Guards the ONE piece of duplication the vocabulary check depends on.
 //
-// `@wizeworks/silica-catalog`'s `vocabulary-patterns.ts` is a hand-mirrored copy of the
+// `@wizeworksllc/silica-catalog`'s `vocabulary-patterns.ts` is a hand-mirrored copy of the
 // `@source inline(...)` patterns in `builder-vocabulary.css` — the file Tailwind
 // actually reads. It has to be a copy: that module ships to the BROWSER (the studio
 // validates classes as an author types) and a runtime `fs` read would not survive the
@@ -16,13 +16,13 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
-import { VOCABULARY_PATTERNS } from '@wizeworks/silica-catalog';
+import { VOCABULARY_PATTERNS } from '@wizeworksllc/silica-catalog';
 
 describe('VOCABULARY_PATTERNS mirrors builder-vocabulary.css', () => {
   it('matches every @source inline(...) in the real stylesheet', () => {
     const require = createRequire(import.meta.url);
     const cssPath = require
-      .resolve('@wizeworks/silica-catalog')
+      .resolve('@wizeworksllc/silica-catalog')
       .replace(/src[\\/]index\.ts$/, 'src/builder-vocabulary.css');
     const css = readFileSync(cssPath, 'utf8');
     const inCss = [...css.matchAll(/@source\s+inline\(\s*'([^']*)'\s*\)/g)].map((m) => m[1]);

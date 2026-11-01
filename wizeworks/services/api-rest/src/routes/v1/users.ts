@@ -9,9 +9,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
+import { prisma } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
 
 const ListQuery = z.object({
   take: z.coerce.number().int().min(1).max(500).optional(),

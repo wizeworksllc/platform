@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import type { ResolvedFields } from '@wizeworks/automation-schemas';
-import { evaluateConditions } from '@wizeworks/automation-schemas';
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { ResolvedFields } from '@wizeworksllc/automation-schemas';
+import { evaluateConditions } from '@wizeworksllc/automation-schemas';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 import { B2B_INVOICE_DUE_NUDGE } from './b2b.js';
 import {

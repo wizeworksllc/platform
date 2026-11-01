@@ -15,7 +15,7 @@
 //   ['b2b','approval-rules']       the thresholds
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import type { QueueHoldReason } from './approval-hold-notice';

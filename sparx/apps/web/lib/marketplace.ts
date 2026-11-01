@@ -5,7 +5,7 @@
 // per-tenant overlay (install/applied/connected state) exists on this surface;
 // the funnel hands acquisition off to signup (`signUpHref`).
 //
-// Types are a LOCAL mirror of the @wizeworks/marketplace-schemas contract, kept here
+// Types are a LOCAL mirror of the @wizeworksllc/marketplace-schemas contract, kept here
 // so sparx/apps/web takes no new workspace dependency (matching the dashboard's local
 // mirror). Keep in lockstep with packages/marketplace-schemas. The `install`
 // field is intentionally absent — it never appears on the public surface.

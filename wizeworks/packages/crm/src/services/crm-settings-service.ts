@@ -18,9 +18,9 @@
 // role is not a permission error. The row appears the first time somebody
 // actually changes something.
 
-import { UpdateCrmSettingsInput, type DuplicateMatchRule } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { CrmSettings, Prisma } from '@wizeworks/db';
+import { UpdateCrmSettingsInput, type DuplicateMatchRule } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { CrmSettings, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

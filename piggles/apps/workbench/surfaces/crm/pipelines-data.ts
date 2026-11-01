@@ -10,7 +10,7 @@
 // remove and reorder stages.
 //
 // Local wire types mirror the CRM's `CreatePipelineInput` / stage inputs (Zod in
-// `@wizeworks/crm-schemas`), named here because that package is not a dependency; the
+// `@wizeworksllc/crm-schemas`), named here because that package is not a dependency; the
 // server validates authoritatively.
 //
 //   ['crm','pipelines']              root
@@ -18,13 +18,13 @@
 //   ['crm','pipelines', id]          one pipeline with its stages
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
-import type { StageType } from '@wizeworks/crm-schemas';
+import type { StageType } from '@wizeworksllc/crm-schemas';
 import { api } from '../../lib/api/client';
 
-// `StageType` is the server's own enum (`@wizeworks/crm-schemas`). `PipelineInput` /
+// `StageType` is the server's own enum (`@wizeworksllc/crm-schemas`). `PipelineInput` /
 // `StageInput` below stay narrow local write payloads (the `DiscountInput` house
 // pattern).
 export type { StageType };

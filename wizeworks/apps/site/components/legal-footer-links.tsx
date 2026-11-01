@@ -34,7 +34,7 @@ export function LegalFooterLinks({
       {heading ? <h3 className="text-base-content text-sm font-semibold">{heading}</h3> : null}
       {links.map((l) => (
         // The same classes the starter's hand-authored footer columns use
-        // (`footerColumn` in @wizeworks/silica-catalog), so the live column sits flush
+        // (`footerColumn` in @wizeworksllc/silica-catalog), so the live column sits flush
         // beside Explore and Account rather than reading as a different component.
         <a
           key={l.href}

@@ -26,16 +26,16 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { inventoryService, SCAN_KINDS } from '@wizeworks/inventory';
-import type { ScanKind } from '@wizeworks/inventory';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { inventoryService, SCAN_KINDS } from '@wizeworksllc/inventory';
+import type { ScanKind } from '@wizeworksllc/inventory';
 import {
   CreateVariantBarcodeInput,
   GenerateVariantBarcodesInput,
   UpdateVariantBarcodeInput,
-} from '@wizeworks/commerce-schemas';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/commerce-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireInventoryModule,
   requireScanCapable,

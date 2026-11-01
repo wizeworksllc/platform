@@ -55,13 +55,13 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { platformBrandIdentity } from '@wizeworks/brand-core';
-import { customerService } from '@wizeworks/crm';
-import { prisma, withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { notFound, validationError } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
+import { customerService } from '@wizeworksllc/crm';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { notFound, validationError } from '@wizeworksllc/api-core/errors';
 import {
   captureFunnelStage,
   findFormCaptureTarget,

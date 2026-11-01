@@ -3,7 +3,7 @@
 // writes audit already appears here (docs/124); no per-module feed is needed.
 
 import { useMemo } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { activityWord } from '../console/activity-words';
 import { api } from './client';
 

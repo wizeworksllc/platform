@@ -19,9 +19,9 @@ import {
   type ArchetypeSource,
   type BuilderNode,
   type ComponentSurface,
-} from '@wizeworks/builder-schemas';
-import type { BuilderArchetype, Prisma } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/builder-schemas';
+import type { BuilderArchetype, Prisma } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

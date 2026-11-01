@@ -3,7 +3,7 @@
 // Checkout-side order summary. Mirrors the cart summary but read-only.
 
 import Image from 'next/image';
-import { cadenceLabel } from '@wizeworks/commerce-schemas';
+import { cadenceLabel } from '@wizeworksllc/commerce-schemas';
 
 import { formatMoney } from '@/lib/format';
 import type { CartLine, CartMadeToOrder, CartTotals } from '../cart-provider';

@@ -25,8 +25,8 @@
 // nowhere to come from before a replacement could land puts a fast £40 line
 // above a dormant £2 one that happens to be down to its last unit.
 
-import { holdingCostCents, stockoutRisk } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+import { holdingCostCents, stockoutRisk } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

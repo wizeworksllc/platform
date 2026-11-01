@@ -9,7 +9,7 @@
 //
 // This module is the SINGLE source of truth for the safe tag + attribute
 // whitelists — the security boundary for raw HTML. It is React-free (Zod-only,
-// like the rest of @wizeworks/builder-schemas), so the editor, the service, and BOTH
+// like the rest of @wizeworksllc/builder-schemas), so the editor, the service, and BOTH
 // renderers import the same allow-lists; the JSX `createElement` lives in the
 // render layer, never the policy.
 //

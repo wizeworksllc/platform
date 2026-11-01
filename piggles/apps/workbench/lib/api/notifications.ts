@@ -11,7 +11,7 @@
 
 import { useMemo } from 'react';
 import { useToast } from '@wizeworks/silicaui-react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from './client';
 
 export type NotificationSeverity = 'info' | 'success' | 'warning' | 'danger';

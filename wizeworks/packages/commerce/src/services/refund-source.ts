@@ -6,7 +6,7 @@
 // money had gone back to a card when nothing had moved and they still had to hand
 // it over (sparx persona issue 178).
 
-import { takenByGateway } from '@wizeworks/payments';
+import { takenByGateway } from '@wizeworksllc/payments';
 
 /** The captured payment on the order, as much of it as this question needs. */
 export interface CapturedPayment {

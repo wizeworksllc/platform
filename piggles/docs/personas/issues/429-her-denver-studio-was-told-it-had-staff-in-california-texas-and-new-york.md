@@ -140,7 +140,7 @@ Four places enforce it, each one covering the paths the others miss:
    seed, a future service, anything that never goes through the service.
 4. **`taxService.calculate` matches only zones that have one.** Money is taken
    at exactly one place in the code, so the rule is enforced at exactly that
-   place too. `zoneIsCollecting` in `@wizeworks/commerce-schemas` is that same
+   place too. `zoneIsCollecting` in `@wizeworksllc/commerce-schemas` is that same
    rule as one exported function, and both consoles draw their Collecting badge
    from it, so no screen can say "Collecting" about a place that takes nothing.
 

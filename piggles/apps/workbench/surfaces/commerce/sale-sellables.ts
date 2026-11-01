@@ -4,7 +4,7 @@
 // in one list. Moved out of sale-data.ts unchanged (sparx persona issue 230).
 
 import { useMemo } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useModuleStates } from '../../lib/api/shell-data';
 import { useVariantSearch, type VariantChoice } from './bundles-data';

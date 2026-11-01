@@ -22,7 +22,7 @@ Full cross-link detail in [[modules]]. Keys: builder · commerce · cms · crm �
 
 | Feature | One-liner | Home / anchor |
 |---|---|---|
-| **auth** | Better Auth; orgs = tenants | [[architecture]] · `@wizeworks/auth` |
+| **auth** | Better Auth; orgs = tenants | [[architecture]] · `@wizeworksllc/auth` |
 | **billing / subscriptions** | turns module flags into charges | [[billing-model]] · `v1/billing.ts` |
 | **onboarding** | live site in <5 min | [[onboarding]] |
 | **search** | Typesense projections + universal search | [[api-events]] · [[integrations]] |

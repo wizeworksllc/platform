@@ -4,7 +4,7 @@
 // hydrates the SAME sparx-app-env / sparx-app-secrets as api-rest — so the GCS
 // bucket names + public base are already present in the pod. We read them here
 // rather than depend on a host service's validated `env`, so the package stays
-// transport-agnostic (no @wizeworks/api-core, no Fastify).
+// transport-agnostic (no @wizeworksllc/api-core, no Fastify).
 //
 // Unset GCS_MEDIA_BUCKET → the local-disk backend (dev/test), matching
 // api-rest's storage.ts and media-worker's storage.ts (this is a third focused

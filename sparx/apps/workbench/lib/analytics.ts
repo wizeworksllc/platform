@@ -9,9 +9,9 @@
 // build shipped without NEXT_PUBLIC_POSTHOG_KEY), so callers never have to guard.
 
 import posthog from 'posthog-js';
-import { attrCookies, deserializeSnapshot } from '@wizeworks/attribution';
+import { attrCookies, deserializeSnapshot } from '@wizeworksllc/attribution';
 
-/** sparx's names — fixed forever; see @wizeworks/attribution's attrCookies. */
+/** sparx's names — fixed forever; see @wizeworksllc/attribution's attrCookies. */
 const SPARX_ATTR = attrCookies('sparx');
 
 function readCookie(name: string): string | null {

@@ -3,7 +3,7 @@ import { Section } from '@piggles/ui';
 import Link from 'next/link';
 import { Card, CardBody } from '@wizeworks/silicaui-react';
 import { PRODUCT } from '@piggles/config';
-import { brandLegal } from '@wizeworks/legal';
+import { brandLegal } from '@wizeworksllc/legal';
 import { PageHero } from '@/components/marketing/page-hero';
 import { DocumentFigure } from '@/components/marketing/hero/document-figure';
 

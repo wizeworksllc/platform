@@ -1,4 +1,4 @@
-// @wizeworks/staff — the people who do the work (docs/149).
+// @wizeworksllc/staff — the people who do the work (docs/149).
 //
 // The module exists because wages are the largest single expense in most service
 // businesses, so job profitability is arithmetically impossible without knowing

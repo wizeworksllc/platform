@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PlatformCredit } from '@wizeworks/ui';
+import { PlatformCredit } from '@wizeworksllc/ui';
 import { BRAND } from '../index';
 
 // sparx's attribution badge — now a thin wrapper that supplies sparx's values to
@@ -10,7 +10,7 @@ import { BRAND } from '../index';
 // site. That app serves both brands, so a Piggles business's footer said "Made
 // with sparx" and linked their visitors to a company they had never heard of.
 //
-// The component moved to `@wizeworks/ui`; this keeps sparx's own call sites
+// The component moved to `@wizeworksllc/ui`; this keeps sparx's own call sites
 // working and is the one place sparx's values for it live.
 
 /** The marketing home, UTM-tagged so referral clicks from tenant sites are

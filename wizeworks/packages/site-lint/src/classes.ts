@@ -1,6 +1,6 @@
 // Styling that compiles to nothing — located.
 //
-// The detection is `@wizeworks/silica-catalog`'s `checkClassString`, which is the single
+// The detection is `@wizeworksllc/silica-catalog`'s `checkClassString`, which is the single
 // authority on which classes this platform's CSS actually contains and is unit-tested
 // against the declared vocabulary it mirrors. This file adds the one thing that
 // engine cannot provide and this one must: WHERE. `checkTreeClasses` answers "is
@@ -18,7 +18,7 @@ import {
   checkClassString,
   containerVariants,
   type VocabularyIssue,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import type { DocumentInventory } from './walk';
 import type { RawFinding } from './finding';

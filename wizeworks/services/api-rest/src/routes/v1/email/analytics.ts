@@ -5,9 +5,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { analyticsService } from '@wizeworks/email-platform';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { analyticsService } from '@wizeworksllc/email-platform';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireEmailModule, toEmailContext } from '../../../lib/email-context.js';
 
 const OverviewQuery = z.object({ days: z.coerce.number().int().min(1).max(365).optional() });

@@ -13,7 +13,7 @@
 // after the work) is the escape hatch for a deal added by mistake — it soft-
 // deletes, so the row and its history survive.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';
@@ -37,7 +37,7 @@ import {
   Textarea,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { fixedStageChance } from '@wizeworks/crm-schemas';
+import { fixedStageChance } from '@wizeworksllc/crm-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { faTrashCan } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';

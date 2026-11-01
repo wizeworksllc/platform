@@ -15,7 +15,7 @@
 // prefix, and an invalidate that misses leaves a stale picker or a stale number
 // on screen next to a fresh one.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /* ── Shapes ─────────────────────────────────────────────────────────────── */

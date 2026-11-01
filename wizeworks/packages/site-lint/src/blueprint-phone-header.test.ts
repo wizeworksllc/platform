@@ -22,7 +22,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { HOST_KEYS } from '@wizeworks/silica-catalog';
+import { HOST_KEYS } from '@wizeworksllc/silica-catalog';
 import { describe, expect, it } from 'vitest';
 
 import { BLUEPRINTS, blueprintSlugs } from './blueprints-dir';

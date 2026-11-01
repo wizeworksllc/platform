@@ -37,8 +37,8 @@ COPY wizeworks/packages/links/package.json wizeworks/packages/links/
 # render, same as the address table above — a missing copy fails at boot.
 COPY wizeworks/packages/migration/package.json wizeworks/packages/migration/
 COPY wizeworks/packages/query/package.json wizeworks/packages/query/
-# …and @wizeworks/auth's transitive closure. Its index re-exports server.ts →
-# tenant-events.ts, which pulls legal seeding; @wizeworks/email (a direct auth dep)
+# …and @wizeworksllc/auth's transitive closure. Its index re-exports server.ts →
+# tenant-events.ts, which pulls legal seeding; @wizeworksllc/email (a direct auth dep)
 # pulls the template packages. Every member must be present or the filtered
 # install leaves a dangling symlink that the build fails to resolve.
 COPY wizeworks/packages/attribution/package.json wizeworks/packages/attribution/
@@ -72,19 +72,19 @@ COPY wizeworks/packages/site-themes/package.json wizeworks/packages/site-themes/
 COPY wizeworks/packages/sitebuilder-schemas/package.json wizeworks/packages/sitebuilder-schemas/
 COPY wizeworks/packages/story-schemas/package.json wizeworks/packages/story-schemas/
 # The social calendar renders its empty posting slots from `slotOccurrences`, so the
-# recurring-time maths is imported from @wizeworks/social rather than reimplemented — the
+# recurring-time maths is imported from @wizeworksllc/social rather than reimplemented — the
 # plan a person sees has to be the plan the filler runs. Its root barrel is pure, but the
-# package DECLARES @wizeworks/api-core, so api-core comes along for the filtered install
+# package DECLARES @wizeworksllc/api-core, so api-core comes along for the filtered install
 # (its own closure — cms-schemas, db, events — is already above).
 COPY wizeworks/packages/api-core/package.json wizeworks/packages/api-core/
 COPY wizeworks/packages/social/package.json wizeworks/packages/social/
-# The sequence editor imports @wizeworks/email-sequences/schemas — the client-safe zod
-# subpath, no db and no server code. The PACKAGE still declares @wizeworks/db and
-# @wizeworks/email-sends, and the filtered install resolves what a package DECLARES, not
+# The sequence editor imports @wizeworksllc/email-sequences/schemas — the client-safe zod
+# subpath, no db and no server code. The PACKAGE still declares @wizeworksllc/db and
+# @wizeworksllc/email-sends, and the filtered install resolves what a package DECLARES, not
 # what a surface imports, so email-sends has to be here too (db is already above).
 COPY wizeworks/packages/email-sends/package.json wizeworks/packages/email-sends/
 COPY wizeworks/packages/email-sequences/package.json wizeworks/packages/email-sequences/
-# Root postinstall runs `pnpm --filter @wizeworks/db db:generate`, which needs
+# Root postinstall runs `pnpm --filter @wizeworksllc/db db:generate`, which needs
 # both the schema source AND the prisma config file (the multi-file schema
 # lives in prisma/schema/, declared in prisma.config.ts).
 COPY wizeworks/packages/db/prisma wizeworks/packages/db/prisma
@@ -135,8 +135,8 @@ COPY wizeworks/packages/email-sends wizeworks/packages/email-sends
 COPY wizeworks/packages/email-sequences wizeworks/packages/email-sequences
 COPY sparx/apps/workbench sparx/apps/workbench
 
-# Generate Prisma client (@wizeworks/auth imports @wizeworks/db which re-exports it).
-RUN pnpm --filter @wizeworks/db db:generate
+# Generate Prisma client (@wizeworksllc/auth imports @wizeworksllc/db which re-exports it).
+RUN pnpm --filter @wizeworksllc/db db:generate
 
 # Stamp the release version into the client bundle. NEXT_PUBLIC_* is inlined at
 # build time, so the JS a browser tab is running carries the version it was built

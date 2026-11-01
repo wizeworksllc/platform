@@ -13,9 +13,9 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
-import { MarketplaceCategory } from '@wizeworks/marketplace-schemas';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { MarketplaceCategory } from '@wizeworksllc/marketplace-schemas';
 
 import { marketplaceCatalogService } from '../../../lib/marketplace/catalog-service.js';
 

@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   // Shared exclusions applied to every crawler group: the internal API, any leaked
   // preview-token URL, and the transactional pages.
   //
-  // The transactional block was missing, and `@wizeworks/site-lint` is what surfaced it:
+  // The transactional block was missing, and `@wizeworksllc/site-lint` is what surfaced it:
   // the seeded site ships editable Cart / Search / Login / Register / Forgot password
   // / Reset password pages, the linter reported all six as having no search
   // description, and the right answer turned out not to be "write six descriptions"

@@ -19,10 +19,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { slaPolicyService, ticketService, ticketSlaSweep } from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { slaPolicyService, ticketService, ticketSlaSweep } from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { reachableSiteIds } from '../../../lib/property.js';
@@ -32,7 +32,7 @@ const IdPath = z.object({ id: z.string().uuid() });
 /**
  * Query-string shape.
  *
- * Separate from `TicketQuery` in @wizeworks/crm-schemas on purpose: everything
+ * Separate from `TicketQuery` in @wizeworksllc/crm-schemas on purpose: everything
  * arrives as a string over HTTP, so this coerces and renames, and the service
  * schema stays the single source of truth for what the FILTERS mean. Booleans go
  * through `queryBool` rather than `z.coerce.boolean()`, which is `Boolean(value)`

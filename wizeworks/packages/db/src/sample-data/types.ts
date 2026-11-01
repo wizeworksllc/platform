@@ -217,8 +217,8 @@ export interface SamplePersona {
  *  studio tracks a membership tier on its members, a wholesaler tracks a renewal
  *  month on its companies. Seeding them is what makes the property panel show
  *  something real on first load instead of an empty section that has to be
- *  imagined. Mirrors `FieldDef` in @wizeworks/field-schema — authored loosely here
- *  because @wizeworks/db must not depend on the schema packages. */
+ *  imagined. Mirrors `FieldDef` in @wizeworksllc/field-schema — authored loosely here
+ *  because @wizeworksllc/db must not depend on the schema packages. */
 export interface SampleRecordProperty {
   key: string;
   label: string;

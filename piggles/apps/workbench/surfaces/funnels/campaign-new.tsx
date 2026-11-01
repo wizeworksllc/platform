@@ -5,7 +5,7 @@
 // The kind picks the starting ladder. Everything else is easier to decide once
 // there is a campaign on screen to decide it about.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useState } from 'react';
 import {
   Button,

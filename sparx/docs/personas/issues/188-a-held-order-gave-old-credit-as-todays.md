@@ -35,7 +35,7 @@ placed, it came to $2,026.38 and the account had $1,676.08 of credit left."
 - `sparx/apps/workbench/surfaces/b2b/approval-hold-notice.ts` and Piggles' copy: the
   reason is past tense ("when it was placed, it came to … and the account had …"), and
   adds "It has $3,795.68 now." when today's figure differs.
-- `@wizeworks/b2b` approval queue: each item carries `accountCreditLeftCents`
+- `@wizeworksllc/b2b` approval queue: each item carries `accountCreditLeftCents`
   (`creditLeftNowCents`, the account's limit less what it has used, today).
 - The approve dialog, both consoles: warns "will go past their credit limit: they have
   $X left" only when today's figure says so, and says "It was held for their credit limit,

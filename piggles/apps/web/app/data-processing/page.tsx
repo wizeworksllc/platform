@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Section } from '@piggles/ui';
 import Link from 'next/link';
-import { brandLegal } from '@wizeworks/legal';
+import { brandLegal } from '@wizeworksllc/legal';
 import { PageHero } from '@/components/marketing/page-hero';
 import { DocumentFigure } from '@/components/marketing/hero/document-figure';
 
@@ -40,7 +40,7 @@ import { DocumentFigure } from '@/components/marketing/hero/document-figure';
 // here. Two copies of that list drift, and the one on /privacy is already
 // grouped the way it needs to be (always vs only-if-you-connect). §7 points at
 // it instead. If a sub-processor is added there, §7's notice promise applies —
-// bump `subprocessors` in @wizeworks/legal so the change is dated.
+// bump `subprocessors` in @wizeworksllc/legal so the change is dated.
 
 const LEGAL = brandLegal('piggles');
 const v = LEGAL.versions.dpa;

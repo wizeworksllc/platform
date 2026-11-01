@@ -1,4 +1,4 @@
-import type { ModuleSlug } from '@wizeworks/modules';
+import type { ModuleSlug } from '@wizeworksllc/modules';
 import type { OrgRole } from './org-roles';
 
 // Per-member module access — WHICH modules a teammate may open.

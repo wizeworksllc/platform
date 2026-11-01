@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/integrations",
+  "name": "@wizeworksllc/integrations",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Integrations — the one registry every outside service registers into. Categories, the shared descriptor, and typed per-kind facades so each domain keeps its own contract.",
@@ -19,7 +19,7 @@
     "test": "vitest run --maxWorkers=1"
   },
   "dependencies": {
-    "@wizeworks/modules": "workspace:*"
+    "@wizeworksllc/modules": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.7.3",

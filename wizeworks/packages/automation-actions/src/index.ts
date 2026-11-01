@@ -1,6 +1,6 @@
-// @wizeworks/automation-actions — the module-effect composition root (docs/84 Slice F).
+// @wizeworksllc/automation-actions — the module-effect composition root (docs/84 Slice F).
 //
-// The engine (`@wizeworks/automation`) stays lean: it knows the gated dispatcher and
+// The engine (`@wizeworksllc/automation`) stays lean: it knows the gated dispatcher and
 // the `registerAction` seam but depends on NO module service. This package is
 // where the seam is filled — it imports the module services and registers an
 // executor per action type. The automation-worker calls `installModuleActions()`

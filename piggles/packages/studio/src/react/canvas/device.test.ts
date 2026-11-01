@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildSilicaThemeCssFromTheme } from '@wizeworks/site-themes';
+import { buildSilicaThemeCssFromTheme } from '@wizeworksllc/site-themes';
 import { DEVICE_CLASS } from './canvas';
 
 /** The frame is a `@container`, so these widths are what decide the reflow.

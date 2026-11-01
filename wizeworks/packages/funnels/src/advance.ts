@@ -27,14 +27,14 @@
 // a site-less event (a contact edited in the CRM), because by then the person is
 // provably in the campaign.
 
-import { withTenant, type Prisma, type TenantContext, type TxClient } from '@wizeworks/db';
+import { withTenant, type Prisma, type TenantContext, type TxClient } from '@wizeworksllc/db';
 import {
   evaluateConditions,
   isConditionGroup,
   type Condition,
   type ResolvedFields,
-} from '@wizeworks/automation-schemas';
-import type { FunnelStageEventPayload } from '@wizeworks/events';
+} from '@wizeworksllc/automation-schemas';
+import type { FunnelStageEventPayload } from '@wizeworksllc/events';
 import type { Funnel, FunnelStageEvent } from '@prisma/client';
 
 import { evaluateFunnelGoal, stagesOf } from './index.js';

@@ -29,7 +29,7 @@
 // The read is bounded by `(tenant_id, funnel_id, occurred_at DESC)`, added in
 // the same migration as the patience column.
 
-import { withTenant, type TenantContext, type TxClient } from '@wizeworks/db';
+import { withTenant, type TenantContext, type TxClient } from '@wizeworksllc/db';
 import type { Funnel } from '@prisma/client';
 
 import { stagesOf } from './index.js';

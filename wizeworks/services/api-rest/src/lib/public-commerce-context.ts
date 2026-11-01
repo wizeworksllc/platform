@@ -14,10 +14,10 @@
 import type { FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { cartService, type ServiceContext } from '@wizeworks/commerce';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { withTenant } from '@wizeworks/db';
-import { forbidden, moduleDisabled, notFound } from '@wizeworks/api-core/errors';
+import { cartService, type ServiceContext } from '@wizeworksllc/commerce';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { withTenant } from '@wizeworksllc/db';
+import { forbidden, moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
 import { requireTenantIdBySlug } from './tenant-slug.js';
 import { cartUsableBy } from './cart-owner.js';
 import { optionalCustomer } from './customer-session.js';

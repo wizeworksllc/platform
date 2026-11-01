@@ -15,13 +15,13 @@
 
 import type Stripe from 'stripe';
 
-import { prisma, withTenant, type Prisma } from '@wizeworks/db';
+import { prisma, withTenant, type Prisma } from '@wizeworksllc/db';
 import {
   BUNDLED_FREE,
   deriveModuleStates,
   invalidateModuleCache,
   type ModuleSlug,
-} from '@wizeworks/modules';
+} from '@wizeworksllc/modules';
 
 import { anyBillingConfigured, getBillingStripe, isBillingConfigured } from './client';
 import { isPlatformTenant, resolveBillingPhase, type BillingPhaseView } from './gate';
@@ -660,4 +660,4 @@ export async function setSubscriptionStatus(
 // The platform transaction fee is no longer a metered subscription line. The only
 // platform-collected payment fee is sparx Pay's flat 0.5%, taken at charge time via
 // Stripe `application_fee_amount` and recorded on payment_intents.platform_fee — see
-// @wizeworks/payments (docs/94 ADR §8). Everything else is $0 (modules, not tiers).
+// @wizeworksllc/payments (docs/94 ADR §8). Everything else is $0 (modules, not tiers).

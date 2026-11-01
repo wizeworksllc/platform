@@ -1,7 +1,7 @@
 /* ── workbench styles ────────────────────────────────────────────────────────
    Built ground-up on silicaui. Unlike apps/dashboard there is NO coexistence
    layer here: @sparx/brand/theme.css is the sole token authority and there is
-   no @wizeworks/ui/tokens.css, no .sx-c-* role vars, no legacy --color-bg-* set.
+   no @wizeworksllc/ui/tokens.css, no .sx-c-* role vars, no legacy --color-bg-* set.
    That is the point of this app — it starts at the destination the dashboard is
    migrating toward.
 
@@ -21,8 +21,8 @@
 @import 'tailwindcss';
 @import '@sparx/brand/theme.css';
 /* Rules that close a hole in a silicaui component — see the file header. */
-@import '@wizeworks/silica-corrections/silica-gaps.css';
-@import '@wizeworks/silica-corrections/toast.css';
+@import '@wizeworksllc/silica-corrections/silica-gaps.css';
+@import '@wizeworksllc/silica-corrections/toast.css';
 /* SparkMascot motion (blink/bob/wink) — the brand loading state renders the
    mascot, and without these keyframes its face would sit frozen. See
    components/pane-waiting.tsx. */
@@ -38,8 +38,8 @@
    `@source` so Tailwind emits the utility classes the editor's TOOLBAR uses in
    its TSX (bg-module, ring-primary, h-3.5 …) — without scanning the package,
    those are never generated and the toolbar renders unstyled. */
-@import '@wizeworks/cms-editor/editor.css';
-@source '../node_modules/@wizeworks/cms-editor/src';
+@import '@wizeworksllc/cms-editor/editor.css';
+@source '../node_modules/@wizeworksllc/cms-editor/src';
 
 /* The silica Email Builder chrome (`builder.email.editor`) — its Insert palette,
    canvas and Design inspector emit utility classes as LITERAL strings from the
@@ -68,11 +68,11 @@
    builder-schemas we point ONLY at the vocabulary-bearing sources (`catalog/` +
    the three class-carrying root files), never the `src` root that holds the test.
    Adding a new class-bearing builder-schemas file means adding it here too. */
-@source '../node_modules/@wizeworks/silica-catalog/src';
-@source '../node_modules/@wizeworks/builder-schemas/src/catalog';
-@source '../node_modules/@wizeworks/builder-schemas/src/site-chrome.ts';
-@source '../node_modules/@wizeworks/builder-schemas/src/starters.ts';
-@source '../node_modules/@wizeworks/builder-schemas/src/box-to-class.ts';
+@source '../node_modules/@wizeworksllc/silica-catalog/src';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/catalog';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/site-chrome.ts';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/starters.ts';
+@source '../node_modules/@wizeworksllc/builder-schemas/src/box-to-class.ts';
 
 /* THE SHARED AUTHORING VOCABULARY — the same file wizeworks/apps/site imports, so the canvas
    and the published page cannot disagree about what an author may write. It is the
@@ -82,7 +82,7 @@
    Without this import the canvas emitted no CSS for any container variant while the
    storefront rendered it — the studio would have shown a broken version of a page that
    was fine when published, which is the worst direction for that disagreement to run. */
-@import '@wizeworks/silica-catalog/builder-vocabulary.css';
+@import '@wizeworksllc/silica-catalog/builder-vocabulary.css';
 
 /* `module` is the active-module bridge: it generates .btn-module / .badge-module
    / .bg-module / .text-module reading --color-module + --color-module-content,

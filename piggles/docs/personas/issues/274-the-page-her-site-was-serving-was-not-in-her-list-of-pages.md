@@ -110,7 +110,7 @@ That was the last page on her site still wearing the platform's words.
 
 Twenty-two rows in her page list, eleven of them new, every one badged
 **Live · standard design** and every one opening on the design its address is
-serving. `/blog` is in her sitemap. `@wizeworks/builder` (10 new tests, 145
+serving. `/blog` is in her sitemap. `@wizeworksllc/builder` (10 new tests, 145
 total), `@wizeworks/api-rest` (8 new tests, 406 total) and the four packages
 touched all typecheck.
 

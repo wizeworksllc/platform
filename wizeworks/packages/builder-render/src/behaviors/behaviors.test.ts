@@ -6,7 +6,7 @@ import {
   SX_BEHAVIOR_NAMES,
   SX_ROLE_NAMES,
   findCatalogEntry,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { behaviorAttrs, SX_ROLES, sxAttrs } from './attrs';
 import { hydrateBehaviors } from './index';
 import { BEHAVIOR_NAMES } from './types';
@@ -115,7 +115,7 @@ describe('hydrateBehaviors (DOM wiring)', () => {
   });
 });
 
-// The catalog authors behaviors against MIRRORED vocabularies in @wizeworks/builder-schemas
+// The catalog authors behaviors against MIRRORED vocabularies in @wizeworksllc/builder-schemas
 // (the lower package can't import this runtime). If the runtime renames or drops a
 // behavior/role, the catalog would author a `data-sx-*` nothing reads — silently inert.
 // These pin the two vocabularies together and prove every behavior the catalog ships

@@ -65,12 +65,12 @@ Keep your existing preview-token gate; just swap which URL it fetches.
 
 ## 2. Tokens → CSS (light + dark) — use the shared helpers, don't re-derive
 
-`@wizeworks/site-themes` already owns the token→CSS-var mapping. **Do not hardcode a second
+`@wizeworksllc/site-themes` already owns the token→CSS-var mapping. **Do not hardcode a second
 copy of the variable names** — import the helpers so light/dark and the dashboard preview all
 stay in lockstep:
 
 ```ts
-import { tokensToCss } from '@wizeworks/site-themes';
+import { tokensToCss } from '@wizeworksllc/site-themes';
 
 const lightBody = tokensToCss(snapshot.compiledTokens.light); // "--st-primary:#…;--st-bg:#…;…"
 const darkBody = tokensToCss(snapshot.compiledTokens.dark);
@@ -111,7 +111,7 @@ correct on the next request. Render it in the header **only** when
 
 ## 3. Sections — render against the registry
 
-The 7 section types and their config schemas live in `@wizeworks/sitebuilder-schemas`
+The 7 section types and their config schemas live in `@wizeworksllc/sitebuilder-schemas`
 (`SECTION_REGISTRY`, `SECTION_TYPES`). Build one site component per type under
 `wizeworks/apps/site/components/sections/*` plus a `section-renderer.tsx` that maps
 `sectionType → component`:
@@ -126,7 +126,7 @@ The 7 section types and their config schemas live in `@wizeworks/sitebuilder-sch
 | `testimonials`      | customer quotes, optional ratings                   |
 | `email-signup`      | inline newsletter form                              |
 
-- Import the per-section config types from `@wizeworks/sitebuilder-schemas` (each section file
+- Import the per-section config types from `@wizeworksllc/sitebuilder-schemas` (each section file
   exports its Zod schema + `fields`); the `config` you receive is already validated +
   defaulted at publish time, so you can trust it, but parse defensively at the boundary.
 - Render in `position` order, **skip `visible === false`**.
@@ -206,7 +206,7 @@ reflect the latest draft via the preview endpoint. Guard the listener to the exp
 - **Don't** write `NavigationMenu`/`NavigationItem` rows from the site — reference only
   (navigation is edited in the Site Builder dashboard via `/v1/navigation/*`).
 - **Don't** fork the token→CSS mapping — import `tokensToCss` / `TOKEN_CSS_VARS` from
-  `@wizeworks/site-themes`.
+  `@wizeworksllc/site-themes`.
 - Live store zone is **`slug.sparx.zone`** (not `wizeworks.com` / `sparx.works`).
 
 Ping me (the Site Builder owner) if the snapshot shape doesn't give you something you need —

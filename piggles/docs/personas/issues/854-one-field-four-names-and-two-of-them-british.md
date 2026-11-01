@@ -97,7 +97,7 @@ a green run into **11 findings**, which is how the seven real ones were found
 rather than guessed at.
 [[feedback_a_test_that_cannot_go_red]]
 
-**Checks:** typecheck 0 on `@wizeworks/migration`, `@wizeworks/crm`, both
+**Checks:** typecheck 0 on `@wizeworksllc/migration`, `@wizeworksllc/crm`, both
 workbenches and the piggles marketing site. Guards `american-spelling`,
 `console-parity`, `em-dashes`, `plain-words` all green. The two consoles'
 `guessMapping` are byte-identical. ESLint and prettier clean.

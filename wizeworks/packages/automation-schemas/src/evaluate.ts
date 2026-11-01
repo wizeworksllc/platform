@@ -13,7 +13,7 @@
 // how to filter a report and how to write a scoring rule.
 //
 // That only holds if all three AGREE on what a condition means. When the
-// evaluator sat inside `@wizeworks/automation`, the packages that could not depend on
+// evaluator sat inside `@wizeworksllc/automation`, the packages that could not depend on
 // the engine had exactly two options — take the engine as a dependency for one
 // pure function, or write their own comparison semantics. The second is how
 // `contains` comes to mean something subtly different in scoring than in

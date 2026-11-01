@@ -448,7 +448,7 @@ silica's `EmailBuilder` runs `editor.setColorDefaults(resolveEmailColorDefaults(
 on every `theme` change, which **repaints every node still on its default** (`<field>Auto
 === true`), resolving each node's role via `AUTO_COLOR_FIELDS` (button bg → `primary`,
 section bg → `base100`, …). Those defaults are **identical** to the send's
-`applyBrandColors` (`@wizeworks/email/silica/brand-colors.ts`) role map. So canvas color ==
+`applyBrandColors` (`@wizeworksllc/email/silica/brand-colors.ts`) role map. So canvas color ==
 send color **iff** `resolveEmailColorDefaults(canvasTheme)` == `roleMap(sendBrand)`.
 `resolveEmailColorDefaults` reads `--color-{primary,base-100/200/300,base-content,success,
 warning,info,error,…}` off the theme tokens (`silicaui-html` `colorValue`), and
@@ -470,7 +470,7 @@ Save now ride in silica's own editor header — structurally identical to
 `studio-surface.tsx`. `sparx/apps/workbench/surfaces/builder/email/email-editor.tsx`.
 
 **Fix 3 — the FRAME, now CLOSED (silicaui 0.34).** The brand bar + wordmark + tiered
-legal footer are composed at **send** by `composeSendDocument` (`@wizeworks/email/silica`),
+legal footer are composed at **send** by `composeSendDocument` (`@wizeworksllc/email/silica`),
 deliberately **outside** the editable body (so an author can't delete the compliance
 footer and the frame always reflects the current per-site brand). Originally the email
 `EmailBuilder` had **no frame concept at all** and no locked/pinned section, so the canvas
@@ -484,7 +484,7 @@ path. Wired in:
 - `wizeworks/packages/email/src/silica/frame.ts` — extracted **`buildEmailFrame(opts): EmailFrame`**
   as the SINGLE source of truth (brand bar + wordmark → `header`, tiered footer →
   `footer`); `composeSendDocument` now splices that same frame, so send and canvas can't
-  diverge. Exported from `@wizeworks/email/silica` (+ `EmailFrame` type re-export).
+  diverge. Exported from `@wizeworksllc/email/silica` (+ `EmailFrame` type re-export).
 - `wizeworks/packages/email-platform/src/services/builder-email-service.ts` — `buildFrame(ctx,
 propertyId, footerLinks)` resolves the active site's brand (`resolveEmailBrand`, same as
   the preview/send) → `buildEmailFrame`.
@@ -552,7 +552,7 @@ The Preview dialog became **Preview & check**: a device toggle (desktop 600px / 
 375px), a **plain-text view** (the `text` part was rendered but never shown), and a
 collapsible **pre-send checklist**.
 
-- New `@wizeworks/email/silica` export `lintEmailRender({ doc, html, subject, preheader })`
+- New `@wizeworksllc/email/silica` export `lintEmailRender({ doc, html, subject, preheader })`
   → `EmailCheck[]` ([lint.ts](../../packages/email/src/silica/lint.ts)). Six always-on
   categories (so it reads as a checklist, green when clean): subject, preview text,
   links (dead `#`/empty → error; `example.com` → warning), image descriptions (missing
@@ -770,7 +770,7 @@ The studio already guards navigation loss (explicit Save + dirty leave-guard), s
 server draft and is a separate, deliberate follow-up.
 
 **Verified.** `prisma generate` run (user-authorized; dev down) so the new model's types
-resolve. @wizeworks/db, @wizeworks/builder, @wizeworks/api-rest, @sparx/workbench typecheck clean;
+resolve. @wizeworksllc/db, @wizeworksllc/builder, @wizeworks/api-rest, @sparx/workbench typecheck clean;
 builder 68 tests + builder-schemas 252 + email 42 pass; lint + prettier clean. **Operational
 note:** the migration is authored as a file (applies in prod via the DB Migrate workflow);
 the migration was ALSO applied to LOCAL docker (`prisma migrate deploy`, user-authorized) —
@@ -967,7 +967,7 @@ configuration for the owner.
 
 **How it works (two sides).**
 
-- **Send tags on-site links.** New `@wizeworks/email/silica` `link-tracking.ts` (`tagEmailHtmlLinks` /
+- **Send tags on-site links.** New `@wizeworksllc/email/silica` `link-tracking.ts` (`tagEmailHtmlLinks` /
   `tagEmailTextLinks` / `tagTrackedUrl`) rewrites every link to the tenant's own site with
   `utm_source=<email key/slug>` · `utm_medium=email` · `utm_campaign=<the email's name>`, over the
   final post-interpolation URLs. **On-site only** — a carrier/social/partner link can't be measured
@@ -976,7 +976,7 @@ configuration for the owner.
   tags: transactional/automation (`tenant-email.ts`), broadcasts (`broadcast-service`), preview +
   test-send. Tracked hosts + campaign resolve once via `emailTrackingService.resolveEmailTracking`
   (email-platform): the tenant's verified custom domains + the site's own address
-  (`@wizeworks/db/site-origin`, the same resolver the links are built on) + the origin the email's
+  (`@wizeworksllc/db/site-origin`, the same resolver the links are built on) + the origin the email's
   links were actually built on; campaign = the author override (`BuilderEmail.trackingCampaign`)
   else the email's name. (It used the `SPARX_SITE_BASE` host until sparx persona issue 064; nothing
   set it, so a tenant without a custom domain shipped every email untagged.)
@@ -1070,8 +1070,8 @@ with no executor). Built greenfield:
   person per sequence, `sourceRefs` for the designed email's DataSources). Both FORCE-RLS +
   `tenant_isolation`; a `find_due_sequence_enrollments` SECURITY DEFINER scan for cross-tenant
   drain discovery (mirrors `find_due_automation_runs`).
-- **`@wizeworks/email-sequences`** — a new LEAN, backend-safe package (deps: `@wizeworks/db` +
-  `@wizeworks/email-sends` only, no render/React — same rationale as email-sends, so the worker stays
+- **`@wizeworksllc/email-sequences`** — a new LEAN, backend-safe package (deps: `@wizeworksllc/db` +
+  `@wizeworksllc/email-sends` only, no render/React — same rationale as email-sends, so the worker stays
   lean), with a client-safe `./schemas` subpath (zod only) the workbench editor imports. It owns
   CRUD, `enroll`/`unenroll` (re-entry policy + a marketing do-not-contact opt-out honored at
   enroll), `listEnrollments`, and **`drainDueEnrollments`** — the tick that advances each due
@@ -1102,7 +1102,7 @@ Blueprint version bumped `1.0.0 → 1.1.0` (payload changed).
 ### Hand-off (DB-adjacent — deliberately NOT run this session)
 
 Per the standing DB rule, the migration + new-model code are authored as files only. To bring it
-live, in order: **(1)** `pnpm install` (registers the new `@wizeworks/email-sequences` workspace
+live, in order: **(1)** `pnpm install` (registers the new `@wizeworksllc/email-sequences` workspace
 package + the api-rest / automation-worker / automation-actions dep links); **(2)** apply
 migration `20270124000000_email_sequences` (docker locally, then the DB Migrate pipeline for prod);
 **(3)** `prisma generate` (creates the `EmailSequence` / `EmailSequenceEnrollment` client models).

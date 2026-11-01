@@ -1,7 +1,7 @@
 // The social platform catalog — server-safe DISPLAY metadata (name, blurb, rollout
 // phase) for every platform sparx will publish to (docs/133, docs/134). NO adapter
 // import here, so the composer UI can render the connect cards without pulling any
-// network code (mirrors @wizeworks/channels' `catalog.ts`).
+// network code (mirrors @wizeworksllc/channels' `catalog.ts`).
 //
 // `availability` is NOT baked in — the API resolves it at runtime against the live
 // registry + env (a platform is connectable only when its adapter is registered, its

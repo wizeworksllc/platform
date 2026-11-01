@@ -2,8 +2,8 @@
 // site already shows: it is not waiting to go live (persona issue 947).
 
 import { describe, expect, it } from 'vitest';
-import { RECORD_ADDRESSES, recordPage } from '@wizeworks/silica-catalog';
-import { kindAddressFromPattern } from '@wizeworks/silica-catalog';
+import { RECORD_ADDRESSES, recordPage } from '@wizeworksllc/silica-catalog';
+import { kindAddressFromPattern } from '@wizeworksllc/silica-catalog';
 
 import { showsItsDefault } from './default-page';
 import { seededKindPage, type ServedKind } from './kind-pages';

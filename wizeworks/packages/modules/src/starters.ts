@@ -8,7 +8,7 @@
 // it (the install is idempotent — each preset's marker guards a re-stamp).
 //
 // This file owns only the CONTRACT + a pure registry index, kept dependency-light
-// in @wizeworks/modules (no module-package closure). The starter DEFINITIONS and the
+// in @wizeworksllc/modules (no module-package closure). The starter DEFINITIONS and the
 // install seam live at the composition root (api-rest lib/industry-starters.ts),
 // where they can resolve each ref through the aggregated `presetRegistry` — the
 // same acyclic-deps split as the preset registry itself.

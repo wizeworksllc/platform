@@ -24,17 +24,17 @@
 // would find it on.
 //
 // Every column this file reads is a canonical field key (`ENTITY_FIELDS.products` in
-// @wizeworks/migration), and `contract.test.ts` measures the two as equal. Seven of
+// @wizeworksllc/migration), and `contract.test.ts` measures the two as equal. Seven of
 // them used to be offered and never read: collections, quantity, needs-shipping,
 // taxable, image position, published date and old URL. Taxable is off the list now,
 // because a product here cannot be exempt from tax on its own (every rate without a
 // product class applies to every product); the other six are saved below. A blank
 // cell never clears what a product already has.
 
-import { collectionService, productService, variantService } from '@wizeworks/commerce';
-import { coreChoiceSide, isCoreOptionName } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+import { collectionService, productService, variantService } from '@wizeworksllc/commerce';
+import { coreChoiceSide, isCoreOptionName } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 import {
   toBoolean,
   toCents,
@@ -43,7 +43,7 @@ import {
   toIsoDate,
   toList,
   toSlug,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 
 import { ingestImage, linkedNotice } from './images';
 import { redirectOldAddress } from './redirects';

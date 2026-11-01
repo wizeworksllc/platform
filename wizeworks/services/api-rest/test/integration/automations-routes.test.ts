@@ -11,8 +11,8 @@
 import crypto from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { prisma } from '@wizeworks/db';
-import { upsertSystemAutomation } from '@wizeworks/automation';
+import { prisma } from '@wizeworksllc/db';
+import { upsertSystemAutomation } from '@wizeworksllc/automation';
 import { createApp } from '../../src/app.js';
 import {
   authHeader,

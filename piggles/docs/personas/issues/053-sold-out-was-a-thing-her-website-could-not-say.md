@@ -43,7 +43,7 @@ every site.
 ## Why it happened
 
 The PDP renders through the silica engine's `commerce.product` template, and
-that template's `addToCartForm()` in `@wizeworks/silica-catalog` bound the
+that template's `addToCartForm()` in `@wizeworksllc/silica-catalog` bound the
 variant id and a quantity and **never read stock at all**. The record already
 carried the answer — `productToSilicaRecord` puts `inStock` on it, right beside
 the `lowStock` the low-stock badge binds — and nothing looked at it.

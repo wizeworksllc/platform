@@ -1,4 +1,4 @@
-import type { AutomationStatus, RunStatus, StepStatus } from '@wizeworks/automation-schemas';
+import type { AutomationStatus, RunStatus, StepStatus } from '@wizeworksllc/automation-schemas';
 
 /* ── Runs ───────────────────────────────────────────────────────────────── */
 

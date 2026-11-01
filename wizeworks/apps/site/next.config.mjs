@@ -9,11 +9,11 @@ const config = {
   // No `X-Powered-By: Next.js`: it tells a scanner which exploits to try.
   poweredByHeader: false,
   transpilePackages: [
-    '@wizeworks/app-kit',
-    '@wizeworks/ui',
-    '@wizeworks/cms-editor',
-    '@wizeworks/chat-widget',
-    '@wizeworks/builder-render',
+    '@wizeworksllc/app-kit',
+    '@wizeworksllc/ui',
+    '@wizeworksllc/cms-editor',
+    '@wizeworksllc/chat-widget',
+    '@wizeworksllc/builder-render',
   ],
   typedRoutes: false,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.

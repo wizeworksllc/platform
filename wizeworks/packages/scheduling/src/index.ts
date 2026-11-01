@@ -3,7 +3,7 @@
 // The availability/slot engine, the booking lifecycle with the DB-level
 // no-overlap guarantee, and resource/service/availability setup. Consumed by the
 // REST API, Server Actions, the public booking widget, the scheduling-worker, and
-// the MCP tools — every transport validates against @wizeworks/scheduling-schemas
+// the MCP tools — every transport validates against @wizeworksllc/scheduling-schemas
 // first, then calls these.
 
 export * from './errors';
@@ -64,7 +64,7 @@ export {
   getCustomerBookingStats,
 } from './booking-history';
 export { type BookingNotice, getBookingNotices } from './booking-notices';
-// What a booking's card needs when it ends; @wizeworks/commerce's
+// What a booking's card needs when it ends; @wizeworksllc/commerce's
 // `bookingPayments.settle` does it (sparx persona issue 087).
 export {
   type BookingEnding,

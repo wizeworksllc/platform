@@ -27,7 +27,7 @@
 //
 // A server component: nothing here is stateful, so there is no client bundle.
 
-import { frameEmbedSrc, frameRatioClass } from '@wizeworks/silica-catalog';
+import { frameEmbedSrc, frameRatioClass } from '@wizeworksllc/silica-catalog';
 
 export function SiteEmbed({ props }: { props?: Record<string, unknown> }) {
   const src = frameEmbedSrc(props?.url);

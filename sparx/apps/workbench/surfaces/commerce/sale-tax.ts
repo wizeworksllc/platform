@@ -8,7 +8,7 @@
 // checkout's own engine (`POST /v1/commerce/tax/sale-quote`); this file asks it,
 // keeps the answer tied to the sale it was asked about, and names the row.
 
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 
 import { api } from '../../lib/api/client';
 import type { SaleLine } from './sale-data';

@@ -12,7 +12,7 @@
 // OPEN conversation is deliberately left alone — the visitor put it there, and
 // hiding it mid-sentence would be worse than the overlap.
 
-import { ChatWidget } from '@wizeworks/chat-widget';
+import { ChatWidget } from '@wizeworksllc/chat-widget';
 import type { ComponentProps } from 'react';
 
 import { useCart } from './cart-provider';

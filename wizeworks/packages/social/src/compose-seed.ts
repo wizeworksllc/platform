@@ -11,13 +11,13 @@
 // re-derived later, so changing the product title tomorrow does not rewrite a post that
 // already went out.
 //
-// Lives in @wizeworks/social because "how an entity becomes a post" is the post domain's
+// Lives in @wizeworksllc/social because "how an entity becomes a post" is the post domain's
 // business — 133 §8 calls each source "a small mapper into a SocialPost draft". It reads
 // commerce/CMS tables directly rather than importing the automation package, which would
 // drag executors into every transport that wants to seed a draft.
 
-import { withTenant } from '@wizeworks/db';
-import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworks/db/site-origin';
+import { withTenant } from '@wizeworksllc/db';
+import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworksllc/db/site-origin';
 
 import type { SocialContext } from './context.js';
 
@@ -57,7 +57,7 @@ const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 /** The public base URL of the site a seeded link opens on, and that site's id.
  *
  *  The address comes from the one resolver every customer-facing link uses
- *  (`@wizeworks/db/site-origin`): the site's own domain once it works, else the
+ *  (`@wizeworksllc/db/site-origin`): the site's own domain once it works, else the
  *  subdomain it was minted on, in the zone the tenant was provisioned in. This used
  *  to be a second copy of that question with its own order and no answer for a site
  *  whose domain row was missing (sparx persona issue 064: two answers to one

@@ -22,7 +22,7 @@
 // recorded, falling back to the level's cost basis. A write-off priced at today's
 // cost when it happened eight months ago is a plausible-looking wrong number.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

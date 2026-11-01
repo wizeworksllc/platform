@@ -51,7 +51,7 @@
 // would return zero rows and exit looking successful (wizeworks/packages/db/CLAUDE.md). The two
 // junctions carry no `tenant_id` of their own — their scoping rides the FK parents.
 
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 const APPLY = process.argv.includes('--apply');
 const argValue = (flag: string): string | undefined =>

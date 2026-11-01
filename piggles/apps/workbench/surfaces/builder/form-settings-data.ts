@@ -19,11 +19,11 @@
 // the trust boundary. Nothing here weakens that: this is a form for the owner,
 // authenticated like every other pane.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 
 import { api } from '../../lib/api/client';
 
-/** The routing config, exactly as `@wizeworks/builder-schemas` defines it. Only the
+/** The routing config, exactly as `@wizeworksllc/builder-schemas` defines it. Only the
  *  fields this panel edits — the service normalizes and fills the rest, so a partial
  *  save stores a complete config rather than dropping what it did not send. */
 export interface FormConfig {

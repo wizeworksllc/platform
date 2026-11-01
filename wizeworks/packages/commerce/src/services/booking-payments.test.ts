@@ -71,7 +71,7 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
@@ -82,7 +82,7 @@ const gateway = {
   cancel: vi.fn<GatewayCall>(),
   refund: vi.fn<GatewayCall>(),
 };
-vi.mock('@wizeworks/payments', async (importOriginal) => ({
+vi.mock('@wizeworksllc/payments', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   paymentService: {
     capturePayment: (...args: unknown[]) => gateway.capture(...args),
@@ -90,7 +90,7 @@ vi.mock('@wizeworks/payments', async (importOriginal) => ({
     refund: (...args: unknown[]) => gateway.refund(...args),
   },
 }));
-vi.mock('@wizeworks/crm', async (importOriginal) => ({
+vi.mock('@wizeworksllc/crm', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   taskService: {
     dueAtIn: () => Promise.resolve(new Date('2026-10-03T23:59:00Z')),

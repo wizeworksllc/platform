@@ -29,8 +29,8 @@ import type { SampleDataPack, SampleRecordProperty, SampleRecordType } from '../
 import type { ApplyCtx } from './context';
 
 /** The four sparx ships, worded the way a business owner would. Kept in step
- *  with BUILTIN_OBJECT_SEEDS in @wizeworks/crm — duplicated rather than imported
- *  because @wizeworks/db sits BELOW @wizeworks/crm and must not depend upwards. */
+ *  with BUILTIN_OBJECT_SEEDS in @wizeworksllc/crm — duplicated rather than imported
+ *  because @wizeworksllc/db sits BELOW @wizeworksllc/crm and must not depend upwards. */
 const BUILTIN_SEEDS: {
   key: string;
   label: string;

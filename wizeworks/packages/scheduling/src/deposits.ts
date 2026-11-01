@@ -6,7 +6,7 @@
 // The side effects live elsewhere: api-rest's scheduling-payments lib creates the
 // hold or charge at booking time, `bookingMoneyFor` (booking-money.ts) decides
 // what a booking's card needs when it ends, and `bookingPayments` in
-// @wizeworks/commerce does it through the gateway (sparx persona issue 087).
+// @wizeworksllc/commerce does it through the gateway (sparx persona issue 087).
 
 const HOUR_MS = 60 * 60 * 1000;
 

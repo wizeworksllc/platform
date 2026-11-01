@@ -3,7 +3,7 @@
 // a `receive` movement through the ledger (updating moving-average cost) and
 // bumps the PO line's received count, advancing the PO to partial/received. A
 // receipt is posted atomically on creation — there is no editable draft (a
-// correction is a later adjustment/count). Owned by @wizeworks/inventory;
+// correction is a later adjustment/count). Owned by @wizeworksllc/inventory;
 // standalone-usable — a WMS-lite tenant receives stock with no commerce.
 
 model GoodsReceipt {

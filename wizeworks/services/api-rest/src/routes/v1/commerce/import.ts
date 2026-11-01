@@ -6,15 +6,15 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { listEnabledModules } from '@wizeworks/auth';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { listEnabledModules } from '@wizeworksllc/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { requireCommerceModule, toCommerceContext } from '../../../lib/commerce-context.js';
-import { productService, discountService } from '@wizeworks/commerce';
-import { discountExportRow, discountRowFromFile } from '@wizeworks/migration';
+import { productService, discountService } from '@wizeworksllc/commerce';
+import { discountExportRow, discountRowFromFile } from '@wizeworksllc/migration';
 
 const PathJobId = z.object({ jobId: z.string().uuid() });
 

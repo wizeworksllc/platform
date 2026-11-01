@@ -21,7 +21,7 @@
 //      (the `$comment` block is stripped; key order is irrelevant).
 //   2. BILLING_PLANS carries nothing EXTRA — a plan with no file behind it is a
 //      definition nobody can review.
-//   3. Each plan is well-formed the same way @wizeworks/billing validates at boot,
+//   3. Each plan is well-formed the same way @wizeworksllc/billing validates at boot,
 //      so a malformed plan fails at push rather than taking billing down on deploy.
 //
 // With `--secrets <env-file>` it checks the OTHER half instead: that every env var a
@@ -113,7 +113,7 @@ function sortKeys(value) {
   );
 }
 
-/** The same shape @wizeworks/billing enforces at boot. Catching it here turns a
+/** The same shape @wizeworksllc/billing enforces at boot. Catching it here turns a
  *  deploy-time outage into a push-time error. */
 function validate(plan, where) {
   for (const field of ['id', 'label', 'secretEnv', 'webhookSecretEnv']) {

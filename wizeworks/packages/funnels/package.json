@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/funnels",
+  "name": "@wizeworksllc/funnels",
   "version": "0.0.0",
   "private": true,
-  "description": "Marketing funnels (docs/151) — the binding and measurement entity for a campaign whose parts already exist. Owns nothing it can borrow: goals evaluate through @wizeworks/automation-schemas' evaluator so there is one condition language in the platform, and follow-up runs through Automation and EmailSequence as they already are. Backend-safe (deps: @wizeworks/db + the schema packages, no render/React) so the event-worker can run the nightly reconcile. The client-safe ./schemas subpath is what the workbench editor imports.",
+  "description": "Marketing funnels (docs/151) — the binding and measurement entity for a campaign whose parts already exist. Owns nothing it can borrow: goals evaluate through @wizeworksllc/automation-schemas' evaluator so there is one condition language in the platform, and follow-up runs through Automation and EmailSequence as they already are. Backend-safe (deps: @wizeworksllc/db + the schema packages, no render/React) so the event-worker can run the nightly reconcile. The client-safe ./schemas subpath is what the workbench editor imports.",
   "type": "module",
   "exports": {
     ".": {
@@ -34,11 +34,11 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/api-core": "workspace:*",
-    "@wizeworks/automation-schemas": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/modules": "workspace:*",
+    "@wizeworksllc/api-core": "workspace:*",
+    "@wizeworksllc/automation-schemas": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/modules": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

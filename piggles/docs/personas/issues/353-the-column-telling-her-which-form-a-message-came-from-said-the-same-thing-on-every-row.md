@@ -115,8 +115,8 @@ Recorded as a phase of its own in [FOLLOW_UPS.md](../../FOLLOW_UPS.md) #8 — no
 ## Confirmed by
 
 Her inbox, read off the DOM: `Form: /contact`. Detail heading `/contact · Juniper Row`
-with no duplicate row beneath. `@wizeworks/builder` 141 tests still passing; typecheck
-clean on `@piggles/console` and `@wizeworks/builder`; eslint and prettier clean.
+with no duplicate row beneath. `@wizeworksllc/builder` 141 tests still passing; typecheck
+clean on `@piggles/console` and `@wizeworksllc/builder`; eslint and prettier clean.
 
 ## Noticed, not acted on
 

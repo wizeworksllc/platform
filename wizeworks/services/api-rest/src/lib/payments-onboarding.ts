@@ -12,14 +12,14 @@
 // records the gateway SELECTION + onboarding status (it is FORCE-RLS — only ever read
 // or written with a tenant context).
 
-import { getGatewayDescriptor, getPlatformStripe } from '@wizeworks/payments';
-import { prisma, withTenant } from '@wizeworks/db';
+import { getGatewayDescriptor, getPlatformStripe } from '@wizeworksllc/payments';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   createPublisher,
   publishEvent,
   type PublisherLogger,
   type SiteUpdatedPayload,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 
 import { env } from '../env.js';
 import { hasActiveCredentials } from './gateway-credentials.js';

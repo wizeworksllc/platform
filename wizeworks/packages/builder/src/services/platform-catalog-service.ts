@@ -22,10 +22,10 @@ import {
   type PlatformComponentStatus,
   type PlatformComponentKind,
   type PlatformComponentCategory,
-} from '@wizeworks/builder-schemas';
-import type { PlatformComponent } from '@wizeworks/db';
+} from '@wizeworksllc/builder-schemas';
+import type { PlatformComponent } from '@wizeworksllc/db';
 // `Prisma` is a value import (used as both the type namespace and `Prisma.DbNull`).
-import { Prisma, prisma } from '@wizeworks/db';
+import { Prisma, prisma } from '@wizeworksllc/db';
 
 import { BuilderNotFoundError, BuilderValidationError } from '../errors';
 

@@ -15,12 +15,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 // The Prisma namespace (types + the DbNull runtime sentinel) comes from
-// @prisma/client — @wizeworks/db re-exports it type-only. Mirrors api-core/audit.ts.
+// @prisma/client — @wizeworksllc/db re-exports it type-only. Mirrors api-core/audit.ts.
 import { Prisma } from '@prisma/client';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import { publishSiteUpdated } from '../../lib/site-events.js';
 

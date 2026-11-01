@@ -4,9 +4,9 @@ import {
   dispatch,
   type EngineDeps,
   type TenantCtx,
-} from '@wizeworks/automation';
-import type { ActionType } from '@wizeworks/automation-schemas';
-import { getDefaultEmailTemplate } from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/automation';
+import type { ActionType } from '@wizeworksllc/automation-schemas';
+import { getDefaultEmailTemplate } from '@wizeworksllc/builder-schemas';
 
 // Sparx persona issue 087. Order confirmations always send, whether or not the
 // business has the email module: a buyer must always be told their order went
@@ -21,7 +21,7 @@ import { getDefaultEmailTemplate } from '@wizeworks/builder-schemas';
 // on or off. Suppression is untouched and lives in `enqueueSend`, mocked here.
 
 const enqueueSend = vi.fn(() => Promise.resolve({ enqueued: true, suppressed: false }));
-vi.mock('@wizeworks/email-sends', () => ({
+vi.mock('@wizeworksllc/email-sends', () => ({
   enqueueSend: (...args: unknown[]) => enqueueSend(...(args as [])) as unknown,
 }));
 
@@ -232,7 +232,7 @@ describe('every system automation that sends an email', () => {
 // One confirmation per order, on every path a business takes money. Each path is
 // the events it publishes, in order: checkout announces `order.placed` only for an
 // order that is not held (checkout-service); the sign-off announces it for a held
-// one (`placedEvents` in @wizeworks/b2b, pinned in approval-account-signs.test.ts);
+// one (`placedEvents` in @wizeworksllc/b2b, pinned in approval-account-signs.test.ts);
 // the payment webhook announces `payment.captured` and `order.paid` and sends no
 // confirmation of its own (held-card-webhook.test.ts in api-rest). Every system
 // automation listening on each event runs here through the real gate chain.

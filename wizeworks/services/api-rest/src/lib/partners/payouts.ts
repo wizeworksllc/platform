@@ -9,9 +9,9 @@
 //     create ONE transfer to their connected account, record a payout_run, and
 //     mark the commissions paid. Idempotent-ish + best-effort per partner.
 
-import { getPlatformStripe } from '@wizeworks/payments';
-import { withSystem, withTenant } from '@wizeworks/db';
-import { appOrigin } from '@wizeworks/links/server';
+import { getPlatformStripe } from '@wizeworksllc/payments';
+import { withSystem, withTenant } from '@wizeworksllc/db';
+import { appOrigin } from '@wizeworksllc/links/server';
 import { PaymentsUnconfiguredError } from '../payments-onboarding.js';
 
 import { formatPartnerMoney, publishPartnerEmail, publishPartnerEvent } from './events.js';

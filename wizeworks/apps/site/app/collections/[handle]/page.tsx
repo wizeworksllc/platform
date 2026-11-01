@@ -9,7 +9,7 @@
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { collectionDetailPage } from '@wizeworks/silica-catalog';
+import { collectionDetailPage } from '@wizeworksllc/silica-catalog';
 
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { SectionRenderer } from '@/components/section-renderer';

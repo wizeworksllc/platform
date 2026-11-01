@@ -3,7 +3,7 @@
 // without re-deriving status codes from generic exceptions. Mirrors
 // wizeworks/packages/sitebuilder/src/errors.ts.
 
-import type { TenantContext } from '@wizeworks/db';
+import type { TenantContext } from '@wizeworksllc/db';
 
 export type ServiceContext = TenantContext;
 

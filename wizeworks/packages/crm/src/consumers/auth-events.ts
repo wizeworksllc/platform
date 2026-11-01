@@ -9,7 +9,7 @@
 
 import { gateHandler, type ConsumerContext } from './registry';
 import { resolveCustomerByAuthUserId } from './projection';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 interface AuthEventPayload {
   authUserId: string;

@@ -13,9 +13,9 @@
 // It states, it does not reassure: with nothing queued this says so, and says
 // where reminders come from, rather than rendering an empty list.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Badge, Text } from '@wizeworks/silicaui-react';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 import { bookingKeys } from './bookings-data';
 

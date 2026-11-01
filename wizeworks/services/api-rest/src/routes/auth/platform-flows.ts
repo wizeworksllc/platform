@@ -32,10 +32,10 @@ import {
   submitMcpConsent,
   type SignUpAcquisition,
   type StaffRole,
-} from '@wizeworks/auth';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
-import { clientIpFromChain } from '@wizeworks/client-ip';
-import { appOrigin } from '@wizeworks/links/server';
+} from '@wizeworksllc/auth';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
+import { clientIpFromChain } from '@wizeworksllc/client-ip';
+import { appOrigin } from '@wizeworksllc/links/server';
 
 import { writeConsent } from '../../lib/user-consent.js';
 import { AcquisitionBody, platformSession, requestHeaders, servedBrand } from './platform-scope.js';

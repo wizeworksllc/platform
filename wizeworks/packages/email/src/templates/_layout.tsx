@@ -10,7 +10,7 @@ import {
   Row,
   Section,
 } from '@react-email/components';
-import type { EmailPalette } from '@wizeworks/brand-core';
+import type { EmailPalette } from '@wizeworksllc/brand-core';
 import {
   EmailDivider,
   EmailMuted,

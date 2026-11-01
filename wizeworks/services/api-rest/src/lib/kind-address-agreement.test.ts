@@ -1,15 +1,15 @@
 // The save rule and the website rule for a kind's web address must agree.
 //
-// `@wizeworks/cms` refuses a pattern on save (`urlPatternProblem`); the website serves
-// a kind's pieces at the patterns `@wizeworks/silica-catalog` accepts
+// `@wizeworksllc/cms` refuses a pattern on save (`urlPatternProblem`); the website serves
+// a kind's pieces at the patterns `@wizeworksllc/silica-catalog` accepts
 // (`kindAddressFromPattern`). The cms package cannot import the catalog, so the rule is
 // written twice. This package depends on both, so this is where they are held together:
 // a pattern one accepts and the other refuses is either a kind that saves and 404s, or
 // a kind the website could serve that nobody can save.
 
 import { describe, expect, it } from 'vitest';
-import { RESERVED_ADDRESS_WORDS, urlPatternProblem } from '@wizeworks/cms';
-import { RESERVED_KIND_SEGMENTS, kindAddressFromPattern } from '@wizeworks/silica-catalog';
+import { RESERVED_ADDRESS_WORDS, urlPatternProblem } from '@wizeworksllc/cms';
+import { RESERVED_KIND_SEGMENTS, kindAddressFromPattern } from '@wizeworksllc/silica-catalog';
 
 const PATTERNS = [
   '/articles/{slug}',

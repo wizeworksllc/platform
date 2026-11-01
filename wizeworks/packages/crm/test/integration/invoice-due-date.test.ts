@@ -14,7 +14,7 @@
 // that would make the invoice overdue before it arrived.
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import {
   billingDocumentService,

@@ -22,7 +22,7 @@ import {
   UpdateAttendeeInput,
   UpdateBookingInput,
   UpdateBookingPolicyInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
 import { createAvailabilityException, deleteAvailabilityException } from '../availability-rules';
 import { checkInBooking, confirmBooking, updateBooking } from '../booking-service';

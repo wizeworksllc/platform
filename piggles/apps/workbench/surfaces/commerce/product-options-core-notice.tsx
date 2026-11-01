@@ -12,7 +12,7 @@ import {
   AlertTitle,
   Button,
 } from '@wizeworks/silicaui-react';
-import { isCoreOptionName } from '@wizeworks/commerce-schemas';
+import { isCoreOptionName } from '@wizeworksllc/commerce-schemas';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
 import { useProductOptions, type Product } from './products-data';
 

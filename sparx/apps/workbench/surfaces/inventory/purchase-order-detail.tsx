@@ -58,7 +58,7 @@ import { Table } from '../../components/table';
 // field settles on "201.00", a shipping charge nobody typed, saved with no
 // complaint (issue 484). `MoneyInput` takes the number and keeps the text.
 import { MoneyInput, MoneyTextInput, moneyCents } from '../../components/money-input';
-import { resolvePurchasePrice } from '@wizeworks/commerce-schemas';
+import { resolvePurchasePrice } from '@wizeworksllc/commerce-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { usePriceLadder } from './supplier-performance-data';
 import {
@@ -112,7 +112,7 @@ import {
   type PurchaseOrderLine,
   type PurchaseOrderLineDraft,
 } from './purchase-orders-data';
-import { resolveApprovalRule } from '@wizeworks/commerce-schemas';
+import { resolveApprovalRule } from '@wizeworksllc/commerce-schemas';
 import { usePoApprovalRules } from './po-approvals-data';
 import { placingWords } from './po-approvals-words';
 import { EmailOrderDialog, PlaceOrderDialog } from './purchase-order-email';

@@ -8,11 +8,11 @@ import Fastify from 'fastify';
 
 const countTenantOwnRecords = vi.fn();
 
-vi.mock('@wizeworks/api-core/auth', () => ({
+vi.mock('@wizeworksllc/api-core/auth', () => ({
   requireRole: vi.fn(),
   requireAuth: () => ({ tenantId: '5944fe23-be83-4ce5-aafc-ef56b8594508', actorId: 'u-1' }),
 }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({ publish: vi.fn() }));
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({ publish: vi.fn() }));
 vi.mock('../../lib/sample-data.js', () => ({
   countTenantOwnRecords,
   getSampleDataStatus: vi.fn(),

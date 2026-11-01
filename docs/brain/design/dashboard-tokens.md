@@ -11,7 +11,7 @@ sources:
 
 > ⚠️ **This is a materialized mirror of the live token files.** Colors come from `sparx/packages/brand/src/theme.css` (`@sparx/brand`, the silicaui theme); non-color tokens (type/space/radius/shadow/motion + chart palette) come from `sparx/packages/ui/src/tokens.css`. The values are written out on purpose — code is referenced last, so the brain must carry the numbers you build with. **The code is the source of truth: if this sheet and a token file disagree, the code wins and the mismatch is a bug to fix now.** Re-sync this note in the same change that edits the tokens ([[CONTRACT]] → "design constants are materialized"). In components you reference the **token var** or a **silicaui class**, never the raw hex — these values are for *knowing what's right*, not for pasting.
 
-This is the **dashboard** system (silicaui + `@sparx/brand`, consumed via `@wizeworks/silicaui-react` + `@wizeworks/ui` compositions). The **site** system is themeable — see [[site-tokens]] and [[two-design-systems]].
+This is the **dashboard** system (silicaui + `@sparx/brand`, consumed via `@wizeworks/silicaui-react` + `@wizeworksllc/ui` compositions). The **site** system is themeable — see [[site-tokens]] and [[two-design-systems]].
 
 ## Brand
 
@@ -93,7 +93,7 @@ silicaui's Tailwind plugin emits every `color × variant` class from the palette
 
 - **solid** = `bg-<color>` + `text-<color>-content` · **soft** = `bg-<color> bg-soft` (tint) + `text-<color>` (ink) · **outline** = `border-<color>` + `text-<color>` · **ghost/link** = `text-<color>`, transparent.
 - **`bg-soft`** paints `color-mix(in oklab, <accent> 15%, base)` — theme-aware, computed once. A tint is ALWAYS `<color> + soft`; never hand-pick a per-module light hex.
-- **Selection controls come from silicaui, not `@wizeworks/ui`** — `Checkbox` / `Switch` / `RadioGroup` / `Slider` / `Progress` are imported from `@wizeworks/silicaui-react` and take a real plugin color class (`checkbox-primary`, `switch-module`, …). `@wizeworks/ui` once hand-rolled them on Radix, where a color class couldn't attach, so each set a per-instance `--sx-sel` / `--sx-sel-fg` from `colorVars(color)`. That was the last parallel token vocabulary in the repo; both the components and `colorVars` are **deleted** (2026-07-31).
+- **Selection controls come from silicaui, not `@wizeworksllc/ui`** — `Checkbox` / `Switch` / `RadioGroup` / `Slider` / `Progress` are imported from `@wizeworks/silicaui-react` and take a real plugin color class (`checkbox-primary`, `switch-module`, …). `@wizeworksllc/ui` once hand-rolled them on Radix, where a color class couldn't attach, so each set a per-instance `--sx-sel` / `--sx-sel-fg` from `colorVars(color)`. That was the last parallel token vocabulary in the repo; both the components and `colorVars` are **deleted** (2026-07-31).
 
 **Module *card* tint:** `<Card variant="module">` = `bg-module bg-soft` inside a `<ModuleProvider>` (theme-aware ~15% `color-mix` into `--color-base-100`, text/border untouched). Wrap a panel in `<ModuleProvider module="…">` to tint it. Detail: `sparx/packages/ui/CLAUDE.md`.
 

@@ -25,7 +25,7 @@ const config = {
       },
     ];
   },
-  transpilePackages: ['@wizeworks/silicaui-react', '@sparx/brand', '@wizeworks/app-kit'],
+  transpilePackages: ['@wizeworks/silicaui-react', '@sparx/brand', '@wizeworksllc/app-kit'],
   typedRoutes: false,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.
   serverExternalPackages: ['@wizeworks/lens-node'],

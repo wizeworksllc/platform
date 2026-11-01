@@ -57,7 +57,7 @@ const tx = {
   },
 };
 
-// A stand-in for the commit queue in `@wizeworks/db`, with the same contract:
+// A stand-in for the commit queue in `@wizeworksllc/db`, with the same contract:
 // work registered while a transaction is open waits for the one that OPENED it,
 // and runs at once when none is open. Kept here because the package does not
 // export its own queue, only `afterCommit`.
@@ -76,7 +76,7 @@ async function openTransaction<T>(run: () => Promise<T>): Promise<T> {
   }
 }
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   afterCommit: async (_label: string, run: () => Promise<void>) => {
     if (queue) queue.push(run);

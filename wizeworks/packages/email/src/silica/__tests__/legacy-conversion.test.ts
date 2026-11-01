@@ -8,7 +8,7 @@
 // tenant's order confirmation going out blank.
 
 import { describe, expect, it } from 'vitest';
-import { emailTreeToSilica, type BuilderNode } from '@wizeworks/builder-schemas';
+import { emailTreeToSilica, type BuilderNode } from '@wizeworksllc/builder-schemas';
 
 import { renderSilicaEmail } from '../render-silica-email';
 

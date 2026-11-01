@@ -4,7 +4,7 @@ import { Badge } from '@wizeworks/silicaui-react';
 // the client entry's copy is a client reference: calling it during prerender
 // fails at `stringify` with "attempted to call buttonClasses() from the server".
 import { buttonClasses } from '@wizeworks/silicaui-react/server';
-import { ENTITY_LABEL, catalogueByKind, connectorOnlyEntities } from '@wizeworks/migration';
+import { ENTITY_LABEL, catalogueByKind, connectorOnlyEntities } from '@wizeworksllc/migration';
 import { Band } from '../band';
 import { Display, Text } from '../primitives';
 import { Faq } from '../faq';

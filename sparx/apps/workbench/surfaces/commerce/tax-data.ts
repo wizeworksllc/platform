@@ -21,13 +21,13 @@
 // which one is in charge.
 //
 // Shapes mirror api-rest's tax-service row types; inputs satisfy the Zod schemas
-// in @wizeworks/commerce-schemas.
+// in @wizeworksllc/commerce-schemas.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
-import { zoneIsCollecting, type NexusType } from '@wizeworks/commerce-schemas';
+import { zoneIsCollecting, type NexusType } from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 
 export type { NexusType };

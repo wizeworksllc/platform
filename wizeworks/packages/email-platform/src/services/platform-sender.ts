@@ -54,8 +54,8 @@
 // That is why `propertyId` is a parameter rather than something looked up from
 // the tenant — see [[feedback_site_is_the_business]].
 
-import { prisma, withTenant } from '@wizeworks/db';
-import { platformBrandIdentity, platformFrom } from '@wizeworks/brand-core';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { platformBrandIdentity, platformFrom } from '@wizeworksllc/brand-core';
 
 const FALLBACK_FROM = 'sparx <noreply@sparx.email>';
 

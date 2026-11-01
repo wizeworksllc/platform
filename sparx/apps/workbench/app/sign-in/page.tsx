@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { getSession, readSignInOptions } from '@wizeworks/auth-client-server';
+import { getSession, readSignInOptions } from '@wizeworksllc/auth-client-server';
 import { AuthWrapper } from '../../components/auth/auth-wrapper';
 import { safeInternalPath } from '../../lib/safe-path';
 import { joiningFrom } from '../../lib/invite-joining';

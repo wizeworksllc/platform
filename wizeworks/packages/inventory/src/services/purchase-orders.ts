@@ -5,10 +5,10 @@
 // in ./purchase-order-lines; transitions in ./purchase-order-lifecycle; both
 // build on ./purchase-order-shared, as does this file.
 
-import { CreatePurchaseOrderInput, UpdatePurchaseOrderInput } from '@wizeworks/commerce-schemas';
-import type { PurchaseOrderLineInput } from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { CreatePurchaseOrderInput, UpdatePurchaseOrderInput } from '@wizeworksllc/commerce-schemas';
+import type { PurchaseOrderLineInput } from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntityOnCommit } from '../events';

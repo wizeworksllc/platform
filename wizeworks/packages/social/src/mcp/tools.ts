@@ -1,5 +1,5 @@
 // Social MCP tools (docs/133) — compose, edit, and run the post lifecycle from an
-// agent. Thin wrappers over the @wizeworks/social/service layer the REST routes drive
+// agent. Thin wrappers over the @wizeworksllc/social/service layer the REST routes drive
 // (one service, many transports). Lifecycle transitions that wake the publish
 // worker emit the SAME Pub/Sub events the routes do (`social.post.due` /
 // `social.post.scheduled`); like the CMS MCP tools, we emit with a console logger
@@ -18,7 +18,7 @@
 // account requires a human at a platform sign-in screen and always will.
 
 import { z } from 'zod';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 import { SOCIAL_POST_SOURCES } from '../types.js';
 

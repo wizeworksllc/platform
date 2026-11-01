@@ -12,8 +12,8 @@
 //   4. The product page says which of the buyer's vehicles it fits, before the button.
 
 import { describe, expect, it } from 'vitest';
-import { createSilicaResolver } from '@wizeworks/builder-schemas';
-import { productCard } from '@wizeworks/silica-catalog';
+import { createSilicaResolver } from '@wizeworksllc/builder-schemas';
+import { productCard } from '@wizeworksllc/silica-catalog';
 import { el, repeat, resolveTree, toHtml, type Node } from '@wizeworks/silicaui-html';
 
 import type { PublicProductListItem } from './commerce';

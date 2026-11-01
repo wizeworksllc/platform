@@ -2,7 +2,7 @@
 // createImageUpload (which mints one + returns the side-channel uploadUrl). The
 // token security properties (signature, typ-scope, expiry, tamper) are the crux
 // — this endpoint is PUBLIC, so the token is the only auth. createImageUpload's
-// DB writes are asserted against the same @wizeworks/db mock the other suite uses.
+// DB writes are asserted against the same @wizeworksllc/db mock the other suite uses.
 
 import { createHmac } from 'node:crypto';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
@@ -21,7 +21,7 @@ const { created, findFirstResult, updateCalls, publishEventMock, productPhotos }
   })
 );
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     mediaAsset: {
       create: vi.fn(({ data }: { data: Record<string, unknown> }) => {
@@ -59,7 +59,7 @@ vi.mock('@wizeworks/db', () => {
   return { withTenant: (_c: unknown, fn: (t: typeof tx) => unknown) => fn(tx) };
 });
 
-vi.mock('@wizeworks/events', () => ({
+vi.mock('@wizeworksllc/events', () => ({
   createPublisher: () => ({ publish: vi.fn() }),
   publishEvent: (...args: unknown[]) => {
     publishEventMock(...args);

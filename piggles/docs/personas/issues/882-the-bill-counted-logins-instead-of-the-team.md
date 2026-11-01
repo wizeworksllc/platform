@@ -120,7 +120,7 @@ there. [[feedback_data_is_a_deploy_stage]]
 
 ## Proved
 
-Not a committed test: `@wizeworks/usage` has vitest but no database-backed
+Not a committed test: `@wizeworksllc/usage` has vitest but no database-backed
 harness and CI runs without a database, so a `.test.ts` reading real rows would
 go red there. Proved the way the renewal in 878 was — against the database, and
 on the screen.
@@ -142,8 +142,8 @@ them into 1 on its next run.
 **On her own card:** it read **1** before and reads **2** now, with Nadia listed
 on the Team roster beside it.
 
-**Checks:** api-rest 109 files / 663 tests, `@wizeworks/usage` 18. Typecheck 0
-on `@wizeworks/usage` and api-rest. ESLint and prettier clean.
+**Checks:** api-rest 109 files / 663 tests, `@wizeworksllc/usage` 18. Typecheck 0
+on `@wizeworksllc/usage` and api-rest. ESLint and prettier clean.
 
 ## Files
 

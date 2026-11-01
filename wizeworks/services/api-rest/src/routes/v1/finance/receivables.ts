@@ -16,13 +16,13 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { type Prisma } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
+import { type Prisma } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
 import { requireInvoicingModule } from '../../../lib/invoicing-context.js';
 import { resolveListScope } from '../../../lib/property.js';
-import { daysPastDue, OWED_DOCUMENT_WHERE } from '@wizeworks/crm';
+import { daysPastDue, OWED_DOCUMENT_WHERE } from '@wizeworksllc/crm';
 
 const BUCKET_KEYS = ['current', 'd1_30', 'd31_60', 'd61_90', 'd90_plus'] as const;
 

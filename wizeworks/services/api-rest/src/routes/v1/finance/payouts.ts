@@ -21,11 +21,11 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { notFound } from '@wizeworks/api-core/errors';
-import { GATEWAY_PROCESSORS } from '@wizeworks/payments';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { GATEWAY_PROCESSORS } from '@wizeworksllc/payments';
 import { requireOrderAccess } from '../../../lib/order-context.js';
 import { leftToSettle } from '../../../lib/payout-net.js';
 import { resolveListScope } from '../../../lib/property.js';
@@ -37,7 +37,7 @@ import {
 } from '../../../lib/stripe-payouts.js';
 
 // Processors whose captures settle to a bank on a schedule: the gateways that hold
-// a charge, the one list in `@wizeworks/payments`. A manual/check/wire payment is
+// a charge, the one list in `@wizeworksllc/payments`. A manual/check/wire payment is
 // money in hand, not a deposit that "arrives". This was a private list of four, so
 // a shop on Your own Stripe, Authorize.net or 1stPayGateway saw no deposits at all
 // (sparx persona issue 342).

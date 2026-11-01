@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/section-template-react",
+  "name": "@wizeworksllc/section-template-react",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Site Builder — the shared React interpreter that renders a custom-section template AST into bx-tpl-* markup (docs/38 Phase C). One renderer for the storefront (SSR) and the dashboard Section Studio preview, via injected adapters, so the preview can't drift from production.",
@@ -24,7 +24,7 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/sitebuilder-schemas": "workspace:*"
+    "@wizeworksllc/sitebuilder-schemas": "workspace:*"
   },
   "peerDependencies": {
     "react": "^19.0.0"

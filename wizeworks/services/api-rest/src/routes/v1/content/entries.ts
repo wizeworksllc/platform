@@ -6,26 +6,26 @@
 //   PATCH  /v1/content/entries/:id             → update; creates autosave revision
 //   DELETE /v1/content/entries/:id             → soft delete
 //
-// Create/update delegate to the @wizeworks/cms service layer (createEntryTx /
+// Create/update delegate to the @wizeworksllc/cms service layer (createEntryTx /
 // updateEntryTx) — the same mutation path the MCP tools drive. Route-only
 // concerns (role, header-based site defaulting, If-Match ETag, audit) stay here.
 // Publish / preview-token / revisions routes live alongside this file.
 
 import type { FastifyPluginAsync } from 'fastify';
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { createEntryTx, updateEntryTx, deleteEntryTx, serializeEntry } from '@wizeworks/cms';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { createEntryTx, updateEntryTx, deleteEntryTx, serializeEntry } from '@wizeworksllc/cms';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 import { indexContentEntry } from '../../../lib/content-search.js';
 import { entryIdsByTitle } from '../../../lib/entry-title-search.js';
 import { linkingThings } from '../../../lib/entry-links.js';
 import { entryPublicPath } from '../../../lib/content-paths.js';
-import { notFound } from '@wizeworks/api-core/errors';
-import { assertIfMatch, computeEntryEtag } from '@wizeworks/api-core/etag';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { assertIfMatch, computeEntryEtag } from '@wizeworksllc/api-core/etag';
 import {
   contentSiteVisibilityWhere,
   resolveListScope,

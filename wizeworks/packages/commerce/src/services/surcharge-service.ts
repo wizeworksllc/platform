@@ -14,9 +14,9 @@ import {
   type SurchargePaymentMethod,
   type SurchargeRuleSpec,
   type SurchargeType,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, SurchargeRule } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, SurchargeRule } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceNotFoundError } from '../errors';

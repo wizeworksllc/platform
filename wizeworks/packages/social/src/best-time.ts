@@ -11,7 +11,7 @@
 //     Tuesday is not a pattern;
 //   · when there isn't enough history, it says so and recommends nothing.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { SocialContext } from './context.js';
 import { zonedDateParts } from './cadence.js';

@@ -3,7 +3,7 @@
 // a COPY of `tree` (fresh ids) into the page, so an archetype is plain data: a
 // named node subtree with NO versioning and NO references (unlike a tenant
 // component, which is a live `custom:<key>` placement). Zod-only (no DB, no React),
-// like the rest of @wizeworks/builder-schemas — safe to import from the editor's
+// like the rest of @wizeworksllc/builder-schemas — safe to import from the editor's
 // client components AND the server service layer.
 
 import { z } from 'zod';

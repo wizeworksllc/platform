@@ -14,7 +14,7 @@ This guide is the end-to-end path: anatomy → manifest → trees → theme → 
 content → media → validate → publish → install, plus how to turn a design mockup into
 a working template. Read it once and you can build and ship a template from scratch.
 
-> Source of truth for the schema is [`@wizeworks/blueprints`](../../packages/blueprints/src/manifest.ts)
+> Source of truth for the schema is [`@wizeworksllc/blueprints`](../../packages/blueprints/src/manifest.ts)
 > (`manifest.ts`, `validate.ts`). The complete worked example is
 > [`marketplace-catalog/blueprints/sparx/`](../../marketplace-catalog/blueprints/sparx/) —
 > the first-party reference bundle, captured from the live sparx Template site. The
@@ -188,7 +188,7 @@ checks. Top-level shape (full field reference:
 
 > **The committed `blueprint.ts` must be SELF-CONTAINED data — no `@sparx/*` imports.**
 > The loader dynamic-imports the payload from `marketplace-catalog/` (not a workspace
-> package), so a bare `import { seedNode } from '@wizeworks/builder-schemas'` in the
+> package), so a bare `import { seedNode } from '@wizeworksllc/builder-schemas'` in the
 > committed file fails to resolve (`ERR_MODULE_NOT_FOUND`). Author the trees with the
 > `node()` helper in a **generator** under `marketplace-catalog/_gen/` that imports the
 > helper by **relative path** (`../../wizeworks/packages/builder-schemas/src/index`) and
@@ -198,7 +198,7 @@ checks. Top-level shape (full field reference:
 >
 > There were two more generators here, for theme and component bundles. Both are
 > **deleted**: those categories ship as CODE now (`FIRST_PARTY_THEMES` /
-> `FIRST_PARTY_COMPONENTS` in `@wizeworks/silica-catalog`) and the marketplace serves
+> `FIRST_PARTY_COMPONENTS` in `@wizeworksllc/silica-catalog`) and the marketplace serves
 > them from there, so there is no bundle to generate. Blueprints are the only bundle
 > category left, because their payload is too big for a row and they ship binary card
 > imagery — a difference in payload, not in process: all three are published by the
@@ -211,7 +211,7 @@ checks. Top-level shape (full field reference:
 ### Minimal manifest skeleton (authoring view)
 
 ```ts
-import { seedNode, type BuilderNode } from '@wizeworks/builder-schemas';
+import { seedNode, type BuilderNode } from '@wizeworksllc/builder-schemas';
 
 let n = 0;
 const node = (type: string, opts: Parameters<typeof seedNode>[2] = {}): BuilderNode =>
@@ -475,7 +475,7 @@ content: [
 ```
 
 An `asset`-typed field inside a body uses a `{ $asset: '<id>' }` ref (`assetRef('id')`
-from `@wizeworks/blueprints`) that names an entry in `assets`.
+from `@wizeworksllc/blueprints`) that names an entry in `assets`.
 
 ---
 

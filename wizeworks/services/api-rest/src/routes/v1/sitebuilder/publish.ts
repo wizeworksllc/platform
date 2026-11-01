@@ -11,9 +11,9 @@
 import jwt from '@fastify/jwt';
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { publishService, scheduleService } from '@wizeworks/sitebuilder';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { publishService, scheduleService } from '@wizeworksllc/sitebuilder';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireSitebuilderModule,
   toSitebuilderContext,

@@ -29,7 +29,7 @@
 
 import { notFound } from 'next/navigation';
 
-// The table and its matcher live in `@wizeworks/silica-catalog` (`site-module-paths.ts`),
+// The table and its matcher live in `@wizeworksllc/silica-catalog` (`site-module-paths.ts`),
 // so the console's page list reads the same answer the routes below enforce.
 import {
   SCOPEABLE_MODULES,
@@ -37,7 +37,7 @@ import {
   moduleForPath,
   sitePathOf as pathOf,
   type ScopeableModule,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 export { SCOPEABLE_MODULES, moduleForKey, moduleForPath, type ScopeableModule };
 

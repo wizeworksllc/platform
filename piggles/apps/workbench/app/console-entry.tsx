@@ -72,7 +72,7 @@ export async function ConsoleEntry({ address }: { address: string }) {
         arrivalAddress={address}
         // Resolved on the SERVER and handed down. `PIGGLES_ACCOUNT_ORIGIN` is not
         // a `NEXT_PUBLIC_` variable and the helper that reads it imports
-        // @wizeworks/db, so a client component asking this question would pull Prisma
+        // @wizeworksllc/db, so a client component asking this question would pull Prisma
         // into the browser bundle to learn something the server already knew.
         accountOrigin={accountOrigin()}
       />

@@ -5,11 +5,11 @@ import {
   ENTITY_FIELDS,
   type CanonicalEntity,
   type FieldSpec,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 
 // THE IMPORT CONTRACT, MEASURED.
 //
-// `ENTITY_FIELDS` in @wizeworks/migration is what the Move-in column mapper offers a
+// `ENTITY_FIELDS` in @wizeworksllc/migration is what the Move-in column mapper offers a
 // tenant for each entity; the processors in this folder are what save the rows. The
 // two drifted apart silently, entity after entity: discounts were offered as `code`,
 // `title`, `value`, `starts_at` while the processor read `name`, `value_cents`,
@@ -60,7 +60,7 @@ const record = vi.hoisted(
     })
 );
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const model = (name: string) =>
     new Proxy(
       {},
@@ -108,7 +108,7 @@ const service = vi.hoisted(
     )
 );
 
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   productService: service(),
   variantService: service(),
   categoryService: service(),
@@ -117,7 +117,7 @@ vi.mock('@wizeworks/commerce', () => ({
   orderService: service(),
 }));
 
-vi.mock('@wizeworks/crm', () => {
+vi.mock('@wizeworksllc/crm', () => {
   class CrmConflictError extends Error {}
   return {
     CrmConflictError,
@@ -136,9 +136,9 @@ vi.mock('@wizeworks/crm', () => {
   };
 });
 
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: service() }));
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: service() }));
 
-vi.mock('@wizeworks/cms', () => ({
+vi.mock('@wizeworksllc/cms', () => ({
   listContentTypes: () => Promise.resolve([]),
   createContentType: () =>
     Promise.resolve({ contentType: { key: 'post', url_pattern: '/blog/{slug}' } }),
@@ -147,7 +147,7 @@ vi.mock('@wizeworks/cms', () => ({
   publishEntry: () => Promise.resolve({}),
 }));
 
-vi.mock('@wizeworks/media', () => ({}));
+vi.mock('@wizeworksllc/media', () => ({}));
 
 vi.mock('./images', () => ({
   ingestImage: () => Promise.resolve({ assetId: 'asset-1', copied: true, reused: false }),

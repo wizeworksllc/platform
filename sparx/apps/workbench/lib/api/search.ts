@@ -16,7 +16,7 @@
 // from the palette — taking products from both would list each one twice.
 
 import { useEffect, useMemo, useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from './client';
 import { orderStatusWords } from '../../surfaces/commerce/orders-list-filters';
 

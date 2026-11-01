@@ -20,12 +20,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { formDefinitionService, formService } from '@wizeworks/builder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { customerService } from '@wizeworks/crm';
+import { formDefinitionService, formService } from '@wizeworksllc/builder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { customerService } from '@wizeworksllc/crm';
 import { requireBuilderModule, toBuilderContext } from '../../lib/builder-context.js';
 import { getStorage } from '../../lib/storage.js';
 

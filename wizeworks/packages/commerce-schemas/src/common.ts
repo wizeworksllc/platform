@@ -10,11 +10,11 @@ import { z } from 'zod';
 
 // Re-export the primitives Commerce shares with CRM verbatim, so callers
 // don't need to dual-import from both schema packages for one type.
-export { AddressSnapshot, Currency, LineItemInput, Money } from '@wizeworks/crm-schemas';
+export { AddressSnapshot, Currency, LineItemInput, Money } from '@wizeworksllc/crm-schemas';
 export type {
   AddressSnapshot as AddressSnapshotType,
   Currency as CurrencyType,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 export const MoneyCents = z.number().int().nonnegative();
 export type MoneyCents = z.infer<typeof MoneyCents>;
@@ -128,7 +128,7 @@ export const WeightGrams = z.number().int().nonnegative().max(10_000_000); // 10
 export type WeightGrams = z.infer<typeof WeightGrams>;
 
 // ISO 3166-1 alpha-2 country codes are required on every shipping/billing
-// address; this matches the AddressSnapshot constraint in @wizeworks/crm-schemas.
+// address; this matches the AddressSnapshot constraint in @wizeworksllc/crm-schemas.
 export const CountryCode = z
   .string()
   .length(2)

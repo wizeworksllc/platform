@@ -64,7 +64,7 @@ if (datasourceUrl) console.info(`[db] connection_limit=${pool.limit} (${pool.sou
  * Two screens were built on that join and neither had ever rendered a business
  * name: the order detail's "Wholesale customer" line and the wholesale
  * approvals queue (issue 751). Both now fetch the business under a name of
- * its own — see `accountsFor` in @wizeworks/crm's order-service.
+ * its own — see `accountsFor` in @wizeworksllc/crm's order-service.
  *
  * `pnpm check:shadowed` reads the pairs below and fails the build on any
  * select of a shadowed name, at any depth and under any relation that leads to

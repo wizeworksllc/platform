@@ -4,7 +4,7 @@
 // math plus the per-customer / total-usage enforcement.
 //
 // All writes follow the locked pattern:
-//   1. Validate input via @wizeworks/commerce-schemas
+//   1. Validate input via @wizeworksllc/commerce-schemas
 //   2. withTenant() transaction with RLS context
 //   3. writeAuditLog inside the same transaction
 //   4. publishCommerceEvent AFTER commit
@@ -22,10 +22,10 @@ import {
   SpendAccountCreditInput,
   TakeBackAccountCreditInput,
   UpdateDiscountInput,
-} from '@wizeworks/commerce-schemas';
-import { orderPaymentsService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import type { Discount, GiftCard, Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { orderPaymentsService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import type { Discount, GiftCard, Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import {

@@ -55,7 +55,7 @@ everybody does.
 
 ## Where it lives
 
-`@wizeworks/site-lint` is the pre-publish check, and it had **26 rules**. One of
+`@wizeworksllc/site-lint` is the pre-publish check, and it had **26 rules**. One of
 them, `link-broken`, proves that every link on the site points at a page that
 exists. Nothing proved the reverse.
 

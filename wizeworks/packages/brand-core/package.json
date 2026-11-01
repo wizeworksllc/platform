@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/brand-core",
+  "name": "@wizeworksllc/brand-core",
   "version": "0.0.0",
   "private": true,
   "description": "The platform's brand CONTRACT — which brands exist and what identity each must supply. Brand-blind by construction: it declares the shape and resolves values from configuration, and states none of its own.",

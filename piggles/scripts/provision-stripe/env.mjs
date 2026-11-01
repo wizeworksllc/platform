@@ -13,7 +13,7 @@ const ROOT = join(HERE, '..', '..', '..');
 // folder is not a package, so it has no node_modules of its own to resolve from.
 export const PLAN_PATH = createRequire(
   join(ROOT, 'piggles', 'packages', 'config', 'package.json')
-).resolve('@wizeworks/brand-registry/piggles/billing-plan.json');
+).resolve('@wizeworksllc/brand-registry/piggles/billing-plan.json');
 export const DRY_RUN = process.argv.includes('--dry-run');
 
 // api-rest's `.env` already holds the key for local dev, so it is read from there

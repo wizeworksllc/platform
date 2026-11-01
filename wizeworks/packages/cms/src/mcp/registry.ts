@@ -1,5 +1,5 @@
 // CMS MCP tool registry types (docs/12, docs/07). Each tool is a thin wrapper
-// over the @wizeworks/cms SERVICE layer — the same functions the REST routes call
+// over the @wizeworksllc/cms SERVICE layer — the same functions the REST routes call
 // (one service, many transports). A fix in createEntry is a fix in the
 // `create_content_entry` MCP tool automatically.
 //

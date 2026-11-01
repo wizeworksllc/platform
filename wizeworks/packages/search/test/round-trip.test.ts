@@ -19,7 +19,7 @@
 //
 // It self-skips when Typesense is unreachable and under `CI=true` (the pre-push
 // hook sets it), because CI has no Typesense and the hook must never be stricter
-// than CI. Run it with `pnpm --filter @wizeworks/search test`.
+// than CI. Run it with `pnpm --filter @wizeworksllc/search test`.
 //
 // ── What it covers ────────────────────────────────────────────────
 //
@@ -174,7 +174,7 @@ function entity(
   };
 }
 
-describe.skipIf(!AVAILABLE)('@wizeworks/search round-trip', () => {
+describe.skipIf(!AVAILABLE)('@wizeworksllc/search round-trip', () => {
   beforeAll(async () => {
     _resetClientForTest();
     // Refuse to start, before a single write, unless every collection this suite

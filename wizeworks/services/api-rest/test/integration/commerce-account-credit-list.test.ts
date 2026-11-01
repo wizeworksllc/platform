@@ -9,8 +9,8 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import { prisma, withTenant } from '@wizeworks/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import {
   authHeader,

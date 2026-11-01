@@ -7,7 +7,7 @@
 // are a row that says "no pay rate set" — because a zero here becomes a zero in
 // the profit figure, and the owner reads that as a month where labour was free.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { deriveLabor, type LaborEntry } from './costing.js';
 import { dayKey, type PayBasis } from './pay.js';
 import { toPayRate } from './rates.js';

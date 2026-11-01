@@ -1,9 +1,9 @@
 // Where a signing link is built and sent (docs/144 §12).
 //
-// This lives in api-rest rather than in @wizeworks/crm for the same reason
+// This lives in api-rest rather than in @wizeworksllc/crm for the same reason
 // `email-data.ts` does: the composition root is the only place that knows the
 // storefront's public URL and already owns the outbound email path, and giving
-// @wizeworks/crm a transport dependency to send one email would be paying for it in
+// @wizeworksllc/crm a transport dependency to send one email would be paying for it in
 // every unit test in the package.
 //
 // THE LINK IS BUILT ONCE AND NEVER STORED. It exists in this function's
@@ -12,11 +12,11 @@
 // only a SHA-256.
 
 import type { FastifyRequest } from 'fastify';
-import type { BillingDocumentSignature } from '@wizeworks/db';
-import { prisma, withTenant } from '@wizeworks/db';
-import { requireAuth } from '@wizeworks/api-core/auth';
+import type { BillingDocumentSignature } from '@wizeworksllc/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
 
-import { publish } from '@wizeworks/api-core/pubsub';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 import { resolveSiteOrigin, siteUrl } from './site-origin.js';
 import { tenantSenderHeaders } from './tenant-email.js';

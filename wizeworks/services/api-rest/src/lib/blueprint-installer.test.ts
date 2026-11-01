@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { resolveBindingHandles, type InstallResult } from './blueprint-installer';
-import { encodeBindingRef, type SilicaNode } from '@wizeworks/builder-schemas';
+import { encodeBindingRef, type SilicaNode } from '@wizeworksllc/builder-schemas';
 
 /** A minimal InstallResult carrying just the handle→id maps the rewrite reads. */
 function fakeResult(over: Partial<InstallResult> = {}): InstallResult {

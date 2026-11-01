@@ -16,10 +16,10 @@
 // payload actually carried — which, since docs/126 Phase 0, is the pages that changed
 // rather than the whole site.
 
-import { extractNodeIndex, type NodeIndexOwnerKind } from '@wizeworks/builder-schemas';
-import type { SilicaNode } from '@wizeworks/builder-schemas';
-import type { TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+import { extractNodeIndex, type NodeIndexOwnerKind } from '@wizeworksllc/builder-schemas';
+import type { SilicaNode } from '@wizeworksllc/builder-schemas';
+import type { TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { PropertyContext } from '../errors';
 

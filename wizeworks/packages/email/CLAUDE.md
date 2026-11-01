@@ -1,4 +1,4 @@
-# @wizeworks/email — the platform email integration
+# @wizeworksllc/email — the platform email integration
 
 Scoped guidance for sparx's coded email templates + the send pipeline. Loads when
 working in this tree. See root [CLAUDE.md](../../CLAUDE.md) for cross-cutting rules,
@@ -78,7 +78,7 @@ literals across 29 files had accumulated with nothing checking.
 ## The Signal design system (platform templates)
 
 - **Tokens = `signal` in [components/tokens.ts](src/components/tokens.ts).** DELIBERATELY
-  separate from `EMAIL_DESIGN` in `@wizeworks/builder-schemas` — that one is mirrored by the
+  separate from `EMAIL_DESIGN` in `@wizeworksllc/builder-schemas` — that one is mirrored by the
   tenant Email-Builder canvas, so **mutating it shifts the builder's scale**. Evolve the
   platform look in `signal`, never in `EMAIL_DESIGN`.
 - **Compose the block components, don't hand-roll markup.** [components/blocks.tsx](src/components/blocks.tsx)
@@ -141,9 +141,9 @@ synchronous-only flows (OTP, future 2FA)** — a non-OTP direct send needs justi
 Three publish surfaces, by context:
 
 - **Fastify routes/services** — `publish(request.log, 'email.send', tenantId, actorId,
-{ to, template, props })` from `@wizeworks/api-core/pubsub`.
+{ to, template, props })` from `@wizeworksllc/api-core/pubsub`.
 - **Auth / Next (better-auth callbacks, workbench server actions)** — `publishAuthEmail({
-tenantId, actorId, template, to, props })` from `@wizeworks/auth` (no Fastify logger there).
+tenantId, actorId, template, to, props })` from `@wizeworksllc/auth` (no Fastify logger there).
 - **Workers / crons** — `publishEvent(publisher, 'email.send', tenantId, null, { to,
 template, props }, pubLogger)` (see `domain-worker`'s `handler.ts`/`cron.ts`, or the
   `publishPartnerEmail` helper in `wizeworks/services/api-rest/src/lib/partners/events.ts` for
@@ -166,7 +166,7 @@ fail the business write or trigger a Pub/Sub retry loop of an already-done job:
 - **Auth contexts have no ambient tenant.** `user.tenantId` is a custom field better-auth
   doesn't surface in callback types → read it via `user as unknown as { tenantId?: string }`,
   fallback `?? ''`, exactly like `sendResetPassword` does.
-- **`from`** comes from `platformFrom()` (`@wizeworks/brand-core`). A brand that has
+- **`from`** comes from `platformFrom()` (`@wizeworksllc/brand-core`). A brand that has
   published `<BRAND>_EMAIL_FROM` sends from **its own address, verbatim**; a brand
   that has not falls back to `SPARX_EMAIL_FROM` with only its display NAME
   substituted. This paragraph used to say the address "cannot move until Piggles has
@@ -196,7 +196,7 @@ fail the business write or trigger a Pub/Sub retry loop of an already-done job:
 
 ## Marketing vs transactional — don't duplicate
 
-- **19 KEYED transactional defaults** (`@wizeworks/builder-schemas` `default-emails.ts`) are
+- **19 KEYED transactional defaults** (`@wizeworksllc/builder-schemas` `default-emails.ts`) are
   provisioned on email-module activation — order/shipping/dunning. Blueprint `emails` are
   **UNKEYED brand-voiced marketing starters** (welcome/win-back). The coded PLATFORM
   templates here are a THIRD, separate set (sparx's own account/billing/security mail).
@@ -232,11 +232,11 @@ fail the business write or trigger a Pub/Sub retry loop of an already-done job:
 
 ## Where things live
 
-- **`@wizeworks/email`** (here) — templates, the Signal blocks/tokens, `send.tsx` registry +
+- **`@wizeworksllc/email`** (here) — templates, the Signal blocks/tokens, `send.tsx` registry +
   `renderTemplate`, providers (console dev / Mailgun prod).
-- **`@wizeworks/email-worker`** — `template-schema.ts` (the zod gate) + `handler.ts`
+- **`@wizeworksllc/email-worker`** — `template-schema.ts` (the zod gate) + `handler.ts`
   (render + relay + accept-bookkeeping). Runs inside `wizeworks/services/event-worker`.
-- **`@wizeworks/email-platform`** — per-send brand resolution, sending-domain (Mailgun)
+- **`@wizeworksllc/email-platform`** — per-send brand resolution, sending-domain (Mailgun)
   management, analytics, and the SEPARATE management-event bus (`publishEmailEvent` —
   `email.domain.verified` etc.; NOT the `email.send` transport).
 - **Publisher sites** — auth (`wizeworks/packages/auth/src/server.ts` hooks + `email-events.ts`),

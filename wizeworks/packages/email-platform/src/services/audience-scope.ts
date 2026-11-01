@@ -4,7 +4,7 @@
 // multi-site tenants from the worst thing email can do, and it deserves a test that
 // doesn't have to drag the whole render path (React Email et al.) in behind it.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 /**
  * The site-scoping predicate for a broadcast's audience.

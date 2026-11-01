@@ -10,8 +10,8 @@
 // is the backstop and the service-layer fetch confirms both rows exist
 // before writing the join row.
 
-import { withTenant } from '@wizeworks/db';
-import type { BillingDocument, DealBillingDocument, DealOrder, Order } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { BillingDocument, DealBillingDocument, DealOrder, Order } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

@@ -18,8 +18,8 @@
 //   ['crm','signatures', id]  what has been asked of one document
 // ══════════════════════════════════════════════════════════════════════════
 
-import type { ConditionGroup } from '@wizeworks/automation-schemas';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import type { ConditionGroup } from '@wizeworksllc/automation-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import type { Customer } from './customers-data';

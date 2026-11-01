@@ -12,7 +12,7 @@ const EnvSchema = z.object({
   // depth on top of Cloud Run's frontend auth check. Leave unset in dev.
   PUBSUB_INVOKER_SA: z.string().email().optional(),
 
-  // Typesense. Same env shape @wizeworks/search uses; the package's
+  // Typesense. Same env shape @wizeworksllc/search uses; the package's
   // configFromEnv() reads these directly. We restate them here so the
   // worker fails fast at boot if any are missing.
   TYPESENSE_HOST: z.string().min(1).default('typesense'),
@@ -21,7 +21,7 @@ const EnvSchema = z.object({
   TYPESENSE_API_KEY: z.string().min(1),
   TYPESENSE_TIMEOUT_SECONDS: z.coerce.number().int().min(1).max(60).default(5),
 
-  // Used by @wizeworks/commerce's projection for image URL stamping. Either
+  // Used by @wizeworksllc/commerce's projection for image URL stamping. Either
   // is acceptable; CDN URL takes precedence if both are set.
   SPARX_MEDIA_CDN_URL: z.string().url().optional(),
   GCS_MEDIA_BUCKET: z.string().optional(),

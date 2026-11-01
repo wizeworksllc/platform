@@ -9,7 +9,7 @@
 
 import { z } from 'zod';
 
-import { PlaceCallInput, UpdateCallInput } from '@wizeworks/crm-schemas';
+import { PlaceCallInput, UpdateCallInput } from '@wizeworksllc/crm-schemas';
 
 import { callService, voiceConnectionService } from '../services';
 

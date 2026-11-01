@@ -33,7 +33,7 @@
 // gets agreed prices must not be the only screen that believes it.
 // [[feedback_a_fix_leaves_its_neighbour_behind]]
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** What the customer editor grants, because its own field says "buys on behalf
  *  of". Anything narrower is chosen on the account, which lists every member. */

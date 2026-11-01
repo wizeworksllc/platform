@@ -8,7 +8,7 @@ Last Updated: 2026-10-21
 > replicas, and Azure production never ran Redis, so the Redis backplane this doc
 > describes was never there: the agent relay was a no-op in production, and a second
 > replica would have split every room in two. Both servers (`/ws/chat`, `/ws/builder`)
-> and the api-mcp emitter now share one transport, `@wizeworks/socket-bus`: a socket.io
+> and the api-mcp emitter now share one transport, `@wizeworksllc/socket-bus`: a socket.io
 > cluster adapter over plain NATS publish/subscribe on the server the event broker
 > already runs, selected by `SOCKET_BUS_URL`. Same room names, same `sio-builder` key,
 > same zero-forwarding-code shape. No new infrastructure, again.
@@ -388,7 +388,7 @@ Rejections surface to the author in plain language. `page.setSlug` collision is 
 
 ### 4.2 Presence and soft claim
 
-Reuse the **existing socket.io server in `api-rest`** and its cross-replica adapter (docs/56 live chat, docs/96 product activity) — since 1.10.0 the NATS socket bus (`@wizeworks/socket-bus`), not Redis. A new `/builder` namespace, rooms keyed by `propertyId`. No new infrastructure.
+Reuse the **existing socket.io server in `api-rest`** and its cross-replica adapter (docs/56 live chat, docs/96 product activity) — since 1.10.0 the NATS socket bus (`@wizeworksllc/socket-bus`), not Redis. A new `/builder` namespace, rooms keyed by `propertyId`. No new infrastructure.
 
 - **Presence** — actor id, display name, assigned color, current selection `nodeId`
 - **Soft claim** — selecting a node claims its subtree for 30s, renewed on activity
@@ -476,7 +476,7 @@ page body or the frame relays a **reload hint**, not an op: the co-editor is off
 in-progress work. Creating/deleting/theming — the dominant agent pattern — fold in live.
 
 **Crossing api-mcp → the socket: the socket bus emitter, not Pub/Sub.** The relay socket lives
-in api-rest; the MCP write runs in api-mcp. The transport is **the `@wizeworks/socket-bus`
+in api-rest; the MCP write runs in api-mcp. The transport is **the `@wizeworksllc/socket-bus`
 emitter into the NATS socket bus api-rest's `/ws/builder` server already runs** (until
 1.10.0 this was `@socket.io/redis-emitter` into a Redis backplane, which Azure never ran) — api-mcp
 emits `ops:relay` + a `builder:agentActivity` (presence pulse + reload hints) straight into

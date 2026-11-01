@@ -1,12 +1,12 @@
 // sparx's legal document versions, for the pages that render them.
 //
-// The single source of truth is `@wizeworks/legal`, which holds one entry PER
+// The single source of truth is `@wizeworksllc/legal`, which holds one entry PER
 // BRAND — the acceptance recorder used to write sparx's versions against every
 // tenant regardless of which product they signed up through, and keying it by
 // brand is what fixed that. These pages are sparx's, so they pin sparx's entry
 // once here rather than passing a brand string on every page.
 
-import { brandLegal, type LegalDocVersion } from '@wizeworks/legal';
+import { brandLegal, type LegalDocVersion } from '@wizeworksllc/legal';
 
 const SPARX = brandLegal('sparx');
 
@@ -20,4 +20,4 @@ export const LEGAL_DOC_VERSIONS = SPARX.versions as Record<
 
 export const SUBPROCESSORS_VERSION = SPARX.subprocessors;
 
-export type { LegalDocVersion, LegalDocType } from '@wizeworks/legal';
+export type { LegalDocVersion, LegalDocType } from '@wizeworksllc/legal';

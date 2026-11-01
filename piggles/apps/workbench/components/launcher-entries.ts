@@ -8,7 +8,7 @@
 // the palette is a faster route to a surface, never a wider one.
 
 import { useMemo } from 'react';
-import { recordDestination, routeForEntity } from '@wizeworks/links';
+import { recordDestination, routeForEntity } from '@wizeworksllc/links';
 import { useFavorites } from '../lib/api/shell-data';
 import { useDebouncedValue, useRecordSearch } from '../lib/api/search';
 import {

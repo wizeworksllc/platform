@@ -9,7 +9,7 @@
 // records who finished it and when), so it is its own mutation here.
 //
 // The write shapes mirror the CRM's own `CreateTaskInput` / `UpdateTaskInput`
-// (Zod in `@wizeworks/crm-schemas`), named locally because that package is not a
+// (Zod in `@wizeworksllc/crm-schemas`), named locally because that package is not a
 // dependency of this app; the server runs that Zod and has the final say.
 //
 //   ['crm','tasks']              the root every read nests under
@@ -17,13 +17,13 @@
 //   ['crm','tasks', id]          one task, in full
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
-import type { TaskPriority, TaskStatus } from '@wizeworks/crm-schemas';
+import type { TaskPriority, TaskStatus } from '@wizeworksllc/crm-schemas';
 import { api } from '../../lib/api/client';
 
-// `TaskStatus` / `TaskPriority` are the server's own enums (`@wizeworks/crm-schemas`).
+// `TaskStatus` / `TaskPriority` are the server's own enums (`@wizeworksllc/crm-schemas`).
 // `CreateTaskInput` / `UpdateTaskInput` below stay narrow local write payloads
 // (the `DiscountInput` house pattern), so they name only what this pane sends.
 export type { TaskPriority, TaskStatus };

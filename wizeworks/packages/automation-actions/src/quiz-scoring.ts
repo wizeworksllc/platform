@@ -3,7 +3,7 @@
 // ── WHY THIS LIVES IN THE ACTION LAYER ───────────────────────────────────────
 //
 // It reads a FORM definition and writes a CRM score, which makes it neither
-// package's business: putting it in `@wizeworks/crm` would have that package
+// package's business: putting it in `@wizeworksllc/crm` would have that package
 // depend on the builder's schemas to understand a form's config, and putting it
 // in the builder would have the builder writing lead scores. Cross-module
 // orchestration is exactly what the action layer is for, and this package
@@ -16,9 +16,9 @@
 // the quiz shows up in `explain_crm_score` beside every other reason the number
 // is what it is, and whoever picks the lead up can see what moved it.
 
-import { withTenant } from '@wizeworks/db';
-import { isQuiz, readQuizScoring, scoreAnswers } from '@wizeworks/builder-schemas';
-import { scoringService } from '@wizeworks/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { isQuiz, readQuizScoring, scoreAnswers } from '@wizeworksllc/builder-schemas';
+import { scoringService } from '@wizeworksllc/crm';
 
 export interface QuizScoringInput {
   submissionId: string;

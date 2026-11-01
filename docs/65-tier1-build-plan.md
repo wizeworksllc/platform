@@ -34,7 +34,7 @@ Create `wizeworks/services/api-rest/src/lib/stripe.ts`:
 - `createRefund(paymentIntentId, amountCents?)` — full or partial
 - `constructWebhookEvent(body, sig)` — webhook signature verification
 
-Pub/Sub events to add in `@wizeworks/events`: `order.created`, `order.fulfilled`, `order.refunded`, `payment.captured`, `payment.failed`.
+Pub/Sub events to add in `@wizeworksllc/events`: `order.created`, `order.fulfilled`, `order.refunded`, `payment.captured`, `payment.failed`.
 
 ### Phase 2 — Checkout API
 

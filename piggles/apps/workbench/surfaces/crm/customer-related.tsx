@@ -23,7 +23,7 @@ import {
   faWavePulse,
 } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import type { OpenTarget, SurfaceContext } from '../../lib/surfaces/registry';
 import { api } from '../../lib/api/client';
 import { ModuleScope } from '../../components/module-scope';

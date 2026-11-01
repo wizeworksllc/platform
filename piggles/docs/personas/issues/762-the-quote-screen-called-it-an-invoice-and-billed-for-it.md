@@ -71,7 +71,7 @@ the thing reads it — the tab, the field help, the save messages, the confirm o
 close, and which date column the date goes in.
 
 **The rule lives in one place.** `isPriceOfferWorkflow` and
-`billingDocumentNoun` in `@wizeworks/crm-schemas/builtins`, beside the slugs
+`billingDocumentNoun` in `@wizeworksllc/crm-schemas/builtins`, beside the slugs
 they key on, because the renderer that prints the page a customer receives has
 to agree with the screen it was typed on (issue 764 is what happens when they
 do not). `check:price-offers` fails on a second copy.

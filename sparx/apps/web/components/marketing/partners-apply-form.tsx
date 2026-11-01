@@ -16,7 +16,7 @@ import {
   NativeSelect,
   Textarea,
 } from '@wizeworks/silicaui-react';
-import { rule, rules, useFieldValidation } from '@wizeworks/forms';
+import { rule, rules, useFieldValidation } from '@wizeworksllc/forms';
 import { Heading, Text } from '@wizeworks/silicaui-react';
 import { type PartnerTier } from '@/lib/partners';
 import { applyToPartnerProgram, type ApplyState } from '@/app/partners/actions';

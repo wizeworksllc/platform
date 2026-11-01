@@ -1,6 +1,6 @@
 # Local Postgres 18 for Sparx development.
 # Production runs on Cloud SQL Postgres 18 (docs/03-infrastructure-deployment.md).
-# Brought up via `pnpm --filter @wizeworks/db db:up`.
+# Brought up via `pnpm --filter @wizeworksllc/db db:up`.
 
 services:
   postgres:

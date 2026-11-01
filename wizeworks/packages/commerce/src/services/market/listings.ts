@@ -6,8 +6,8 @@
 // product appears on sparx.market the moment it is listed. Listing requires the
 // tenant to participate (MarketMerchantProfile.enabled); un-listing never does.
 
-import { withTenant } from '@wizeworks/db';
-import { MarketBulkOptInInput, MarketProductOptInInput } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { MarketBulkOptInInput, MarketProductOptInInput } from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../../errors';

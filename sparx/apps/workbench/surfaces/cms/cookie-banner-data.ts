@@ -4,7 +4,7 @@
 // site by the `x-sparx-property-id` header the api client already sends.
 // `visitorView` mirrors `computeBannerEnabled` in api-rest's lib/consent.ts.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { LEGAL_QUERY_ROOT } from './data';
 

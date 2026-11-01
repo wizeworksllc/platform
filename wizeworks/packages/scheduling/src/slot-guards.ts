@@ -17,7 +17,7 @@
 // intervals). That is what makes the console and the customer's booking page
 // agree about when a business is open, which is the whole point.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import {
   buildResourceOverrides,

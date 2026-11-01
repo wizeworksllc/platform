@@ -2,7 +2,7 @@
 //
 // Every action is a typed `type` + an opaque `config` bag. Per-action config is
 // validated at DISPATCH time against the executing service's contract (the action
-// registry in `@wizeworks/automation`), NOT here — the downstream contract lives with
+// registry in `@wizeworksllc/automation`), NOT here — the downstream contract lives with
 // the executor, and the engine reaches every effect through the gated dispatcher
 // (§7.1). This file owns the durable storage/wire shape only.
 //

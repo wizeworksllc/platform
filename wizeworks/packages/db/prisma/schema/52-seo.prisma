@@ -38,7 +38,7 @@ model SeoAudit {
   // resolved through the junctions that already answer that question.
   propertyId String? @map("property_id") @db.Uuid
 
-  // builder_page | cms_page | product | collection (matches @wizeworks/seo-audit EntityType).
+  // builder_page | cms_page | product | collection (matches @wizeworksllc/seo-audit EntityType).
   entityType String @map("entity_type") @db.VarChar(20)
   entityId   String @map("entity_id") @db.Uuid
 
@@ -51,7 +51,7 @@ model SeoAudit {
   title    String? @db.VarChar(300)
   path     String? @db.VarChar(2048)
   // The full Scorecard JSON — lets the overview render the report without a live
-  // recompute. Shape owned by @wizeworks/seo-audit; never validated by the DB.
+  // recompute. Shape owned by @wizeworksllc/seo-audit; never validated by the DB.
   card     Json
 
   computedAt DateTime @map("computed_at") @db.Timestamptz

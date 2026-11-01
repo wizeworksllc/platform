@@ -19,7 +19,7 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { listUncounted, updateLevelCount } from '../../src/services/public-api.js';
 import { createInventoryFixture, createTestTenant, dropTestTenant } from '../helpers.js';

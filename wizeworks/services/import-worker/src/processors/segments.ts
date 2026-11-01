@@ -13,9 +13,9 @@
 // "1,200 of 1,340 people were matched" is the number that tells a tenant whether
 // their list came across.
 
-import { segmentService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { toList, toSlug } from '@wizeworks/migration';
+import { segmentService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { toList, toSlug } from '@wizeworksllc/migration';
 
 import { Resolver } from './resolve';
 import {

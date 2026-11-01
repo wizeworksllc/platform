@@ -27,7 +27,7 @@ Working state as of 2026-08-21. Delete this file once the open items below are c
 
   The commit itself is the `jotacular.com` zone in the DNS module, the corrected
   Caddy blocks, and the five-name TLS allow-list.
-  The first push attempt died on `@wizeworks/builder` lint with 120
+  The first push attempt died on `@wizeworksllc/builder` lint with 120
   "type that cannot be resolved" errors against Prisma accessors — nothing to do
   with the commit. The release worktree's generated client was from 2026-08-15,
   and `pnpm install --frozen-lockfile` does not re-run generate when the lockfile

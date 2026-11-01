@@ -8,7 +8,7 @@
 // data the templates bind is pinned at its source.
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { SilicaEmailDocument } from '@wizeworks/builder-schemas';
+import type { SilicaEmailDocument } from '@wizeworksllc/builder-schemas';
 
 interface OrderRow {
   propertyId: string | null;
@@ -40,7 +40,7 @@ const SITES = new Map([
   [COUNTER.id, COUNTER],
 ]);
 
-vi.mock('@wizeworks/db', async (importOriginal) => {
+vi.mock('@wizeworksllc/db', async (importOriginal) => {
   const actual = await importOriginal<Record<string, unknown>>();
   const orderFull = () =>
     state.order && {

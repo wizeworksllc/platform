@@ -68,7 +68,7 @@ export type CanonicalRow = Record<string, string>;
  * Typed as a literal union rather than `string` so a consumer can hand these straight
  * to `isModuleEnabled` without a cast. It is deliberately a SUBSET of the platform's
  * module list spelled out here, because this package has no dependencies and importing
- * `@wizeworks/modules` for six strings would be the thing that ends that.
+ * `@wizeworksllc/modules` for six strings would be the thing that ends that.
  */
 export type EntityModule = 'builder' | 'commerce' | 'cms' | 'crm' | 'b2b' | 'inventory';
 

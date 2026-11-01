@@ -60,7 +60,7 @@ orange date and a blue "Upcoming".
 
 It was the first candidate. Every color an author has not picked carries an
 `Auto` flag (`bgAuto`, `colorAuto`, …), and the send repaints those from the
-site's brand (`applyBrandColors` in `@wizeworks/email`). The canvas never did:
+site's brand (`applyBrandColors` in `@wizeworksllc/email`). The canvas never did:
 the brand colors it was handed (`emailColors`, from `/v1/builder/emails/frame`)
 were used only to give a NEW block its colors (`palette.tsx`). A block already
 in the design drew its stored value, `#111827`.

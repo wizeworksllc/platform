@@ -497,7 +497,7 @@ const EXCEPTIONS = [
     axis: 'lib',
     only: 'piggles',
     path: 'lib/console',
-    why: 'the Piggles app catalog, rail grouping and lexicon — the counterpart to sparx’s module catalog, which sits in @wizeworks/modules because sparx sells those modules separately.',
+    why: 'the Piggles app catalog, rail grouping and lexicon — the counterpart to sparx’s module catalog, which sits in @wizeworksllc/modules because sparx sells those modules separately.',
   },
   {
     axis: 'components',

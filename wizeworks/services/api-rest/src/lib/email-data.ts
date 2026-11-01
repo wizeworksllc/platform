@@ -3,8 +3,8 @@
 // Builder email renderer (`renderEmailTree`) resolves bindings + `{{token}}` merge
 // fields against, keyed to the docs/91 §3 vocabulary.
 //
-// Lives in api-rest — the composition root that already has @wizeworks/commerce — so
-// @wizeworks/email-platform (imported by the lean email-worker) stays commerce-free.
+// Lives in api-rest — the composition root that already has @wizeworksllc/commerce — so
+// @wizeworksllc/email-platform (imported by the lean email-worker) stays commerce-free.
 // Injected into the broadcast send path + the dispatch tick as the
 // `resolveEmailData` callback (docs/52 §6).
 //
@@ -21,28 +21,28 @@
 // address on the site the email is about (`lib/site-origin.ts`): a bare path
 // opens nothing from an inbox, and every link here was one until issue 064.
 
-import { contentSiteVisibilityWhere, withTenant } from '@wizeworks/db';
+import { contentSiteVisibilityWhere, withTenant } from '@wizeworksllc/db';
 import {
   COLLECTION_RATE_REF,
   discountService,
   productService,
   relatedProductService,
-} from '@wizeworks/commerce';
-import { carrierLabel, typedCarrierOf } from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce';
+import { carrierLabel, typedCarrierOf } from '@wizeworksllc/commerce-schemas';
 import { dueOnCollectionCents } from './collection-balance.js';
 import { firstText, money, qty } from './email-format.js';
 import { invoiceItemRows, invoiceMoneyIn, parcelItemRows } from './email-item-rows.js';
-import { billingDocumentMail, businessTimeZone, daysPastDue } from '@wizeworks/crm';
-import { EMAIL_FRAME_TOKENS } from '@wizeworks/email/silica';
-import { ALL_MODULES, listEnabledModules, type ModuleSlug } from '@wizeworks/modules';
+import { billingDocumentMail, businessTimeZone, daysPastDue } from '@wizeworksllc/crm';
+import { EMAIL_FRAME_TOKENS } from '@wizeworksllc/email/silica';
+import { ALL_MODULES, listEnabledModules, type ModuleSlug } from '@wizeworksllc/modules';
 import {
   addressMergeValue,
   collectSilicaEmailSourceKeys,
   type DataSources,
   type SilicaEmailDocument,
-} from '@wizeworks/builder-schemas';
-import { findBookingPlace, joinNames } from '@wizeworks/scheduling';
-import type { ServiceContext } from '@wizeworks/email-platform';
+} from '@wizeworksllc/builder-schemas';
+import { findBookingPlace, joinNames } from '@wizeworksllc/scheduling';
+import type { ServiceContext } from '@wizeworksllc/email-platform';
 
 import { resolveCoreReturnAddress } from './business-identity.js';
 import { resolveActivePropertyName, resolvePrimaryPropertyId } from './property.js';
@@ -1583,8 +1583,8 @@ export function applyEntitySnapshot(
 }
 
 /** The resolver callback bound to a request's context — what the broadcast send path,
- *  the dispatch tick, and the editor preview inject so @wizeworks/email-platform resolves
- *  email data without a @wizeworks/commerce dependency (docs/52 §6). `boundPropertyId`
+ *  the dispatch tick, and the editor preview inject so @wizeworksllc/email-platform resolves
+ *  email data without a @wizeworksllc/commerce dependency (docs/52 §6). `boundPropertyId`
  *  scopes `{{tenant.name}}` to the active site for callers that know the site at
  *  injection time (preview/test-send pass `ctx.propertyId`); a per-call `propertyId`
  *  lets a caller that learns the site later override it (the broadcast send path passes

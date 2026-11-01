@@ -8,7 +8,7 @@
 // activation, a11y) identical everywhere by construction instead of by review.
 
 import { useState, type ReactNode } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Badge, Button, Card, SearchInput } from '@wizeworks/silicaui-react';
 import { Table } from '../components/table';
 import { Plus, type LucideIcon } from 'lucide-react';

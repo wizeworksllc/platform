@@ -16,11 +16,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { Prisma } from '@wizeworks/db';
-import { withOwnUserRow, withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
+import type { Prisma } from '@wizeworksllc/db';
+import { withOwnUserRow, withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import {
   DEFAULT_NOTIFICATION_PREFERENCES,

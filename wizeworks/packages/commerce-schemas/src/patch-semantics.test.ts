@@ -1,5 +1,5 @@
 // Guard for a whole class of silent data loss — the commerce half of the same
-// check that lives in @wizeworks/crm-schemas' patch-semantics.test.ts.
+// check that lives in @wizeworksllc/crm-schemas' patch-semantics.test.ts.
 //
 // `.partial()` makes a field optional but does NOT strip its `.default()`, so
 // `CreateX.partial().parse({})` returns every defaulted field filled in, and

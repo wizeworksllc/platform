@@ -51,23 +51,23 @@ import {
   takePlatformVersion,
   updateAutomation,
   type ServiceCtx,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import {
   CloneAutomationInput,
   CreateAutomationInput,
   PublishAutomationInput,
   RestoreAutomationVersionInput,
   UpdateAutomationInput,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 // Universal search (docs/39): a rule is an `automation` entity. Its NAME is what
 // an owner types to find it again, and a seeded one has a name she can read, so
 // every write that moves one re-indexes. `indexEntity` never throws into the handler.
-import { indexEntity } from '@wizeworks/events';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
+import { indexEntity } from '@wizeworksllc/events';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
 import { reachableSiteIds, resolveListScope } from '../../../lib/property.js';
-import { notFound } from '@wizeworks/api-core/errors';
-import type { StaffRole } from '@wizeworks/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import type { StaffRole } from '@wizeworksllc/api-core/auth';
 
 const IdParam = z.object({ id: z.string().uuid() });
 const RunParams = z.object({ id: z.string().uuid(), runId: z.string().uuid() });

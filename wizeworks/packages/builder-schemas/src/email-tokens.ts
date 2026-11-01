@@ -7,7 +7,7 @@
 // with an optional literal fallback used when the path resolves empty.
 //
 // This module is the PURE token layer shared by both ends of the pipeline:
-//   · the renderer (`@wizeworks/email`'s `renderEmailTree`) interpolates tokens against
+//   · the renderer (`@wizeworksllc/email`'s `renderEmailTree`) interpolates tokens against
 //     a resolved scope at dispatch;
 //   · the dispatch resolver (`api-rest`'s `resolveEmailData`) collects the token
 //     PATHS a tree references so it loads only the sources actually used.

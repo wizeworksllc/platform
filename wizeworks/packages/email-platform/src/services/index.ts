@@ -10,7 +10,7 @@
 //
 // Built-in transactional template customization (the old templateService +
 // BUILTIN_TEMPLATES) was removed in docs/93 — every tenant→customer email is now
-// Builder-authored (builderEmailService + @wizeworks/builder's emailService).
+// Builder-authored (builderEmailService + @wizeworksllc/builder's emailService).
 
 export * as settingsService from './settings-service';
 export * as domainService from './domain-service';

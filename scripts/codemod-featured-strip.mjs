@@ -27,7 +27,7 @@
  * bundle. Every bundle carrying a product strip still ships the broken one.
  *
  * The repair itself is NOT written here — it is `upgradePageBody` from
- * `@wizeworks/silica-catalog`, the same function that heals a live tenant's
+ * `@wizeworksllc/silica-catalog`, the same function that heals a live tenant's
  * stored draft at studio load. One definition, two callers: a second copy of the
  * transform is a second thing to keep correct.
  *

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/staff",
+  "name": "@wizeworksllc/staff",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Staff (docs/149) — the people who do the work: the roster, effective-dated pay rates, timesheets, shifts, time off, certifications, and the labour deriver that turns approved hours into a finance expense. Deliberately NOT payroll (no withholding, no filing, no payments) — sparx records hours and rates and exports them.",
@@ -25,9 +25,9 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/finance": "workspace:*",
-    "@wizeworks/modules": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/finance": "workspace:*",
+    "@wizeworksllc/modules": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

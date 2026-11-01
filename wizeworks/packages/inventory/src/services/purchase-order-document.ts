@@ -1,7 +1,7 @@
 // Purchase-order print document (docs/100 P3b). Mirrors the billing-document
 // print pattern (docs/87 §10) — a self-contained, branded, print-styled HTML
 // sheet (browser → PDF); concrete color/font values only, so the artifact opens
-// anywhere. @wizeworks/inventory can't import @wizeworks/crm's renderer (the dependency
+// anywhere. @wizeworksllc/inventory can't import @wizeworksllc/crm's renderer (the dependency
 // rule points consumers AT inventory, never the reverse), so this is a focused
 // peer renderer in the same visual language.
 //
@@ -9,8 +9,8 @@
 // loads the PO + parties inside the tenant tx and feeds the renderer; the API
 // layer passes the resolved seller brand.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError } from '../errors';
 import type { ServiceContext } from '../errors';

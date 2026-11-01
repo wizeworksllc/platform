@@ -18,8 +18,8 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole, requireAnyRole, type StaffRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole, requireAnyRole, type StaffRole } from '@wizeworksllc/api-core/auth';
 import { notAPartner } from '../../../lib/partners/not-a-partner.js';
 
 import { partnerService, toPartnerContext } from '../../../lib/partners/service.js';

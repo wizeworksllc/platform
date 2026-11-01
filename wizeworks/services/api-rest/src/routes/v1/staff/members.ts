@@ -20,10 +20,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { ok } from '@wizeworks/api-core/envelope';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   addDocument,
   archiveMember,
@@ -36,15 +36,15 @@ import {
   restoreMember,
   updateDocument,
   updateMember,
-} from '@wizeworks/staff';
+} from '@wizeworksllc/staff';
 import {
   documentSchema,
   staffMemberCreateSchema,
   staffMemberUpdateSchema,
   staffStatusSchema,
-} from '@wizeworks/staff/schemas';
-import { bookableResourceIds, setBookable } from '@wizeworks/scheduling';
-import { isModuleEnabled } from '@wizeworks/auth';
+} from '@wizeworksllc/staff/schemas';
+import { bookableResourceIds, setBookable } from '@wizeworksllc/scheduling';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 import { canSeePay, requirePayAccess, requireStaffModule } from '../../../lib/staff-context.js';
 import { publishStaffEvent } from '../../../lib/staff-events.js';
 import { signalResource, signalStaffMember } from '../../../lib/scheduling-search.js';

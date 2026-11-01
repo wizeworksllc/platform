@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { FieldSchema } from '@wizeworks/field-schema';
+import type { FieldSchema } from '@wizeworksllc/field-schema';
 
 import { describeColumnProblems, propertiesFromRow } from './property-columns';
 

@@ -7,7 +7,7 @@
 // validation just falls back to the published-only path.
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 import { resolveActivePropertySlug } from './site-context';
 import { readSlugOrNull } from './slug-miss';

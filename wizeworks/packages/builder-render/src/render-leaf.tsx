@@ -13,7 +13,7 @@
 //               product, and substitutes representative placeholders for
 //               otherwise-empty leaves so an unauthored node stays selectable.
 //   · surface — `page`/`site` paint the silicaui storefront scale; `email`
-//               paints the @wizeworks/email pixel scale (the email-leaf set).
+//               paints the @wizeworksllc/email pixel scale (the email-leaf set).
 //   · leafClass — for leaves that style their OWN element (leafWearsClass), the
 //               host passes node.class here so the recipe/Surface paints it and
 //               the host suppresses its own wrapper class (no double-paint).
@@ -27,7 +27,7 @@
 // Server- AND client-safe: this module carries no 'use client' directive, so the
 // live RSC tree and the client canvas both call it. The genuinely-interactive
 // atoms it returns are 'use client' islands (commerce/carousel/icon/signup); the
-// rest is presentational. No server-only imports (@wizeworks/db, next/headers).
+// rest is presentational. No server-only imports (@wizeworksllc/db, next/headers).
 
 import * as React from 'react';
 import { Image as ImageIcon } from 'lucide-react';
@@ -43,7 +43,7 @@ import {
   sampleEmailText,
   type BuilderNode,
   type Cardinality,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import {
   EditorialSection,
   EmbedFrame,
@@ -71,7 +71,7 @@ import {
 } from './atoms';
 // Server-safe JSON→HTML serializer (no React/jsdom) — the audited CMS path. Used
 // by the Prose leaf for both a bound rich-text body and an authored doc.
-import { renderDocToHtml } from '@wizeworks/cms-editor/serialize';
+import { renderDocToHtml } from '@wizeworksllc/cms-editor/serialize';
 
 import {
   BuilderActionButton,
@@ -113,7 +113,7 @@ export interface LeafRenderArgs {
   /** `live` ships acting elements + production-empty output; `edit` (the canvas)
    *  feeds commerce atoms a sample product and shows placeholders for empties. */
   mode: RenderMode;
-  /** `page`/`site` → the silicaui scale; `email` → the @wizeworks/email pixel scale. */
+  /** `page`/`site` → the silicaui scale; `email` → the @wizeworksllc/email pixel scale. */
   surface: RenderSurface;
   /** node.class to apply on the leaf's OWN element, for leaves that style
    *  themselves by class (leafWearsClass). Undefined → the host wrapper carries
@@ -589,7 +589,7 @@ export function renderLeaf(args: LeafRenderArgs): React.ReactNode {
     }
     case 'Button': {
       const label = boundOr(str('label') || 'Button');
-      // On email, the filled accent CTA at the @wizeworks/email scale (docs/93).
+      // On email, the filled accent CTA at the @wizeworksllc/email scale (docs/93).
       if (email) {
         return (
           <EmailButtonLeaf style={emailStyle}>

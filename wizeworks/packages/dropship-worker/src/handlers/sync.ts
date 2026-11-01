@@ -4,9 +4,9 @@
 
 import type { Logger } from 'pino';
 import type { Prisma } from '@prisma/client';
-import { withTenant } from '@wizeworks/db';
-import { createPublisher, indexEntity, publishEvent, type Publisher } from '@wizeworks/events';
-import { createAdapter } from '@wizeworks/dropship';
+import { withTenant } from '@wizeworksllc/db';
+import { createPublisher, indexEntity, publishEvent, type Publisher } from '@wizeworksllc/events';
+import { createAdapter } from '@wizeworksllc/dropship';
 import { feedDeps } from '../feed-host.js';
 
 export interface SyncStartedPayload {

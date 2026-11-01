@@ -20,7 +20,7 @@
 // says "300 imported" while having dropped a column is the failure mode this
 // whole file exists to prevent.
 
-import { coerceFromText, type FieldDef, type FieldSchema } from '@wizeworks/field-schema';
+import { coerceFromText, type FieldDef, type FieldSchema } from '@wizeworksllc/field-schema';
 
 /** One column that could not be read, in the words shown back to the person. */
 export interface ColumnProblem {

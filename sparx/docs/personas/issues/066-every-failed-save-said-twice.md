@@ -23,7 +23,7 @@ The cause is the console's failed-save safety net
 when `mutation.options.onError` is set. A handler passed at the call,
 `mutate(vars, { onError })`, which is how almost every screen does it, never appears
 there: TanStack keeps it private. So every screen that apologized in its own words got
-a second, permanent toast. `@wizeworks/query` already records the answer
+a second, permanent toast. `@wizeworksllc/query` already records the answer
 (`callerHandledError`) and supports `shownInPlace` for a screen that shows the error
 itself; the Piggles copy of this file was fixed for exactly this (Piggles issue 304),
 and also closes the toast when the same write later succeeds and replaces a repeated
@@ -33,7 +33,7 @@ failure instead of stacking it. The sparx copy never got that change.
 
 The sparx reporter is now the Piggles one: it honors `callerHandledError` and
 `shownInPlace`, withdraws a failure toast when the same write succeeds, and replaces
-rather than stacks a repeated failure. The rules live in `@wizeworks/query`
+rather than stacks a repeated failure. The rules live in `@wizeworksllc/query`
 (`mutation.ts`, `announcements.ts`) and are tested there. Workbench typecheck clean.
 
 ## Still open

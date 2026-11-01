@@ -4,8 +4,8 @@
 // before buying a label — the return-direction counterpart is
 // return-label-purchase.ts's buildReturnShipmentRequest.
 
-import { withTenant } from '@wizeworks/db';
-import type { AddressSnapshotType, RateOption, ShipmentRequest } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { AddressSnapshotType, RateOption, ShipmentRequest } from '@wizeworksllc/commerce-schemas';
 
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

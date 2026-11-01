@@ -11,7 +11,7 @@ import {
   addressMergeValue,
   DEFAULT_EMAIL_TEMPLATES,
   getDefaultEmailTemplate,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 
 import { lintEmailRender } from '../lint';
 import { renderSilicaEmail } from '../render-silica-email';

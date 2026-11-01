@@ -14,7 +14,7 @@
 // be tested without this module's data layer; both are re-exported here so the
 // surface keeps one import.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { bucketTone, type ReceivableBucketKey } from './receivables-words';
 

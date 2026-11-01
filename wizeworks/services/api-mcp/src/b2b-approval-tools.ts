@@ -1,12 +1,12 @@
 // Approving or rejecting a held wholesale order, for an AI client.
 //
 // The REST routes `POST /v1/b2b/approval-queue/:orderId/approve|reject` and these
-// tools are the same steps: @wizeworks/b2b's approval service decides the order
+// tools are the same steps: @wizeworksllc/b2b's approval service decides the order
 // and hands back what the card on it needs, then, once that has committed, the
 // card is charged (approved), let go or refunded in full (rejected), and the
 // order's events are published.
 //
-// They live here rather than in `@wizeworks/b2b/mcp` because settling the card
+// They live here rather than in `@wizeworksllc/b2b/mcp` because settling the card
 // needs the payment gateways, and the b2b package does not carry them (same
 // reasoning as `b2b-price-tools.ts`). The versions that lived there approved and
 // rejected without touching the card, so a rejected order kept the buyer's money
@@ -14,16 +14,16 @@
 // gated on the b2b module in server.ts.
 
 import { z } from 'zod';
-import { approvalService, type PendingEvent } from '@wizeworks/b2b';
-import { heldOrderPayments } from '@wizeworks/commerce';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { inventoryService } from '@wizeworks/inventory';
+import { approvalService, type PendingEvent } from '@wizeworksllc/b2b';
+import { heldOrderPayments } from '@wizeworksllc/commerce';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { inventoryService } from '@wizeworksllc/inventory';
 
 // Through api-core's publish, which also queues the business's own webhooks,
 // the same as the REST routes: approving can announce `order.paid`, and a
 // business can subscribe to that one (sparx persona issue 087). It wants a
 // Fastify logger and this service has no request, so the console stands in
-// (as in @wizeworks/cms's MCP tools).
+// (as in @wizeworksllc/cms's MCP tools).
 const mcpLogger = console as unknown as Parameters<typeof publish>[0];
 
 interface Ctx {

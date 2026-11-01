@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import type { WorkbenchController } from '../workbench/controller';
 import { saveLayout } from '../workbench/persistence';
 import type { ConsoleBusiness } from '../../app/api/businesses/route';

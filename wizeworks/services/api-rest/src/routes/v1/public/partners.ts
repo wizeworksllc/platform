@@ -16,8 +16,8 @@
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { directoryService } from '../../../lib/partners/directory.js';
 import { partnerService } from '../../../lib/partners/service.js';
@@ -35,7 +35,7 @@ function clientMeta(request: FastifyRequest): {
   ipAddress: string | null;
   userAgent: string | null;
 } {
-  // `request.ip`, resolved by the trusted-proxy list (@wizeworks/client-ip).
+  // `request.ip`, resolved by the trusted-proxy list (@wizeworksllc/client-ip).
   // This read the FIRST X-Forwarded-For entry, which is the one the client
   // writes — so the recorded address was whatever the applicant chose.
   const ua = request.headers['user-agent'];

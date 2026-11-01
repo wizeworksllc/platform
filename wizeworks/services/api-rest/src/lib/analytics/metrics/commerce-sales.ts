@@ -11,9 +11,9 @@
 // that changes this), so these are `scope: 'tenant'` — a Sales dashboard reads
 // across the whole business, labelled as such, until per-site revenue lands.
 
-import { reportingService } from '@wizeworks/commerce';
-import { channelKeyLabel } from '@wizeworks/crm-schemas';
-import type { TxClient } from '@wizeworks/db';
+import { reportingService } from '@wizeworksllc/commerce';
+import { channelKeyLabel } from '@wizeworksllc/crm-schemas';
+import type { TxClient } from '@wizeworksllc/db';
 import type { MetricContext, MetricData, MetricDefinition } from '../types.js';
 
 const ALL_GRAINS = ['day', 'week', 'month'] as const;
@@ -22,7 +22,7 @@ const ALL_GRAINS = ['day', 'week', 'month'] as const;
 //
 // This was the fifth copy of the channel table, and it had drifted twice
 // (`pos` missing, so a till sale drew the raw key; `admin` saying "Added by your
-// team" to a sole trader). Meanwhile the shared table in `@wizeworks/crm-schemas`
+// team" to a sole trader). Meanwhile the shared table in `@wizeworksllc/crm-schemas`
 // still said "Storefront" and "Admin". Since sparx persona issue 265 that shared
 // table carries the owners' words, so this reads it rather than keeping a copy.
 // A console with its own vocabulary still maps off the row's KEY.

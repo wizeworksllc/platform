@@ -16,7 +16,7 @@
 // Every function takes a tenant-scoped TxClient (caller wraps withTenant), so RLS
 // isolates all reads/writes.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 // ── UTC-day helpers ──────────────────────────────────────────────────
 export function startOfUtcDay(d: Date): Date {

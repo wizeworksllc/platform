@@ -55,7 +55,7 @@ export function bindAttr<T extends ElementNode>(element: T, attr: string, ref: s
  * Exists because a bound attribute is invisible to anything reading the authored tree:
  * a product card is an `<a>` with no `href`, which is indistinguishable from an anchor
  * somebody forgot to finish. It read that way to a human scanning the JSON and it read
- * that way to `@wizeworks/site-lint`, which reported every product card on the starter site
+ * that way to `@wizeworksllc/site-lint`, which reported every product card on the starter site
  * as "looks like a link but is not one".
  *
  * Renamed from `carrierBoundAttrs` when the carrier died, deliberately: the old name

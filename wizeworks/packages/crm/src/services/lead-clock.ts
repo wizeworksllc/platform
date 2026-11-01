@@ -18,7 +18,7 @@
 // standing up a second implementation of business-hours arithmetic for the two
 // of them to disagree about.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import {

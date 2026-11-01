@@ -38,7 +38,7 @@ them onto every version, and the order email read the link's code for every line
 
 ## The fix
 
-- `@wizeworks/dropship` `hand-versions.ts`: each version's code and price kept on the supplier's
+- `@wizeworksllc/dropship` `hand-versions.ts`: each version's code and price kept on the supplier's
   item, in its `variants` list (the one an imported item keeps its versions in), naming our
   version; `supplierLineFor` picks a line's own version, else the product's one code.
 - `PUT /v1/dropship/product-links` takes `versions` (every version on sale, each once) and prices

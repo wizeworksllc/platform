@@ -29,7 +29,7 @@ See [[module-mechanism]] for how a module is wired and gated. The *principle* (g
 | **scheduling** | rose `#F43F5E` | docs/79 | `scheduling/` | `v1/scheduling/*`, `v1/public/scheduling*` · scheduling mcp | 78 (+64) |
 | **ai** | magenta `#EC4899` | docs/07 | `ai/` + `settings/ai-integrations/` | **is** `wizeworks/services/api-mcp/` · `v1/ai/*` | 82-ai |
 | **social** | blue `#2563EB` | docs/133,134 | workbench `surfaces/social/` *(FREE — no price)* | `v1/social/*` · `social-worker` | 87-social |
-| **finance** | green `#16A34A` | docs/148 | workbench `surfaces/finance/` | `v1/finance/*` *(pending)* · `@wizeworks/finance` | 89-finance |
+| **finance** | green `#16A34A` | docs/148 | workbench `surfaces/finance/` | `v1/finance/*` *(pending)* · `@wizeworksllc/finance` | 89-finance |
 
 Building in a module? Open its row, read its PRD, and **match its existing UI** before adding surfaces ([[design]], [[components]]).
 

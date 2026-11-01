@@ -17,7 +17,7 @@
 // for good (sparx persona issue 009).
 
 import { useEffect, useRef, useState } from 'react';
-import type { StoryState } from '@wizeworks/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 import { toPersistPayload, type StoryPayload } from './story-state';
 import type { StoryModel } from './use-story-model';
 

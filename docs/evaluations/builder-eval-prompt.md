@@ -111,7 +111,7 @@ Then assess the **two-tier model** the owner described: is there a clean separat
 
 ### 3. Design quality
 
-Visual hierarchy, spacing rhythm, alignment, token adherence (no hardcoded colors — should ride `--st-*`/role vars), consistency across the five surfaces, empty states, loading states, iconography, and overall craft. Flag anything that re-skins a control instead of using a `@wizeworks/ui` variant (house rule). Note where the editor chrome itself feels unpolished or inconsistent with the dashboard standard.
+Visual hierarchy, spacing rhythm, alignment, token adherence (no hardcoded colors — should ride `--st-*`/role vars), consistency across the five surfaces, empty states, loading states, iconography, and overall craft. Flag anything that re-skins a control instead of using a `@wizeworksllc/ui` variant (house rule). Note where the editor chrome itself feels unpolished or inconsistent with the dashboard standard.
 
 ### 4. Missing / lacking functionality
 

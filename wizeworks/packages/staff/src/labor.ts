@@ -14,8 +14,8 @@
 //     category, and filing labour somewhere the owner never agreed to is worse
 //     than not filing it — so it raises instead.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { categoryBySlug, upsertDerivedExpense } from '@wizeworks/finance';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { categoryBySlug, upsertDerivedExpense } from '@wizeworksllc/finance';
 import { deriveLabor, type LaborDerivation } from './costing.js';
 import { WagesCategoryMissingError } from './errors.js';
 import { periodKey } from './pay.js';

@@ -3,7 +3,7 @@
 **Status:** fixed (act 325)
 **Severity:** major
 **Found by:** P01 · Thistle & Rye · act 325, fixing her own site (P01 site row, Ease 3)
-**Surface:** mypiggles › Ready-made sites › Café; the page, header and look editors; Publish (Piggles console, `@wizeworks/builder`)
+**Surface:** mypiggles › Ready-made sites › Café; the page, header and look editors; Publish (Piggles console, `@wizeworksllc/builder`)
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 · Thistle & Rye · act 325, every edit live on her site and checked as a stranger
@@ -74,7 +74,7 @@ Cart, Login, Book…), and nothing on the screen said so.
   confirm named her saved changes. The `/bake` editor read "Saved and live. 13
   other pages are saved and not live yet. Publish the rest", and Publish listed
   Shop /shop, Cart /cart … Contact /contact.
-- Typecheck: both consoles, `@wizeworks/builder`, `@wizeworks/builder-schemas`.
+- Typecheck: both consoles, `@wizeworksllc/builder`, `@wizeworksllc/builder-schemas`.
 
 ## What Marisol changed on her site
 

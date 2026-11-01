@@ -31,7 +31,7 @@ import { EXAMPLE_BUSINESSES, type ExampleBusiness } from '@/lib/example-business
  *
  * Grounded in docs/13 (Email PRD) + the real dashboard email surfaces (sender
  * health rows, domain states, broadcast vocabulary). Outbound is event-driven
- * (`email.send` → email-worker → @wizeworks/email React Email render → provider);
+ * (`email.send` → email-worker → @wizeworksllc/email React Email render → provider);
  * sends from the tenant's own domain after DKIM/SPF/DMARC verify. Email sky is
  * a deliverability signal, not flood fill.
  */

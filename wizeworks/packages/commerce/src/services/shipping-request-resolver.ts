@@ -7,9 +7,9 @@
 import type {
   AddressSnapshotType as AddressSnapshot,
   ShipmentPackage,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 
 import { CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

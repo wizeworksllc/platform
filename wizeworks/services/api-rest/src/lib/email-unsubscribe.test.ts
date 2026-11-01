@@ -2,7 +2,7 @@
 // once for every reader gets each reader's own link (piggles persona issue 985).
 
 import { describe, expect, it } from 'vitest';
-import { UNSUBSCRIBE_PLACEHOLDER } from '@wizeworks/email/silica';
+import { UNSUBSCRIBE_PLACEHOLDER } from '@wizeworksllc/email/silica';
 
 import {
   personalizeUnsubscribe,

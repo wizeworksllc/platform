@@ -4,7 +4,7 @@
 // request, and a snapshot would freeze whatever the environment was when the
 // bundle was first imported (or, in `next build`, an environment with neither).
 
-import { currentPlatformBrand } from '@wizeworks/brand-core';
+import { currentPlatformBrand } from '@wizeworksllc/brand-core';
 
 /** api-rest's port in local development (its own default). */
 const LOCAL_API = 'http://localhost:3100';

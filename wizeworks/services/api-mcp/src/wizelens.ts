@@ -7,7 +7,7 @@
 // and `/_wizelens` serves no dashboard or read API. Off in tests.
 //
 // index.ts imports this module FIRST. The Prisma hook below must be on
-// `globalThis` before @wizeworks/db builds its client, and ES modules evaluate
+// `globalThis` before @wizeworksllc/db builds its client, and ES modules evaluate
 // in import order, so a later import would leave every query untraced.
 
 import { createWizeLens, prismaExtension, wizelensFastify } from '@wizeworks/lens-node';

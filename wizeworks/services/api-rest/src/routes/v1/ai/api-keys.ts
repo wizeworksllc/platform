@@ -17,9 +17,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 import {
   issueApiKey,
   listApiKeys,
@@ -27,7 +27,7 @@ import {
   MCP_SCOPE_CATALOG,
   grantableScopesForRole,
   type StaffRole,
-} from '@wizeworks/auth';
+} from '@wizeworksllc/auth';
 
 const IssueBody = z.object({
   name: z.string().trim().min(1).max(120),

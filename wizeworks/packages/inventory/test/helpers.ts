@@ -1,4 +1,4 @@
-// Per-test fixtures for @wizeworks/inventory integration tests.
+// Per-test fixtures for @wizeworksllc/inventory integration tests.
 //
 // Every test gets a fresh tenant; ON DELETE CASCADE on tenant_id tears the whole
 // graph down via one tenant delete. `createInventoryFixture` provisions the
@@ -7,7 +7,7 @@
 
 import crypto from 'node:crypto';
 
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 export interface TestTenant {
   tenantId: string;

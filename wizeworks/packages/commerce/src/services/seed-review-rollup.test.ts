@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { reviewRollup } from '@wizeworks/db';
+import { reviewRollup } from '@wizeworksllc/db';
 
 /**
  * A REAL REVIEW THAT THE PRODUCT PAGE WILL NOT SHOW.
  *
  * `Product.averageRating` / `reviewCount` cache the product's approved reviews,
  * and commerce's `recomputeProductRating` owns them. The seeds cannot call it
- * (`@wizeworks/db` may not import a module package), so both wrote the columns
+ * (`@wizeworksllc/db` may not import a module package), so both wrote the columns
  * by hand and both got it wrong, differently.
  *
  * Measured 2026-09-16 over 641 products:
@@ -22,7 +22,7 @@ import { reviewRollup } from '@wizeworks/db';
  * many reviews are approved."
  *
  * The test lives HERE, beside `recomputeProductRating`, because that is the
- * definition this has to agree with. `@wizeworks/db` has no test seat and may
+ * definition this has to agree with. `@wizeworksllc/db` has no test seat and may
  * not import a module package, so the rule ships from db and is guarded from
  * the package that owns the meaning.
  */

@@ -13,7 +13,7 @@
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 // ─── 8.4 Quantity price breaks ───────────────────────────────────────────────
 

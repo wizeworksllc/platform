@@ -17,7 +17,7 @@
 //                 one profile.
 //
 // The shapes here mirror api-rest's shipping-service row types exactly, and the
-// create inputs satisfy the Zod schemas in @wizeworks/commerce-schemas.
+// create inputs satisfy the Zod schemas in @wizeworksllc/commerce-schemas.
 //
 // ── Key contract ───────────────────────────────────────────────────────────
 //   ['commerce','shipping']                     root every read nests under
@@ -31,14 +31,14 @@
 // all refresh together.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import type {
   CreateShippingRateInput,
   ShippingRateType,
   ZoneTargeting,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 
 export type { ShippingRateType, ZoneTargeting };

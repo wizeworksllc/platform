@@ -97,7 +97,7 @@ is production-grade.
 
 A **sibling** to `ChannelAdapter`, not an extension of it (the channel adapter is
 product/order-centric; overloading it would muddy both). It lives in a new
-`@wizeworks/social` package and follows the same "pure I/O, worker owns writes, tokens
+`@wizeworksllc/social` package and follows the same "pure I/O, worker owns writes, tokens
 passed in" discipline.
 
 ```ts
@@ -410,7 +410,7 @@ frame header per [86](86-surface-frame-pattern.md).
   approvals likewise. Code cannot un-gate these; lead time is external.
 - **Phase 1 — the spine + two easy platforms (Google Business Profile + LinkedIn).**
   `social` module wiring, `SocialConnection`/`SocialTarget`/`SocialPost`/
-  `SocialPostTarget` + RLS, `@wizeworks/social` package + `SocialAdapter`, the two
+  `SocialPostTarget` + RLS, `@wizeworksllc/social` package + `SocialAdapter`, the two
   adapters, the renderer + composer, `social-worker` + scheduled drain, `social.post`
   automation action, the workbench surface. This is the ~2–3 week core; everything
   after is "one adapter + one OAuth app."

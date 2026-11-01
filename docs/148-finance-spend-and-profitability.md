@@ -4,7 +4,7 @@ Version: 0.9 (run)
 Author: Brandon Korous
 Last Updated: 2026-08-16
 
-> Status: **built end to end.** Schema + migration, [`@wizeworks/finance`](../packages/finance/)
+> Status: **built end to end.** Schema + migration, [`@wizeworksllc/finance`](../packages/finance/)
 > (85 pure-unit tests plus a DB-backed integration suite), the whole `/v1/finance/*`
 > spend API, the finance worker, the CSV connector, **all nine workbench panes**, the
 > marketing-site entry, and — new in 0.4 — the **`/finance` landing page** itself.
@@ -386,7 +386,7 @@ Three jobs: generate due recurring expenses, recompute dirty days of
 
 1. ~~**Schema + migration**~~ — **done.** Applied locally; RLS audit passes over all
    ten tables; `NULLS NOT DISTINCT` verified on the two nullable-property grains.
-2. ~~**`@wizeworks/finance` package**~~ — **done.** Service layer, the 19 seeded
+2. ~~**`@wizeworksllc/finance` package**~~ — **done.** Service layer, the 19 seeded
    categories, the allocation guard, recurring generation, and the profit rollup.
    `ModuleSlug` + price catalog + the per-surface gate landed with it, per §2.
    59 tests: 30 pure-arithmetic units, 29 integration against real Postgres
@@ -491,7 +491,7 @@ Three jobs: generate due recurring expenses, recompute dirty days of
    were sent to every `viewer` who opened the screen. The workbench's own
    `AccountingConnection` interface listed only the safe fields, which is exactly
    why nobody saw it — **a type on the client is a claim about the wire, not a
-   filter on it.** `toPublicConnection` in `@wizeworks/finance` is now the allow-list,
+   filter on it.** `toPublicConnection` in `@wizeworksllc/finance` is now the allow-list,
    applied at the three places a connection is returned, and
    `connections.test.ts` pins its exact key set so any new field has to be
    reviewed rather than silently shipped.
@@ -564,7 +564,7 @@ so `GET /v1/finance/expenses` had never once succeeded and Spending showed its
 "could not be reached" state for every tenant since launch.
 
 The two fields are now re-declared on the ROUTE's `ListQuery` with `queryInt` /
-`queryBool` from `@wizeworks/api-core/query`. Doing it there rather than in
+`queryBool` from `@wizeworksllc/api-core/query`. Doing it there rather than in
 `schemas.ts` keeps that file's zod-only, browser-importable promise intact.
 
 **The same mistake, in its other form, was in 42 route files**:

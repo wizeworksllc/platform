@@ -26,7 +26,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { PaneLoadError } from '../../components/pane-load-error';
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import { arrayMove } from '@dnd-kit/sortable';
 import {
   Alert,
@@ -42,7 +42,7 @@ import { useConfirm } from '../../lib/confirm';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
-import { isSystemWorkflowSlug } from '@wizeworks/crm-schemas/builtins';
+import { isSystemWorkflowSlug } from '@wizeworksllc/crm-schemas/builtins';
 import { StageCanvas, SETTINGS_NODE } from './stage-canvas';
 import { StageInspector } from './stage-inspector';
 import type { DocumentWorkflowDetail } from './types';

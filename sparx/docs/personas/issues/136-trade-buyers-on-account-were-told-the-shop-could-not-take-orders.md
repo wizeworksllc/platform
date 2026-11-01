@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** blocker
 **Found by:** P01 · Gillett Diesel Service · act 9 (testing Utah sales tax as Wasatch Front's buyer)
-**Surface:** site › cart, cart drawer, checkout start, payment step; `cartAccountRules` in `@wizeworks/commerce`
+**Surface:** site › cart, cart drawer, checkout start, payment step; `cartAccountRules` in `@wizeworksllc/commerce`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 on screen, 2026-10-06

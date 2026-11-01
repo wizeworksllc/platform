@@ -1,4 +1,4 @@
-// Payments' entry in the shared integration plane (@wizeworks/integrations).
+// Payments' entry in the shared integration plane (@wizeworksllc/integrations).
 //
 // The gateway catalog stays exactly where it is and keeps its payment-specific
 // fields — `checkout: inline | redirect` and `onboarding` decide how checkout
@@ -16,9 +16,9 @@ import {
   defineIntegrationKind,
   type CredentialField as SharedCredentialField,
   type IntegrationDescriptor,
-} from '@wizeworks/integrations';
+} from '@wizeworksllc/integrations';
 
-import { PLATFORM_TOKEN } from '@wizeworks/brand-core';
+import { PLATFORM_TOKEN } from '@wizeworksllc/brand-core';
 
 import { gatewayCatalogTemplate, type GatewayDescriptor } from './catalog';
 import type { PaymentGateway } from './gateway';

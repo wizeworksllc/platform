@@ -13,7 +13,7 @@
 // "human-resolved". First-response latency is the gap from a conversation's
 // creation to its first non-customer (staff or AI) message.
 
-import { withTenant, type TenantContext } from '@wizeworks/db';
+import { withTenant, type TenantContext } from '@wizeworksllc/db';
 
 import { firstNonEmpty } from './types.js';
 

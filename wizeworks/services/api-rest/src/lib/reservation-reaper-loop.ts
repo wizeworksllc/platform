@@ -15,8 +15,8 @@
 
 import type { FastifyBaseLogger } from 'fastify';
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
-import { commerceSchedulers } from '@wizeworks/commerce';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
+import { commerceSchedulers } from '@wizeworksllc/commerce';
 
 const INTERVAL_MS = 60_000;
 

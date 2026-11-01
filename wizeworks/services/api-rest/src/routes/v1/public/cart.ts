@@ -43,11 +43,11 @@ import {
   commerceSiteService,
   paymentMethodService,
   type ServiceContext,
-} from '@wizeworks/commerce';
-import { readRepeatOptions, RepeatCadence } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/commerce';
+import { readRepeatOptions, RepeatCadence } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import { optionalCustomer } from '../../../lib/customer-session.js';
 import {

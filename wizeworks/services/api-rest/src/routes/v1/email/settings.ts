@@ -8,9 +8,9 @@
 // reach and never silently lands on a business they don't work for.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { settingsService } from '@wizeworks/email-platform';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { settingsService } from '@wizeworksllc/email-platform';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireEmailModule, toEmailContext } from '../../../lib/email-context.js';
 import { resolvePropertyId } from '../../../lib/property.js';
 

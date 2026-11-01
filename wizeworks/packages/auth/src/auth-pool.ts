@@ -1,8 +1,8 @@
 // The Better Auth client's pool. It is a second PrismaClient in every process that
-// loads @wizeworks/auth, so it gets its own small budget: AUTH_DB_CONNECTION_LIMIT,
+// loads @wizeworksllc/auth, so it gets its own small budget: AUTH_DB_CONNECTION_LIMIT,
 // default 1; a connection_limit already in the URL wins (WW-1, SI-1).
 
-import { poolFor, withConnectionLimit } from '@wizeworks/db/connection-limit';
+import { poolFor, withConnectionLimit } from '@wizeworksllc/db/connection-limit';
 
 export const AUTH_DEFAULT_CONNECTION_LIMIT = 1;
 

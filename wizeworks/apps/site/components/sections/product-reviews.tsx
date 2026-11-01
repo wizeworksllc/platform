@@ -6,7 +6,7 @@
 // host core, so the two builder generations cannot drift apart. This file is only
 // about where the data comes from: an already-loaded list on the context.
 
-import type { ProductReviewsConfig } from '@wizeworks/sitebuilder-schemas';
+import type { ProductReviewsConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { ProductReviewsView } from '@/components/products/product-reviews-view';
 import type { SectionContext } from '../section-renderer';

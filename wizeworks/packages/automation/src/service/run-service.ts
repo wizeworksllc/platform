@@ -9,7 +9,7 @@
 // belonging to another automation reads as absent.
 
 import type { AutomationRun, AutomationRunStep } from '@prisma/client';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceCtx } from './automation-service';
 

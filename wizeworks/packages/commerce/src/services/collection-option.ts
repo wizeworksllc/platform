@@ -27,7 +27,7 @@
 // their first zone they have said how they deliver, and this stops answering on
 // their behalf.
 
-import type { RateOption } from '@wizeworks/commerce-schemas';
+import type { RateOption } from '@wizeworksllc/commerce-schemas';
 
 /** Stable, deterministic, and survives a re-quote — `submitShipping` re-prices
  *  every choice server-side and matches it by this ref. */

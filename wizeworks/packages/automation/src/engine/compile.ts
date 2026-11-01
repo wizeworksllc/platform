@@ -38,7 +38,7 @@ import {
   isConditionGroup,
   parseIfElse,
   type ConditionGroup,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 
 /** One instruction in the compiled program. */
 export type CompiledStep =
@@ -62,7 +62,7 @@ export interface CompiledProgram {
    * A branch counts because it is a card on the canvas: somebody who drew a
    * branch with two actions in it sees three things and would call that three
    * steps. Jumps do not, because nobody wrote them. This has to agree with
-   * `countActions` in @wizeworks/automation-schemas, which is what stamps
+   * `countActions` in @wizeworksllc/automation-schemas, which is what stamps
    * `actions_total` at enrollment — two counts of the same rule disagreeing is
    * a progress bar that never reaches the end.
    */

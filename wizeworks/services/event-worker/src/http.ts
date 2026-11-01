@@ -30,8 +30,8 @@
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import type { Logger } from 'pino';
 
-import { handleTickRequest, handleReconcileRequest } from '@wizeworks/automation-worker';
-import { runRenewalCheck } from '@wizeworks/domain-worker';
+import { handleTickRequest, handleReconcileRequest } from '@wizeworksllc/automation-worker';
+import { runRenewalCheck } from '@wizeworksllc/domain-worker';
 import { env } from './env.js';
 
 async function route(req: IncomingMessage, res: ServerResponse, logger: Logger): Promise<void> {

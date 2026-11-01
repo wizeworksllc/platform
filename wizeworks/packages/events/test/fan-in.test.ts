@@ -1,7 +1,7 @@
 // Fan-in tee unit tests (docs/82 §3.3, docs/84 Slice E3).
 //
 // The tee is the same primitive in all three publish paths (api-core, the
-// @wizeworks/events publisher, and — inlined — the CRM bridge), so verifying it once
+// @wizeworksllc/events publisher, and — inlined — the CRM bridge), so verifying it once
 // here covers the contract: unchanged envelope body, `type` + `tenantId`
 // attributes for the single subscriber to route on, and the loop-guard depth
 // forwarded from the envelope data (default 0).

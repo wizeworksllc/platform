@@ -1,4 +1,4 @@
-// @wizeworks/billing — platform billing: the subscription WizeWorks charges a tenant
+// @wizeworksllc/billing — platform billing: the subscription WizeWorks charges a tenant
 // for, out of the Stripe account its PLAN names.
 //
 // ./plans is the registry — a plan says how the bill is shaped (`per_module`, one

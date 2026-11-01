@@ -9,7 +9,7 @@
 // resolver's shared `announce.*` fields (title/url/hero image) so the same action
 // works whether a product went live or an article published.
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
 
 /** Draft a launch post when a product goes live (`product.published`). Seeded
  *  paused — the tenant connects an account, picks targets, then turns it on. */

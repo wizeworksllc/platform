@@ -21,9 +21,9 @@ import {
   type IndustryStarterPresetRef,
   type IndustryStarterView,
   type ModuleSlug,
-} from '@wizeworks/auth';
-import { prisma, withTenant, type Prisma, type TenantContext } from '@wizeworks/db';
-import { notFound } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/auth';
+import { prisma, withTenant, type Prisma, type TenantContext } from '@wizeworksllc/db';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { presetRegistry } from './preset-registry.js';
 

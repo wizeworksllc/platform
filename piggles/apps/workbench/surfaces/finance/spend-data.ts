@@ -9,8 +9,8 @@
 // receivables-data and are deliberately separate: they read data the tenant
 // already bought with a selling module, and they stay free.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { downloadServerFile } from '../../lib/api/download';
@@ -152,7 +152,7 @@ export interface AccountingProvider {
 }
 
 /**
- * Mirrors `PublicAccountingConnection` in `@wizeworks/finance` — the server's
+ * Mirrors `PublicAccountingConnection` in `@wizeworksllc/finance` — the server's
  * allow-list projection, not the database row. The row carries the encrypted
  * access and refresh tokens and never crosses the wire.
  *

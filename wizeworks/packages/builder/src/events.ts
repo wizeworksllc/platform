@@ -20,7 +20,7 @@
 // single page or look published from its own pane reached visitors only when
 // the five-minute cache ran out.
 
-import type { EventType } from '@wizeworks/events';
+import type { EventType } from '@wizeworksllc/events';
 
 export interface BuilderEvent {
   tenantId: string;

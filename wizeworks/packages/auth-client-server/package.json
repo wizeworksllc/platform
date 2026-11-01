@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/auth-client-server",
+  "name": "@wizeworksllc/auth-client-server",
   "version": "0.0.0",
   "private": true,
   "description": "Server-side sign-in for a Next.js app that holds no database and no auth instance: reads the session, fetches the API token, and proxies the app's /api/auth/* to api-rest, all over HTTP.",
@@ -20,7 +20,7 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/brand-core": "workspace:*"
+    "@wizeworksllc/brand-core": "workspace:*"
   },
   "peerDependencies": {
     "next": "^16.0.0",

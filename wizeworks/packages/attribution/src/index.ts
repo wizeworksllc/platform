@@ -1,5 +1,5 @@
 /**
- * @wizeworks/attribution — marketing attribution engine (docs/80).
+ * @wizeworksllc/attribution — marketing attribution engine (docs/80).
  * Single source of truth for the UTM taxonomy, the channel classifier, and the
  * validating campaign-link builder. Consumed by capture (sparx/apps/web, wizeworks/apps/site)
  * in Phase 1+ and by the Phase 0 launch link generator.

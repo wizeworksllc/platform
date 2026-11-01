@@ -44,7 +44,7 @@ import {
   Input,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { plainText } from '@wizeworks/commerce-schemas';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { Package, Trash2 } from 'lucide-react';
 import { useActivePropertyId } from '../../lib/api/shell-data';

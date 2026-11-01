@@ -84,7 +84,7 @@ template's captured theme."_ A sensible default while the platform served one br
 and straightforwardly wrong afterwards.
 
 The same failure had already been diagnosed one layer over, for the colors a PLATFORM
-email paints itself in, and `@wizeworks/brand-core`'s email palette states the rule
+email paints itself in, and `@wizeworksllc/brand-core`'s email palette states the rule
 this file was breaking:
 
 > A brand-blind fallback that happens to be one brand's palette is the same bug
@@ -163,7 +163,7 @@ that drifted:
   loud instead of silently ignored.
 - **`base-theme.css.test.ts`** — the CSS against the bag (already existed).
 - **`v2.test.ts`** — every hex re-derived from the upstream OKLCH using this package's
-  OWN converter, so a hand-edited value fails. `@wizeworks/site-themes` is
+  OWN converter, so a hand-edited value fails. `@wizeworksllc/site-themes` is
   dependency-free by design and cannot import the constant, so this is the only honest
   check available from inside it.
 - **`brand-service.test.ts`** — the site's base and email's base agree. This is the

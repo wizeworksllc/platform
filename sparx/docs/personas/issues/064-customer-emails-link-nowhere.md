@@ -54,7 +54,7 @@ real address (its own domain, or its `sparx.zone` name); email never used it.
 - **sparx.market "Visit their store"** (`market_listings.product_url`, `market_merchants.site_url`) was always empty.
 - **Every sales channel** (Google Shopping, Meta, Pinterest, Faire, Etsy, ...) needs an absolute product link, so the channel-sync worker skipped every product push. No product ever reached a channel.
 
-The resolver moved to `@wizeworks/db/site-origin` (the zone list, `mintZoneHost` and `tenantZone` with it, from `api-rest/src/lib/domain.ts`), so there is still one copy. It takes the client to read through, so a caller inside a tenant transaction reuses it; api-rest's `lib/site-origin.ts` and `lib/domain.ts` re-export it bound to their own clients, and every api-rest call site is unchanged.
+The resolver moved to `@wizeworksllc/db/site-origin` (the zone list, `mintZoneHost` and `tenantZone` with it, from `api-rest/src/lib/domain.ts`), so there is still one copy. It takes the client to read through, so a caller inside a tenant transaction reuses it; api-rest's `lib/site-origin.ts` and `lib/domain.ts` re-export it bound to their own clients, and every api-rest call site is unchanged.
 
 - The marketplace links open on the marketed site (its own domain, else its subdomain); a product scoped only to a sibling site links to the site that shows it.
 - A channel connection belongs to one business, so each listing links to the connection's own site, built once per site. A tenant-wide connection links to a site that shows the product. A product scoped only to a different business than the connection's is no longer pushed to that shop.
@@ -64,7 +64,7 @@ The resolver moved to `@wizeworks/db/site-origin` (the zone list, `mintZoneHost`
 ## Not changed, and why
 
 - `public/site-info.ts` keeps its own address rule: it is the shopper sign-in origin, where the session cookie lives. Moving it changes sign-in, so it is a separate decision.
-- `wizeworks/apps/site/lib/site-host.ts` still parses `SPARX_ZONE_DOMAINS` itself. It decodes an incoming host at the edge rather than building a link, and the site app does not depend on `@wizeworks/db`.
+- `wizeworks/apps/site/lib/site-host.ts` still parses `SPARX_ZONE_DOMAINS` itself. It decodes an incoming host at the edge rather than building a link, and the site app does not depend on `@wizeworksllc/db`.
 
 ## Follow-up the same evening: a counter sale already handed over
 

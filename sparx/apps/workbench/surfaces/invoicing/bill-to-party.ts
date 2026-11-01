@@ -14,7 +14,7 @@
 // what it needs, through the same query keys the CRM screens use, so a
 // customer's address edited there is the one that arrives here.
 
-import { useQuery, type QueryClient } from '@wizeworks/query';
+import { useQuery, type QueryClient } from '@wizeworksllc/query';
 import { localityLine } from '../../lib/address-format';
 import { api } from '../../lib/api/client';
 import { accountKeys, type Company } from '../crm/companies-data';

@@ -31,9 +31,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   CancelBookingInput,
   CheckInInput,
@@ -41,7 +41,7 @@ import {
   NoShowBookingInput,
   RescheduleBookingInput,
   UpdateBookingInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 import {
   createBooking,
   updateBooking,
@@ -59,7 +59,7 @@ import {
   getCalendar,
   type BookingDetail,
   type BookingWithRelations,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { reachableSiteIds, resolveListScopeIds } from '../../../lib/property.js';
 import { publishBookingEvent } from '../../../lib/scheduling-events.js';

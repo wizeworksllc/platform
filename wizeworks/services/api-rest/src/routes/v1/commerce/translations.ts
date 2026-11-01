@@ -21,10 +21,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { productTranslationService } from '@wizeworks/commerce';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { validationError } from '@wizeworks/api-core/errors';
+import { productTranslationService } from '@wizeworksllc/commerce';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { validationError } from '@wizeworksllc/api-core/errors';
 import { requireCommerceModule, toCommerceContext } from '../../../lib/commerce-context.js';
 
 const ProductIdParam = z.object({ productId: z.string().uuid() });

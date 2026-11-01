@@ -12,8 +12,8 @@
 // to fail one: anything that goes wrong here degrades to saying nothing.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { fleetFitForProducts, fleetFittedProductIds, getAccountFleet } from '@wizeworks/b2b';
-import { type FleetFit, vehicleLabel } from '@wizeworks/commerce-schemas';
+import { fleetFitForProducts, fleetFittedProductIds, getAccountFleet } from '@wizeworksllc/b2b';
+import { type FleetFit, vehicleLabel } from '@wizeworksllc/commerce-schemas';
 
 /** Attach `fleetFit` to each product. Null on every product when there is no
  *  viewer account, no fleet that can be matched, or no fitment data. */

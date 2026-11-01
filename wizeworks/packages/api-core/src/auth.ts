@@ -29,7 +29,7 @@
 import crypto from 'node:crypto';
 
 import fastifyJwt from '@fastify/jwt';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import fp from 'fastify-plugin';
 
@@ -51,9 +51,9 @@ const noteCaller = (caller: TracedCaller): void =>
 const API_KEY_PUBLIC_PREFIX = 'sk_live_';
 const API_KEY_PREFIX_LEN = API_KEY_PUBLIC_PREFIX.length + 8;
 
-// The org-role vocabulary, hand-mirrored from @wizeworks/auth `ORG_ROLES` (kept in
+// The org-role vocabulary, hand-mirrored from @wizeworksllc/auth `ORG_ROLES` (kept in
 // sync by hand — api-core stays fastify-only and must not import the Next/React
-// graph @wizeworks/auth pulls in, same reason the api-key logic is inlined below).
+// graph @wizeworksllc/auth pulls in, same reason the api-key logic is inlined below).
 // `owner|admin|editor|viewer` are the RANKED tier the coarse `requireRole`
 // hierarchy understands; `builder|marketing|support|partner|scanner` are LATERAL
 // capability roles — they floor to read-only in that hierarchy and earn their
@@ -97,8 +97,8 @@ export interface AuthContext {
    * shape. `null` = no restriction.
    *
    * Raw on purpose. api-core is deliberately fastify-only and must not import
-   * `@wizeworks/auth` (see the note on the role vocabulary below), so it carries the
-   * claim and the POLICY lives in `@wizeworks/auth/property-access` — the same split
+   * `@wizeworksllc/auth` (see the note on the role vocabulary below), so it carries the
+   * claim and the POLICY lives in `@wizeworksllc/auth/property-access` — the same split
    * that keeps `role` here and the role hierarchy there.
    *
    * Both credential kinds collapse onto one shape, which is the point: a staff
@@ -312,7 +312,7 @@ export function requireScope(request: FastifyRequest, scope: string): AuthContex
 
 // ─── api-key verification (sk_live_*) ──────────────────────────────────
 //
-// Inlined here rather than imported from `@wizeworks/auth` so api-core stays
+// Inlined here rather than imported from `@wizeworksllc/auth` so api-core stays
 // fastify-only (no Next/React peerDeps pulled into the service builds).
 // Schema source: wizeworks/packages/db/prisma/schema/05-api-keys.prisma + canonical
 // issuer at wizeworks/packages/auth/src/api-keys.ts — keep the hash/format logic in

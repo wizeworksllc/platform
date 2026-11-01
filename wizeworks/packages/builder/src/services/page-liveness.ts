@@ -5,7 +5,7 @@
 // nobody published. Kept here rather than in either service because both need it and
 // neither owns it.
 
-import type { BuilderPage } from '@wizeworks/db';
+import type { BuilderPage } from '@wizeworksllc/db';
 import {
   kindAddressAt,
   moduleForKey,
@@ -14,7 +14,7 @@ import {
   recordAddressFor,
   starterPages,
   type SiteChromeOptions,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 /** A stored slug as the ADDRESS it presents at. Both spellings are in the store — a
  *  blueprint writes `about`, the code starter writes `/about` — and they are the same

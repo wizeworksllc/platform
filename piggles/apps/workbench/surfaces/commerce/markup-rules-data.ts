@@ -4,11 +4,11 @@
 // full create, edit and delete; no screen did. Changes also refresh the quote
 // editor's and the product Pricing tab's copies of the list.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 import { apiErrorMessage } from '../../lib/api-error';
-import type { MarkupScope } from '@wizeworks/commerce-schemas';
+import type { MarkupScope } from '@wizeworksllc/commerce-schemas';
 import type { MarkupRuleRow } from './markup-rule-words';
 import type { RulePayload } from './markup-rule-draft';
 

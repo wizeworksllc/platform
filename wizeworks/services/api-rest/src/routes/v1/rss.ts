@@ -19,11 +19,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 
 import { canonicalSiteHost } from '../../lib/site-origin.js';
-import { kindLayout, type KindFieldLike } from '@wizeworks/silica-catalog';
+import { kindLayout, type KindFieldLike } from '@wizeworksllc/silica-catalog';
 import { entryPublicPath } from '../../lib/content-paths.js';
 import { publishedOnSite, siteKindsTx } from '../../lib/author-roster.js';
 import {

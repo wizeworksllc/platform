@@ -4,7 +4,7 @@
 // — the lookup every scan-first workflow in this phase goes through.
 //
 // The symbology maths (check digits, UPC-E expansion, scan equivalence) is NOT
-// here: it lives in `@wizeworks/commerce-schemas/barcodes` because the label printer
+// here: it lives in `@wizeworksllc/commerce-schemas/barcodes` because the label printer
 // in the browser needs exactly the same answers, and two implementations of a
 // check digit is a bug that surfaces on paper after four hundred are printed.
 //
@@ -15,14 +15,14 @@
 // and names it. "That barcode is already on WIDGET-BLUE-L" is a sentence someone
 // can act on; "duplicate key value violates unique constraint" is not.
 
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 import type {
   CreateVariantBarcodeInput,
   GenerateVariantBarcodesInput,
   ListVariantBarcodesQuery,
   UpdateVariantBarcodeInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 import {
   detectSymbology,
   internalBarcode,
@@ -32,7 +32,7 @@ import {
   symbologyLabel,
   validateBarcode,
   type BarcodeSymbology,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../audit';
 import {

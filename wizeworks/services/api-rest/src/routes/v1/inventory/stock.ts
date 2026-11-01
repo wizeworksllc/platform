@@ -2,7 +2,7 @@
 // and the low-stock + enriched warehouse-level reads the dashboard stock grid +
 // product Inventory tab consume. This is the inventory module's OWN API namespace
 // (requireInventoryModule), so a tenant running Inventory standalone (no commerce)
-// manages stock here. Writes delegate to @wizeworks/inventory's `applyMovement` funnel
+// manages stock here. Writes delegate to @wizeworksllc/inventory's `applyMovement` funnel
 // (audited, concurrency-safe); the enriched + low-stock reads are thin Prisma
 // joins under RLS.
 //
@@ -18,11 +18,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { inventoryService, isLowStock } from '@wizeworks/inventory';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { inventoryService, isLowStock } from '@wizeworksllc/inventory';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   redactCosts,
   requireInventoryModule,
@@ -184,7 +184,7 @@ const inventoryStockRoutes: FastifyPluginAsync = async (app) => {
       productHandle: r.variant.product.handle,
     }));
     // Filter in-process for low-stock since Prisma can't compare two columns.
-    // `isLowStock` is the ONE definition (@wizeworks/inventory) — sellable stock at
+    // `isLowStock` is the ONE definition (@wizeworksllc/inventory) — sellable stock at
     // or below the reorder point — so this toggle agrees with the list and the
     // badges. The toggle narrows the current page in place; `total` reflects the
     // un-narrowed level count for the warehouse (the main paginated list).

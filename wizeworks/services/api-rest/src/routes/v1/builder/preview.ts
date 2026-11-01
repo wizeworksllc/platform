@@ -10,8 +10,8 @@
 
 import jwt from '@fastify/jwt';
 import type { FastifyPluginAsync } from 'fastify';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireBuilderModule } from '../../../lib/builder-context.js';
 
 void jwt; // keep the import — fastify-jwt type augmentation lives in plugins/auth.ts

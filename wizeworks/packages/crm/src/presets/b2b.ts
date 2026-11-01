@@ -1,7 +1,7 @@
 // B2B module presets — wholesale pricing tiers and purchase-approval rules.
 //
 // These live in the CRM package (which owns the B2B account spine and already
-// deps @wizeworks/modules), but carry `module: 'b2b'` so the seam gates them on the
+// deps @wizeworksllc/modules), but carry `module: 'b2b'` so the seam gates them on the
 // B2B flag. Tiers + approval rules have no service layer — the REST routes write
 // them with raw Prisma — so the presets do the same on the open tenant tx
 // (`sx.tx`), staying atomic and tenant-scoped under the same RLS the routes use.
@@ -16,9 +16,9 @@
 //
 // Data-as-code (line-limit exempt).
 
-import { afterCommit, type TenantContext } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
-import { definePreset, type ModulePreset } from '@wizeworks/modules';
+import { afterCommit, type TenantContext } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
+import { definePreset, type ModulePreset } from '@wizeworksllc/modules';
 
 // ─── Pricing tiers ────────────────────────────────────────────────────
 

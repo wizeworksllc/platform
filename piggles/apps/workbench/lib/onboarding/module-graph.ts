@@ -9,7 +9,7 @@
 //   BUNDLED_FREE  a key rides along whenever a provider is on. Invoices and Stock
 //                 come with Sell or Trade customers, else they are their own row.
 //
-// Mirrors the server's @wizeworks/modules graph; the API enforces it on save and
+// Mirrors the server's @wizeworksllc/modules graph; the API enforces it on save and
 // this is the browser's copy so a switch resolves without a round trip.
 
 import { MODULE_BY_KEY } from './modules';

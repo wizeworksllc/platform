@@ -12,14 +12,14 @@
 // found every shelf empty while the location said four thousand units would
 // rightly conclude the feature was broken.
 
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 import {
   CreateBinInput,
   MoveBetweenBinsInput,
   UpdateBinInput,
   type BinType,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../audit';
 import {

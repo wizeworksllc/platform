@@ -10,8 +10,8 @@
 // RLS). Steps live as validated JSON on the sequence row, exactly like
 // automations.actions, so a sequence is ONE editable document and an enrollment
 // indexes into it by position. The step + input shapes live in
-// @wizeworks/email-sequences/schemas (client-safe, no db); the server logic (enroll /
-// unenroll / drain) in @wizeworks/email-sequences.
+// @wizeworksllc/email-sequences/schemas (client-safe, no db); the server logic (enroll /
+// unenroll / drain) in @wizeworksllc/email-sequences.
 //
 // tenant_id / property_id are plain scalars here (FKs hand-added in the migration)
 // rather than Prisma relations, so the Tenant/Property models don't grow a
@@ -44,7 +44,7 @@ model EmailSequence {
   exitOnPurchase Boolean @default(false) @map("exit_on_purchase")
 
   // The ordered steps (each: a delay + an email body source), validated by
-  // @wizeworks/email-sequences/schemas. JSON like automations.actions so the whole
+  // @wizeworksllc/email-sequences/schemas. JSON like automations.actions so the whole
   // series edits + publishes as one document; enrollments index in by position.
   steps Json @default("[]")
 

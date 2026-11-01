@@ -11,7 +11,7 @@
 import { useState } from 'react';
 
 import { Button, Input } from '@wizeworks/silicaui-react';
-import type { EmailSignupConfig } from '@wizeworks/sitebuilder-schemas';
+import type { EmailSignupConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 export function EmailSignupSection({ config }: { config: EmailSignupConfig }) {
   const [email, setEmail] = useState('');

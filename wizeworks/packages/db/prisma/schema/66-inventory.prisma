@@ -5,7 +5,7 @@
 // (e.g. a warehouse CSV feed, a WMS API, or a 3PL).
 //
 // There is ONE stock model: the master `inventory_levels` / `inventory_warehouses`
-// (schema/34, owned by @wizeworks/inventory). The old standalone `stock_levels` /
+// (schema/34, owned by @wizeworksllc/inventory). The old standalone `stock_levels` /
 // `stock_locations` tables were folded into it (docs/100 P1c) — a feed's incoming
 // quantity is reconciled into `inventory_levels` through `applyMovement()` (a
 // corrective `sync` movement), so onHand stays reconcilable to `Σ(movements)` and

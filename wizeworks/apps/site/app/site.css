@@ -233,7 +233,7 @@
   .bx-render {
     container-type: inline-size;
     /* NAMED, so the nav's inline↔hamburger swap (`@3xl/bx-frame:` utilities in
-     @wizeworks/builder-render's atoms/nav.tsx) binds to the FRAME width and never to
+     @wizeworksllc/builder-render's atoms/nav.tsx) binds to the FRAME width and never to
      some intervening unnamed container. The editor canvas declares the same name
      on `.bx-canvas`, which is what makes the preview collapse at the simulated
      device width rather than the real viewport. */

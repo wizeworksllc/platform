@@ -9,7 +9,7 @@
 // Used by the Phase 3 forecast view AND the MCP `get_forecast` tool —
 // returns the same shape so callers don't post-process per transport.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

@@ -2,7 +2,7 @@
 // deleting actually does.
 
 import type { PageSummary } from '../../lib/studio/page-data';
-import { isSiteOwnRoute } from '@wizeworks/silica-catalog';
+import { isSiteOwnRoute } from '@wizeworksllc/silica-catalog';
 
 import { isTemplate, routeOf } from './page-address';
 

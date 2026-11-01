@@ -1,5 +1,5 @@
 // Channel catalog — the server-safe descriptor list the dashboard + marketplace
-// render from WITHOUT importing adapter code (mirrors @wizeworks/dropship's
+// render from WITHOUT importing adapter code (mirrors @wizeworksllc/dropship's
 // VENDOR_CATALOG split). Pure data; no I/O. The full platform set + shapes are
 // the locked decision C2 in docs/106 §3.
 //

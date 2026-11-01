@@ -24,7 +24,7 @@
 //     they already listen for.
 //
 // Every state change follows the locked pattern:
-//   1. Validate input via @wizeworks/commerce-schemas
+//   1. Validate input via @wizeworksllc/commerce-schemas
 //   2. Run DB work inside withTenant() (RLS context set per transaction)
 //   3. Write an audit_logs row in the same transaction
 //   4. Publish a Pub/Sub event AFTER commit — never inside
@@ -33,9 +33,9 @@ import {
   BulkUpsertProductTranslationsInput,
   Locale,
   UpsertProductTranslationInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { ProductTranslation, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { ProductTranslation, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';

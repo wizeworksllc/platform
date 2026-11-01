@@ -138,7 +138,7 @@ expect(worth.toFixed(2)).toBe(Number(card.totalOrdered).toFixed(2));
 ```
 
 Removing the guard fails four of the six. Restored, all six pass, and so do
-`@wizeworks/crm` (483 across 51 files) and `api-rest` (428 across 75).
+`@wizeworksllc/crm` (483 across 51 files) and `api-rest` (428 across 75).
 
 Then on screen as Devi: Marguerite reads $234.60 + $276.00 + $72.00 **Collected**
 = $582.60 against a stated $582.60, Anneliese reads $180.00 + $152.00 + ($170.00

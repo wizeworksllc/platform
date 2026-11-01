@@ -44,7 +44,7 @@ words, and it says he has not started a business he has run for decades.
 
 ## The fix
 
-- `@wizeworks/story-schemas` `lineLead(tense, index)`: the one source for "I" /
+- `@wizeworksllc/story-schemas` `lineLead(tense, index)`: the one source for "I" /
   "I also" / "I’ll" / "I’ll also". Used by both canvases, both `toProse`, and the
   marketing hero.
 - `toggleModuleInStory` (both consoles): an owner phrase joins the last

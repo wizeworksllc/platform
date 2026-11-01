@@ -5,7 +5,7 @@
 // reset; the per-site membership (docs/58) is resolved separately via
 // ensureMembership. See docs/27 v2.
 
-import { tenantStore } from '@wizeworks/db';
+import { tenantStore } from '@wizeworksllc/db';
 import { z } from 'zod';
 
 import { getCustomerAuth } from './server';

@@ -52,7 +52,7 @@ function makeBridge(opts: { failPublish?: boolean } = {}) {
   const logger = {
     info: () => undefined,
     // `warn` is part of BridgeLogger now that the bridge hands its logger to
-    // @wizeworks/events. Deliberately NOT pushed to `logged`: every assertion below
+    // @wizeworksllc/events. Deliberately NOT pushed to `logged`: every assertion below
     // reads that array as "the errors this publish produced", and folding
     // warnings in would make those counts mean something else.
     warn: () => undefined,

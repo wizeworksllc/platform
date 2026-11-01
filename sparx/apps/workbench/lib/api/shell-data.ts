@@ -6,7 +6,7 @@
 // which exist before any pane does. Everything here rides the same token/client
 // as the panes, so the chrome holds no second auth path.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from './client';
 import { getTokenState } from './token';
 import type { WorkbenchController } from '../workbench/controller';

@@ -8,7 +8,7 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { FastifyBaseLogger, FastifyRequest } from 'fastify';
-import type { BillingDocumentSignature } from '@wizeworks/db';
+import type { BillingDocumentSignature } from '@wizeworksllc/db';
 
 const state = vi.hoisted(() => ({
   sms: [] as string[],
@@ -22,7 +22,7 @@ const SITES = new Map([
   [STUDIO.id, STUDIO],
 ]);
 
-vi.mock('@wizeworks/db', async (importOriginal) => {
+vi.mock('@wizeworksllc/db', async (importOriginal) => {
   const actual = await importOriginal<Record<string, unknown>>();
   const at = new Date('2026-10-02T15:00:00Z');
   const domain = {
@@ -97,12 +97,12 @@ vi.mock('@wizeworks/db', async (importOriginal) => {
   };
 });
 
-vi.mock('@wizeworks/scheduling', async (importOriginal) => ({
+vi.mock('@wizeworksllc/scheduling', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   findBookingPlace: () => Promise.resolve(null),
 }));
 
-vi.mock('@wizeworks/sms/delivery', () => ({
+vi.mock('@wizeworksllc/sms/delivery', () => ({
   sendTenantSms: (_ctx: unknown, msg: { body: string }) => {
     state.sms.push(msg.body);
     return Promise.resolve({ outcome: 'sent' });
@@ -117,10 +117,10 @@ vi.mock('./tenant-email.js', () => ({
     Promise.resolve({ from: 'Rosa Flowers <hello@rosaflowers.example>', replyTo: null }),
 }));
 
-vi.mock('@wizeworks/api-core/auth', () => ({
+vi.mock('@wizeworksllc/api-core/auth', () => ({
   requireAuth: () => ({ tenantId: 'tenant-1', actorId: 'user-1' }),
 }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({
   publish: (_log: unknown, _topic: string, _t: string, _a: string, payload: unknown) => {
     state.published.push(payload as { template: string; props: Record<string, unknown> });
     return Promise.resolve();

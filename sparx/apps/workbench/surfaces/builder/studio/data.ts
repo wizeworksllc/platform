@@ -12,7 +12,7 @@
 // The load endpoints are the same api-rest routes the dashboard studio reads,
 // called here from the browser through the workbench's token-vending client.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../../lib/api-error';
 import type {
   BindingCatalog,
@@ -21,7 +21,7 @@ import type {
   SitePublishState,
   SiteSyncInput,
   StoredSilicaSite,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { api } from '../../../lib/api/client';
 import { getTokenState } from '../../../lib/api/token';
 import type { BrandColumns } from './brand-theme';
@@ -790,7 +790,7 @@ export interface CheckFinding {
   detail: string;
   evidence?: string;
   /** A correction the editor may apply for the author — present only when the server
-   *  judged it BOTH unambiguous and safe to apply here (`@wizeworks/site-lint`'s `LintFix`).
+   *  judged it BOTH unambiguous and safe to apply here (`@wizeworksllc/site-lint`'s `LintFix`).
    *  Most findings never carry one: "choose a destination for this link" and "pick a
    *  readable color" are the author's decisions, not ours. */
   fix?: CheckFix;

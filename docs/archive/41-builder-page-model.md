@@ -51,7 +51,7 @@ _creates_ more. There is no separate "template" entity.
 
 Tenant-scoped, **ENABLE + FORCE RLS** with the standard `tenant_isolation` policy on
 `current_tenant_id()` (mirrors `sitebuilder_section_definitions`). The tree JSON is
-validated by `@wizeworks/builder-schemas`, never by the DB.
+validated by `@wizeworksllc/builder-schemas`, never by the DB.
 
 `singleton` vs `collection` is the doc 40 page-type distinction: a singleton is one
 specific page (Home, About) whose content is authored inline; a collection is one
@@ -60,19 +60,19 @@ fields and each record fills the same tree.
 
 ## 3. Package layout — mirrors the sitebuilder split
 
-Two new packages, deliberately split the same way `@wizeworks/sitebuilder-schemas` and
-`@wizeworks/sitebuilder` are. The split keeps Prisma out of the client bundle (the
+Two new packages, deliberately split the same way `@wizeworksllc/sitebuilder-schemas` and
+`@wizeworksllc/sitebuilder` are. The split keeps Prisma out of the client bundle (the
 editor's `'use client'` files can import the schemas package; they must never reach
 the service package) and makes the eventual sitebuilder retirement a deletion rather
 than a surgical extraction.
 
-- **`@wizeworks/builder-schemas`** (dependency-light: `zod` only) — the canonical
+- **`@wizeworksllc/builder-schemas`** (dependency-light: `zod` only) — the canonical
   recursive `BuilderNode` Zod schema, box/layout/binding sub-schemas, the
   `CreatePageInput` / `UpdatePageInput` / `PublishPageInput` input schemas, DTO types,
   and the curated **starter page trees** (`STARTER_PAGES`). This is the single source
   of the serializable contract — the UI's `_builder/model.ts` re-uses its types so the
   shape can't drift between client and server.
-- **`@wizeworks/builder`** (server; depends on `@wizeworks/db` + `@wizeworks/builder-schemas`) —
+- **`@wizeworksllc/builder`** (server; depends on `@wizeworksllc/db` + `@wizeworksllc/builder-schemas`) —
   `pageService` (`listOrSeed` / `get` / `create` / `update` / `remove` / `reorder` /
   `publish`), plus `errors` / `audit` / `events`, all on `withTenant()` RLS. One
   service, many transports (REST today; MCP + server actions later).

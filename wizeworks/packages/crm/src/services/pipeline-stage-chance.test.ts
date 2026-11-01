@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { fixedStageChance } from '@wizeworks/crm-schemas';
+import { fixedStageChance } from '@wizeworksllc/crm-schemas';
 
 /**
  * A FINISHED STEP HAS A FIXED CHANCE (sparx persona issue 110).
@@ -39,7 +39,7 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => fn(tx),
 }));

@@ -75,7 +75,7 @@ These axes do **not** all belong to the marketplace. They split across two layer
 split right is what makes the feature reusable instead of a marketplace silo:
 
 1. **Commerce-level local-fulfillment primitives (reusable).** _Fulfillment method_, _pickup
-   locations_, and _delivery zones_ are **commerce capabilities** — they live in `@wizeworks/commerce` and
+   locations_, and _delivery zones_ are **commerce capabilities** — they live in `@wizeworksllc/commerce` and
    power **any** sales channel: a tenant's own storefront checkout (`wizeworks/apps/site`) **and** sparx.market.
    A small shop selling on its own sparx site gets local pickup/delivery for free out of this work.
 2. **Marketplace-level local discovery + directory + events.** Cross-tenant "shops near me", the
@@ -120,7 +120,7 @@ These are locked by the research + the existing architecture. The build plan ass
   first, distance on cards). A map view is an opt-in toggle so its cost only accrues when a buyer opens
   it. If/when shown: **MapLibre GL JS + a hosted tile SKU** (OSM attribution) — never the raw public
   OSM tile endpoint (its policy forbids commercial/bulk use with no SLA).
-- **D6 — Fulfillment primitives live in `@wizeworks/commerce`; discovery/directory/events in the market
+- **D6 — Fulfillment primitives live in `@wizeworksllc/commerce`; discovery/directory/events in the market
   layer.** (See [§2.1](#21-two-architectural-layers-the-key-structural-decision).)
 - **D7 — No new billing module.** "Local" is a **capability of sparx.market participation**, not a
   separately-priced module (the platform has modules, not tiers; participation is

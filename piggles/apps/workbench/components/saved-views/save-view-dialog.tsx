@@ -22,7 +22,7 @@ import {
   Text,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { afterCommit } from '../../lib/defer';
 import { normalise, type SavedView, type SavedViewConfig } from './data';

@@ -6,7 +6,7 @@
 //
 // `LotBatch.quantity` is the as-shipped batch count; runtime stock at
 // the variant+warehouse level lives in inventory_levels and is
-// the authoritative source for availability checks. Owned by @wizeworks/inventory.
+// the authoritative source for availability checks. Owned by @wizeworksllc/inventory.
 
 model LotBatch {
   id          String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid

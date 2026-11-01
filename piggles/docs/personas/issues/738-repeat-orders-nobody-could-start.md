@@ -74,7 +74,7 @@ be charged automatically" — and that IS reachable, from the account area's
 payment-methods page.
 
 **The form quotes the figure the platform keeps.** `repeatOrderMonthlyCents` and
-`nextOccurrenceAfter` moved into `@wizeworks/commerce-schemas` and the service
+`nextOccurrenceAfter` moved into `@wizeworksllc/commerce-schemas` and the service
 now calls both, so "worth about $29.00 a month" on the form is produced by the
 same function that puts $29.00 on the list afterwards. Same for the first
 delivery date.

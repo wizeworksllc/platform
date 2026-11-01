@@ -9,13 +9,13 @@
 // path; the scheduling and staff writes are signalled from their api-rest routes,
 // because those two packages publish no events of their own.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   type EntityProjector,
   type ProjectorContext,
   type UniversalSearchDocument,
   universalId,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 
 import { codeAsWords } from './search-words';
 import { epoch, keywords, pickString, snippet } from './universal-projection-kit';

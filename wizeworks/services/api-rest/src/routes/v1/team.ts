@@ -45,12 +45,12 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { invalidateMemberAccessCache, requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { badRequest, conflict, forbidden, notFound } from '@wizeworks/api-core/errors';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { invalidateMemberAccessCache, requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { badRequest, conflict, forbidden, notFound } from '@wizeworksllc/api-core/errors';
 import {
   ASSIGNABLE_ORG_ROLES,
   parseModuleAccessMode,
@@ -63,9 +63,9 @@ import {
   authPrisma,
   type AssignableOrgRole,
   type ModuleAccessMode,
-} from '@wizeworks/auth';
+} from '@wizeworksllc/auth';
 import { MODULE_SLUGS, MODULE_SLUG_SET } from '../../lib/module-toggle.js';
-import { accountOrigin, appOrigin } from '@wizeworks/links/server';
+import { accountOrigin, appOrigin } from '@wizeworksllc/links/server';
 import { tenantPlatformBrand } from '../../lib/tenant-brand.js';
 
 // Better Auth's organization plugin is configured with
@@ -115,7 +115,7 @@ const AssignableRole = z
 const InvitedMemberType = z.enum(['staff', 'consultant']);
 
 // Same refine shape as the role, and for the same reason: the vocabulary lives
-// in @wizeworks/auth, so validating against the exported list means a new mode is
+// in @wizeworksllc/auth, so validating against the exported list means a new mode is
 // settable here the day it is added rather than the day someone remembers.
 const AccessMode = z
   .string()

@@ -26,8 +26,8 @@
 // inactive country-level fallback zone `taxService.bootstrapDefaults` seeds on
 // activation. Each install is guarded against a re-install by `commercePreset`.
 
-import type { CreateTaxRateInput, CreateTaxZoneInput } from '@wizeworks/commerce-schemas';
-import type { TenantContext } from '@wizeworks/db';
+import type { CreateTaxRateInput, CreateTaxZoneInput } from '@wizeworksllc/commerce-schemas';
+import type { TenantContext } from '@wizeworksllc/db';
 
 import { taxService } from '../services';
 

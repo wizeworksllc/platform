@@ -11,7 +11,7 @@
 // plan a person sees is literally the plan that runs.
 //
 // Its dependency-free-ness is load-bearing, not incidental. This file is published as its
-// own `@wizeworks/social/cadence` entrypoint so the browser can import it WITHOUT pulling the
+// own `@wizeworksllc/social/cadence` entrypoint so the browser can import it WITHOUT pulling the
 // package barrel — which re-exports the adapters, the registry and the renderer, and whose
 // `./thing.js` import specifiers Turbopack will not rewrite to `.ts`. Keep this file free
 // of relative imports: adding one puts the workbench build back where it was.

@@ -2,10 +2,10 @@
 
 // JSON-mode block editor.
 //
-// Mirrors the @wizeworks/ui RichTextEditor's toolbar shape but persists the
+// Mirrors the @wizeworksllc/ui RichTextEditor's toolbar shape but persists the
 // TipTap doc as JSON (the on-the-wire shape api-rest stores in
 // `content_entries.body`). The dashboard's CMS edit form embeds this; the
-// HTML-emitting RichTextEditor in @wizeworks/ui stays available for places
+// HTML-emitting RichTextEditor in @wizeworksllc/ui stays available for places
 // where HTML output is convenient (email composer, support replies).
 //
 // Block coverage matches `extensions.ts`: paragraph, headings, lists,
@@ -37,7 +37,7 @@ import {
   Tv,
   Undo2,
 } from 'lucide-react';
-import { cn } from '@wizeworks/silica-corrections';
+import { cn } from '@wizeworksllc/silica-corrections';
 import { cmsEditorExtensions, emptyDoc } from './extensions';
 import { detectProvider } from './nodes';
 import type { ReferenceSearchFn } from './nodes';

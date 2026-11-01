@@ -9,8 +9,8 @@
 import { Field, FieldDescription, FieldLabel, NativeSelect } from '@wizeworks/silicaui-react';
 import type { PageDoc } from '@piggles/studio';
 import { useApply } from '@piggles/studio/react';
-import { kindAddressAt, recordAddressAt } from '@wizeworks/silica-catalog';
-import type { BindingCatalog } from '@wizeworks/builder-schemas';
+import { kindAddressAt, recordAddressAt } from '@wizeworksllc/silica-catalog';
+import type { BindingCatalog } from '@wizeworksllc/builder-schemas';
 import { useBindingCatalog, useProductTypeChoices } from '../../lib/studio/site-data';
 
 /** What one record of this type is called, in the words a shop owner uses. */

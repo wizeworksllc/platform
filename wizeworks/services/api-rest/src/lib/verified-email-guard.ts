@@ -11,9 +11,9 @@
 // the fresh-signup abuse vector this guards.
 
 import type { FastifyRequest } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { forbidden } from '@wizeworks/api-core/errors';
+import { prisma } from '@wizeworksllc/db';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { forbidden } from '@wizeworksllc/api-core/errors';
 
 /** Names the notice both consoles show an unconfirmed owner. It said "resend
  *  the link from the dashboard", a console that no longer exists (sparx

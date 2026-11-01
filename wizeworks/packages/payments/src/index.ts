@@ -1,4 +1,4 @@
-// @wizeworks/payments — vendor-agnostic payment gateway abstraction (docs/94 ADR).
+// @wizeworksllc/payments — vendor-agnostic payment gateway abstraction (docs/94 ADR).
 // Every payment flow (storefront checkout, invoice payment links, B2B order
 // payments) calls PaymentService and never knows which gateway is behind it.
 // sparx Pay = Stripe Connect destination charges (flat 0.5% via application_fee);
@@ -56,7 +56,7 @@ export { gatewayRegistry, registerBuiltInGateways, GatewayNotFoundError } from '
 // paths ask this, so it is one answer rather than two that drift.
 export { GATEWAY_PROCESSORS, takenByGateway } from './processors';
 
-// The shared-plane face of the gateway catalog (@wizeworks/integrations).
+// The shared-plane face of the gateway catalog (@wizeworksllc/integrations).
 export {
   paymentIntegrations,
   gatewayToIntegrationDescriptor,

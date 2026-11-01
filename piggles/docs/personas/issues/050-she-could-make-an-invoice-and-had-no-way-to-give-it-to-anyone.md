@@ -32,7 +32,7 @@ Nothing sent anything there. She would fill it in and wait.
 
 ## Why it happened
 
-There was no route, no template, and no action. `@wizeworks/email` had
+There was no route, no template, and no action. `@wizeworksllc/email` had
 `billing-receipt` and `billing-payment-failed` — but those are **us billing the
 tenant**, not the tenant billing their customer. The only tenant→customer
 document mail that existed was `document-signature-request`.

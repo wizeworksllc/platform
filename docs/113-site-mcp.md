@@ -75,7 +75,7 @@ tool is a declarative adapter that:
 
 Consequences: reuses **all** existing public-safety logic (visibility, module gating,
 rate limits, projections); the new service's Docker closure is tiny (no `@sparx/*`
-module packages, no `@wizeworks/db`, no Prisma); and site/MCP parity is automatic —
+module packages, no `@wizeworksllc/db`, no Prisma); and site/MCP parity is automatic —
 a fix in a public route fixes the tool.
 
 ### 3.2 New service — `wizeworks/services/mcp-site`
@@ -86,7 +86,7 @@ sessionIdGenerator: undefined })`, `reply.hijack()`), but with a different auth
 pipeline and **no module bundling**.
 
 - **Deps:** `fastify`, `fastify-plugin`, `@modelcontextprotocol/sdk`, `zod`, `pino`,
-  `@wizeworks/site-mcp` (the catalog), `@wizeworks/api-core` (envelope types). That's it.
+  `@wizeworksllc/site-mcp` (the catalog), `@wizeworksllc/api-core` (envelope types). That's it.
 - **Endpoints:**
   - `POST|GET|DELETE /mcp` — per-site (site from forwarded Host).
   - `POST|GET|DELETE /s/:tenant/:property?/mcp` — canonical (site from subpath, for
@@ -107,7 +107,7 @@ site-by-host?host=<x-forwarded-host>`. A 404 → MCP error result "unknown site"
 - **Rate limiting:** coarse per-(tenant, client-ip) token bucket in-process (the public
   routes are also rate-limited downstream); mirror `api-mcp/src/rate-limit.ts`.
 
-### 3.3 Shared tool catalog — `@wizeworks/site-mcp`
+### 3.3 Shared tool catalog — `@wizeworksllc/site-mcp`
 
 A new package holding the **single source of truth** for shopper tools, consumed by
 both the service and the concierge:
@@ -277,7 +277,7 @@ settings, unauthenticated `b2b/service-types`. Customer-tier tools (`my orders`,
 
 ### Phase 0 — shared catalog package
 
-1. `wizeworks/packages/site-mcp/` (`@wizeworks/site-mcp`): `SiteApiClient`,
+1. `wizeworks/packages/site-mcp/` (`@wizeworksllc/site-mcp`): `SiteApiClient`,
    `SiteTool` type, `SITE_TOOLS` (§6 read + guest_write), `toAnthropicTools()`,
    `toMcpRegistrations()`. Zod schemas per tool. Unit tests for schema + client URL/relay.
 
@@ -328,7 +328,7 @@ tests.
 
 ## 11. Open decisions
 
-- **Service/package names** — `mcp-site` / `@wizeworks/site-mcp` (proposed).
+- **Service/package names** — `mcp-site` / `@wizeworksllc/site-mcp` (proposed).
 - **Canonical host shape** — `mcp.sparx.zone/s/<tenant>[/<property>]` vs `?tenant=`
   query. Subpath proposed (cleaner, cache-friendly).
 - **Phase 2 cut line** — build now vs immediately-next (see §5).

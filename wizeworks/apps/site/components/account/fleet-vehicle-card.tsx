@@ -14,7 +14,7 @@ import {
   AlertDialogTrigger,
   Button,
 } from '@wizeworks/silicaui-react';
-import { vehicleDescription } from '@wizeworks/commerce-schemas';
+import { vehicleDescription } from '@wizeworksllc/commerce-schemas';
 
 import { partsThatFitHref, type PortalFleetVehicle } from '@/lib/fleet-client';
 

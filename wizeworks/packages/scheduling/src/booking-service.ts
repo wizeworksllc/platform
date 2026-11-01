@@ -5,7 +5,7 @@
 // requests race past the in-app free check, the second INSERT fails and we
 // translate it into a clean SlotUnavailableError instead of a 500.
 
-import { Prisma, withTenant, type Booking, type TxClient } from '@wizeworks/db';
+import { Prisma, withTenant, type Booking, type TxClient } from '@wizeworksllc/db';
 import type {
   CancelBookingInput,
   CheckInInput,
@@ -13,7 +13,7 @@ import type {
   NoShowBookingInput,
   RescheduleBookingInput,
   UpdateBookingInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
 import {
   BookingNotFoundError,
@@ -372,7 +372,7 @@ export async function confirmBooking(
 /**
  * A booking that has ended, and what the card on it needs. `money` is null when
  * there is nothing to settle. The caller hands it to `bookingPayments.settle` in
- * @wizeworks/commerce once this has committed (sparx persona issue 087).
+ * @wizeworksllc/commerce once this has committed (sparx persona issue 087).
  */
 export interface EndedBooking {
   booking: Booking;

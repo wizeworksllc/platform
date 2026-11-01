@@ -1,4 +1,4 @@
-import type { Action, ConditionGroup, Trigger } from '@wizeworks/automation-schemas';
+import type { Action, ConditionGroup, Trigger } from '@wizeworksllc/automation-schemas';
 import { parseActions, parseConditions, parseTrigger } from '../automations-presentation';
 import type { Automation } from '../automations-data';
 

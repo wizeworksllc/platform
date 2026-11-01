@@ -8,7 +8,7 @@
 
 > **Reconciled 2026-07-22 (docs-vs-built audit):** The **Phase 7 metered transaction fee** described throughout this plan was **removed** — there are no plan tiers, only modules, so the tiered 0.5%/0.3%/0% metered fee (`recordTransactionFee`, `meterOrderFee`, the `transaction_fee` meter/price) no longer exists in code. The **only** platform-collected payment fee is **sparx Pay's flat 0.5%**, taken at charge time via Stripe `application_fee_amount` and recorded on `payment_intents.platform_fee` (see [docs/94 §8](94-ADR-payment-gateway.md) and [docs/92 §2](92-billing-stripe-go-live.md)). The transaction-fee subsections below (Phase 1 "Transaction fee metering", Phase 7, and the fee rows in the Build Status) are **historical**. Separately, `apps/dashboard` was deleted and rebuilt as `sparx/apps/workbench`; the standalone `/settings/billing` page never shipped in workbench — only the billing **chrome banner + trial chip** (`sparx/apps/workbench/components/billing/*`) plus the **`finance.subscription`** surface exist. Plan/status derive from active module flags; the Stripe Customer Portal covers self-serve management.
 
-> **Updated 2026-07-25 (subscription born-at-checkout + discount codes):** The subscription is **no longer created eagerly** when a module is toggled during the trial. Eager creation is incompatible with tenant-redeemable discount codes — Stripe only offers its promotion-code redemption box on a **Checkout Session that itself creates the subscription**, never on a card-less subscription or the Customer Portal. So: during the trial `syncModuleItems` ensures only the Stripe **customer** (gating is column-driven via `resolveBillingPhase`, which never needs a subscription); the subscription is **born at checkout** via `createCheckoutSession` (`mode: 'subscription'`, `allow_promotion_codes: true`, `trial_end` pinned to the signup clock) — the `finance.subscription` surface's "Set up billing" button, `POST /v1/billing/checkout`. The Customer **Portal** remains the MANAGE surface once a subscription exists. Discount codes are **promotion codes** (typeable strings on a coupon), created operator-side in `wizeworks/apps/admin/.../sparx/billing` — public or locked to one tenant — via `createPromotionCode` (`@wizeworks/billing` operator.ts). The `customer.subscription.created` webhook already reconciles the checkout-created subscription; no new webhook code.
+> **Updated 2026-07-25 (subscription born-at-checkout + discount codes):** The subscription is **no longer created eagerly** when a module is toggled during the trial. Eager creation is incompatible with tenant-redeemable discount codes — Stripe only offers its promotion-code redemption box on a **Checkout Session that itself creates the subscription**, never on a card-less subscription or the Customer Portal. So: during the trial `syncModuleItems` ensures only the Stripe **customer** (gating is column-driven via `resolveBillingPhase`, which never needs a subscription); the subscription is **born at checkout** via `createCheckoutSession` (`mode: 'subscription'`, `allow_promotion_codes: true`, `trial_end` pinned to the signup clock) — the `finance.subscription` surface's "Set up billing" button, `POST /v1/billing/checkout`. The Customer **Portal** remains the MANAGE surface once a subscription exists. Discount codes are **promotion codes** (typeable strings on a coupon), created operator-side in `wizeworks/apps/admin/.../sparx/billing` — public or locked to one tenant — via `createPromotionCode` (`@wizeworksllc/billing` operator.ts). The `customer.subscription.created` webhook already reconciles the checkout-created subscription; no new webhook code.
 
 ## Overview
 
@@ -32,7 +32,7 @@ the manual ops are done.
 
 ### ✅ Built (validated: typecheck + lint + 8 unit tests)
 
-- **`@wizeworks/billing` package** — `price-catalog.ts` (module list prices in
+- **`@wizeworksllc/billing` package** — `price-catalog.ts` (module list prices in
   `MODULE_MONTHLY_CENTS`), `client.ts`
   (`isBillingConfigured()` over the single platform Stripe account), `service.ts`
   (`syncModuleItems`, `createPortalSession`, `getBillingState`,
@@ -53,7 +53,7 @@ the manual ops are done.
 - **API + UI** — `GET /v1/billing`, `POST /v1/billing/portal`; `/settings/billing`
   dashboard page (plan derived from active modules + status + Stripe portal door);
   settings-nav `billing` entry flipped `ready: true`.
-- **Wiring** — api-rest Dockerfile COPY for `@wizeworks/billing`;
+- **Wiring** — api-rest Dockerfile COPY for `@wizeworksllc/billing`;
   `STRIPE_WEBHOOK_SECRET_BILLING` added to env.
 - ~~**Phase 7 — transaction-fee metering** (§7)~~ — **REMOVED (2026-07-22).** The
   tiered `recordTransactionFee()` / `meterOrderFee` / `transaction_fee` meter path

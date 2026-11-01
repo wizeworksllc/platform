@@ -10,7 +10,7 @@
 // this is React-FREE: silica's own `toEmailHtml` projector emits the table HTML,
 // and plain text comes from a walk of the resolved node tree. That keeps this
 // module importable from a backend (email-worker / api-rest) with no React in the
-// bundle — hence the dedicated `@wizeworks/email/silica` entrypoint.
+// bundle — hence the dedicated `@wizeworksllc/email/silica` entrypoint.
 //
 // The pipeline (D2):
 //   1. compose the SEND document — a branded wordmark header section, the author's
@@ -30,7 +30,7 @@ import {
   type EmailHeadExtras,
   type EmailResolveHost,
 } from '@wizeworks/silicaui-builder/email';
-import { emailBrandFontHref } from '@wizeworks/site-themes';
+import { emailBrandFontHref } from '@wizeworksllc/site-themes';
 import {
   createSilicaResolver,
   defaultSilicaFormat,
@@ -38,7 +38,7 @@ import {
   interpolateEmailTokens,
   resolvePath,
   type DataSources,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 
 import { defaultBrand, type BrandTokens } from '../components/brand';
 import type { SendableEmail } from '../types';

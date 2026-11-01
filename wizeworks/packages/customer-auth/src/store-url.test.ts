@@ -14,7 +14,7 @@ interface State {
 
 const state = vi.hoisted<State>(() => ({ settings: {}, canonical: new Map() }));
 
-vi.mock('@wizeworks/db', async (importOriginal) => {
+vi.mock('@wizeworksllc/db', async (importOriginal) => {
   const actual = await importOriginal<Record<string, unknown>>();
   const tx = {
     tenant: { findUnique: () => Promise.resolve({ slug: 'bobs', settings: state.settings }) },
@@ -40,7 +40,7 @@ vi.mock('@wizeworks/db', async (importOriginal) => {
   };
 });
 
-import { tenantStore } from '@wizeworks/db';
+import { tenantStore } from '@wizeworksllc/db';
 
 import { resolveStoreBaseUrl } from './store-url';
 

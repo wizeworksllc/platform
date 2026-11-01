@@ -15,7 +15,7 @@
 //
 // ── WHY THE RELATION CANNOT SIMPLY BE INCLUDED ──────────────────────────────
 //
-// `Customer.company` is a Prisma computed field (see @wizeworks/db's client)
+// `Customer.company` is a Prisma computed field (see @wizeworksllc/db's client)
 // that SHADOWS the relation of the same name: ask for the relation and you get
 // the typed string back instead, silently, with no error. That is how two other
 // screens lost their business name (issue 751). So the business is fetched by

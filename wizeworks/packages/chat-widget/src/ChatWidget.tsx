@@ -6,7 +6,7 @@
 // (ChatLayoutMessages/ChatMessage/ChatTypingIndicator/ChatComposer) — the
 // launcher button and panel chrome have no chat-suite equivalent, so those
 // stay hand-composed from Button/Indicator/Badge + silicaui's own tokens
-// (bg-base-100, border-base-300, …), the same pattern @wizeworks/ui's MiniCart
+// (bg-base-100, border-base-300, …), the same pattern @wizeworksllc/ui's MiniCart
 // uses for its own floating panel. It fetches its public config, opens a
 // conversation against api-rest's /v1/public/chat surface, and receives
 // staff/AI replies live over the /ws/chat socket. Anonymous visitors are

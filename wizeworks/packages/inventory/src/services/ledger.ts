@@ -19,7 +19,7 @@
 // `tx`); event emission is post-commit via `emitStockEvents`, which the public
 // service functions call after the transaction returns.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

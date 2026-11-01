@@ -23,8 +23,8 @@
 //     `file:`… are refused (the same XSS guard blueprints use).
 //   · tenant-scoped — every write runs inside withTenant(); rows are RLS-backed.
 
-import { withTenant } from '@wizeworks/db';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { withTenant } from '@wizeworksllc/db';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 import { countOneAssetUsage, describeUsage } from './asset-usage.js';
 import { getStorage, originalKey, safeFilename } from './storage.js';
 import { storageEnv } from './env.js';

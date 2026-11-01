@@ -6,7 +6,7 @@
 // group's prices, then price lists and bulk prices) and says which rule set the
 // price in a sentence.
 //
-// It lives here rather than in `@wizeworks/b2b/mcp` because the answer belongs
+// It lives here rather than in `@wizeworksllc/b2b/mcp` because the answer belongs
 // to commerce and the b2b package does not carry commerce (same reasoning as
 // `purchase-order-tools.ts`). The version that lived in the b2b package called
 // `resolve_b2b_price()` directly, which never reads a signed agreement, while
@@ -14,7 +14,7 @@
 // still `read:b2b`, so it is still gated on the b2b module in server.ts.
 
 import { z } from 'zod';
-import { pricingService } from '@wizeworks/commerce';
+import { pricingService } from '@wizeworksllc/commerce';
 
 interface Ctx {
   tenantId: string;

@@ -25,12 +25,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { CustomerType, LeadStatus, LifecycleStage } from '@wizeworks/crm-schemas';
-import { customerService } from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { CustomerType, LeadStatus, LifecycleStage } from '@wizeworksllc/crm-schemas';
+import { customerService } from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { resolveListScope, resolvePropertyId } from '../../../lib/property.js';
 

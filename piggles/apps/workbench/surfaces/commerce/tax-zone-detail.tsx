@@ -22,7 +22,7 @@
 // This pane reads `zoneIsCollecting` rather than the switch, so what it says and
 // what the till does cannot drift apart.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

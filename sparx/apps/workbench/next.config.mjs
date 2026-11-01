@@ -54,11 +54,11 @@ const config = {
       },
     ];
   },
-  // @wizeworks/api-client ships raw TypeScript (main points at src/index.ts), so it
+  // @wizeworksllc/api-client ships raw TypeScript (main points at src/index.ts), so it
   // must be transpiled rather than treated as a prebuilt dependency. workbench
   // is its first consumer — it had never been through a bundler before.
   transpilePackages: [
-    '@wizeworks/app-kit',
+    '@wizeworksllc/app-kit',
     // The sign-up action resolves the legal-acceptance record's address with it;
     // ships source from ./src like app-kit.
     '@wizeworks/silicaui-react',
@@ -66,25 +66,25 @@ const config = {
     // The rich-text editor (bootcamp description) ships a client TipTap surface.
     '@wizeworks/silicaui-editor',
     '@sparx/brand',
-    '@wizeworks/api-client',
+    '@wizeworksllc/api-client',
     // The CMS block editor ships raw TypeScript/TSX (its exports point at
     // ./src/*), so it must be transpiled rather than treated as prebuilt — and
-    // so must @wizeworks/ui, which it imports `cn` from and which also ships source.
-    '@wizeworks/cms-editor',
-    '@wizeworks/ui',
+    // so must @wizeworksllc/ui, which it imports `cn` from and which also ships source.
+    '@wizeworksllc/cms-editor',
+    '@wizeworksllc/ui',
     // The visual site builder (builder.studio) mounts silica's <Builder> over a
     // sparx BuilderHost; these ship raw TypeScript from ./src.
-    '@wizeworks/builder-schemas',
-    '@wizeworks/silica-catalog',
-    '@wizeworks/site-themes',
+    '@wizeworksllc/builder-schemas',
+    '@wizeworksllc/silica-catalog',
+    '@wizeworksllc/site-themes',
     // The social calendar imports `slotOccurrences` — a RUNTIME value, unlike the
     // type-only schema packages above, whose imports erase at compile time. So this one
     // ships source that actually has to be compiled. It is imported via the narrow
-    // `@wizeworks/social/cadence` entrypoint rather than the package barrel: the barrel's
+    // `@wizeworksllc/social/cadence` entrypoint rather than the package barrel: the barrel's
     // internal `./thing.js` specifiers are not rewritten to `.ts` by Turbopack, so
     // reaching for the barrel here fails the production build even though dev and
     // typecheck pass. `cadence.ts` has no relative imports at all.
-    '@wizeworks/social',
+    '@wizeworksllc/social',
   ],
   typedRoutes: false,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.

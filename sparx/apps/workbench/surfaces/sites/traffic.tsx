@@ -13,8 +13,8 @@
 // different one. Attributing another site's numbers to this name would be worse
 // than showing nothing.
 
-import { useQuery } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useQuery } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import {
   Stat,
   StatDesc,

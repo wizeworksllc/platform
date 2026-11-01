@@ -10,9 +10,9 @@
 // `sparx_app` is NOBYPASSRLS and those tables are FORCE-RLS (a single cross-tenant
 // aggregate returns nothing without a tenant GUC).
 
-import { deriveModuleStates, type ModuleSlug } from '@wizeworks/modules';
-import { MODULE_MONTHLY_CENTS } from '@wizeworks/billing';
-import type { OperatorMetricsModule, OperatorMetricsResult } from '@wizeworks/operator';
+import { deriveModuleStates, type ModuleSlug } from '@wizeworksllc/modules';
+import { MODULE_MONTHLY_CENTS } from '@wizeworksllc/billing';
+import type { OperatorMetricsModule, OperatorMetricsResult } from '@wizeworksllc/operator';
 
 /** The minimal tenant projection the metrics need (mirrors the route's select). */
 export interface MetricsRow {

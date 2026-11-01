@@ -5,7 +5,7 @@
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 import { ConfigurationSelection } from './bundles';
 import { AddressSnapshot, Channel, Currency, MoneyCents } from './common';

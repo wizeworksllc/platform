@@ -17,7 +17,7 @@
 
 import { useState } from 'react';
 import { useBusinessZone } from '../../lib/business-timezone';
-import { useQuery, useQueryClient } from '@wizeworks/query';
+import { useQuery, useQueryClient } from '@wizeworksllc/query';
 import { Badge, Button, Card, SearchInput } from '@wizeworks/silicaui-react';
 import { Table } from '../../components/table';
 import { ArrowDown, ArrowUp, FileText, Plus } from 'lucide-react';

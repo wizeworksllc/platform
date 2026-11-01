@@ -3,11 +3,11 @@
 // delete + the fork-on-edit schema authoring (PUT :key/schema) through these
 // functions so the collision + fork + in-use rules live in one place.
 
-import type { ContentType, Prisma, TxClient } from '@wizeworks/db';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
-import type { ContentTypeSchema as ContentTypeSchemaT } from '@wizeworks/cms-schemas';
-import { conflict, notFound, validationError } from '@wizeworks/api-core/errors';
+import type { ContentType, Prisma, TxClient } from '@wizeworksllc/db';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
+import type { ContentTypeSchema as ContentTypeSchemaT } from '@wizeworksllc/cms-schemas';
+import { conflict, notFound, validationError } from '@wizeworksllc/api-core/errors';
 import { samePatternAddress, urlPatternProblem } from './url-pattern.js';
 import { serializeContentType, type WireContentType } from './content-types.js';
 import type { CmsWriteContext, CmsEmittedEvent } from './service-support.js';

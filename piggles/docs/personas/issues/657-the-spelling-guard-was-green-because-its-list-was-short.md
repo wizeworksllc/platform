@@ -124,7 +124,7 @@ Cancelled</option>` has two spellings on one line and only one of them is
 The rule covers comments too, and the guard deliberately does not read them. Two
 British spellings in api-rest messages were fixed by hand on the way past
 (`a shelf labelled …`), which is a reminder that the PACKAGES have no guard at
-all — every sentence `@wizeworks/inventory` or `@wizeworks/commerce` shows a
+all — every sentence `@wizeworksllc/inventory` or `@wizeworksllc/commerce` shows a
 person is unchecked. That is a separate pass.
 
 ## Files

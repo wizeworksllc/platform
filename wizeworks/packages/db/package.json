@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/db",
+  "name": "@wizeworksllc/db",
   "version": "0.0.0",
   "private": true,
   "description": "sparx data layer — Prisma client, schema, migrations, and tenant-context helpers for Cloud SQL Postgres 18.",
@@ -54,12 +54,12 @@
     "pg": "^8.13.1"
   },
   "devDependencies": {
-    "@wizeworks/blueprints": "workspace:*",
-    "@wizeworks/builder-schemas": "workspace:*",
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/legal-templates": "workspace:*",
-    "@wizeworks/marketplace-schemas": "workspace:*",
-    "@wizeworks/silica-catalog": "workspace:*",
+    "@wizeworksllc/blueprints": "workspace:*",
+    "@wizeworksllc/builder-schemas": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/legal-templates": "workspace:*",
+    "@wizeworksllc/marketplace-schemas": "workspace:*",
+    "@wizeworksllc/silica-catalog": "workspace:*",
     "@types/node": "^25.9.1",
     "@types/pg": "^8.11.10",
     "prisma": "^6.2.0",

@@ -14,7 +14,7 @@
 // labor, sells nothing from the catalog and is taxed at the place's general rate.
 
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

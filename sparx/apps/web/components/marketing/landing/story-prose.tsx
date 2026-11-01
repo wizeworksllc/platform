@@ -10,7 +10,7 @@ import {
   Utensils,
   Warehouse,
 } from 'lucide-react';
-import type { StoryState } from '@wizeworks/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 import { allTokens, storyTokens, tokenSteps, type StoryTokens, type Token } from './story-tokens';
 import styles from './hero-story.module.css';
 
@@ -20,7 +20,7 @@ import styles from './hero-story.module.css';
  * grammar, same module-tinted chips, same closing web address; none of the editing
  * (no popovers, no remove buttons, no dashed "+" slots), because a dead control on a
  * landing page is a promise the page can't keep. Both read their vocabulary and their
- * tint recipe from `@wizeworks/story-schemas`, so the homepage cannot drift from what
+ * tint recipe from `@wizeworksllc/story-schemas`, so the homepage cannot drift from what
  * onboarding actually opens with.
  *
  * `revealed` is how many steps of the story have been told — the caller types the

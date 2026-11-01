@@ -5,8 +5,8 @@
 
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyRequest } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { INTERNAL_OPERATOR_TOKEN_HEADER, OPERATOR_ID_HEADER } from '@wizeworks/operator';
+import { prisma } from '@wizeworksllc/db';
+import { INTERNAL_OPERATOR_TOKEN_HEADER, OPERATOR_ID_HEADER } from '@wizeworksllc/operator';
 
 import { env } from '../../env.js';
 

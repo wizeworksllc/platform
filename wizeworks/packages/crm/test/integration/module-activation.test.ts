@@ -11,11 +11,11 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   BUILT_IN_SEGMENT_TEMPLATES,
   DEFAULT_PIPELINE_TEMPLATE,
-} from '@wizeworks/crm-schemas/builtins';
+} from '@wizeworksllc/crm-schemas/builtins';
 import {
   registerCrmConsumers,
   resetDedupeForTesting,

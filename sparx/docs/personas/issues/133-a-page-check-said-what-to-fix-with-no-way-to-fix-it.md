@@ -31,7 +31,7 @@ A non-technical owner reads advice they cannot act on and gives up on search. An
 
 - Workbench `surfaces/seo/audit-fix-target.ts` (ported from Piggles): "Edit this page / product / collection / article", in the hue of the module it opens, on the check's toolbar. A site page opens the editor on that page (`builder.studio`, `pageId`).
 - Workbench `surfaces/seo/page-search-wording.tsx`: for a site page, "How it shows up in search" with Search title, Summary and Save, on the check itself. Same endpoint and rules as the editor's panel: `lengthHint`, `titleLengthHint`, `shownTitle` and `recordWordingFor` are now exported from `page-settings.tsx` and used by both. A page that shows every product says each product writes its own words. Unsaved edits register the leave guard. Saving re-scores the page.
-- New event `builder.page.settings.changed` (`@wizeworks/events` types, `@wizeworks/builder` topics, Terraform topic map): `pageService.update` sends it after any change other than the body. The purge worker (`cache-revalidation-worker`) clears the site's page cache on it, as on a publish.
+- New event `builder.page.settings.changed` (`@wizeworksllc/events` types, `@wizeworksllc/builder` topics, Terraform topic map): `pageService.update` sends it after any change other than the body. The purge worker (`cache-revalidation-worker`) clears the site's page cache on it, as on a publish.
 
 Tests, each proved red:
 

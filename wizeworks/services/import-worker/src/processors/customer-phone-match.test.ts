@@ -13,7 +13,7 @@ const people = [
 ];
 const findMany = vi.fn((_args: unknown) => Promise.resolve(people));
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, run: (tx: unknown) => unknown) =>
     Promise.resolve(run({ customer: { findMany } })),

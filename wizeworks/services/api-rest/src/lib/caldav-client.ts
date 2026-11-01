@@ -1,5 +1,5 @@
 // CalDAV client for inbound busy import (docs/79 §8.3) — the network half of the
-// CalDAV path; the parsing half is the pure @wizeworks/scheduling caldav-xml reader.
+// CalDAV path; the parsing half is the pure @wizeworksllc/scheduling caldav-xml reader.
 // Owns its own SSRF-guarded transport (we re-validate every redirect hop) rather
 // than delegate to a CalDAV library — iCloud 301-redirects from caldav.icloud.com
 // to a partition host, and a third-party client's fetch would bypass the guard.
@@ -16,7 +16,7 @@ import {
   parseCalendarData,
   parseCalendarHomeHref,
   parsePrincipalHref,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { assertPublicHttpsUrl } from './scheduling-url-guard.js';
 

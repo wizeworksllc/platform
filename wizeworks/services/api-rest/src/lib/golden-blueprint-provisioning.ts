@@ -2,14 +2,14 @@
 // brand's DEFAULT site onto every new tenant's PRIMARY property. A brand-new tenant should BE the golden template, not merely
 // render the base theme through a fallback (theming-spine Phase 3). It lives in
 // api-rest (the composition root) rather than a domain package or a standalone worker
-// because `installBlueprint` already lives here and pulls in @wizeworks/builder /
-// @wizeworks/sitebuilder / @wizeworks/blueprints — api-rest is the only place all of that,
+// because `installBlueprint` already lives here and pulls in @wizeworksllc/builder /
+// @wizeworksllc/sitebuilder / @wizeworksllc/blueprints — api-rest is the only place all of that,
 // plus the marketplace catalog resolver, is already on the dependency graph.
 //
 // TWO mechanisms, one install:
 //
 //   · FORWARD (the "live in under 5 minutes" path): a durable broker consumer of
-//     `tenant.created`. That event is published from @wizeworks/auth's signup, which runs
+//     `tenant.created`. That event is published from @wizeworksllc/auth's signup, which runs
 //     in the WORKBENCH process — so it never reaches api-rest's in-process platform bus
 //     (getPlatformBus), only the cross-service broker. api-rest subscribes here under
 //     its OWN durable name (`api-rest-golden-blueprint`), distinct from
@@ -32,10 +32,10 @@
 import { z } from 'zod';
 import type { FastifyBaseLogger } from 'fastify';
 
-import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworks/db';
-import { startConsumer, type RunningConsumer } from '@wizeworks/events';
+import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworksllc/db';
+import { startConsumer, type RunningConsumer } from '@wizeworksllc/events';
 
-import { platformBrandIdentity } from '@wizeworks/brand-core';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
 import { installBlueprint } from './blueprint-installer.js';
 import { blueprintVisibleTo } from './marketplace/brand-scope.js';
 import { resolveBlueprintManifest } from './marketplace/resolve.js';

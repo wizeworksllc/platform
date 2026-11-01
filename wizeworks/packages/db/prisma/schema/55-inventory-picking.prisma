@@ -218,7 +218,7 @@ model PickListLine {
 // exists from the moment someone starts putting things in a box, it holds the
 // weight and dimensions the rate quote needs, and it holds the scan-verified
 // contents. Closing a package creates the fulfillment; that hand-off lives in
-// `@wizeworks/commerce` (`pack-fulfillment.ts`), the one package that can see both
+// `@wizeworksllc/commerce` (`pack-fulfillment.ts`), the one package that can see both
 // the warehouse and the order.
 model ShipmentPackage {
   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid

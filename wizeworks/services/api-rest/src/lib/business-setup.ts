@@ -6,7 +6,7 @@
 // in is read off the address itself (`zoneOf`), never off the brand, so a third
 // brand needs no edit here.
 
-import { type Prisma, prisma, withTenant } from '@wizeworks/db';
+import { type Prisma, prisma, withTenant } from '@wizeworksllc/db';
 
 import { zoneOf } from './domain.js';
 

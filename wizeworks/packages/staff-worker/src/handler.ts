@@ -16,7 +16,7 @@ import {
   deriveLaborForPeriod,
   deriveLaborForRoster,
   monthPeriod,
-} from '@wizeworks/staff';
+} from '@wizeworksllc/staff';
 
 /**
  * Time was APPROVED. Not clocked out — approved.

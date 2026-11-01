@@ -12,8 +12,8 @@
 // here — the whole-site writes went with the editor, and the per-document ones that
 // replaced them live with their documents.
 
-import { useQuery } from '@wizeworks/query';
-import type { BindingCatalog, SilicaPieceDto } from '@wizeworks/builder-schemas';
+import { useQuery } from '@wizeworksllc/query';
+import type { BindingCatalog, SilicaPieceDto } from '@wizeworksllc/builder-schemas';
 import { api } from '../api/client';
 import { getTokenState } from '../api/token';
 import type { BrandColumns } from './brand-theme';
@@ -383,7 +383,7 @@ export interface CheckFinding {
   detail: string;
   evidence?: string;
   /** A correction the editor may apply for the author — present only when the server
-   *  judged it BOTH unambiguous and safe to apply here (`@wizeworks/site-lint`'s `LintFix`).
+   *  judged it BOTH unambiguous and safe to apply here (`@wizeworksllc/site-lint`'s `LintFix`).
    *  Most findings never carry one: "choose a destination for this link" and "pick a
    *  readable color" are the author's decisions, not ours. */
   fix?: CheckFix;

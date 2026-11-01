@@ -3,7 +3,7 @@
 
 import { z } from 'zod';
 
-import { Carrier, Uuid } from '@wizeworks/crm-schemas';
+import { Carrier, Uuid } from '@wizeworksllc/crm-schemas';
 
 import { MoneyCents } from './common';
 

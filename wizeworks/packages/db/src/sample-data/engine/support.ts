@@ -27,14 +27,14 @@
 //
 // The support queue's own pipeline is created if the tenant has not filed a
 // request yet — the same one `ticketService.ensureTicketPipeline` makes, kept in
-// step by hand because @wizeworks/db sits BELOW @wizeworks/crm and must not depend
+// step by hand because @wizeworksllc/db sits BELOW @wizeworksllc/crm and must not depend
 // upwards (the same rule record-types.ts follows for the built-in objects).
 
 import type { SampleDataPack } from '../types';
 import type { ApplyCtx } from './context';
 import { daysAgo } from './context';
 
-/** Kept in step with DEFAULT_TICKET_PIPELINE_TEMPLATE in @wizeworks/crm-schemas. */
+/** Kept in step with DEFAULT_TICKET_PIPELINE_TEMPLATE in @wizeworksllc/crm-schemas. */
 const TICKET_STAGES = [
   { name: 'New', sortOrder: 0, stageType: 'open', color: '#0EA5E9' },
   { name: 'In Progress', sortOrder: 1, stageType: 'open', color: '#6366F1' },
@@ -43,9 +43,9 @@ const TICKET_STAGES = [
   { name: 'Closed', sortOrder: 4, stageType: 'closed', color: '#94A3B8' },
 ];
 
-/** Kept in step with DEFAULT_SLA_POLICY_TEMPLATE in @wizeworks/crm-schemas, by
- *  hand and for the same reason as the stages above: @wizeworks/db sits below
- *  @wizeworks/crm and must not depend upwards. */
+/** Kept in step with DEFAULT_SLA_POLICY_TEMPLATE in @wizeworksllc/crm-schemas, by
+ *  hand and for the same reason as the stages above: @wizeworksllc/db sits below
+ *  @wizeworksllc/crm and must not depend upwards. */
 const SLA_TEMPLATE = {
   name: 'Usual hours',
   description: 'Weekday business hours. Edit the hours and targets to match how your team works.',

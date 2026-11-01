@@ -24,7 +24,7 @@ already has **full composer parity**: `create_social_post` (body, link,
 `mediaAssetIds` ≤ 20, `targets[]`), `update`/`delete`, the whole lifecycle
 (`submit_for_approval` / `schedule` / `approve` / `reject` / `publish`), and the
 reads `list_social_posts` / `get_social_post`. Media upload is reachable too
-(`@wizeworks/media/mcp`: `upload_image`, `create_image_upload`, `set_image_from_url`).
+(`@wizeworksllc/media/mcp`: `upload_image`, `create_image_upload`, `set_image_from_url`).
 All are registered in [`wizeworks/services/api-mcp/src/tool-registry.ts`](../../services/api-mcp/src/tool-registry.ts)
 and gated on the `social` module flag at dispatch.
 
@@ -48,7 +48,7 @@ purely **read**.
 1. **Move the read view into the package** so both transports share it (the
    "one service, many transports" rule the module already follows). Add
    `listSocialConnections` + `SocialConnectionView` / `SocialTargetView` to
-   `wizeworks/packages/social/src/connections.ts`, export from `@wizeworks/social/service`, and
+   `wizeworks/packages/social/src/connections.ts`, export from `@wizeworksllc/social/service`, and
    have api-rest's [`social-connections.ts`](../../services/api-rest/src/lib/social-connections.ts)
    re-export it (its connect/upsert/target-sync/disconnect stay — they're
    provisioning, adapter- and crypto-bound).
@@ -131,7 +131,7 @@ generate`. Until the client is regenerated, `mediaSiteVisibilityWhere` shows 2
 >
 > **Follow-ups (not blocking):**
 >
-> - **Secondary create paths default to shared (NULL):** the `@wizeworks/media`
+> - **Secondary create paths default to shared (NULL):** the `@wizeworksllc/media`
 >   asset-service (MCP `upload_image` etc.), blueprint installer, dropship import,
 >   and seed do NOT stamp `propertyId` yet — their uploads are tenant-wide until we
 >   thread an optional `propertyId` through `MediaWriteContext`. Non-breaking; the

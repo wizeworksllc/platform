@@ -4,7 +4,7 @@
 // are OPTIONAL so the service is deployable before they're provisioned — without the
 // token key the worker can't decrypt a grant, so it acks each message as a no-op
 // (logged), the same stance push-worker takes without VAPID keys. GCP_PROJECT_ID
-// unset → the @wizeworks/events publisher falls back to its logging (no-op) transport, so
+// unset → the @wizeworksllc/events publisher falls back to its logging (no-op) transport, so
 // result events log instead of publishing.
 
 import 'dotenv/config';
@@ -43,7 +43,7 @@ const EnvSchema = z.object({
   // one of four environment variables naming the same URL, each read by a
   // different emitter — and this one's links were dead regardless, since they
   // used a query parameter the workbench has never read. `appOrigin()` in
-  // `@wizeworks/links/server` reads every such variable, in one fixed order, once.
+  // `@wizeworksllc/links/server` reads every such variable, in one fixed order, once.
   // WORKBENCH_BASE_URL still works; it is simply not this service's private
   // opinion any more.
 });

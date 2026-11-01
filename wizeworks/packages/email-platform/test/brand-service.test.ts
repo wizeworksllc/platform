@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { BASE_SILICA_THEME } from '@wizeworks/silica-catalog';
-import { PLATFORM_TOKEN_DEFAULTS } from '@wizeworks/site-themes';
+import { BASE_SILICA_THEME } from '@wizeworksllc/silica-catalog';
+import { PLATFORM_TOKEN_DEFAULTS } from '@wizeworksllc/site-themes';
 
 import { siteThemeToBrand } from '../src/services/brand-service';
 
@@ -84,7 +84,7 @@ describe('siteThemeToBrand', () => {
 // email and site stay in lockstep before a theme is stored.
 describe('siteThemeToBrand(BASE_SILICA_THEME) — the un-themed fallback', () => {
   // This is the only place the two halves of the platform base can be checked
-  // against each other: @wizeworks/site-themes is dependency-free and cannot see the
+  // against each other: @wizeworksllc/site-themes is dependency-free and cannot see the
   // silica constant, and silica-catalog does not depend on it either. Both land here.
   //
   // It matters more than it looks. The base is what an un-themed tenant's SITE wears

@@ -10,7 +10,7 @@
 // Every function takes a tenant-scoped TxClient (the caller wraps withTenant),
 // so RLS isolates all reads/writes. property_id scopes to the active site.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 // How many trailing days the read live-aggregates instead of trusting the
 // rollup, so "today" (and a just-closed yesterday) stay fresh.

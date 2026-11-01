@@ -1,6 +1,6 @@
 // Where a 1:1 sales email actually leaves the building (docs/144 §5.3).
 //
-// @wizeworks/crm composes the message, threads it and records it, then hands it to
+// @wizeworksllc/crm composes the message, threads it and records it, then hands it to
 // a sink. This is that sink, and it has TWO paths — which is the whole point of
 // connecting a mailbox at all:
 //
@@ -23,10 +23,10 @@
 // rep's follow-up.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { setOutboundMailSink, type OutboundMail } from '@wizeworks/crm';
-import { mailboxService } from '@wizeworks/crm';
-import { buildRfc822 } from '@wizeworks/crm/mail';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { setOutboundMailSink, type OutboundMail } from '@wizeworksllc/crm';
+import { mailboxService } from '@wizeworksllc/crm';
+import { buildRfc822 } from '@wizeworksllc/crm/mail';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 import { decryptMailboxSecret, isMailboxCryptoConfigured } from './crm-mailbox-crypto.js';
 import { appendToSentFolder, type ImapConfig } from './crm-mailbox-imap.js';

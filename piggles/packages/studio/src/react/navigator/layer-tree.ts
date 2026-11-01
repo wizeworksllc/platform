@@ -15,7 +15,7 @@
 // testable, and it is the part with the judgement in it.
 
 import type { Node } from '@wizeworks/silicaui-html';
-import { HOST_COMPONENTS } from '@wizeworks/silica-catalog';
+import { HOST_COMPONENTS } from '@wizeworksllc/silica-catalog';
 import { childNodes, isAddressable, isNodeChild, type AddressableNode } from '../../tree/walk';
 
 /** A live region's name in the author's words, looked up by its component key.

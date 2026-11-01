@@ -11,7 +11,7 @@
 // wizeworks/services/event-worker: the DB pool size is a property of the PROCESS, and the
 // process is shared now — see the note there.
 
-import { AUTOMATION_FANIN_TOPIC, type WorkerSubscription } from '@wizeworks/events';
+import { AUTOMATION_FANIN_TOPIC, type WorkerSubscription } from '@wizeworksllc/events';
 
 import { ingestFromBroker } from './server.js';
 

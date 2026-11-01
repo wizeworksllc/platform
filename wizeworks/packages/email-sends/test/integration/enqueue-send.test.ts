@@ -1,6 +1,6 @@
 // enqueueSend — the email enqueue primitive, against a live Postgres.
 //
-// Runs through the DEFAULT @wizeworks/db client (sparx_app, FORCE RLS) — the same
+// Runs through the DEFAULT @wizeworksllc/db client (sparx_app, FORCE RLS) — the same
 // identity the automation-worker uses — so the suppression count + ScheduledSend
 // write are exercised under real row-level security. Seeding/cleanup use a
 // sparx_owner client (docker superuser) to set up tenants/suppressions.

@@ -1,9 +1,9 @@
-// Audit-log helper. Mirrors @wizeworks/crm's audit shape so every commerce
+// Audit-log helper. Mirrors @wizeworksllc/crm's audit shape so every commerce
 // state change is captured the same way and downstream tooling
 // (compliance export, internal investigation queries, CRM activity feed)
 // can read across modules with one shape.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 export interface AuditWriteInput {
   tx: TxClient;

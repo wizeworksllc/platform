@@ -11,8 +11,8 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
-import { NEWSLETTER_SEGMENT_SLUG } from '@wizeworks/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import { NEWSLETTER_SEGMENT_SLUG } from '@wizeworksllc/crm-schemas/builtins';
 import {
   customerService,
   registerCrmConsumers,

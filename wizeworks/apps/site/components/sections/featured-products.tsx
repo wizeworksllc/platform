@@ -3,7 +3,7 @@
 // shared ProductCard so theming + sale/stock badges stay consistent with the
 // PLP. Async server component (fetches from the public commerce API).
 
-import type { FeaturedProductsConfig } from '@wizeworks/sitebuilder-schemas';
+import type { FeaturedProductsConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import {
   listProducts,

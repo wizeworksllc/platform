@@ -121,7 +121,7 @@ defect parked as a measurement, so it is now
 - **The public API** served it raw to every headless client.
 - **No email template reads it** — the list above was wrong about that one.
 
-`plainText` moved out of this app and into `@wizeworks/commerce-schemas` so all
+`plainText` moved out of this app and into `@wizeworksllc/commerce-schemas` so all
 five could share it. The 185 counted here is 188 counted properly; `LIKE
 '%</p>%'` missed three rows carrying only `<br>`, `<strong>` or `<li>`.
 
@@ -131,7 +131,7 @@ on 2026-09-28 and cleaned all 188 across 9 businesses. Re-measured after: **0 of
 
 ## Files
 
-- `wizeworks/apps/site/lib/plain-text.ts` (new; moved to `@wizeworks/commerce-schemas` in 850)
+- `wizeworks/apps/site/lib/plain-text.ts` (new; moved to `@wizeworksllc/commerce-schemas` in 850)
 - `wizeworks/apps/site/lib/plain-text.test.ts` (new; moved with it)
 - `wizeworks/apps/site/lib/silica-data.ts`
 - `wizeworks/apps/site/lib/builder-data.ts`

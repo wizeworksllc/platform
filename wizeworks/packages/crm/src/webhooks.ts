@@ -11,8 +11,8 @@
 // background tick (wizeworks/services/api-rest/src/lib/webhook-delivery.ts)
 // dispatches both CMS and CRM deliveries equivalently.
 
-import { prisma, withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { getPublisher, setPublisher, type CrmEvent, type Publisher } from './events';
 

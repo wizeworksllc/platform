@@ -9,7 +9,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import type { SilicaNode, SilicaTheme } from '@wizeworks/builder-schemas';
+import type { SilicaNode, SilicaTheme } from '@wizeworksllc/builder-schemas';
 
 import { newOpBatch, pageCreateOp, pageDeleteOp, savedThemesSetOp, themeSetOp } from './silica-ops';
 

@@ -8,7 +8,7 @@
 // the server, resolved from process.env at request time — never a NEXT_PUBLIC
 // bake, so the portable image stays environment-agnostic). We drive Google's
 // GSI library directly rather than through Better Auth's oneTapClient plugin,
-// because the shared @wizeworks/auth client is app-agnostic and must not carry a
+// because the shared @wizeworksllc/auth client is app-agnostic and must not carry a
 // baked client id. The credential Google returns goes to the same server
 // endpoint the plugin would call: POST /api/auth/one-tap/callback { idToken }.
 //

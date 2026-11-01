@@ -9,12 +9,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { domainService } from '@wizeworks/email-platform';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { prisma } from '@wizeworks/db';
-import { appOrigin } from '@wizeworks/links/server';
+import { domainService } from '@wizeworksllc/email-platform';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { prisma } from '@wizeworksllc/db';
+import { appOrigin } from '@wizeworksllc/links/server';
 import { requireEmailModule, toEmailContext } from '../../../lib/email-context.js';
 import { resolvePropertyId } from '../../../lib/property.js';
 

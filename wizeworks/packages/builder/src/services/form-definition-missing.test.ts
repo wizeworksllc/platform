@@ -21,7 +21,7 @@ const form = (id: string) => ({
   data: { kind: 'action', action: 'contact' },
 });
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(
       fn({
@@ -36,7 +36,7 @@ vi.mock('./site-service', () => ({
     Promise.resolve(publishedRoot ? { pages: [{ slug: 'contact', root: publishedRoot }] } : null),
   getPublishedFrame: () => Promise.resolve({ frame: null }),
 }));
-vi.mock('@wizeworks/builder-schemas', async (original) => ({
+vi.mock('@wizeworksllc/builder-schemas', async (original) => ({
   ...(await original<Record<string, unknown>>()),
   collectSilicaFormIds: (root: { id?: string }) => (root?.id ? [root.id] : []),
 }));

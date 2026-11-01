@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import type { RateOption } from '@wizeworks/commerce-schemas';
+import type { RateOption } from '@wizeworksllc/commerce-schemas';
 
 /**
  * A REPEAT DELIVERY THAT CHARGED NO POSTAGE AND NO TAX (issue 916).
@@ -29,11 +29,11 @@ const quoteForLines = vi.fn();
 const calculate = vi.fn();
 const publishCommerceEvent = vi.fn().mockResolvedValue(undefined);
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/crm', () => ({ orderService: { create: createOrder } }));
+vi.mock('@wizeworksllc/crm', () => ({ orderService: { create: createOrder } }));
 vi.mock('./shipping-service', () => ({ quoteForLines }));
 vi.mock('./tax-service', () => ({ calculate }));
 vi.mock('./shipping-request-resolver', () => ({

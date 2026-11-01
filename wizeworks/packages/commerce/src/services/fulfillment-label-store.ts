@@ -3,7 +3,7 @@
 // Isolated from shipping-provider-bridge.ts so the provider-calling logic
 // doesn't get tangled with the Prisma writes.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

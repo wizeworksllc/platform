@@ -6,7 +6,7 @@
 // client-side with no further fetches until "add to cart".
 
 import Image from 'next/image';
-import type { RepeatCadence } from '@wizeworks/commerce-schemas';
+import type { RepeatCadence } from '@wizeworksllc/commerce-schemas';
 import { useMemo, useState } from 'react';
 
 import { Alert, Button } from '@wizeworks/silicaui-react';

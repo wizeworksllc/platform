@@ -14,7 +14,7 @@
 // across all 43 tenants (issue 740). The console's wholesale price pane now
 // posts to `/v1/b2b/accounts/:id/overrides` and `/v1/commerce/contract-prices`.
 //
-// The join lives in @wizeworks/b2b's pricingTierService.getProductPricing so REST +
+// The join lives in @wizeworksllc/b2b's pricingTierService.getProductPricing so REST +
 // MCP report the exact same picture (one service, many transports). The order
 // that actually charges is `pricingService.resolve`'s, and it is NOT
 // resolve_b2b_price()'s: a contract price is looked up first and RETURNS, so an
@@ -24,9 +24,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { pricingTierService } from '@wizeworks/b2b';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { pricingTierService } from '@wizeworksllc/b2b';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireB2bModule, toB2bContext } from '../../../lib/b2b-context.js';
 
 const ProductQuery = z.object({ product_id: z.string().uuid() });

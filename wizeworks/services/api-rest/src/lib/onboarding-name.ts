@@ -2,7 +2,7 @@
 
 /**
  * Whether the business carries a name a PERSON chose. Two names are made by machine:
- * sign-up's "<First>'s workspace" (`workspaceNameFor`, @wizeworks/auth) and the story
+ * sign-up's "<First>'s workspace" (`workspaceNameFor`, @wizeworksllc/auth) and the story
  * flow's title-cased web address ("gillettdiesel" → "Gillettdiesel"). The checklist's
  * "Confirm your site details" read `Boolean(tenant.name)`, which every tenant passes
  * from its first second, so it could never ask anybody (sparx persona issue 025).

@@ -9,7 +9,7 @@
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 // The one shipping rule (issues 057, 058) lives with orders; the warehouse reads
 // it through here, since inventory depends on this package and not on CRM's.
@@ -19,7 +19,7 @@ export {
   shippableUnits,
   unitsWaitingForCore,
   type ShipGateLine,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 /** Where a returned core's deposit goes when the order was paid. An order still
  *  owing on an invoice is always settled by taking the deposit off that invoice

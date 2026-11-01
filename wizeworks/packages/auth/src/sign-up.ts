@@ -1,5 +1,5 @@
-import { acceptanceRows } from '@wizeworks/legal';
-import { currentPlatformBrand } from '@wizeworks/brand-core';
+import { acceptanceRows } from '@wizeworksllc/legal';
+import { currentPlatformBrand } from '@wizeworksllc/brand-core';
 import { authPrisma } from './prisma';
 import { auth } from './server';
 import {

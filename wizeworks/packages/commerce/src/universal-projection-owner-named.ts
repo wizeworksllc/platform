@@ -4,7 +4,7 @@
 // A new projector file joins this list AND `PROJECTOR_FILES` in
 // `scripts/check-search-entities.mjs`; the check cannot see a file it is not told about.
 
-import type { EntityProjector } from '@wizeworks/search';
+import type { EntityProjector } from '@wizeworksllc/search';
 
 import { crmOwnerNamedProjectors } from './universal-projection-crm';
 import { sellingOwnerNamedProjectors } from './universal-projection-selling';

@@ -1,6 +1,6 @@
 // What a search engine and a shared link show for each page.
 //
-// WHERE THE LINE WITH @wizeworks/seo-audit IS. That package grades ONE entity 0–100
+// WHERE THE LINE WITH @wizeworksllc/seo-audit IS. That package grades ONE entity 0–100
 // across twelve checks — length, keyword placement, image coverage, word count — and
 // it is the authority on the quality of a single page's metadata. It cannot see the
 // rest of the site, so the one class of defect it structurally cannot report is the
@@ -12,7 +12,7 @@
 // wording rules, no scoring — those exist, they are already good, and a second
 // half-implementation of them here would eventually contradict the first.
 
-import { isRecordAddress, isUtilityPage } from '@wizeworks/silica-catalog';
+import { isRecordAddress, isUtilityPage } from '@wizeworksllc/silica-catalog';
 
 import type { RawFinding } from './finding';
 import type { LintablePage } from './types';
@@ -76,7 +76,7 @@ function duplicatesOf(
  * true of every product, so "this page has no search description" is advice that
  * cannot be taken: five permanent findings on every site, which is precisely how an
  * advisory list teaches people to ignore it. Per-record metadata is graded per record
- * by `@wizeworks/seo-audit` — the boundary this file draws at the top.
+ * by `@wizeworksllc/seo-audit` — the boundary this file draws at the top.
  */
 export function checkSeo(pages: readonly LintablePage[]): RawFinding[] {
   const findings: RawFinding[] = [];

@@ -11,7 +11,7 @@
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { FastifyBaseLogger } from 'fastify';
-import type { Blueprint } from '@wizeworks/blueprints';
+import type { Blueprint } from '@wizeworksllc/blueprints';
 
 const m = vi.hoisted(() => ({
   findInstall: vi.fn(),
@@ -21,14 +21,14 @@ const m = vi.hoisted(() => ({
   installContentSlice: vi.fn(),
 }));
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   ADVISORY_LOCKS: { BLUEPRINT_BACKFILL_RECONCILE: 1 },
   prisma: { $queryRaw: m.queryRaw },
   withAdvisoryTickLock: (_key: number, _held: unknown, fn: () => Promise<unknown>) => fn(),
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     fn({ tenantBlueprintInstall: { findFirst: m.findInstall, update: vi.fn() } }),
 }));
-vi.mock('@wizeworks/crm', () => ({ getPlatformBus: vi.fn() }));
+vi.mock('@wizeworksllc/crm', () => ({ getPlatformBus: vi.fn() }));
 vi.mock('./blueprint-baseline.js', () => ({
   captureBaselines: vi.fn(),
   resolveBlueprintArtifacts: vi.fn(() => []),

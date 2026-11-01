@@ -10,8 +10,8 @@
 // + api-rest's writeAudit). The reschedule diff is captured by the caller inside
 // the lifecycle transaction, where the prior time is still known.
 
-import type { Prisma } from '@wizeworks/db';
-import { withTenant, type TxClient } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 export type BookingAuditAction =
   | 'booking.created'
@@ -27,7 +27,7 @@ export type BookingAuditAction =
 
 /**
  * What happened to the card when the booking ended (sparx persona issue 087).
- * Written by the gateway half (`bookingPayments` in @wizeworks/commerce), which
+ * Written by the gateway half (`bookingPayments` in @wizeworksllc/commerce), which
  * cannot import this package, so the two names are pinned against its copies by
  * a test in api-rest, the one place that carries both.
  *

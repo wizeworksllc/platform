@@ -81,7 +81,7 @@ function form(children: Node[], submitLabel: string): Node {
 The name reads exactly like the thing it is not.
 
 **The contract it should have used is a declared constant** in
-`@wizeworks/builder-schemas`:
+`@wizeworksllc/builder-schemas`:
 
 ```ts
 export const SILICA_FORM_ACTION = 'contact' as const;

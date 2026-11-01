@@ -1,10 +1,10 @@
 // Sealed box → shipping record (docs/146 Phase 4.6).
 //
-// ── Why this lives in @wizeworks/commerce ────────────────────────────────────────
+// ── Why this lives in @wizeworksllc/commerce ────────────────────────────────────────
 //
-// It is the only package that can see both sides. `@wizeworks/inventory` owns the
-// packing record and must not depend on `@wizeworks/crm` — the dependency rule points
-// consumers AT inventory, never the reverse — and `@wizeworks/crm` owns the order and
+// It is the only package that can see both sides. `@wizeworksllc/inventory` owns the
+// packing record and must not depend on `@wizeworksllc/crm` — the dependency rule points
+// consumers AT inventory, never the reverse — and `@wizeworksllc/crm` owns the order and
 // the fulfillment and knows nothing about warehouses. Commerce already depends on
 // both, and already owns the rest of the outbound shipping path
 // (`outbound-shipment-request.ts`, `fulfillment-label-store.ts`,
@@ -23,10 +23,10 @@
 // Nothing here decrements stock. The units left the ledger at checkout; a
 // shipping record is paperwork about goods that have already gone.
 
-import { orderFulfillmentsService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
-import type { OrderFulfillment } from '@wizeworks/db';
+import { orderFulfillmentsService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
+import type { OrderFulfillment } from '@wizeworksllc/db';
 
 import { CommerceConflictError, CommerceNotFoundError, CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

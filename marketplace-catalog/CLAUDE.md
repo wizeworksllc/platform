@@ -1,7 +1,7 @@
 # marketplace-catalog/ — first-party blueprints
 
 Scoped guidance for the bundles under here (`blueprints/`; themes + components ship as
-code in `@wizeworks/silica-catalog` — see [README.md](README.md)) and
+code in `@wizeworksllc/silica-catalog` — see [README.md](README.md)) and
 their `_gen/` generators. The full **authoring reference** is
 [docs/guides/building-a-template.md](../docs/guides/building-a-template.md) — this file is
 the **working rules + footguns** that aren't obvious from a single file. See root
@@ -33,7 +33,7 @@ because the only per-template code is the spec.
    (or `all`). Full-page PNG per template → `.preview/site-<slug>.png`. Playwright + `file://` (no
    dev server, no DB, no install) so it never touches a running stack; the shared functional cores
    (faceted grid/cart/search) render as a labeled placeholder because they are server-computed live.
-3. **Grade every bundle** — `pnpm --filter @wizeworks/site-lint exec vitest run src/blueprint-sweep.test.ts`
+3. **Grade every bundle** — `pnpm --filter @wizeworksllc/site-lint exec vitest run src/blueprint-sweep.test.ts`
    walks every shipped bundle's every page (SEO, contrast, headings, links, `class-no-css`).
 
 **Named utilities ONLY in authored trees** — an arbitrary value (`aspect-[4/5]`) or off-step

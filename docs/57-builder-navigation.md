@@ -35,7 +35,7 @@
 >   gone from `SITE_SOURCES`. The renderer's `coerceNavLinks` bound path stays only
 >   as defensive normalization.
 > - **CMS (P3, partial):** Navigation removed from the CMS module sidebar
->   (`@wizeworks/cms-editor` manifest); the `/cms/navigation` page is header-commented
+>   (`@wizeworksllc/cms-editor` manifest); the `/cms/navigation` page is header-commented
 >   DEPRECATED.
 >
 > **Still deferred (verified-in-prod teardown):** removing the dormant

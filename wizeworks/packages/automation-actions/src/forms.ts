@@ -6,7 +6,7 @@
 // dispatch tick turns into an `email.send`) — never a direct deliver — so this runs
 // in the lean automation-worker without the render closure, exactly like the other
 // email executors. They render the coded `form-submission-notification` /
-// `form-submission-confirmation` templates (@wizeworks/email).
+// `form-submission-confirmation` templates (@wizeworksllc/email).
 //
 // Each SELF-GATES on the form's own toggle (`form.notify` / `form.autoresponder`,
 // resolved from the server-only FormDefinition) so the non-technical inspector stays
@@ -24,8 +24,8 @@ import {
   type ActionOutput,
   type EffectInput,
   type TenantCtx,
-} from '@wizeworks/automation';
-import { enqueueSend } from '@wizeworks/email-sends';
+} from '@wizeworksllc/automation';
+import { enqueueSend } from '@wizeworksllc/email-sends';
 
 import { fieldValueToString, optionalEntityId, resolveTenantActor } from './entity.js';
 

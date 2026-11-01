@@ -11,7 +11,7 @@
 // invoice from the invoice editor, an accepted quote, a draft quote.
 
 import { describe, expect, it, vi } from 'vitest';
-import type * as Crm from '@wizeworks/crm';
+import type * as Crm from '@wizeworksllc/crm';
 
 interface Row {
   id: string;
@@ -117,13 +117,13 @@ const billingDocument = {
 
 const recordPayment = vi.fn(() => Promise.resolve());
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, run: (tx: unknown) => unknown) =>
     run({ billingDocument, company: { updateMany: () => Promise.resolve() } }),
 }));
-vi.mock('@wizeworks/crm', async () => {
+vi.mock('@wizeworksllc/crm', async () => {
   // The real rules, so the test follows them if they change.
-  const actual = await vi.importActual<typeof Crm>('@wizeworks/crm');
+  const actual = await vi.importActual<typeof Crm>('@wizeworksllc/crm');
   return {
     ISSUED_BILL_WHERE: actual.ISSUED_BILL_WHERE,
     OWED_DOCUMENT_WHERE: actual.OWED_DOCUMENT_WHERE,
@@ -136,7 +136,7 @@ vi.mock('@wizeworks/crm', async () => {
     billingPaymentService: { recordPayment },
   };
 });
-vi.mock('@wizeworks/api-core/errors', () => ({
+vi.mock('@wizeworksllc/api-core/errors', () => ({
   notFound: (message: string) => new Error(message),
   badRequest: (message: string) => new Error(message),
 }));

@@ -21,8 +21,8 @@ const QUOTE_DOC = {
   record_id: quoteId,
 };
 
-vi.mock('@wizeworks/commerce', () => ({}));
-vi.mock('@wizeworks/search', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({}));
+vi.mock('@wizeworksllc/search', () => ({
   bulkUpsertEntities,
   deleteEntity,
   dropTenantFromCollection,

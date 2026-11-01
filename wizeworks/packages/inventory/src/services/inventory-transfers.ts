@@ -2,15 +2,15 @@
 // between two warehouses and compose its lines while it's a `draft`. Shipping,
 // receiving, and cancelling live in ./inventory-transfer-lifecycle. A transfer
 // moves stock through an in-transit holding location so total stock is conserved
-// while units are in motion. Owned by @wizeworks/inventory; standalone-usable.
+// while units are in motion. Owned by @wizeworksllc/inventory; standalone-usable.
 
 import {
   AddTransferLineInput,
   CreateInventoryTransferInput,
   UpdateTransferLineInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntityOnCommit } from '../events';

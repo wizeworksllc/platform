@@ -5,7 +5,7 @@ invoicing, social, b2b, cms) + automation/builder/sitebuilder/domains already br
 deliberately carved out. Full write parity across every operator module.** Social + b2b
 were service extractions into NEW shared packages (built api-rest-first) — a single
 owner-run `pnpm install` links them + completes typecheck/lint; CMS was an in-place
-extension of the existing `@wizeworks/cms` (no install, already verified clean). Two bugs
+extension of the existing `@wizeworksllc/cms` (no install, already verified clean). Two bugs
 found by post-build testing are also fixed: the **scope-catalog lag** (b2b/social scopes
 weren't grantable — un-reachable on every auth path) and the **api-mcp Pub/Sub-config
 gap**. See "Per-module status" + the fix subsections below.
@@ -101,7 +101,7 @@ merchant management surface is now wrapped, split into cohesive files under
   returns approve, review moderate (single), apply_markup, set_surcharge,
   convert_quote_to_order, update_variant.
 
-Typecheck + lint clean across `@wizeworks/commerce`, `api-mcp`, `api-rest`; all flow to
+Typecheck + lint clean across `@wizeworksllc/commerce`, `api-mcp`, `api-rest`; all flow to
 both the MCP server and the in-app BYOK AI catalog automatically.
 
 **Deliberately excluded (provisioning / file / preview / shopper-lifecycle — not
@@ -125,7 +125,7 @@ lint clean across their package, `api-mcp`, and `api-rest`, and flow to both the
 MCP server and the in-app BYOK AI catalog automatically.
 
 **Note — this is `api-mcp` (the operator/admin server) only.** The storefront-facing
-`mcp-site` server is a separate surface sourced from `@wizeworks/site-mcp` (shopper
+`mcp-site` server is a separate surface sourced from `@wizeworksllc/site-mcp` (shopper
 `read`/`guest_write`/`customer`-tier), deliberately lean and intentionally NOT
 expanded here.
 
@@ -140,9 +140,9 @@ expanded here.
 | Automation    | 9     | ✅ already complete (create/update/delete/clone/status + reads)                                                                                                                                                                                                                                                                                                                                                                                     |
 | Builder       | 33    | ✅ already broad (site page/layout authoring — MCP's core purpose)                                                                                                                                                                                                                                                                                                                                                                                  |
 | Sitebuilder   | 26    | ✅ already broad                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| CMS / content | 16    | ✅ DONE 2026-07-25 — +4 (delete_content_entry, restore_content_revision, put_content_type_schema, delete_content_type); extracted the 4 route-inline ops into `@wizeworks/cms` service fns (each a `*Tx` core + wrapper), re-pointed the routes. In-place extension of an existing package → NO install; `@wizeworks/cms` typecheck + lint clean, routes lint clean.                                                                                |
-| Social        | 10    | ✅ DONE 2026-07-25 (authored; needs one `pnpm install`) — extracted the post + lifecycle service from api-rest `lib/` into `@wizeworks/social/service`, added `@wizeworks/social/mcp` (10 tools: list/get + create/update/delete/submit/schedule/approve/reject/publish), wired into api-mcp with new `read:social`/`write:social` scope + `social` module gate. See the extraction note below.                                                     |
-| B2B           | 31    | ✅ DONE 2026-07-25 (authored; needs one `pnpm install`) — extracted the trade service layer from the api-rest routes into `@wizeworks/b2b` (pricing tiers + overrides, account trade config + fleet, purchase-approval rules + queue, net-terms AR invoices), re-pointed the routes at it, and added `@wizeworks/b2b/mcp` (11 read + 20 write) wired into api-mcp with `read:b2b`/`write:b2b` + a `b2b` module gate. See the extraction note below. |
+| CMS / content | 16    | ✅ DONE 2026-07-25 — +4 (delete_content_entry, restore_content_revision, put_content_type_schema, delete_content_type); extracted the 4 route-inline ops into `@wizeworksllc/cms` service fns (each a `*Tx` core + wrapper), re-pointed the routes. In-place extension of an existing package → NO install; `@wizeworksllc/cms` typecheck + lint clean, routes lint clean.                                                                                |
+| Social        | 10    | ✅ DONE 2026-07-25 (authored; needs one `pnpm install`) — extracted the post + lifecycle service from api-rest `lib/` into `@wizeworksllc/social/service`, added `@wizeworksllc/social/mcp` (10 tools: list/get + create/update/delete/submit/schedule/approve/reject/publish), wired into api-mcp with new `read:social`/`write:social` scope + `social` module gate. See the extraction note below.                                                     |
+| B2B           | 31    | ✅ DONE 2026-07-25 (authored; needs one `pnpm install`) — extracted the trade service layer from the api-rest routes into `@wizeworksllc/b2b` (pricing tiers + overrides, account trade config + fleet, purchase-approval rules + queue, net-terms AR invoices), re-pointed the routes at it, and added `@wizeworksllc/b2b/mcp` (11 read + 20 write) wired into api-mcp with `read:b2b`/`write:b2b` + a `b2b` module gate. See the extraction note below. |
 | AI            | n/a   | 🚫 deliberately carved out — API keys, provider credentials, MCP-connection + tool-policy management are security-boundary meta an AI client should not self-administer.                                                                                                                                                                                                                                                                            |
 
 \* CRM's `create_b2b_account` / `update_b2b_account` / `delete_b2b_account` /
@@ -155,15 +155,15 @@ six modules.
 
 ## Architectural blocker for social + b2b — service logic lives in api-rest, not a shared package
 
-The six completed modules each had a **shared service package** (`@wizeworks/crm`,
-`@wizeworks/commerce`, `@wizeworks/inventory`, `@wizeworks/scheduling`, `@wizeworks/email-platform`)
+The six completed modules each had a **shared service package** (`@wizeworksllc/crm`,
+`@wizeworksllc/commerce`, `@wizeworksllc/inventory`, `@wizeworksllc/scheduling`, `@wizeworksllc/email-platform`)
 that both api-rest and api-mcp import — so an MCP tool is a 5-line wrapper. Social and
 b2b do not:
 
 - **Social** — the lifecycle lives in **`wizeworks/services/api-rest/src/lib/social-posts.ts`
-  (277 lines) + `social-lifecycle.ts` (266 lines)**, importing only `@wizeworks/db` +
-  `@wizeworks/api-core`. It is a real service layer, just in the wrong place (api-rest,
-  which api-mcp cannot import). **Clean extraction** to `@wizeworks/social` (move 2 files
+  (277 lines) + `social-lifecycle.ts` (266 lines)**, importing only `@wizeworksllc/db` +
+  `@wizeworksllc/api-core`. It is a real service layer, just in the wrong place (api-rest,
+  which api-mcp cannot import). **Clean extraction** to `@wizeworksllc/social` (move 2 files
   - a `social-context`, re-point api-rest imports) unblocks a thin-wrapper registry.
 - **B2B** — the pricing-tiers / approval / invoices logic is **fully route-inline** in
   api-rest (`wizeworks/services/api-rest/src/routes/v1/b2b/{pricing-tiers,approval,invoices}.ts`,
@@ -184,27 +184,27 @@ production code (so they need validation of the running REST stack, not just typ
 
 Extraction performed:
 
-- `@wizeworks/social/service` (NEW subpath) — moved `social-posts.ts` + `social-lifecycle.ts`
+- `@wizeworksllc/social/service` (NEW subpath) — moved `social-posts.ts` + `social-lifecycle.ts`
   out of `wizeworks/services/api-rest/src/lib/` into `wizeworks/packages/social/src/{posts,lifecycle,context}.ts`.
   Kept behind the `/service` subpath (like `/crypto`) so the pure main barrel + the
-  composer UI bundle never pull `@wizeworks/db`.
-- `@wizeworks/social/mcp` (NEW subpath) — 10 tools (2 read + 8 write): `list_social_posts`,
+  composer UI bundle never pull `@wizeworksllc/db`.
+- `@wizeworksllc/social/mcp` (NEW subpath) — 10 tools (2 read + 8 write): `list_social_posts`,
   `get_social_post`, `create_social_post`, `update_social_post`, `delete_social_post`,
   `submit_social_post_for_approval`, `schedule_social_post`, `approve_social_post`,
   `reject_social_post`, `publish_social_post`. Lifecycle tools emit the same
   `social.post.due` / `social.post.scheduled` Pub/Sub events the routes do.
 - api-rest `lib/social-posts.ts` + `social-lifecycle.ts` are now thin re-export shims
-  (`export * from '@wizeworks/social/service'`) so all existing importers + the
+  (`export * from '@wizeworksllc/social/service'`) so all existing importers + the
   `readRequireApproval` unit test are unchanged; `social-context.ts` keeps its Fastify
   request→context helpers and re-exports the pure `SocialContext` from the package.
-- api-mcp wired: `@wizeworks/social` dep added, `socialMcpTools` spread into `ALL_MCP_TOOLS`,
+- api-mcp wired: `@wizeworksllc/social` dep added, `socialMcpTools` spread into `ALL_MCP_TOOLS`,
   `write:social` added to `WRITE_SCOPES`, `read:social`/`write:social` → `social` in
   `MODULE_BY_SCOPE` (server.ts). Excluded (provisioning): OAuth connect/disconnect,
   metrics refresh, per-target settings.
 
-**Finish step (owner-run):** `pnpm install` (links the 3 new `@wizeworks/social` deps
-`@wizeworks/db` + `@wizeworks/api-core` + `zod`, and api-mcp's new `@wizeworks/social` dep, and
-updates the lockfile), then `pnpm --filter @wizeworks/social --filter @wizeworks/api-mcp
+**Finish step (owner-run):** `pnpm install` (links the 3 new `@wizeworksllc/social` deps
+`@wizeworksllc/db` + `@wizeworksllc/api-core` + `zod`, and api-mcp's new `@wizeworksllc/social` dep, and
+updates the lockfile), then `pnpm --filter @wizeworksllc/social --filter @wizeworks/api-mcp
 --filter @wizeworks/api-rest typecheck && ... lint`. Pre-install typecheck confirms the
 ONLY errors are the four unresolved new-dep modules — every other error cascades from
 them; there are no logic errors in the extracted code.
@@ -214,7 +214,7 @@ them; there are no logic errors in the extracted code.
 The larger extraction: b2b had **no service layer** — the trade logic was fully
 route-inline. Built one, re-pointed the routes, added the registry.
 
-- **`@wizeworks/b2b`** (NEW package) — the trade service layer, lifted verbatim from the
+- **`@wizeworksllc/b2b`** (NEW package) — the trade service layer, lifted verbatim from the
   api-rest routes: `pricing-tiers.ts` (tier CRUD + tier overrides + `resolve_b2b_price`
   - the product-pricing join), `accounts.ts` (validated pricing-tier FK assignment,
     fleet set/validate/resolve, account overrides, compatible-products), `approval.ts`
@@ -222,19 +222,19 @@ route-inline. Built one, re-pointed the routes, added the registry.
     update/mark-paid/write-off). The mutating approval/invoice transitions return the
     domain events to publish (`PendingEvent[]`) rather than emitting inline, so the
     service stays transport-agnostic (the social `LifecycleResult` pattern).
-- **`@wizeworks/b2b/mcp`** (NEW subpath) — **31 tools** (11 read + 20 write): pricing tier
+- **`@wizeworksllc/b2b/mcp`** (NEW subpath) — **31 tools** (11 read + 20 write): pricing tier
   CRUD + overrides, `update_b2b_account_trade_config`, `set_b2b_account_fleet`, account
   overrides, approval-rule CRUD, `approve_b2b_order` / `reject_b2b_order`, and the AR
   invoice CRUD + `mark_b2b_invoice_paid` / `write_off_b2b_invoice`, plus the
   `resolve_b2b_price` / `get_b2b_product_pricing` reads. Events emit via a
-  `createPublisher` from `@wizeworks/events` (matching api-mcp's `domain-tools` /
+  `createPublisher` from `@wizeworksllc/events` (matching api-mcp's `domain-tools` /
   `search-admin-tools` — api-mcp does NOT configure the api-core publisher; see the
   note below) so `order.placed` on approval reaches the fulfillment consumers.
 - **Routes re-pointed** — all four write-bearing route files (`pricing-tiers`,
   `accounts`, `approval`, `invoices`) plus `product-pricing` are now thin delegations
   over the service; role checks, module gate, envelope shaping, and event emission stay
   on the route. No behavior change (same queries, same response shapes, same events).
-- **api-mcp wired** — `@wizeworks/b2b` dep, `b2bMcpTools` spread into `ALL_MCP_TOOLS`,
+- **api-mcp wired** — `@wizeworksllc/b2b` dep, `b2bMcpTools` spread into `ALL_MCP_TOOLS`,
   `write:b2b` added to `WRITE_SCOPES`, `read:b2b`/`write:b2b` → `b2b` in
   `MODULE_BY_SCOPE`. Boundary with CRM: account RECORD CRUD (company / contacts / rep)
   stays on the CRM registry's `create_b2b_account` etc.; the B2B registry owns the
@@ -243,10 +243,10 @@ route-inline. Built one, re-pointed the routes, added the registry.
   BillingDocument — covered by invoicing + `convert_quote_to_order`), fleet inventory
   holds (covered by the inventory tools).
 
-**Finish step (owner-run):** `pnpm install` (links the new `@wizeworks/b2b` package + its
-deps `@wizeworks/crm` / `@wizeworks/inventory` / `@wizeworks/events` / `@wizeworks/api-core` /
-`@wizeworks/db` / `@wizeworks/auth` / `zod`, and the new `@wizeworks/b2b` dep on both api-rest and
-api-mcp, updating the lockfile), then `pnpm --filter @wizeworks/b2b --filter @wizeworks/api-mcp
+**Finish step (owner-run):** `pnpm install` (links the new `@wizeworksllc/b2b` package + its
+deps `@wizeworksllc/crm` / `@wizeworksllc/inventory` / `@wizeworksllc/events` / `@wizeworksllc/api-core` /
+`@wizeworksllc/db` / `@wizeworksllc/auth` / `zod`, and the new `@wizeworksllc/b2b` dep on both api-rest and
+api-mcp, updating the lockfile), then `pnpm --filter @wizeworksllc/b2b --filter @wizeworks/api-mcp
 --filter @wizeworks/api-rest typecheck && ... lint`. As with social, a pre-install
 typecheck cannot resolve the new workspace symlinks; model names, the `b2b` module
 slug, and the four event types (`b2b.order.approved` / `b2b.order.rejected` /
@@ -257,7 +257,7 @@ slug, and the four event types (`b2b.order.approved` / `b2b.order.rejected` /
 Caught by post-deploy MCP testing: `list_b2b_pricing_tiers` returned `forbidden: tool
 "…" requires scope "read:b2b" which is not granted`. Root cause: the new scopes were
 added to the tool definitions, api-mcp's `MODULE_BY_SCOPE` gate, and `WRITE_SCOPES` —
-but NOT to `@wizeworks/auth`'s scope catalog (`wizeworks/packages/auth/src/mcp-scopes.ts`:
+but NOT to `@wizeworksllc/auth`'s scope catalog (`wizeworks/packages/auth/src/mcp-scopes.ts`:
 `McpBusinessScope` union + `MCP_SCOPE_CATALOG`). That catalog is the single source the
 API-key issuance dialog renders, that `MCP_ALL_OAUTH_SCOPES` (OAuth authorize + the
 `/.well-known/oauth-protected-resource` advertisement) derives from, and that
@@ -270,7 +270,7 @@ regression the `read:cms` note in that file already documents.
 catalog (module labels "B2B" / "Social"). Everything else derives from the catalog, so
 `grantableScopesForRole` (owner/admin: all; editor: +both non-bulk writes; viewer: both
 reads), `capBusinessScopes`, `MCP_ALL_OAUTH_SCOPES`, and the consent scope-picker pick
-them up automatically. `@wizeworks/auth` typecheck clean. **Requires deploy + a connector
+them up automatically. `@wizeworksllc/auth` typecheck clean. **Requires deploy + a connector
 re-authorization** (the consent grant is scope-bound; an existing token must re-consent
 to acquire the new scopes) before the b2b/social tools are callable. This is the true
 "DONE" gate for both modules — the earlier "DONE" claims wired the tools but the surface
@@ -279,16 +279,16 @@ was un-grantable until this landed.
 ### Follow-up — api-mcp did not configure the api-core Pub/Sub publisher — FIXED 2026-07-25
 
 While wiring b2b, confirmed api-mcp **never called `configurePubsub`**, so the
-`@wizeworks/api-core/pubsub` `publish` helper fell back to the stdout-logging stub there.
+`@wizeworksllc/api-core/pubsub` `publish` helper fell back to the stdout-logging stub there.
 The CRM + platform buses ARE bridged (`installCrmPubSubBridge`), and tools that emit
-via `@wizeworks/events` `createPublisher` (domain, search-admin, b2b) were fine — but any
+via `@wizeworksllc/events` `createPublisher` (domain, search-admin, b2b) were fine — but any
 MCP tool relying on api-core `publish` (the **social** `social.post.*` — so the
 scheduled-publish worker never woke for an MCP-scheduled post — some **inventory**
 stock/threshold + `search.entity.changed`, and **cms** emissions) emitted to the stub
 in prod MCP.
 
 **Fix:** added `configurePubsub({ gcpProjectId: env.GCP_PROJECT_ID })` to api-mcp's
-`main()` (first, mirroring api-rest), plus `@wizeworks/api-core` as a direct dep. It is
+`main()` (first, mirroring api-rest), plus `@wizeworksllc/api-core` as a direct dep. It is
 independent of the CRM bridge's own module state (crm/events getPublisher/setPublisher),
 so there is no double-publish — the events it now carries (inventory / social / cms /
 non-CRM `search.entity.changed`) flow through the api-core path ONLY. It also enables
@@ -299,8 +299,8 @@ delivery loop of its own.
 **Also fixed — missing Dockerfile COPY lines** (would have failed the image build
 regardless of the above): api-mcp's Dockerfile was missing `wizeworks/packages/social` (a gap from
 the social session) AND `wizeworks/packages/b2b`; api-rest's was missing `wizeworks/packages/b2b`. Both
-added. `@wizeworks/api-core` was already COPY'd in api-mcp; `social-worker` is unaffected
-(it imports only the unchanged `@wizeworks/social` main barrel + adapters).
+added. `@wizeworksllc/api-core` was already COPY'd in api-mcp; `social-worker` is unaffected
+(it imports only the unchanged `@wizeworksllc/social` main barrel + adapters).
 
 ## Fix
 
@@ -315,7 +315,7 @@ validation can't drift — see the `create_customer`/`update_customer` tools add
 wrapped: `wizeworks/packages/crm/src/mcp/write-tools.ts` (30 write tools) +
 `read-tools.ts` (19 read tools, incl. `preview_segment_count`) → **49 CRM MCP tools**,
 full write parity with the CRM REST surface. Typecheck + lint clean across
-`@wizeworks/crm`, `api-mcp`, `api-rest`; all flow to both the MCP server and the in-app
+`@wizeworksllc/crm`, `api-mcp`, `api-rest`; all flow to both the MCP server and the in-app
 BYOK AI catalog automatically. Next: repeat the REST-route-vs-MCP-tool diff for the
 other ~12 modules — commerce (105 write routes) first, then inventory / scheduling /
 builder / invoicing / b2b / email / social / domains / content.

@@ -68,7 +68,7 @@ business customers was the field business customers never had.
 ## Why the list could not simply include the relation
 
 `Customer.company` is a Prisma **computed field** that shadows the relation of
-the same name. @wizeworks/db's client documents it, with the measurement:
+the same name. @wizeworksllc/db's client documents it, with the measurement:
 
 ```
 company read directly   { companyName: 'Loom and Larder' }
@@ -124,8 +124,8 @@ obvious fix, it makes the column look right, and it destroys the distinction
 the schema exists to keep — the platform would be inventing a sentence the
 customer never said.
 
-**Checks:** `@wizeworks/crm` 67 files / 602 tests. Typecheck 0 on
-`@wizeworks/crm`, api-rest and both consoles. `check:shadowed` green (16 selects
+**Checks:** `@wizeworksllc/crm` 67 files / 602 tests. Typecheck 0 on
+`@wizeworksllc/crm`, api-rest and both consoles. `check:shadowed` green (16 selects
 of a computed name, none under the model that shadows it). ESLint and prettier
 clean.
 

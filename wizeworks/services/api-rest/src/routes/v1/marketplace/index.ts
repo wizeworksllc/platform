@@ -19,11 +19,11 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import type { TxClient } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
-import { MarketplaceCategory, type MarketplaceListing } from '@wizeworks/marketplace-schemas';
+import type { TxClient } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { MarketplaceCategory, type MarketplaceListing } from '@wizeworksllc/marketplace-schemas';
 
 import {
   marketplaceCatalogService,

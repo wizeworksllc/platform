@@ -9,7 +9,7 @@
 // the platform rule about never rendering an absent value as a measured one, and
 // here it is the difference between a list people act on and a list people mute.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 import { CertificationNotFoundError, StaffMemberNotFoundError } from './errors.js';
 import { dayKey } from './pay.js';
 

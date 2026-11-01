@@ -22,15 +22,15 @@
 // emailed. A TRANSIENT failure (the platform is down, the network blipped) must never do
 // that — it leaves the connection alone and simply gets checked again next sweep.
 
-import { Prisma, withTenant } from '@wizeworks/db';
-import { getSocialAdapter, isRetryableError, type SocialPlatform } from '@wizeworks/social';
-import { registerBuiltinSocialAdapters } from '@wizeworks/social/adapters';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import { getSocialAdapter, isRetryableError, type SocialPlatform } from '@wizeworksllc/social';
+import { registerBuiltinSocialAdapters } from '@wizeworksllc/social/adapters';
 import {
   decryptSocialToken,
   encryptSocialToken,
   isSocialTokenCryptoConfigured,
-} from '@wizeworks/social/crypto';
-import { createPublisher, publishEvent } from '@wizeworks/events';
+} from '@wizeworksllc/social/crypto';
+import { createPublisher, publishEvent } from '@wizeworksllc/events';
 import type { Logger } from 'pino';
 
 import { paramsFromMetadata } from './auth.js';

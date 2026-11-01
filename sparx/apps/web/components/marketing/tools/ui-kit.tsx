@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Check, Copy } from 'lucide-react';
-import { toast } from '@wizeworks/ui';
+import { toast } from '@wizeworksllc/ui';
 import {
   Button,
   Card,

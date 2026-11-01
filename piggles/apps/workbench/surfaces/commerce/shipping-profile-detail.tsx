@@ -9,7 +9,7 @@
 // themselves, not here — this pane owns the group's identity and its shipping
 // rules (freight, signature), which is what a rate needs to know.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { groupDeliveryWarning } from './shipping-group-words';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';

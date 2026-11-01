@@ -11,7 +11,7 @@
 // Every function takes a tenant-scoped TxClient (caller wraps withTenant); RLS
 // isolates the reads. property_id scopes to the active site.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 // ── UTC-day helpers ──────────────────────────────────────────────────
 export function startOfUtcDay(d: Date): Date {

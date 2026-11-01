@@ -1,7 +1,7 @@
 // The platform's own funnel — the "Tenant Signups" pipeline on the WizeWorks
 // tenant, one deal per sparx tenant.
 //
-// This is deliberately NOT a @wizeworks/crm-schemas built-in: built-ins are seeded
+// This is deliberately NOT a @wizeworksllc/crm-schemas built-in: built-ins are seeded
 // into EVERY tenant on CRM activation, and no customer of ours wants a pipeline
 // modelling sparx's own trials. It belongs to the one tenant that runs sparx.
 //
@@ -9,7 +9,7 @@
 // editable CRM object, and renaming a stage on the board must not break the
 // mirror. Deleting one would; `resolveStages` reports that instead of guessing.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { PlatformTarget } from './target';
 

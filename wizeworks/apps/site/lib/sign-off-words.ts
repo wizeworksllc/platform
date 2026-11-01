@@ -15,7 +15,7 @@ import { formatMoney } from './format';
 export type SignOffSide = 'account' | 'business';
 
 /** Who has to say yes, who has, and who at the account may. The shape the API
- *  sends on a held order (`SignOffView` in `@wizeworks/b2b`). */
+ *  sends on a held order (`SignOffView` in `@wizeworksllc/b2b`). */
 export interface SignOffView {
   needs: SignOffSide[];
   waitingOn: SignOffSide[];

@@ -8,7 +8,7 @@
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { customerService } from '../../src/services/index.js';
 import { disposeTestContext, makeTestContext, type TestContext } from '../helpers.js';
 

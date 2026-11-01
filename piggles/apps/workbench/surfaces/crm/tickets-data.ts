@@ -21,8 +21,8 @@
 //   ['crm','sla-policies']         what the business promised
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { pipelineKeys, type StageType } from './pipelines-data';
@@ -32,7 +32,7 @@ import { pipelineKeys, type StageType } from './pipelines-data';
 export type TicketPriority = 'low' | 'medium' | 'high' | 'urgent';
 export type TicketSource = 'chat' | 'email' | 'form' | 'phone' | 'manual' | 'api';
 
-/** What one promise currently says. Mirrors `SlaClockView` in @wizeworks/crm. */
+/** What one promise currently says. Mirrors `SlaClockView` in @wizeworksllc/crm. */
 export interface SlaClock {
   state: 'none' | 'ok' | 'warning' | 'breached' | 'met';
   dueAt: string | null;

@@ -16,7 +16,7 @@ const { commissionForOrder, commissionForDeal, deriveLaborForPeriod, deriveLabor
     deriveLaborForRoster: vi.fn(),
   }));
 
-vi.mock('@wizeworks/staff', () => ({
+vi.mock('@wizeworksllc/staff', () => ({
   commissionForOrder,
   commissionForDeal,
   deriveLaborForPeriod,

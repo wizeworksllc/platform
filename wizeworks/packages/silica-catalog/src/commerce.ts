@@ -15,7 +15,7 @@
 //     they resolve against the product in scope (a `commerce.product` repeat, a
 //     `product` object scope, or an entity pin). The sparx resolver prefixes
 //     `item.` when a scope is active; a top-level collection ref (`commerce.product`)
-//     names the source directly. See @wizeworks/builder-schemas `silica-resolve`.
+//     names the source directly. See @wizeworksllc/builder-schemas `silica-resolve`.
 //   · `price` binds the raw number; the host resolver's `format` hook renders it as
 //     currency — formatting is host territory, never baked into the tree.
 //   · a bound image binds a SCALAR `image` ref (the product's primary-image URL);

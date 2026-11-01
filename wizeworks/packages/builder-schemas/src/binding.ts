@@ -86,7 +86,7 @@ export interface BindingCatalog {
 
 // ── CMS content type → sources ────────────────────────────────────────────────
 
-// Structural shape of a CMS FieldDef (@wizeworks/cms-schemas) — duplicated minimally
+// Structural shape of a CMS FieldDef (@wizeworksllc/cms-schemas) — duplicated minimally
 // so this package stays zod-only with no CMS dependency. Only the parts the
 // mapping reads.
 export interface CmsFieldLike {
@@ -238,7 +238,7 @@ export function mapCmsContentType(ct: CmsContentTypeLike): DataSource[] {
 // carries the apparel fields. The record (`productToSilicaRecord`) already carries the
 // flat `attributes.<key>` bag, so picker → engine → site share one vocabulary.
 
-// A product type's attribute schema is a @wizeworks/field-schema FieldSchema — structurally
+// A product type's attribute schema is a @wizeworksllc/field-schema FieldSchema — structurally
 // the same as a CMS FieldDef list, so it reuses CmsFieldLike + mapField.
 export interface ProductTypeLike {
   key: string;
@@ -1104,7 +1104,7 @@ export const EMAIL_SOURCES: DataSource[] = [
     // business, `when('modules.scheduling', …)` a "book again" nudge only to one that
     // takes bookings. The '' → drop is the standard `hideWhenEmpty` mechanism every
     // other `when()` already uses. Resolved in api-rest (`resolveModules` →
-    // `listEnabledModules`); the canonical slug list lives in `@wizeworks/modules`
+    // `listEnabledModules`); the canonical slug list lives in `@wizeworksllc/modules`
     // (`ModuleSlug`) — this mirrors it as a bindable vocabulary without taking a
     // dependency edge on that package. A per-SEND source (no recipient needed), so it's
     // never a personalization root.

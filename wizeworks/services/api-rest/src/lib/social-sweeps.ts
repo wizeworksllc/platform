@@ -22,10 +22,10 @@
 // tenants without gaining RLS bypass (migration 20270122000000). Every write these ticks
 // then perform goes through `withTenant`, so it still passes tenant_isolation.
 
-import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworks/db';
+import { ADVISORY_LOCKS, prisma, withAdvisoryTickLock, withTenant } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { publish } from '@wizeworks/api-core/pubsub';
-import type { EventType } from '@wizeworks/events';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import type { EventType } from '@wizeworksllc/events';
 
 /** Every sweep reports the same three numbers. `acquired: false` means another pod held
  *  the lock — not an error, just "someone else is doing it." */

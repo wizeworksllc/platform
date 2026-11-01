@@ -17,14 +17,14 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   getStorage,
   variantKey,
   variantUrlPath,
   VARIANT_FILENAME_RE,
 } from '../../../lib/storage.js';
-import { notFound } from '@wizeworks/api-core/errors';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { requireTenantIdBySlug } from '../../../lib/tenant-slug.js';
 import { env } from '../../../env.js';
 

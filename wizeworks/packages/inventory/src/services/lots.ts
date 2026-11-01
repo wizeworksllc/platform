@@ -7,8 +7,8 @@ import {
   CreateLotBatchInput,
   CreateSerialUnitInput,
   InitiateRecallInput,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryConflictError, InventoryValidationError } from '../errors';

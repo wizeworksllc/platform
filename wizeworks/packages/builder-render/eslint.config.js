@@ -1,4 +1,4 @@
-// @wizeworks/builder-render ESLint — extends the root flat config.
+// @wizeworksllc/builder-render ESLint — extends the root flat config.
 //
 // This package authors the components the apps compose, so
 // the "no raw Tailwind / re-skinned control in feature code" rule (docs/23 §15)

@@ -5,7 +5,7 @@
 // Stored as a JSON blob on `tenant.settings.ai` (NOT a module flag, and NOT the
 // per-module chat config — the credential is account-wide meta-configuration
 // that any AI feature reads). The raw key is AES-256-GCM encrypted via
-// @wizeworks/integration-framework's provider-secret box before it ever touches
+// @wizeworksllc/integration-framework's provider-secret box before it ever touches
 // storage; the plaintext key is never persisted and never serialized to a
 // client. Callers that need to MAKE an AI call decrypt just-in-time via
 // `resolveAiProviderCredential`.
@@ -15,9 +15,9 @@
 // The client only ever sees `AiCredentialPublic` (the ciphertext replaced by a
 // last-4 hint), exactly as chat config replaces its key with a boolean.
 
-import { prisma } from '@wizeworks/db';
-import { encryptProviderSecret, decryptProviderSecret } from '@wizeworks/integration-framework';
-import { mcpResourceUrl } from '@wizeworks/links/server';
+import { prisma } from '@wizeworksllc/db';
+import { encryptProviderSecret, decryptProviderSecret } from '@wizeworksllc/integration-framework';
+import { mcpResourceUrl } from '@wizeworksllc/links/server';
 
 import { AI_PROVIDERS, type AiProvider } from '../chat/types.js';
 import { verifyAiProviderKey } from './llm-router.js';

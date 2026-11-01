@@ -11,7 +11,7 @@
 // What sparx CAN guarantee, and what was being asserted in prose without a test behind
 // it, is that the gap stops at the canvas: the delivered email and the server-rendered
 // Preview both resolve fallbacks correctly, because both go through `renderSilicaEmail`
-// (`renderPreview` in `@wizeworks/email-platform` calls exactly this). So the author's
+// (`renderPreview` in `@wizeworksllc/email-platform` calls exactly this). So the author's
 // authoritative preview is right even while the canvas beside it is approximate.
 //
 // The three token shapes below are every fallback form the shipped defaults use — 29
@@ -20,7 +20,7 @@
 // exact sentence this file exists to prevent.
 
 import { describe, expect, it } from 'vitest';
-import { copyBlock, emailDoc, text } from '@wizeworks/builder-schemas';
+import { copyBlock, emailDoc, text } from '@wizeworksllc/builder-schemas';
 
 import { renderSilicaEmail } from '../render-silica-email';
 

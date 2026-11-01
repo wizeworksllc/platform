@@ -10,9 +10,9 @@
 // (one transaction, no window where the line exists without its hold). The
 // public `reserve` / `release` wrap them in their own `withTenant`.
 
-import { ReserveInventoryInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { ReserveInventoryInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import {
   InventoryNotFoundError,

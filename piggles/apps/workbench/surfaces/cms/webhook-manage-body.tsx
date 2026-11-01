@@ -2,7 +2,7 @@
 
 // The manage view itself, once the record and its draft exist.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import {
   Alert,
   AlertContent,

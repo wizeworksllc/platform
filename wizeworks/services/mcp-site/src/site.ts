@@ -8,7 +8,7 @@
 // custom domains. No DB access here.
 
 import type { FastifyRequest } from 'fastify';
-import { SiteApiClient, type SiteCtx } from '@wizeworks/site-mcp';
+import { SiteApiClient, type SiteCtx } from '@wizeworksllc/site-mcp';
 import { env } from './env.js';
 
 /** The request did not name a site we could resolve → a clean 404, not a 500. */

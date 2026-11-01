@@ -1,13 +1,13 @@
 // Segment evaluation helpers — preview-count + full recompute.
 //
-// Both are read-then-evaluate paths over @wizeworks/crm-schemas'
+// Both are read-then-evaluate paths over @wizeworksllc/crm-schemas'
 // evaluateSegmentRule. previewCount samples customers for sub-second editor
 // feedback; recomputeFull walks every customer (nightly safety-net to
 // reconcile drift from dropped events).
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { SegmentRuleSchema, evaluateSegmentRule, type SegmentRule } from '@wizeworks/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { SegmentRuleSchema, evaluateSegmentRule, type SegmentRule } from '@wizeworksllc/crm-schemas';
 
 import { buildSegmentRuleProjection, countEmailEngagement } from '../consumers/segment-projection';
 import type { ServiceContext } from '../errors';

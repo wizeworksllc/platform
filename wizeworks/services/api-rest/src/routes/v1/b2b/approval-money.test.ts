@@ -34,18 +34,18 @@ const settleHeldOrderMoney = vi.hoisted(() =>
   })
 );
 
-vi.mock('@wizeworks/b2b', () => ({ approvalService: service }));
-vi.mock('@wizeworks/api-core/auth', () => ({ requireRole: () => ({}) }));
+vi.mock('@wizeworksllc/b2b', () => ({ approvalService: service }));
+vi.mock('@wizeworksllc/api-core/auth', () => ({ requireRole: () => ({}) }));
 vi.mock('../../../lib/b2b-context.js', () => ({
   requireB2bModule: () => Promise.resolve(),
   toB2bContext: () => ctx,
 }));
 vi.mock('../../../lib/property.js', () => ({ resolvePropertyId: () => Promise.resolve(null) }));
 vi.mock('../../../lib/held-order-money.js', () => ({ settleHeldOrderMoney }));
-vi.mock('@wizeworks/inventory', () => ({
+vi.mock('@wizeworksllc/inventory', () => ({
   inventoryService: { emitSaleEvents: () => Promise.resolve() },
 }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({
   publish: () => {
     steps.push('publish');
     return Promise.resolve();

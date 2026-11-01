@@ -9,7 +9,7 @@
 // Decimal type handles the conversion at write time. Inputs are validated
 // nonnegative by Zod (see common-commerce.ts).
 
-import type { LineItemInput } from '@wizeworks/crm-schemas';
+import type { LineItemInput } from '@wizeworksllc/crm-schemas';
 
 export interface ComputedTotals {
   subtotal: number;

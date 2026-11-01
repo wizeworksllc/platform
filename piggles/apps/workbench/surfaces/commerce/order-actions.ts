@@ -3,7 +3,7 @@
 // The moves you can make on an order that already exists — writing down money
 // taken, goods handed over, a cancellation and a refund.
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { ORDERS_KEY } from './order-queries';

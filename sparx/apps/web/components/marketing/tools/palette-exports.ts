@@ -1,4 +1,4 @@
-import { serializeBrandPalette } from '@wizeworks/site-themes/brand-palette';
+import { serializeBrandPalette } from '@wizeworksllc/site-themes/brand-palette';
 import { buildPalette, hexToHsl, hslToHex, readableTextOn, type PaletteColor } from './lib/color';
 
 /**

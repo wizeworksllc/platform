@@ -1,7 +1,7 @@
 // wizeworks/apps/site ESLint — extends root + same "no raw Tailwind in feature
-// code" enforcement as apps/web. Layout chrome should compose @wizeworks/ui
+// code" enforcement as apps/web. Layout chrome should compose @wizeworksllc/ui
 // primitives; CMS-rendered content (TipTap → HTML) is sanitized inside
-// @wizeworks/cms-editor's serializer.
+// @wizeworksllc/cms-editor's serializer.
 
 import rootConfig from '../../../eslint.config.js';
 
@@ -36,7 +36,7 @@ export default [
           selector:
             'JSXAttribute[name.name="className"][value.type="Literal"][value.value=/(?=.*(?:bg-\\[(?:var\\(|#|rgb|hsl|oklch)|bg-white|bg-black))(?=.*(?:text-\\[(?:var\\(|#|rgb|hsl|oklch)|text-white|text-black))/]',
           message:
-            'This className pairs a background fill with a foreground text color — that reimplements a styled control. Use a @wizeworks/ui component/variant or inline styles with CSS vars from tokens.css. Layout, spacing, and positioning utilities are fine (docs/23 §15).',
+            'This className pairs a background fill with a foreground text color — that reimplements a styled control. Use a @wizeworksllc/ui component/variant or inline styles with CSS vars from tokens.css. Layout, spacing, and positioning utilities are fine (docs/23 §15).',
         },
       ],
     },

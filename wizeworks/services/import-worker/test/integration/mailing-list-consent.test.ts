@@ -14,7 +14,7 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
 import pino from 'pino';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { getProcessor, type ImportRow, type ProcessorContext } from '../../src/processors/index.js';
 
 const logger = pino({ level: 'silent' });

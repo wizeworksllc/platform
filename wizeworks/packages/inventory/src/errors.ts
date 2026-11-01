@@ -1,9 +1,9 @@
 // Inventory service-layer error vocabulary. Each transport (REST, GraphQL,
 // MCP, Server Actions) maps these to its native envelope — mirroring the
-// per-module pattern used by @wizeworks/commerce, @wizeworks/crm, @wizeworks/email-platform,
+// per-module pattern used by @wizeworksllc/commerce, @wizeworksllc/crm, @wizeworksllc/email-platform,
 // etc. (one error language per module, mapped once per transport).
 
-import type { TenantContext } from '@wizeworks/db';
+import type { TenantContext } from '@wizeworksllc/db';
 
 export type ServiceContext = TenantContext;
 
@@ -84,7 +84,7 @@ export class InventoryOutOfStockError extends Error {
 }
 
 // Aliased exports so transports can write `import type { NotFoundError } from
-// '@wizeworks/inventory'` without dragging the implementation class names through.
+// '@wizeworksllc/inventory'` without dragging the implementation class names through.
 export type NotFoundError = InventoryNotFoundError;
 export type ValidationError = InventoryValidationError;
 export type ConflictError = InventoryConflictError;

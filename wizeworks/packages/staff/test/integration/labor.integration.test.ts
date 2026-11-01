@@ -9,8 +9,8 @@
 // Excluded under CI (no database there) exactly like the finance suites.
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { prisma, withTenant } from '@wizeworks/db';
-import { categoryBySlug } from '@wizeworks/finance';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { categoryBySlug } from '@wizeworksllc/finance';
 
 import { createMember } from '../../src/members.js';
 import { setRate } from '../../src/rates.js';

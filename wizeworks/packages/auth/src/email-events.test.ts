@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { _resetPublisherForTest } from '@wizeworks/events';
+import { _resetPublisherForTest } from '@wizeworksllc/events';
 import { publishAuthEmail, type PublishAuthEmailInput } from './email-events';
 
 // With EVENT_BROKER unset, `resolveTransport` selects the logging stub, which

@@ -11,7 +11,7 @@
 // Per-tenant OVERLAYS (a blueprint's install state) are NOT applied here — the
 // catalog is tenant-agnostic. The route layers those on top (docs/60 §6).
 
-import { withSystem, withTenant, type TxClient } from '@wizeworks/db';
+import { withSystem, withTenant, type TxClient } from '@wizeworksllc/db';
 import {
   MarketplaceBrowseQuery,
   type MarketplaceCategory,
@@ -19,7 +19,7 @@ import {
   type MarketplaceListing,
   type MarketplaceListResponse,
   type MarketplaceSort,
-} from '@wizeworks/marketplace-schemas';
+} from '@wizeworksllc/marketplace-schemas';
 
 import { ADAPTERS, type FacetDef } from './adapters.js';
 

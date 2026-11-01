@@ -1,8 +1,8 @@
 // Stats section — an optional full-width lead image (e.g. a map), a heading /
 // subcopy with up to two CTAs, and a row of big figure + label stats.
 
-import type { StatsConfig } from '@wizeworks/sitebuilder-schemas';
-import { focalToPosition } from '@wizeworks/sitebuilder-schemas';
+import type { StatsConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { focalToPosition } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

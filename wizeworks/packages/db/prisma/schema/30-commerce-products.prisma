@@ -4,7 +4,7 @@
 // level shape (title, description, SEO, fulfillment type, hazmat class,
 // shipping defaults); each Variant overrides for a purchasable SKU.
 //
-// Money columns store integer cents (matches @wizeworks/commerce-schemas
+// Money columns store integer cents (matches @wizeworksllc/commerce-schemas
 // MoneyCents). CRM-side Decimal columns are kept for historical orders;
 // Commerce-side reads convert at the boundary.
 //
@@ -94,7 +94,7 @@ model Product {
   priceMaxCents  Int?    @map("price_max_cents")
   inStock        Boolean @default(false) @map("in_stock")
   // In stock, but at least one variant/warehouse level has fallen to/below its
-  // reorder point — the canonical "running low" predicate (@wizeworks/inventory
+  // reorder point — the canonical "running low" predicate (@wizeworksllc/inventory
   // isLowStock). Maintained in the SAME place as inStock (syncProductInStock),
   // and read by the collection-rule compiler's `inventory low_stock` predicate.
   lowStock       Boolean @default(false) @map("low_stock")
@@ -150,7 +150,7 @@ model Product {
 }
 
 // A typed PRODUCT TYPE (docs/143) — the commerce mirror of ContentType. It
-// declares an `attributeSchema` (a @wizeworks/field-schema FieldSchema: the same 15
+// declares an `attributeSchema` (a @wizeworksllc/field-schema FieldSchema: the same 15
 // field kinds content types use) that governs a product's `attributes` bag. The
 // fixed commerce spine (variants/prices/inventory/images/SEO) is NEVER
 // type-defined — only the variable descriptive attribute layer is. Built-in

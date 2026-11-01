@@ -40,7 +40,7 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: async (_ctx: unknown, fn: (t: unknown) => Promise<unknown>) => {
     queue = [];
@@ -51,7 +51,7 @@ vi.mock('@wizeworks/db', async (importOriginal) => ({
     return result;
   },
 }));
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   customerService: {
     // The real one hands this to `afterCommit`; this stand-in does the same
     // against the queue above, so "sent while the write was open" is visible.

@@ -14,10 +14,10 @@
 
 import { randomBytes } from 'node:crypto';
 
-import { withSystem, withTenant, type TxClient } from '@wizeworks/db';
-import { badRequest, conflict, notFound } from '@wizeworks/api-core/errors';
+import { withSystem, withTenant, type TxClient } from '@wizeworksllc/db';
+import { badRequest, conflict, notFound } from '@wizeworksllc/api-core/errors';
 import { notAPartner } from './not-a-partner.js';
-import { requireAuth } from '@wizeworks/api-core/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
 import type { FastifyRequest } from 'fastify';
 import {
   ApplyPartnerInput,
@@ -29,9 +29,9 @@ import {
   JoinPartnerInput,
   UpdatePartnerProfileInput,
   type PartnerTier,
-} from '@wizeworks/partner-schemas';
+} from '@wizeworksllc/partner-schemas';
 
-import { appOrigin } from '@wizeworks/links/server';
+import { appOrigin } from '@wizeworksllc/links/server';
 
 import { env } from '../../env.js';
 import { formatPartnerMoney, publishPartnerEmail, publishPartnerEvent } from './events.js';

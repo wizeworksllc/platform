@@ -24,7 +24,7 @@ This is the **twin of [[surface-frame]]**: the same *"the user picks the surface
 - Row → detail via **`EntityRowLink`** (honors `defaultDetailView`), plus a trailing right-aligned `id: 'actions'` column ("Open"/"Manage").
 - `<EmptyState>` when empty · `<ListPager total/>` for paging · `bulkActions` opt in the checkbox column + `BulkActionBar`.
 
-`SelectionList` is a **pure `@wizeworks/ui` primitive** — it knows nothing about routing; the consumer injects links via `columns[].cell` / `card.title`. Canonical example: `crm/segments/_components/segments-list.tsx`; also `inventory/lots`.
+`SelectionList` is a **pure `@wizeworksllc/ui` primitive** — it knows nothing about routing; the consumer injects links via `columns[].cell` / `card.title`. Canonical example: `crm/segments/_components/segments-list.tsx`; also `inventory/lots`.
 
 **Why:** every list behaves identically (view toggle, selection, paging, empty state) and the operator's one preference reskins them all. Hand-rolled rows are how a list starts looking "off" even when the components are on-system.
 

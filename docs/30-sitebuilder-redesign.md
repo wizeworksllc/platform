@@ -67,7 +67,7 @@ And two expansions of mission:
 ## 3. The unified editor
 
 A single full-bleed workspace at `/sitebuilder`, composed of four regions. All chrome is built
-from `@wizeworks/ui` components (CVA + Radix + tokens per [docs/23-frontend-component-architecture.md](23-frontend-component-architecture.md));
+from `@wizeworksllc/ui` components (CVA + Radix + tokens per [docs/23-frontend-component-architecture.md](23-frontend-component-architecture.md));
 no raw Tailwind appears in feature code, and the workspace sits inside `<ModuleProvider module="site">`.
 
 ```
@@ -313,7 +313,7 @@ migration and no site change**.
 
 **Scope of the move**
 
-| Moves → CMS (`/cms`, `@wizeworks/cms-editor`)                                                   | Stays → Site Builder                                               | Unchanged (module-neutral)                                        |
+| Moves → CMS (`/cms`, `@wizeworksllc/cms-editor`)                                                   | Stays → Site Builder                                               | Unchanged (module-neutral)                                        |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
 | `NavigationMenu` + `NavigationItem` models (schema file → CMS domain, `@@map` unchanged)        | `SiteLayoutBlock` model                                            | Tables `navigation_menus` / `navigation_items` + RLS              |
 | `navigation/[location]/page.tsx`, `menu-editor.tsx`, `menu-detail.tsx`, `menu-actions.ts`, list | `layout-editor.tsx` (slots), `upsertLayout` action + slot MCP tool | `PUT /v1/navigation/menus/:location` (admin)                      |
@@ -376,7 +376,7 @@ faviconMediaId}` + Email `brandingOverride` into it; `resolveEmailBrand`, the si
 - **Default mapping** (new, Site-Builder-owned) — `(scope, contentTypeId?) → templateId`. The
   per-scope/per-type default. Read by the site resolver only.
 - **Per-item override** (module-owned) — see §5 / open question 13.1.
-- **Bound section schemas** (new, in `@wizeworks/sitebuilder-schemas`) — Zod schemas + registry
+- **Bound section schemas** (new, in `@wizeworksllc/sitebuilder-schemas`) — Zod schemas + registry
   entries for the product/collection bound section family (§4.2), scope-restricted.
 - **Navigation relocation** — `NavigationMenu` / `NavigationItem` move to `16-cms-navigation.prisma`
   (no table change, no migration).

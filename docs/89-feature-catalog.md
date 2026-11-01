@@ -468,7 +468,7 @@ surface — **337 endpoints** — is listed in [docs/150](150-inventory-api-refe
 ## 16. Auth & security (cross-cutting)
 
 - ✅ **Better Auth (self-hosted)** — staff email/password, magic link, OAuth; rotating refresh tokens.
-- ✅ **Customer auth tier** — separate `@wizeworks/customer-auth`, Argon2id, opaque rotating sessions, enumeration-safe reset.
+- ✅ **Customer auth tier** — separate `@wizeworksllc/customer-auth`, Argon2id, opaque rotating sessions, enumeration-safe reset.
 - ✅ **Row-level security** — Postgres RLS + FORCE-RLS on every tenant-scoped table.
 - ✅ **API keys** — hashed, scoped, expirable, revocable, usage-tracked.
 - ✅ **Role-based access** — owner/admin/editor/viewer/builder, module-gated.

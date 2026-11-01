@@ -39,7 +39,7 @@ import {
 } from '@wizeworks/silicaui-react';
 import { Table } from '../../components/table';
 import { Receipt } from 'lucide-react';
-import { useMutation, useQuery } from '@wizeworks/query';
+import { useMutation, useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { FormSection } from '../../components/form-section';
 import { MoneyTextInput, moneyCents } from '../../components/money-input';

@@ -7,7 +7,7 @@
 //   safety stock  = z(service level) × √( LT·σ_d²  +  d²·σ_LT² )
 //   reorder point = d × LT × seasonality  +  safety stock
 //
-// The arithmetic itself lives in `@wizeworks/commerce-schemas/planning`, shared with
+// The arithmetic itself lives in `@wizeworksllc/commerce-schemas/planning`, shared with
 // the API and the screen. This file is the plumbing: gather the inputs for every
 // level, apply the shared functions, store the result, and record which inputs
 // produced it.
@@ -35,10 +35,10 @@ import {
   serviceLevelZ,
   suggestedOrderQuantity,
   SetReorderPolicyPlanningInput,
-} from '@wizeworks/commerce-schemas';
-import type { ServiceLevel } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { ServiceLevel } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryNotFoundError } from '../errors';

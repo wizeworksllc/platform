@@ -1,12 +1,12 @@
 // Social connection + target management (docs/133). Thin DB orchestration over
 // social_connections / social_targets — the OAuth dance lives in the adapters
-// (@wizeworks/social) and the publish path in the social-worker; this is the dashboard's
+// (@wizeworksllc/social) and the publish path in the social-worker; this is the dashboard's
 // connect / list / attach / disconnect surface. Mirrors how channels keeps its DB
 // orchestration in api-rest rather than the pure-contract package.
 
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { SocialPlatform, SocialTargetRef } from '@wizeworks/social';
-// The READ view (list connections + targets) now lives in @wizeworks/social/service so
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { SocialPlatform, SocialTargetRef } from '@wizeworksllc/social';
+// The READ view (list connections + targets) now lives in @wizeworksllc/social/service so
 // the REST route AND the `list_social_connections` MCP tool drive the SAME query —
 // one service, many transports. Re-exported here so this lib stays the api-rest
 // connect surface's single import. The provisioning below (upsert / target-sync /
@@ -17,7 +17,7 @@ import {
   listSocialConnections,
   type SocialConnectionView,
   type SocialTargetView,
-} from '@wizeworks/social/service';
+} from '@wizeworksllc/social/service';
 import type { SocialContext } from './social-context.js';
 
 export { listSocialConnections, checkSocialReadiness, checkSocialConnectionReadiness };
@@ -33,7 +33,7 @@ export interface SocialConnectionUpsert {
   externalId: string | null;
   displayName: string | null;
   avatarUrl: string | null;
-  /** AES-256-GCM ciphertext (via @wizeworks/social/crypto) — never plaintext. */
+  /** AES-256-GCM ciphertext (via @wizeworksllc/social/crypto) — never plaintext. */
   accessTokenEnc: string;
   refreshTokenEnc: string | null;
   tokenExpiresAt: Date | null;

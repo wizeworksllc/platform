@@ -35,7 +35,7 @@
 // comparison against NaN is false, and the old `order > available` test waved
 // an unreadable limit straight through.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** The three fields of an account the decision reads. */
 export interface AccountStanding {

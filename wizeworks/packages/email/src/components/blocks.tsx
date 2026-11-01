@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, Column, Link, Row, Section, Text } from '@react-email/components';
-import type { EmailPalette } from '@wizeworks/brand-core';
+import type { EmailPalette } from '@wizeworksllc/brand-core';
 import { usePalette } from './brand';
 import { signal } from './tokens';
 
@@ -25,7 +25,7 @@ import { signal } from './tokens';
 // WizeWorks runs two products through one email worker, so "the sparx palette"
 // was what a Piggles owner's receipt was painted in. Every color now comes from
 // `usePalette()`, which resolves per send from the tenant's `platform_brand`
-// (`@wizeworks/brand-core`). There are no hexes in this file and there must not
+// (`@wizeworksllc/brand-core`). There are no hexes in this file and there must not
 // be: a literal here is a value that cannot follow the brand.
 // ────────────────────────────────────────────────────────────────────────
 

@@ -18,7 +18,7 @@
 // What that leaves is the opening balance: the stock you already had on the day
 // you started. This is the list of exactly that, and nothing else.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

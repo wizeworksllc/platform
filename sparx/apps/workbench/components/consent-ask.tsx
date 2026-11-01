@@ -44,7 +44,7 @@ import {
   DialogTitle,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { PREFERENCES_KEY, useConsent } from '../lib/consent';
 
 export function ConsentAsk() {

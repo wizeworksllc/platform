@@ -9,13 +9,13 @@
 // EXCLUDE race) is SKIPPED, not forced — one conflicting week never fails the
 // series. A misconfigured service (no eligible resource at all) fails loudly.
 
-import { withTenant, type Booking, type BookingSeries, type TxClient } from '@wizeworks/db';
+import { withTenant, type Booking, type BookingSeries, type TxClient } from '@wizeworksllc/db';
 import type {
   CancelBookingSeriesInput,
   CreateBookingSeriesInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
-import { localCalendarParts } from '@wizeworks/time';
+import { localCalendarParts } from '@wizeworksllc/time';
 
 import { findBookingPlaceTx } from './booking-receipt';
 import type { BookingMoney } from './booking-money';

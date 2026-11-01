@@ -6,8 +6,8 @@
 // escalation" is the canonical Locked example). It is the one source of truth for
 // the behavior, replacing the b2b-overdue-worker cron (retired in Slice F3).
 
-import type { SystemAutomationSpec } from '@wizeworks/automation';
-import { ACCOUNT_SET_UP_TO_DO } from '@wizeworks/crm';
+import type { SystemAutomationSpec } from '@wizeworksllc/automation';
+import { ACCOUNT_SET_UP_TO_DO } from '@wizeworksllc/crm';
 
 export const B2B_OVERDUE_ESCALATION: SystemAutomationSpec = {
   key: 'b2b.chase-overdue-invoices',
@@ -122,7 +122,7 @@ export const B2B_NEW_ACCOUNT_TASK: SystemAutomationSpec = {
   // and limit already set, and got five open tasks to "set up prices and terms"
   // (sparx persona issue 080). "Pay before dispatch" needs no limit.
   //
-  // The rule lives in @wizeworks/crm-schemas, not here, because the task closes
+  // The rule lives in @wizeworksllc/crm-schemas, not here, because the task closes
   // itself by the SAME rule once the business sets the account up: Wasatch
   // Front's stayed open after it was put on Net 30 with a $25,000 limit.
   conditions: ACCOUNT_SET_UP_TO_DO,

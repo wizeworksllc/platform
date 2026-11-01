@@ -175,7 +175,7 @@ const response = await anthropic.messages.create({
 
 ---
 
-### Phase A-4 — `@wizeworks/chat-widget` package + site integration
+### Phase A-4 — `@wizeworksllc/chat-widget` package + site integration
 
 **Goal:** floating chat bubble on every site page when module is active.
 
@@ -258,7 +258,7 @@ Route: `apps/app/src/app/(dashboard)/chat/` — chat module gated by `<ModuleGat
 
 **sparx.market** (`sparx/apps/web/src/app/(market)/products/[slug]/`):
 
-- Import `ChatWidget` from `@wizeworks/chat-widget`
+- Import `ChatWidget` from `@wizeworksllc/chat-widget`
 - Show "Chat with {tenantName}" CTA on product pages when the selling tenant has chat enabled
 - Source parameter: `source: 'sparx_market'`
 
@@ -283,7 +283,7 @@ Steps:
 3. **Inventory** (Physical only) — Track inventory toggle, Quantity, Low stock threshold, Weight + dimensions
 4. **Review** — Summary card, "Create product" button → single `POST /v1/products`
 
-Uses the existing `<Stepper>` component from `@wizeworks/ui`. All state lifted to the wizard parent; no network writes until Step 4 submit.
+Uses the existing `<Stepper>` component from `@wizeworksllc/ui`. All state lifted to the wizard parent; no network writes until Step 4 submit.
 
 Step files: `_components/product-wizard/step-basics.tsx`, `step-pricing.tsx`, `step-inventory.tsx`, `step-review.tsx`.
 
@@ -408,7 +408,7 @@ Wire `BulkActionBar` into each list view's selection state.
 
 **Goal:** guided creation flow for CMS content entries.
 
-**New shared component**: `sparx/packages/ui/src/components/form/SchemaFieldRenderer.tsx` — maps content type schema field types to `@wizeworks/ui` inputs:
+**New shared component**: `sparx/packages/ui/src/components/form/SchemaFieldRenderer.tsx` — maps content type schema field types to `@wizeworksllc/ui` inputs:
 
 | Schema field type | Component                               |
 | ----------------- | --------------------------------------- |
@@ -491,7 +491,7 @@ Entry point has a dropdown split: "Quick add" / "Full profile"
 | A-1   | Chat    | DB schema + REST API                     | None                              |
 | A-2   | Chat    | WebSocket + Redis routing                | A-1                               |
 | A-3   | Chat    | AI handler                               | A-1, A-2                          |
-| A-4   | Chat    | `@wizeworks/chat-widget` + site          | A-1, A-2                          |
+| A-4   | Chat    | `@wizeworksllc/chat-widget` + site          | A-1, A-2                          |
 | A-5   | Chat    | Dashboard inbox UI                       | A-1, A-2, A-3                     |
 | A-6   | Chat    | Notifications + sparx.market             | A-5                               |
 | B-1   | Wizards | Product wizard                           | None                              |

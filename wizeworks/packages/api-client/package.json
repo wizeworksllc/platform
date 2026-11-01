@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/api-client",
+  "name": "@wizeworksllc/api-client",
   "version": "0.0.0",
   "private": true,
   "description": "TypeScript client for the sparx public REST API. Thin wrapper around fetch that handles the response envelope, bearer auth, and idempotency-key bookkeeping. Generated types live in `src/openapi.d.ts` (regenerated via `pnpm gen` against the live api-rest /v1/openapi.json).",

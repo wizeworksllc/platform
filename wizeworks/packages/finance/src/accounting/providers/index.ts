@@ -1,7 +1,7 @@
 // The live accounting adapters (docs/146 Phase 10.7–10.8).
 //
 // Two, and no placeholders. A registry entry with nothing behind it is the thing
-// `IntegrationCategory` in @wizeworks/integrations refuses to carry, for the reason
+// `IntegrationCategory` in @wizeworksllc/integrations refuses to carry, for the reason
 // documented there: two categories were once listed with no implementer and the
 // panel rendered empty headings for months.
 

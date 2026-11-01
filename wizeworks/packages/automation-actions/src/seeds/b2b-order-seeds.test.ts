@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { evaluateConditions } from '@wizeworks/automation-schemas';
+import { evaluateConditions } from '@wizeworksllc/automation-schemas';
 
 import {
   B2B_INVOICE_ISSUED_EMAIL,

@@ -11,7 +11,7 @@
 // set one. A business with no zone keeps UTC, exactly as before — this widens
 // the rule, it does not change it out from under anybody.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 /** Just enough of a transaction client to read the business row. */
 interface BusinessReader {

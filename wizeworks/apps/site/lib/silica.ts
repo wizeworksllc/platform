@@ -11,13 +11,13 @@
 
 import { cache } from 'react';
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 import type {
   PublishedSilicaFrameDto,
   PublishedSilicaPageDto,
   SilicaNode,
-} from '@wizeworks/builder-schemas';
-import { recordTemplate, starterFrame, starterPages } from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/builder-schemas';
+import { recordTemplate, starterFrame, starterPages } from '@wizeworksllc/silica-catalog';
 
 import { resolveActivePropertySlug } from './site-context';
 import { withFleetBadges } from './fleet-fit-tree';
@@ -407,8 +407,8 @@ export function treeHasHostNode(node: unknown): boolean {
 }
 
 /** Every host core key in a tree. One walker, shared with the console's page list
- *  (`@wizeworks/silica-catalog`), so both judge a page by the same cores. */
-export { hostKeysIn } from '@wizeworks/silica-catalog';
+ *  (`@wizeworksllc/silica-catalog`), so both judge a page by the same cores. */
+export { hostKeysIn } from '@wizeworksllc/silica-catalog';
 
 // Every product card on a published page carries the signed-in trade buyer's fleet
 // badges (sparx persona issue 086). Added on read, so pages stamped before fleets

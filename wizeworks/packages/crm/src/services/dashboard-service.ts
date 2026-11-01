@@ -9,10 +9,10 @@ import {
   CreateDashboardInput,
   SetWidgetsInput,
   UpdateDashboardInput,
-} from '@wizeworks/crm-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { CrmDashboard, CrmDashboardWidget, CrmReport, Prisma } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+} from '@wizeworksllc/crm-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { CrmDashboard, CrmDashboardWidget, CrmReport, Prisma } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

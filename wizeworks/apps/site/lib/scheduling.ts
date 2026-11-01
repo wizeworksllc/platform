@@ -5,7 +5,7 @@
 // without the scheduling module active returns null/[] so the /book route 404s.
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 import { resolveActivePropertySlug, verifiedSiteRoute } from './site-context';
 

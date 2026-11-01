@@ -1,5 +1,5 @@
 // OAuth plumbing for Layer-3 calendar sync (docs/79 §8.3, §8.5) — the api-rest side
-// the PURE @wizeworks/scheduling helpers can't do: resolve the client credentials
+// the PURE @wizeworksllc/scheduling helpers can't do: resolve the client credentials
 // (platform app vs the tenant's BYO client), run the token exchange/refresh over the
 // network, encrypt the returned tokens at rest, and sign the two round-trip tokens
 // (the browser `state`, and the push-channel token the provider echoes back).
@@ -9,8 +9,8 @@
 // connection carries the tenant's own client id + (encrypted) secret on the row.
 
 import { SignJWT, jwtVerify } from 'jose';
-import { forbidden } from '@wizeworks/api-core/errors';
-import type { CalendarConnection } from '@wizeworks/db';
+import { forbidden } from '@wizeworksllc/api-core/errors';
+import type { CalendarConnection } from '@wizeworksllc/db';
 import {
   buildTokenExchangeBody,
   buildTokenRefreshBody,
@@ -21,7 +21,7 @@ import {
   updateConnectionSyncState,
   type CalendarOAuthProvider,
   type OAuthTokens,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { env } from '../env.js';
 import { decryptCalendarSecret, encryptCalendarSecret } from './scheduling-calendar-crypto.js';

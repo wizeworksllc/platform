@@ -18,7 +18,7 @@ Search finds a thing only when the indexer has a projector for its kind. 34 kind
 one. Many things an owner creates and names on their own screen have none, so search can
 never find them. Three of them are worse: the routing already knows how to open them
 (`report`, `dashboard`, `ticket` have routes and group labels in
-`@wizeworks/links/src/routes.ts`), but nothing ever puts them in the index.
+`@wizeworksllc/links/src/routes.ts`), but nothing ever puts them in the index.
 
 Owner-named things with their own screen and no projector (traced 2026-10-13):
 
@@ -53,7 +53,7 @@ name concludes it is gone.
 - Projectors: `wizeworks/packages/commerce/src/universal-projection.ts`,
   `wizeworks/packages/commerce-indexer/src/messaging-projection.ts`, walked by
   `commerce-indexer/src/registry.ts`.
-- Write-time signals: `indexEntity(...)` from `@wizeworks/events`, or a CRM event mapped
+- Write-time signals: `indexEntity(...)` from `@wizeworksllc/events`, or a CRM event mapped
   in `pubsub-bridge.ts`.
 - Routing and group words: `wizeworks/packages/links/src/routes.ts`.
 - Guard: `scripts/check-search-entities.mjs`.

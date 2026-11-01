@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import { Button, FieldStatus, Loading, SearchInput, Text } from '@wizeworks/silicaui-react';
 import { faClock, faGlobe, faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import type { OnboardingActions } from '../../../lib/onboarding/api';
 import type { PendingDomain } from '../../../lib/onboarding/types';
 import { api } from '../../../lib/api/client';

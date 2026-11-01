@@ -8,9 +8,9 @@
 // and written from that buyer's own page.
 //
 // Shapes mirror api-rest's `taxService.ExemptionsOnFile`; the input satisfies
-// `CreateTaxExemptionInput` in @wizeworks/commerce-schemas.
+// `CreateTaxExemptionInput` in @wizeworksllc/commerce-schemas.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { ExemptionReason } from './tax-exemption-words';
 

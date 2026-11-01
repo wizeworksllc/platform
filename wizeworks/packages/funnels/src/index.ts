@@ -1,26 +1,26 @@
-// @wizeworks/funnels — the binding and measurement entity for a campaign
+// @wizeworksllc/funnels — the binding and measurement entity for a campaign
 // (docs/151, docs/152 B2).
 //
 // A funnel says THESE parts belong to one campaign, and here is whether it
 // worked. It owns nothing it can borrow: goals evaluate through
-// @wizeworks/automation-schemas' evaluator, so a business that has written one
+// @wizeworksllc/automation-schemas' evaluator, so a business that has written one
 // automation condition already knows how to write a funnel goal; follow-up runs
 // through Automation and EmailSequence exactly as they already do.
 //
-// Backend-safe (@wizeworks/db + the schema packages, no render/React) so the
+// Backend-safe (@wizeworksllc/db + the schema packages, no render/React) so the
 // event-worker can run the nightly reconcile without dragging React in. The
 // client-safe shapes live in ./schemas.
 
 // `Prisma` as a VALUE, not a type-only import: `Prisma.DbNull` is a runtime
 // sentinel, and it is the only way to clear a nullable JSON column — writing
 // plain `null` sets the JSON value `null`, which is a different thing.
-import { Prisma, afterCommit, withTenant, type TenantContext, type TxClient } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { Prisma, afterCommit, withTenant, type TenantContext, type TxClient } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 import {
   ConditionGroup,
   evaluateConditions,
   type ResolvedFields,
-} from '@wizeworks/automation-schemas';
+} from '@wizeworksllc/automation-schemas';
 import type { Funnel, FunnelStageEvent } from '@prisma/client';
 
 import {
@@ -358,7 +358,7 @@ function assertValueBelongsHere(stage: FunnelStage, valueCents: number | undefin
  *
  * One line of real logic, and that is the point: the condition language, its
  * operators and their comparison semantics all live in
- * @wizeworks/automation-schemas, so a funnel goal, an automation condition, a
+ * @wizeworksllc/automation-schemas, so a funnel goal, an automation condition, a
  * report filter and a scoring rule cannot drift apart. Writing a second
  * evaluator here is how `contains` comes to mean two different things.
  *

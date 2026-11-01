@@ -11,18 +11,18 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 import type { Prisma } from '@prisma/client';
-import { withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
-import { ApiSourceConfig } from '@wizeworks/commerce-schemas';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { ApiSourceConfig } from '@wizeworksllc/commerce-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import {
   publishEvent,
   createPublisher,
   indexEntity,
   type PublisherLogger,
-} from '@wizeworks/events';
+} from '@wizeworksllc/events';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 type SourceRecord = Prisma.InventorySourceGetPayload<Record<string, never>>;

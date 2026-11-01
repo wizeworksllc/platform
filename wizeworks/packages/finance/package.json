@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/finance",
+  "name": "@wizeworksllc/finance",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Finance (docs/148) — the spend ledger, job allocation, recurring costs, and the daily profit rollup. Records what a business spent and nets it against what it earned; deliberately NOT bookkeeping (no ledger, no chart of accounts, no payroll) — the accountant's system stays theirs.",
@@ -25,10 +25,10 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/integration-framework": "workspace:*",
-    "@wizeworks/modules": "workspace:*",
-    "@wizeworks/time": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/integration-framework": "workspace:*",
+    "@wizeworksllc/modules": "workspace:*",
+    "@wizeworksllc/time": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

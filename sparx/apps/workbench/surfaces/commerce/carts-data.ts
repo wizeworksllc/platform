@@ -11,7 +11,7 @@
 // Decimal-as-string orders use — so the surfaces divide by 100 at the render
 // edge and reuse `formatMoney` from ./data as the single money formatter.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { channelLabel } from '../../lib/console/channels';
 import { api } from '../../lib/api/client';

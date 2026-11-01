@@ -1,15 +1,15 @@
-// @wizeworks/provider-taxjar — TaxJar TaxProvider. Strong fit for US-focused
+// @wizeworksllc/provider-taxjar — TaxJar TaxProvider. Strong fit for US-focused
 // merchants with B2B exemption certificates.
 
-import type { TaxBreakdown, TaxCalculationRequest } from '@wizeworks/commerce-schemas';
-import { ProviderUnsupportedError, registerProvider } from '@wizeworks/integration-framework';
+import type { TaxBreakdown, TaxCalculationRequest } from '@wizeworksllc/commerce-schemas';
+import { ProviderUnsupportedError, registerProvider } from '@wizeworksllc/integration-framework';
 import type {
   NormalizedAddress,
   ProviderBundle,
   ProviderMetadataDescriptor,
   ProviderRunContext,
   TaxProvider,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 
 const TAXJAR_SLUG = 'taxjar';
 

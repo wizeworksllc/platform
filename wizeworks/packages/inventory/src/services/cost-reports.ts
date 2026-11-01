@@ -22,7 +22,7 @@
 // valuing them at zero or silently dropping them — a valuation that does not
 // admit its own gaps is the kind an audit finds for you.
 
-import { Prisma, withTenant } from '@wizeworks/db';
+import { Prisma, withTenant } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

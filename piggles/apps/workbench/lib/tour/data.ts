@@ -4,7 +4,7 @@
 // through the merge-patch endpoint that already serves it. No new table, no new
 // endpoint — the server preserves keys it does not own.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../api/client';
 import type { GuideKey, GuideOutcome, GuidePrefs } from './types';
 

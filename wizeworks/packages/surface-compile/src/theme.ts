@@ -30,7 +30,7 @@
 // Preflight is intentionally NOT imported: the tenant stylesheet is a delta
 // layered over the storefront's own reset, exactly like @sparx/site-ui's build.
 
-import { BASE_SILICA_THEME } from '@wizeworks/silica-catalog';
+import { BASE_SILICA_THEME } from '@wizeworksllc/silica-catalog';
 
 // `--key: value;` lines for the theme keys this compile must register, read off the
 // platform base theme. Any key the base theme lacks is skipped rather than emitted

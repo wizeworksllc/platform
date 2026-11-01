@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P01 · Gillett Diesel Service · act 9 (checkout as a stranger, after adding the United States region)
-**Surface:** site › checkout › Delivery; workbench › Shipping (both consoles); onboarding's setup story; `rateShipment` in `@wizeworks/commerce`
+**Surface:** site › checkout › Delivery; workbench › Shipping (both consoles); onboarding's setup story; `rateShipment` in `@wizeworksllc/commerce`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01 on screen, 2026-10-06

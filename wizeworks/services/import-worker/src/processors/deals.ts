@@ -15,9 +15,9 @@
 // "Closed Won" column imported as an open stage makes every pipeline report wrong in
 // a way that looks like a rounding error rather than a migration bug.
 
-import { dealService, pipelineService } from '@wizeworks/crm';
-import { toDecimal, toIsoDate, toInteger, toSlug } from '@wizeworks/migration';
-import { withTenant } from '@wizeworks/db';
+import { dealService, pipelineService } from '@wizeworksllc/crm';
+import { toDecimal, toIsoDate, toInteger, toSlug } from '@wizeworksllc/migration';
+import { withTenant } from '@wizeworksllc/db';
 
 import { Resolver } from './resolve';
 import {

@@ -2,8 +2,8 @@
 // connect, plus the per-vendor credential field spec that drives the dashboard
 // "connect supplier" picker and form. (docs/14 §2–§4)
 //
-// This module is PURE DATA — it imports no adapter code and no `@wizeworks/db`, so
-// the dashboard can import it from a client component via the `@wizeworks/dropship/
+// This module is PURE DATA — it imports no adapter code and no `@wizeworksllc/db`, so
+// the dashboard can import it from a client component via the `@wizeworksllc/dropship/
 // vendors` subpath without pulling server-only dependencies into the bundle.
 //
 // Only vendors with a real, self-serve integration appear here. Suppliers

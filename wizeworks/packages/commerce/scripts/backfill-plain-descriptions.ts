@@ -31,11 +31,11 @@
 //
 // DRY-RUN by default; pass `--apply` to write.
 //
-//   pnpm --filter @wizeworks/commerce db:backfill:plain-descriptions
-//   pnpm --filter @wizeworks/commerce db:backfill:plain-descriptions -- --apply
+//   pnpm --filter @wizeworksllc/commerce db:backfill:plain-descriptions
+//   pnpm --filter @wizeworksllc/commerce db:backfill:plain-descriptions -- --apply
 
-import { plainText } from '@wizeworks/commerce-schemas';
-import { prisma, withTenant } from '@wizeworks/db';
+import { plainText } from '@wizeworksllc/commerce-schemas';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 const APPLY = process.argv.includes('--apply');
 

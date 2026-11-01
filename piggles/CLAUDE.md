@@ -57,13 +57,13 @@ plan, its phases and the running checklist are in
 - **Do not add a new `@sparx/*` dependency from `piggles/`.** The
   `check:boundaries` script counts them per package against a recorded baseline
   and fails the push if any count rises. Falling is the only permitted direction.
-- **`@sparx/brand` and `@wizeworks/ui` are OFF LIMITS entirely.** Those two genuinely
+- **`@sparx/brand` and `@wizeworksllc/ui` are OFF LIMITS entirely.** Those two genuinely
   carry sparx — its marks, its mascot, its token values — and Piggles has
   `@piggles/brand`, `@piggles/mascot` and `@piggles/ui` of its own. Both were
   dropped from the console on 2026-08-16 along with the five places it was
   rendering sparx's wordmark and mascot.
 - A correction both brands need goes in a **brand-blind** package, never in one
-  brand's. `@wizeworks/silica-corrections` exists for exactly that reason.
+  brand's. `@wizeworksllc/silica-corrections` exists for exactly that reason.
 
 ### Why this was not always the rule, and what it cost
 

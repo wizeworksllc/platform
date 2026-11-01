@@ -33,7 +33,7 @@ import { MoneyTextInput, moneyCents } from '../../components/money-input';
 import { useConfirm } from '../../lib/confirm';
 import { faCubes, faTrashCan } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useQuery, shownInPlace } from '@wizeworks/query';
+import { useQuery, shownInPlace } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { afterPaneChange } from '../../lib/defer';
@@ -56,7 +56,7 @@ import {
   type BundlePricingMode,
 } from './bundles-data';
 import { ActionLabel } from '../../components/action-label';
-import { bundlePartsTotalCents, bundleSetPriceCents } from '@wizeworks/commerce-schemas';
+import { bundlePartsTotalCents, bundleSetPriceCents } from '@wizeworksllc/commerce-schemas';
 import { partLineNote, partsNote, setPriceNote } from './bundle-price-words';
 import type { VariantChoice } from './bundles-data';
 

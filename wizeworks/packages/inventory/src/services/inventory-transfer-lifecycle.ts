@@ -5,9 +5,9 @@
 // source). Every leg funnels through the movement ledger, so total stock is
 // conserved across source, in-transit, and destination.
 
-import { ReceiveTransferInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { ReceiveTransferInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import {

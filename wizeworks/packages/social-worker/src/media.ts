@@ -9,8 +9,8 @@
 // base configured yields fewer refs than ids — the drain logs that gap rather than
 // dropping it silently.
 
-import { withTenant } from '@wizeworks/db';
-import { constraintsFor, type MediaRef, type SocialPlatform } from '@wizeworks/social';
+import { withTenant } from '@wizeworksllc/db';
+import { constraintsFor, type MediaRef, type SocialPlatform } from '@wizeworksllc/social';
 import { env } from './env.js';
 
 /** One resolved asset: its kind, its base variant URL, and any social crop URLs keyed
@@ -38,7 +38,7 @@ function parseRatio(label: string): number {
 
 /** The crop a platform should publish: its first declared aspect ratio, snapped to the
  *  nearest crop the worker generates (log-distance, so 4:3 → 1:1 and 2:3 → 9:16 land
- *  perceptually, not numerically). Pure over @wizeworks/social constraints — the ONE
+ *  perceptually, not numerically). Pure over @wizeworksllc/social constraints — the ONE
  *  source of truth for platform ratios. */
 export function preferredAspectFor(platform: SocialPlatform): string {
   const ratios = constraintsFor(platform).aspectRatios ?? [];

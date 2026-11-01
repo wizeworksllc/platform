@@ -12,7 +12,7 @@
 // started in ANOTHER window still surfaces here within a few seconds.
 
 import { useMemo } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from './client';
 
 export type JobStatus = 'running' | 'done' | 'failed';

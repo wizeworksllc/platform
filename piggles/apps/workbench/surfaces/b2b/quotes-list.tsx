@@ -14,7 +14,7 @@ import { Badge, Button, Card, EmptyState, SearchInput } from '@wizeworks/silicau
 import { Table } from '../../components/table';
 import { faFileText, faPlus, faXmark } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
 import { ListPagination, MAX_TAKE, type PageSize } from '../../components/list-pagination';
 import { ListEmptyState } from '../../components/list-empty-state';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';

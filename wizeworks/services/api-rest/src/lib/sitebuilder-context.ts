@@ -1,4 +1,4 @@
-// Bridge between Fastify auth context and @wizeworks/sitebuilder's ServiceContext.
+// Bridge between Fastify auth context and @wizeworksllc/sitebuilder's ServiceContext.
 //
 // Every Site Builder service function takes `(ctx: ServiceContext, args)`. The
 // REST transport wraps each handler with `requireSitebuilderModule(request)`
@@ -6,10 +6,10 @@
 // that ctx — keeping routes vanishingly thin (one service, many transports).
 
 import type { FastifyRequest } from 'fastify';
-import type { PropertyContext, ServiceContext } from '@wizeworks/sitebuilder';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { PropertyContext, ServiceContext } from '@wizeworksllc/sitebuilder';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 import { resolvePropertyId } from './property.js';
 
 // Tenant-wide sitebuilder ctx (NO property scope) — for the services that are NOT

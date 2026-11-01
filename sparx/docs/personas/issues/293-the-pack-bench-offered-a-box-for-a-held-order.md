@@ -42,7 +42,7 @@ pressed.
 
 `surfaces/inventory/pack-bench.tsx` (both consoles) never read the order: it knew the
 order's id only. The rule it needed is `whatCanShipNow` (`commerce/order-ship-gate.ts`,
-over `orderShipRefusal` in `@wizeworks/commerce-schemas`), which the order pane already
+over `orderShipRefusal` in `@wizeworksllc/commerce-schemas`), which the order pane already
 reads. Its own header says "the screen that greys a button" gives the same answer;
 this screen did not ask.
 

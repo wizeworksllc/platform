@@ -1,4 +1,4 @@
-// Commerce MCP tool registry. Mirrors @wizeworks/crm/mcp/registry — same
+// Commerce MCP tool registry. Mirrors @wizeworksllc/crm/mcp/registry — same
 // shape, separate scope vocabulary so the MCP server can enforce
 // commerce-only API key permissions.
 

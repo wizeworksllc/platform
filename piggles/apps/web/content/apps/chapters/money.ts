@@ -6,8 +6,8 @@ import type { AppChapter } from '../types';
 //
 // VERIFIED 2026-09-30 against piggles/apps/workbench/surfaces/finance, the
 // finance catalog in lib/surfaces/catalog/finance.ts, api-rest /v1/finance/*,
-// @wizeworks/finance (expenses, recurring, accounting/export) and the labor
-// deriver in @wizeworks/staff.
+// @wizeworksllc/finance (expenses, recurring, accounting/export) and the labor
+// deriver in @wizeworksllc/staff.
 //
 // DELIBERATELY ABSENT, because none of it is true for a Piggles customer today:
 //   • QuickBooks Online and Xero. Both adapters exist, but connecting needs an

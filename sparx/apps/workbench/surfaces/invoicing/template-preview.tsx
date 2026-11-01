@@ -15,7 +15,7 @@
 
 import { useEffect } from 'react';
 import { PaneLoadError } from '../../components/pane-load-error';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Loading, Text } from '@wizeworks/silicaui-react';
 import { apiRequest } from '../../lib/api/client';
 import type { SurfaceContext } from '../../lib/surfaces/registry';

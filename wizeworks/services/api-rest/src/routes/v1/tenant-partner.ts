@@ -9,8 +9,8 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 import { partnerRelationshipService } from '../../lib/partners/relationship.js';
 

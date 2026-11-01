@@ -2,7 +2,7 @@
 //
 // Halo & Hem's Priyanka Deshmukh had a $180 color appointment on Friday, and her
 // record called her a **Lead**. Only an order ever moved anyone off that stage
-// (`recomputeCustomerCommerce` in @wizeworks/crm), so for a salon, a studio or a
+// (`recomputeCustomerCommerce` in @wizeworksllc/crm), so for a salon, a studio or a
 // clinic, where people book time and never buy a product, every client stayed
 // a lead for ever, and every group, filter and report that asks for customers
 // left them all out. That is issue 280's till buyer again, through another door.
@@ -18,7 +18,7 @@
 // business to accept it or not, and a seat in a class. A place on a waiting list
 // is not a booking yet; the seat it turns into is.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** Stages a booking does not move. The same list as the order rollup's. */
 const SETTLED = ['customer', 'evangelist'];

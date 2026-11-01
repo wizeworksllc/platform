@@ -34,7 +34,7 @@
 // documents have to be served here. api-rest builds them, against this brand's
 // sign-in origin, because only it holds the auth instance.
 
-export { mcpDiscoveryDocument } from '@wizeworks/auth-client-server';
+export { mcpDiscoveryDocument } from '@wizeworksllc/auth-client-server';
 
 /** Shared response headers so clients on any origin can read the discovery
  *  document and preflight it. */

@@ -21,7 +21,7 @@
 // We DO NOT also write CrmActivity rows here — that's the email/automation
 // engine's job once it actually fires the message.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { publishCrmEvent } from '../events';
 import type { ServiceContext } from '../errors';

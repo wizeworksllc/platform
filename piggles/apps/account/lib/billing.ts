@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { platformRequest } from '@wizeworks/auth-client-server';
+import { platformRequest } from '@wizeworksllc/auth-client-server';
 
 // Paying for Piggles: api-rest holds the Stripe key, and acts on the business
 // of the person whose session this request carries (docs/154). It checks the

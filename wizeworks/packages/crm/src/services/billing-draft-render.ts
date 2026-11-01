@@ -13,9 +13,9 @@
 // (stage label, line-type labels, party fallback) — a draft's MONEY is caller
 // input, but the names printed beside it are still tenant records.
 
-import { withTenant } from '@wizeworks/db';
-import { paymentTermsWords } from '@wizeworks/crm-schemas';
-import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworks/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import { paymentTermsWords } from '@wizeworksllc/crm-schemas';
+import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworksllc/crm-schemas/builtins';
 
 import type { ServiceContext } from '../errors';
 import type {
@@ -162,7 +162,7 @@ export async function buildRenderDataFromDraft(
       // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing -- `||` is intended: an EMPTY title must fall through, which `??` would not do (it only falls through on null/undefined). A blank title field would otherwise print a document with no name.
       title: priceOffer ? offerTitle : draft.title?.trim() || stage?.customerLabel || 'Invoice',
       // On an offer the stage label is the STANDING, not the name — see the
-      // note in @wizeworks/crm-schemas/builtins.
+      // note in @wizeworksllc/crm-schemas/builtins.
       ...(priceOffer ? { standing: stage?.customerLabel ?? 'Draft', priceOffer: true } : {}),
       number: draft.number ?? null,
       status: draft.status ?? 'unpaid',

@@ -6,7 +6,7 @@
 // and the KIND of value it takes. The kind is the hinge: it picks the operator
 // set (./segment-operators) and the value control the builder renders.
 //
-// The field names come from `SegmentField` in `@wizeworks/crm-schemas` — the same
+// The field names come from `SegmentField` in `@wizeworksllc/crm-schemas` — the same
 // Zod the server evaluates against, so the builder cannot offer one it rejects.
 
 import type {
@@ -15,7 +15,7 @@ import type {
   SegmentFieldPath,
   SegmentOperator,
   SegmentRule,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 import { FIELD_META } from './segment-field-meta';
 
 // The REAL shared types, re-exported so the rest of the surface has one place to

@@ -8,7 +8,7 @@
 //     Categories link by `parentHandle`; products link by `categoryHandles`;
 //     MediaAsset-bound fields carry a `*AssetId` that names an entry in `assets`.
 //   · Authored TREES (pages/layouts/emails/components) are real
-//     @wizeworks/builder-schemas node trees — the same JSON the visual editor emits —
+//     @wizeworksllc/builder-schemas node trees — the same JSON the visual editor emits —
 //     and reference brand via tokens, so they re-theme per installing tenant.
 //   · MediaAsset-bound imagery (product images, logos, category/og images, and
 //     `asset` fields inside content bodies) goes through `assets`; tree imagery
@@ -24,9 +24,9 @@ import {
   SilicaEmailDocumentInput,
   SilicaThemeInput,
   SilicaTreeInput,
-} from '@wizeworks/builder-schemas';
-import { ContentTypeSchema } from '@wizeworks/cms-schemas';
-import { CreateSavedThemeInput } from '@wizeworks/sitebuilder-schemas';
+} from '@wizeworksllc/builder-schemas';
+import { ContentTypeSchema } from '@wizeworksllc/cms-schemas';
+import { CreateSavedThemeInput } from '@wizeworksllc/sitebuilder-schemas';
 import {
   Barcode,
   CollectionRuleSet,
@@ -43,7 +43,7 @@ import {
   ProductTypeSchema,
   Sku,
   WeightGrams,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 // ── Shared manifest primitives ────────────────────────────────────────────────
 
@@ -69,7 +69,7 @@ const AssetUrl = z
     'Must be an absolute http(s) URL or a data:image/... URI.'
   );
 
-/** The modules a blueprint can require / provision for. Mirrors @wizeworks/auth's
+/** The modules a blueprint can require / provision for. Mirrors @wizeworksllc/auth's
  *  ModuleSlug (kept independent so this package stays DB-free). */
 export const BlueprintModuleSlug = z.enum([
   'builder',
@@ -138,7 +138,7 @@ export const BrandDecl = z.object({
 export type BrandDecl = z.infer<typeof BrandDecl>;
 
 // A blueprint ships its OWN named theme (docs/54 §3 D5): the installer creates a
-// tenant SiteTheme — a `basePresetKey` (a theme sparx ships, @wizeworks/silica-catalog) plus a
+// tenant SiteTheme — a `basePresetKey` (a theme sparx ships, @wizeworksllc/silica-catalog) plus a
 // Token Model v2 `presentation` overlay and an optional brand `look` snapshot —
 // then applies it. This is data, not a code preset, so it installs without a
 // deploy and stays fully editable afterward (savedThemeService.create + apply).
@@ -364,7 +364,7 @@ export type CommerceDecl = z.infer<typeof CommerceDecl>;
 // resolving handles → ids and attaching the module-activation-seeded 'Main location'.
 // References are by HANDLE like the rest of the manifest.
 //
-// The enums below MIRROR @wizeworks/scheduling-schemas' column value sets, kept inline so
+// The enums below MIRROR @wizeworksllc/scheduling-schemas' column value sets, kept inline so
 // this package stays dependency-light + DB-free (exactly as BlueprintModuleSlug mirrors
 // ModuleSlug). The installer re-validates every mapped value against the domain's own
 // CreateService/Resource/Policy inputs before writing, so drift is caught at install.

@@ -7,7 +7,7 @@
 //
 // Pure + dependency-free (no Tailwind): just structural traversal + tokenizing.
 
-import type { BuilderNode } from '@wizeworks/builder-schemas';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
 
 /**
  * Collect the unique, sorted set of class tokens authored across one or more

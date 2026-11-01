@@ -94,7 +94,7 @@ without RLS bypass; per-row writes still ride `withTenant`.
 ## 4. Theme engine & write-through
 
 `wizeworks/packages/site-themes` is the **compiler**, not a theme library. The themes sparx ships
-are code in `@wizeworks/silica-catalog` — `FIRST_PARTY_THEMES`, forty of them across two
+are code in `@wizeworksllc/silica-catalog` — `FIRST_PARTY_THEMES`, forty of them across two
 shelves (twenty business-named, twenty silicaui presets).
 
 It held six presets of its own (apex, industrial, drift, market, fleet, drop), each with
@@ -123,7 +123,7 @@ change is loud. A brand's own starter look is its golden blueprint
 
 A theme reaches the compiler as data, never by name:
 `themePresetV2FromTokens(light, dark)` turns a resolved silica token bag into a
-`ThemePresetV2`, and `themePresetFor` (in `@wizeworks/sitebuilder`) writes the stored
+`ThemePresetV2`, and `themePresetFor` (in `@wizeworksllc/sitebuilder`) writes the stored
 `{v, v1, v2}` blob a site carries in `SiteConfig.draftSettings.themePreset`.
 `compileThemeForTenant({ preset, brand, presentation })` layers brand identity and the
 presentation overlay over it. `compileTokens(overlay)` remains for the legacy v1 surface

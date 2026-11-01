@@ -6,7 +6,7 @@
 // save on their own, which is the whole reason the panes can be open together
 // without fighting over one draft.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import type { Theme } from '@wizeworks/silicaui-html';
 import { api } from '../api/client';
 

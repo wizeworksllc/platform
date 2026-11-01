@@ -3,11 +3,11 @@
 // platform params. Mirrors the channel-sync-worker's resolveConnectionAuth. Pure DB +
 // crypto + adapter — no HTTP entrypoint concerns.
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { paramsFromSocialMetadata } from '@wizeworks/social';
-import type { SocialAdapter, SocialAuth } from '@wizeworks/social';
-import { decryptSocialToken, encryptSocialToken } from '@wizeworks/social/crypto';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { paramsFromSocialMetadata } from '@wizeworksllc/social';
+import type { SocialAdapter, SocialAuth } from '@wizeworksllc/social';
+import { decryptSocialToken, encryptSocialToken } from '@wizeworksllc/social/crypto';
 
 const REFRESH_SKEW_MS = 60_000;
 

@@ -12,7 +12,7 @@
 // this to" while Seamus O'Malley sat on the account as its buyer (sparx persona
 // issue 100).
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { partyFromJson } from './billing-render-parts';
 

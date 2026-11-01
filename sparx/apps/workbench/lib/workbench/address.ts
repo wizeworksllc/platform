@@ -14,7 +14,7 @@
 // address without `?site=` opens the right surface against the wrong data. It is
 // the difference between "here's the order" and "here's an order screen".
 
-import { buildPath } from '@wizeworks/links';
+import { buildPath } from '@wizeworksllc/links';
 import type { PaneDescriptor } from '../surfaces/descriptor';
 
 /** The workbench root: your layout, no destination. What an unaddressable pane falls back to. */

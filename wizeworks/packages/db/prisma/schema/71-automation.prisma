@@ -5,7 +5,7 @@
 //
 // All three tables are tenant-scoped → ENABLE + FORCE RLS + tenant_isolation in
 // the migration (run_steps carries its own tenant_id; a join can't satisfy FORCE
-// RLS). The rule document shape lives in @wizeworks/automation-schemas.
+// RLS). The rule document shape lives in @wizeworksllc/automation-schemas.
 
 model Automation {
   id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
@@ -30,7 +30,7 @@ model Automation {
   description String? @db.Text
   status      String  @default("draft") @db.VarChar(20) // draft | active | paused | error
 
-  // Trigger flattened to type + JSON config (@wizeworks/automation-schemas triggerToColumns).
+  // Trigger flattened to type + JSON config (@wizeworksllc/automation-schemas triggerToColumns).
   triggerType   String @map("trigger_type") @db.VarChar(100)
   triggerConfig Json   @default("{}") @map("trigger_config")
 
@@ -84,7 +84,7 @@ model Automation {
   // by the re-sync, which finds them by name once.
   //
   // `seededFingerprint` is the sha256 of the rule document the platform last wrote
-  // (`seedDocumentFingerprint` in @wizeworks/automation). A live document that
+  // (`seedDocumentFingerprint` in @wizeworksllc/automation). A live document that
   // still hashes to it is untouched and takes the platform's newer version; any
   // other is the business's and is left alone.
   //

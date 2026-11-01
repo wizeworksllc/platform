@@ -6,7 +6,7 @@
 //
 //   SocialConnection  — one per (tenant, site, platform): the OAuth grant to one
 //                       connected account. Tokens are AES-256-GCM ENCRYPTED on the
-//                       row (never plaintext), boxed via @wizeworks/social/crypto with
+//                       row (never plaintext), boxed via @wizeworksllc/social/crypto with
 //                       SOCIAL_TOKEN_KEY — the SAME row-cipher pattern channels
 //                       uses (docs/106 §4.6). SEPARATE from ChannelConnection: a
 //                       Meta *posting* grant and a Meta *feed/shop* grant are
@@ -29,7 +29,7 @@
 // Bob's Parts is not Savory Donuts'), so SocialConnection + SocialPost carry a
 // nullable property_id (null = the tenant's one site); SocialTarget inherits its
 // site from the connection and SocialPostTarget from the post (no property_id).
-// Owned by @wizeworks/social, driven by the social-worker + the api-rest OAuth routes.
+// Owned by @wizeworksllc/social, driven by the social-worker + the api-rest OAuth routes.
 
 model SocialConnection {
   id         String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
@@ -54,7 +54,7 @@ model SocialConnection {
   avatarUrl   String? @map("avatar_url") @db.Text
 
   // OAuth tokens, AES-256-GCM ciphertext (`iv.tag.cipher` base64) — NEVER plaintext
-  // (docs/133 §5). Boxed/unboxed via @wizeworks/social/crypto with SOCIAL_TOKEN_KEY (a
+  // (docs/133 §5). Boxed/unboxed via @wizeworksllc/social/crypto with SOCIAL_TOKEN_KEY (a
   // dedicated key, not the channels key — blast-radius isolation). Text, not
   // VarChar: a boxed refresh token can exceed a 512 budget. Null until the
   // handshake completes.
@@ -148,7 +148,7 @@ model SocialPost {
   body String  @db.Text
   link String? @db.Text
 
-  // Media asset ids (from @wizeworks/media) attached to the post. FK-less String[]: the
+  // Media asset ids (from @wizeworksllc/media) attached to the post. FK-less String[]: the
   // media lifecycle is independent, and a deleted asset simply drops from the render
   // rather than blocking the post. The renderer resolves these to CDN URLs per
   // target (with per-platform aspect variants — docs/133 §8).

@@ -1,6 +1,6 @@
 // Context object every provider call receives. Carries enough for a
 // provider to address the right tenant + installation, log events, and
-// resolve secrets — without coupling the provider package to @wizeworks/db
+// resolve secrets — without coupling the provider package to @wizeworksllc/db
 // or any particular logger implementation.
 
 export interface ProviderRunContext {

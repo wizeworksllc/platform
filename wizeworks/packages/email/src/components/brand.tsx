@@ -5,7 +5,7 @@ import {
   resolveEmailPalette,
   PLAIN_EMAIL_PALETTE,
   type EmailPalette,
-} from '@wizeworks/brand-core';
+} from '@wizeworksllc/brand-core';
 import { fontFamily } from './tokens';
 
 // Per-tenant brand for email rendering.
@@ -18,7 +18,7 @@ import { fontFamily } from './tokens';
 // `defaultBrand` — which is now brand-BLIND (see its own note below; it used to
 // be sparx's chrome, which is how one product's colors reached the other's mail).
 //
-// The brand is resolved per tenant by @wizeworks/email-platform's brand-service
+// The brand is resolved per tenant by @wizeworksllc/email-platform's brand-service
 // (site theme tokens → settings override → the platform fallback), light palette
 // only (email-client dark mode is unreliable).
 //
@@ -28,7 +28,7 @@ import { fontFamily } from './tokens';
 //   usePalette()  — what that product's email is PAINTED in
 
 /** The brand's DARK-theme surfaces — the SAME dark palette the tenant's SITE uses
- *  (resolved from `@wizeworks/site-themes`' dark tokens). When a brand carries this, the
+ *  (resolved from `@wizeworksllc/site-themes`' dark tokens). When a brand carries this, the
  *  send emits an `@media (prefers-color-scheme: dark)` block that remaps the light
  *  neutrals to these values, so a dark-mode client (Apple Mail / iOS Mail / Outlook
  *  for Mac) renders the email in the same dark theme as the site rather than the light
@@ -101,7 +101,7 @@ export interface BrandTokens {
    * resolves the send (email-worker), from `tenants.platform_brand`.
    */
   platform?: {
-    /** The product's name, as `@wizeworks/brand-core` resolves it. */
+    /** The product's name, as `@wizeworksllc/brand-core` resolves it. */
     name: string;
     /** Its public home, or null when the brand has published none. */
     url: string | null;
@@ -118,7 +118,7 @@ export interface BrandTokens {
     appUrl?: string | null;
     /**
      * The colors this brand's platform email paints itself in, already resolved
-     * (`@wizeworks/brand-core`'s `resolveEmailPalette`).
+     * (`@wizeworksllc/brand-core`'s `resolveEmailPalette`).
      *
      * Absent → `PLAIN_EMAIL_PALETTE`, an achromatic ramp that belongs to no
      * brand. Deliberately not one brand's values: a default that happens to be

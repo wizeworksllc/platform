@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import { Badge, Text } from '@wizeworks/silicaui-react';
 import { Check } from 'lucide-react';
-import { industryOf } from '@wizeworks/story-schemas';
+import { industryOf } from '@wizeworksllc/story-schemas';
 import { ModuleScope } from '../../../components/module-scope';
 import {
   MODULE_BY_KEY,

@@ -1,6 +1,6 @@
 import pino from 'pino';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ENTITY_FIELDS, mapManually, validateRows } from '@wizeworks/migration';
+import { ENTITY_FIELDS, mapManually, validateRows } from '@wizeworksllc/migration';
 
 // The company contract, end to end without a database: a file mapped the way the
 // Move-in column mapper maps it, validated the way the API validates it, then handed
@@ -15,7 +15,7 @@ const state = vi.hoisted(() => ({
   updated: [] as { id: string; input: Record<string, unknown> }[],
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     company: { findFirst: () => Promise.resolve(state.existing) },
   };
@@ -32,9 +32,9 @@ vi.mock('@wizeworks/db', () => {
   };
 });
 
-vi.mock('@wizeworks/inventory', () => ({ inventoryService: {} }));
+vi.mock('@wizeworksllc/inventory', () => ({ inventoryService: {} }));
 
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   companyService: {
     create: (_ctx: unknown, input: Record<string, unknown>) => {
       state.created.push(input);

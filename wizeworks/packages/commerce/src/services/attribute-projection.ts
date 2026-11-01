@@ -11,7 +11,7 @@
 // Pure + synchronous — no DB, fully testable. The route resolves the schema once
 // (batched across a product list) and calls this per product.
 
-import type { FieldDef, FieldSchema } from '@wizeworks/field-schema';
+import type { FieldDef, FieldSchema } from '@wizeworksllc/field-schema';
 
 export interface AttributeSectionItem {
   label: string;

@@ -59,8 +59,8 @@
 //
 // DRY-RUN by default; pass `--apply` to write.
 //
-//   pnpm --filter @wizeworks/db db:backfill:design-page-titles
-//   pnpm --filter @wizeworks/db db:backfill:design-page-titles -- --apply
+//   pnpm --filter @wizeworksllc/db db:backfill:design-page-titles
+//   pnpm --filter @wizeworksllc/db db:backfill:design-page-titles -- --apply
 
 import { prisma, withTenant } from '../src/index';
 

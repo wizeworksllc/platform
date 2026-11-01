@@ -20,7 +20,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { setChannelBuffer, resolveChannelBuffer } from '../../src/services/channel-buffers.js';
 import { listSourceFreshness, sweepSourceFreshness } from '../../src/services/freshness.js';

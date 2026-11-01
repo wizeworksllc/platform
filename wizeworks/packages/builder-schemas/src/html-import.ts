@@ -1,6 +1,6 @@
 // One-way HTML import (docs/98 section 3.8 + 4.2) -- parse a Tailwind HTML
 // fragment into validated Pillar-1 `Element` nodes. This is the import HALF of the
-// View-HTML / import pair; View HTML (serialize) lives in @wizeworks/builder-render.
+// View-HTML / import pair; View HTML (serialize) lives in @wizeworksllc/builder-render.
 //
 // CONTRACT (load-bearing, from 4.2):
 //   - It is ONE-WAY. Importing is an INSERT, exactly like stamping a catalog
@@ -23,7 +23,7 @@
 // walks a minimal {@link DomNode} shape -- the browser caller passes `DOMParser`
 // output (a real `Element` satisfies `DomNode` structurally), and the unit tests
 // pass a tiny hand-built tree. The class allow-list lives in
-// `@wizeworks/surface-compile` (the server-only Tailwind package); rather than couple
+// `@wizeworksllc/surface-compile` (the server-only Tailwind package); rather than couple
 // this client-safe schema package to it, the validator is INJECTED -- the caller
 // passes `isClassAllowed`. A permissive default keeps the function usable + the
 // node `class` cap still guards the persisted tree either way.
@@ -95,7 +95,7 @@ export interface ImportResult {
   report: ImportReport;
 }
 
-/** A class-token validator (the shape of `@wizeworks/surface-compile`'s
+/** A class-token validator (the shape of `@wizeworksllc/surface-compile`'s
  *  `isClassAllowed`). Injected so this package needs no dependency on the
  *  server-only compile package (see the module header). */
 export type ClassValidator = (token: string) => boolean;

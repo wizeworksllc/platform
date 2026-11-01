@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage, paneLoadReason } from './api-error';
 
 // A failed load has four causes and each sends a person somewhere different:

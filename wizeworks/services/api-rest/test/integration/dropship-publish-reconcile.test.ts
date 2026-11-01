@@ -11,8 +11,8 @@
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import type { FastifyInstance } from 'fastify';
-import type { PendingPublish, PublishExternalRef, SupplierAdapter } from '@wizeworks/dropship';
-import { withTenant } from '@wizeworks/db';
+import type { PendingPublish, PublishExternalRef, SupplierAdapter } from '@wizeworksllc/dropship';
+import { withTenant } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import { reconcileSupplierPublishes } from '../../src/routes/v1/dropship/suppliers.js';
 import { createTestTenant, dropTestTenant, type TestTenant } from '../helpers.js';

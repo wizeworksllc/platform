@@ -16,7 +16,7 @@ const b2b = vi.hoisted(() => ({
   fleetFittedProductIds: vi.fn(),
   getAccountFleet: vi.fn(),
 }));
-vi.mock('@wizeworks/b2b', () => b2b);
+vi.mock('@wizeworksllc/b2b', () => b2b);
 
 import { fittedFirstPage, fittedFirstWindow, vehicleRestriction, withFleetFit } from './fleet-fit';
 

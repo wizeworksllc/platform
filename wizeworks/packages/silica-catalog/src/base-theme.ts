@@ -17,7 +17,7 @@
 // error anywhere to explain it (piggles/docs/personas/issues/343).
 //
 // The same failure had already been diagnosed one layer over, for the colors a
-// PLATFORM email paints itself in, and `@wizeworks/brand-core`'s email palette
+// PLATFORM email paints itself in, and `@wizeworksllc/brand-core`'s email palette
 // states the rule this file now follows:
 //
 //   > A brand-blind fallback that happens to be one brand's palette is the same

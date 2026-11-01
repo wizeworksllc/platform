@@ -11,7 +11,7 @@
 // posture as the theme shelf), so a bundle ships no baked image. This package stays
 // Zod-only: rather than mirror silicaui-html's full recursive `Node` union here, the
 // payload is validated loosely — a first-party, trusted tree whose real consumer is
-// `renderSilicaBody`. Mirrors `SilicaTreeInput` in @wizeworks/builder-schemas.
+// `renderSilicaBody`. Mirrors `SilicaTreeInput` in @wizeworksllc/builder-schemas.
 
 import { z } from 'zod';
 

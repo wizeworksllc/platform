@@ -14,7 +14,7 @@
 
 ## 1. Why this doc exists
 
-The builder's **compile engine is strong** but its **authoring surface is ~1/10**. docs/61 deleted the `box`/`layout` objects and made the node's `class` string the one styling surface, compiled per-tenant by the real `@tailwindcss/node` through `@wizeworks/surface-compile` into a single `tenant.css` that drives **both** the editor canvas and the live storefront (preview == production). The plumbing can compile essentially any Tailwind class. What it **cannot** do today:
+The builder's **compile engine is strong** but its **authoring surface is ~1/10**. docs/61 deleted the `box`/`layout` objects and made the node's `class` string the one styling surface, compiled per-tenant by the real `@tailwindcss/node` through `@wizeworksllc/surface-compile` into a single `tenant.css` that drives **both** the editor canvas and the live storefront (preview == production). The plumbing can compile essentially any Tailwind class. What it **cannot** do today:
 
 1. **Drop a raw HTML element.** The registry is a closed set of ~34 curated semantic types (`Section`, `Heading`, `Button`, …). There is no `<div>/<span>/<a>/<ul>/<svg>/<nav>/<header>/<details>/<table>/<form>`.
 2. **Expose the full Tailwind surface in the inspector.** `text-center` exists but lives in a collapsed Typography card; there is no per-**state** (`hover/focus/group-hover/peer`) or per-**breakpoint** (`sm/md/lg`) editing. "I can't even center a header" is a real, representative failure.
@@ -141,7 +141,7 @@ A universal raw element therefore lands in **three** places, kept in lockstep:
 
 - **`renderLeaf`** gains an `Element` branch for **void/leaf** tags (`img`, `svg`, `hr`, `br`, `input`, an `<a>`/`<span>` with only text) — emitting `<tag class={leafClass} {...safeAttrs}>{children}</tag>`.
 - **Both host walkers** learn that an `Element` **container** renders **as its `props.tag`** (with the safe attribute set) instead of the default `bx-inner` wrapper, then walk children normally. This is the one structural change to the walkers; the band-splitting / iteration logic is otherwise untouched.
-- A single shared helper in `@wizeworks/builder-schemas` (`elementTag(node)`, `safeAttrs(node)`, the tag/attr whitelists) is the source of truth both walkers + `renderLeaf` import, so the canvas and the live site can never drift.
+- A single shared helper in `@wizeworksllc/builder-schemas` (`elementTag(node)`, `safeAttrs(node)`, the tag/attr whitelists) is the source of truth both walkers + `renderLeaf` import, so the canvas and the live site can never drift.
 
 ### 4.1 Safe-tag + attribute whitelist (the security boundary for raw HTML)
 
@@ -155,20 +155,20 @@ Two additive affordances on the raw-element foundation, decided in §3.8. **Buil
 
 **View HTML (read-only).** Serialize a node/subtree to an HTML string and show it in a read-only panel with a copy button — per-node (the selected subtree) and whole-document.
 
-- The source is the **clean publish render, NOT `canvas.innerHTML`.** The canvas DOM carries editor chrome that never ships: the `data-node-id` / `.bx-node` `display:contents` layer wrappers, `.bx-canvas`-scoped utilities, selection rings. Serialize through the shared `@wizeworks/builder-render` path in a chrome-free mode (the publish path already emits exactly this), so "View HTML" shows what the storefront actually serves.
+- The source is the **clean publish render, NOT `canvas.innerHTML`.** The canvas DOM carries editor chrome that never ships: the `data-node-id` / `.bx-node` `display:contents` layer wrappers, `.bx-canvas`-scoped utilities, selection rings. Serialize through the shared `@wizeworksllc/builder-render` path in a chrome-free mode (the publish path already emits exactly this), so "View HTML" shows what the storefront actually serves.
 - **Web:** the string references compiled `tenant.css` classes (not inlined); the panel notes that pasting it elsewhere needs that stylesheet. An "inline the styles" option is a deferred nicety.
 - **Email:** the serialized form is the **inline-styled, table-based publish HTML** (the §3.6c compile path) — self-contained, and the representation authors actually want.
 
 **HTML import (one-way → nodes).** An "Import HTML" palette action (and/or a paste handler) takes an HTML+Tailwind fragment and inserts it as model nodes:
 
 1. **Parse** the fragment to a DOM (a real parser, not regex).
-2. **Walk + validate** each element against §4.1: tag against the allow-list (denied tags — `script/style/object/embed/iframe/…` — are dropped); attributes against the attr allow-list (strip `on*` and raw `style` except the sanctioned background/position emitters; force `rel="noopener noreferrer"` on `target="_blank"`); each `class` token allowlist-validated through `@wizeworks/surface-compile` (out-of-allowlist classes dropped/flagged).
+2. **Walk + validate** each element against §4.1: tag against the allow-list (denied tags — `script/style/object/embed/iframe/…` — are dropped); attributes against the attr allow-list (strip `on*` and raw `style` except the sanctioned background/position emitters; force `rel="noopener noreferrer"` on `target="_blank"`); each `class` token allowlist-validated through `@wizeworksllc/surface-compile` (out-of-allowlist classes dropped/flagged).
 3. **Emit** `Element` nodes (tag + safe attrs + surviving classes) + `Text` for text, with **fresh ids**, via the existing stamp / `cloneWithFreshIds` insert path.
 4. **Bindings/behaviors are NOT inferred** — import yields inert styled structure; the author wires data/actions/behaviors in the inspector afterward.
 
 The import is **lossy by design and one-way** — there is no HTML→tree reverse sync; importing is an insert, like stamping a catalog entry, after which the page owns an editable node copy. The validation step **reports what it dropped or changed** (removed tags, stripped classes/attributes) so the import is honest rather than silent. **Web-first;** an email-targeted import would be narrower (the §3.6c curated, table-based, inline-safe subset) and is deferred.
 
-_Reuses:_ the §4.1 `elementTag`/`safeAttrs` whitelists, the `@wizeworks/surface-compile` allowlist for class validation, and the catalog stamp insert path (`cloneWithFreshIds`).
+_Reuses:_ the §4.1 `elementTag`/`safeAttrs` whitelists, the `@wizeworksllc/surface-compile` allowlist for class validation, and the catalog stamp insert path (`cloneWithFreshIds`).
 
 ## 5. The component library is DATA, not code — a platform-managed catalog
 
@@ -180,7 +180,7 @@ The component library is **data, not code** — never bespoke renderer branches 
 
 **The admin-authoring layer (v1.5: built; the admin UI is the future consumer).** So the library can also be **added ad-hoc** (from a future admin app, no deploy) and **submitted for review** by consultants, the catalog has a DB-backed home + lifecycle API. This is **additive** (it changes only WHERE non-seed entries come from, never how a tenant uses them):
 
-- **Data model — `PlatformComponent`** (platform-scoped, NOT per-tenant). Reconciled (v1.5) to ONE shared vocabulary with the data-as-code `PlatformCatalogEntry`, so a published row is a persisted catalog entry: `{ id, key, name, category (shared 8-value CatalogCategory), kind (common|comprehensive), icon, description, surfaces (page|site|email), tree (JSON BuilderNode), behaviors, thumbnail, tags, status, authorId, reviewerId, version, visibility, createdAt/updatedAt }`. `category`/`surfaces` are validated STRINGS (the category slugs are hyphenated — invalid as Postgres enum identifiers — so they follow the package's "validated by @wizeworks/builder-schemas, never the DB" rule, like `tree`); `kind`/`status`/`visibility` are DB enums. `tree` is the same serialized `BuilderNode` a tenant archetype carries — raw elements + Tailwind + behaviors.
+- **Data model — `PlatformComponent`** (platform-scoped, NOT per-tenant). Reconciled (v1.5) to ONE shared vocabulary with the data-as-code `PlatformCatalogEntry`, so a published row is a persisted catalog entry: `{ id, key, name, category (shared 8-value CatalogCategory), kind (common|comprehensive), icon, description, surfaces (page|site|email), tree (JSON BuilderNode), behaviors, thumbnail, tags, status, authorId, reviewerId, version, visibility, createdAt/updatedAt }`. `category`/`surfaces` are validated STRINGS (the category slugs are hyphenated — invalid as Postgres enum identifiers — so they follow the package's "validated by @wizeworksllc/builder-schemas, never the DB" rule, like `tree`); `kind`/`status`/`visibility` are DB enums. `tree` is the same serialized `BuilderNode` a tenant archetype carries — raw elements + Tailwind + behaviors.
 - **Lifecycle / review workflow** — `status ∈ { draft, submitted, in_review, approved, published, archived, rejected }`. A consultant authors a `draft`, **submits** it (`submitted`), a reviewer moves it to `in_review` → `approved` → **publishes** it (`published`). Only `published` entries reach tenants. This is the consultant-submission pipeline the user requires.
 - **Access model (careful RLS)** — the catalog is **global**: any tenant may READ the `published` set; only platform admins/reviewers may WRITE or see non-published rows. This differs from the tighten-only tenant tables — it is a platform-owned table with read-all-published + admin-write, documented as such in `wizeworks/packages/db/CLAUDE.md`.
 - **Admin app + API (API-first, admin app is future)** — the **API ships now** (`/v1/platform/catalog/*`: CRUD + status transitions + submit/review/publish), so the catalog is fully operable before any admin UI exists; the future admin app is just another consumer. Seed populates the **initial** library AS catalog rows (data-as-code via the seed pipeline, line-limit-exempt), so nothing is baked into the runtime.
@@ -196,7 +196,7 @@ daisyUI is a **reference for breadth/naming only** — catalog entries are skinn
 2. **Full-surface inspector** — state × breakpoint spine, comprehensive searchable property panel, friendly quick-controls.
 3. **Binding spine** — entity/collection binding + scope propagation + actions + a Data panel + live load (the store fix).
 4. **Mediated unlocks** — background-image-anywhere, animation library, position control, extended z-scale.
-5. **Behavior runtime** — `behaviors/` in `@wizeworks/builder-render`, hydrated on storefront + previewed in canvas, Behavior panel.
+5. **Behavior runtime** — `behaviors/` in `@wizeworksllc/builder-render`, hydrated on storefront + previewed in canvas, Behavior panel.
 6. **Platform component catalog (data-driven)** — **built.** The static data-as-code **common** library (86 components, 8 categories) in `wizeworks/packages/builder-schemas/src/catalog/` (v1.1), surfaced directly in the Add palette merged with tenant archetypes; the behavior-heavy **comprehensive** composites (carousel hero, brand marquee, scroll-adaptive nav, mega-menu, single-open accordion, tabbed panels) as catalog rows on the behavior runtime (v1.5); and the DB-backed `PlatformComponent` model + review-workflow API (§5), vocabulary-reconciled with the data-as-code entry (v1.5).
 7. **Catalog content + acceptance** — the initial published library exists as data-as-code; the submit→review→publish lifecycle is operable through `/v1/platform/catalog/*`. Proving it end-to-end through a running browser is the open §8 acceptance item.
 

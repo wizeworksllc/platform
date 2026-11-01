@@ -1,15 +1,15 @@
-// @wizeworks/provider-shippo — Shippo ShippingProvider + sparx Shipping
+// @wizeworksllc/provider-shippo — Shippo ShippingProvider + sparx Shipping
 // white-label. `shippoShipping` is shared by both bundles (methods use a
 // `this` parameter so `this.metadata.slug` resolves correctly whichever
 // bundle they're invoked through). SDK client/error handling lives in
 // ./client.ts, request/response mapping in ./mapping.ts.
 
-import type { RateOption, ShipmentRequest } from '@wizeworks/commerce-schemas';
+import type { RateOption, ShipmentRequest } from '@wizeworksllc/commerce-schemas';
 import {
   ProviderHardError,
   registerProvider,
   WebhookVerificationError,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 import type {
   ProviderBundle,
   ProviderRunContext,
@@ -17,7 +17,7 @@ import type {
   ShippingProvider,
   TrackingStatus,
   WebhookEvent,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 
 import { callShippo, shippoClientFor } from './client';
 import {

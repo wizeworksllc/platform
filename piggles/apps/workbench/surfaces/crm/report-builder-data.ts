@@ -4,7 +4,7 @@
 // what can be reported on, and running one, saved or not. The seven fixed
 // metrics are `reports-data.ts`; shapes, choices and boards live beside this.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { fieldWord } from './report-field-words';
 import { dashboardKeys } from './dashboards-data';

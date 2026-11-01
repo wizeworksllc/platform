@@ -17,11 +17,11 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { customerService } from '@wizeworks/crm';
-import { prisma, withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { moduleDisabled, notFound } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { customerService } from '@wizeworksllc/crm';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
 
 const Query = z.object({
   tenant: z.string().min(1).max(63),

@@ -4,7 +4,7 @@
 // keeps the newer document beside it. This is the business asking for that newer
 // version: what is replaced, what is kept, and what is refused.
 
-import type { Trigger } from '@wizeworks/automation-schemas';
+import type { Trigger } from '@wizeworksllc/automation-schemas';
 import { afterAll, describe, expect, it } from 'vitest';
 
 import {

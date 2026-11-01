@@ -8,10 +8,10 @@
 // issue 171) is EMAILED the order instead: `adapter.orderRecipient` says where.
 
 import type { Logger } from 'pino';
-import { withTenant } from '@wizeworks/db';
-import { createPublisher, publishEvent } from '@wizeworks/events';
-import { createAdapter, handVersionsOf, supplierLineFor } from '@wizeworks/dropship';
-import type { Order, OrderLineItem, ShippingAddress } from '@wizeworks/dropship';
+import { withTenant } from '@wizeworksllc/db';
+import { createPublisher, publishEvent } from '@wizeworksllc/events';
+import { createAdapter, handVersionsOf, supplierLineFor } from '@wizeworksllc/dropship';
+import type { Order, OrderLineItem, ShippingAddress } from '@wizeworksllc/dropship';
 import { feedDeps } from '../feed-host.js';
 import { supplierOrderEmail, type SupplierOrderLine } from './supplier-order-email.js';
 import { shipToOf } from './ship-to.js';

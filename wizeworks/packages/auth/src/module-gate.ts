@@ -2,14 +2,14 @@
 //
 // The session-FREE primitives (isModuleEnabled / listEnabledModules /
 // invalidateModuleCache / ModuleSlug / ModuleDisabledError / moduleDisabledEnvelope)
-// moved to @wizeworks/modules so lean backends can probe module flags without the
+// moved to @wizeworksllc/modules so lean backends can probe module flags without the
 // auth/email/UI closure. They're re-exported here so every existing
-// `@wizeworks/auth` importer keeps working unchanged.
+// `@wizeworksllc/auth` importer keeps working unchanged.
 //
 // `requireModule` stays here because it takes a SparxSession (locked decision #6:
 // one gate function across transports). It just composes `isModuleEnabled`.
 
-import { isModuleEnabled, ModuleDisabledError, type ModuleSlug } from '@wizeworks/modules';
+import { isModuleEnabled, ModuleDisabledError, type ModuleSlug } from '@wizeworksllc/modules';
 
 import type { SparxSession } from './session';
 
@@ -35,7 +35,7 @@ export {
   type ModuleEnabledSource,
   // Module-preset contract + pure registry index (the reusable install seam).
   // Re-exported so api-rest / domain packages reach it via their existing
-  // @wizeworks/auth dep, without taking a direct @wizeworks/modules dependency.
+  // @wizeworksllc/auth dep, without taking a direct @wizeworksllc/modules dependency.
   ModulePresetRegistry,
   toModulePresetView,
   definePreset,
@@ -52,7 +52,7 @@ export {
   type IndustryStarter,
   type IndustryStarterPresetRef,
   type IndustryStarterView,
-} from '@wizeworks/modules';
+} from '@wizeworksllc/modules';
 
 /** Throws ModuleDisabledError if the session's tenant doesn't have the given
  *  module active. Returns void on success.

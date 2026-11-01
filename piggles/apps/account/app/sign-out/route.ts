@@ -1,5 +1,5 @@
 import type { NextRequest, NextResponse } from 'next/server';
-import { signOutSession } from '@wizeworks/auth-client-server';
+import { signOutSession } from '@wizeworksllc/auth-client-server';
 import { sameOriginRedirect } from '@/lib/same-origin-redirect';
 
 // Signing out, from the account side.

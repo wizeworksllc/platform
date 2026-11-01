@@ -7,18 +7,18 @@
 //                      tick instead of waiting a full interval.
 //   ingest(envelope) — one Pub/Sub-delivered trigger → handleTrigger.
 //
-// Everything runs on the shared `@wizeworks/db` prisma client (sparx_app, FORCE
+// Everything runs on the shared `@wizeworksllc/db` prisma client (sparx_app, FORCE
 // RLS). Cross-tenant discovery inside the ticks goes through the SECURITY
 // DEFINER scan helpers; per-run/per-tenant work re-enters withTenant. handleTrigger
 // uses the same default client (no override passed).
 //
 // Module-owned effect executors (crm.add_tag, crm.create_task, …) register
-// through @wizeworks/automation's `registerAction` seam via @wizeworks/automation-actions
-// (the module-effect composition root). @wizeworks/crm is now backend-clean (its
-// dashboard manifest moved to the dashboard; module-gating moved to @wizeworks/modules),
+// through @wizeworksllc/automation's `registerAction` seam via @wizeworksllc/automation-actions
+// (the module-effect composition root). @wizeworksllc/crm is now backend-clean (its
+// dashboard manifest moved to the dashboard; module-gating moved to @wizeworksllc/modules),
 // so this stays a lean worker — no React/UI/auth in the image.
 //
-// `installCrmPubSubBridge` swaps @wizeworks/crm's default LoggingPublisher (which
+// `installCrmPubSubBridge` swaps @wizeworksllc/crm's default LoggingPublisher (which
 // DISCARDS) for the shared publisher, so a crm.* event an executor produces
 // actually reaches the downstream consumers (email-worker, search indexer,
 // webhooks). It always installs and routes to whichever broker EVENT_BROKER
@@ -30,7 +30,7 @@ import {
   reconcileSystemSeeds,
   seedSystemAutomations,
   type ReconcileSummary,
-} from '@wizeworks/automation-actions';
+} from '@wizeworksllc/automation-actions';
 import {
   getScanner,
   handleTrigger,
@@ -42,13 +42,13 @@ import {
   type ScheduleTickResult,
   type TickResult,
   type TriggerEnvelope,
-} from '@wizeworks/automation';
-import { installCrmPubSubBridge } from '@wizeworks/crm/pubsub';
-import { prisma, withTenant } from '@wizeworks/db';
-import { activeModules, isModuleEnabled } from '@wizeworks/modules';
-import { advanceOnEvent, captureFromScan, installFunnelLibrary } from '@wizeworks/funnels';
-import { drainDueEnrollments, type DrainResult } from '@wizeworks/email-sequences';
-import { createPublisher } from '@wizeworks/events';
+} from '@wizeworksllc/automation';
+import { installCrmPubSubBridge } from '@wizeworksllc/crm/pubsub';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { activeModules, isModuleEnabled } from '@wizeworksllc/modules';
+import { advanceOnEvent, captureFromScan, installFunnelLibrary } from '@wizeworksllc/funnels';
+import { drainDueEnrollments, type DrainResult } from '@wizeworksllc/email-sequences';
+import { createPublisher } from '@wizeworksllc/events';
 import type { Logger } from 'pino';
 import { env } from './env.js';
 

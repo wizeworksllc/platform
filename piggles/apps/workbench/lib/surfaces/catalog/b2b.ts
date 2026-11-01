@@ -13,7 +13,7 @@ import {
   faFileText,
   faReceipt,
 } from '@fortawesome/pro-solid-svg-icons';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
 import type { SurfaceDefinition } from '../registry';
 import { AccountsListSurface } from '../../../surfaces/b2b/accounts-list';
 import { AccountDetailSurface } from '../../../surfaces/b2b/account-detail';

@@ -14,8 +14,8 @@ import {
   SilicaTreeInput,
   type SilicaNode,
   type SilicaTheme,
-} from '@wizeworks/builder-schemas';
-import { checkTreeClasses } from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/builder-schemas';
+import { checkTreeClasses } from '@wizeworksllc/silica-catalog';
 
 import * as siteService from '../services/site-service';
 import { BuilderValidationError } from '../errors';

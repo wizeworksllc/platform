@@ -24,9 +24,9 @@ import {
   SPARX_PAY_ID,
   SQUARE_ID,
   STRIPE_DIRECT_ID,
-} from '@wizeworks/payments';
-import type { ParsedWebhookEvent, StripeDirectGateway, WebhookEvent } from '@wizeworks/payments';
-import { ApiError } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/payments';
+import type { ParsedWebhookEvent, StripeDirectGateway, WebhookEvent } from '@wizeworksllc/payments';
+import { ApiError } from '@wizeworksllc/api-core/errors';
 
 import { reconcilePaymentEvent } from '../../../lib/payment-webhook-reconcile.js';
 import { gatewayWebhookUrl, WEBHOOK_PATHS } from '../../../lib/payments-onboarding.js';

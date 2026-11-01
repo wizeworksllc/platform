@@ -11,7 +11,7 @@
 // anyone had looked at it — and the person who notices is the owner, three weeks
 // later, wondering why March got worse.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 import {
   AlreadyClockedInError,
   ApprovedTimeLockedError,

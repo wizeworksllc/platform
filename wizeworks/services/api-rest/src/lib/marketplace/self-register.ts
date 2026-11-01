@@ -49,14 +49,14 @@
 // apart. They arrived here from four different mechanisms — code, a release-stage
 // ingest, a seed loop, and an in-code registry that was empty — and are now on one.
 
-import { Prisma, withSystem, type TxClient } from '@wizeworks/db';
+import { Prisma, withSystem, type TxClient } from '@wizeworksllc/db';
 import {
   FIRST_PARTY_COMPONENTS,
   FIRST_PARTY_THEMES,
   type FirstPartyComponent,
   type FirstPartyTheme,
-} from '@wizeworks/silica-catalog';
-import { colorToHex } from '@wizeworks/site-themes/color';
+} from '@wizeworksllc/silica-catalog';
+import { colorToHex } from '@wizeworksllc/site-themes/color';
 
 import { artifactExists, writeArtifact } from './artifacts.js';
 import {

@@ -17,7 +17,7 @@
 // Every one of them refreshes EVERY product read, not just the list: a product
 // open in another pane is showing the category or the fitment this just changed.
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { categoryKeys } from './categories-data';
 import { productKeys, type ProductFitmentRange, type ProductStatus } from './products-data';

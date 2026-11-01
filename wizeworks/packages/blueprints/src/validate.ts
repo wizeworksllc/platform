@@ -7,7 +7,7 @@
 
 import { BlueprintSchema, type Blueprint } from './manifest';
 import { collectAssetRefs } from './refs';
-import { BUILT_IN_CONTENT_TYPES } from '@wizeworks/cms-schemas';
+import { BUILT_IN_CONTENT_TYPES } from '@wizeworksllc/cms-schemas';
 
 export interface BlueprintIssue {
   path: string;

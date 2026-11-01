@@ -9,9 +9,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { configuratorService, fitmentService } from '@wizeworks/commerce';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { configuratorService, fitmentService } from '@wizeworksllc/commerce';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireCommerceModule, toCommerceContext } from '../../../lib/commerce-context.js';
 import { scopeProductSelection } from '../../../lib/product-selection-scope.js';
 

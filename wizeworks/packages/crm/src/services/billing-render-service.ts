@@ -22,9 +22,9 @@
 // frozen party, §6); when the author hasn't set it, it falls back to the live
 // customer / B2B account record.
 
-import { withTenant } from '@wizeworks/db';
-import { paymentTermsOf, paymentTermsWords, poNumberOf } from '@wizeworks/crm-schemas';
-import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworks/crm-schemas/builtins';
+import { withTenant } from '@wizeworksllc/db';
+import { paymentTermsOf, paymentTermsWords, poNumberOf } from '@wizeworksllc/crm-schemas';
+import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworksllc/crm-schemas/builtins';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError } from '../errors';

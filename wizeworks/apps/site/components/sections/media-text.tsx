@@ -2,8 +2,8 @@
 // heading / body / CTAs). The image side and background are configurable;
 // stacks to one column on narrow screens (CSS).
 
-import type { MediaTextConfig } from '@wizeworks/sitebuilder-schemas';
-import { focalToPosition } from '@wizeworks/sitebuilder-schemas';
+import type { MediaTextConfig } from '@wizeworksllc/sitebuilder-schemas';
+import { focalToPosition } from '@wizeworksllc/sitebuilder-schemas';
 
 import { mediaUrl } from '@/lib/media';
 import type { SectionContext } from '../section-renderer';

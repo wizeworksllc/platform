@@ -8,7 +8,7 @@
 #
 # This is the AUTH AUTHORITY for the Piggles brand — mypiggles.com mounts no
 # Better Auth handler and receives its session through the handoff — so it needs
-# the platform's whole account spine: `@wizeworks/auth`, `@wizeworks/db`, and the
+# the platform's whole account spine: `@wizeworksllc/auth`, `@wizeworksllc/db`, and the
 # transitive closure of `signUpMerchant` (a tenant, its primary site, the
 # subdomain, the owner membership, legal acceptance, the trial clock, the welcome
 # email). Twenty-three `@sparx/*` packages and four `@piggles/*` ones, every one
@@ -39,8 +39,8 @@ COPY piggles/packages/config/package.json piggles/packages/config/
 COPY piggles/packages/mascot/package.json piggles/packages/mascot/
 COPY piggles/packages/ui/package.json piggles/packages/ui/
 
-# The platform account spine and everything it drags in. `@wizeworks/auth` re-exports
-# server.ts → tenant-events.ts, which pulls legal seeding; `@wizeworks/email` pulls
+# The platform account spine and everything it drags in. `@wizeworksllc/auth` re-exports
+# server.ts → tenant-events.ts, which pulls legal seeding; `@wizeworksllc/email` pulls
 # the template packages; onboarding's blueprint step pulls the schema family.
 COPY wizeworks/packages/app-kit/package.json wizeworks/packages/app-kit/
 COPY wizeworks/packages/attribution/package.json wizeworks/packages/attribution/
@@ -78,7 +78,7 @@ COPY wizeworks/packages/site-themes/package.json wizeworks/packages/site-themes/
 COPY wizeworks/packages/sitebuilder-schemas/package.json wizeworks/packages/sitebuilder-schemas/
 COPY wizeworks/packages/ui/package.json wizeworks/packages/ui/
 
-# Root postinstall runs `pnpm --filter @wizeworks/db db:generate`, which needs the
+# Root postinstall runs `pnpm --filter @wizeworksllc/db db:generate`, which needs the
 # schema source AND the prisma config (the multi-file schema lives in
 # prisma/schema/, declared in prisma.config.ts).
 COPY wizeworks/packages/db/prisma wizeworks/packages/db/prisma
@@ -130,8 +130,8 @@ COPY wizeworks/packages/sitebuilder-schemas wizeworks/packages/sitebuilder-schem
 COPY wizeworks/packages/ui wizeworks/packages/ui
 COPY piggles/apps/account piggles/apps/account
 
-# @wizeworks/auth imports @wizeworks/db, which re-exports the generated client.
-RUN pnpm --filter @wizeworks/db db:generate
+# @wizeworksllc/auth imports @wizeworksllc/db, which re-exports the generated client.
+RUN pnpm --filter @wizeworksllc/db db:generate
 
 ARG APP_VERSION=dev
 ENV NEXT_PUBLIC_APP_VERSION=$APP_VERSION
@@ -141,7 +141,7 @@ ENV NEXT_PUBLIC_POSTHOG_KEY=$NEXT_PUBLIC_POSTHOG_KEY
 ARG NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ENV NEXT_PUBLIC_POSTHOG_HOST=$NEXT_PUBLIC_POSTHOG_HOST
 
-# Eleven routes, but the type program spans @wizeworks/auth and the whole schema
+# Eleven routes, but the type program spans @wizeworksllc/auth and the whole schema
 # family, so this sits above the small-app default and below the console's.
 # Stable server-action ids across builds (SI-2). No secret = Next picks a random key, as before.
 RUN --mount=type=secret,id=next_actions_key \

@@ -27,9 +27,9 @@
 // does. A tenant holding both uses a second location, and gets a real answer
 // instead of a plausible one.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { VARIANT_LABEL_COLUMNS, VARIANT_LABEL_JOINS } from './variant-label';
-import { SetStockOwnershipInput, countsTowardValuation } from '@wizeworks/commerce-schemas';
+import { SetStockOwnershipInput, countsTowardValuation } from '@wizeworksllc/commerce-schemas';
 
 import { writeAuditLog } from '../audit';
 import { InventoryNotFoundError, InventoryValidationError, type ServiceContext } from '../errors';

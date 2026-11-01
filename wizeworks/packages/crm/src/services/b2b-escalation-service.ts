@@ -16,13 +16,13 @@
 //     resumable.
 //   • Publisher-agnostic. It does pure DB work and RETURNS what transitioned;
 //     the caller emits the `b2b.*` notifications on whichever bus it owns (the
-//     executor → `@wizeworks/events`). Mixing the `@wizeworks/events` b2b.* topics into a
+//     executor → `@wizeworksllc/events`). Mixing the `@wizeworksllc/events` b2b.* topics into a
 //     CRM service that only knows the CRM two-bus would cross a boundary.
 //
 // Composes into `ctx.tx` when supplied (tx-injection), so the engine commits the
 // escalation atomically with its run-step record.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import { OWED_DOCUMENT_WHERE } from './billing-document-service';
 
 import { daysPastDue, startOfBusinessDay } from './billing-ar';

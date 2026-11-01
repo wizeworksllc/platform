@@ -18,7 +18,7 @@
 // Pure functions only: the portal route, the staff routes and the tests all read
 // the same rules.
 
-import { vehicleDescription, vehicleLabel, type FleetVehicle } from '@wizeworks/commerce-schemas';
+import { vehicleDescription, vehicleLabel, type FleetVehicle } from '@wizeworksllc/commerce-schemas';
 
 /** What a booking remembers about the vehicle it was for. */
 export interface VehicleSnapshot {

@@ -3,7 +3,7 @@
 **Status:** fixed and proven on screen, both consoles
 **Severity:** major
 **Found by:** Devi, taking the empty state's advice and setting up a routine
-**Surface:** Counting schedules, both consoles + `@wizeworks/inventory` + api-rest
+**Surface:** Counting schedules, both consoles + `@wizeworksllc/inventory` + api-rest
 **Filed:** 2026-09-09
 
 ## What she saw

@@ -18,7 +18,7 @@
 // because a pause changes the row in the list AND the state on the open detail.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient, type QueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /* ── Shapes ─────────────────────────────────────────────────────────────── */

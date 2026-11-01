@@ -15,11 +15,11 @@
 // reach both: the quote editor's line composer and a product's Pricing tab.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from '../../lib/api/client';
 import { apiErrorMessage } from '../../lib/api-error';
-import type { MarkupScope } from '@wizeworks/commerce-schemas';
+import type { MarkupScope } from '@wizeworksllc/commerce-schemas';
 import type { MarkupRuleRow, RulePayload } from './markup-rule-words';
 
 export const markupRuleKeys = {

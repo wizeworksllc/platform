@@ -44,29 +44,29 @@
 // nak handling for a saving NATS does not need. Connections are cheap; the Node
 // heaps were not.
 
-// MUST BE FIRST: sets DB_CONNECTION_LIMIT before `@wizeworks/db` is constructed (it reads
+// MUST BE FIRST: sets DB_CONNECTION_LIMIT before `@wizeworksllc/db` is constructed (it reads
 // the pool size at import). See boot-db-pool.ts for the floor and the default.
 import './boot-db-pool.js';
 
 import pino from 'pino';
-import { startConsumer, type RunningConsumer, type WorkerSubscription } from '@wizeworks/events';
+import { startConsumer, type RunningConsumer, type WorkerSubscription } from '@wizeworksllc/events';
 
-import * as automation from '@wizeworks/automation-worker';
-import { runTick } from '@wizeworks/automation-worker';
-import * as cacheRevalidation from '@wizeworks/cache-revalidation-worker';
-import * as channelSync from '@wizeworks/channel-sync-worker';
-import * as commerceIndexer from '@wizeworks/commerce-indexer';
-import * as domain from '@wizeworks/domain-worker';
-import * as dropship from '@wizeworks/dropship-worker';
-import * as email from '@wizeworks/email-worker';
-import * as finance from '@wizeworks/finance-worker';
-import * as inventory from '@wizeworks/inventory-worker';
-import * as legalSeed from '@wizeworks/legal-seed-worker';
-import * as markupRecompute from '@wizeworks/markup-recompute-worker';
-import * as platformCrm from '@wizeworks/platform-crm-worker';
-import * as push from '@wizeworks/push-worker';
-import * as social from '@wizeworks/social-worker';
-import * as staff from '@wizeworks/staff-worker';
+import * as automation from '@wizeworksllc/automation-worker';
+import { runTick } from '@wizeworksllc/automation-worker';
+import * as cacheRevalidation from '@wizeworksllc/cache-revalidation-worker';
+import * as channelSync from '@wizeworksllc/channel-sync-worker';
+import * as commerceIndexer from '@wizeworksllc/commerce-indexer';
+import * as domain from '@wizeworksllc/domain-worker';
+import * as dropship from '@wizeworksllc/dropship-worker';
+import * as email from '@wizeworksllc/email-worker';
+import * as finance from '@wizeworksllc/finance-worker';
+import * as inventory from '@wizeworksllc/inventory-worker';
+import * as legalSeed from '@wizeworksllc/legal-seed-worker';
+import * as markupRecompute from '@wizeworksllc/markup-recompute-worker';
+import * as platformCrm from '@wizeworksllc/platform-crm-worker';
+import * as push from '@wizeworksllc/push-worker';
+import * as social from '@wizeworksllc/social-worker';
+import * as staff from '@wizeworksllc/staff-worker';
 
 import { env } from './env.js';
 import { createHttpServer, PORT } from './http.js';

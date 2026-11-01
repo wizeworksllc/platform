@@ -18,7 +18,7 @@
 // carry the remedy that actually works.
 
 import { describe, expect, it } from 'vitest';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { describeWriteFailure, failureMessage, readFailureMessage } from './write-failure';
 
 /** An api-rest failure as the client sees it. */

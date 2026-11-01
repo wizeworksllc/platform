@@ -10,8 +10,8 @@
 // Because it is a cache, it is safe to truncate and recompute, and `recomputeDay`
 // is written to be re-run for any day whose sources moved.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
-import { businessDayRange } from '@wizeworks/time';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
+import { businessDayRange } from '@wizeworksllc/time';
 import { businessZone } from './business-clock';
 import { ORDER_MOVEMENT_REFERENCE } from './stock-movements';
 
@@ -97,7 +97,7 @@ export function utcMidnight(date: Date): Date {
  * Filter date-only timestamp columns (`incurredAt`, a day stored at midnight
  * UTC) `gte: from, lt: endOfDayExclusive(to)`. A column holding a MOMENT (an
  * order's `placedAt`, a booking's `startAt`) is cut on the business's day edges
- * instead, with `businessDayStart` / `businessDayRange` from `@wizeworks/time`,
+ * instead, with `businessDayStart` / `businessDayRange` from `@wizeworksllc/time`,
  * or an evening in Denver lands in the next day (sparx persona issue 174). A DAY
  * column (`bucket`) is a different case and is correctly `lte: utcMidnight(to)`,
  * because the stored values ARE midnights.

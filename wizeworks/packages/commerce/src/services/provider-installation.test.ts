@@ -10,7 +10,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 let row: Record<string, unknown> | null = null;
 
-vi.mock('@wizeworks/db', async (original) => ({
+vi.mock('@wizeworksllc/db', async (original) => ({
   ...(await original<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(fn({ providerInstallation: { findFirst: () => Promise.resolve(row) } })),

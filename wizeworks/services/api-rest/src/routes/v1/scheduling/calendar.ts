@@ -10,22 +10,22 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { CalendarConnection } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { badRequest } from '@wizeworks/api-core/errors';
-import { requireRole } from '@wizeworks/api-core/auth';
+import type { CalendarConnection } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { badRequest } from '@wizeworksllc/api-core/errors';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   CompleteCalendarOAuthInput,
   CreateCaldavConnectionInput,
   CreateIcalFeedInput,
   StartCalendarOAuthInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 import {
   createCalendarConnection,
   deleteCalendarConnection,
   getCalendarConnection,
   listCalendarConnections,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import {

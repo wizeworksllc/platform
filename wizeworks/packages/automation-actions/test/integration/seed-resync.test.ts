@@ -19,7 +19,7 @@ import {
   setAutomationStatus,
   updateAutomation,
   type SystemAutomationSpec,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { seedSystemAutomations } from '../../src/index.js';

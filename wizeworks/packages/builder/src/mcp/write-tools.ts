@@ -10,7 +10,7 @@
 // at publish; describe_builder_styling teaches the safe vocabulary up front.
 
 import { z } from 'zod';
-import { PageFrameId, PageSeoShape, parsePageImport } from '@wizeworks/builder-schemas';
+import { PageFrameId, PageSeoShape, parsePageImport } from '@wizeworksllc/builder-schemas';
 
 import * as pageService from '../services/page-service';
 import { BuilderValidationError } from '../errors';

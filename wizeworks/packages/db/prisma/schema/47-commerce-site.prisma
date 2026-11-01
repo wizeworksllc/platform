@@ -42,7 +42,7 @@ model CommerceSiteSettings {
   @@map("commerce_site_settings")
 }
 
-// PRESENTATION-only token overrides applied on top of @wizeworks/ui's storefront
+// PRESENTATION-only token overrides applied on top of @wizeworksllc/ui's storefront
 // variants. Brand IDENTITY (primary/accent color, typography, logo, favicon)
 // is owned by the tenant-level TenantBrand (docs/30 §6) and read live + overlaid
 // at render — it is NOT mirrored here. The former identity columns

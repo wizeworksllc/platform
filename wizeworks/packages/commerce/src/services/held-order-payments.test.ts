@@ -38,15 +38,15 @@ const tx = {
   },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/payments', async (importOriginal) => ({
+vi.mock('@wizeworksllc/payments', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   paymentService: { capturePayment, cancelPayment, refund },
 }));
-vi.mock('@wizeworks/crm', async (importOriginal) => {
+vi.mock('@wizeworksllc/crm', async (importOriginal) => {
   const real = await importOriginal<Record<string, unknown>>();
   return {
     ...real,
@@ -58,7 +58,7 @@ vi.mock('@wizeworks/crm', async (importOriginal) => {
   };
 });
 
-const { PaymentConfigError } = await import('@wizeworks/payments');
+const { PaymentConfigError } = await import('@wizeworksllc/payments');
 const { settle, TURNED_DOWN_REFUND_REASON } = await import('./held-order-payments');
 
 const TENANT = 'tenant-gillett';

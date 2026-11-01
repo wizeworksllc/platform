@@ -21,7 +21,7 @@
 // is not a failed one.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 /* ── Setup ──────────────────────────────────────────────────────────────── */

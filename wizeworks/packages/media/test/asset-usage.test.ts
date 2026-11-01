@@ -11,7 +11,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { countAssetUsage, countOneAssetUsage, describeUsage } from '../src/asset-usage.js';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** A tx whose seven grouped counts return exactly what each test sets up. */
 function txWith(

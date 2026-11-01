@@ -53,7 +53,7 @@ import {
   faTrashCan,
 } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useQuery, shownInPlace } from '@wizeworks/query';
+import { useQuery, shownInPlace } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { afterPaneChange } from '../../lib/defer';

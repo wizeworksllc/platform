@@ -4,8 +4,8 @@
 // entry, and emit threshold events post-commit. They never touch onHand
 // directly — the ledger is the only writer.
 
-import { AdjustInventoryInput, TransferInventoryInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+import { AdjustInventoryInput, TransferInventoryInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryOutOfStockError, InventoryValidationError } from '../errors';

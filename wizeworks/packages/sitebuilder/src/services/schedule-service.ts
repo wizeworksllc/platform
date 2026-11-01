@@ -7,9 +7,9 @@
 // drift. The cross-tenant scan + advisory lock live in api-rest, not here, so
 // this package stays tenant-scoped.
 
-import { ScheduleInput, type SavedThemeBrand } from '@wizeworks/sitebuilder-schemas';
-import type { SitePublishSchedule, SiteVersion } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+import { ScheduleInput, type SavedThemeBrand } from '@wizeworksllc/sitebuilder-schemas';
+import type { SitePublishSchedule, SiteVersion } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishSitebuilderEvent } from '../events';

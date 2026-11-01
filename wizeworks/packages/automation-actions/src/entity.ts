@@ -7,8 +7,8 @@
 // can't supply (e.g. a customer tag on a deal-only event). We throw a clear
 // message so the run records a `failed` step (loud), never a silent no-op.
 
-import { interpolateEmailTokens } from '@wizeworks/builder-schemas';
-import type { ResolvedFields, TenantCtx } from '@wizeworks/automation';
+import { interpolateEmailTokens } from '@wizeworksllc/builder-schemas';
+import type { ResolvedFields, TenantCtx } from '@wizeworksllc/automation';
 
 /** Interpolate `{{dotted.path}}` merge tokens in an authored string (a task title,
  *  a note body, an internal-alert subject) against the trigger's flat resolved

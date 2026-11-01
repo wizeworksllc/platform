@@ -1,4 +1,4 @@
-// CRM → event-broker bridge (transport-agnostic; see @wizeworks/events).
+// CRM → event-broker bridge (transport-agnostic; see @wizeworksllc/events).
 //
 // The CRM emits two streams of events that until now stayed in-process:
 //
@@ -21,13 +21,13 @@
 // commerce-indexer's `CommerceEventEnvelope` ({type,tenantId,actorId,occurredAt,
 // data}), so the indexer decodes them identically to product.* events.
 //
-// This lives in its OWN module (subpath export `@wizeworks/crm/pubsub`) — NOT the
+// This lives in its OWN module (subpath export `@wizeworksllc/crm/pubsub`) — NOT the
 // package barrel — so the heavy `@google-cloud/pubsub` gRPC dependency only
 // loads in the backend services that install it (api-rest, api-graphql,
-// api-mcp). The dashboard transpiles `@wizeworks/crm` and writes customers via
+// api-mcp). The dashboard transpiles `@wizeworksllc/crm` and writes customers via
 // api-rest, so it must never pull this in.
 
-import { createPublisher, publishRaw, resolveTransport, type Publisher } from '@wizeworks/events';
+import { createPublisher, publishRaw, resolveTransport, type Publisher } from '@wizeworksllc/events';
 
 import {
   getPublisher,
@@ -45,7 +45,7 @@ import {
 
 export interface BridgeLogger {
   info(obj: object, msg?: string): void;
-  // `warn` is required by @wizeworks/events' PublisherLogger, which this bridge now
+  // `warn` is required by @wizeworksllc/events' PublisherLogger, which this bridge now
   // hands its logger to. Every caller already satisfies it (console, pino) — it
   // was simply never declared, because the old bridge logged through its own
   // Pub/Sub client and never crossed the package boundary.
@@ -116,9 +116,9 @@ function universalTargetForCrm(
 }
 
 // The local `AUTOMATION_FANIN_TOPIC = 'automation.trigger'` that used to sit
-// here is GONE. It was a hand-copy of the constant in @wizeworks/events, justified
+// here is GONE. It was a hand-copy of the constant in @wizeworksllc/events, justified
 // at the time by "this module already owns a PubSub client so it should not
-// depend on @wizeworks/events" — reasoning that only held while owning a second
+// depend on @wizeworksllc/events" — reasoning that only held while owning a second
 // client was acceptable. It is not: that client is what made this bridge
 // no-op on every non-GCP deployment.
 //
@@ -128,7 +128,7 @@ function universalTargetForCrm(
 // the shared publisher, which tees every publish regardless of which bus it
 // came from. See TopicPublisher.fanIn below for why this file no longer does it.
 
-// Publishes through the SHARED transport in @wizeworks/events.
+// Publishes through the SHARED transport in @wizeworksllc/events.
 //
 // This class used to own `new PubSub({ projectId })` and its own topic cache —
 // a third copy of the publisher (api-core held a second, wizeworks/packages/builder a
@@ -362,7 +362,7 @@ export interface InstallOptions {
  *
  * There is nothing left to gate on. The underlying transport decides what
  * happens to a publish — durable on `nats`/`pubsub`, a stdout line on `log` —
- * and it makes that decision once, in @wizeworks/events, for every publisher in the
+ * and it makes that decision once, in @wizeworksllc/events, for every publisher in the
  * platform.
  *
  * MUST run before `installCrmWebhookFanout()` so the fanout wraps the

@@ -1,9 +1,9 @@
 # 519 — Half a product name, and no way to see the rest
 
-**Status:** reverted 2026-10-21. The listener measured EVERY element under the pointer, not just clipped text. A scrolling pane body counts as "clipped" (its content is taller than it), so hovering anywhere put the whole pane's text in a giant tooltip. `ClippedTextReveal` and `clipped-text.ts` are deleted from `@wizeworks/app-kit` and unmounted from both workbenches. The original clipped-name problem is open again.
+**Status:** reverted 2026-10-21. The listener measured EVERY element under the pointer, not just clipped text. A scrolling pane body counts as "clipped" (its content is taller than it), so hovering anywhere put the whole pane's text in a giant tooltip. `ClippedTextReveal` and `clipped-text.ts` are deleted from `@wizeworksllc/app-kit` and unmounted from both workbenches. The original clipped-name problem is open again.
 **Severity:** major
 **Found by:** Devi, reading a purchase order she had placed
-**Surface:** both workbenches — 991 clipping spans, fixed once in `@wizeworks/app-kit`
+**Surface:** both workbenches — 991 clipping spans, fixed once in `@wizeworksllc/app-kit`
 **Filed:** 2026-09-15
 
 ## What she saw
@@ -54,7 +54,7 @@ Most of those 991 are showing values that FIT — a status word, a short code, a
 date. Giving each one a tooltip that repeats the line already on screen is how a
 tooltip stops meaning anything.
 
-So it is fixed **once, as behavior**, in `@wizeworks/app-kit` — the package whose
+So it is fixed **once, as behavior**, in `@wizeworksllc/app-kit` — the package whose
 own header says it is "the framework glue every sparx Next.js app needs" and that
 "nothing here has an appearance, a variant, or a token". A native `title` has
 none of those.

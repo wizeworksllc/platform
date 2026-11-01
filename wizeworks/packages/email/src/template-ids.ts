@@ -14,7 +14,7 @@
 // So the set is also a value. It lives HERE rather than beside the union in
 // `send.tsx` because that file is `.tsx` and pulls React in with it: a backend
 // asserting "does the gate cover every template" should not have to load a
-// rendering stack to ask. Reachable as `@wizeworks/email/template-ids`.
+// rendering stack to ask. Reachable as `@wizeworksllc/email/template-ids`.
 //
 // The type import below is erased at build time, so this module stays free of
 // any runtime dependency while remaining welded to the union.

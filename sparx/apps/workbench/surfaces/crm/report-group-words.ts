@@ -5,7 +5,7 @@
 // sends `groupLabels`; a code is named HERE, with the same words the rest of this
 // console already uses for it, so "Lead" in a report is "Lead" on the customer.
 
-import { CustomerType, LeadStatus, LifecycleStage } from '@wizeworks/crm-schemas';
+import { CustomerType, LeadStatus, LifecycleStage } from '@wizeworksllc/crm-schemas';
 
 import { formatAmount } from '../../lib/money-format';
 import { paymentTermsLabel } from '../../lib/payment-terms';

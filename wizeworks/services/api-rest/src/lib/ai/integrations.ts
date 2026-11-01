@@ -1,4 +1,4 @@
-// AI accounts' entry in the shared integration plane (@wizeworks/integrations).
+// AI accounts' entry in the shared integration plane (@wizeworksllc/integrations).
 //
 // The catalog face for BYOK: the tenant's OWN Anthropic or OpenAI account, which is
 // the only credential any AI feature here ever runs on. Registering it here is
@@ -14,8 +14,8 @@
 // grants, not outside services the business connects to. Listing them beside carriers
 // and processors would put two opposite directions of trust under one heading.
 
-import { PLATFORM_TOKEN } from '@wizeworks/brand-core';
-import { defineIntegrationKind, type IntegrationDescriptor } from '@wizeworks/integrations';
+import { PLATFORM_TOKEN } from '@wizeworksllc/brand-core';
+import { defineIntegrationKind, type IntegrationDescriptor } from '@wizeworksllc/integrations';
 
 import { AI_PROVIDERS, type AiProvider } from '../chat/types.js';
 

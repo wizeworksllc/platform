@@ -9,7 +9,7 @@
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 
-import { ok } from '@wizeworks/api-core/envelope';
+import { ok } from '@wizeworksllc/api-core/envelope';
 
 import { offerStandingFor } from '../../../lib/offer-standings.js';
 

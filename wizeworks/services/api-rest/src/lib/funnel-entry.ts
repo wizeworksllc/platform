@@ -31,9 +31,9 @@
 // would make.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { withTenant } from '@wizeworks/db';
-import { FunnelRuleError, recordStage, stagesOf } from '@wizeworks/funnels';
-import { announceStage } from '@wizeworks/funnels/announce';
+import { withTenant } from '@wizeworksllc/db';
+import { FunnelRuleError, recordStage, stagesOf } from '@wizeworksllc/funnels';
+import { announceStage } from '@wizeworksllc/funnels/announce';
 
 import { deriveVisitor } from './site-analytics.js';
 

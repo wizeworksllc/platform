@@ -24,10 +24,10 @@ import {
   billingRenderService,
   billingTemplateService,
   type BillingRenderData,
-} from '@wizeworks/crm';
-import type { BuilderNode } from '@wizeworks/builder-schemas';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/crm';
+import type { BuilderNode } from '@wizeworksllc/builder-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInvoicingModule, toInvoicingContext } from '../../../lib/invoicing-context.js';
 import { resolveListScope } from '../../../lib/property.js';
 import { resolveInvoiceBrand } from '../../../lib/invoice-render.js';

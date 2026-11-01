@@ -12,9 +12,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { sendTemplate, lastConsoleSend } from '@wizeworks/email';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { sendTemplate, lastConsoleSend } from '@wizeworksllc/email';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 
 const TestSendBody = z.object({
   to: z.string().email(),

@@ -671,7 +671,7 @@ jobs:
                   fi
 
                   # Every billing PLAN names the env vars holding its Stripe key, its webhook
-                  # signing secret and its price ids (@wizeworks/billing/plans, BILLING_PLANS in
+                  # signing secret and its price ids (@wizeworksllc/billing/plans, BILLING_PLANS in
                   # the ConfigMap). A plan configured against an account whose key never shipped
                   # does not fail anything: billing degrades to a clean no-op by design, the
                   # release goes green, and the first person to discover it is a customer who

@@ -25,12 +25,12 @@ const tx = {
   bookingPolicy: { findFirst: vi.fn(() => Promise.resolve(null)) },
 };
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => fn(tx),
 }));
 
-const { CreateServiceInput } = await import('@wizeworks/scheduling-schemas');
+const { CreateServiceInput } = await import('@wizeworksllc/scheduling-schemas');
 const services = await import('./services');
 
 beforeEach(() => {

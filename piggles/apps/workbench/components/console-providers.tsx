@@ -1,6 +1,6 @@
 'use client';
 
-import { QueryProvider } from '@wizeworks/query/provider';
+import { QueryProvider } from '@wizeworksllc/query/provider';
 import { ImperativeAlertDialogProvider, ToastProvider } from '@wizeworks/silicaui-react';
 import { CrashListeners } from '@/components/crash-listeners';
 import { PostHogProvider } from '@/components/posthog-provider';

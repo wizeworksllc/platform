@@ -1,4 +1,4 @@
-// @wizeworks/seo-audit — the SEO scoring engine (docs/50 §7).
+// @wizeworksllc/seo-audit — the SEO scoring engine (docs/50 §7).
 // Pure, dependency-free. Consumers normalize their entity into an
 // `AuditableEntity` and call `auditEntity` to get a `Scorecard`.
 

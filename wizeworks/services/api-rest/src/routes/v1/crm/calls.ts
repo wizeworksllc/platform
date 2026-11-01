@@ -12,11 +12,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { callService, voiceConnectionService } from '@wizeworks/crm';
-import { toE164 } from '@wizeworks/voice';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { callService, voiceConnectionService } from '@wizeworksllc/crm';
+import { toE164 } from '@wizeworksllc/voice';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import { requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { resolvePropertyId } from '../../../lib/property.js';

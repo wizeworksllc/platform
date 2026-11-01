@@ -12,7 +12,7 @@
 //
 // The payload shape comes from docs/06 §8.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 import type { ConsumerContext } from './registry';
 import { gateHandler } from './registry';

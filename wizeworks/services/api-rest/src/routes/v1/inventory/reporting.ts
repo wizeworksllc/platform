@@ -34,7 +34,7 @@
 // 10.3 asks that every report be addressable by API with the SAME filters the
 // screen uses. A route per report satisfies that on the day it is written and
 // stops satisfying it the first time somebody adds a report and forgets the
-// route. `/reports/:key` resolves through the registry in @wizeworks/inventory, so
+// route. `/reports/:key` resolves through the registry in @wizeworksllc/inventory, so
 // the API's coverage IS the registry's coverage, permanently. The named routes
 // in analytics-reports.ts stay: they are the documented contract for the four
 // reports that shipped before the registry existed, and breaking a published URL
@@ -57,9 +57,9 @@ import {
   inventoryService,
   toCsv,
   type CsvTable,
-} from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const IdPath = z.object({ id: z.string().uuid() });

@@ -20,8 +20,8 @@
 // cannot drift from them, which a denormalised column maintained by hand at five
 // call sites certainly would.
 
-import { Prisma } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** What is using an asset, and how many of each. Only the sources that can be
  *  ANSWERED are counted — see `UNCOUNTED` below, which is why `total` is a

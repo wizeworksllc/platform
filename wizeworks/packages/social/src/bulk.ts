@@ -15,7 +15,7 @@
 // Everything imported lands as an ordinary post — a draft, or scheduled if the row has a
 // time and the tenant's approval gate allows it. Nothing is special-cased downstream.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { wallTimeToInstant } from './cadence.js';
 import type { SocialContext } from './context.js';

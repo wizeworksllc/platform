@@ -13,9 +13,9 @@
 //
 // Data-as-code (line-limit exempt).
 
-import { definePreset, type ModulePreset } from '@wizeworks/auth';
-import { afterCommit, type TenantContext } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { definePreset, type ModulePreset } from '@wizeworksllc/auth';
+import { afterCommit, type TenantContext } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 interface PolicyDef {
   name: string;

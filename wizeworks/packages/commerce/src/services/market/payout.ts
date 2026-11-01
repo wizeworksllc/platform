@@ -8,15 +8,15 @@
 // or a Connect-Custom transfer — a banking decision, not a code gap) plugs into the
 // same seam via MARKET_PAYOUTS_PROVIDER, with no change to this orchestrator.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   createPublisher,
   publishEvent,
   type EmailSendPayload,
   type PublisherLogger,
-} from '@wizeworks/events';
-import { formatBps } from '@wizeworks/commerce-schemas';
-import { appLink, appOrigin } from '@wizeworks/links/server';
+} from '@wizeworksllc/events';
+import { formatBps } from '@wizeworksllc/commerce-schemas';
+import { appLink, appOrigin } from '@wizeworksllc/links/server';
 
 import type { ServiceContext } from '../../errors';
 

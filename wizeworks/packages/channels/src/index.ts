@@ -1,10 +1,10 @@
-// @wizeworks/channels — public barrel.
+// @wizeworksllc/channels — public barrel.
 //
 // The ChannelAdapter contract + normalized types + the adapter registry for
 // external sales-channel and sparx.market integrations (docs/106). Pure types and
 // a registry singleton — no DB, no React — safe to import from backend services.
 // The server-safe channel catalog (display metadata, no adapter code) is also
-// re-exported here and available via the `@wizeworks/channels/catalog` subpath for
+// re-exported here and available via the `@wizeworksllc/channels/catalog` subpath for
 // client components.
 
 export type {
@@ -44,7 +44,7 @@ export {
   type ChannelDescriptor,
 } from './catalog.js';
 
-// The shared-plane face of the channel catalog (@wizeworks/integrations).
+// The shared-plane face of the channel catalog (@wizeworksllc/integrations).
 export {
   channelIntegrations,
   channelToIntegrationDescriptor,

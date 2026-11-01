@@ -8,7 +8,7 @@
 // (surfaces/crm/saved-views-menu.tsx). This is the platform one, and any list
 // can use it. docs/146 Phase 10.2.
 
-import { useQuery, useQueryClient } from '@wizeworks/query';
+import { useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 
 export interface SavedViewConfig {

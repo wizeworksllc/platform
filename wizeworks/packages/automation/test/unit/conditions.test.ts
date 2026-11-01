@@ -1,6 +1,6 @@
 // Condition evaluator — pure unit coverage of all 12 operators + AND/OR.
 
-import type { ConditionGroup } from '@wizeworks/automation-schemas';
+import type { ConditionGroup } from '@wizeworksllc/automation-schemas';
 import { describe, expect, it } from 'vitest';
 
 import { evaluateConditions } from '../../src/conditions/evaluate';

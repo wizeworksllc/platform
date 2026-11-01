@@ -77,10 +77,10 @@ covers exactly one for notifications. Neither is reachable from a service.
 **One pure-data route table, shared by everyone; the workbench resolves it; the
 URL names the focused pane and nothing else.**
 
-### 1. `@wizeworks/links` — the single table
+### 1. `@wizeworksllc/links` — the single table
 
 A new package with zero dependencies and no React, so api-rest, the workers,
-`@wizeworks/email` and the workbench browser bundle can all import it.
+`@wizeworksllc/email` and the workbench browser bundle can all import it.
 
 ```ts
 export interface AppRoute {
@@ -219,7 +219,7 @@ Back/forward then restores both focus and address together.
 
 ### P5 — every emitter, and the failure states
 
-- `@wizeworks/links` `linkTo()` replaces hand-built strings in:
+- `@wizeworksllc/links` `linkTo()` replaces hand-built strings in:
   [social-worker/notify.ts](../services/social-worker/src/notify.ts) (broken —
   fixes real dead links), [api-rest chat/notify.ts](../services/api-rest/src/lib/chat/notify.ts),
   [domain-worker/cron.ts](../services/domain-worker/src/cron.ts),
@@ -245,7 +245,7 @@ Back/forward then restores both focus and address together.
 
 Update [123-workbench.md](123-workbench.md) (the "single route" claim is now
 "single application, addressable panes") and the brain node, and record the
-`@wizeworks/links` contract.
+`@wizeworksllc/links` contract.
 
 ## Deliberately not in this pass
 
@@ -256,7 +256,7 @@ across ~131 detail surfaces and is surface-internal state, not deep-linking
 machinery — so it is its own pass.
 
 The machinery for it is in place and that pass is now purely additive: `TAB_PARAM`
-is reserved in `@wizeworks/links`, and the matcher already carries any query parameter
+is reserved in `@wizeworksllc/links`, and the matcher already carries any query parameter
 a route does not name through to `ctx.params`. What remains is teaching each
 detail surface to read it and to write it back when its tab changes.
 
@@ -285,11 +285,11 @@ Everything in the phases above, plus five things the plan did not anticipate.
   three environments. The four names that used to mean it still resolve, in a
   fixed order, in one place.
 
-Verified: `@wizeworks/links` 26 tests pass; `check-surface-routes` reports 234
+Verified: `@wizeworksllc/links` 26 tests pass; `check-surface-routes` reports 234
 surfaces all addressed; workbench typecheck, lint and `next build` are clean, and
 the built route tree shows `/[...path]` alongside `/` with every real page
 (`/sign-in`, `/popout`, the OAuth and provider callbacks, every `/api` handler)
-still winning as a static route. `@wizeworks/commerce` and `@wizeworks/api-rest` carry
+still winning as a static route. `@wizeworksllc/commerce` and `@wizeworks/api-rest` carry
 pre-existing typecheck and lint failures in the in-flight product-types work
 (`product-types-service.ts`, `blueprint-installer.ts`, `blueprint-updater.ts`) —
 untouched by this change and confirmed absent from every file it edits.

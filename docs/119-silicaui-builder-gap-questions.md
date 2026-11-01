@@ -317,7 +317,7 @@ undefined (reading 'className')`. **It failed at request time only** — `tsc` a
     : { ...rest };
   ```
 
-- **Sparx's bridge (delete-on-fix).** `@wizeworks/silica-catalog/src/attr-binding.ts` —
+- **Sparx's bridge (delete-on-fix).** `@wizeworksllc/silica-catalog/src/attr-binding.ts` —
   `bindAttr(el, 'href', 'url')` tucks a bound `<input type="hidden" name="__sui-attr:href">`
   **leaf** inside the element (a leaf has no children to lose), and `hoistAttrBindings`
   lifts the resolved value onto the parent's real attribute and strips the carrier between

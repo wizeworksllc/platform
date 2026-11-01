@@ -12,7 +12,7 @@
 // Accounts still linked to a REMOVED tier are counted there too: a removed tier
 // prices nothing, so they buy at normal prices as well.
 
-import { companyService } from '@wizeworks/crm';
+import { companyService } from '@wizeworksllc/crm';
 
 export interface TierGroup {
   pricingTierId: string | null;

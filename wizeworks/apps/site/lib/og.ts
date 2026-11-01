@@ -9,7 +9,7 @@
 // tells someone scrolling past a shared link nothing, and is the eyebrow root
 // CLAUDE.md RULE #2 bans. The title and the business's name carry the card.
 
-import { platformBrandIdentity } from '@wizeworks/brand-core';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
 
 const MAX_TITLE = 120;
 const MAX_BRAND = 60;

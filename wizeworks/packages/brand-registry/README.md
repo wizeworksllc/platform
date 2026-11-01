@@ -1,4 +1,4 @@
-# @wizeworks/brand-registry
+# @wizeworksllc/brand-registry
 
 **Version:** 1.0
 **Author:** Brandon Korous
@@ -9,7 +9,7 @@ read it. One folder per brand under `brands/`.
 
 | File                | Deployed as                               | Read by                                        |
 | ------------------- | ----------------------------------------- | ---------------------------------------------- |
-| `billing-plan.json` | `BILLING_PLANS` in the prod ConfigMap     | api-rest, through `@wizeworks/billing/plans`   |
+| `billing-plan.json` | `BILLING_PLANS` in the prod ConfigMap     | api-rest, through `@wizeworksllc/billing/plans`   |
 | `wordmark.json`     | `<BRAND>_BRAND_WORDMARK` in the ConfigMap | the attribution badge in `wizeworks/apps/site` |
 
 ## Why the platform holds a copy

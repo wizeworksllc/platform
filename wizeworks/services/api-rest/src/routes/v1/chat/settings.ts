@@ -7,9 +7,9 @@
 // requireModule('chat'); editing requires admin (owner/admin) per Settings.
 
 import type { FastifyPluginAsync } from 'fastify';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import { requireChatModule } from '../../../lib/chat-context.js';
 import {

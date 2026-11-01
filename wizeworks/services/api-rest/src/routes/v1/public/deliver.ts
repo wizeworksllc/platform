@@ -16,7 +16,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 import { getStorage } from '../../../lib/storage.js';
 import { verifyGatedDeliveryToken } from '../../../lib/gated-delivery-token.js';
 

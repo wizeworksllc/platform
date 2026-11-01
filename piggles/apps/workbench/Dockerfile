@@ -54,14 +54,14 @@ COPY piggles/packages/ui/package.json piggles/packages/ui/
 # took two edits rather than one. Dropping them as direct dependencies was easy —
 # the console imported neither. The image still pulled them in regardless, via:
 #
-#     @piggles/console → @wizeworks/cms-editor → @wizeworks/ui → @sparx/brand
+#     @piggles/console → @wizeworksllc/cms-editor → @wizeworksllc/ui → @sparx/brand
 #
 # So sparx's actual brand package was inside the Piggles image by way of the CMS
 # editor, and "nothing renders from it" is not the test the migration has to
 # pass. The chain turned out to be held up by exactly two things: `cn`, a
 # 26-line tailwind-merge wrapper with no brand in it, and a type from a module
 # manifest written for the removed dashboard that nothing consumed. `cn` moved to
-# @wizeworks/silica-corrections (re-exported from @wizeworks/ui, so admin was
+# @wizeworksllc/silica-corrections (re-exported from @wizeworksllc/ui, so admin was
 # untouched) and the four dead manifests were deleted. Broken 2026-08-16.
 #
 # If either package reappears below, something re-coupled — find the new edge
@@ -105,7 +105,7 @@ COPY wizeworks/packages/sitebuilder-schemas/package.json wizeworks/packages/site
 COPY wizeworks/packages/social/package.json wizeworks/packages/social/
 COPY wizeworks/packages/story-schemas/package.json wizeworks/packages/story-schemas/
 
-# Root postinstall runs `pnpm --filter @wizeworks/db db:generate`.
+# Root postinstall runs `pnpm --filter @wizeworksllc/db db:generate`.
 COPY wizeworks/packages/db/prisma wizeworks/packages/db/prisma
 COPY wizeworks/packages/db/prisma.config.ts wizeworks/packages/db/prisma.config.ts
 
@@ -161,7 +161,7 @@ COPY wizeworks/packages/social wizeworks/packages/social
 COPY wizeworks/packages/story-schemas wizeworks/packages/story-schemas
 COPY piggles/apps/workbench piggles/apps/workbench
 
-RUN pnpm --filter @wizeworks/db db:generate
+RUN pnpm --filter @wizeworksllc/db db:generate
 
 ARG APP_VERSION=dev
 ENV NEXT_PUBLIC_APP_VERSION=$APP_VERSION

@@ -20,7 +20,7 @@
 // form, not a form-plus-summary, so the bento chassis would float a near-empty
 // rail beside it.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

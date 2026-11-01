@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/inventory-worker",
+  "name": "@wizeworksllc/inventory-worker",
   "version": "0.0.0",
   "private": true,
   "description": "sparx inventory sync worker. Handles inventory source sync (CSV + API) via Pub/Sub push (Cloud Run). docs/64 Inv Ph2.",
@@ -15,10 +15,10 @@
   "dependencies": {
     "@google-cloud/pubsub": "^5.3.0",
     "@prisma/client": "^6.19.3",
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
-    "@wizeworks/inventory": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
+    "@wizeworksllc/inventory": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

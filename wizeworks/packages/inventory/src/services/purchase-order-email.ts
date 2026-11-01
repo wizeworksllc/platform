@@ -10,7 +10,7 @@
 // more than once (a resend after a supplier lost it, a second address), and
 // each send is an event with a time and a recipient, not a state of the order.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryValidationError } from '../errors';

@@ -32,7 +32,7 @@
 // silently folded into a site's numbers.
 //
 // All tables are tenant-scoped with FORCE RLS + the canonical `tenant_isolation`
-// policy. Owned by @wizeworks/finance; the rollup is driven by the finance-worker.
+// policy. Owned by @wizeworksllc/finance; the rollup is driven by the finance-worker.
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. Categories — the owner's words, with just enough structure to subtract
@@ -385,7 +385,7 @@ model FinanceRecurringExpense {
 // AES-256-GCM, never plaintext, never a platform-level credential.
 //
 // NOTE for whoever adds the first adapter: `IntegrationCategory` in
-// @wizeworks/integrations does NOT yet carry an `accounting` member, and that is correct
+// @wizeworksllc/integrations does NOT yet carry an `accounting` member, and that is correct
 // by that file's own rule — a category is added the day a live adapter dispatches it,
 // not the day one is planned. Add it in the same PR as the adapter.
 

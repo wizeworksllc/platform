@@ -14,7 +14,7 @@
 // bodies (create + confirm a PaymentIntent against the tenant's saved payment
 // method; refund by id) and flip `DOMAIN_PURCHASE_ENABLED` on.
 
-import { paymentRequired } from '@wizeworks/api-core/errors';
+import { paymentRequired } from '@wizeworksllc/api-core/errors';
 
 export interface DomainChargeInput {
   tenantId: string;

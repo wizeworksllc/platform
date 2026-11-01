@@ -458,7 +458,7 @@ export { systemBinFor, resolveSystemBin, resolvePutAwayBin } from './bin-routing
 // ─── Barcodes + scanning (docs/146 Phase 3) ───────────────────────────
 // The registry that makes a scan resolve to exactly one thing, the minter for
 // items that arrived without a code, and the one resolver every scan-first
-// workflow goes through. Symbology maths lives in @wizeworks/commerce-schemas so
+// workflow goes through. Symbology maths lives in @wizeworksllc/commerce-schemas so
 // the label printer in the browser computes check digits the same way.
 export {
   listBarcodes,
@@ -717,7 +717,7 @@ export type { AssemblyOrderRow, AssemblyOrderDetail, AssemblyLineRow } from './a
 //
 // How much to keep and when to buy it again — measured from the ledger, the
 // receipts and the cost basis rather than typed in once and forgotten. The
-// arithmetic itself is PURE and lives in `@wizeworks/commerce-schemas/planning`, so
+// arithmetic itself is PURE and lives in `@wizeworksllc/commerce-schemas/planning`, so
 // the nightly pass, the API and the screen cannot arrive at three answers.
 
 export {
@@ -807,7 +807,7 @@ export type { PlanningProvenance, PlanningInput, InputConfidence } from './plann
 // The other side of a purchase order: how the counterparty actually behaves, the
 // controls over spending with them, and the three documents either side of a
 // delivery. The scoring, price-break and three-way-match arithmetic is PURE and
-// lives in `@wizeworks/commerce-schemas/procurement`.
+// lives in `@wizeworksllc/commerce-schemas/procurement`.
 
 export {
   recomputeSupplierScorecards,

@@ -14,8 +14,8 @@
 // cache keys, and folding that into the file that fetches the tenant name would
 // make both harder to read.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { api } from './client';
 
 export type FeedbackCategory = 'idea' | 'problem' | 'question' | 'praise';

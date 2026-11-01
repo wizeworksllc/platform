@@ -25,7 +25,7 @@
 // WORDS, NOT A SUBSTRING. "Marlow XL" and "XL Marlow" both have to work: at a
 // counter nobody types a catalog string in catalog order. Every word has to
 // land somewhere, which is the same rule the server's own contact search uses
-// (`nameSearchClauses` in @wizeworks/crm), so "Marlow Knit XL" narrows rather
+// (`nameSearchClauses` in @wizeworksllc/crm), so "Marlow Knit XL" narrows rather
 // than failing.
 
 export interface SearchableSellable {

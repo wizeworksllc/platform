@@ -22,11 +22,11 @@ import {
   type ModulePresetKind,
   type ModulePresetView,
   type ModuleSlug,
-} from '@wizeworks/auth';
-import { commercePresets } from '@wizeworks/commerce';
-import { b2bPresets, crmPresets, invoicingPresets } from '@wizeworks/crm';
-import { withTenant, type TenantContext } from '@wizeworks/db';
-import { conflict, moduleDisabled, notFound } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/auth';
+import { commercePresets } from '@wizeworksllc/commerce';
+import { b2bPresets, crmPresets, invoicingPresets } from '@wizeworksllc/crm';
+import { withTenant, type TenantContext } from '@wizeworksllc/db';
+import { conflict, moduleDisabled, notFound } from '@wizeworksllc/api-core/errors';
 
 import { aiPresets } from './presets/ai';
 import { cmsPresets } from './presets/cms';

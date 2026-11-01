@@ -21,7 +21,7 @@
 // `customFields` is the tenant's and must never be at risk from a platform
 // feature writing a key that happens to collide.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 const KEY = 'latticeCoordinate';
 

@@ -8,7 +8,7 @@
 // ── Three rules the code below exists to enforce ─────────────────────────────
 //
 // 1. A token is NEVER stored in plaintext. Encryption is AES-256-GCM through
-//    @wizeworks/integration-framework's provider-secret box — the same box the
+//    @wizeworksllc/integration-framework's provider-secret box — the same box the
 //    marketplace provider installs use, keyed by the same `PROVIDER_SECRET_KEY`
 //    — rather than a fourth home-grown one. Without the key configured, storing
 //    a grant is REFUSED. A connection nobody can make is better than a token
@@ -27,8 +27,8 @@ import {
   decryptProviderSecret,
   encryptProviderSecret,
   isProviderSecretCryptoConfigured,
-} from '@wizeworks/integration-framework';
-import { Prisma, withTenant, type FinanceAccountingConnection } from '@wizeworks/db';
+} from '@wizeworksllc/integration-framework';
+import { Prisma, withTenant, type FinanceAccountingConnection } from '@wizeworksllc/db';
 
 import { FinanceError } from '../errors';
 

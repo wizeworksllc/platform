@@ -19,7 +19,7 @@
 // rail to sit beside it, so a bento would float a near-empty column. One
 // centred, capped column instead, with the labels as the hero.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

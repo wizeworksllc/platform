@@ -11,7 +11,7 @@
 // FORWARD as a new version rather than rewinding, so restoring is itself undoable
 // and the state someone restored away from is never lost.
 
-import { withTenant, type Prisma, type TxClient } from '@wizeworks/db';
+import { withTenant, type Prisma, type TxClient } from '@wizeworksllc/db';
 import type { Theme as SilicaTheme } from '@wizeworks/silicaui-html';
 
 import { BuilderNotFoundError, type ServiceContext } from '../errors';

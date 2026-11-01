@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { SILICA_EMAIL_BODIES, silicaDefaultEmail } from '@wizeworks/builder-schemas';
+import { SILICA_EMAIL_BODIES, silicaDefaultEmail } from '@wizeworksllc/builder-schemas';
 import { renderSilicaEmail } from '../render-silica-email';
 import { lintEmailRender } from '../lint';
 

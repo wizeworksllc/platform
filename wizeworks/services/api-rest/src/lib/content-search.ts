@@ -24,7 +24,7 @@
 // next person should have to re-derive from a pair of literals.
 // [[feedback_a_fix_leaves_its_neighbour_behind]]
 
-import { indexEntity } from '@wizeworks/events';
+import { indexEntity } from '@wizeworksllc/events';
 
 export interface ContentSearchActor {
   tenantId: string;

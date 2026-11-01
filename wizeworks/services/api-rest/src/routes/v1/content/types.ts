@@ -6,7 +6,7 @@
 // DELETE /v1/content/types/:key     → remove a tenant-custom type (built-ins are read-only)
 //
 // Custom-type schemas are validated against the FieldDef union from
-// @wizeworks/cms-schemas — the same validator that's used at entry write
+// @wizeworksllc/cms-schemas — the same validator that's used at entry write
 // time, so a schema can never persist in a shape the body validator
 // won't accept.
 //
@@ -19,20 +19,20 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { requireAuth, requireRole } from '@wizeworks/api-core/auth';
-import { notFound } from '@wizeworks/api-core/errors';
-import { ContentTypeSchema } from '@wizeworks/cms-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { requireAuth, requireRole } from '@wizeworksllc/api-core/auth';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { ContentTypeSchema } from '@wizeworksllc/cms-schemas';
 import {
   createContentTypeTx,
   updateContentTypeTx,
   replaceSchemaTx,
   deleteContentTypeTx,
   serializeContentType,
-} from '@wizeworks/cms';
-import { writeAudit } from '@wizeworks/api-core/audit';
-import { publish } from '@wizeworks/api-core/pubsub';
+} from '@wizeworksllc/cms';
+import { writeAudit } from '@wizeworksllc/api-core/audit';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 const KeyParams = z.object({ key: z.string().min(1).max(63) });
 

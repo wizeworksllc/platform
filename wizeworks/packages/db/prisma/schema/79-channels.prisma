@@ -7,7 +7,7 @@
 //   ChannelConnection      — the per-tenant OAuth link to one external shop.
 //                            OAuth tokens are stored AES-256-GCM ENCRYPTED on the
 //                            row, never plaintext (docs/106 §4.6) — boxed via
-//                            @wizeworks/channels/crypto with CHANNELS_TOKEN_KEY. (Per-
+//                            @wizeworksllc/channels/crypto with CHANNELS_TOKEN_KEY. (Per-
 //                            tenant access tokens rotate hourly; a DB-row cipher
 //                            box rotates with a plain UPDATE, where a Secret-
 //                            Manager ref would churn a billed version per refresh.)
@@ -25,7 +25,7 @@
 //
 // channel_connections / channel_product_mappings are tenant-scoped (FORCE RLS,
 // canonical tenant_isolation). channel_shop_links is global-read / tenant-write.
-// Owned by @wizeworks/channels, driven by the channel-sync-worker + the api-rest
+// Owned by @wizeworksllc/channels, driven by the channel-sync-worker + the api-rest
 // webhook. Part of the Commerce module (no separate fee) — gated with commerce.
 
 model ChannelConnection {
@@ -57,7 +57,7 @@ model ChannelConnection {
 
   // OAuth tokens, AES-256-GCM ciphertext (`iv.tag.cipher` base64) — NEVER
   // plaintext on the row (docs/106 §4.6). Encrypted/decrypted via
-  // @wizeworks/channels/crypto. Text, not VarChar: a boxed refresh token can exceed
+  // @wizeworksllc/channels/crypto. Text, not VarChar: a boxed refresh token can exceed
   // the old 512 ref budget. Null until the OAuth handshake completes.
   accessTokenEnc  String?   @map("access_token_enc") @db.Text
   refreshTokenEnc String?   @map("refresh_token_enc") @db.Text

@@ -7,21 +7,21 @@
 // holds the whole record.
 //
 // The field vocabulary itself is NOT redefined here: it is the neutral
-// `FieldSchema` from @wizeworks/field-schema, the same engine behind CMS content
+// `FieldSchema` from @wizeworksllc/field-schema, the same engine behind CMS content
 // types and commerce product types. This module re-exports it under the
 // CRM-facing name `PropertySchema` so CRM code reads in CRM words, exactly as
 // cms-schemas re-exports it as `ContentTypeSchema`.
 
 import { z } from 'zod';
-import { FieldDefSchema, type FieldDef } from '@wizeworks/field-schema';
+import { FieldDefSchema, type FieldDef } from '@wizeworksllc/field-schema';
 
 import { Uuid } from './common';
 
-export type { FieldDef } from '@wizeworks/field-schema';
-export { FieldDefSchema, bodyValidatorFor, validateBody } from '@wizeworks/field-schema';
+export type { FieldDef } from '@wizeworksllc/field-schema';
+export { FieldDefSchema, bodyValidatorFor, validateBody } from '@wizeworksllc/field-schema';
 
 /** The CRM's name for the neutral `FieldSchema` (value + inferred type). */
-export { FieldSchema as PropertySchema } from '@wizeworks/field-schema';
+export { FieldSchema as PropertySchema } from '@wizeworksllc/field-schema';
 
 /**
  * The four objects sparx ships. Each has a fixed spine in its own table and can

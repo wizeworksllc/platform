@@ -3,7 +3,7 @@
 // concrete provider bundle. The reader is a process-wide singleton set
 // by the host (api-rest, workers) at boot:
 //
-//   import { setSecretReader } from '@wizeworks/commerce';
+//   import { setSecretReader } from '@wizeworksllc/commerce';
 //   setSecretReader(myReader);
 //
 // Tests inject a mapSecretReader directly. Dev defaults to env-only
@@ -21,7 +21,7 @@ import {
   isEncryptedProviderSecretRef,
   SecretNotFoundError,
   type SecretReader,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 
 export function envSecretReader(): SecretReader {
   return {

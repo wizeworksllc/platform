@@ -6,7 +6,7 @@
 // `zip`), so every supplier was sent an address with no name on it (sparx persona
 // issue 214). Those older keys are still read second, for an order stored before.
 
-import type { ShippingAddress } from '@wizeworks/dropship';
+import type { ShippingAddress } from '@wizeworksllc/dropship';
 
 type Raw = Record<string, unknown> | null | undefined;
 

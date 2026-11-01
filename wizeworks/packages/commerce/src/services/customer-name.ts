@@ -3,7 +3,7 @@
 // single source of truth for that fallback chain + the Prisma select it needs,
 // so every service (returns, carts, subscriptions, …) resolves names identically.
 
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 /** The minimal customer columns `customerDisplayName` reads. Spread into a
  *  Prisma `select` so the literal `true`s survive result-type inference. */

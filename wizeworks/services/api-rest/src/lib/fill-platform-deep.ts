@@ -1,4 +1,4 @@
-import { fillPlatformName } from '@wizeworks/brand-core';
+import { fillPlatformName } from '@wizeworksllc/brand-core';
 
 /**
  * Every `{platform}` in a provider's descriptor, filled with the tenant's brand.

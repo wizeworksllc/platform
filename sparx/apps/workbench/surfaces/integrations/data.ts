@@ -20,11 +20,11 @@
 // hosted onboarding) — this panel routes to them rather than reimplementing five
 // connect experiences.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { moduleLabel } from '../../lib/surfaces/nav';
 
-/** Mirrors @wizeworks/integrations. `subscription_billing` and `identity` are absent
+/** Mirrors @wizeworksllc/integrations. `subscription_billing` and `identity` are absent
  *  because nothing implements either — see the note on IntegrationCategory there. */
 export type IntegrationCategory =
   'payments' | 'shipping' | 'tax' | 'sales_channels' | 'social' | 'dropship' | 'ai';

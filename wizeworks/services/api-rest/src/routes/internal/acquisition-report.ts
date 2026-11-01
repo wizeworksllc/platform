@@ -35,8 +35,8 @@
 
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
-import { prisma, type Prisma } from '@wizeworks/db';
-import type { OperatorAcquisitionBucket } from '@wizeworks/operator';
+import { prisma, type Prisma } from '@wizeworksllc/db';
+import type { OperatorAcquisitionBucket } from '@wizeworksllc/operator';
 
 import { env } from '../../env.js';
 import {

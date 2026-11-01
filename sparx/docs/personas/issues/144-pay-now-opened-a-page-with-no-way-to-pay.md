@@ -29,7 +29,7 @@ A buyer chasing a late bill clicks "Pay now" and finds no way to pay. The email 
 
 - `wizeworks/packages/builder-schemas/src/default-emails-silica.ts` and `default-emails.ts`: `button('Pay now' | 'Pay invoice', '{{invoice.payUrl}}')` in five templates.
 - `wizeworks/services/api-rest/src/lib/email-data.ts`, `resolveInvoice`: `payUrl` is the invoice LIST for a trade account, the account home for anyone else.
-- The page the first email links to: `documentViewPath` in `@wizeworks/crm`.
+- The page the first email links to: `documentViewPath` in `@wizeworksllc/crm`.
 
 ## For Brandon
 

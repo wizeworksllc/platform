@@ -16,7 +16,7 @@
 // free address is in the wrong zone has not been repaired, and hiding its one
 // address would make it look as if it had none.
 
-import { mintedZoneOf } from '@wizeworks/db/site-origin';
+import { mintedZoneOf } from '@wizeworksllc/db/site-origin';
 
 interface AddressRow {
   id: string;

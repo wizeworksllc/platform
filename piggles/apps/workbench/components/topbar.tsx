@@ -57,7 +57,7 @@ interface TopbarProps {
    *
    * Threaded down from the server rather than computed here: the origin comes
    * from `PIGGLES_ACCOUNT_ORIGIN`, and the helper that reads it imports
-   * @wizeworks/db — reaching for it from a client component would pull Prisma
+   * @wizeworksllc/db — reaching for it from a client component would pull Prisma
    * into the browser bundle to answer a question the server already knew.
    */
   accountOrigin: string;

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Fredoka, Inter } from 'next/font/google';
 import { Suspense } from 'react';
 import { PRODUCT } from '@piggles/config';
-import { ChunkReloadGuard } from '@wizeworks/app-kit';
+import { ChunkReloadGuard } from '@wizeworksllc/app-kit';
 import { HeaderNoticeSlot } from '@/components/header-notice-slot';
 import { SiteHeader } from '@/components/marketing/site-header';
 import { SiteFooter } from '@/components/marketing/site-footer';

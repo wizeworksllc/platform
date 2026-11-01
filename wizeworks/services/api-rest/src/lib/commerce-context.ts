@@ -1,4 +1,4 @@
-// Bridge between Fastify auth context and @wizeworks/commerce's ServiceContext.
+// Bridge between Fastify auth context and @wizeworksllc/commerce's ServiceContext.
 //
 // Mirrors crm-context.ts. Every Commerce service function takes
 // `(ctx: ServiceContext, args)`; routes call `requireCommerceModule(request)`
@@ -6,11 +6,11 @@
 // that ctx — keeping the routes vanishingly thin per decision #7.
 
 import type { FastifyRequest } from 'fastify';
-import type { ServiceContext } from '@wizeworks/commerce';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { ServiceContext } from '@wizeworksllc/commerce';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 import {
   defaultOwningSiteToActiveSite,

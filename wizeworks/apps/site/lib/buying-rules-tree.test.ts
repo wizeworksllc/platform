@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { addToCartForm, buyBox } from '@wizeworks/silica-catalog';
+import { addToCartForm, buyBox } from '@wizeworksllc/silica-catalog';
 
 import { checkoutBlock, ruleSentence, snapQuantity, type BuyingRule } from './account-buying-rules';
 import { applyAccountBuying, buyBoxPlan } from './buying-rules-tree';

@@ -22,8 +22,8 @@
 // validator to build, nothing to merge. That is the common case on day one and
 // it must not cost a query.
 
-import { applyCalculatedFields, validateBody, type FieldSchema } from '@wizeworks/field-schema';
-import type { Prisma } from '@wizeworks/db';
+import { applyCalculatedFields, validateBody, type FieldSchema } from '@wizeworksllc/field-schema';
+import type { Prisma } from '@wizeworksllc/db';
 
 import { CrmValidationError } from '../errors';
 

@@ -17,9 +17,9 @@ import type {
   CreateDocumentLineTypeInput,
   CreateDocumentStageInput,
   CreateDocumentWorkflowInput,
-} from '@wizeworks/crm-schemas';
-import type { TenantContext } from '@wizeworks/db';
-import { definePreset, type ModulePreset } from '@wizeworks/modules';
+} from '@wizeworksllc/crm-schemas';
+import type { TenantContext } from '@wizeworksllc/db';
+import { definePreset, type ModulePreset } from '@wizeworksllc/modules';
 
 import { documentLineTypeService, documentWorkflowService } from '../services/index';
 

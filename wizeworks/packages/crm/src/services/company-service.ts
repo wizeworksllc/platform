@@ -12,10 +12,10 @@
 // CRM ends up quietly asserting that the freelancer on gmail.com works for
 // Google, and nobody notices until a mail merge goes out.
 
-import { CreateCompanyInput, UpdateCompanyInput } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Company, Prisma } from '@wizeworks/db';
-import { indexEntity } from '@wizeworks/events';
+import { CreateCompanyInput, UpdateCompanyInput } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Company, Prisma } from '@wizeworksllc/db';
+import { indexEntity } from '@wizeworksllc/events';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

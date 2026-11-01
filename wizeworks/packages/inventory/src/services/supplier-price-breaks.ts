@@ -8,15 +8,15 @@
 // the first place.
 //
 // The resolution arithmetic is PURE and lives in
-// `@wizeworks/commerce-schemas/procurement` (`resolvePurchasePrice`), because the
+// `@wizeworksllc/commerce-schemas/procurement` (`resolvePurchasePrice`), because the
 // price a buyer is SHOWN and the price the order RECORDS must be the same
 // number. A ladder resolved two ways is a lie the software tells with a straight
 // face.
 
-import { SetPriceBreaksInput, resolvePurchasePrice } from '@wizeworks/commerce-schemas';
-import type { ResolvedPurchasePrice } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { SetPriceBreaksInput, resolvePurchasePrice } from '@wizeworksllc/commerce-schemas';
+import type { ResolvedPurchasePrice } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError, InventoryValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

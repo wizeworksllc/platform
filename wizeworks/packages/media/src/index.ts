@@ -1,5 +1,5 @@
-// @wizeworks/media — media asset service + focused storage for headless callers.
-// The MCP tools live under the `./mcp` subpath (import from '@wizeworks/media/mcp')
+// @wizeworksllc/media — media asset service + focused storage for headless callers.
+// The MCP tools live under the `./mcp` subpath (import from '@wizeworksllc/media/mcp')
 // so a caller that only needs the service/storage doesn't pull the tool layer.
 
 export {

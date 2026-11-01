@@ -1,9 +1,9 @@
 // Read-only CMS MCP tools. Scope: 'read:cms'. No confirmation — the agent may
 // call these freely to discover content types and inspect entries before
-// proposing a change. Thin wrappers over the @wizeworks/cms read service.
+// proposing a change. Thin wrappers over the @wizeworksllc/cms read service.
 
 import { z } from 'zod';
-import { notFound } from '@wizeworks/api-core/errors';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { listContentTypes, getContentType } from '../content-types-service.js';
 import { listEntries, getEntry } from '../entries-service.js';

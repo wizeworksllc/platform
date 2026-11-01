@@ -10,18 +10,18 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import type { BookingAttendee } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { JoinSessionInput, UpdateAttendeeInput } from '@wizeworks/scheduling-schemas';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import type { BookingAttendee } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { JoinSessionInput, UpdateAttendeeInput } from '@wizeworksllc/scheduling-schemas';
 import {
   bookClassSeat,
   listClassSessions,
   listSessionAttendees,
   updateAttendee,
   type ClassSessionSummary,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { notifyPromotedAttendees, sendSeatConfirmation } from '../../../lib/scheduling-classes.js';

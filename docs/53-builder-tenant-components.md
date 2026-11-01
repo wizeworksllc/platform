@@ -11,7 +11,7 @@
 ## 1. Purpose & relationship to other docs
 
 System components in the `/builder` tier are **code** — entries in the in-code registry
-(the builder component catalog — now silica-owned: `@wizeworks/silica-catalog`), each carrying a
+(the builder component catalog — now silica-owned: `@wizeworksllc/silica-catalog`), each carrying a
 `renderLeaf` React function. Tenants need to build, save, and reuse their **own**
 components — a branded CTA, a spec table, a “feature trio” — without a deploy and without
 writing JavaScript (which on a multi-tenant SSR surface is remote-code-execution).
@@ -34,7 +34,7 @@ It descends from and refines:
   (`TenantSectionDefinition` + a JSON AST interpreter). That tier is **retiring**; this doc
   is the node-tree-tier successor. We reuse its _principles_ (declarative-only, server-side
   validation, snapshot/pin for determinism) but **not** its AST — the builder tier already
-  has a richer node model (`@wizeworks/builder-schemas`), so a tenant component is just a saved
+  has a richer node model (`@wizeworksllc/builder-schemas`), so a tenant component is just a saved
   node tree, not a second template language.
 
 Where this doc and others disagree on builder-tier components, **this doc wins**.
@@ -170,7 +170,7 @@ remaining (non-slot) bindings against that scope, since the expansion is inlined
 
 ---
 
-## 7. Validation (server-side on save; shared client-side via `@wizeworks/builder-schemas`)
+## 7. Validation (server-side on save; shared client-side via `@wizeworksllc/builder-schemas`)
 
 A component (and each version) must pass, before persistence:
 
@@ -217,10 +217,10 @@ the API rejects any mutation of a system type defensively (never trust client pr
 ## 10. Phasing (each slice independently deployable)
 
 **P-A → P-E all built 2026-06-04** (gate-green: typecheck + lint + format across
-`@wizeworks/builder-schemas`, `@wizeworks/builder`, `@wizeworks/api-rest`, `@sparx/dashboard`; UNPUSHED;
+`@wizeworksllc/builder-schemas`, `@wizeworksllc/builder`, `@wizeworks/api-rest`, `@sparx/dashboard`; UNPUSHED;
 migration-free after P-A).
 
-- **P-A — Foundation ✅:** the two tables + RLS migration; `@wizeworks/builder-schemas` component /
+- **P-A — Foundation ✅:** the two tables + RLS migration; `@wizeworksllc/builder-schemas` component /
   version / propSpec / instance-ref schemas + validators; `component-service` CRUD + version
   bump; `/v1/builder/components` routes; catalog union (System + Custom badges); the
   `/builder/components` list + detail; **Copy** (system → tenant).

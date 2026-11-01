@@ -61,7 +61,7 @@ Tests, proved red:
 - `wizeworks/services/api-rest/src/lib/verified-email-guard-words.test.ts`: the refusal does not say "dashboard" and names "Send the link again". Red on the old message.
 - Words: `lib/verify-email/words.test.ts` (sparx) and `lib/verify-email/words.test.ts` (Piggles console): the notice shows only for an unconfirmed owner and names the address; the landing page says "confirmed" only when the session does. These are new words, so they have no red of their own.
 
-Typecheck clean in the sparx console, the Piggles console, the Piggles account app, `@wizeworks/auth` and api-rest. Lint clean on every file.
+Typecheck clean in the sparx console, the Piggles console, the Piggles account app, `@wizeworksllc/auth` and api-rest. Lint clean on every file.
 
 ## Confirmed by
 

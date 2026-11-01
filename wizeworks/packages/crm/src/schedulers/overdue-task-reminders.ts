@@ -5,7 +5,7 @@
 // engine can fire a templated reminder to the assignee. Idempotent via
 // dedupeKey scoped to the day, so a re-fire on the same day is a no-op.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { publishCrmEvent } from '../events';
 import type { ServiceContext } from '../errors';

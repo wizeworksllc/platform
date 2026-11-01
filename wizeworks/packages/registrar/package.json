@@ -1,8 +1,8 @@
 {
-  "name": "@wizeworks/registrar",
+  "name": "@wizeworksllc/registrar",
   "version": "0.0.0",
   "private": true,
-  "description": "Provider-agnostic domain-registrar contract — the RegistrarClient interface, shared domain types, RegistrarError, and the registrar-neutral DNS/DKIM helpers. Implemented by @wizeworks/godaddy (and future @wizeworks/namecom); consumed by api-rest and api-mcp through a composition-root resolver.",
+  "description": "Provider-agnostic domain-registrar contract — the RegistrarClient interface, shared domain types, RegistrarError, and the registrar-neutral DNS/DKIM helpers. Implemented by @wizeworksllc/godaddy (and future @wizeworks/namecom); consumed by api-rest and api-mcp through a composition-root resolver.",
   "type": "module",
   "exports": {
     ".": {

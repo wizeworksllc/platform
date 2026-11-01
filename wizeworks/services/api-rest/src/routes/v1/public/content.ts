@@ -19,12 +19,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
-import { checkoutService, commerceSiteService } from '@wizeworks/commerce';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { notFound, badRequest } from '@wizeworks/api-core/errors';
-import { serializeEntry, PUBLIC_ENTRY_BYLINE_INCLUDE } from '@wizeworks/cms';
-import { kindAddressForPath, kindAddressFromPattern } from '@wizeworks/silica-catalog';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { checkoutService, commerceSiteService } from '@wizeworksllc/commerce';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { notFound, badRequest } from '@wizeworksllc/api-core/errors';
+import { serializeEntry, PUBLIC_ENTRY_BYLINE_INCLUDE } from '@wizeworksllc/cms';
+import { kindAddressForPath, kindAddressFromPattern } from '@wizeworksllc/silica-catalog';
 import { creditFieldsOf, creditedIds } from '../../../lib/author-credits.js';
 import { tryVerifyPreviewToken } from '../../../lib/preview.js';
 import { readPublicConsentConfig } from '../../../lib/consent.js';
@@ -32,7 +32,7 @@ import { parseBrandOverride, mergeBrandIdentity } from '../../../lib/property-br
 import { resolvePublicPropertyId, contentSiteVisibilityWhere } from '../../../lib/property.js';
 import { requireTenantIdBySlug } from '../../../lib/tenant-slug.js';
 import { canonicalSiteHost } from '../../../lib/site-origin.js';
-import { resolveBillingPhase, isPlatformTenant } from '@wizeworks/billing';
+import { resolveBillingPhase, isPlatformTenant } from '@wizeworksllc/billing';
 
 // `property` (a stable site slug) scopes content to one web PROPERTY (docs/49
 // Model B). The storefront passes it for non-primary sites; omitted → primary.
@@ -816,7 +816,7 @@ const publicContentRoutes: FastifyPluginAsync = (app) => {
       // below, which is why this field is not named after either of them.
       showPlatformCredit: propertyRow?.showPlatformCredit ?? true,
       // Not a brand NAME — the key. The site resolves the name, accent and link
-      // from it through @wizeworks/brand-core, so adding a third brand is
+      // from it through @wizeworksllc/brand-core, so adding a third brand is
       // configuration rather than a payload change.
       platformBrand: tenant.platformBrand,
       settings: tenant.settings,

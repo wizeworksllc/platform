@@ -16,7 +16,7 @@
 // carry over: the first boot creates it fresh.
 
 import type { Logger } from 'pino';
-import { createBrokerHandler, type WorkerSubscription } from '@wizeworks/events';
+import { createBrokerHandler, type WorkerSubscription } from '@wizeworksllc/events';
 
 import { env } from './env.js';
 import { handle, parseEvent } from './handler.js';
@@ -46,7 +46,7 @@ export const EVENTS = [
   'builder.published',
   'builder.rolled_back',
   // One document, from its own pane: the header and footer, a single page, a
-  // different layout made live, and the look a site wears. `@wizeworks/builder`
+  // different layout made live, and the look a site wears. `@wizeworksllc/builder`
   // publishes these, not api-rest, so they were missed for a month and her header
   // reached visitors only when the cache ran out (persona issue 921). Not
   // `builder.email.published`: no visitor reads an email template.

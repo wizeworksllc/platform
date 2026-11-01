@@ -13,7 +13,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { NET_TERMS_AR_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
+import { NET_TERMS_AR_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
 
 import {
   companyService,

@@ -1,11 +1,11 @@
 // Provider installation + webhook event shapes — the marketplace plug-in
 // model. Concrete provider packages (provider-stripe, provider-shippo,
-// etc.) implement the interfaces in @wizeworks/integration-framework; this
+// etc.) implement the interfaces in @wizeworksllc/integration-framework; this
 // module defines the merchant-facing configuration shape.
 
 import { z } from 'zod';
 
-import { Uuid } from '@wizeworks/crm-schemas';
+import { Uuid } from '@wizeworksllc/crm-schemas';
 
 import { Currency } from './common';
 

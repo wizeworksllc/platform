@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // The module price rules, held level with the server.
 //
-// What a tenant is BILLED for comes from the graph in @wizeworks/modules:
+// What a tenant is BILLED for comes from the graph in @wizeworksllc/modules:
 // REQUIRES (B2B needs Commerce, both billed) and BUNDLED_FREE (Invoicing,
 // Inventory and Finance ride along at $0 with Commerce or B2B). The sparx
 // workbench's setup screen prices the same modules in the browser, and the server

@@ -22,13 +22,13 @@
 //     actually costs a real business something
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   createResource,
   getResourcePropertyIds,
   listResources,
   updateResource,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { createTestTenant, dropTestTenant } from '../helpers.js';
 
 describe('scheduling resource site scope', () => {

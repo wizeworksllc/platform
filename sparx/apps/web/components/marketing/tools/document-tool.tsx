@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Download } from 'lucide-react';
-import { toast } from '@wizeworks/ui';
+import { toast } from '@wizeworksllc/ui';
 import { Button, Textarea, Loading } from '@wizeworks/silicaui-react';
 import { Workbench, ControlsPane, OutputPane, Panel } from './ui-kit';
 import { DocumentFields } from './document-fields';

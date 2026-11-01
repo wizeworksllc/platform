@@ -296,7 +296,7 @@ What the carry found that the list did not say:
 
 - **Broadcasts could send a built-in email to a whole list, in both consoles
   and over MCP.** Piggles only hid it in its picker; the server accepted it.
-  `assertBroadcastableEmail` in `@wizeworks/email-platform` now refuses it on
+  `assertBroadcastableEmail` in `@wizeworksllc/email-platform` now refuses it on
   create, update, send and schedule.
 - **`Booking.customer` never reached the wire.** `bookingView()` in api-rest
   rebuilt each row and dropped it, so Piggles' issue 138 fix never took effect.

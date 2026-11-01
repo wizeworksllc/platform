@@ -1,4 +1,4 @@
-import { GOAL_FIELD_PATHS, RESOLVED_FIELD_PATHS } from '@wizeworks/automation-schemas';
+import { GOAL_FIELD_PATHS, RESOLVED_FIELD_PATHS } from '@wizeworksllc/automation-schemas';
 import { describe, expect, it } from 'vitest';
 import {
   CONDITION_FIELDS,
@@ -14,7 +14,7 @@ import {
 // checks ("they booked", "they paid", "they accepted the quote").
 //
 // What the server fills, and what the goals check, are the platform's lists
-// (@wizeworks/automation-schemas), which its own test keeps true to the sources.
+// (@wizeworksllc/automation-schemas), which its own test keeps true to the sources.
 
 describe('the details a condition can check', () => {
   it('offers only details the server fills, so a rule can come true', () => {

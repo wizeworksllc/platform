@@ -7,7 +7,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
  * `order.paid` sets every listener to work: the high-value alert, staff
  * commission, the search index, funnels, the business's own webhooks. A held
  * order is not placed, and may yet be turned down, so the sign-off that places
- * it announces it instead (`placedEvents` in @wizeworks/b2b). Two ways money
+ * it announces it instead (`placedEvents` in @wizeworksllc/b2b). Two ways money
  * lands on a held order through here:
  *
  *   1. Somebody records a payment while it waits.
@@ -47,7 +47,7 @@ const tx = {
   orderRefund: { findMany: () => Promise.resolve([]) },
 };
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
   afterCommit: (_label: string, run: () => Promise<void>) => {
     afterCommitQueue.push(run);

@@ -24,7 +24,7 @@ vi.mock('../../lib/property.js', () => ({
   contentSiteVisibilityWhere: (propertyId: string) => ({ visibleOn: propertyId }),
 }));
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     property: {
       findFirst: () => Promise.resolve({ id: 'site-primary', slug: 'primary', isPrimary: true }),

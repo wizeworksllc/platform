@@ -31,16 +31,16 @@
 
 import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { ALL_MODULES, brandSignInOptions, type ModuleSlug } from '@wizeworks/auth';
+import { ALL_MODULES, brandSignInOptions, type ModuleSlug } from '@wizeworksllc/auth';
 import {
   createCheckoutSession,
   createPortalSession,
   heldDiscount,
   offerStanding,
   planFor,
-} from '@wizeworks/billing';
-import { prisma, SAMPLE_DATA_PACKS } from '@wizeworks/db';
-import { capacityReport } from '@wizeworks/usage';
+} from '@wizeworksllc/billing';
+import { prisma, SAMPLE_DATA_PACKS } from '@wizeworksllc/db';
+import { capacityReport } from '@wizeworksllc/usage';
 
 import {
   AddressTakenError,

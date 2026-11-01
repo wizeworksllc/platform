@@ -16,10 +16,10 @@
 // post already published (or didn't); making the worker 500 over an email would replay the
 // whole drain for no reason.
 
-import { withTenant } from '@wizeworks/db';
-import { createPublisher, publishEvent } from '@wizeworks/events';
-import { appLink, appOrigin } from '@wizeworks/links/server';
-import { getSocialDescriptor, type SocialPlatform } from '@wizeworks/social';
+import { withTenant } from '@wizeworksllc/db';
+import { createPublisher, publishEvent } from '@wizeworksllc/events';
+import { appLink, appOrigin } from '@wizeworksllc/links/server';
+import { getSocialDescriptor, type SocialPlatform } from '@wizeworksllc/social';
 import type { Logger } from 'pino';
 
 /** The tenant's own contact address — who hears about this — and which product

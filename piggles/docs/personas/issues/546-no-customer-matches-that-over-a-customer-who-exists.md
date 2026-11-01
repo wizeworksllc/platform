@@ -3,7 +3,7 @@
 **Status:** fixed and proven
 **Severity:** high
 **Found by:** Devi, typing a customer's name into a box that asks for a customer's name
-**Surface:** `@wizeworks/db` + 8 search boxes across crm, staff, b2b, scheduling, api-rest
+**Surface:** `@wizeworksllc/db` + 8 search boxes across crm, staff, b2b, scheduling, api-rest
 **Filed:** 2026-09-16
 **Family:** [[feedback_one_outcome_two_causes]] · [[feedback_a_fix_leaves_its_neighbour_behind]]
 
@@ -82,7 +82,7 @@ One invoice on this shop had already been through it: see issue 547.
 
 ## The fix
 
-One rule, in `@wizeworks/db/src/name-search.ts`, used by all eight.
+One rule, in `@wizeworksllc/db/src/name-search.ts`, used by all eight.
 
 Split what was typed on whitespace and require EVERY word to match somewhere.
 "Jo Kim" becomes (something contains "Jo") AND (something contains "Kim"), which

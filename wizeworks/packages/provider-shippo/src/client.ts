@@ -11,8 +11,8 @@ import {
   ProviderConfigurationError,
   ProviderHardError,
   ProviderTransientError,
-} from '@wizeworks/integration-framework';
-import type { ProviderRunContext } from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
+import type { ProviderRunContext } from '@wizeworksllc/integration-framework';
 
 export async function shippoClientFor(ctx: ProviderRunContext): Promise<Shippo> {
   const apiToken = ctx.config.apiToken;

@@ -359,7 +359,7 @@ Independent of authoring, every node must:
 | Built today                                                                                         | Role in this model                                                                         |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Custom-section template AST (`section-template.ts`: Stack/Grid/Box/Image/Text/Repeater + `$bind`)   | **Tier 1 substrate.** Correct primitives; not the tenant surface                           |
-| `validateTemplate`, `field-spec-to-zod`, the shared `@wizeworks/section-template-react` interpreter | The rendering + validation engine Tier-2 components compile to                             |
+| `validateTemplate`, `field-spec-to-zod`, the shared `@wizeworksllc/section-template-react` interpreter | The rendering + validation engine Tier-2 components compile to                             |
 | Section Studio (field spec + visual/JSON tree)                                                      | A **Tier-1 authoring tool** — right for building components, wrong as the only tenant path |
 | PageLayout + data-driven targets + product/collection bindings (doc 36)                             | The page-template + binding spine this model extends                                       |
 | Flat section stack + registry (doc 37)                                                              | The **special case**: a one-level tree of containers. Generalizes to §3                    |

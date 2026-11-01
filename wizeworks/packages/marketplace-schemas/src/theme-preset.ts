@@ -1,6 +1,6 @@
 // The data-driven theme payload (docs/60 §6). A marketplace theme is a row whose
 // `tokens` JSON column carries a COMPLETE theme definition as DATA — exactly what
-// a code-side `@wizeworks/site-themes` preset carries, but resolvable at runtime
+// a code-side `@wizeworksllc/site-themes` preset carries, but resolvable at runtime
 // without a deploy. It travels two paths after a tenant applies it:
 //   • `v1` light/dark token maps → the v1 publish snapshot (SiteVersion.compiledTokens
 //     + the CommerceSiteTheme write-through).
@@ -14,7 +14,7 @@ import { z } from 'zod';
 
 const TokenValue = z.string().min(1).max(255);
 
-/** The v1 storefront token surface (mirrors @wizeworks/site-themes ThemeTokens). */
+/** The v1 storefront token surface (mirrors @wizeworksllc/site-themes ThemeTokens). */
 export const ThemeTokensV1 = z.object({
   colorPrimary: TokenValue,
   colorPrimaryForeground: TokenValue,
@@ -30,7 +30,7 @@ export const ThemeTokensV1 = z.object({
 });
 export type ThemeTokensV1 = z.infer<typeof ThemeTokensV1>;
 
-/** One mode's v2 color slots (mirrors @wizeworks/site-themes ColorTokensV2). The
+/** One mode's v2 color slots (mirrors @wizeworksllc/site-themes ColorTokensV2). The
  *  `*Content` pairs are optional — the v2 compiler derives them when absent. */
 export const ColorTokensV2Schema = z
   .object({
@@ -60,7 +60,7 @@ export const ColorTokensV2Schema = z
   })
   .strict();
 
-/** Mode-independent v2 tokens (mirrors @wizeworks/site-themes SharedTokensV2). */
+/** Mode-independent v2 tokens (mirrors @wizeworksllc/site-themes SharedTokensV2). */
 export const SharedTokensV2Schema = z
   .object({
     fontHeading: TokenValue,
@@ -77,7 +77,7 @@ export const SharedTokensV2Schema = z
   })
   .strict();
 
-/** A complete v2 preset (mirrors @wizeworks/site-themes ThemePresetV2). */
+/** A complete v2 preset (mirrors @wizeworksllc/site-themes ThemePresetV2). */
 export const ThemePresetV2Schema = z
   .object({
     shared: SharedTokensV2Schema,

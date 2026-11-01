@@ -5,7 +5,7 @@
 // support could do this before; the owner had to forward a screenshot.
 
 import { Button, useToast } from '@wizeworks/silicaui-react';
-import { useMutation } from '@wizeworks/query';
+import { useMutation } from '@wizeworksllc/query';
 
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';

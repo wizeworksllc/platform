@@ -5,8 +5,8 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { invalidateModuleCache, issueApiKey, revokeApiKey } from '@wizeworks/auth';
+import { prisma } from '@wizeworksllc/db';
+import { invalidateModuleCache, issueApiKey, revokeApiKey } from '@wizeworksllc/auth';
 import { createApp } from '../src/app.js';
 
 interface TestTenant {

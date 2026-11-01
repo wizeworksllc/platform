@@ -7,7 +7,7 @@
 // once shipped — changing it replays or skips the stream.
 
 import type { Logger } from 'pino';
-import { createBrokerHandler, type WorkerSubscription } from '@wizeworks/events';
+import { createBrokerHandler, type WorkerSubscription } from '@wizeworksllc/events';
 
 import { handle, parseEvent } from './handler.js';
 
@@ -27,7 +27,7 @@ export const EVENTS = [
   // second add under an existing durable name with a different config (400,
   // err_code 10148), and because every handler shares one process, that refusal
   // took the entire event-worker fleet down the first time the pod actually
-  // restarted. `@wizeworks/events` now catches exactly that and calls
+  // restarted. `@wizeworksllc/events` now catches exactly that and calls
   // `consumers.update`, which converges the filter and KEEPS the cursor.
   //
   // Given that, the rest holds: with `DeliverPolicy.All` the widened filter

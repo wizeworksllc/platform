@@ -9,9 +9,9 @@
 //     the net, and the report email is sent. This module owns the DB; disbursement
 //     + email live in the worker/payout layer.
 
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
-import { commissionCents as calcCommissionCents } from '@wizeworks/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
+import { commissionCents as calcCommissionCents } from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../../errors';
 

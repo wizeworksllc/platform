@@ -15,10 +15,10 @@
 // scheduleService.processDueSchedule, which runs inside withTenant({tenantId})
 // so writes still go through tenant_isolation.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma } from '@wizeworks/db';
-import { scheduleService } from '@wizeworks/sitebuilder';
+import { prisma } from '@wizeworksllc/db';
+import { scheduleService } from '@wizeworksllc/sitebuilder';
 
 const SITEBUILDER_PUBLISH_LOCK_KEY = ADVISORY_LOCKS.SITEBUILDER_PUBLISH;
 const DEFAULT_INTERVAL_MS = 60_000;

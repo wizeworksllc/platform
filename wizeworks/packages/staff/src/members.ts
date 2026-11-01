@@ -10,7 +10,7 @@
 // opens the workbench still has hours, a rate and certifications, and is very
 // often the person whose labour cost matters most.
 
-import { nameSearchClauses, withTenant, type TxClient } from '@wizeworks/db';
+import { nameSearchClauses, withTenant, type TxClient } from '@wizeworksllc/db';
 import { StaffMemberNotFoundError } from './errors.js';
 
 export type EmploymentType = 'employee' | 'contractor' | 'volunteer';

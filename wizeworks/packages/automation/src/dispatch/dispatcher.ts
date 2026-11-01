@@ -15,7 +15,7 @@
 // run loop BEFORE dispatch — they are engine mechanics, not gated effects — so
 // reaching the dispatcher with one is a programming error.
 
-import type { ActionType, GateLogEntry } from '@wizeworks/automation-schemas';
+import type { ActionType, GateLogEntry } from '@wizeworksllc/automation-schemas';
 
 import { getDescriptor } from '../actions/registry';
 import type { DispatchOutcome, EffectInput, ResolvedFields, TenantCtx } from '../engine-types';

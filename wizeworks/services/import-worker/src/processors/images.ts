@@ -15,14 +15,14 @@
 // reference instead of dropped, and the caller is told so it can be reported. A
 // borrowed image the tenant knows about beats a missing one they discover later.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   ALLOWED_IMAGE_MIME,
   MAX_PROXIED_UPLOAD_BYTES,
   createImageAssetFromBytes,
   createImageAssetFromUrl,
   type MediaWriteContext,
-} from '@wizeworks/media';
+} from '@wizeworksllc/media';
 
 import type { ProcessorContext } from './types';
 

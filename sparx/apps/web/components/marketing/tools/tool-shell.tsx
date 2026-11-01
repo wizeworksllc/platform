@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Badge, Heading, Text } from '@wizeworks/silicaui-react';
-import { ModuleProvider } from '@wizeworks/ui';
+import { ModuleProvider } from '@wizeworksllc/ui';
 import { getModule } from '@/lib/modules';
 import { Band } from '../band';
 import { getModuleColor } from '../primitives';
@@ -19,7 +19,7 @@ import { ToolEmailCapture } from './tool-email-capture';
  * related strip) wraps the interactive client tool passed as `children`; Nav and
  * Footer come from the root layout. The tool area stays wrapped in
  * `<ModuleProvider>` so its controls adopt the module hue — silica has no
- * equivalent, so that one `@wizeworks/ui` import stays.
+ * equivalent, so that one `@wizeworksllc/ui` import stays.
  *
  * ## The hero used to pick its color by hashing the URL
  *

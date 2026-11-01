@@ -237,7 +237,7 @@ registered in `catalog/staff.ts`, addressed under `/team/*`. Keys are `staff.peo
    used. Rail label is **"Your team"** — "HR" names a department the audience does not
    have — and the icon is `ContactRound`, deliberately not `Users`, which is Customers.
 
-3. ~~**`@wizeworks/staff`**~~ — **done.** Roster, effective-dated rates, time entries + the
+3. ~~**`@wizeworksllc/staff`**~~ — **done.** Roster, effective-dated rates, time entries + the
    clock, timesheets, shifts, time off, certifications, documents, commissions, and the
    labour deriver. 68 tests.
 
@@ -388,7 +388,7 @@ that nobody got.
 
 **It deliberately does NOT send email, which is a change from what this section used to
 ask for.** The platform already has a shape for this: `emitOverdueTaskReminders` in
-`@wizeworks/crm` publishes an event "so the email automation engine can fire a templated
+`@wizeworksllc/crm` publishes an event "so the email automation engine can fire a templated
 reminder". The reason to follow it rather than hard-code a template is that _who_ should
 hear about a forklift ticket differs per business — the person, their supervisor, a
 compliance mailbox, or a task on a board rather than mail at all — and sparx should not
@@ -399,7 +399,7 @@ nothing, which is the exact bug shape this whole release is about. So the trigge
 registered in the workbench's `TRIGGER_EVENTS` catalog, alongside the other four staff
 events and `finance.expense.recorded`. That required adding `staff` and `finance` to the
 **local** `ModuleSlug` union in `automations-catalog.ts` — a hand-kept list, separate
-from `@wizeworks/modules`, that neither module had ever been added to. **An event a tenant
+from `@wizeworksllc/modules`, that neither module had ever been added to. **An event a tenant
 cannot pick from a list may as well not be published.**
 
 **Invoked for the first time (2026-08-16).** A cron endpoint that has never been called

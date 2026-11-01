@@ -30,7 +30,7 @@
 // below keeps the two apart.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { performanceKeys } from './supplier-performance-data';
 import { plural, type Tone } from './data';

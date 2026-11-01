@@ -15,7 +15,7 @@
 // this and a later refinement — these two properties are what a metric resolver
 // actually needs first, and they cost no new infrastructure.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 // A reporting query that runs longer than this is a bug or an abuse, not a
 // report anyone is waiting on. Milliseconds, per Postgres `statement_timeout`.

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/links",
+  "name": "@wizeworksllc/links",
   "version": "0.0.0",
   "private": true,
   "description": "The one address table. Maps a readable path to a workbench surface and back, so emails, notifications, universal search and the address bar all agree on where a thing lives. Pure data with zero dependencies — importable from a Node service, an edge route, or the browser bundle.",

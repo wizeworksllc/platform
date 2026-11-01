@@ -40,7 +40,7 @@
  * depends on.
  *
  * In practice: take the newest directory name on the base branch and pick a
- * bigger one. `pnpm --filter @wizeworks/db exec prisma migrate dev --create-only`
+ * bigger one. `pnpm --filter @wizeworksllc/db exec prisma migrate dev --create-only`
  * then rename, or author the directory by hand — both are normal here, since
  * the RLS policies are hand-edited SQL that Prisma cannot generate anyway.
  *

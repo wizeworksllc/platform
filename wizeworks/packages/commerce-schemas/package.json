@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/commerce-schemas",
+  "name": "@wizeworksllc/commerce-schemas",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Commerce — Zod input/output schemas shared by REST, MCP, Server Actions, storefront, and B2B portal (docs/09-ecommerce-module-prd.md). Single source of truth for the shape of every Commerce write.",
@@ -21,8 +21,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/crm-schemas": "workspace:*",
-    "@wizeworks/field-schema": "workspace:*",
+    "@wizeworksllc/crm-schemas": "workspace:*",
+    "@wizeworksllc/field-schema": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

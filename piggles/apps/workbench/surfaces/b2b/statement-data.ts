@@ -16,7 +16,7 @@
 // that refreshes the account refreshes its statement with it.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery } from '@wizeworks/query';
+import { useMutation, useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { todayIso } from '../../lib/today';
 import { accountKeys } from './accounts-data';
@@ -26,7 +26,7 @@ import { accountKeys } from './accounts-data';
 export type StatementRowKind = 'invoice' | 'payment' | 'refund' | 'write_off';
 export type StatementAgingKey = 'current' | 'd1_30' | 'd31_60' | 'd61_90' | 'd90_plus';
 
-/** One thing that happened on the account. Mirrors @wizeworks/crm `StatementRow`. */
+/** One thing that happened on the account. Mirrors @wizeworksllc/crm `StatementRow`. */
 export interface StatementRow {
   kind: StatementRowKind;
   at: string;

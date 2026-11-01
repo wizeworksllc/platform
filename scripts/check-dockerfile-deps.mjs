@@ -8,8 +8,8 @@
 // whole workspace into every app image is what took a release generation to ~18 GB.
 // The hand-written list is
 // the price of that, and a hand-written list drifts the moment a new package appears:
-// `@wizeworks/field-schema` landed under commerce-schemas and cms-schemas, both apps' images
-// were built without it, and `Module not found: Can't resolve '@wizeworks/field-schema'` came
+// `@wizeworksllc/field-schema` landed under commerce-schemas and cms-schemas, both apps' images
+// were built without it, and `Module not found: Can't resolve '@wizeworksllc/field-schema'` came
 // back three minutes into the release — for a fact that was knowable from two package.json
 // files before the push.
 //
@@ -153,7 +153,7 @@ for (const { dir, text } of targets) {
   // Both PREFIXES are read, and they are kept apart. `sparx/packages/ui` and
   // `piggles/packages/brand` are different packages that happen to share a
   // shape, and a Piggles image needs `sparx/packages/brand` (sparx's tokens, pulled in
-  // through @wizeworks/ui) AND `piggles/packages/brand` (its own) — matching on the
+  // through @wizeworksllc/ui) AND `piggles/packages/brand` (its own) — matching on the
   // slug alone would let either one satisfy the other and pass an image that
   // cannot build.
   const copied = (pattern) => new Set([...text.matchAll(pattern)].map((m) => m[1] + '/' + m[2]));

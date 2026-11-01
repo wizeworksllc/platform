@@ -3,7 +3,7 @@
 // (22021) and the request became a 500. The guard stops it before the route.
 
 import Fastify from 'fastify';
-import { createErrorsPlugin } from '@wizeworks/api-core/errors-plugin';
+import { createErrorsPlugin } from '@wizeworksllc/api-core/errors-plugin';
 import { describe, expect, it, vi } from 'vitest';
 import nulGuard, { hasNulByte } from './nul-guard.js';
 

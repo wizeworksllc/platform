@@ -15,9 +15,9 @@
 // outbound is the idempotent iCalUID import.
 
 import type { FastifyBaseLogger } from 'fastify';
-import { badRequest } from '@wizeworks/api-core/errors';
-import type { CalendarConnection } from '@wizeworks/db';
-import type { StartCalendarOAuthInput } from '@wizeworks/scheduling-schemas';
+import { badRequest } from '@wizeworksllc/api-core/errors';
+import type { CalendarConnection } from '@wizeworksllc/db';
+import type { StartCalendarOAuthInput } from '@wizeworksllc/scheduling-schemas';
 import {
   buildCalendarAuthorizeUrl,
   buildGoogleImportEvent,
@@ -29,7 +29,7 @@ import {
   updateConnectionSyncState,
   type BusyWindow,
   type CalendarOAuthProvider,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { env } from '../env.js';
 import { encryptCalendarSecret, isCalendarCryptoConfigured } from './scheduling-calendar-crypto.js';

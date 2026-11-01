@@ -29,12 +29,12 @@ const config = {
   // No `X-Powered-By: Next.js`: it tells a scanner which exploits to try.
   poweredByHeader: false,
   transpilePackages: [
-    '@wizeworks/app-kit',
-    '@wizeworks/ui',
+    '@wizeworksllc/app-kit',
+    '@wizeworksllc/ui',
     '@sparx/brand',
-    '@wizeworks/forms',
-    '@wizeworks/chat-widget',
-    '@wizeworks/story-schemas',
+    '@wizeworksllc/forms',
+    '@wizeworksllc/chat-widget',
+    '@wizeworksllc/story-schemas',
     '@wizeworks/silicaui-react',
   ],
   typedRoutes: true,
@@ -44,7 +44,7 @@ const config = {
   // node_modules and a server.js entrypoint.
   output: 'standalone',
   // Monorepo: tell Next.js to trace files starting at the repo root so
-  // workspace deps (@wizeworks/ui) are included in the standalone bundle.
+  // workspace deps (@wizeworksllc/ui) are included in the standalone bundle.
   outputFileTracingRoot: join(__dirname, '../../../'),
   async headers() {
     return [

@@ -23,7 +23,7 @@ re-litigate):
 - **Buyer location is a typed ZIP first**, geolocation is an optional primed enhancement, every feature
   works from a typed ZIP, coarse-only persistence (D3).
 - **Hard radius** (D4); **list-first, map is a later toggle** (D5).
-- **Fulfillment primitives live in `@wizeworks/commerce`** (reusable by the tenant storefront _and_
+- **Fulfillment primitives live in `@wizeworksllc/commerce`** (reusable by the tenant storefront _and_
   sparx.market); discovery/directory/events live in the market layer (D6).
 - **No new billing module** — local is a capability of sparx.market participation + the Commerce module
   (D7).
@@ -64,12 +64,12 @@ The P5 sparx.market spine is **built and deployed**; this completes it, it doesn
 ```
 @sparx/geo                NEW — geocoding provider seam + ZCTA centroid table + distance/units helpers.
    ├─ depends on: nothing heavy (fetch + a bundled ZCTA dataset); server-safe, acyclic.
-   └─ consumed by: @wizeworks/commerce (projection geocode-on-save), api-rest (address validation).
-@wizeworks/commerce           EXTENDED — local-fulfillment primitives (pickup locations, delivery zones,
+   └─ consumed by: @wizeworksllc/commerce (projection geocode-on-save), api-rest (address validation).
+@wizeworksllc/commerce           EXTENDED — local-fulfillment primitives (pickup locations, delivery zones,
                           fulfillment-method) in the COMMERCE layer (reusable by storefront + market);
                           market services gain geo browse + events.
-@wizeworks/commerce-schemas   EXTENDED — Zod for location, pickup, delivery-zone, fulfillment-method, events.
-@wizeworks/db                 EXTENDED — schema + the hand-SQL PostGIS/RLS migrations.
+@wizeworksllc/commerce-schemas   EXTENDED — Zod for location, pickup, delivery-zone, fulfillment-method, events.
+@wizeworksllc/db                 EXTENDED — schema + the hand-SQL PostGIS/RLS migrations.
 sparx/apps/market               EXTENDED — location chip, local browse, checkout fork, event surfaces.
 wizeworks/apps/site                 EXTENDED (P2) — reuse the commerce pickup/delivery primitives at storefront checkout.
 apps/dashboard            EXTENDED — Settings → Market: location, pickup, delivery zones, appearances.
@@ -77,11 +77,11 @@ apps/dashboard            EXTENDED — Settings → Market: location, pickup, de
 
 `@sparx/geo` is a **new workspace package** → it must be wired into the Dockerfile transitive closure of
 **every** consumer (api-rest, commerce-indexer, dashboard, api-mcp, import-worker — anything that pulls
-`@wizeworks/commerce`). See [§5 footgun #4](#5-footguns).
+`@wizeworksllc/commerce`). See [§5 footgun #4](#5-footguns).
 
 ### 2.2 The two layers (D6)
 
-- **Commerce primitives** (`@wizeworks/commerce` + `schema/27`,`44`-adjacent + Order): `fulfillmentMethod`,
+- **Commerce primitives** (`@wizeworksllc/commerce` + `schema/27`,`44`-adjacent + Order): `fulfillmentMethod`,
   `MarketPickupLocation`, `MarketDeliveryZone`, zone-matching, slot computation. Channel-agnostic.
 - **Marketplace geo** (`market/*` services + `sparx/apps/market`): the global `MarketMerchant.geo` projection,
   cross-tenant radius browse, `MarketEvent` directory, "near me"/city surfaces. sparx.market-specific.
@@ -160,7 +160,7 @@ _Goal: coordinates exist, are indexed, and refresh on save. No buyer-visible cha
 
 _Goal: a buyer can browse "shops/products near me"._
 
-- **S1.1** `@wizeworks/commerce-schemas`: extend `MarketBrowseQuery` with `nearLat`,`nearLng`,`radiusMeters`
+- **S1.1** `@wizeworksllc/commerce-schemas`: extend `MarketBrowseQuery` with `nearLat`,`nearLng`,`radiusMeters`
   (+ a `near` ZIP that resolves server-side via `@sparx/geo`). Hard-radius semantics.
 - **S1.2** `browse.ts`: compose `ST_DWithin(geo, :pt, :radius)` into the existing `$queryRaw` WHERE and
   add a `nearest` sort (`ORDER BY ST_Distance(...)`), returning `meters` for the card. `listMerchants`
@@ -183,7 +183,7 @@ _Goal: a nearby order can be picked up or locally delivered, in market AND on th
   `market_pickup_locations` + `market_delivery_zones` (FORCE RLS) with generated `geo` on pickup
   locations. (Naming note: these live in the commerce/market layer but are reusable primitives — see
   D6; keep the table prefix consistent with the migration.)
-- **S2.2** `@wizeworks/commerce` primitives: pickup-location CRUD + slot computation (`hours` +
+- **S2.2** `@wizeworksllc/commerce` primitives: pickup-location CRUD + slot computation (`hours` +
   `prep_lead_minutes`); delivery-zone CRUD + **`resolveDeliveryZone(address)`** (radius via `ST_DWithin`
   or postal-list match → fee/minimum/tier). Channel-agnostic service functions.
 - **S2.3** **Checkout fork** ([checkout-service.ts](../packages/commerce/src/services/checkout-service.ts)):
@@ -209,7 +209,7 @@ _Goal: discover markets near me, see which shops attend, pre-order for pickup-at
 - **S3.1** Schema: **NEW** global `market_events` + `market_event_occurrences` (admin/system write,
   cross-tenant read; generated `geo` on events) + tenant `market_merchant_appearances` (FORCE RLS) +
   its global projected read row.
-- **S3.2** `@wizeworks/commerce` market services: event directory reads (events near me + occurrences),
+- **S3.2** `@wizeworksllc/commerce` market services: event directory reads (events near me + occurrences),
   appearance CRUD, projection of appearances to the global read row.
 - **S3.3** `market_pickup` fulfillment method: at checkout, reserve for pickup at an occurrence (ties
   `OrderFulfillment.event_occurrence_id`); MoR charge/hold.
@@ -259,7 +259,7 @@ stays first-class.
    `@sparx/geo` seam must make the provider choice explicit, not incidental.
 4. **`@sparx/geo` Dockerfile transitive closure.** New workspace package → add its `COPY` to **every**
    consumer Dockerfile, direct and transitive (api-rest, commerce-indexer, dashboard, api-mcp,
-   import-worker — anything pulling `@wizeworks/commerce`). A missing COPY is an ESM boot crash that
+   import-worker — anything pulling `@wizeworksllc/commerce`). A missing COPY is an ESM boot crash that
    typecheck/lint won't catch ([new-workspace-package skill](../.claude/skills/new-workspace-package/SKILL.md)).
 5. **RLS on the new tables.** Tenant-truth tables (`market_pickup_locations`, `market_delivery_zones`,
    `market_merchant_appearances`) get `ENABLE`+`FORCE`+`tenant_isolation` (hand-SQL). Global directory

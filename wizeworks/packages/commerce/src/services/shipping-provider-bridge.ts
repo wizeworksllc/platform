@@ -4,21 +4,21 @@
 // only compute manual zone/rate-band prices and never consulted the
 // provider registry at all.
 
-import type { Carrier } from '@wizeworks/crm-schemas';
-import { orderFulfillmentsService } from '@wizeworks/crm';
-import type { RateOption, ShipmentRequest } from '@wizeworks/commerce-schemas';
+import type { Carrier } from '@wizeworksllc/crm-schemas';
+import { orderFulfillmentsService } from '@wizeworksllc/crm';
+import type { RateOption, ShipmentRequest } from '@wizeworksllc/commerce-schemas';
 import {
   getProvider,
   ProviderConfigurationError,
   ProviderHardError,
   ProviderTransientError,
   ProviderUnsupportedError,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 import type {
   ProviderRunContext,
   ShippingLabel,
   ShippingProvider,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 
 import { CommerceProviderError, CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

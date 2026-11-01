@@ -2,19 +2,19 @@
 // product + its variants/images/inventory (docs/106 §4.2). Pure read — the worker
 // owns every DB write elsewhere.
 //
-// Two trivial pure helpers are INLINED here rather than dragging @wizeworks/inventory
-// and @wizeworks/commerce (and their transitive closures) into a lean sync worker —
+// Two trivial pure helpers are INLINED here rather than dragging @wizeworksllc/inventory
+// and @wizeworksllc/commerce (and their transitive closures) into a lean sync worker —
 // each carries a pointer comment to its source of truth:
-//   - sellable(): the canonical availability rule (@wizeworks/inventory
+//   - sellable(): the canonical availability rule (@wizeworksllc/inventory
 //     services/availability.ts — Σ max(0, onHand − allocated − safetyBuffer)); a
 //     variant with NO stock rows is untracked → treated as in stock.
-//   - mediaUrl(): the MediaAsset key → absolute URL prefix (@wizeworks/commerce
+//   - mediaUrl(): the MediaAsset key → absolute URL prefix (@wizeworksllc/commerce
 //     media-url.ts — verbatim for hot-linked http keys, else CDN/bucket prefix).
 
 import type { Logger } from 'pino';
-import { withTenant } from '@wizeworks/db';
-import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworks/db/site-origin';
-import type { ChannelProductInput, ChannelProductVariantInput } from '@wizeworks/channels';
+import { withTenant } from '@wizeworksllc/db';
+import { resolveSiteOrigin, siteShowingRow, siteUrl } from '@wizeworksllc/db/site-origin';
+import type { ChannelProductInput, ChannelProductVariantInput } from '@wizeworksllc/channels';
 
 // ── THE PRODUCT PAGE A CHANNEL SENDS SHOPPERS TO ───────────────────────────
 //
@@ -52,7 +52,7 @@ interface LevelLite {
 
 /** Sellable units across warehouses, net of the safety buffer. `null` when the
  *  variant has no stock rows (untracked → unbounded supply → in stock). Mirror of
- *  @wizeworks/inventory computeAvailability. */
+ *  @wizeworksllc/inventory computeAvailability. */
 function sellable(levels: LevelLite[]): number | null {
   if (levels.length === 0) return null;
   return levels.reduce(

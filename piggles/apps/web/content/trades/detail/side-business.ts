@@ -3,7 +3,7 @@ import type { TradePage } from '../types';
 // The deeper half of /for/side-business. Every capability below is one
 // content/apps/*.ts already states. `switching` was checked against the console's
 // Move in screen (piggles/apps/workbench/surfaces/migration) and the Etsy adapter in
-// @wizeworks/migration: listings and sold orders import, the buyer list is rebuilt
+// @wizeworksllc/migration: listings and sold orders import, the buyer list is rebuilt
 // from the orders file, and stock needs a once-over because Etsy counts per listing.
 // The site's design does not travel, and the copy says so. `cost` answers the
 // honest question first: $99 may be too early for a hobby.

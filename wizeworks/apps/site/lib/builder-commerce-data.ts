@@ -17,9 +17,9 @@ import {
   entityPinKey,
   type BuilderNode,
   type DataSources,
-} from '@wizeworks/builder-schemas';
-import type { BuilderProduct } from '@wizeworks/builder-render';
-import { plainText } from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/builder-schemas';
+import type { BuilderProduct } from '@wizeworksllc/builder-render';
+import { plainText } from '@wizeworksllc/commerce-schemas';
 
 import {
   getCategoryRecordsFull,

@@ -15,7 +15,7 @@ import { RefreshButton } from '../../components/refresh-button';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
 import { entityLabel, runTone, useMigrationRuns, type RunSummary } from './data';
 import { landedBreakdown } from './run-outcome';
-import { getVendor, type CanonicalEntity } from '@wizeworks/migration';
+import { getVendor, type CanonicalEntity } from '@wizeworksllc/migration';
 
 /** Registry module for this pane, so the brand draws the right picture in the
  *  empty and waiting states rather than the generic one. */

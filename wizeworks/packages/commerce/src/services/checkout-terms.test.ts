@@ -2,7 +2,7 @@
 //
 // The rule for WHETHER an order may go on terms at all (account standing, the
 // credit limit, and that an order past the limit waits for sign-off rather than
-// being refused) moved to `@wizeworks/crm`'s account-order-gate, because an
+// being refused) moved to `@wizeworksllc/crm`'s account-order-gate, because an
 // accepted quote has to ask the same question (sparx persona issue 085). Its
 // tests are in wizeworks/packages/crm/test/unit/account-order-gate.test.ts.
 

@@ -60,13 +60,13 @@ Every daily money figure is now filed on the business's own calendar day, read f
 `tenant_businesses.timezone`. A business with no zone (or one the runtime does not
 know) keeps UTC, exactly as before.
 
-- One shared set of day helpers, in `@wizeworks/time` (`src/business-day.ts`), built on
+- One shared set of day helpers, in `@wizeworksllc/time` (`src/business-day.ts`), built on
   the zone math that package already had: `businessDateKey` (the shop's day of a
   moment), `businessDayRange` / `businessDayStart` (the shop's midnight to midnight, as
   moments; 25 hours on the day the clocks go back), `rangeDayKey` (a report's range
   end: a date such as `2026-10-01` or midnight UTC is that date as written, any other
   moment is the shop's day of it), and `calendarZone` (the zone, or UTC). Finance now
-  depends on `@wizeworks/time` (package.json and the lockfile entry).
+  depends on `@wizeworksllc/time` (package.json and the lockfile entry).
 - `commerce/src/services/reporting-service.ts`: the revenue rollup, its live overlay
   and its cold start file each sale on the shop's day of `placed_at`; the range ends
   and "today" are the shop's days; the nightly reconcile's window starts on the shop's

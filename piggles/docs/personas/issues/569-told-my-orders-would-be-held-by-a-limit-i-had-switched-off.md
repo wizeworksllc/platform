@@ -166,7 +166,7 @@ Verified on screen: the rule now reads **Over $5,000.00**.
 ## Still open
 
 **`b2b/approval.ts` builds its own formatter** rather than importing the
-commerce one. `@wizeworks/b2b` does not depend on `@wizeworks/commerce` and
+commerce one. `@wizeworksllc/b2b` does not depend on `@wizeworksllc/commerce` and
 adding the dependency needs a `pnpm install`, which is the user's to run. Both
 are three lines of `Intl.NumberFormat` against the same standard API, so the
 duplication is a standard call rather than a house rule in two places — but a

@@ -7,15 +7,15 @@
 // error`, raises `calendar.sync_failed`, and the resource simply falls back to
 // sparx-only data — a stale feed never weakens the DB-level no-overlap guard (§8.4).
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import {
   getCalendarConnection,
   parseBusyIntervals,
   replaceExternalBusyBlocks,
   updateConnectionSyncState,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { decryptCalendarSecret, isCalendarCryptoConfigured } from './scheduling-calendar-crypto.js';
 import { publishBookingEvent } from './scheduling-events.js';

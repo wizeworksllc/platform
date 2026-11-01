@@ -3,7 +3,7 @@
 **Status:** fixed
 **Severity:** major
 **Found by:** P01 · Gillett Diesel Service · act 10 (the overdue reminder)
-**Surface:** every scheduled automation ("Every day at 6:00pm", "Every Tuesday at …"); the scheduler in `@wizeworks/automation`
+**Surface:** every scheduled automation ("Every day at 6:00pm", "Every Tuesday at …"); the scheduler in `@wizeworksllc/automation`
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P01, 2026-10-06
@@ -43,7 +43,7 @@ Every notice to a customer goes out twice, and the second copy counts the days d
 ## The fix
 
 - `automation/src/engine/schedule-tick.ts`: a daily, weekly or monthly rule is due and keyed on the BUSINESS's clock (`businessClockAt`, from `tenant_businesses.timezone`). Its time is the stored UTC minute plus today's offset, which is what the screen prints; the weekday and day of the month are the ones the owner picked. "Once a day" is once per business date. A business with no zone, or a zone the runtime does not know, keeps UTC exactly as before. Interval rules are unchanged.
-- The clock math is the shared `@wizeworks/time` package (now a dependency of `@wizeworks/automation`: package.json, lockfile entry, and the workspace link pnpm would make).
+- The clock math is the shared `@wizeworksllc/time` package (now a dependency of `@wizeworksllc/automation`: package.json, lockfile entry, and the workspace link pnpm would make).
 
 What this changes for Gillett: his daily rules run once a day from 6:00pm Denver time, as the screen says, not from midnight. A late bill raised at 10am is put on credit hold at 6pm the same day, not within the minute (the timing [101] recorded).
 

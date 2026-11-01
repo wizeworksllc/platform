@@ -10,10 +10,10 @@
 // Commerce tables carry integer cents. Reports surface integer cents
 // consistently so the dashboard doesn't have to juggle two formats.
 
-import { Prisma, withTenant, type TxClient } from '@wizeworks/db';
-import { coresOwed } from '@wizeworks/commerce-schemas';
-import { businessTimeZone } from '@wizeworks/crm';
-import { ORDER_CHANNEL_BUCKETS, channelKeyLabel, deriveChannelKey } from '@wizeworks/crm-schemas';
+import { Prisma, withTenant, type TxClient } from '@wizeworksllc/db';
+import { coresOwed } from '@wizeworksllc/commerce-schemas';
+import { businessTimeZone } from '@wizeworksllc/crm';
+import { ORDER_CHANNEL_BUCKETS, channelKeyLabel, deriveChannelKey } from '@wizeworksllc/crm-schemas';
 import {
   businessDateKey,
   businessDayKeyer,
@@ -21,7 +21,7 @@ import {
   calendarZone,
   dateOfKey,
   rangeDayKey,
-} from '@wizeworks/time';
+} from '@wizeworksllc/time';
 
 import type { ServiceContext } from '../errors';
 import { CUSTOMER_NAME_SELECT, customerDisplayName } from './customer-name';

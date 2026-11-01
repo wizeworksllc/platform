@@ -9,7 +9,7 @@
 
 import type { Logger } from 'pino';
 import { z } from 'zod';
-import { seedLegalPages, type SeedResult } from '@wizeworks/legal-seed';
+import { seedLegalPages, type SeedResult } from '@wizeworksllc/legal-seed';
 
 const TenantCreatedEvent = z.object({
   type: z.literal('tenant.created'),

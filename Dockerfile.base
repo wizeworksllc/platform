@@ -108,12 +108,12 @@ COPY --chown=node:node marketplace-catalog ./marketplace-catalog
 # needs. `{...}` is pnpm's filter-by-DIRECTORY syntax and the trailing `...` is
 # its dependency-closure suffix, so this is the union of what all seventeen
 # images used to install separately — installed once. Verified to select 77
-# packages including @wizeworks/db and NONE of the Next.js apps.
+# packages including @wizeworksllc/db and NONE of the Next.js apps.
 #
-# @wizeworks/db is named explicitly as well: the migration runner image is built
+# @wizeworksllc/db is named explicitly as well: the migration runner image is built
 # from this base and needs it even though nothing under services/ would be
 # required to depend on it forever.
-RUN pnpm install --filter "{./wizeworks/services/*}..." --filter "@wizeworks/db..." \
+RUN pnpm install --filter "{./wizeworks/services/*}..." --filter "@wizeworksllc/db..." \
     --frozen-lockfile --prod=false
 
 # Pre-generate the Prisma client so no service pays for it on first request.

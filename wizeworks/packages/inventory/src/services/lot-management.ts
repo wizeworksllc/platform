@@ -5,9 +5,9 @@
 // changes, and clearing a recall. Lot/serial quantities are traceability
 // metadata; authoritative on-hand stays on the (variant, warehouse) level.
 
-import { UpdateSerialStatusInput } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
+import { UpdateSerialStatusInput } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { InventoryConflictError, InventoryNotFoundError } from '../errors';

@@ -7,7 +7,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import { addToRoster, renameOnRoster } from './roster';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 interface Person {
   id: string;

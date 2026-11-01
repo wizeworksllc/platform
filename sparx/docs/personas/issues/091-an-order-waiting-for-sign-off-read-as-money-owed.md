@@ -37,14 +37,14 @@ It says something false about money. "Make an invoice" and "Write it down" are o
 
 ## Where it lives
 
-- `isOwingOrder` and `OWING_ORDER_WHERE` (`@wizeworks/crm-schemas`, `crm/order-service.ts`): only canceled and refunded were "not collectable". `pending_approval` is not even in `OrderStatus`; the sign-off gate in `@wizeworks/b2b` stores it.
+- `isOwingOrder` and `OWING_ORDER_WHERE` (`@wizeworksllc/crm-schemas`, `crm/order-service.ts`): only canceled and refunded were "not collectable". `pending_approval` is not even in `OrderStatus`; the sign-off gate in `@wizeworksllc/b2b` stores it.
 - `amountDue` (sparx `surfaces/commerce/data.ts`, piggles `order-format.ts`) drove the yellow box and the payment box.
 - `reasonNotToAsk` (both consoles) drove "Make an invoice".
 - The cancel box counted lines, not pieces. The Collection line had one past-tense sentence for every finished state.
 
 ## The fix
 
-- `HELD_FOR_SIGN_OFF_STATUS` in `@wizeworks/crm-schemas`, one name for the stored word. `isOwingOrder`, the database query and both consoles' `amountDue` treat it as owing nothing.
+- `HELD_FOR_SIGN_OFF_STATUS` in `@wizeworksllc/crm-schemas`, one name for the stored word. `isOwingOrder`, the database query and both consoles' `amountDue` treat it as owing nothing.
 - "Asking for payment" on a held order: "This order is waiting for sign-off, so there is nothing to ask for yet."
 - The cancel box counts pieces: "2 items worth $4,758.30".
 - `collectedWords` and `nothingHandedOverWords`: a canceled order reads "This order was canceled, so there is nothing to collect." and "Nothing was collected."; a refunded one says it was refunded before anyone collected it; "They picked this up." only when something was handed over.

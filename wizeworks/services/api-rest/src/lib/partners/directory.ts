@@ -4,8 +4,8 @@
 // active/published rows. Facet algebra is in-memory (the catalog is small, like
 // the marketplace); the response shape is stable for a future search backend.
 
-import { withSystem } from '@wizeworks/db';
-import { BootcampDirectoryQuery, PartnerDirectoryQuery } from '@wizeworks/partner-schemas';
+import { withSystem } from '@wizeworksllc/db';
+import { BootcampDirectoryQuery, PartnerDirectoryQuery } from '@wizeworksllc/partner-schemas';
 
 const TIER_ORDER: Record<string, number> = { certified: 0, registered: 1, informal: 2 };
 

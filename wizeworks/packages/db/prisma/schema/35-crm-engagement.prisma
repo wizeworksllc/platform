@@ -200,7 +200,7 @@ model SalesTemplate {
   folder  String? @db.VarChar(120)
   subject String  @db.VarChar(998)
 
-  /// Composed from @wizeworks/email's atomic components on render, not raw markup —
+  /// Composed from @wizeworksllc/email's atomic components on render, not raw markup —
   /// the same rule every transactional template follows (root CLAUDE.md).
   bodyHtml String @map("body_html") @db.Text
 

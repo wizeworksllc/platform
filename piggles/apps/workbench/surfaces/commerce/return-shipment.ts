@@ -2,7 +2,7 @@
 // have a parcel going each way in one list, told apart only by `direction`, so
 // every question here names which parcel it means. Pure, so it is tested.
 
-import { carrierLabel } from '@wizeworks/commerce-schemas';
+import { carrierLabel } from '@wizeworksllc/commerce-schemas';
 
 import type { SettleExchangeBody } from './returns-data';
 import type { ReplacementShipmentBody, ReturnLabelRecord } from './returns-types';

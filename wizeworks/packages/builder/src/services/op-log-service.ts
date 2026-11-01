@@ -15,8 +15,8 @@
 // It does NOT yet drive reads: `silica_draft_tree` remains the authoritative snapshot
 // (docs/126 §5.5). Replaying ops onto a snapshot is a later cutover, not folded in here.
 
-import type { BuilderOpEnvelope } from '@wizeworks/builder-schemas';
-import type { Prisma, TxClient } from '@wizeworks/db';
+import type { BuilderOpEnvelope } from '@wizeworksllc/builder-schemas';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import type { PropertyContext } from '../errors';
 

@@ -1,4 +1,4 @@
-// Module-color helpers for the story's bespoke tokens. We mirror the @wizeworks/ui module
+// Module-color helpers for the story's bespoke tokens. We mirror the @wizeworksllc/ui module
 // recipe inline (tint = 14% into transparent, ink = ~58% toward text) off the
 // `--color-module-<key>` token, so a clause chip wears its module's hue and stays
 // theme-aware without wrapping each inline word in a ModuleProvider. Shared so the

@@ -202,7 +202,7 @@ export interface ExampleB2b {
  * `percentage_markup`/`multiplier`/`flat_markup`/`fixed_margin` pricing rules,
  * the submitted → shipped → delivered routed-order status, the per-supplier
  * profitability table cost/revenue/profit/margin) — see docs/14 (Dropship PRD),
- * `@wizeworks/dropship`, and the apps/dashboard dropship module. Dropship works
+ * `@wizeworksllc/dropship`, and the apps/dashboard dropship module. Dropship works
  * alongside Commerce: imported products land in your catalog, and the orders
  * your store takes route automatically back to the right supplier.
  */

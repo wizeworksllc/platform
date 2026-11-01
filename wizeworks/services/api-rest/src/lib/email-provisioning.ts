@@ -8,23 +8,23 @@
 // Different tables, same event, so the two writers never collide.
 //
 // Runs in THIS api-rest process against the same in-process platform bus the CRM
-// activation consumers use (registry.ts) — NOT inside @wizeworks/crm, which would
+// activation consumers use (registry.ts) — NOT inside @wizeworksllc/crm, which would
 // force a crm→builder package dependency. publishPlatformEvent awaits every
 // subscriber, so the seed completes before the tenant-module route returns (no
 // separate /bootstrap round-trip). provisionDefaultEmails is idempotent — only
 // the missing keys are created — so a re-activation or duplicate event is a safe
 // no-op.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
-import { emailService } from '@wizeworks/builder';
-import { getPlatformBus, type PlatformEvent } from '@wizeworks/crm';
-import { prisma } from '@wizeworks/db';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
+import { emailService } from '@wizeworksllc/builder';
+import { getPlatformBus, type PlatformEvent } from '@wizeworksllc/crm';
+import { prisma } from '@wizeworksllc/db';
 import type { FastifyBaseLogger } from 'fastify';
 
 /** Subscribe the default-email provisioner to `module.activated`. Returns the
  *  unsubscribe handle (api-rest holds it for the process lifetime; tests drop it
- *  on teardown). Mirrors registerModuleActivationConsumers in @wizeworks/crm, but
- *  lives here to keep @wizeworks/crm free of a @wizeworks/builder dependency. */
+ *  on teardown). Mirrors registerModuleActivationConsumers in @wizeworksllc/crm, but
+ *  lives here to keep @wizeworksllc/crm free of a @wizeworksllc/builder dependency. */
 export function registerEmailProvisioningConsumer(): () => void {
   const bus = getPlatformBus();
   return bus.subscribe('module.activated', async (event: PlatformEvent) => {
@@ -44,7 +44,7 @@ export function registerEmailProvisioningConsumer(): () => void {
 // module` SECURITY DEFINER scan the automation-seed reconcile uses, and
 // idempotently re-provisions each (provisionDefaultEmails creates only the
 // missing keys). The provisioning half is here, not in the lean automation-worker,
-// because it needs @wizeworks/builder's emailService (absent from that image).
+// because it needs @wizeworksllc/builder's emailService (absent from that image).
 
 const EMAIL_PROVISIONING_RECONCILE_LOCK_KEY = ADVISORY_LOCKS.EMAIL_PROVISIONING_RECONCILE;
 // Every 6h — a generous self-heal cadence: activation already provisions

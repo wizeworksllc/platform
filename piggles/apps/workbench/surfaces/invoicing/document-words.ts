@@ -8,11 +8,11 @@
 // a billing document; on screen it is a quote, and the screen is what she reads.
 //
 // The RULE (which workflows hold an offer rather than a bill, and what each is
-// called) lives once, in @wizeworks/crm-schemas, because the renderer that
+// called) lives once, in @wizeworksllc/crm-schemas, because the renderer that
 // prints the page a customer receives has to agree with this screen. This file
 // only adds the console's own phrasing on top.
 
-import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworks/crm-schemas/builtins';
+import { billingDocumentNoun, isPriceOfferWorkflow } from '@wizeworksllc/crm-schemas/builtins';
 
 /**
  * Is this document an offer of a price, rather than a demand for money?

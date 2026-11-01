@@ -30,9 +30,9 @@ import {
   engagementService,
   segmentService,
   taskService,
-} from '@wizeworks/crm/services';
-import type { ActionOutput, EffectInput, TenantCtx } from '@wizeworks/automation';
-import { registerAction } from '@wizeworks/automation';
+} from '@wizeworksllc/crm/services';
+import type { ActionOutput, EffectInput, TenantCtx } from '@wizeworksllc/automation';
+import { registerAction } from '@wizeworksllc/automation';
 import { z } from 'zod';
 
 import {

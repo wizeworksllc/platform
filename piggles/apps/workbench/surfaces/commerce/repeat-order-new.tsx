@@ -22,7 +22,7 @@
 // the phone. So this one bills each delivery, which is what a shop that agreed
 // a repeat order over the counter actually does.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useState } from 'react';
 import {
   Alert,

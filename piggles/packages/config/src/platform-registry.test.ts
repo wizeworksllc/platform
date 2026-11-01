@@ -1,7 +1,7 @@
 // What the platform holds about Piggles must equal what Piggles says.
 //
 // The platform keeps Piggles' billing plan and drawn logo in
-// @wizeworks/brand-registry, because api-rest and the site renderer serve every
+// @wizeworksllc/brand-registry, because api-rest and the site renderer serve every
 // brand and may not import Piggles' code. That is a second copy of each fact,
 // and both drift silently: a price change here and not there quotes $99 while
 // Stripe charges something else, and a re-drawn logo here and not there puts
@@ -19,7 +19,7 @@ import { PRICE_LABEL, PRICE_MONTHLY } from './pricing';
 
 const require = createRequire(import.meta.url);
 const registry = (file: string): unknown =>
-  JSON.parse(readFileSync(require.resolve(`@wizeworks/brand-registry/piggles/${file}`), 'utf8'));
+  JSON.parse(readFileSync(require.resolve(`@wizeworksllc/brand-registry/piggles/${file}`), 'utf8'));
 
 describe('the platform brand registry', () => {
   it('bills the price Piggles quotes', () => {

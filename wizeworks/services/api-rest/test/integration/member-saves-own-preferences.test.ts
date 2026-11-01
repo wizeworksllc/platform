@@ -9,7 +9,7 @@
 // read) and not writable (sparx persona issue 122).
 
 import { describe, expect, it } from 'vitest';
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 import { createApp } from '../../src/app.js';
 import { authHeader, createTestTenant, dropTestTenant, signToken } from '../helpers.js';
 

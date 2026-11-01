@@ -16,10 +16,10 @@
 //
 // Everything else is measured, not chosen.
 
-import { UpdatePlanningPolicyInput } from '@wizeworks/commerce-schemas';
-import type { ServiceLevel } from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { UpdatePlanningPolicyInput } from '@wizeworksllc/commerce-schemas';
+import type { ServiceLevel } from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

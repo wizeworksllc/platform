@@ -75,7 +75,7 @@ function textField(label: string, name: string, placeholder = ''): Node {
  *
  *  `contact` reaches the Form submissions inbox; `email-signup` adds the address to the
  *  email list. Routed in `apps/site/components/silica-behaviors.tsx`, and `contact` is
- *  the contract named by `@wizeworks/builder-schemas`' `SILICA_FORM_ACTION` — spelled
+ *  the contract named by `@wizeworksllc/builder-schemas`' `SILICA_FORM_ACTION` — spelled
  *  out rather than imported because this package sits UNDER both of them. */
 type FormAction = 'contact' | 'email-signup';
 

@@ -6,7 +6,7 @@
 // A connection's credential columns are opaque ciphertext bundles supplied by the
 // caller (already encrypted) or null; this layer never sees plaintext secrets.
 
-import { withTenant, type CalendarConnection, type TxClient } from '@wizeworks/db';
+import { withTenant, type CalendarConnection, type TxClient } from '@wizeworksllc/db';
 
 import { CalendarConnectionNotFoundError, ResourceNotFoundError } from './errors';
 import type { Interval } from './time';

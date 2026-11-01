@@ -9,7 +9,7 @@
 // what a buyer pays today against what they will pay after. That comparison is
 // the point of the screen, and it lives here so it is tested rather than eyeballed.
 
-import type { CoreChoiceCandidate } from '@wizeworks/commerce-schemas';
+import type { CoreChoiceCandidate } from '@wizeworksllc/commerce-schemas';
 import { formatMoney } from './data';
 
 /** What the owner has typed on one row. Money in cents; undefined = blank. */

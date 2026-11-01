@@ -15,7 +15,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 
-import { commerceSchedulers, marketService } from '@wizeworks/commerce';
+import { commerceSchedulers, marketService } from '@wizeworksllc/commerce';
 
 import { env } from '../../env.js';
 

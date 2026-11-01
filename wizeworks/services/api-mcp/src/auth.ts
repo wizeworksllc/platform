@@ -5,13 +5,13 @@
 //      role + optional `scopes`).
 //
 //   2. External API key — `Bearer sk_live_<8>_<32>`. Issued by the AI
-//      Integrations dashboard, verified via @wizeworks/auth/api-keys. Scopes
+//      Integrations dashboard, verified via @wizeworksllc/auth/api-keys. Scopes
 //      come from the key row; role is fixed as 'api'.
 //
 //   3. OAuth access token — minted by the brand's authorization server when an
 //      assistant connects itself (Claude, ChatGPT). A signed `at+jwt`, checked
 //      against that brand's issuer and this server's resource identifier for
-//      the host the request arrived on (@wizeworks/auth/mcp-oauth).
+//      the host the request arrived on (@wizeworksllc/auth/mcp-oauth).
 //
 // In both cases the tenant must have the `ai` MODULE active. sparx is
 // module-based (a tenant pays per module, not per plan tier) — MCP / the AI
@@ -27,15 +27,15 @@ import {
   verifyApiKey,
   verifyMcpOAuthToken,
   type McpBusinessScope,
-} from '@wizeworks/auth';
-import { mcpAuthServerOrigin, mcpResourceUrl } from '@wizeworks/links/server';
+} from '@wizeworksllc/auth';
+import { mcpAuthServerOrigin, mcpResourceUrl } from '@wizeworksllc/links/server';
 import { env } from './env.js';
 import { brandForRequest } from './oauth-metadata.js';
 import { wizelens } from './wizelens.js';
 
 export type StaffRole = 'owner' | 'admin' | 'editor' | 'viewer' | 'api';
 
-// Platform-wide MCP scope vocabulary — RE-EXPORTED from @wizeworks/auth, never
+// Platform-wide MCP scope vocabulary — RE-EXPORTED from @wizeworksllc/auth, never
 // re-declared. This used to be a hand-copied union, and the copy silently fell
 // behind: the CMS tools shipped requiring `read:cms`/`write:cms` while both this
 // list and the grantable-scope catalog still predated them, so the entire content
@@ -72,7 +72,7 @@ interface InternalJwtPayload {
 }
 
 /** The MOST a staff role's JWT gets when the token carries no explicit `scopes`.
- *  Delegates to @wizeworks/auth's `grantableScopesForRole` rather than restating the
+ *  Delegates to @wizeworksllc/auth's `grantableScopesForRole` rather than restating the
  *  policy — this table was previously hand-maintained here AND in the auth package,
  *  and the two drifted (see the McpScope note above). One policy, one place:
  *  owner/admin get everything, editor loses bulk + domain writes, viewer is

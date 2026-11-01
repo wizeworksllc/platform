@@ -100,11 +100,11 @@ export function dueAtForDays(dueInDays: number, timeZone: string, now = new Date
 }
 ```
 
-**Nothing here is new arithmetic.** `@wizeworks/time` already exists, describes
+**Nothing here is new arithmetic.** `@wizeworksllc/time` already exists, describes
 itself as "the platform's wall-clock math", and already carries
 `localCalendarParts`, `nextLocalDay` and `localWallToUtc` — the last of which
 resolves the zone offset twice so a day containing a clock change comes out
-right instead of an hour off. `@wizeworks/crm` already depended on it. The job
+right instead of an hour off. `@wizeworksllc/crm` already depended on it. The job
 was to find the rule, not to write one.
 
 `crm.ts` and `crm-depth.ts` now both call `taskService.dueAtIn(ctx, days)`,
@@ -158,7 +158,7 @@ milliseconds before it was written.
 
 ## Checks
 
-`@wizeworks/crm` 29 files / 286 tests, `@wizeworks/automation-actions` 3 / 25,
+`@wizeworksllc/crm` 29 files / 286 tests, `@wizeworksllc/automation-actions` 3 / 25,
 both fully green. Typecheck 0 on both packages. ESLint and prettier clean.
 
 ## Files

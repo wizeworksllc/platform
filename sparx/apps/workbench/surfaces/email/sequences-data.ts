@@ -24,14 +24,14 @@
 // once.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import type {
   CreateSequenceInput,
   SequenceStep,
   UpdateSequenceInput,
-} from '@wizeworks/email-sequences/schemas';
+} from '@wizeworksllc/email-sequences/schemas';
 import { api } from '../../lib/api/client';
 import type { Enrollers } from './sequence-words';
 
@@ -46,7 +46,7 @@ export type ReentryPolicy = 'once' | 'always';
 export type EnrollmentStatus = 'active' | 'completed' | 'exited' | 'cancelled';
 
 /** One sequence, as `GET /v1/email/sequences/:id` returns it. `steps` is the
- *  live authoring document (validated against `@wizeworks/email-sequences/schemas`
+ *  live authoring document (validated against `@wizeworksllc/email-sequences/schemas`
  *  on the server); `counts` is a roll-up of its enrollments by status. */
 export interface SequenceRow {
   id: string;

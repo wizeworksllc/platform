@@ -1,4 +1,4 @@
-// Pure-logic tests for @wizeworks/payments — the fee rule, the registry, and webhook
+// Pure-logic tests for @wizeworksllc/payments — the fee rule, the registry, and webhook
 // normalization. The gateways' Stripe calls + PaymentService's DB writes are exercised
 // by integration tests; here we lock the parts that decide money + routing.
 

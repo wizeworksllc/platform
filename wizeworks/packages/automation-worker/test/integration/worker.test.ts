@@ -8,8 +8,8 @@
 import crypto from 'node:crypto';
 import type { AddressInfo } from 'node:net';
 import { PrismaClient } from '@prisma/client';
-import { createAutomation, setAutomationStatus } from '@wizeworks/automation';
-import { SYSTEM_AUTOMATIONS } from '@wizeworks/automation-actions';
+import { createAutomation, setAutomationStatus } from '@wizeworksllc/automation';
+import { SYSTEM_AUTOMATIONS } from '@wizeworksllc/automation-actions';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createWorkerServer } from '../../src/server';
 

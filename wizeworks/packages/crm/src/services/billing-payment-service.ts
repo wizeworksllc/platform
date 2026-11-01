@@ -7,9 +7,9 @@
 // Payments are allowed on a LOCKED (final/paid) document — locking freezes the
 // LINES, not the act of paying a finalized invoice.
 
-import { RecordBillingPaymentInput } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { BillingDocumentPayment } from '@wizeworks/db';
+import { RecordBillingPaymentInput } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { BillingDocumentPayment } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

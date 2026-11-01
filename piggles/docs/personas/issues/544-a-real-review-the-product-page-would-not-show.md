@@ -39,7 +39,7 @@ not show.
 on every path that changes the approved set — create, moderate, delete, and the
 bulk versions, which delegate. **The service is correct.**
 
-The seeds cannot call it: `@wizeworks/db` may not import a module package. So
+The seeds cannot call it: `@wizeworksllc/db` may not import a module package. So
 both seeders wrote the columns by hand, and each got it wrong differently:
 
 - `prisma/seed.ts` wrote reviews and **never touched the columns at all**.
@@ -55,13 +55,13 @@ again: work that must happen together, paired by convention across call sites.
 
 ## Fixed
 
-One `reviewRollup()` in `@wizeworks/db`, used by both seeders: approved only, **no
+One `reviewRollup()` in `@wizeworksllc/db`, used by both seeders: approved only, **no
 rounding**, `null` rather than `0` when nothing is approved (a stored 0 renders as
 one star, and no rating is not a bad rating), and the per-site buckets as SUM +
 count alongside.
 
 6 guards, living in **commerce** beside `recomputeProductRating`, because that is
-the definition they have to agree with — `@wizeworks/db` has no test seat and may
+the definition they have to agree with — `@wizeworksllc/db` has no test seat and may
 not import a module package, so the rule ships from db and is guarded from the
 package that owns the meaning. One guard asserts the all-sites figure equals the
 buckets added together.

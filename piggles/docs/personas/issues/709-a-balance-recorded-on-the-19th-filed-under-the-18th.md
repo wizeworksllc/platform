@@ -54,7 +54,7 @@ instant.
 ## What was changed
 
 **A calendar date travels as `YYYY-MM-DD` and nothing parses it into a local
-time.** `calendar-date.ts` in `@wizeworks/inventory` holds the server half
+time.** `calendar-date.ts` in `@wizeworksllc/inventory` holds the server half
 (`calendarDate`, `calendarDateOrNull`, `calendarDateToUtc`,
 `calendarDayEndUtc`); `components/calendar-date.tsx` holds the console half, a
 `<CalendarDate>` that formats with `timeZone: 'UTC'` so no shift is possible.

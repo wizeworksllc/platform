@@ -4,8 +4,8 @@
 // the lifecycle module (./inventory-transfer-lifecycle) share one serializer +
 // detail shape.
 
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { InventoryNotFoundError, InventoryValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

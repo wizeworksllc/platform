@@ -3,7 +3,7 @@
 // stamps a multi-level tree via categoryService.create (which auto-uniquifies
 // handles, so child handles never hard-fail). Marker is the root handle.
 
-import type { TenantContext } from '@wizeworks/db';
+import type { TenantContext } from '@wizeworksllc/db';
 
 import { categoryService } from '../services';
 

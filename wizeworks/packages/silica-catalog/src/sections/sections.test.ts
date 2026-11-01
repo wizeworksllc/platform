@@ -300,7 +300,7 @@ describe('sentences a reader has to act on', () => {
 // through them on every published site (issue 350).
 //
 // The routed refs are declared in `apps/site/components/silica-behaviors.tsx`, and
-// `'contact'` is also named as the contract in `@wizeworks/builder-schemas`'
+// `'contact'` is also named as the contract in `@wizeworksllc/builder-schemas`'
 // `SILICA_FORM_ACTION`. This package sits under both, so the list is repeated here
 // rather than imported — which is exactly why it needs a test.
 describe('every form reaches a handler', () => {

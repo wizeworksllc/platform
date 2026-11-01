@@ -21,12 +21,12 @@
 // Decimal hours here, and only here. A timesheet screen says "7h 30m" because a
 // person reads it; a payroll file says 7.50 because a payroll system parses it.
 
-// The RFC-4180 writer @wizeworks/finance already ships. Reused rather than
+// The RFC-4180 writer @wizeworksllc/finance already ships. Reused rather than
 // re-implemented: a second CSV encoder in the same monorepo is a second set of
 // quoting rules, and the one place that difference surfaces is a file somebody
 // else's payroll software rejects.
-import { toCsv } from '@wizeworks/finance';
-import { withTenant } from '@wizeworks/db';
+import { toCsv } from '@wizeworksllc/finance';
+import { withTenant } from '@wizeworksllc/db';
 import { deriveLabor, type LaborEntry } from './costing.js';
 import { dayKey, type PayRate } from './pay.js';
 import { toPayRate } from './rates.js';

@@ -3,8 +3,8 @@
 // mail again; the send paths (automations, broadcasts) filter recipients
 // against isSuppressed() before enqueuing.
 
-import { withTenant } from '@wizeworks/db';
-import type { EmailSuppression, Prisma, TxClient } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { EmailSuppression, Prisma, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishEmailEvent } from '../events';

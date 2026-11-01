@@ -9,7 +9,7 @@
 // exists to prevent.
 
 import { useEffect } from 'react';
-import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworks/app-kit';
+import { isStaleBuildError, reloadOnceForStaleBuild } from '@wizeworksllc/app-kit';
 import { reportCrash } from '../lib/analytics';
 
 export default function GlobalError({

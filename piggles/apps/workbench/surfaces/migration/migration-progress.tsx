@@ -14,7 +14,7 @@ import {
   Heading,
   Text,
 } from '@wizeworks/silicaui-react';
-import type { CanonicalEntity } from '@wizeworks/migration';
+import type { CanonicalEntity } from '@wizeworksllc/migration';
 import { faCheckCircle, faDownload, faSpinner } from '@fortawesome/pro-solid-svg-icons';
 
 import { Icon } from '@piggles/ui';

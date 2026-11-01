@@ -21,9 +21,9 @@
 
 import { describe, expect, it } from 'vitest';
 import crypto from 'node:crypto';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import { reportingService } from '@wizeworks/commerce';
-import { prisma, withTenant } from '@wizeworks/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import { reportingService } from '@wizeworksllc/commerce';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import { createTestTenant, dropTestTenant, type TestTenant } from '../helpers.js';
 
 async function enableCommerce(tenantId: string): Promise<void> {

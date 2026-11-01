@@ -10,7 +10,7 @@
 // In a `.ts` file rather than beside the pane because these are the answers
 // worth testing — the pane only decides which words to draw around them.
 
-import { carrierLabel } from '@wizeworks/commerce-schemas';
+import { carrierLabel } from '@wizeworksllc/commerce-schemas';
 
 import type { ReplacementShipmentBody, ReturnLabelRecord } from './returns-data';
 

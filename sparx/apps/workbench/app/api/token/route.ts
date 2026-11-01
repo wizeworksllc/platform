@@ -21,7 +21,7 @@
 
 import { NextResponse } from 'next/server';
 import { cookies, headers } from 'next/headers';
-import { fetchApiToken } from '@wizeworks/auth-client-server';
+import { fetchApiToken } from '@wizeworksllc/auth-client-server';
 import { ACTIVE_PROPERTY_COOKIE, readActiveSite } from '../../../lib/active-site-cookie';
 
 export const dynamic = 'force-dynamic';

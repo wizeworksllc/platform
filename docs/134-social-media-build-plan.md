@@ -68,11 +68,11 @@ the client. New-model code compiles only after that.
 **Acceptance (post-pipeline):** tables exist; a cross-tenant select returns 0 rows
 under a tenant role.
 
-### Slice 2 — `@wizeworks/social` package + `SocialAdapter` contract
+### Slice 2 — `@wizeworksllc/social` package + `SocialAdapter` contract
 
 **Goal:** the network-free core — contract, registry, renderer, crypto — fully tested.
 
-- New workspace package `@wizeworks/social` (new-workspace-package skill): `SocialAdapter`
+- New workspace package `@wizeworksllc/social` (new-workspace-package skill): `SocialAdapter`
   interface + shared types (§4), the adapter **registry**, the AES-GCM secret box
   (`SOCIAL_TOKEN_KEY`, reusing the channels crypto util), and the **renderer**
   (`SocialPost` → `RenderedPost` per target + constraint validation).

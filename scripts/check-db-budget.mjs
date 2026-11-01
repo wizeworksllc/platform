@@ -15,7 +15,7 @@ import { SERVER_POOL } from './pgbouncer-config.mjs';
 // through PgBouncer 2 stay free for the role + migrate Jobs.
 export const HARD_CAP = 35;
 export const BUDGET = 33;
-const DB_PACKAGES = ['@wizeworks/db', '@wizeworks/auth'];
+const DB_PACKAGES = ['@wizeworksllc/db', '@wizeworksllc/auth'];
 const OPERATOR_PACKAGE = '@wizeworks/operator-auth';
 
 // Pools on this server that no Deployment in this repo owns. The operator console moved to

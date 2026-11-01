@@ -9,8 +9,8 @@
 // queue, last-writer ordering, and run bookkeeping are all shared.
 
 import type { Logger } from 'pino';
-import { ApiSourceConfig } from '@wizeworks/commerce-schemas';
-import type { FeedRow } from '@wizeworks/inventory';
+import { ApiSourceConfig } from '@wizeworksllc/commerce-schemas';
+import type { FeedRow } from '@wizeworksllc/inventory';
 
 const MAX_ROWS = 50_000;
 const FETCH_TIMEOUT_MS = 30_000;

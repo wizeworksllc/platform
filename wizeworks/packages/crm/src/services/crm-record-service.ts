@@ -16,9 +16,9 @@ import {
   CreateCrmRecordInput,
   ListCrmRecordsInput,
   UpdateCrmRecordInput,
-} from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { CrmRecord, Prisma } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { CrmRecord, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { publishCrmEvent } from '../events';

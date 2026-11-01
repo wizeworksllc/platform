@@ -57,7 +57,7 @@ answers rendered as slivers a pixel wide.
 ## A second copy of the channel words, gone stale
 
 The same function kept its own `SOURCE_LABELS`, a copy of
-`ORDER_CHANNEL_LABELS` in `@wizeworks/crm-schemas`. `marketplace` was added to
+`ORDER_CHANNEL_LABELS` in `@wizeworksllc/crm-schemas`. `marketplace` was added to
 the channel set and never added to the copy, so three marketplace customers
 read the raw key — **`marketplace`, lowercase** — on screen.
 

@@ -1,7 +1,7 @@
 // Email MCP tool registry.
 //
 // Each tool is a thin wrapper over an email-platform service function (one
-// service layer, many transports — mirrors @wizeworks/crm). Read tools are open;
+// service layer, many transports — mirrors @wizeworksllc/crm). Read tools are open;
 // write tools that send mail are confirmation-gated so the MCP server surfaces
 // an explicit user OK before a broadcast goes out.
 

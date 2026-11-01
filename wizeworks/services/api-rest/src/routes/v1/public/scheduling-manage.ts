@@ -21,10 +21,10 @@
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
-import { isModuleEnabled } from '@wizeworks/auth';
-import { getBooking, type BookingWithRelations } from '@wizeworks/scheduling';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { getBooking, type BookingWithRelations } from '@wizeworksllc/scheduling';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { readSchedulingToken } from '../../../lib/scheduling-token.js';
 import {

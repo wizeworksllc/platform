@@ -5,8 +5,8 @@
 // dashboard settings page all read through getChatConfig so a missing/partial
 // blob always resolves to DEFAULT_CHAT_CONFIG.
 
-import { prisma } from '@wizeworks/db';
-import { encryptProviderSecret } from '@wizeworks/integration-framework';
+import { prisma } from '@wizeworksllc/db';
+import { encryptProviderSecret } from '@wizeworksllc/integration-framework';
 
 import {
   DEFAULT_CHAT_CONFIG,

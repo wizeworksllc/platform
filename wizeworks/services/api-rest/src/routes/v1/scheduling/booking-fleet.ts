@@ -22,14 +22,14 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { withTenant } from '@wizeworks/db';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound, validationError } from '@wizeworks/api-core/errors';
-import { findFleetVehicle, getAccountFleet } from '@wizeworks/b2b';
-import { vehicleLabel } from '@wizeworks/commerce-schemas';
-import { getBooking, updateBooking } from '@wizeworks/scheduling';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { withTenant } from '@wizeworksllc/db';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound, validationError } from '@wizeworksllc/api-core/errors';
+import { findFleetVehicle, getAccountFleet } from '@wizeworksllc/b2b';
+import { vehicleLabel } from '@wizeworksllc/commerce-schemas';
+import { getBooking, updateBooking } from '@wizeworksllc/scheduling';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import {
   buildLinkedParts,

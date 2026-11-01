@@ -49,9 +49,9 @@ Measured at `58e3d13c5`.
 2. **The auth server runs inside the apps.** `sparx/apps/workbench` and
    `piggles/apps/account` each mount Better Auth at `app/api/auth/[...all]` and
    run it against the shared user and session tables. sparx's workbench imports
-   `@wizeworks/auth` in 37 files. Both apps' pods load `sparx-app-secrets`,
+   `@wizeworksllc/auth` in 37 files. Both apps' pods load `sparx-app-secrets`,
    including `DATABASE_URL`.
-3. **Direct database reads.** `piggles/apps/account` imports `@wizeworks/db` in
+3. **Direct database reads.** `piggles/apps/account` imports `@wizeworksllc/db` in
    11 places (`lib/account-load.ts`, `lib/onboarding-save.ts`,
    `lib/business-slug.ts`, ...). sparx's workbench has one
    (`app/api/consent/route.ts`).
@@ -76,7 +76,7 @@ Measured at `58e3d13c5`.
 ## How the shared packages publish (D2)
 
 - **Scope `@wizeworksllc`.** GitHub Packages requires a package's scope to
-  match its owner, so `@wizeworks/api-client` becomes
+  match its owner, so `@wizeworksllc/api-client` becomes
   `@wizeworksllc/api-client`. `@wizeworks` stays the public npm scope
   (silicaui, the wizelens SDKs). One scope can resolve from only one registry,
   so keeping the two apart is what lets the public packages keep installing
@@ -115,7 +115,7 @@ here.
 - **Server-side session checks become an API call** (or a token the app
   verifies with a public key), replacing `requireSession()` against the
   database. This touches sparx's 37 auth-importing files.
-- **Every `@wizeworks/db` use in an app moves behind an api-rest endpoint.**
+- **Every `@wizeworksllc/db` use in an app moves behind an api-rest endpoint.**
   Piggles' account load, onboarding save and business slug; sparx's consent
   route.
 - **A platform token endpoint replaces both consoles' own JWT minting**, so
@@ -124,7 +124,7 @@ here.
 - Remove the stale `sparx/packages/brand` copy from the account Dockerfile, and
   teach `check:deletability` to read Dockerfiles.
 
-Done when no app imports `@wizeworks/db` or the auth server, and no app pod can
+Done when no app imports `@wizeworksllc/db` or the auth server, and no app pod can
 read `DATABASE_URL`. A test pass on both brands covers sign-up, sign-in, the
 getpiggles.com to mypiggles.com handoff, password reset and two-step
 verification before it ships. This is the riskiest phase.
@@ -135,7 +135,7 @@ Done 2026-10-31.
 
 - The studio engine moved to `piggles/packages/studio` and is now
   `@piggles/studio`. Only the Piggles console used it.
-- Piggles' platform config moved to `@wizeworks/brand-registry`
+- Piggles' platform config moved to `@wizeworksllc/brand-registry`
   (`brands/piggles/billing-plan.json`, `brands/piggles/wordmark.json`). The
   ConfigMap is checked against it by `check:billing-plans` and
   `check:brand-wordmark`, which no longer read `piggles/`. Piggles' own test
@@ -144,10 +144,10 @@ Done 2026-10-31.
   ConfigMap values, so nothing changed at runtime.
 - No app in `piggles/` or `sparx/` reaches into `wizeworks/` by folder path.
   CSS `@source` lines name the package in `node_modules`, and
-  `builder-vocabulary.css` is a `@wizeworks/silica-catalog` export (the compiled
+  `builder-vocabulary.css` is a `@wizeworksllc/silica-catalog` export (the compiled
   CSS is byte-identical). The condition picker's test imports
   `RESOLVED_FIELD_PATHS` and `GOAL_FIELD_PATHS` from
-  `@wizeworks/automation-schemas`, whose own test keeps them true to the
+  `@wizeworksllc/automation-schemas`, whose own test keeps them true to the
   resolvers. That every record address has a page is now the site app's test.
 
 ### Phase 3. Rename and publish the shared packages (D2)

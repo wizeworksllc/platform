@@ -15,7 +15,7 @@
 // first page of them.
 
 import { useMemo, useState } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useDebouncedValue } from '../../lib/api/search';
 import { MIN_QUERY, SearchPicker, type PickerRow } from '../../components/search-picker';

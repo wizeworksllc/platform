@@ -3,7 +3,7 @@
 // `invalidateAfterRuleChange`, and this pins what it reaches.
 
 import { describe, expect, it } from 'vitest';
-import { QueryClient } from '@wizeworks/query';
+import { QueryClient } from '@wizeworksllc/query';
 import { approvalKeys, heldOrderKey } from './approvals-data';
 import { invalidateAfterRuleChange } from './approvals/rules-data';
 

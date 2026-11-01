@@ -1,6 +1,6 @@
 // Write CMS MCP tools. Scope: 'write:cms', all confirmation-gated — the MCP
 // server surfaces a destructiveHint so the client prompts the user before a
-// mutation. Each is a thin wrapper over the @wizeworks/cms service layer (the same
+// mutation. Each is a thin wrapper over the @wizeworksllc/cms service layer (the same
 // functions the REST routes drive), so validation, slug rules, revisions, and
 // reference rebuild apply identically to an MCP call.
 //
@@ -10,8 +10,8 @@
 // notifies subscribers exactly like a dashboard publish.
 
 import { z } from 'zod';
-import { ContentTypeSchema } from '@wizeworks/cms-schemas';
-import { publish } from '@wizeworks/api-core/pubsub';
+import { ContentTypeSchema } from '@wizeworksllc/cms-schemas';
+import { publish } from '@wizeworksllc/api-core/pubsub';
 
 import {
   createContentType,

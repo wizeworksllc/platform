@@ -14,7 +14,7 @@
 // This is the ONLY place the old box/layout semantics survive, and only as a
 // build-time convenience: nothing here ships to the runtime node beyond a class
 // string + bg props. The output utilities are exactly what a power user or an AI
-// agent would type, and they compile through @wizeworks/surface-compile to the
+// agent would type, and they compile through @wizeworksllc/surface-compile to the
 // tenant's silica theme tokens.
 
 import type { Binding, BuilderNode } from './node';

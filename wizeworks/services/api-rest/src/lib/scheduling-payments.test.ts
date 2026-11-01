@@ -1,12 +1,12 @@
 import type { FastifyBaseLogger } from 'fastify';
 import { describe, expect, it, vi } from 'vitest';
-import type * as Commerce from '@wizeworks/commerce';
+import type * as Commerce from '@wizeworksllc/commerce';
 
 /**
  * The console's half of settling a booking's card (sparx persona issue 087).
  *
  * The decision comes back from the scheduling function that ended the booking,
- * and the gateway work is `bookingPayments.settle` in @wizeworks/commerce; the
+ * and the gateway work is `bookingPayments.settle` in @wizeworksllc/commerce; the
  * rules and the gateway answers are pinned beside each of those. Two things are
  * pinned here, in the one package that carries both:
  *
@@ -25,13 +25,13 @@ const settle = vi.hoisted(() =>
   )
 );
 
-vi.mock('@wizeworks/commerce', async (importOriginal) => {
+vi.mock('@wizeworksllc/commerce', async (importOriginal) => {
   const real = await importOriginal<typeof Commerce>();
   return { ...real, bookingPayments: { ...real.bookingPayments, settle } };
 });
 
-const scheduling = await import('@wizeworks/scheduling');
-const { bookingPayments } = await import('@wizeworks/commerce');
+const scheduling = await import('@wizeworksllc/scheduling');
+const { bookingPayments } = await import('@wizeworksllc/commerce');
 const { settleBookingMoney } = await import('./scheduling-payments.js');
 
 const log = {

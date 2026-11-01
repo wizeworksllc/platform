@@ -4,7 +4,7 @@
 // on top of the automatic source groups. Read + mutate over /v1/media/collections.
 // Kept beside the picker's media data (media.ts) since that is its only consumer.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { mediaKeys } from './media';
 

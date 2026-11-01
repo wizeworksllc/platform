@@ -24,15 +24,15 @@
 // name. The old address becomes a redirect to the new one. "Updated" is off the list:
 // the date an entry last changed is stamped by every save, the import's included.
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   createContentType,
   createEntry,
   listContentTypes,
   publishEntry,
   updateEntry,
-} from '@wizeworks/cms';
-import { toIsoDate, toSlug } from '@wizeworks/migration';
+} from '@wizeworksllc/cms';
+import { toIsoDate, toSlug } from '@wizeworksllc/migration';
 
 import { redirectOldAddress } from './redirects';
 import {

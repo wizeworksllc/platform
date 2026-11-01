@@ -9,7 +9,7 @@
 // half-open range on the column the rollup filters), so this measures which day
 // each figure lands on rather than which arguments were passed.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 import { describe, expect, it } from 'vitest';
 
 import { recomputeDay } from './rollup';

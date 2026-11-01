@@ -26,7 +26,7 @@
 // content data layer rather than re-spelled, so the two can never drift.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { contentKeys, LEGAL_QUERY_ROOT, type EntryStatus, type Tone } from './data';
 import { productCopy } from '../../lib/product';
@@ -80,7 +80,7 @@ export interface ChecklistItem {
 }
 
 /** Why we think this business posts things to people. Evidence, never a default
- *  — see the note on ShippingEvidence in @wizeworks/cms. */
+ *  — see the note on ShippingEvidence in @wizeworksllc/cms. */
 export type ShippingEvidence = 'delivery-rates' | 'orders-shipped';
 
 export interface ShippingPolicySignal {

@@ -16,7 +16,7 @@
 > classes; the persisted-data migration is written (§4 Step 4). Every remaining repo match is prose
 > explaining the removal, or a test asserting the vocabulary is absent.
 > · **`--sx-*` TOKENS: done (§7).** `--sx-sel` / `--sx-sel-fg` are gone, along with the six
-> `@wizeworks/ui` controls that hand-rolled Radix versions of components silicaui now ships and the
+> `@wizeworksllc/ui` controls that hand-rolled Radix versions of components silicaui now ships and the
 > `colorVars()` helper that fed them. What remains under an `sx-` prefix — `data-sx-*` and ~13 CSS
 > classes — is **not** the same problem, and §7 gives the test for telling them apart.
 >
@@ -67,7 +67,7 @@ the authored theme or the legacy brand compile wins depends on whether the app s
 the inline `<style>` lands last in `<head>`. That is the "switched theme, kept the old primary"
 symptom.
 
-That block's own comment says it exists because `@wizeworks/ui/tokens.css` sets brand `--color-*` in an
+That block's own comment says it exists because `@wizeworksllc/ui/tokens.css` sets brand `--color-*` in an
 unlayered `:root`. **That is no longer true** — the silicaui migration removed the color half of
 `sparx/packages/ui/src/tokens.css` (it now only _reads_ `--color-module*`). The block is obsolete and is now
 purely the thing that beats the tenant's real theme.
@@ -132,7 +132,7 @@ wrong and no page that can render unthemed. Don't reintroduce the gate.
 
 - [x] Delete the obsolete unlayered `:root` block in
       [globals.css](../../apps/site/app/globals.css). The stated reason for it
-      (`@wizeworks/ui/tokens.css` asserting brand colors unlayered) no longer holds. **This is the fix
+      (`@wizeworksllc/ui/tokens.css` asserting brand colors unlayered) no longer holds. **This is the fix
       for failure A** — color now has exactly ONE unlayered declaration on the storefront, the
       injected theme.
 - [x] Point `--font-heading` / `--font-body` in [globals.css](../../apps/site/app/globals.css) at
@@ -142,7 +142,7 @@ wrong and no page that can render unthemed. Don't reintroduce the gate.
 - [x] Retarget [surface-compile/theme.ts](../../packages/surface-compile/src/theme.ts) onto silica's
       `--color-*` / `--radius-*` / `--font-*`, so builder-authored surfaces compile against the same
       vocabulary the storefront injects. Its fallback values interpolate from `BASE_SILICA_THEME`
-      rather than duplicating a palette — this adds `@wizeworks/silica-catalog` as a dependency
+      rather than duplicating a palette — this adds `@wizeworksllc/silica-catalog` as a dependency
       (**needs `pnpm install`**). Shadows now ride silica's `--depth`, and `--spacing` anchors to the
       standard `0.25rem` (silica has no tenant-rescalable spacing unit — docs/118).
 - [x] Retarget the `.st-hover--*` shadow tints in
@@ -205,7 +205,7 @@ btn-<treatment> btn-<size>`; badges → `badge badge-*`; fields → `input-*`. Z
       `section-renderer.tsx` wrote `data-st-reveal`, `layout.tsx`'s `REVEAL_INIT_SCRIPT` added
       `st-reveal-ready`/`st-anim-ready`, and MCP `vocabulary.ts` instructed agents to author
       `st-reveal` / `st-hover--*`. **Always grep for the emitter after renaming a behaviour class.**
-- [x] **Ported `@wizeworks/builder-render` off `@sparx/site-ui`.** The blast radius turned out to be small:
+- [x] **Ported `@wizeworksllc/builder-render` off `@sparx/site-ui`.** The blast radius turned out to be small:
       only `wizeworks/apps/site` consumed either package (the dashboard canvas that used to is gone, and the
       workbench builder studio never used them). Every other repo hit was a comment.
 - [x] **Collapsed the recipe bridge.** `recipeFromClass` parsed `st-c-*` / `st-v-*` / `--sz-*` back
@@ -297,7 +297,7 @@ versions, decoy rows included.
 ## 6. State (2026-07-31)
 
 **The `st-*` work is complete and verified.** `pnpm install` has run (two dependency edges changed:
-`@wizeworks/surface-compile` gained `@wizeworks/silica-catalog`, and `@wizeworks/builder-render` swapped
+`@wizeworksllc/surface-compile` gained `@wizeworksllc/silica-catalog`, and `@wizeworksllc/builder-render` swapped
 `@sparx/site-ui` for `@wizeworks/silicaui-react`). Nothing is committed — it is all in the working
 tree; Brandon commits.
 
@@ -356,10 +356,10 @@ grep for a token that starts with `--` silently returns clean.
 
 ### What it actually was
 
-Not a token problem at heart — a **component** problem. Six `@wizeworks/ui` components hand-rolled
+Not a token problem at heart — a **component** problem. Six `@wizeworksllc/ui` components hand-rolled
 Radix controls that silicaui had since grown natively:
 
-| `@wizeworks/ui`   | Consumers outside its own test      | Silica equivalent            |
+| `@wizeworksllc/ui`   | Consumers outside its own test      | Silica equivalent            |
 | ----------------- | ----------------------------------- | ---------------------------- |
 | `Slider`          | **0**                               | `Slider` / `Range`           |
 | `RadioGroup`      | **0**                               | `RadioGroup` / `RadioOption` |
@@ -375,7 +375,7 @@ That was a reasonable bridge when it was written. It stopped being one the momen
 spellings and only stylesheet order decided which won — the same shape as the `--st-*` bug in §1.
 
 **The call sites had already voted.** 45 of 47 `Switch` imports, 33 of 35 `Checkbox`, 6 of 8
-`Progress` were pointing at `@wizeworks/silicaui-react` before this work started. The `@wizeworks/ui`
+`Progress` were pointing at `@wizeworks/silicaui-react` before this work started. The `@wizeworksllc/ui`
 copies were stragglers, so this was deletion rather than migration.
 
 ### What changed
@@ -421,7 +421,7 @@ set, not a call-site patch and not a new class. **Raise it upstream; delete the 
 ships it** (it will be redundant, never conflicting).
 
 It lives in `@sparx/brand`, not `sparx/packages/ui/src/tokens.css`, and that placement is the whole point:
-**workbench imports no `@wizeworks/ui` CSS at all**, so a rule added to `tokens.css` would have shipped
+**workbench imports no `@wizeworksllc/ui` CSS at all**, so a rule added to `tokens.css` would have shipped
 to four apps and missed the only one that needed it. It was written there first; the mistake was
 caught by checking which apps actually import the file rather than assuming.
 

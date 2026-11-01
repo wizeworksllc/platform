@@ -1,20 +1,20 @@
 // Production / dev entrypoint. Boots the Fastify factory and wires up
 // graceful shutdown. Tests import ./app.ts directly and skip listen().
 
-// FIRST: sets the WizeLens Prisma hook before @wizeworks/db builds its client.
+// FIRST: sets the WizeLens Prisma hook before @wizeworksllc/db builds its client.
 import './lib/wizelens.js';
-import { resolveTransport } from '@wizeworks/events';
-import { startWebhookDeliveryLoop } from '@wizeworks/api-core/webhook-delivery';
+import { resolveTransport } from '@wizeworksllc/events';
+import { startWebhookDeliveryLoop } from '@wizeworksllc/api-core/webhook-delivery';
 import {
   installCrmWebhookFanout,
   preconnectWebhookFanout,
   registerCrmConsumers,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 import { installEngagementMailSink } from './lib/engagement-mail.js';
 import { installCallPlacer } from './lib/crm-voice.js';
-import { installCrmPubSubBridge } from '@wizeworks/crm/pubsub';
-import { installBuilderPubSubBridge } from '@wizeworks/builder/pubsub';
-import { registerCommerceConsumers } from '@wizeworks/commerce/consumers';
+import { installCrmPubSubBridge } from '@wizeworksllc/crm/pubsub';
+import { installBuilderPubSubBridge } from '@wizeworksllc/builder/pubsub';
+import { registerCommerceConsumers } from '@wizeworksllc/commerce/consumers';
 import { createApp } from './app.js';
 import {
   registerEmailProvisioningConsumer,
@@ -59,7 +59,7 @@ async function main(): Promise<void> {
   // It replaced `configurePubsub({ gcpProjectId: env.GCP_PROJECT_ID })`, which
   // did the opposite: an unset project id was read as "use the stub", so the
   // GCP→Azure migration quietly turned every publish into a no-op that reported
-  // success. Nothing here needs a cloud's project id any more — @wizeworks/events
+  // success. Nothing here needs a cloud's project id any more — @wizeworksllc/events
   // owns that, and only the pubsub adapter ever sees it.
   console.info('events: transport resolved to', resolveTransport().kind);
 
@@ -90,14 +90,14 @@ async function main(): Promise<void> {
   registerCrmConsumers();
 
   // Commerce sell-path consumers on the same in-process bus: order.cancelled →
-  // inventory restock (docs/100 §2.4). Kept out of @wizeworks/crm so CRM stays
+  // inventory restock (docs/100 §2.4). Kept out of @wizeworksllc/crm so CRM stays
   // inventory-agnostic; gated per-tenant on the inventory module.
   registerCommerceConsumers();
 
   // The Email module's activation consumer (docs/91 §7): on `module.activated`
   // for `email`, materialize the tenant's 13 default Builder-email templates so
-  // they're send-ready by KEY. Kept here (not in @wizeworks/crm) so the CRM package
-  // never depends on @wizeworks/builder; subscribes to the same in-process bus.
+  // they're send-ready by KEY. Kept here (not in @wizeworksllc/crm) so the CRM package
+  // never depends on @wizeworksllc/builder; subscribes to the same in-process bus.
   registerEmailProvisioningConsumer();
 
   // The remaining module activation defaults (docs/104 §5.A): on `module.activated`
@@ -149,7 +149,7 @@ async function main(): Promise<void> {
 
   // Background tick that POSTs pending webhook deliveries to their
   // subscriber URLs with HMAC-SHA256 signatures. Singleton across pods
-  // via a separate advisory lock — see @wizeworks/api-core/webhook-delivery.
+  // via a separate advisory lock — see @wizeworksllc/api-core/webhook-delivery.
   const stopWebhookDelivery = startWebhookDeliveryLoop(app.log);
 
   // Background tick that publishes `email.send` for due ScheduledSend rows
@@ -195,7 +195,7 @@ async function main(): Promise<void> {
   // Install the golden `sparx` blueprint onto every new tenant's primary property, so a
   // brand-new tenant IS the platform default site rather than a bare render-time fallback
   // (theming-spine Phase 3). Forward path: a durable broker consumer of `tenant.created`
-  // — published by @wizeworks/auth's signup in the workbench process, so it reaches api-rest
+  // — published by @wizeworksllc/auth's signup in the workbench process, so it reaches api-rest
   // only via the broker, never the in-process bus. Returns null under a non-NATS
   // transport; the reconcile loop then self-heals every un-installed primary property.
   // Registered here (post-createApp) because it needs app.log — JetStream is durable, so

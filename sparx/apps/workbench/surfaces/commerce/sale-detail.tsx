@@ -17,7 +17,7 @@
 // parts in it, and a dialog would lose all of it to a reload or a site switch.
 // The pane registers itself as unsaved work until the sale is written down.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Alert,

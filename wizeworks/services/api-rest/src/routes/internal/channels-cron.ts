@@ -15,7 +15,7 @@
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 
-import { commerceSchedulers } from '@wizeworks/commerce';
+import { commerceSchedulers } from '@wizeworksllc/commerce';
 
 import { env } from '../../env.js';
 import { listTenantsWithActiveChannels, pollTenantChannelOrders } from '../../lib/channel-poll.js';

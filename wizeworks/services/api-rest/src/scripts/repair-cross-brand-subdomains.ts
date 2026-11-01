@@ -55,8 +55,8 @@
 // Local runs read `.env`; in the cluster the vars are already on the process.
 import 'dotenv/config';
 
-import { platformBrandIdentity } from '@wizeworks/brand-core';
-import { prisma, withTenant } from '@wizeworks/db';
+import { platformBrandIdentity } from '@wizeworksllc/brand-core';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 import { crossBrandMoves, type ZoneHost } from '../lib/brand-zone-repair.js';
 import { normalizeHost } from '../lib/domain.js';

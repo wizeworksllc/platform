@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 import { buttonClasses } from '@wizeworks/silicaui-react/server';
-import type { Cta } from '@wizeworks/sitebuilder-schemas';
+import type { Cta } from '@wizeworksllc/sitebuilder-schemas';
 
 /** True for an absolute external URL; internal links start with "/". */
 function isExternal(url: string): boolean {

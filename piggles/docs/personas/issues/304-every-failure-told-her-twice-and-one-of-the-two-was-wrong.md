@@ -76,14 +76,14 @@ announced over.
 ## The fix
 
 The answer only exists at the moment `mutate` is called, so it is caught there.
-`@wizeworks/query` now exports its own `useMutation` — TanStack's, plus one thing:
+`@wizeworksllc/query` now exports its own `useMutation` — TanStack's, plus one thing:
 a per-hook object carried **by reference** on `meta`, whose `onError` flag is set
 on every `mutate` call. `callerHandledError(mutation.meta)` reads it back off the
 cache, and the reporter asks that as well as the old question.
 
 `index.ts` already did `export * from '@tanstack/react-query'`, so exporting
 `useMutation` after it shadows the star — **and all 147 files that import
-`useMutation` from `@wizeworks/query` got this without an edit.** That shadowing
+`useMutation` from `@wizeworksllc/query` got this without an edit.** That shadowing
 is load-bearing and invisible, so it has its own test: if the star ever wins, the
 package stops handing callers ours and this bug comes back silently.
 
@@ -103,7 +103,7 @@ already reserved now raises **one** toast:
 > SKU "THE-EVERYDAY-XS-CLAY" already exists
 
 The generic second toast, and its wrong conflict advice, are gone. Six tests in
-`@wizeworks/query` cover the shadowing and the flag, including the reference
+`@wizeworksllc/query` cover the shadowing and the flag, including the reference
 semantics the whole thing turns on.
 
 ## Not checked
@@ -112,6 +112,6 @@ semantics the whole thing turns on.
   site's own sentence, and the net's "something went wrong on our end". The
   suppression now silences the second one there too, which is what the docblock
   asks for, but no 500 was driven on a screen this run.
-- **The other console.** `wizeworks/apps/admin` shares `@wizeworks/query` and so
+- **The other console.** `wizeworks/apps/admin` shares `@wizeworksllc/query` and so
   picks up the export, but it has no failed-write reporter, so the flag is inert
   there. Not exercised.

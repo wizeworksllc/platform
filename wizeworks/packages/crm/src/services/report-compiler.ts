@@ -28,10 +28,10 @@
 // is not a paging convenience, it is the thing that keeps a bad definition from
 // becoming an outage.
 
-import type { prisma } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
-import type { DateBucket, DateRange, GroupBy, Measure, MeasureFn } from '@wizeworks/crm-schemas';
-import { isConditionGroup, type ConditionGroup } from '@wizeworks/automation-schemas';
+import type { prisma } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { DateBucket, DateRange, GroupBy, Measure, MeasureFn } from '@wizeworksllc/crm-schemas';
+import { isConditionGroup, type ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 import { CrmValidationError } from '../errors';
 import type { ServiceContext } from '../errors';
@@ -457,7 +457,7 @@ export function reportableFields(
 
 const CUSTOM_PREFIX = 'custom.';
 /**
- * A custom-property key — the same rule `@wizeworks/field-schema` enforces on the
+ * A custom-property key — the same rule `@wizeworksllc/field-schema` enforces on the
  * way in, which is what stops a JSONB path from carrying a quote out of the bag
  * and into the statement.
  *
@@ -468,7 +468,7 @@ const CUSTOM_PREFIX = 'custom.';
  * a person had just built out of the field picker.
  */
 const CUSTOM_KEY = /^[a-z][a-zA-Z0-9_]{0,62}$/;
-/** An object key. snake_case, per `CustomObjectKey` in @wizeworks/crm-schemas. */
+/** An object key. snake_case, per `CustomObjectKey` in @wizeworksllc/crm-schemas. */
 const OBJECT_KEY = /^[a-z][a-z0-9_]{1,62}$/;
 
 interface ResolvedField {

@@ -106,9 +106,9 @@ Legend: ✅ done (code) · ⏳ needs the handoff below to run · ❌ not built (
 I author DB + dependent code as **files only** and never run
 `prisma migrate`/`generate` against the shared stack, so:
 
-1. **Regenerate the Prisma client** — `pnpm --filter @wizeworks/db exec prisma generate`.
+1. **Regenerate the Prisma client** — `pnpm --filter @wizeworksllc/db exec prisma generate`.
    This alone clears the _only_ remaining typecheck/lint errors: 5 in
-   `@wizeworks/crm` (`CustomerDocument` not in the client yet) + 1 `no-unsafe-assignment`
+   `@wizeworksllc/crm` (`CustomerDocument` not in the client yet) + 1 `no-unsafe-assignment`
    in api-rest. They are expected regen artifacts, **not** logic errors.
 2. **Verify no drift on the two hand-authored migrations** — run
    `prisma migrate dev` (or `migrate status`) locally against docker before the

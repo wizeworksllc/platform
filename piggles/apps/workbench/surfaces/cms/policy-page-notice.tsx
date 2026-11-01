@@ -27,7 +27,7 @@ import {
   Button,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { useQueryClient } from '@wizeworks/query';
+import { useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { contentKeys } from './data';
 import { legalKindTitle, useAcknowledgeLegalPage } from './legal-data';

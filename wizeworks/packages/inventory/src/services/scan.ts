@@ -33,8 +33,8 @@
 // scan that also happens to match a count sheet does not produce a question
 // nobody wants asked. Narrow it wherever the workflow already knows.
 
-import { Prisma, withTenant } from '@wizeworks/db';
-import { normalizeBarcode, scanEquivalents } from '@wizeworks/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import { normalizeBarcode, scanEquivalents } from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../errors';
 

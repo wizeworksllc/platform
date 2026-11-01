@@ -34,7 +34,7 @@ import {
   Textarea,
   useToast,
 } from '@wizeworks/silicaui-react';
-import { fixedStageChance } from '@wizeworks/crm-schemas';
+import { fixedStageChance } from '@wizeworksllc/crm-schemas';
 import { useConfirm } from '../../lib/confirm';
 import { Trash2 } from 'lucide-react';
 import { useDirtySource } from '../../lib/workbench/dirty';

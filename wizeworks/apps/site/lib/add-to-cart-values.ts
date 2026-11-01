@@ -1,13 +1,13 @@
 // What the silica buy box's form asks the cart for.
 //
-// The buy box is a plain HTML form (`@wizeworks/silica-catalog` `addToCartForm`) and
+// The buy box is a plain HTML form (`@wizeworksllc/silica-catalog` `addToCartForm`) and
 // the silica `form` behavior hands its fields to the storefront as strings. This turns
 // them into the cart call, in one place, so a field the form posts cannot be dropped
 // on the way to the cart without a test going red. Two already had been: the
 // schedule (issue 739) and the old-part choice (issue 057) are both choices the
 // shopper makes on the page and the server re-checks.
 
-import { cadenceFromKey, type RepeatCadence } from '@wizeworks/commerce-schemas';
+import { cadenceFromKey, type RepeatCadence } from '@wizeworksllc/commerce-schemas';
 
 /** A submitted form field: one value, several (a repeated name), or none. */
 export type FormValue = string | string[] | undefined;

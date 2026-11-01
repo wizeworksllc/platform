@@ -5,7 +5,7 @@
 // basis points, per-tenant override — NOT a plan tier; the platform has modules,
 // not tiers, so docs/72's plan-tiered table is corrected here), and every market
 // write surface (product opt-in, merchant profile, ACH payout account, the public
-// browse query). Imported by @wizeworks/commerce (services), api-rest (routes), the
+// browse query). Imported by @wizeworksllc/commerce (services), api-rest (routes), the
 // dashboard, and sparx/apps/market (category metadata).
 
 import { z } from 'zod';

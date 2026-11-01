@@ -2,8 +2,8 @@
 // Pure and JSX-free, so the confirm renders it and the test reads it. The words
 // for each part come in as `RuleWords`, built from the flow map's own helpers.
 
-import { ConditionGroup as ConditionGroupSchema } from '@wizeworks/automation-schemas';
-import type { AutomationStatus, ConditionGroup } from '@wizeworks/automation-schemas';
+import { ConditionGroup as ConditionGroupSchema } from '@wizeworksllc/automation-schemas';
+import type { AutomationStatus, ConditionGroup } from '@wizeworksllc/automation-schemas';
 import type { PlatformDocument } from './automations-data';
 
 /** Shown when we improved a rule we set up and held it back for theirs. */

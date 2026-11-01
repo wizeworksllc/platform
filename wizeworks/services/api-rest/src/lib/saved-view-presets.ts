@@ -24,7 +24,7 @@
 // find-or-create by (tenant, target, name) among shared views; idempotent, kept
 // on deactivate, and back-filled by the 6h module-provisioning reconcile.
 
-import { withTenant, type TenantContext } from '@wizeworks/db';
+import { withTenant, type TenantContext } from '@wizeworksllc/db';
 
 export interface SavedViewPreset {
   /** Route path identifying the list (matches `SavedView.target`). */

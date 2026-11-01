@@ -4,11 +4,11 @@
 // social-worker; here we only build the post + its fan-out rows and flip it to
 // `publishing`, then emit `social.post.due` for the worker to drain.
 //
-// Lives in @wizeworks/social (not api-rest) so every transport — REST and MCP — drives
+// Lives in @wizeworksllc/social (not api-rest) so every transport — REST and MCP — drives
 // the SAME service (one service, many transports); api-rest re-exports it.
 
-import { withTenant } from '@wizeworks/db';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { withTenant } from '@wizeworksllc/db';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 
 import type { SocialContext } from './context.js';
 

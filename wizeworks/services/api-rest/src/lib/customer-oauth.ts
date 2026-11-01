@@ -1,5 +1,5 @@
 // Shopper OAuth authorization-server plumbing for api-rest (docs/113 §5, docs/27
-// §6). The customer Better Auth instance (@wizeworks/customer-auth) is the AS; its
+// §6). The customer Better Auth instance (@wizeworksllc/customer-auth) is the AS; its
 // HTTP handler is mounted here under `/v1/public/auth/*`. Because the AS lives on
 // the STORE's own origin (Caddy routes `<store>/v1/public/auth/*` + the store-root
 // `.well-known` to api-rest), the browser stays same-origin with its
@@ -11,10 +11,10 @@
 
 import type { FastifyReply, FastifyRequest } from 'fastify';
 
-import { legacyMcpResponse } from '@wizeworks/auth';
-import { getCustomerAuth } from '@wizeworks/customer-auth';
-import { prisma, tenantStore } from '@wizeworks/db';
-import { notFound } from '@wizeworks/api-core/errors';
+import { legacyMcpResponse } from '@wizeworksllc/auth';
+import { getCustomerAuth } from '@wizeworksllc/customer-auth';
+import { prisma, tenantStore } from '@wizeworksllc/db';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { resolveSiteByHost } from './domain.js';
 

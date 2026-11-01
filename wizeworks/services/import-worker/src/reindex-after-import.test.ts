@@ -7,7 +7,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const publishEvent = vi.fn((..._args: unknown[]) => Promise.resolve());
-vi.mock('@wizeworks/events', () => ({
+vi.mock('@wizeworksllc/events', () => ({
   createPublisher: () => ({ publish: () => Promise.resolve() }),
   publishEvent,
 }));

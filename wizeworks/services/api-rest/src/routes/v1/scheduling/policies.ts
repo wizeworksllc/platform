@@ -9,17 +9,17 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { BookingPolicy } from '@wizeworks/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { CreateBookingPolicyInput, UpdateBookingPolicyInput } from '@wizeworks/scheduling-schemas';
+import type { BookingPolicy } from '@wizeworksllc/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { CreateBookingPolicyInput, UpdateBookingPolicyInput } from '@wizeworksllc/scheduling-schemas';
 import {
   createBookingPolicy,
   deleteBookingPolicy,
   getBookingPolicy,
   listBookingPolicies,
   updateBookingPolicy,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { signalBookingPolicy } from '../../../lib/scheduling-search.js';
 

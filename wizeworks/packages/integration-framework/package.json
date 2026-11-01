@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/integration-framework",
+  "name": "@wizeworksllc/integration-framework",
   "version": "0.0.0",
   "private": true,
   "description": "Provider plug-in SDK for sparx Commerce. Defines the PaymentProvider, TaxProvider, ShippingProvider, SubscriptionBilling, and DropshipProvider interfaces that concrete provider packages implement, plus the registry, tenant-config loader, webhook router, OAuth helper, and credential-vault accessor that the platform wires them through.",
@@ -25,8 +25,8 @@
     "clean": "rm -rf .turbo dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/integrations": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/integrations": "workspace:*",
     "zod": "^4.6.6"
   },
   "devDependencies": {

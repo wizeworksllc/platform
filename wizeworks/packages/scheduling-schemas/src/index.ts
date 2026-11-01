@@ -1,7 +1,7 @@
 // sparx Scheduling — schema package barrel (docs/79-scheduling.md).
 //
 // Single source of truth for the shape of every Server Action / REST / MCP write
-// into the Scheduling module. The service layer (@wizeworks/scheduling), the public
+// into the Scheduling module. The service layer (@wizeworksllc/scheduling), the public
 // booking widget, the dashboard, and the MCP tools all validate inputs against
 // these Zod schemas before touching Prisma — keeping the column + JSONB writes
 // type-safe across every transport.

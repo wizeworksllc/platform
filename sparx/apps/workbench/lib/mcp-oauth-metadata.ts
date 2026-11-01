@@ -18,11 +18,11 @@
 // something the server does not do. The hand-written 1.6 version listed `/mcp/*`
 // endpoints and no key set, which was true then and would be wrong now.
 // `issuer` is this origin because the jwt() plugin is configured with it
-// (@wizeworks/auth server.ts), and that is the authorization server api-mcp
+// (@wizeworksllc/auth server.ts), and that is the authorization server api-mcp
 // names for this brand. `openid` is the OpenID Provider Metadata alias some MCP
 // clients probe instead; it carries the same endpoints plus the OIDC fields.
 
-export { mcpDiscoveryDocument } from '@wizeworks/auth-client-server';
+export { mcpDiscoveryDocument } from '@wizeworksllc/auth-client-server';
 
 /** Shared response headers so clients on any origin can read the discovery
  *  document and preflight it. */

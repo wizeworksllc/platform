@@ -49,6 +49,6 @@ export const BUILT_IN_PRODUCT_TYPES: readonly ProductTypeDefinition[] = [
 ];
 
 // The sentinel Sparx Platform tenant that owns built-in rows — the same id the
-// CMS uses (PLATFORM_TENANT_ID in @wizeworks/cms-schemas). Duplicated here so
+// CMS uses (PLATFORM_TENANT_ID in @wizeworksllc/cms-schemas). Duplicated here so
 // commerce doesn't take a dependency on cms just for a constant.
 export const PLATFORM_TENANT_ID = '00000000-0000-0000-0000-000000000000';

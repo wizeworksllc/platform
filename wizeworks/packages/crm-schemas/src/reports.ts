@@ -6,13 +6,13 @@
 // "dimension" or "aggregate", which are the words of a tool that expects you to
 // have used one before.
 //
-// The filter DSL is `ConditionGroup` from @wizeworks/automation-schemas, verbatim.
+// The filter DSL is `ConditionGroup` from @wizeworksllc/automation-schemas, verbatim.
 // Reusing it is deliberate: a business that has written one automation condition
 // already knows how to filter a report, and there is one evaluator, one builder
 // component and one set of bugs rather than two.
 
 import { z } from 'zod';
-import { ConditionGroup } from '@wizeworks/automation-schemas';
+import { ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 /* ── What you want to count ─────────────────────────────────────────────── */
 

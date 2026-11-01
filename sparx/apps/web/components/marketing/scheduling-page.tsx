@@ -47,7 +47,7 @@ import { Faq, type FaqItem } from './faq';
  * a flat $29/mo, requires NOTHING, is ALWAYS standalone (§18.1, §18.3), with
  * unlimited staff/resources/locations/bookings and no feature ever tier-gated;
  * the only metered cost is SMS volume. Deposits need a connected payment gateway
- * (via @wizeworks/payments), NOT the Commerce module. Calendar is described to its
+ * (via @wizeworksllc/payments), NOT the Commerce module. Calendar is described to its
  * SHIPPED scope only — outbound iCal feed + inbound busy import (iCal URL /
  * CalDAV) — never live two-way OAuth, which is a later enhancement. Double-
  * booking is structurally impossible at the database (§7.4). Industry-agnostic

@@ -1,13 +1,13 @@
 // Channel connection management (docs/106). Thin DB orchestration over
 // channel_connections / channel_product_mappings — the OAuth dance + per-channel
-// sync live in the adapters (@wizeworks/channels) and the channel-sync-worker; this
+// sync live in the adapters (@wizeworksllc/channels) and the channel-sync-worker; this
 // is the dashboard's read/disconnect surface. Mirrors how dropship keeps its DB
 // orchestration in api-rest rather than the pure-contract package.
 
-import { withSystem, withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
-import { decryptChannelToken, encryptChannelToken } from '@wizeworks/channels/crypto';
-import type { ChannelAdapter, ChannelAuth } from '@wizeworks/channels';
+import { withSystem, withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
+import { decryptChannelToken, encryptChannelToken } from '@wizeworksllc/channels/crypto';
+import type { ChannelAdapter, ChannelAuth } from '@wizeworksllc/channels';
 import type { ChannelContext } from './channel-context.js';
 
 export interface ChannelConnectionView {
@@ -55,7 +55,7 @@ export interface ChannelConnectionUpsert {
   propertyId: string | null;
   externalId: string | null;
   shopName: string | null;
-  /** AES-256-GCM ciphertext (via @wizeworks/channels/crypto) — never plaintext. */
+  /** AES-256-GCM ciphertext (via @wizeworksllc/channels/crypto) — never plaintext. */
   accessTokenEnc: string;
   refreshTokenEnc: string | null;
   tokenExpiresAt: Date | null;

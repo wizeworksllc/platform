@@ -1,7 +1,7 @@
 // Read-only email MCP tools. Scope: 'read:email'. No confirmation.
 
 import { z } from 'zod';
-import { emailMergeTags } from '@wizeworks/builder-schemas';
+import { emailMergeTags } from '@wizeworksllc/builder-schemas';
 
 import * as analyticsService from '../services/analytics-service';
 import * as broadcastService from '../services/broadcast-service';

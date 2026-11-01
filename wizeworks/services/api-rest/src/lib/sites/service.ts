@@ -9,13 +9,13 @@
 // Owning-tenant names resolve against the non-RLS `tenants` table with the plain
 // client — exactly like the tenant + user lists.
 
-import { prisma, withSystem, type Prisma } from '@wizeworks/db';
+import { prisma, withSystem, type Prisma } from '@wizeworksllc/db';
 import type {
   OperatorSiteListItem,
   OperatorSiteListResult,
   OperatorSiteDetail,
   OperatorSiteDomain,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 export interface ListSitesParams {
   q?: string;

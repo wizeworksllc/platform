@@ -18,7 +18,7 @@
 // `pickup` is absent too — a parcel being carried is the whole premise of both
 // screens that read this.
 
-import { carrierLabel } from '@wizeworks/commerce-schemas';
+import { carrierLabel } from '@wizeworksllc/commerce-schemas';
 
 const CARRIER_CODES = ['usps', 'ups', 'fedex', 'dhl', 'other'] as const;
 

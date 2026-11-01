@@ -300,7 +300,7 @@ RLS policies + any partial uniques are hand-SQL ([db CLAUDE.md](../packages/db/C
 
 ## 13. Events
 
-Publish on the platform bus ([@wizeworks/events](../packages/events), [03](03-infrastructure-deployment.md)):
+Publish on the platform bus ([@wizeworksllc/events](../packages/events), [03](03-infrastructure-deployment.md)):
 `billing_document.created`, `.stage_changed`, `.finalized`, `.paid`, `.voided`. These feed
 notifications (email/SMS to the customer when an estimate is ready), margin reporting, and — naturally
 — the **automation engine** ([81-automation.md](81-automation-module.md)): a stage transition is exactly the
@@ -328,7 +328,7 @@ into their own surfaces.
 
 - A tenant with **neither** Commerce nor B2B pays **$19/mo** for invoicing — the service-business
   case (contractor, repair shop, salon, consultant) that quotes and bills without a site.
-- **Commerce or B2B activates the full invoicing surface for $0.** This is the `@wizeworks/modules`
+- **Commerce or B2B activates the full invoicing surface for $0.** This is the `@wizeworksllc/modules`
   **`BUNDLED_FREE`** graph (`invoicing ⇐ [b2b, commerce]`): `isModuleEnabled('invoicing')` is derived
   true whenever a provider is on, so the existing `requireInvoicingModule` gate "just passes" for those
   tenants with no OR-checks. The standalone `invoicing` flag is only ever **written** on a real $19
@@ -339,7 +339,7 @@ into their own surfaces.
   _available_ so its seed consumer (default workflows + line-type registry) still runs. Idempotent;
   availability events are never billed.
 - The related **`b2b ⇒ commerce`** dependency (a _paid_ requirement, not a free bundle) is enforced
-  by the same machinery (`@wizeworks/modules` **`REQUIRES`**): enabling B2B writes + bills Commerce, and
+  by the same machinery (`@wizeworksllc/modules` **`REQUIRES`**): enabling B2B writes + bills Commerce, and
   disabling Commerce while B2B is on is blocked. See [17-billing-subscriptions.md](17-billing-subscriptions.md) §2.
 
 Naming for users: the **module** is "Invoicing"; the **document label** is the tenant's per workflow.

@@ -92,7 +92,7 @@ describe('planRevalidation', () => {
   });
 
   it('maps every builder publish to the builder scope', () => {
-    // api-rest publishes the first two for the whole site. `@wizeworks/builder`
+    // api-rest publishes the first two for the whole site. `@wizeworksllc/builder`
     // publishes the other four itself when one document goes live from its own
     // pane, and they reach the bus through its bridge. This test once called
     // those "plausible names nobody emitted"; they were on the broker the whole

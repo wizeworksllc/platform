@@ -16,15 +16,15 @@
 //     nothing sensitive is ever in the tree to begin with, so there is nothing to strip
 //     and nothing to leak. No recipient can ever come from the request body.
 
-import { withTenant } from '@wizeworks/db';
-import type { FormSubmission, Prisma } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { FormSubmission, Prisma } from '@wizeworksllc/db';
 import {
   findSilicaFormNode,
   readSilicaFormConfig,
   type FormAttachment,
   type SilicaFormConfig,
   type SilicaNode,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 
 import type { PropertyContext, ServiceContext } from '../errors';
 import { BuilderNotFoundError } from '../errors';

@@ -3,11 +3,11 @@
 // bookings is ON DELETE SET NULL, so removing a policy just detaches it (history
 // keeps its denormalized fields). Tenant-scoped via withTenant (FORCE RLS).
 
-import { withTenant, type BookingPolicy, type Prisma } from '@wizeworks/db';
+import { withTenant, type BookingPolicy, type Prisma } from '@wizeworksllc/db';
 import type {
   CreateBookingPolicyInput,
   UpdateBookingPolicyInput,
-} from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/scheduling-schemas';
 
 import { BookingPolicyNotFoundError } from './errors';
 

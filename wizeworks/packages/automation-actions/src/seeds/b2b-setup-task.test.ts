@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { evaluateConditions } from '@wizeworks/automation-schemas';
-import { ACCOUNT_SET_UP_TO_DO, accountNeedsSetUp } from '@wizeworks/crm';
+import { evaluateConditions } from '@wizeworksllc/automation-schemas';
+import { ACCOUNT_SET_UP_TO_DO, accountNeedsSetUp } from '@wizeworksllc/crm';
 
 import { B2B_NEW_ACCOUNT_TASK } from './b2b.js';
 

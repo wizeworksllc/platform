@@ -24,10 +24,10 @@ import {
   type CoreChoiceCandidate,
   type CoreChoiceConversion,
   type CoreChoiceSide,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient } from '@wizeworks/db';
-import { syncProductInStock } from '@wizeworks/inventory';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
+import { syncProductInStock } from '@wizeworksllc/inventory';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

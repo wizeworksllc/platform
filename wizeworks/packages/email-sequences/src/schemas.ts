@@ -1,7 +1,7 @@
-// Email-sequence shapes — the client-safe contract (zod only, NO @wizeworks/db import),
+// Email-sequence shapes — the client-safe contract (zod only, NO @wizeworksllc/db import),
 // so the workbench editor imports these without pulling Prisma into the browser
-// bundle (the `@wizeworks/cms-editor/serialize` pattern). The server half
-// (@wizeworks/email-sequences) re-uses the same schemas to validate at the db boundary.
+// bundle (the `@wizeworksllc/cms-editor/serialize` pattern). The server half
+// (@wizeworksllc/email-sequences) re-uses the same schemas to validate at the db boundary.
 
 import { z } from 'zod';
 

@@ -30,7 +30,7 @@
 
 import { randomUUID } from 'node:crypto';
 
-import type { BuilderOpEnvelope, SilicaNode, SilicaTheme } from '@wizeworks/builder-schemas';
+import type { BuilderOpEnvelope, SilicaNode, SilicaTheme } from '@wizeworksllc/builder-schemas';
 
 /** The site-scoped target every page-collection / theme op carries — these are not
  *  tree-node edits, so they address the site, not a page/frame/symbol tree. */

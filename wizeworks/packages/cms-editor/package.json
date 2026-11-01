@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/cms-editor",
+  "name": "@wizeworksllc/cms-editor",
   "version": "0.0.0",
   "private": true,
   "description": "sparx CMS block editor — TipTap extension set, React editor component, and server-side JSON-to-HTML serializer/sanitizer. Used by the dashboard and consumed by api-rest at read time when callers request HTML.",
@@ -47,7 +47,7 @@
     "@tiptap/react": "^3.30.5",
     "@tiptap/starter-kit": "^3.30.5",
     "@tiptap/suggestion": "^3.30.5",
-    "@wizeworks/silica-corrections": "workspace:*",
+    "@wizeworksllc/silica-corrections": "workspace:*",
     "@wizeworks/silicaui-html": "catalog:",
     "lowlight": "^3.3.0",
     "lucide-react": "^0.577.0",

@@ -20,7 +20,7 @@
 // is `base + override`, computed here, and a save diffs the edited identity back
 // into an override so only what differs is stored.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 import { useSite, type Site } from '../sites/data';

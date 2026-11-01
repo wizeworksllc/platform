@@ -10,7 +10,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { notFound } from '@wizeworks/api-core/errors';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 import { getStorage, marketplaceMediaKey } from '../../../lib/storage.js';
 

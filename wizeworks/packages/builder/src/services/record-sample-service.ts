@@ -16,7 +16,7 @@
 // 404 on.
 //
 // THE FILTERS MIRROR THE STOREFRONT'S, DELIBERATELY. Each query repeats the public read's
-// own predicate — active/published, not soft-deleted, and `@wizeworks/db`'s Model B site
+// own predicate — active/published, not soft-deleted, and `@wizeworksllc/db`'s Model B site
 // scoping (docs/49 §3). Preview must land on a page the visitor could actually reach: a
 // draft product or another site's exclusive collection would render for the author and
 // 404 for everyone else, which is a worse lie than the index page was.
@@ -25,15 +25,15 @@
 // recently is the one they are most likely designing against, and it keeps the whole set
 // to five single-row lookups.
 
-import { RECORD_ADDRESSES, kindPath, type RecordAddress } from '@wizeworks/silica-catalog';
+import { RECORD_ADDRESSES, kindPath, type RecordAddress } from '@wizeworksllc/silica-catalog';
 import {
   categorySiteVisibilityWhere,
   collectionSiteVisibilityWhere,
   contentSiteVisibilityWhere,
   productSiteVisibilityWhere,
   withTenant,
-} from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+} from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 import type { PropertyContext } from '../errors';
 import { servedKindsTx } from './kind-pages';

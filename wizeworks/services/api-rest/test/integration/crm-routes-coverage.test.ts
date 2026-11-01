@@ -1,7 +1,7 @@
 // REST wiring coverage for the 7 remaining /v1/crm/* route groups
 // (pipelines, deals, b2b-accounts, activities, tasks, segments, reports).
 //
-// The service-layer integration tests in @wizeworks/crm own the business logic;
+// The service-layer integration tests in @wizeworksllc/crm own the business logic;
 // these tests prove that the transport — route mount, requireRole, requireCrmModule,
 // Zod parse, envelope shape — actually wraps the service the way docs/06 says.
 //
@@ -14,15 +14,15 @@ import crypto from 'node:crypto';
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import type { FastifyInstance } from 'fastify';
 
-import { prisma } from '@wizeworks/db';
-import { invalidateModuleCache } from '@wizeworks/auth';
-import { BUILT_IN_SEGMENT_TEMPLATES } from '@wizeworks/crm-schemas/builtins';
+import { prisma } from '@wizeworksllc/db';
+import { invalidateModuleCache } from '@wizeworksllc/auth';
+import { BUILT_IN_SEGMENT_TEMPLATES } from '@wizeworksllc/crm-schemas/builtins';
 import {
   registerCrmConsumers,
   resetDedupeForTesting,
   resetPlatformBusForTesting,
   type PlatformEventBus,
-} from '@wizeworks/crm';
+} from '@wizeworksllc/crm';
 
 import { createApp } from '../../src/app.js';
 import { authHeader, seedPrimaryProperty, signToken, type TestTenant } from '../helpers.js';

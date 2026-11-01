@@ -5,7 +5,7 @@
 //
 // A segment's membership is a recursive boolean tree stored in `segments.rules`.
 // The tree's vocabulary — the field whitelist, the operator set, the predicate
-// leaf and the recursive rule shape — comes STRAIGHT FROM `@wizeworks/crm-schemas`
+// leaf and the recursive rule shape — comes STRAIGHT FROM `@wizeworksllc/crm-schemas`
 // (`SegmentField` / `SegmentOperator` / `PredicateLeaf` / `SegmentRule`), the same
 // Zod the server validates writes and evaluates membership against, so the builder
 // can never drift from it. This file adds only workbench-side concerns on top: the
@@ -31,7 +31,7 @@ import type {
   SegmentFieldPath,
   SegmentOperator,
   SegmentRule,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 import {
   LEAD_STATUSES,
   LIFECYCLE_STAGES,

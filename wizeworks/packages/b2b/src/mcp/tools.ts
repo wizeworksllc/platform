@@ -1,10 +1,10 @@
 // B2B MCP tools (docs/10) — run the wholesale trade surface from an agent: pricing
 // tiers + overrides, account trade config + fleet, purchase-approval rules + queue,
-// and net-terms AR invoices. Thin wrappers over @wizeworks/b2b's service layer, the
+// and net-terms AR invoices. Thin wrappers over @wizeworksllc/b2b's service layer, the
 // same functions the REST routes drive (one service, many transports).
 //
 // Event emission mirrors the api-mcp domain/search-admin tool registries: a
-// createPublisher from @wizeworks/events (api-mcp does not configure the api-core
+// createPublisher from @wizeworksllc/events (api-mcp does not configure the api-core
 // publisher, so the service returns the events to publish and we emit them here
 // against a real Pub/Sub client).
 //
@@ -15,7 +15,7 @@
 // the CRM registry's create_b2b_account / update_b2b_account / add_b2b_account_contact.
 
 import { z } from 'zod';
-import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworks/events';
+import { createPublisher, publishEvent, type PublisherLogger } from '@wizeworksllc/events';
 
 import {
   pricingTierService,

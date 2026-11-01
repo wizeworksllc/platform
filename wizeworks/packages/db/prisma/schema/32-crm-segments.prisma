@@ -1,6 +1,6 @@
 // CRM — Segments (locked decision #4 — materialized, incremental).
 //
-// `rules` JSONB is validated against SegmentRuleSchema in @wizeworks/crm-schemas
+// `rules` JSONB is validated against SegmentRuleSchema in @wizeworksllc/crm-schemas
 // at write time. Membership is materialized into segment_members by the
 // segment-evaluator consumer — never re-evaluated at email send or filter
 // time.

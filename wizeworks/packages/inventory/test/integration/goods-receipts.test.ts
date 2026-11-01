@@ -6,7 +6,7 @@
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { InventoryConflictError, InventoryValidationError } from '../../src/errors.js';
 import { createSupplier } from '../../src/services/suppliers.js';

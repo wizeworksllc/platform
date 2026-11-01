@@ -12,7 +12,7 @@ The sparx Automation capability is a cross-module workflow engine built into the
 
 External automation platforms (Zapier, Make.com, n8n) are first-class integration partners for reaching outside sparx. They are not competitors to this engine — they are complementary. sparx Automations handles internal cross-module logic; Zapier handles external service connections.
 
-It is built **on top of the machinery that already exists** — the typed Pub/Sub event bus (`@wizeworks/events`, [wizeworks/packages/api-core/src/pubsub.ts](../packages/api-core/src/pubsub.ts)), the durable outbound webhook engine ([wizeworks/packages/api-core/src/webhook-delivery.ts](../packages/api-core/src/webhook-delivery.ts)), and the daily Cloud Scheduler ticks ([wizeworks/packages/crm/src/schedulers/automation-triggers.ts](../packages/crm/src/schedulers/automation-triggers.ts)). It does not introduce a new queue runtime or a new delivery model.
+It is built **on top of the machinery that already exists** — the typed Pub/Sub event bus (`@wizeworksllc/events`, [wizeworks/packages/api-core/src/pubsub.ts](../packages/api-core/src/pubsub.ts)), the durable outbound webhook engine ([wizeworks/packages/api-core/src/webhook-delivery.ts](../packages/api-core/src/webhook-delivery.ts)), and the daily Cloud Scheduler ticks ([wizeworks/packages/crm/src/schedulers/automation-triggers.ts](../packages/crm/src/schedulers/automation-triggers.ts)). It does not introduce a new queue runtime or a new delivery model.
 
 **Module vs. platform capability.** Automations is **a platform-level capability, not a separately-gated module.** Any tenant with at least one active module that emits or consumes triggers gets it — there is no `automations` module slug to activate, no separate 404 gate, and the `automation-worker` always runs. (This is a deliberate exception to the "disabled module runs no workers" rule, because automations only have value _connecting_ other modules; gating them behind their own flag would be circular.) The dashboard surface is visible whenever ≥1 trigger-capable module is active.
 
@@ -172,7 +172,7 @@ SETTINGS      → Active/inactive, run limits, error handling
 The engine consumes a single **fan-in topic** — `automation.trigger` — that every publish path _also_ tees into, carrying the original event type as a message attribute. This is exactly the pattern the CRM bridge already uses to tee two buses into Pub/Sub for the commerce-indexer ([pubsub-bridge.ts](../packages/crm/src/pubsub-bridge.ts)). The tee must be installed at **all three publish paths**, because the bus is fragmented today:
 
 1. `api-core`'s `publish()` — does webhook-enqueue **and** Pub/Sub ([pubsub.ts:154-188](../packages/api-core/src/pubsub.ts#L154-L188))
-2. `@wizeworks/events`'s publisher — Pub/Sub only (used by standalone workers)
+2. `@wizeworksllc/events`'s publisher — Pub/Sub only (used by standalone workers)
 3. CRM's `publishCrmEvent` — its own two-bus path
 
 The `automation-worker` is a **Cloud Run push consumer** on `automation.trigger` (per the `cloud-run-worker` default), not a GKE pod and not a long-lived `subscribe()` loop.
@@ -595,7 +595,7 @@ Run detail shows each step, input/output data, timing, and errors — enough to 
 
 ## 9. Automation Templates Library
 
-Pre-built automations a tenant can activate in one click — the same shape as Tenant Blueprints (`@wizeworks/blueprints`): a declarative, versioned, parameterized definition that expands into a real `automations` row on install.
+Pre-built automations a tenant can activate in one click — the same shape as Tenant Blueprints (`@wizeworksllc/blueprints`): a declarative, versioned, parameterized definition that expands into a real `automations` row on install.
 
 ```
 Popular templates:
@@ -681,8 +681,8 @@ Included with any active module:
 
 ### Phase 0 — Event substrate (blocking prerequisite → docs/82)
 
-- [ ] Unify the divergent `EventType` unions into one canonical registry in `@wizeworks/events` (docs/82 §3)
-- [ ] Provision the `automation.trigger` fan-in topic + tee it from all three publish paths — api-core `publish`, `@wizeworks/events`, CRM `pubsub-bridge` (docs/82 §3.3)
+- [ ] Unify the divergent `EventType` unions into one canonical registry in `@wizeworksllc/events` (docs/82 §3)
+- [ ] Provision the `automation.trigger` fan-in topic + tee it from all three publish paths — api-core `publish`, `@wizeworksllc/events`, CRM `pubsub-bridge` (docs/82 §3.3)
 - [ ] Emit the net-new `[ADD]` trigger events + provision their topics (email engagement, `form.submitted`, `site.published`, `domain.verified`, deal-stage, `module.activated`, `webhook.received`) (docs/82 §4)
 - [ ] `EventType` ↔ Terraform-topic parity test (docs/82 §6)
 - [ ] Confirm the platform-capability (not gated module) stance (§1)

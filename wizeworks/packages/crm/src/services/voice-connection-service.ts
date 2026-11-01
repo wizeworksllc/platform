@@ -10,9 +10,9 @@
 // forgetting to omit it. The one function that hands it out is named to be
 // conspicuous at the call site.
 
-import { ConnectVoiceInput } from '@wizeworks/crm-schemas';
-import { withTenant } from '@wizeworks/db';
-import type { VoiceConnection } from '@wizeworks/db';
+import { ConnectVoiceInput } from '@wizeworksllc/crm-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { VoiceConnection } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

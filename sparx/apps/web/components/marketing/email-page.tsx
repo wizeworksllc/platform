@@ -24,7 +24,7 @@ import { Faq, type FaqItem } from './faq';
  *
  * Facts are grounded in docs/13 (Email PRD v3.2) + docs/17 (billing) + the real
  * dashboard email surfaces. Outbound is event-driven (`email.send` → Pub/Sub →
- * email-worker → @wizeworks/email React Email render → provider; Mailgun in prod,
+ * email-worker → @wizeworksllc/email React Email render → provider; Mailgun in prod,
  * console in dev — Postal is decommissioned), sent from the tenant's own domain
  * after DKIM/SPF/DMARC verify, with engagement fed back to the CRM. Flat
  * $29/mo, no tiers, no per-email or per-contact fees, 14-day trial.

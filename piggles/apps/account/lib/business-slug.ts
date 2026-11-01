@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { platformRequest } from '@wizeworks/auth-client-server';
+import { platformRequest } from '@wizeworksllc/auth-client-server';
 import { RESERVED_ADDRESSES, slugifyAddress, type AddressVerdict } from './address-rules';
 
 export { slugifyAddress, slugifyBusinessName, type AddressVerdict } from './address-rules';

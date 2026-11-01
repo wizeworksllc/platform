@@ -8,9 +8,9 @@
 // baked into the version (the referenced layout's sections must be published to
 // take effect anyway).
 
-import { AssignLayoutInput, SetLayoutDefaultInput } from '@wizeworks/sitebuilder-schemas';
-import type { TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+import { AssignLayoutInput, SetLayoutDefaultInput } from '@wizeworksllc/sitebuilder-schemas';
+import type { TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

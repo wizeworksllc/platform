@@ -5,7 +5,7 @@
 // year with what went out in each. Months fall on the business's own clock, so a piece
 // out at 00:30 on the 1st in London is in that month, not the one before.
 
-import { kindLayout, type KindFieldLike } from '@wizeworks/silica-catalog';
+import { kindLayout, type KindFieldLike } from '@wizeworksllc/silica-catalog';
 
 import type { ServedKindInfo } from './author-credits.js';
 import { entryPublicPath } from './content-paths.js';

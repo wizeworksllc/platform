@@ -18,7 +18,7 @@
 
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
-import { crmSchedulers, segmentService, signatureService, ticketSlaSweep } from '@wizeworks/crm';
+import { crmSchedulers, segmentService, signatureService, ticketSlaSweep } from '@wizeworksllc/crm';
 
 import { env } from '../../env.js';
 import { syncTenantMailboxes } from '../../lib/crm-mailbox-sync.js';
@@ -139,7 +139,7 @@ const crmCronRoutes: FastifyPluginAsync = (app) => {
   return Promise.resolve();
 };
 
-// Local copy of @wizeworks/api-core/errors' unauthorized() so this file doesn't
+// Local copy of @wizeworksllc/api-core/errors' unauthorized() so this file doesn't
 // have to import the FastifyError class chain. The errors plugin wraps any
 // thrown Error in the platform envelope; we just need a recognizable
 // statusCode + code.

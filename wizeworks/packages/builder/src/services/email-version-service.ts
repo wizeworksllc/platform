@@ -22,8 +22,8 @@
 // NON-DESTRUCTIVE and restores to the DRAFT, so the author reviews the reinstated version in
 // the studio and re-publishes rather than a version silently going live to inboxes.
 
-import { withTenant, type Prisma, type TxClient } from '@wizeworks/db';
-import type { SilicaEmailDocument } from '@wizeworks/builder-schemas';
+import { withTenant, type Prisma, type TxClient } from '@wizeworksllc/db';
+import type { SilicaEmailDocument } from '@wizeworksllc/builder-schemas';
 
 import type { ServiceContext } from '../errors';
 import { hashTree } from './artifact-service';

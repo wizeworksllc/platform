@@ -16,7 +16,7 @@ import {
 import { ADHOC, METHOD_META, PASSTHROUGH, type MarkupRuleSummary } from './line-markup';
 import { formatMoney } from './types';
 import type { useLineForm } from './use-line-form';
-import type { BandMethod } from '@wizeworks/commerce-schemas';
+import type { BandMethod } from '@wizeworksllc/commerce-schemas';
 
 type Form = ReturnType<typeof useLineForm>;
 

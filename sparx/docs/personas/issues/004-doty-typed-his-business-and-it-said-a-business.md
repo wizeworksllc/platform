@@ -47,13 +47,13 @@ something and does something else is the worst kind of defect: it is false.
 - `IndustryMenu` in `surfaces/onboarding/story/story-menus.tsx` (both consoles):
   `${name} ${noun}`.includes(wholeQuery), and the fallback called
   `onPick('generic')` with the typed text dropped.
-- `StoryState` (`@wizeworks/story-schemas`) had nowhere to keep the words.
+- `StoryState` (`@wizeworksllc/story-schemas`) had nowhere to keep the words.
 - The business noun was read in five places per console (`story-canvas`,
   `story-composer` build button, `story-get-paid`, `story-go-live`, `toProse`).
 
 ## The fix
 
-- `@wizeworks/story-schemas`
+- `@wizeworksllc/story-schemas`
   - `StoryState.industryLabel?`: the owner's own words, verbatim.
   - `storyNoun()` / `storySubject()`: the ONE reader of what the business is
     called (own words, else the starter's noun, else "a business").

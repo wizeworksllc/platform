@@ -20,7 +20,7 @@ import {
   getBooking,
   rescheduleBooking,
   type BookingWithRelations,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 
 import { bookingCalendarLinks } from './scheduling-ical.js';
 import { publishBookingEvent } from './scheduling-events.js';

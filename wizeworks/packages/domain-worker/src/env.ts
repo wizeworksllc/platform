@@ -14,13 +14,13 @@ const EnvSchema = z.object({
   GODADDY_API_KEY_PROD: z.string().optional(),
   GODADDY_API_SECRET_PROD: z.string().optional(),
   // Override decoupling the GoDaddy environment from NODE_ENV; unset → follows
-  // NODE_ENV. See @wizeworks/godaddy resolveEnv (OTE sandbox is chronically degraded).
+  // NODE_ENV. See @wizeworksllc/godaddy resolveEnv (OTE sandbox is chronically degraded).
   GODADDY_ENV: z.enum(['prod', 'production', 'ote', 'test']).optional(),
   SPARX_CNAME_TARGET: z.string().default('customers.sparx.zone'),
   // Where the workbench lives is NOT declared here any more. It was one of four
   // environment variables naming the same URL, each read by a different emitter
   // with its own fallback — so which host an email pointed at depended on which
-  // service sent it. `@wizeworks/links/server`'s `appOrigin()` reads them all, in one
+  // service sent it. `@wizeworksllc/links/server`'s `appOrigin()` reads them all, in one
   // fixed order, in one place. The variables themselves still work; only the
   // per-service opinion about them is gone.
 });

@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { Badge, Button, Card, SearchInput } from '@wizeworks/silicaui-react';
 import { Table } from '../../components/table';
 import { FileText, Plus, X } from 'lucide-react';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
 import { ListPagination, MAX_TAKE, type PageSize } from '../../components/list-pagination';
 import { ListEmptyState } from '../../components/list-empty-state';
 import { PaneToolbar, PANE_SHELL } from '../../components/pane-toolbar';

@@ -1,7 +1,7 @@
 // A shipped silica theme → the `themePreset` blob a site stores.
 //
 // WHY A CONVERSION EXISTS AT ALL. sparx authors its forty themes as silica `Theme`s
-// (@wizeworks/silica-catalog) — that is what the builder canvas, the marketplace preview
+// (@wizeworksllc/silica-catalog) — that is what the builder canvas, the marketplace preview
 // and the live storefront all render. The tenant COMPILE path speaks Token Model v2,
 // because a site's theme is only the bottom layer: the tenant's brand identity goes
 // over it and the presentation overlay over that (`compileThemeForTenant`). A theme
@@ -12,7 +12,7 @@
 // base. Picking `clinic` and picking nothing produced identical colors, with every
 // surface reporting success. The theme was shipped, correct, and unreachable.
 //
-// THE SHAPE. `DataThemePreset` (@wizeworks/marketplace-schemas) — `{ v, v1, v2 }` — is
+// THE SHAPE. `DataThemePreset` (@wizeworksllc/marketplace-schemas) — `{ v, v1, v2 }` — is
 // what `SiteConfig.draftSettings.themePreset` has always held, because a marketplace
 // theme wrote it. First-party themes now write the same shape, so every reader stays
 // one branch: publish-service takes `.v1` for the legacy snapshot, silica-theme-sync
@@ -24,19 +24,19 @@ import {
   PLATFORM_TOKEN_DEFAULTS,
   type CompiledTokens,
   type ThemeTokens,
-} from '@wizeworks/site-themes';
+} from '@wizeworksllc/site-themes';
 import {
   BASE_SILICA_THEME,
   firstPartyTheme,
   resolveSparxTheme,
   type FirstPartyTheme,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 type Theme = FirstPartyTheme['theme'];
 type Tokens = Record<string, string | undefined>;
 
 /** The stored per-site theme payload. Mirrors `DataThemePreset` without importing
- *  @wizeworks/marketplace-schemas — this package must not depend on the marketplace to
+ *  @wizeworksllc/marketplace-schemas — this package must not depend on the marketplace to
  *  apply a theme that ships in the box. */
 export interface StoredThemePreset {
   v: 1;

@@ -15,8 +15,8 @@
 
 import { headers } from 'next/headers';
 import { cache } from 'react';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
-import { DEFAULT_PLATFORM_BRAND, platformBrandIdentity } from '@wizeworks/brand-core';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
+import { DEFAULT_PLATFORM_BRAND, platformBrandIdentity } from '@wizeworksllc/brand-core';
 import { isLocalDevHost, zoneSiteRoute, type SiteRoute } from './site-host';
 
 // Re-exported so every existing caller of `lib/site-context` keeps its import.
@@ -154,7 +154,7 @@ export interface ResolvedSite {
   siteOrigin: string | null;
 }
 
-/** Mirror of @wizeworks/billing's BillingPhase — redeclared locally so the storefront
+/** Mirror of @wizeworksllc/billing's BillingPhase — redeclared locally so the storefront
  *  image doesn't pull the billing/Stripe closure just for a string union. */
 export type SiteBillingPhase = 'trialing' | 'active' | 'grace' | 'suspended' | 'exempt';
 

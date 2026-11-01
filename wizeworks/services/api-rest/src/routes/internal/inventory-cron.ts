@@ -17,8 +17,8 @@
 
 import { timingSafeEqual } from 'node:crypto';
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 
 import { env } from '../../env.js';
 import { snapshotInventoryValuation, startOfUtcDay } from '../../lib/inventory-valuation.js';

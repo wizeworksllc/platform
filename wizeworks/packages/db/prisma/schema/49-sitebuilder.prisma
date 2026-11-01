@@ -27,7 +27,7 @@ model SiteConfig {
   // light-only | dark-only | auto | toggle
   appearancePolicy String @default("light-only") @map("appearance_policy") @db.VarChar(20)
   // Tenant overlay: { colors: { light, dark }, typography, layout, customCss }.
-  // Shape validated by @wizeworks/sitebuilder-schemas, not the DB.
+  // Shape validated by @wizeworksllc/sitebuilder-schemas, not the DB.
   draftSettings    Json   @default("{}") @map("draft_settings")
 
   publishedVersionId String? @unique @map("published_version_id") @db.Uuid
@@ -204,7 +204,7 @@ model SitePublishSchedule {
 
 // A tenant-saved theme variant (docs/36 Brand+Theme tier). The tenant's own
 // NAMED presentation snapshots — distinct from the read-only platform presets
-// (THEME_LIST in @wizeworks/site-themes, which stay code-first). `presentation`
+// (THEME_LIST in @wizeworksllc/site-themes, which stay code-first). `presentation`
 // is the Token-Model-v2 presentation overlay only (brand identity/feel stay
 // brand-owned); `basePresetKey` is the preset it layers on. Applied to the draft
 // (theme_key + draftSettings presentation) on "Use this theme" or by a scheduled
@@ -282,7 +282,7 @@ model SiteLayoutAssignment {
 // auto-renders) and `template` is the validated render-template AST the
 // storefront interpreter walks. Merged into the registry under the `custom:`
 // namespace as `custom:<slug>`; both halves are validated by
-// @wizeworks/sitebuilder-schemas (fieldSpecToZod + validateTemplate), never by the
+// @wizeworksllc/sitebuilder-schemas (fieldSpecToZod + validateTemplate), never by the
 // DB. `binding` mirrors the registry's data binding (null | "product" |
 // "collection"); `version` bumps on every edit so publish snapshots can pin
 // `custom:<slug>@<version>` for deterministic rollback. Tenant-scoped,

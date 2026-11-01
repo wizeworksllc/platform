@@ -6,7 +6,7 @@
 // orders (docs/100 P3b) reference a supplier and receiving (P3c) books goods
 // against a PO; the supplier cost feeds the moving-average basis on receipt.
 //
-// Owned by @wizeworks/inventory; standalone-usable — a WMS-lite tenant records
+// Owned by @wizeworksllc/inventory; standalone-usable — a WMS-lite tenant records
 // suppliers with no commerce.
 
 model Supplier {

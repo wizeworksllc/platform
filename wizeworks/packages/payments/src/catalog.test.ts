@@ -5,7 +5,7 @@
 // `gatewayCatalog`'s header in ./catalog.
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { PLATFORM_TOKEN } from '@wizeworks/brand-core';
+import { PLATFORM_TOKEN } from '@wizeworksllc/brand-core';
 import {
   CATALOG_GATEWAY_IDS,
   gatewayCatalog,

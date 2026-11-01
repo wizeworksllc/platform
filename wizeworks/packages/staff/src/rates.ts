@@ -1,7 +1,7 @@
 // Pay rates — persistence. The arithmetic and the window logic live in `pay.ts`,
 // which imports nothing; this file is only the part that touches Postgres.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 import { OverlappingPayRateError, StaffMemberNotFoundError } from './errors.js';
 import { dayKey, windowsOverlap, type PayBasis, type PayRate } from './pay.js';
 

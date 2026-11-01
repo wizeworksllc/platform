@@ -1,5 +1,5 @@
 // Publishes `email.send` for the customer-auth flows (password reset, email confirm). Same
-// event path as staff auth (@wizeworks/auth email-events) — never a direct send.
+// event path as staff auth (@wizeworksllc/auth email-events) — never a direct send.
 // The tenant comes from the ambient request scope (tenantStore); the actual
 // render + relay happens in email-worker.
 
@@ -8,8 +8,8 @@ import {
   publishEvent,
   type EmailSendPayload,
   type PublisherLogger,
-} from '@wizeworks/events';
-import { tenantStore } from '@wizeworks/db';
+} from '@wizeworksllc/events';
+import { tenantStore } from '@wizeworksllc/db';
 
 const logger: PublisherLogger = {
   info: (obj, msg) => console.log(JSON.stringify({ level: 'info', ...obj, msg })),

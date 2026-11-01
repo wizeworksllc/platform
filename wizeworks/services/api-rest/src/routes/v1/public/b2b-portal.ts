@@ -34,8 +34,8 @@
 
 import type { FastifyPluginAsync, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
-import { approvalService } from '@wizeworks/b2b';
+import { withTenant } from '@wizeworksllc/db';
+import { approvalService } from '@wizeworksllc/b2b';
 import {
   accountOrderGate,
   b2bQuoteRequestService,
@@ -47,14 +47,14 @@ import {
   CrmValidationError,
   ISSUED_BILL_WHERE,
   taskService,
-} from '@wizeworks/crm';
-import { deliveryNeedsOf, poNumberOf } from '@wizeworks/crm-schemas';
-import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { inventoryService } from '@wizeworks/inventory';
-import { commerceSiteService, pricingService } from '@wizeworks/commerce';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { forbidden, notFound, validationError } from '@wizeworks/api-core/errors';
-import { type CustomerAuthContext } from '@wizeworks/customer-auth';
+} from '@wizeworksllc/crm';
+import { deliveryNeedsOf, poNumberOf } from '@wizeworksllc/crm-schemas';
+import { B2B_QUOTE_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { commerceSiteService, pricingService } from '@wizeworksllc/commerce';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { forbidden, notFound, validationError } from '@wizeworksllc/api-core/errors';
+import { type CustomerAuthContext } from '@wizeworksllc/customer-auth';
 import { resolveTenantId } from '../../../lib/public-commerce-context.js';
 import { renderTenantInvoiceHtml, resolveInvoiceBrand } from '../../../lib/invoice-render.js';
 import { requireCustomerId } from '../../../lib/customer-session.js';

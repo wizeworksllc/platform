@@ -8,10 +8,10 @@
 // rather than claiming "0 of X".
 
 import type { FastifyPluginAsync } from 'fastify';
-import { prisma, withTenant } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { ALL_MODULES, type ModuleSlug } from '@wizeworks/auth';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { ALL_MODULES, type ModuleSlug } from '@wizeworksllc/auth';
 
 // THE list, not a copy of it. This was a hand-maintained duplicate and it had
 // already drifted: a module added to ALL_MODULES typechecks everywhere and then

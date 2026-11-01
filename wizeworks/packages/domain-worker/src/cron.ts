@@ -11,9 +11,9 @@
 // can miss or double up without reworking the query.
 
 import type { Logger } from 'pino';
-import { prisma } from '@wizeworks/db';
-import { publishEvent } from '@wizeworks/events';
-import { appLink, appOrigin } from '@wizeworks/links/server';
+import { prisma } from '@wizeworksllc/db';
+import { publishEvent } from '@wizeworksllc/events';
+import { appLink, appOrigin } from '@wizeworksllc/links/server';
 import { publisher, pubLogger } from './publisher.js';
 
 const THRESHOLDS = [30, 14, 7] as const;

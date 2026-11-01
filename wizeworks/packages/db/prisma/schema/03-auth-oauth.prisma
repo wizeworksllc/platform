@@ -8,7 +8,7 @@
 // and refresh under /api/auth/oauth2/*. api-mcp (mcp.sparx.works) is the
 // resource server — it verifies the signed access token against `jwks` and then
 // checks `oauth_consents` so a revoked connection stops at once
-// (verifyMcpOAuthToken in @wizeworks/auth).
+// (verifyMcpOAuthToken in @wizeworksllc/auth).
 //
 // These replaced the 1.6 `mcp()`/`oidcProvider` tables (oauth_applications, the
 // token-pair oauth_access_tokens, consent_given consents) in migration
@@ -43,7 +43,7 @@
 // BETTER_AUTH_SECRET, and the plugin signs with the NEWEST row it can see, so
 // a shared set would hand sparx a key only Piggles can decrypt the moment
 // Piggles minted one. `platformBrand` is stamped on create and ANDed into every
-// read by the brand-scoped client (@wizeworks/auth brand-scoped-prisma.ts), the
+// read by the brand-scoped client (@wizeworksllc/auth brand-scoped-prisma.ts), the
 // same partition `users` gets. api-mcp's lookup by kid spans both on purpose:
 // it checks the issuer, which differs per brand.
 model Jwks {

@@ -4,14 +4,14 @@
 // mutate the draft SiteConfig; they do NOT publish — changes go live only when
 // publishService.publishNow runs.
 
-import { SelectThemeInput, UpdateSettingsInput } from '@wizeworks/sitebuilder-schemas';
-import type { Prisma, SiteConfig, TxClient } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+import { SelectThemeInput, UpdateSettingsInput } from '@wizeworksllc/sitebuilder-schemas';
+import type { Prisma, SiteConfig, TxClient } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   FIRST_PARTY_THEMES,
   firstPartyTheme,
   type FirstPartyTheme,
-} from '@wizeworks/silica-catalog';
+} from '@wizeworksllc/silica-catalog';
 
 import { writeAuditLog } from '../audit';
 import { publishSitebuilderEvent } from '../events';
@@ -76,7 +76,7 @@ export interface SelectThemeResolution {
   /** Resolve a marketplace DATA theme's full `DataThemePreset` by slug, or null
    *  when the slug is not a marketplace data theme (a code foundation, or unknown).
    *  Injected by the api-rest route because the artifact lives in object storage,
-   *  not a column (docs/85 §6/§7) — the @wizeworks/sitebuilder package never reaches
+   *  not a column (docs/85 §6/§7) — the @wizeworksllc/sitebuilder package never reaches
    *  storage directly. */
   resolveDataPreset?: (slug: string) => Promise<unknown>;
 }

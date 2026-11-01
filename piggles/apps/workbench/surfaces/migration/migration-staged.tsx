@@ -23,7 +23,7 @@ import {
 } from '@fortawesome/pro-solid-svg-icons';
 
 import { Icon } from '@piggles/ui';
-import type { MappedEntity } from '@wizeworks/migration';
+import type { MappedEntity } from '@wizeworksllc/migration';
 import { EntityReport, FileReport } from './migration-file-report';
 import type { LivePull } from './live-connection';
 import type { LoadedFile } from './data';

@@ -2,11 +2,11 @@
 // query include shapes, and the helpers the CRUD, line, lifecycle, and document
 // modules all lean on (number allocation, totals recompute, status guards,
 // line-data resolution, detail load). Kept in one place so every PO path agrees
-// on shape + invariants. Depends only on @wizeworks/db + the module vocabulary, so it
+// on shape + invariants. Depends only on @wizeworksllc/db + the module vocabulary, so it
 // never cycles with the higher-level PO files that import it.
 
-import type { PurchaseOrderLineInput } from '@wizeworks/commerce-schemas';
-import type { Prisma, TxClient } from '@wizeworks/db';
+import type { PurchaseOrderLineInput } from '@wizeworksllc/commerce-schemas';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 
 import { InventoryConflictError, InventoryNotFoundError } from '../errors';
 

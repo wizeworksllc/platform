@@ -7,7 +7,7 @@
 // tenant's CRM (the dogfood tenant, docs/80 §2), tagged `early-access`.
 
 import { headers } from 'next/headers';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 // In-cluster api-rest URL (same env the marketplace data layer reads); the public
 // route needs no auth. Falls back to the local api-rest port for dev.

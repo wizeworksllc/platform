@@ -35,7 +35,7 @@ vi.mock('./client', () => ({
   },
   getPlatformStripe: () => ({ paymentIntents: stripeCalls }),
 }));
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(
       fn({

@@ -10,12 +10,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import type {
   OperatorSiteListResult,
   OperatorSiteDetail,
   OperatorSiteStatusResult,
-} from '@wizeworks/operator';
+} from '@wizeworksllc/operator';
 
 import { authorizeOperator, badRequest, notFound, operatorIdOf } from './operator-internal.js';
 import { listAllSites, siteDetail } from '../../lib/sites/service.js';

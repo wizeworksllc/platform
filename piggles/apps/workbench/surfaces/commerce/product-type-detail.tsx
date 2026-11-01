@@ -11,7 +11,7 @@
 //
 // The schema this authors is exactly what surfaces/commerce/product-attributes.tsx
 // renders a form from — the two share the FieldDef vocabulary through
-// product-types-data.ts (a mirror of @wizeworks/field-schema, validated server-side).
+// product-types-data.ts (a mirror of @wizeworksllc/field-schema, validated server-side).
 // Nothing here can author an attribute the product form cannot show.
 //
 // ── Built-ins fork on edit ────────────────────────────────────────────────
@@ -23,7 +23,7 @@
 // Explicit-save only: one Save button, last write wins. An unsaved edit registers
 // the leave-guard, so closing or navigating away asks first.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useRef, useState, type ComponentProps } from 'react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { PaneLoadError } from '../../components/pane-load-error';

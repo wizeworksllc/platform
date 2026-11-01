@@ -16,7 +16,7 @@
 // `toggleModule` is the wizard's switch, bridged to clauses.
 
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react';
-import type { AudienceKey } from '@wizeworks/story-schemas';
+import type { AudienceKey } from '@wizeworksllc/story-schemas';
 import {
   addCust,
   addNewLine,

@@ -1,5 +1,5 @@
 import 'server-only';
-import { platformRequest } from '@wizeworks/auth-client-server';
+import { platformRequest } from '@wizeworksllc/auth-client-server';
 
 // ── WHERE IT IS READ AND WRITTEN ────────────────────────────────────────────
 //

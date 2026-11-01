@@ -21,12 +21,12 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import type { Prisma } from '@wizeworks/db';
-import { withOwnUserRow, withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { prisma, withSystem } from '@wizeworks/db';
-import { brandLegal, staleLegalDocs, type LegalDocType } from '@wizeworks/legal';
+import type { Prisma } from '@wizeworksllc/db';
+import { withOwnUserRow, withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { prisma, withSystem } from '@wizeworksllc/db';
+import { brandLegal, staleLegalDocs, type LegalDocType } from '@wizeworksllc/legal';
 
 /**
  * Which brand this tenant signed up under.
@@ -435,7 +435,7 @@ const meRoutes: FastifyPluginAsync = async (app) => {
     const legal = brandLegal(await tenantBrand(auth.tenantId));
     // A document this brand does not publish cannot be accepted. Silently
     // recording a version for it would put a row in the evidence table naming a
-    // page nobody can open — see the same rule in @wizeworks/legal.
+    // page nobody can open — see the same rule in @wizeworksllc/legal.
     const rows = docTypes.flatMap((docType) => {
       const meta = legal.versions[docType];
       return meta ? [{ docType, docVersion: meta.version }] : [];

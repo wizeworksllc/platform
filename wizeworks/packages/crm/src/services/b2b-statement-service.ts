@@ -24,8 +24,8 @@
 //
 // No schema change: everything a statement says is already in the rows.
 
-import { poNumberOf } from '@wizeworks/crm-schemas';
-import { withTenant, type Prisma } from '@wizeworks/db';
+import { poNumberOf } from '@wizeworksllc/crm-schemas';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { CrmNotFoundError } from '../errors';

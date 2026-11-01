@@ -1,15 +1,15 @@
 // Production / dev entrypoint. Boots the Fastify factory and wires up
 // graceful shutdown. Tests import ./app.ts directly and skip listen().
 
-// FIRST: sets the WizeLens Prisma hook before @wizeworks/db builds its client.
+// FIRST: sets the WizeLens Prisma hook before @wizeworksllc/db builds its client.
 import './wizelens.js';
-import { resolveTransport } from '@wizeworks/events';
+import { resolveTransport } from '@wizeworksllc/events';
 import {
   installCrmWebhookFanout,
   preconnectWebhookFanout,
   registerCrmConsumers,
-} from '@wizeworks/crm';
-import { installCrmPubSubBridge } from '@wizeworks/crm/pubsub';
+} from '@wizeworksllc/crm';
+import { installCrmPubSubBridge } from '@wizeworksllc/crm/pubsub';
 import { createApp } from './app.js';
 import { env } from './env.js';
 
@@ -44,7 +44,7 @@ async function main(): Promise<void> {
   const app = await createApp();
 
   // No webhook delivery loop here. The rows the fan-out above enqueues are POSTed
-  // by api-rest's loop (@wizeworks/api-core/webhook-delivery), which runs under an
+  // by api-rest's loop (@wizeworksllc/api-core/webhook-delivery), which runs under an
   // advisory lock so one process delivers at a time anyway. This process has a
   // pool of ONE (k8s/azure/apps/db-budget.yaml), and a lock tick needs two: the
   // loop it used to run here failed every 40 seconds with P2024 (2026-10-29).

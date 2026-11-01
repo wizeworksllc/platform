@@ -13,9 +13,9 @@ import {
   UpdateShippingProfileInput,
   UpdateShippingZoneInput,
   ZoneTargeting,
-} from '@wizeworks/commerce-schemas';
-import { afterCommit, withTenant } from '@wizeworks/db';
-import type { ShippingProfile, ShippingRate, ShippingZone, TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { afterCommit, withTenant } from '@wizeworksllc/db';
+import type { ShippingProfile, ShippingRate, ShippingZone, TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';

@@ -107,7 +107,7 @@ against the real field list under both column orders, and made to print what it
 returned. Not reasoned about from the code.
 [[feedback_verify_capability_in_code_not_docs]]
 
-**Checks:** typecheck 0 on both workbenches and `@wizeworks/migration`. The two
+**Checks:** typecheck 0 on both workbenches and `@wizeworksllc/migration`. The two
 consoles' `guessMapping` are byte-identical. `check:console-parity` green.
 ESLint and prettier clean.
 

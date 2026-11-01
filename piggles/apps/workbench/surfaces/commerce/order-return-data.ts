@@ -11,7 +11,7 @@
 // return moves through once it EXISTS. This one owns the single question the
 // order pane has to answer first — what of this sale can still come back.
 
-import { useMutation, useQueries, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueries, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { ORDERS_KEY } from './order-queries';
 import { RETURNS_KEY } from './returns-data';

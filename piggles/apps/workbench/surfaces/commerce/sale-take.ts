@@ -3,7 +3,7 @@
 // Writing a sale at the counter down. Moved out of sale-data.ts with the order
 // body it posts, which now carries the sales tax (sparx persona issue 230).
 
-import { useMutation, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { ORDERS_KEY, type Order } from './data';
 import { handedOverNow } from './sale-core';

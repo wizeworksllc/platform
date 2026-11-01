@@ -35,9 +35,9 @@ import {
   mergeService,
   savedViewService,
   signatureService,
-} from '@wizeworks/crm';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+} from '@wizeworksllc/crm';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { activeCrmSite, requireCrmModule, toCrmContext } from '../../../lib/crm-context.js';
 import { sendSignatureRequest } from '../../../lib/signature-mail.js';
 

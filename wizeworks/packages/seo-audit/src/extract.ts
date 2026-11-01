@@ -167,7 +167,7 @@ function walkSilica(node: unknown, out: ContentSignals): void {
 
 // ── CMS rich-text doc (TipTap / ProseMirror) ──────────────────────────────────
 //
-// Mirrors the node walk in `@wizeworks/cms-editor`'s `renderDocToHtml`: `heading`
+// Mirrors the node walk in `@wizeworksllc/cms-editor`'s `renderDocToHtml`: `heading`
 // (numeric `attrs.level`), `text` (with `link` marks), `image`/`sparxImage`
 // (`attrs.alt`), and `sparxReference` (an internal entry link).
 

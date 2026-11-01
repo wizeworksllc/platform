@@ -16,10 +16,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { badRequest } from '@wizeworks/api-core/errors';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { badRequest } from '@wizeworksllc/api-core/errors';
 import {
   accountingAdapter,
   accountingCatalog,
@@ -39,12 +39,12 @@ import {
   recordSyncRun,
   setMappings,
   upsertConnection,
-} from '@wizeworks/finance';
+} from '@wizeworksllc/finance';
 import {
   signAccountingOAuthState,
   verifyAccountingOAuthState,
 } from '../../../lib/accounting-oauth.js';
-import { accountingProviderSchema } from '@wizeworks/finance/schemas';
+import { accountingProviderSchema } from '@wizeworksllc/finance/schemas';
 import {
   headerPropertyId,
   requireFinanceModule,

@@ -8,8 +8,8 @@
 // the console already shows under its Web address box, so the two never disagree.
 
 import * as React from 'react';
-import { useQueryClient } from '@wizeworks/query';
-import type { LinkSuggestion } from '@wizeworks/cms-editor/editor';
+import { useQueryClient } from '@wizeworksllc/query';
+import type { LinkSuggestion } from '@wizeworksllc/cms-editor/editor';
 import { api } from '../../lib/api/client';
 import { contentKeys, entryTitle, type ContentEntry, type ContentType } from './data';
 import { entryHref } from './routable';

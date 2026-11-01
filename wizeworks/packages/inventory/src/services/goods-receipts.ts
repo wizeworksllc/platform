@@ -13,9 +13,9 @@
 // credited against the PO line (the supplier still owes them, so a partly-damaged
 // delivery keeps the PO open for the shortfall) and never join a lot.
 
-import { CreateGoodsReceiptInput } from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+import { CreateGoodsReceiptInput } from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { indexInventoryEntityOnCommit } from '../events';

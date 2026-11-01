@@ -1,9 +1,9 @@
 // Resource setup CRUD (staff / assets / tables / spaces / equipment). Soft-delete
 // so historical bookings keep a valid resource reference.
 
-import type { Prisma } from '@wizeworks/db';
-import { withTenant, type SchedulingResource } from '@wizeworks/db';
-import type { CreateResourceInput, UpdateResourceInput } from '@wizeworks/scheduling-schemas';
+import type { Prisma } from '@wizeworksllc/db';
+import { withTenant, type SchedulingResource } from '@wizeworksllc/db';
+import type { CreateResourceInput, UpdateResourceInput } from '@wizeworksllc/scheduling-schemas';
 
 import { ResourceNotFoundError } from './errors';
 import { addToRoster, renameOnRoster } from './roster';

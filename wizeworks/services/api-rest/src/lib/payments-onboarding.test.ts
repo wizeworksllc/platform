@@ -17,7 +17,7 @@ let account: Record<string, unknown>;
 const updates: Partial<Row>[] = [];
 const published: unknown[] = [];
 
-vi.mock('@wizeworks/db', () => {
+vi.mock('@wizeworksllc/db', () => {
   const tx = {
     tenantPaymentConfig: {
       findUnique: () => Promise.resolve({ ...row }),
@@ -38,11 +38,11 @@ vi.mock('@wizeworks/db', () => {
     withTenant: (_ctx: unknown, fn: (t: typeof tx) => unknown) => fn(tx),
   };
 });
-vi.mock('@wizeworks/payments', () => ({
+vi.mock('@wizeworksllc/payments', () => ({
   getGatewayDescriptor: () => undefined,
   getPlatformStripe: () => ({ accounts: { retrieve: () => Promise.resolve(account) } }),
 }));
-vi.mock('@wizeworks/events', () => ({
+vi.mock('@wizeworksllc/events', () => ({
   createPublisher: () => ({}),
   publishEvent: (_p: unknown, type: string) => {
     published.push(type);

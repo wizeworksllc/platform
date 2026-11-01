@@ -2,7 +2,7 @@
 // pane used to say "a problem reaching the server", whatever had gone wrong.
 
 import { describe, expect, it } from 'vitest';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 
 import { loadFailureWords, workFailureWords } from './api-error';
 

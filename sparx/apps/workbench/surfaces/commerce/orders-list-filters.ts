@@ -26,7 +26,7 @@
 // still collectable on this order" and excludes a cancelled or refunded one, so
 // the order PANE said nothing was owed while the LIST filter counted it. The chip
 // now asks the named question (`owing`) and the rule is
-// `isOwingOrder` in @wizeworks/crm-schemas, one place for both screens.
+// `isOwingOrder` in @wizeworksllc/crm-schemas, one place for both screens.
 // [[feedback_a_fix_leaves_its_neighbour_behind]]
 //
 // And the label moved with it, because a chip's word has to be true of

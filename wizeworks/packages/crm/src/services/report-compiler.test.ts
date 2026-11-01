@@ -65,7 +65,7 @@ describe('identifiers are an allowlist, not interpolation', () => {
   });
 
   it('accepts a camelCase custom property, which is the shape the editor makes', () => {
-    // The key rule here must MATCH @wizeworks/field-schema's, not merely be stricter
+    // The key rule here must MATCH @wizeworksllc/field-schema's, not merely be stricter
     // than it. It was lowercase-only while field keys have always been
     // camelCase, so a property called `renewalMonth` — picked out of the
     // builder's own field list — answered "there is no field called that".

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/markup-recompute-worker",
+  "name": "@wizeworksllc/markup-recompute-worker",
   "version": "0.0.0",
   "private": true,
   "description": "sparx markup recompute worker (docs/48 Phase 4). Receives variant.cost.updated events via Pub/Sub push (Cloud Run HTTP entrypoint) and re-derives the list price for variants bound to a markup rule — auto-applying within the rule's tolerance band, or staging the change for human approval beyond it.",
@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@wizeworks/commerce-schemas": "workspace:*",
-    "@wizeworks/db": "workspace:*",
-    "@wizeworks/events": "workspace:*",
+    "@wizeworksllc/commerce-schemas": "workspace:*",
+    "@wizeworksllc/db": "workspace:*",
+    "@wizeworksllc/events": "workspace:*",
     "pino": "^9.5.0",
     "zod": "^4.6.6"
   },

@@ -13,7 +13,7 @@
 
 ### Top 5 strengths
 
-1. **Unified node-tree architecture across all five surfaces.** Page/site/email share one model, one registry, one inspector, one import/export. Binding resolution (`resolvePath`/`cardinalityOf`) is a shared pure function in `@wizeworks/builder-schemas` — no drift in the core.
+1. **Unified node-tree architecture across all five surfaces.** Page/site/email share one model, one registry, one inspector, one import/export. Binding resolution (`resolvePath`/`cardinalityOf`) is a shared pure function in `@wizeworksllc/builder-schemas` — no drift in the core.
 2. **The brand/theme surface is excellent and now fully per-site.** Live component showcase + the new **Components | Site** live-preview toggle (re-themes the real storefront on every keystroke), per-site identity/brand isolation (DB-verified), responsive editing.
 3. **Email editor is email-faithful and polished.** Full From/To envelope, merge tags (`{{…}}`), auto-applied branded header + legal footer, per-site customization, brand-correct rendering.
 4. **The Inspector's responsive + structured-control model is more sophisticated than it first looks.** Container-query per-breakpoint arrangement, a clean common/advanced split, arbitrary-value escape hatches in length fields, and a raw-class card as the ultimate hatch.
@@ -36,7 +36,7 @@
 | 1   | Publish email-gate (RLS)                      |   ✅   | Builder v2 — [01-publish-gate-fix](../builder/01-publish-gate-fix.md): the guard reads `emailVerified` from the JWT, not a base-client read                               |
 | 2   | Properties ≠ "full Tailwind"                  |   ✅   | Builder v2 — [04-inspector-full-design-surface](../builder/04-inspector-full-design-surface.md): Effects card + the missing controls + page-builder skin/state/breakpoint |
 | 3   | No undo/redo                                  |   ✅   | Builder v2 — [05-editor-affordances](../builder/05-editor-affordances.md): history stack + keymap                                                                         |
-| 4   | Canvas↔live divergence                        |   ✅   | Builder v2 — [02-canvas-live-renderer-unification](../builder/02-canvas-live-renderer-unification.md): one `@wizeworks/builder-render` path                               |
+| 4   | Canvas↔live divergence                        |   ✅   | Builder v2 — [02-canvas-live-renderer-unification](../builder/02-canvas-live-renderer-unification.md): one `@wizeworksllc/builder-render` path                               |
 | 5   | No drag / multi-select / guides / copy-styles |   ✅   | Builder v2 (drag · multi-select · copy-styles) **+ this follow-up** — alignment guides during canvas drag (§2.4)                                                          |
 | 6   | Site Preview button dead                      |   ✅   | Builder v2 — unified-studio Preview with contextual tooltips                                                                                                              |
 | 7   | Canvas overflows on mobile                    |   ✅   | **This follow-up** — canvas zoom-to-fit + a manual zoom control                                                                                                           |
@@ -291,7 +291,7 @@ The existing split (common cards open by default; Size/Spacing/Position/Typograp
 
 ## 6. Canvas↔live parity report
 
-**What's shared (no drift):** binding resolution (`resolvePath`/`cardinalityOf` in `@wizeworks/builder-schemas`), iteration/scope, class compilation + per-tenant token application, and the Tier-1 primitives + content components (Heading, Text, Image, Divider, Icon, NavMenu, FAQ, FeatureGrid, EditorialSection, Logo, Wordmark, SocialLinks) — both sides render the same `@sparx/site-ui` components.
+**What's shared (no drift):** binding resolution (`resolvePath`/`cardinalityOf` in `@wizeworksllc/builder-schemas`), iteration/scope, class compilation + per-tenant token application, and the Tier-1 primitives + content components (Heading, Text, Image, Divider, Icon, NavMenu, FAQ, FeatureGrid, EditorialSection, Logo, Wordmark, SocialLinks) — both sides render the same `@sparx/site-ui` components.
 
 **What diverges (ranked):**
 

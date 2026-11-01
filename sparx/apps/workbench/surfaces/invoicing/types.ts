@@ -1,5 +1,5 @@
 // Shapes returned by /v1/invoicing/documents. Hand-written rather than pulled
-// from @wizeworks/api-client's generated openapi.d.ts because the invoicing routes
+// from @wizeworksllc/api-client's generated openapi.d.ts because the invoicing routes
 // aren't in the published spec yet — swap these for the generated types once
 // they are, and the surfaces below won't change.
 

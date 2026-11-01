@@ -73,7 +73,7 @@ Somebody hit this already and fixed it at their own call site. The schema stayed
 wrong, and the next form to send an honest payload was the one that broke.
 [[feedback_a_fix_leaves_its_neighbour_behind]]
 
-**It is a class, not an instance.** Measured across `@wizeworks/commerce-schemas`:
+**It is a class, not an instance.** Measured across `@wizeworksllc/commerce-schemas`:
 **23 fields over 36 create/update pairs** where the patch accepts a null the
 create refuses. `create-update-parity.test.ts` now walks every pair generically,
 carries those 23 as a named list that may only shrink, and asserts the count, so

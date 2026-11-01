@@ -2,7 +2,7 @@
 // that seed each module's TEMPLATE-AGNOSTIC defaults when it activates (docs/104
 // L2). This is the sibling of email-provisioning.ts: it kept the dependency graph
 // acyclic by living in api-rest (the composition root) rather than inside any one
-// domain package, so it can call @wizeworks/commerce, @wizeworks/inventory, the chat lib,
+// domain package, so it can call @wizeworksllc/commerce, @wizeworksllc/inventory, the chat lib,
 // and the b2b default in one place.
 //
 // Coverage (the docs/104 §5.A gaps the established consumers didn't already fill —
@@ -33,18 +33,18 @@
 // (docs/104 R1–R4). The platform bus awaits every subscriber, so seeding finishes
 // before the module-toggle route returns — no separate /bootstrap round-trip.
 
-import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworks/db';
-import { isModuleEnabled, type ModuleSlug } from '@wizeworks/auth';
-import { commerceSiteService, taxService } from '@wizeworks/commerce';
+import { ADVISORY_LOCKS, withAdvisoryTickLock } from '@wizeworksllc/db';
+import { isModuleEnabled, type ModuleSlug } from '@wizeworksllc/auth';
+import { commerceSiteService, taxService } from '@wizeworksllc/commerce';
 import {
   b2bQuoteService,
   documentLineTypeService,
   documentWorkflowService,
   getPlatformBus,
   type PlatformEvent,
-} from '@wizeworks/crm';
-import { prisma } from '@wizeworks/db';
-import { inventoryService } from '@wizeworks/inventory';
+} from '@wizeworksllc/crm';
+import { prisma } from '@wizeworksllc/db';
+import { inventoryService } from '@wizeworksllc/inventory';
 import type { FastifyBaseLogger } from 'fastify';
 
 import { bootstrapDefaultApprovalRule } from './b2b-defaults.js';

@@ -2,14 +2,14 @@
 // so a click that lands back on the tenant's own site is attributed to the social source
 // it came from, and shows up in the same reports as every other channel.
 //
-// Deliberately reuses the ONE UTM builder + controlled taxonomy in @wizeworks/attribution
+// Deliberately reuses the ONE UTM builder + controlled taxonomy in @wizeworksllc/attribution
 // rather than inventing an ad-hoc tag (which is exactly the fragmentation the taxonomy
 // exists to prevent). It runs HERE, at publish, not in the shared renderer: the renderer
 // is pure and also drives the composer preview, which should show the human link, not a
 // tracking URL — and the campaign month is a publish-time fact.
 
-import { buildUtmUrl } from '@wizeworks/attribution';
-import type { SocialPlatform } from '@wizeworks/social';
+import { buildUtmUrl } from '@wizeworksllc/attribution';
+import type { SocialPlatform } from '@wizeworksllc/social';
 
 // Each platform → a registered utm_source (attribution taxonomy). Facebook, Instagram
 // and Threads share the taxonomy's Meta-family source `meta`; the specific surface rides

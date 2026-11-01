@@ -1,8 +1,8 @@
 // Process-level env validation.
 //
 // Deliberately SMALL. Each worker library still owns and validates the settings
-// only it understands — Typesense keys in @wizeworks/commerce-indexer, VAPID keys in
-// @wizeworks/push-worker, GoDaddy credentials in @wizeworks/domain-worker — and those
+// only it understands — Typesense keys in @wizeworksllc/commerce-indexer, VAPID keys in
+// @wizeworksllc/push-worker, GoDaddy credentials in @wizeworksllc/domain-worker — and those
 // modules parse their own schema when they are imported here. This file covers
 // only what the process as a whole needs.
 //

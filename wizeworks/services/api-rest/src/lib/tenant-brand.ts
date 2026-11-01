@@ -8,7 +8,7 @@
 // system client — there is no tenant context to establish, and the column is
 // indexed.
 
-import { prisma } from '@wizeworks/db';
+import { prisma } from '@wizeworksllc/db';
 
 /** The brand every tenant provisioned before the second brand existed belongs
  *  to, and the column's own default. */

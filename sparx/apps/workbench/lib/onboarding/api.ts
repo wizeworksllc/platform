@@ -12,7 +12,7 @@
 // throws — there is no {ok,error} wrapper. Callers own the pending/error state.
 
 import { useMemo } from 'react';
-import { useQueryClient, type QueryClient } from '@wizeworks/query';
+import { useQueryClient, type QueryClient } from '@wizeworksllc/query';
 import { SWITCHBOARD_MODULES } from './modules';
 import type { OnboardingStepKey } from './types';
 import type { StoryPayload } from './story-state';

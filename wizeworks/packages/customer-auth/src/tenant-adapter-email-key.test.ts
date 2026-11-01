@@ -4,7 +4,7 @@
 
 import { describe, expect, it, vi } from 'vitest';
 
-vi.mock('@wizeworks/db', () => ({ prisma: {}, tenantStore: {}, withTenant: vi.fn() }));
+vi.mock('@wizeworksllc/db', () => ({ prisma: {}, tenantStore: {}, withTenant: vi.fn() }));
 
 const { withTenantEmailKey } = await import('./tenant-adapter');
 

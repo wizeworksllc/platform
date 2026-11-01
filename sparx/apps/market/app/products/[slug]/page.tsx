@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Badge } from '@wizeworks/silicaui-react';
-import { marketCategoryLabel } from '@wizeworks/commerce-schemas';
+import { marketCategoryLabel } from '@wizeworksllc/commerce-schemas';
 
 import { AddToCart } from '@/components/add-to-cart';
 import { RecordView } from '@/components/record-view';

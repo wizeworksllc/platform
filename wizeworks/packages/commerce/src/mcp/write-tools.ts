@@ -23,7 +23,7 @@ import {
   UpdateSubscriptionItemsInput,
   UpdateSubscriptionScheduleInput,
   UpdateVariantInput,
-} from '@wizeworks/commerce-schemas';
+} from '@wizeworksllc/commerce-schemas';
 
 import {
   discountService,

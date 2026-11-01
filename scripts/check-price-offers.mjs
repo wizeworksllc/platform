@@ -28,7 +28,7 @@
 //
 // Everything else must import `B2B_QUOTE_WORKFLOW_SLUG`,
 // `CUSTOMER_ESTIMATE_WORKFLOW_SLUG`, `isPriceOfferWorkflow` or
-// `billingDocumentNoun` from `@wizeworks/crm-schemas/builtins`, so the page a
+// `billingDocumentNoun` from `@wizeworksllc/crm-schemas/builtins`, so the page a
 // customer receives and the screen it was typed on cannot disagree about what
 // the document is. A new literal fails here rather than shipping as a fifth
 // opinion. [[feedback_a_fix_leaves_its_neighbour_behind]]
@@ -137,7 +137,7 @@ if (offenders.length > 0) {
     `   Only ${HOME} may.`,
     '   Import B2B_QUOTE_WORKFLOW_SLUG, CUSTOMER_ESTIMATE_WORKFLOW_SLUG,',
     '   isPriceOfferWorkflow or billingDocumentNoun from',
-    "   '@wizeworks/crm-schemas/builtins' instead.",
+    "   '@wizeworksllc/crm-schemas/builtins' instead.",
     '',
     '   A quote and an invoice are the same row on two different workflows, and',
     '   every screen and renderer that tells them apart has to agree. When three',

@@ -5,7 +5,7 @@
 // card order used to be CHARGED at checkout anyway, and when the order was
 // turned down it was cancelled with the money kept: a buyer whose own company
 // said no was out the money. Now the checkout holds the card instead, where the
-// gateway can (`capabilities.capture` in @wizeworks/payments), and this decides
+// gateway can (`capabilities.capture` in @wizeworksllc/payments), and this decides
 // what each card payment on the order needs when the last word is said:
 //
 //   approved     a held card is charged (capture). A card already charged, or
@@ -19,9 +19,9 @@
 // a gateway: that happens after the transaction commits, in the caller, so a
 // refused capture can never roll back an approval that already happened, and a
 // failed database write can never leave a card charged for an order that is not.
-// The gateway work is `heldOrderPayments.settle` in @wizeworks/commerce.
+// The gateway work is `heldOrderPayments.settle` in @wizeworksllc/commerce.
 
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 /** Stamped on a card payment that holds the card rather than charging it, on
  *  the gateway's intent and on our `payment_intents` row, so the decision later

@@ -1,5 +1,5 @@
 // Provision the Piggles Stripe account from the billing plan in
-// @wizeworks/brand-registry (brands/piggles/billing-plan.json).
+// @wizeworksllc/brand-registry (brands/piggles/billing-plan.json).
 //   PIGGLES_STRIPE_SECRET_KEY=sk_test_… node piggles/scripts/provision-stripe.mjs [--dry-run]
 // api-rest reads the same plan file (BILLING_PLANS), so the two cannot disagree.
 

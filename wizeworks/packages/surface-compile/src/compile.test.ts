@@ -5,8 +5,8 @@
 // are dropped (not fatal).
 
 import { describe, expect, it } from 'vitest';
-import { type BuilderNode } from '@wizeworks/builder-schemas';
-import { BASE_SILICA_THEME } from '@wizeworks/silica-catalog';
+import { type BuilderNode } from '@wizeworksllc/builder-schemas';
+import { BASE_SILICA_THEME } from '@wizeworksllc/silica-catalog';
 import { compileClasses } from './compile';
 import { buildTenantStylesheet } from './index';
 

@@ -6,11 +6,11 @@
 // snapshot into `seo_audits` so the site-wide overview can rank pages without N
 // live audits. Both the live endpoint and the reindex reuse this.
 
-import type { Prisma, TxClient } from '@wizeworks/db';
-import { pageService } from '@wizeworks/builder';
-import { servedPageTitle, servedTitle } from '@wizeworks/builder-schemas';
-import { isRecordAddress } from '@wizeworks/silica-catalog';
-import { normalizePath } from '@wizeworks/site-lint';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
+import { pageService } from '@wizeworksllc/builder';
+import { servedPageTitle, servedTitle } from '@wizeworksllc/builder-schemas';
+import { isRecordAddress } from '@wizeworksllc/silica-catalog';
+import { normalizePath } from '@wizeworksllc/site-lint';
 import {
   auditEntity,
   extractBuilderTreeSignals,
@@ -20,7 +20,7 @@ import {
   type ContentSignals,
   type EntityType,
   type Scorecard,
-} from '@wizeworks/seo-audit';
+} from '@wizeworksllc/seo-audit';
 
 const rec = (v: unknown): Record<string, unknown> | null =>
   v && typeof v === 'object' && !Array.isArray(v) ? (v as Record<string, unknown>) : null;
@@ -95,7 +95,7 @@ export function storedPath(path: string | null): string | null {
  * (docs/131 §4).
  *
  * Deliberately NOT a field on `AuditableEntity`: that type lives in
- * `@wizeworks/seo-audit`, which is a pure scoring library — it takes signals and
+ * `@wizeworksllc/seo-audit`, which is a pure scoring library — it takes signals and
  * returns a grade, and knows nothing about sites or storage. Threading a
  * persistence concern through it to save one query here would couple the scorer
  * to the multi-site model for no gain.

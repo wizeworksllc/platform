@@ -1,4 +1,4 @@
-import type { Prisma } from '@wizeworks/db';
+import type { Prisma } from '@wizeworksllc/db';
 
 // HOW MANY PEOPLE ARE ON THIS TEAM — asked once, so the two readers cannot
 // disagree.

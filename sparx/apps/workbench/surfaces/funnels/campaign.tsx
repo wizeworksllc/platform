@@ -36,7 +36,7 @@ import {
   useToast,
 } from '@wizeworks/silicaui-react';
 import { Pause, Play, ServerCrash, Trash2 } from 'lucide-react';
-import { ConditionGroup, EMPTY_CONDITION_GROUP } from '@wizeworks/automation-schemas';
+import { ConditionGroup, EMPTY_CONDITION_GROUP } from '@wizeworksllc/automation-schemas';
 import { PANE_SHELL, PaneToolbar } from '../../components/pane-toolbar';
 import { FormSection } from '../../components/form-section';
 import { useConfirm } from '../../lib/confirm';

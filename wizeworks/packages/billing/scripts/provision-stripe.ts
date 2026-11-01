@@ -1,8 +1,8 @@
 // Idempotent Stripe provisioner for platform billing (docs/92 §C3).
 //
-//   STRIPE_SECRET_KEY=sk_test_… pnpm --filter @wizeworks/billing provision-stripe
+//   STRIPE_SECRET_KEY=sk_test_… pnpm --filter @wizeworksllc/billing provision-stripe
 //   STRIPE_SECRET_KEY=sk_test_… SPARX_REST_URL=https://api.sparx.works \
-//     pnpm --filter @wizeworks/billing provision-stripe
+//     pnpm --filter @wizeworksllc/billing provision-stripe
 //   …append `--dry-run` to preview without writing.
 //
 // Creates / updates every Stripe object platform billing needs and prints the
@@ -19,7 +19,7 @@
 import Stripe from 'stripe';
 
 import { MODULE_MONTHLY_CENTS } from '../src/price-catalog';
-import { BUNDLED_FREE, type ModuleSlug } from '@wizeworks/modules';
+import { BUNDLED_FREE, type ModuleSlug } from '@wizeworksllc/modules';
 
 const API_VERSION = '2024-11-20.acacia';
 const DRY_RUN = process.argv.includes('--dry-run');

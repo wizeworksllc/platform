@@ -7,12 +7,12 @@
 // read first.
 //
 // Categories are derived from MARKET_CATEGORIES — the same source of truth the
-// category pages and sitemap render from (@wizeworks/commerce-schemas) — so this
+// category pages and sitemap render from (@wizeworksllc/commerce-schemas) — so this
 // file cannot drift from the taxonomy that actually ships. Per-product and
 // per-merchant URLs are deliberately NOT enumerated here: that is the sitemap's
 // job, and llms.txt is meant to stay a readable map rather than a catalog dump.
 
-import { MARKET_CATEGORIES } from '@wizeworks/commerce-schemas';
+import { MARKET_CATEGORIES } from '@wizeworksllc/commerce-schemas';
 
 import { SITE_ORIGIN as BASE } from '@/lib/site';
 

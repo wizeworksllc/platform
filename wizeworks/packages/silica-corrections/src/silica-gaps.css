@@ -14,7 +14,7 @@
    If you want a silica component to look DIFFERENT, this is the wrong file —
    change the token, or ask for the variant. See root CLAUDE.md RULE #1.
 
-   Lives in @wizeworks/silica-corrections, not in a brand package. Every rule
+   Lives in @wizeworksllc/silica-corrections, not in a brand package. Every rule
    here is written against silica's OWN class and OWN custom properties, so it
    states no value and every brand gets the same fix from one copy. It moved out
    of @sparx/brand on 2026-08-16: a correction both brands need cannot sit inside

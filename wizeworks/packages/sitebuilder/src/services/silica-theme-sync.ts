@@ -22,7 +22,7 @@
 // draft → published); a theme change that went straight live would repaint the
 // visitor's site the moment someone previewed one.
 
-import type { Prisma, TxClient } from '@wizeworks/db';
+import type { Prisma, TxClient } from '@wizeworksllc/db';
 import {
   applyBrandOverride,
   compileThemeForTenant,
@@ -30,7 +30,7 @@ import {
   storedPresetV2,
   type BrandColumns,
   type PresentationOverlayV2,
-} from '@wizeworks/site-themes';
+} from '@wizeworksllc/site-themes';
 
 export interface SilicaThemeSyncArgs {
   /** The theme slug the site now wears — `site_configs.theme_key`. Recorded on the

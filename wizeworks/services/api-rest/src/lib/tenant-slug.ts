@@ -26,8 +26,8 @@
 // read performed with that id is still RLS-scoped. A stale entry can only ever name the
 // tenant that slug already belonged to.
 
-import { prisma } from '@wizeworks/db';
-import { notFound } from '@wizeworks/api-core/errors';
+import { prisma } from '@wizeworksllc/db';
+import { notFound } from '@wizeworksllc/api-core/errors';
 import { createTtlCache } from './ttl-cache.js';
 
 const tenantIdCache = createTtlCache<string>({ hitTtlMs: 300_000 });

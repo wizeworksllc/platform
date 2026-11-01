@@ -23,7 +23,7 @@ import { buildSiteServer, invokesCustomerTool } from './mcp.js';
 import { resolveSite, makeClient, fetchSiteInfo, callerChain, UnknownSiteError } from './site.js';
 import { enforceRateLimit, RateLimitError } from './rate-limit.js';
 import { keepSseAlive } from './sse-heartbeat.js';
-import { TRUSTED_PROXIES } from '@wizeworks/client-ip';
+import { TRUSTED_PROXIES } from '@wizeworksllc/client-ip';
 import { bearerToken, protectedResourceMetadata, wwwAuthenticate } from './oauth-resource.js';
 
 function loggerOptions(): FastifyServerOptions['logger'] {

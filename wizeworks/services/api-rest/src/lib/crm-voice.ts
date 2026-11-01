@@ -1,15 +1,15 @@
 // The api-rest half of calling (docs/144 §5.6) — the credential box, the
 // provider wiring, and the signed token the status webhook rides on.
 //
-// @wizeworks/crm's call service knows nothing about vendors: it takes an injected
+// @wizeworksllc/crm's call service knows nothing about vendors: it takes an injected
 // `CallPlacer`, exactly as the engagement service takes an outbound-mail sink.
 // This file is what fills that in at boot, and it is the only place a voice
 // credential is decrypted.
 
 import { createCipheriv, createDecipheriv, randomBytes } from 'node:crypto';
 import { SignJWT, jwtVerify } from 'jose';
-import { callService, voiceConnectionService } from '@wizeworks/crm';
-import { resolveVoiceProvider, type VoiceProvider } from '@wizeworks/voice';
+import { callService, voiceConnectionService } from '@wizeworksllc/crm';
+import { resolveVoiceProvider, type VoiceProvider } from '@wizeworksllc/voice';
 
 import { env } from '../env.js';
 
@@ -135,7 +135,7 @@ export async function providerFor(
 }
 
 /**
- * Install the placer @wizeworks/crm calls when someone clicks Call.
+ * Install the placer @wizeworksllc/crm calls when someone clicks Call.
  *
  * Resolves the tenant's own vendor per call rather than caching one: a tenant
  * can rotate their token or change their number at any moment, and a cached

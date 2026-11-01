@@ -1,6 +1,6 @@
 // Bound product section — domain-aware compatibility/fitment table.
 
-import type { ProductFitmentConfig } from '@wizeworks/sitebuilder-schemas';
+import type { ProductFitmentConfig } from '@wizeworksllc/sitebuilder-schemas';
 
 import { FitmentTable } from '@/components/fitment-table';
 import type { SectionContext } from '../section-renderer';

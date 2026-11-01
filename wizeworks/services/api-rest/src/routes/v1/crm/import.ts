@@ -6,16 +6,16 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { CustomerType } from '@wizeworks/crm-schemas';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { notFound } from '@wizeworks/api-core/errors';
-import { asBag, customerService, objectDefService } from '@wizeworks/crm';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import { CustomerType } from '@wizeworksllc/crm-schemas';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { asBag, customerService, objectDefService } from '@wizeworksllc/crm';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 const PathJobId = z.object({ jobId: z.string().uuid() });
 

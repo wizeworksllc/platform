@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Card, CardBody } from '@wizeworks/silicaui-react';
-import { requireSession } from '@wizeworks/auth-client-server';
+import { requireSession } from '@wizeworksllc/auth-client-server';
 import { PRODUCT } from '@piggles/config';
 import { AccountBar } from '@/components/account/account-bar';
 import { BillingNotice } from '@/components/account/billing-notice';

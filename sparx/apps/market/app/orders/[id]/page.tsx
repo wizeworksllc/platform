@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircle2, MapPin } from 'lucide-react';
 import { Badge, Button } from '@wizeworks/silicaui-react';
-import { forwardedFor } from '@wizeworks/app-kit/forwarded-for';
+import { forwardedFor } from '@wizeworksllc/app-kit/forwarded-for';
 
 import { statusLabel, statusTone } from '@/lib/status';
 import { getOrder } from '@/lib/market';

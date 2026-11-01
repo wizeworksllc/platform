@@ -13,7 +13,7 @@ import {
   Select,
   Text,
 } from '@wizeworks/silicaui-react';
-import type { MarkupScope } from '@wizeworks/commerce-schemas';
+import type { MarkupScope } from '@wizeworksllc/commerce-schemas';
 import { useCollections } from './products-data';
 import type { RuleDraft, SetRuleDraft } from './markup-rule-draft';
 

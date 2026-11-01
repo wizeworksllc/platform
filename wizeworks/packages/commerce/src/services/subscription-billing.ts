@@ -11,15 +11,15 @@
 // Both entry points here (`runDueOccurrence`, `runDueRetry`) are what the
 // subscription tick calls, and both are safe to call twice.
 
-import { orderPaymentsService } from '@wizeworks/crm';
-import { DunningPolicy } from '@wizeworks/commerce-schemas';
+import { orderPaymentsService } from '@wizeworksllc/crm';
+import { DunningPolicy } from '@wizeworksllc/commerce-schemas';
 import {
   paymentService,
   PaymentConfigError,
   StoredMethodsUnsupportedError,
-} from '@wizeworks/payments';
-import { withTenant } from '@wizeworks/db';
-import type { Order, Prisma, Subscription } from '@wizeworks/db';
+} from '@wizeworksllc/payments';
+import { withTenant } from '@wizeworksllc/db';
+import type { Order, Prisma, Subscription } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 import { publishCommerceEvent } from '../events';
@@ -30,7 +30,7 @@ import * as subscriptionService from './subscription-service';
 /* ── Dunning policy ───────────────────────────────────────────────────────── */
 
 /**
- * The policy shape is `DunningPolicy` from @wizeworks/commerce-schemas — it was
+ * The policy shape is `DunningPolicy` from @wizeworksllc/commerce-schemas — it was
  * already specified there (maxAttempts · retryDelaysHours · finalOutcome · the
  * two notify flags) and `commerce_site_settings.default_dunning_policy` was
  * already the per-tenant home for it. Neither had a reader. This module is that

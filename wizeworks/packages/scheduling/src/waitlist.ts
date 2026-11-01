@@ -15,8 +15,8 @@ import {
   type Prisma,
   type TxClient,
   type WaitlistEntry,
-} from '@wizeworks/db';
-import type { AcceptWaitlistInput, CreateWaitlistEntryInput } from '@wizeworks/scheduling-schemas';
+} from '@wizeworksllc/db';
+import type { AcceptWaitlistInput, CreateWaitlistEntryInput } from '@wizeworksllc/scheduling-schemas';
 
 import { createBooking } from './booking-service';
 import {

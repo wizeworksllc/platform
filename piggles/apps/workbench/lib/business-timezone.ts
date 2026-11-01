@@ -10,7 +10,7 @@
 // One reader rather than a default per form: three scheduling forms already
 // wanted this, and each had written `'UTC'` by hand.
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from './api/client';
 import { setShopClock } from './shop-clock';
 

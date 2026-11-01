@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Node as SilicaNode } from '@wizeworks/silicaui-html';
-import { starterFrame, starterPages, SPARX_THEMES } from '@wizeworks/silica-catalog';
+import { starterFrame, starterPages, SPARX_THEMES } from '@wizeworksllc/silica-catalog';
 
 import { BLUEPRINTS } from './blueprints-dir';
 import { lintSite } from './lint';

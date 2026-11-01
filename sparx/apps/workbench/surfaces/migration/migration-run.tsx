@@ -55,7 +55,7 @@ import {
   type CanonicalEntity,
   type MappedEntity,
   type ValidationIssue,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 import { ColumnMapper } from './column-mapper';
 import { landedBreakdown, landedTotals, runHeadline } from './run-outcome';
 import { LiveConnection, type LivePull } from './live-connection';

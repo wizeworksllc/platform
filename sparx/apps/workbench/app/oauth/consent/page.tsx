@@ -7,17 +7,17 @@ import {
   getSession,
   readMcpConsentRequest,
   toSearchParams,
-} from '@wizeworks/auth-client-server';
+} from '@wizeworksllc/auth-client-server';
 import {
   grantableScopesForRole,
   capBusinessScopes,
   MCP_SCOPE_CATALOG,
   type StaffRole,
-} from '@wizeworks/auth/mcp-scopes';
+} from '@wizeworksllc/auth/mcp-scopes';
 import { ConsentForm } from './_components/consent-form';
 
 // The MCP OAuth consent screen (docs/07 §5). A standalone route outside the
-// workbench dock: the MCP provider in @wizeworks/auth sends every authorization
+// workbench dock: the MCP provider in @wizeworksllc/auth sends every authorization
 // that needs a person here, with the request signed (`loginPage` and
 // `consentPage` are both this page). The operator reviews who is connecting +
 // where tokens go, then picks exactly which scopes to grant. Styled as a workbench pane on the

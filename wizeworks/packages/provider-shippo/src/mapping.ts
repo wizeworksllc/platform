@@ -9,9 +9,9 @@ import type {
   AddressSnapshotType as AddressSnapshot,
   ShipmentPackage,
   ShipmentRequest,
-} from '@wizeworks/commerce-schemas';
-import { ProviderHardError, ProviderTransientError } from '@wizeworks/integration-framework';
-import type { ProviderRunContext, TrackingStatus } from '@wizeworks/integration-framework';
+} from '@wizeworksllc/commerce-schemas';
+import { ProviderHardError, ProviderTransientError } from '@wizeworksllc/integration-framework';
+import type { ProviderRunContext, TrackingStatus } from '@wizeworksllc/integration-framework';
 
 import { callShippo } from './client';
 

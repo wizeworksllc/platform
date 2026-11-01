@@ -59,7 +59,7 @@ dependency, while segment 1's switch/create depends on auth machinery that is
 - Segment 2 (module) renders in the module accent color and, on click, opens a
   menu of **that module's sections** (lateral nav).
 - RLS context flows end to end: `User.tenantId` → session (`requireSession()`,
-  `wizeworks/packages/auth/src/session.ts`) → `withTenant({ tenantId })` (`@wizeworks/db`) →
+  `wizeworks/packages/auth/src/session.ts`) → `withTenant({ tenantId })` (`@wizeworksllc/db`) →
   `SET LOCAL app.tenant_id` → RLS `tenant_isolation` policy.
 
 ### 3.2 What does not exist yet (the gap)
@@ -135,7 +135,7 @@ records the sequencing decision (ship UI first, defer switching). No code.
 
 What landed:
 
-- **`listEnabledModules(tenantId)`** added to `@wizeworks/auth`'s module-gate (one
+- **`listEnabledModules(tenantId)`** added to `@wizeworksllc/auth`'s module-gate (one
   `tenants` read, same default-deny as `isModuleEnabled`). Computed in the
   dashboard `layout.tsx` and threaded through `DashboardShell` →
   `BreadcrumbTrail` + the sidebar `NavSections`.
@@ -225,7 +225,7 @@ listed so the menu's "Manage workspaces" destination has a known endpoint.
 | R4  | Throwaway UI if we build segment 1 before the backend                               | 2     | Phase 2 ships the _final_ IA with switch/create gated; only the gated actions light up later — no menu rework                                                                    |
 | R5  | Creating a workspace silently creates a billable tenant                             | 5     | Gate behind onboarding + billing confirmation; coordinate with doc 17                                                                                                            |
 | R6  | Module switcher shows modules the tenant hasn't paid for                            | 1     | Filter by enabled-module set from the module-gate; closes the existing §3.2 gap as a side effect                                                                                 |
-| R7  | Session shape change ripples to api-rest auth context                               | 3,4   | api-rest derives `tenantId` from the same active-org claim; add an integration test through `@wizeworks/api-core`'s `withTenant` wrapper                                         |
+| R7  | Session shape change ripples to api-rest auth context                               | 3,4   | api-rest derives `tenantId` from the same active-org claim; add an integration test through `@wizeworksllc/api-core`'s `withTenant` wrapper                                         |
 
 ## 7. API & data surface (summary)
 

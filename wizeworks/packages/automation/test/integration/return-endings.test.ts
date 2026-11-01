@@ -18,7 +18,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { handleTrigger, installBuiltins, type TriggerEnvelope } from '../../src';
 import { resolveFields } from '../../src/resolvers/registry';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 import {
   createTenant,
   dropTenant,

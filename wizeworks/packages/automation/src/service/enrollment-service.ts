@@ -29,8 +29,8 @@
 // one. (The tenant-wide daily volume series, which IS large, has its own rollup —
 // see run-report-service.)
 
-import { ConditionGroup } from '@wizeworks/automation-schemas';
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { ConditionGroup } from '@wizeworksllc/automation-schemas';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 import type { ServiceCtx } from './automation-service';
 

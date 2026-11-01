@@ -21,10 +21,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma } from '@wizeworks/db';
-import { ok } from '@wizeworks/api-core/envelope';
-import { notFound } from '@wizeworks/api-core/errors';
-import { suppressNumber, unsuppressNumber } from '@wizeworks/sms/delivery';
+import { prisma } from '@wizeworksllc/db';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { notFound } from '@wizeworksllc/api-core/errors';
+import { suppressNumber, unsuppressNumber } from '@wizeworksllc/sms/delivery';
 
 const Query = z.object({ tenant: z.string().min(1).max(63) });
 

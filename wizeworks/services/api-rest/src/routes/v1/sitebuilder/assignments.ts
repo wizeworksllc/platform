@@ -11,13 +11,13 @@
 //
 // SB OWNS the assignment; the Commerce/CMS item editors call these (the record's
 // stable id is `item_ref`). Bodies are validated by the service-layer Zod schemas
-// (the route ↔ service boundary), so api-rest keeps no @wizeworks/sitebuilder-schemas dep.
+// (the route ↔ service boundary), so api-rest keeps no @wizeworksllc/sitebuilder-schemas dep.
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { assignmentService } from '@wizeworks/sitebuilder';
-import { ok } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { assignmentService } from '@wizeworksllc/sitebuilder';
+import { ok } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import {
   requireSitebuilderModule,
   toSitebuilderContext,

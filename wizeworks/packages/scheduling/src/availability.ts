@@ -9,8 +9,8 @@
 // is exactly what the booking write-path allocates — so what we offer is what the
 // DB-level no-overlap constraint will accept.
 
-import { withTenant } from '@wizeworks/db';
-import type { AvailabilityQuery } from '@wizeworks/scheduling-schemas';
+import { withTenant } from '@wizeworksllc/db';
+import type { AvailabilityQuery } from '@wizeworksllc/scheduling-schemas';
 
 import { ServiceNotFoundError } from './errors';
 import {

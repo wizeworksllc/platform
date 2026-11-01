@@ -3,7 +3,7 @@
 // Every other transport (Server Actions, REST, GraphQL, MCP) wraps these
 // functions. Per locked decision #7, a bug fixed here is fixed everywhere
 // at once. Every state-changing function:
-//   1. Validates input against the Zod schema in @wizeworks/crm-schemas
+//   1. Validates input against the Zod schema in @wizeworksllc/crm-schemas
 //   2. Wraps DB work in withTenant() (RLS context set per transaction)
 //   3. Writes an audit_logs row inside the same transaction
 //   4. Publishes a Pub/Sub event AFTER the transaction commits — never
@@ -21,10 +21,10 @@ import {
   type CustomerType,
   type LeadStatus,
   type LifecycleStage,
-} from '@wizeworks/crm-schemas';
-import { NEWSLETTER_SEGMENT_SLUG } from '@wizeworks/crm-schemas/builtins';
-import { afterCommit, nameSearchClauses, withTenant } from '@wizeworks/db';
-import type { Customer, CustomerAddress, CustomerDocument, Prisma } from '@wizeworks/db';
+} from '@wizeworksllc/crm-schemas';
+import { NEWSLETTER_SEGMENT_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import { afterCommit, nameSearchClauses, withTenant } from '@wizeworksllc/db';
+import type { Customer, CustomerAddress, CustomerDocument, Prisma } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { pointerMoved } from './trade-membership';
@@ -71,7 +71,7 @@ export interface ListCustomersFilter {
  *  it (`customer.b2bAccount`). Attached under a name of its own because
  *  `Customer.company` is a computed field that shadows the relation: ask Prisma
  *  for the relation and it hands back the typed string instead, silently. That
- *  shadowing is documented in @wizeworks/db's client, and it had already cost
+ *  shadowing is documented in @wizeworksllc/db's client, and it had already cost
  *  two screens their business name (issue 751). This was the third. */
 export interface LinkedBusiness {
   id: string;

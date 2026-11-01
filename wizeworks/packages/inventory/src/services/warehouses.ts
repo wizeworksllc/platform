@@ -1,9 +1,9 @@
 // Warehouse CRUD. A warehouse is any stock-holding location — owned, 3PL,
 // dropship-virtual, or in-transit. Archival is blocked while stock remains.
 
-import { CreateWarehouseInput, UpdateWarehouseInput } from '@wizeworks/commerce-schemas';
-import { isSampleRow, withTenant } from '@wizeworks/db';
-import type { Prisma, TxClient, Warehouse } from '@wizeworks/db';
+import { CreateWarehouseInput, UpdateWarehouseInput } from '@wizeworksllc/commerce-schemas';
+import { isSampleRow, withTenant } from '@wizeworksllc/db';
+import type { Prisma, TxClient, Warehouse } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import {

@@ -9,7 +9,7 @@
 // Static sections ignore the binding; bound sections render nothing when their
 // binding is absent.
 
-import { customSectionType, type TemplateNode } from '@wizeworks/sitebuilder-schemas';
+import { customSectionType, type TemplateNode } from '@wizeworksllc/sitebuilder-schemas';
 
 import type { PinnedDefinition, SectionSnapshot } from '@/lib/site';
 import type {
@@ -33,7 +33,7 @@ import type {
   ProductRelatedConfig,
   CollectionHeaderConfig,
   CollectionProductsConfig,
-} from '@wizeworks/sitebuilder-schemas';
+} from '@wizeworksllc/sitebuilder-schemas';
 
 import type {
   PublicProduct,

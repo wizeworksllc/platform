@@ -15,13 +15,13 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const ensureMembership = vi.fn();
 const announceCustomer = vi.fn();
 
-vi.mock('@wizeworks/customer-auth', () => ({
+vi.mock('@wizeworksllc/customer-auth', () => ({
   ensureMembership,
   getCustomerSession: vi.fn(),
   verifyCustomerMcpToken: vi.fn(),
 }));
-vi.mock('@wizeworks/crm', () => ({ customerService: { announceCustomer } }));
-vi.mock('@wizeworks/db', () => ({ withTenant: vi.fn() }));
+vi.mock('@wizeworksllc/crm', () => ({ customerService: { announceCustomer } }));
+vi.mock('@wizeworksllc/db', () => ({ withTenant: vi.fn() }));
 vi.mock('./property.js', () => ({ resolvePublicPropertyId: vi.fn() }));
 
 const { ensureAnnouncedMembership } = await import('./customer-session.js');

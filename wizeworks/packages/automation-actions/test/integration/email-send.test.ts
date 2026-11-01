@@ -19,7 +19,7 @@ import {
   runAutomationTick,
   type EngineDeps,
   type TriggerEnvelope,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { installEmailActions } from '../../src/index.js';

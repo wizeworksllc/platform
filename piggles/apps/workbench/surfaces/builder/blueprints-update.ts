@@ -7,7 +7,7 @@
 // gallery has to know about. Reads and writes both go through the same query keys
 // so the pane stays in step.
 
-import { useMutation, useQuery } from '@wizeworks/query';
+import { useMutation, useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { blueprintKeys, useInvalidateBlueprints } from './blueprints-data';
 

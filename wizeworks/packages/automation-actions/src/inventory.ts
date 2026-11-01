@@ -1,6 +1,6 @@
 // Inventory action executors (docs/100 P3d). The auto-reorder effect: when a
 // variant crosses its reorder point, the `inventory.low` event fires the
-// `inventory.draft_reorder_po` action, which CALLS `@wizeworks/inventory`'s
+// `inventory.draft_reorder_po` action, which CALLS `@wizeworksllc/inventory`'s
 // `autoDraftReorder` on the engine's own transaction (the `ctx.tx` compose-into
 // contract, so the draft commits atomically with the run-step write). It
 // find-or-appends into a single open draft PO per (supplier, warehouse), so a
@@ -14,8 +14,8 @@ import {
   type ActionOutput,
   type EffectInput,
   type TenantCtx,
-} from '@wizeworks/automation';
-import { inventoryService } from '@wizeworks/inventory';
+} from '@wizeworksllc/automation';
+import { inventoryService } from '@wizeworksllc/inventory';
 
 import { requireEntityId } from './entity.js';
 

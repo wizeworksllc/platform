@@ -8,7 +8,7 @@
 // The date arithmetic below is pure and UTC-only (the columns are `DATE`, which
 // has no timezone), so it is unit-tested without a database.
 
-import { withTenant, type FinanceRecurringExpense, type TxClient } from '@wizeworks/db';
+import { withTenant, type FinanceRecurringExpense, type TxClient } from '@wizeworksllc/db';
 
 import { RecurringExpenseNotFoundError } from './errors';
 import { upsertDerivedExpense } from './expenses';

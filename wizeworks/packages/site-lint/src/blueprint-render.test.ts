@@ -26,7 +26,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { renderSilicaSite } from '@wizeworks/silica-catalog';
+import { renderSilicaSite } from '@wizeworksllc/silica-catalog';
 import type { Node as SilicaNode, Site } from '@wizeworks/silicaui-html';
 
 import { BLUEPRINTS, blueprintSlugs } from './blueprints-dir';

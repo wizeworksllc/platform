@@ -7,7 +7,7 @@
 // the shop's own reader (`card`) read in sparx as "Sends $600.00 back to the card"
 // while the server only records it. So the list endpoint says it, once.
 
-import { takenByGateway } from '@wizeworks/payments';
+import { takenByGateway } from '@wizeworksllc/payments';
 
 /** Each payment row with `byGateway`: true when a gateway took it, so a refund
  *  goes back through that gateway; false when the money was taken by hand. */

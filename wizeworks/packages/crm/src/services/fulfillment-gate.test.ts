@@ -19,7 +19,7 @@ interface Line {
 let order: { id: string; status: string; orderNumber: string; customerId: string; items: Line[] };
 const created = vi.fn();
 
-vi.mock('@wizeworks/db', async (importOriginal) => ({
+vi.mock('@wizeworksllc/db', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   afterCommit: () => Promise.resolve(),
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>

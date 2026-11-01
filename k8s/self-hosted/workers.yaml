@@ -85,7 +85,7 @@ spec:
             - { name: NODE_ENV, value: production }
             - { name: SERVICE_NAME, value: event-worker }
             - { name: PORT, value: '8080' }
-            # Where @wizeworks/cache-revalidation-worker purges a website's cached
+            # Where @wizeworksllc/cache-revalidation-worker purges a website's cached
             # reads: the `site` Service (k8s/apps/site.yaml). Its secret,
             # SPARX_REVALIDATE_SECRET, arrives with `sparx-app-secrets` above, the
             # same key the site maps by name.

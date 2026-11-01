@@ -18,7 +18,7 @@
 // midnight-to-midnight moments, and SQL files each row `AT TIME ZONE` the same
 // zone. A business that has not said where it is keeps UTC.
 
-import { Prisma, withTenant, type TxClient } from '@wizeworks/db';
+import { Prisma, withTenant, type TxClient } from '@wizeworksllc/db';
 import {
   businessDateKey,
   businessDayStart,
@@ -26,7 +26,7 @@ import {
   dateOfKey,
   rangeDayKey,
   shiftDateKey,
-} from '@wizeworks/time';
+} from '@wizeworksllc/time';
 
 import type { ServiceContext } from '../errors';
 import { businessTimeZone } from './business-clock';

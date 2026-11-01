@@ -31,12 +31,12 @@ import {
   reconcileFromSubscription,
   setSubscriptionStatus,
   type BillingPlan,
-} from '@wizeworks/billing';
-import { constructEventWithAnySecret, parseWebhookSecrets } from '@wizeworks/payments';
-import { ApiError } from '@wizeworks/api-core/errors';
-import { publish } from '@wizeworks/api-core/pubsub';
-import { prisma } from '@wizeworks/db';
-import { appLink, appOrigin } from '@wizeworks/links/server';
+} from '@wizeworksllc/billing';
+import { constructEventWithAnySecret, parseWebhookSecrets } from '@wizeworksllc/payments';
+import { ApiError } from '@wizeworksllc/api-core/errors';
+import { publish } from '@wizeworksllc/api-core/pubsub';
+import { prisma } from '@wizeworksllc/db';
+import { appLink, appOrigin } from '@wizeworksllc/links/server';
 import { monthlyRecurringCents } from '../../../lib/subscription-mrr.js';
 
 // ── Platform billing notifications (docs/impl transactional-email §4 P4) ─────
@@ -89,7 +89,7 @@ function dateLabel(unixSeconds: number): string {
 }
 
 /** The billing page — where a tenant adds/updates a card. The address comes from
- *  the shared table (`@wizeworks/links`), which is what stops this file from knowing
+ *  the shared table (`@wizeworksllc/links`), which is what stops this file from knowing
  *  a surface key: it used to append `?open=finance.subscription`, so renaming
  *  that surface would have broken every billing email already sent.
  *

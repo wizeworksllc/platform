@@ -1,10 +1,10 @@
 // Shipping zones, profiles, rates. Provider-agnostic — concrete carrier
 // integrations live in @sparx/provider-* packages and implement the
-// ShippingProvider interface from @wizeworks/integration-framework.
+// ShippingProvider interface from @wizeworksllc/integration-framework.
 
 import { z } from 'zod';
 
-import { AddressSnapshot, Uuid } from '@wizeworks/crm-schemas';
+import { AddressSnapshot, Uuid } from '@wizeworksllc/crm-schemas';
 
 import { Currency, Dimensions, HazmatClass, MoneyCents, WeightGrams } from './common';
 

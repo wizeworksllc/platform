@@ -43,15 +43,15 @@
 // dropped-then-re-added document is briefly missing from a live shop.
 
 // MUST BE FIRST: `publish` resolves its transport from process.env when it is
-// CALLED. Without this the script runs, reads the database perfectly (@wizeworks/db
+// CALLED. Without this the script runs, reads the database perfectly (@wizeworksllc/db
 // finds its own env), publishes to the `log` transport and prints a full list of
 // tenants it has asked — having asked nobody. Seen on the first run of this file.
 import 'dotenv/config';
 
 import crypto from 'node:crypto';
 
-import { prisma } from '@wizeworks/db';
-import { closePublisher, publish } from '@wizeworks/api-core/pubsub';
+import { prisma } from '@wizeworksllc/db';
+import { closePublisher, publish } from '@wizeworksllc/api-core/pubsub';
 
 const apply = process.argv.includes('--apply');
 const only = process.argv.find((a) => a.startsWith('--tenant='))?.slice('--tenant='.length);

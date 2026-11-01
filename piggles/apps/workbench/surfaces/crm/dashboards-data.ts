@@ -3,7 +3,7 @@
 // The CRM dashboards' reads and writes (docs/144 §8): boards of saved reports.
 // `report-builder-data.ts` re-exports all of these.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import type { Dashboard, DashboardWidget } from './report-builder-types';
 

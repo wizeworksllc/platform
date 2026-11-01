@@ -1,7 +1,7 @@
 // Inventory module — Purchase Orders (docs/100 P3b). The inbound order: buy
 // stock from a supplier, receive into a warehouse (receiving is P3c). All
 // `requireInventoryModule` + `toInventoryContext`, so a standalone WMS tenant
-// raises POs with no commerce; writes delegate to @wizeworks/inventory.
+// raises POs with no commerce; writes delegate to @wizeworksllc/inventory.
 //
 //   GET    /v1/inventory/purchase-orders                  ?status&supplier_id&search&take&skip
 //   POST   /v1/inventory/purchase-orders
@@ -19,10 +19,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { PurchaseOrderStatus } from '@wizeworks/commerce-schemas';
-import { inventoryService } from '@wizeworks/inventory';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { PurchaseOrderStatus } from '@wizeworksllc/commerce-schemas';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 import { resolvePurchaseOrderBrand } from '../../../lib/purchase-order-render.js';
 import { sendPurchaseOrder } from '../../../lib/purchase-order-mail.js';

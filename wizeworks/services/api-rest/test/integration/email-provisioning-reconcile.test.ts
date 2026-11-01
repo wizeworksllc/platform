@@ -12,8 +12,8 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import type { FastifyBaseLogger } from 'fastify';
 import crypto from 'node:crypto';
-import { type Prisma, prisma } from '@wizeworks/db';
-import { DEFAULT_EMAIL_TEMPLATES } from '@wizeworks/builder-schemas';
+import { type Prisma, prisma } from '@wizeworksllc/db';
+import { DEFAULT_EMAIL_TEMPLATES } from '@wizeworksllc/builder-schemas';
 import { reconcileEmailProvisioning } from '../../src/lib/email-provisioning.js';
 // The pre-redesign bodies (welcome-customer, order-confirmation), captured from the
 // code they replaced — used to seed a "still the untouched old default" row and prove

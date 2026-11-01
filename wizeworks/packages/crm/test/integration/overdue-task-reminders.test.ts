@@ -11,7 +11,7 @@ import crypto from 'node:crypto';
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { taskService } from '../../src/services/index.js';
 import { emitOverdueTaskReminders } from '../../src/schedulers/overdue-task-reminders';

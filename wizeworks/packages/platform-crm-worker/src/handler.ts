@@ -20,7 +20,7 @@ import {
   recordModuleChange,
   recordSubscriptionChange,
   type MirrorOutcome,
-} from '@wizeworks/platform-crm';
+} from '@wizeworksllc/platform-crm';
 
 const HANDLED = [
   'tenant.created',

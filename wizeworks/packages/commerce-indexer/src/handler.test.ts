@@ -22,7 +22,7 @@ const upsertProduct = vi.fn();
 const deleteProduct = vi.fn();
 const projectMarketListing = vi.fn();
 
-vi.mock('@wizeworks/commerce', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({
   marketService: { projectMarketListing },
   projectProduct,
   productIdForVariant,
@@ -35,7 +35,7 @@ vi.mock('@wizeworks/commerce', () => ({
   ownerNamedUniversalProjectors: [],
 }));
 
-vi.mock('@wizeworks/search', () => ({
+vi.mock('@wizeworksllc/search', () => ({
   upsertProduct,
   deleteProduct,
   upsertCustomer: vi.fn(),

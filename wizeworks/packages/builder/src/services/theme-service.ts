@@ -12,7 +12,7 @@
 //
 // Tenant-scoped through `withTenant` (FORCE RLS), like every other builder table.
 
-import { withTenant, type Prisma, type TxClient } from '@wizeworks/db';
+import { withTenant, type Prisma, type TxClient } from '@wizeworksllc/db';
 import type { Theme as SilicaTheme } from '@wizeworks/silicaui-html';
 import { z } from 'zod';
 import {

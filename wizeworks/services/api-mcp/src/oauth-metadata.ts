@@ -26,8 +26,8 @@
 // the fallback is what this file did for every request before brands existed.
 
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
-import { MCP_ALL_OAUTH_SCOPES } from '@wizeworks/auth';
-import { DEFAULT_BRAND, mcpAuthServerOrigin, mcpResourceUrl } from '@wizeworks/links/server';
+import { MCP_ALL_OAUTH_SCOPES } from '@wizeworksllc/auth';
+import { DEFAULT_BRAND, mcpAuthServerOrigin, mcpResourceUrl } from '@wizeworksllc/links/server';
 import { env } from './env.js';
 
 /** This server's public origin, honouring the proxy chain (Caddy + Cloudflare

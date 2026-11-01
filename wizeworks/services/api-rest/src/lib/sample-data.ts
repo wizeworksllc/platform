@@ -1,11 +1,11 @@
 // Sample-data seam (Wave 5) — the production "Load sample data" / "Clear sample
 // data" path. Thin: it reads the tenant's chosen industry + enabled modules, then
-// delegates to the engine in @wizeworks/db (the SAME implementation the dev/e2e seed
+// delegates to the engine in @wizeworksllc/db (the SAME implementation the dev/e2e seed
 // uses) and writes an audit row. The engine enforces the invariants — it never
 // flips a module flag, and provisions only into the modules listed here.
 
-import { listEnabledModules } from '@wizeworks/auth';
-import type { Prisma } from '@wizeworks/db';
+import { listEnabledModules } from '@wizeworksllc/auth';
+import type { Prisma } from '@wizeworksllc/db';
 import {
   clearSampleData,
   countOwnRecords,
@@ -18,8 +18,8 @@ import {
   type SampleDataCounts,
   type SampleDataStatus,
   type TenantContext,
-} from '@wizeworks/db';
-import { notFound } from '@wizeworks/api-core/errors';
+} from '@wizeworksllc/db';
+import { notFound } from '@wizeworksllc/api-core/errors';
 
 /** The tenant's chosen industry slug, or null. Reads the non-RLS `tenants` row. */
 function readIndustry(settings: unknown): string | null {

@@ -1,7 +1,7 @@
 // Blueprint updater (docs/55 §6, §8) — the non-destructive apply of a newer
 // blueprint version onto an installed tenant. It loads the per-artifact BASELINE
 // (the ancestor), extracts the tenant's LIVE content in the same canonical shape,
-// runs the pure three-way merge (@wizeworks/blueprints), and writes the result back
+// runs the pure three-way merge (@wizeworksllc/blueprints), and writes the result back
 // through the existing service layer — so a tenant edit is never overwritten
 // automatically (docs/55 U1).
 //
@@ -16,16 +16,16 @@
 
 import type { FastifyBaseLogger } from 'fastify';
 
-import { withTenant, type Prisma } from '@wizeworks/db';
-import { savedThemeService, publishService } from '@wizeworks/sitebuilder';
-import { emailService, pageService, siteService } from '@wizeworks/builder';
+import { withTenant, type Prisma } from '@wizeworksllc/db';
+import { savedThemeService, publishService } from '@wizeworksllc/sitebuilder';
+import { emailService, pageService, siteService } from '@wizeworksllc/builder';
 import {
   categoryService,
   collectionService,
   productService,
   variantService,
-} from '@wizeworks/commerce';
-import type { SilicaNode } from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/commerce';
+import type { SilicaNode } from '@wizeworksllc/builder-schemas';
 import {
   parseTypeSchema,
   publishTimestamp,
@@ -33,7 +33,7 @@ import {
   validateAndNormalizeBody,
   recordRevision,
   syncReferences,
-} from '@wizeworks/cms';
+} from '@wizeworksllc/cms';
 import {
   mergeByKey,
   mergeTree,
@@ -43,7 +43,7 @@ import {
   type ConflictSide,
   type FieldChange,
   type MergeResult,
-} from '@wizeworks/blueprints';
+} from '@wizeworksllc/blueprints';
 
 import {
   captureBaselines,

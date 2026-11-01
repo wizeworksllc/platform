@@ -6,8 +6,8 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const indexEntity = vi.fn(() => Promise.resolve());
 let person: { id: string } | null = null;
 
-vi.mock('@wizeworks/events', () => ({ indexEntity }));
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/events', () => ({ indexEntity }));
+vi.mock('@wizeworksllc/db', () => ({
   withTenant: (_ctx: unknown, fn: (tx: unknown) => unknown) =>
     Promise.resolve(fn({ staffMember: { findFirst: () => Promise.resolve(person) } })),
 }));

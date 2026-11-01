@@ -1,7 +1,7 @@
 // Discounts.
 //
 // THE COLUMNS ARE THE CANONICAL FIELD KEYS: `ENTITY_FIELDS.discounts` in
-// @wizeworks/migration, and nothing else. Two callers hand rows to this file — the
+// @wizeworksllc/migration, and nothing else. Two callers hand rows to this file — the
 // Move-in mapper, and the discount CSV endpoint in api-rest — and the two used to
 // speak different languages. This file read the old export's own column names
 // (`name`, `value_cents`, `value_percent`, `start_at`, `end_at`,
@@ -19,9 +19,9 @@
 // is live here is the file being older than the discount, not an instruction to stop
 // a promotion somebody is running.
 
-import { discountService } from '@wizeworks/commerce';
-import { withTenant } from '@wizeworks/db';
-import { toCents, toDecimal, toInteger, toIsoDate } from '@wizeworks/migration';
+import { discountService } from '@wizeworksllc/commerce';
+import { withTenant } from '@wizeworksllc/db';
+import { toCents, toDecimal, toInteger, toIsoDate } from '@wizeworksllc/migration';
 
 import {
   eachRow,

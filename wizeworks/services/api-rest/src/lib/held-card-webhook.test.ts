@@ -100,11 +100,11 @@ const settle = vi.fn((_ctx: unknown, moves: unknown[]) =>
   Promise.resolve(moves.map((move) => ({ move, ok: true })))
 );
 
-vi.mock('@wizeworks/db', () => ({
+vi.mock('@wizeworksllc/db', () => ({
   prisma: {},
   withTenant: (_ctx: unknown, fn: (t: unknown) => unknown) => Promise.resolve(fn(tx)),
 }));
-vi.mock('@wizeworks/crm', () => ({
+vi.mock('@wizeworksllc/crm', () => ({
   billingPaymentService: {},
   orderPaymentsService: {
     recomputeOrderPaymentRollup: () => {
@@ -114,12 +114,12 @@ vi.mock('@wizeworks/crm', () => ({
   },
   heldOrderMoney: { REFUND_WHEN_PAID_KEY: 'refundWhenPaid' },
 }));
-vi.mock('@wizeworks/commerce', () => ({ heldOrderPayments: { settle } }));
-vi.mock('@wizeworks/auth', () => ({
+vi.mock('@wizeworksllc/commerce', () => ({ heldOrderPayments: { settle } }));
+vi.mock('@wizeworksllc/auth', () => ({
   isModuleEnabled: (_tenantId: string, module: string) =>
     Promise.resolve(module === 'email' && emailModuleOn),
 }));
-vi.mock('@wizeworks/api-core/pubsub', () => ({
+vi.mock('@wizeworksllc/api-core/pubsub', () => ({
   publish: (_log: unknown, topic: string) => {
     published.push(topic);
     return Promise.resolve();

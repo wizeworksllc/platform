@@ -9,7 +9,7 @@
 //
 // ── Every ratio here can refuse to answer ────────────────────────────────────
 //
-// The arithmetic lives in `@wizeworks/commerce-schemas/reporting`, pure and tested,
+// The arithmetic lives in `@wizeworksllc/commerce-schemas/reporting`, pure and tested,
 // and every one of its ratios returns `null` when its denominator is zero. That
 // is not defensive coding, it is the point of the phase: a ratio hides its own
 // inputs, and "fill rate 100%" reads identically whether four thousand lines
@@ -38,10 +38,10 @@ import {
   type GmroiResult,
   type MovementSummary,
   type SellThroughResult,
-} from '@wizeworks/commerce-schemas';
-import { withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import { withTenant } from '@wizeworksllc/db';
 import { VARIANT_LABEL_COLUMNS, VARIANT_LABEL_JOINS } from './variant-label';
-import type { TxClient } from '@wizeworks/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import type { ServiceContext } from '../errors';
 

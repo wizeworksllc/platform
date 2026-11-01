@@ -15,7 +15,7 @@ import {
   ENTITY_FIELDS,
   ENTITY_LABEL,
   ENTITY_MODULE,
-} from '@wizeworks/migration';
+} from '@wizeworksllc/migration';
 
 export const metadata: Metadata = {
   title: 'Importing from another platform',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 // The entity table is GENERATED from the same registry the importer runs on, for
 // the same reason the marketing pages are: a hand-written list here would be a
 // third copy, and the first thing it would do is drift. Adding an entity to
-// `@wizeworks/migration` adds a row to this table.
+// `@wizeworksllc/migration` adds a row to this table.
 const ENTITY_ROWS = CANONICAL_ENTITIES.map((entity) => ({
   entity,
   label: ENTITY_LABEL[entity].many,
@@ -287,7 +287,7 @@ export default function MigrationGuidePage() {
         <p>
           Nothing about the vendor survives past your request. Reading a{' '}
           <InlineCode>products_export.csv</InlineCode> into canonical rows happens in{' '}
-          <InlineCode>@wizeworks/migration</InlineCode>, which runs in a browser, in a worker, or in
+          <InlineCode>@wizeworksllc/migration</InlineCode>, which runs in a browser, in a worker, or in
           your own script: the API only ever sees rows. That is why one endpoint serves every
           platform and why your own spreadsheet works exactly as well as a competitor&rsquo;s
           export.
@@ -578,7 +578,7 @@ export default function MigrationGuidePage() {
         </DocTable>
         <p>
           The full field list per entity (every optional column, its type and its limit) is{' '}
-          <InlineCode>ENTITY_FIELDS</InlineCode> in <InlineCode>@wizeworks/migration</InlineCode>,
+          <InlineCode>ENTITY_FIELDS</InlineCode> in <InlineCode>@wizeworksllc/migration</InlineCode>,
           which is what this table is generated from and what the validator checks against.
         </p>
         <p>

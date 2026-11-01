@@ -29,7 +29,7 @@
 // stand on Overview. Removing a customer is rare and irreversible, so it sits in
 // a quiet row at the end of the Details form.
 
-import { shownInPlace } from '@wizeworks/query';
+import { shownInPlace } from '@wizeworksllc/query';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useViewParam } from '../../lib/workbench/view-param';
 import { PaneWaiting } from '../../components/pane-waiting';

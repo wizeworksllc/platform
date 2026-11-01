@@ -3,7 +3,7 @@
 // at once, the most, and the case pack it buys in.
 //
 // The server refuses the same settings with the same sentences
-// (`overrideSettingProblem` in @wizeworks/b2b); these say it while the boxes are
+// (`overrideSettingProblem` in @wizeworksllc/b2b); these say it while the boxes are
 // being filled in, so Save is never the first place staff hear it.
 
 export interface BuyingRuleValues {

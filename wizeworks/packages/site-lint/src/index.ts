@@ -1,4 +1,4 @@
-// @wizeworks/site-lint — the pre-publish check engine (docs/builder-audit slice 9).
+// @wizeworksllc/site-lint — the pre-publish check engine (docs/builder-audit slice 9).
 //
 // `lintSite(site)` walks the composed document of every page — the shared header and
 // footer, the page body, and every saved component expanded — and reports what a
@@ -8,7 +8,7 @@
 // findings it reports what each page WEIGHS (slice 12) — markup bytes, picture bytes,
 // styling that emits no CSS — as a measurement rather than a defect.
 //
-// Pure: no network, no database, no clock. It leans on `@wizeworks/silica-catalog` for
+// Pure: no network, no database, no clock. It leans on `@wizeworksllc/silica-catalog` for
 // two things it must not answer twice — which classes the platform's CSS actually
 // contains, and how a tree becomes HTML — so the check and the live page agree by
 // construction. Advisory only: nothing here can block a publish.

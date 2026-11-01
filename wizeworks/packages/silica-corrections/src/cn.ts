@@ -1,12 +1,12 @@
 // Class-name join, corrected for silica's `soft` treatment.
 //
-// It lives in @wizeworks/silica-corrections rather than in a brand package for
+// It lives in @wizeworksllc/silica-corrections rather than in a brand package for
 // the same reason every other file here does: it states no value, it fixes a
 // third-party tool's misreading of silica, and BOTH brands need it. It sat in
-// @wizeworks/ui until 2026-08-16, which is how sparx's brand package ended up inside
-// the Piggles console image — `@piggles/console → @wizeworks/cms-editor →
-// @wizeworks/ui → @sparx/brand`, a whole chain held up by this one function and a
-// dead type. @wizeworks/ui re-exports it, so nothing downstream changed.
+// @wizeworksllc/ui until 2026-08-16, which is how sparx's brand package ended up inside
+// the Piggles console image — `@piggles/console → @wizeworksllc/cms-editor →
+// @wizeworksllc/ui → @sparx/brand`, a whole chain held up by this one function and a
+// dead type. @wizeworksllc/ui re-exports it, so nothing downstream changed.
 
 import { clsx, type ClassValue } from 'clsx';
 import { extendTailwindMerge } from 'tailwind-merge';

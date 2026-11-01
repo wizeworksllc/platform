@@ -10,11 +10,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import type { SchedulingService } from '@wizeworks/db';
-import { CreateServiceInput, UpdateServiceInput } from '@wizeworks/scheduling-schemas';
+import { queryBool } from '@wizeworksllc/api-core/query';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import type { SchedulingService } from '@wizeworksllc/db';
+import { CreateServiceInput, UpdateServiceInput } from '@wizeworksllc/scheduling-schemas';
 import {
   createService,
   updateService,
@@ -22,7 +22,7 @@ import {
   listServicesPaged,
   deleteService,
   restoreService,
-} from '@wizeworks/scheduling';
+} from '@wizeworksllc/scheduling';
 import { requireSchedulingModule, toSchedulingContext } from '../../../lib/scheduling-context.js';
 import { resolvePropertyId, reachableSiteIds } from '../../../lib/property.js';
 import { signalSchedulingService } from '../../../lib/scheduling-search.js';

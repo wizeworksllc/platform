@@ -8,8 +8,8 @@
 //
 // Data-as-code (line-limit exempt).
 
-import { definePreset, type ModulePreset } from '@wizeworks/auth';
-import type { TenantContext } from '@wizeworks/db';
+import { definePreset, type ModulePreset } from '@wizeworksllc/auth';
+import type { TenantContext } from '@wizeworksllc/db';
 
 import { DEFAULT_PROMPT_TEMPLATES } from '../ai/default-prompts.js';
 import { ensureDefaultPromptTemplates } from '../ai/prompt-templates.js';

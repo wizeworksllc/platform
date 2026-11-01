@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/sitebuilder-schemas",
+  "name": "@wizeworksllc/sitebuilder-schemas",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Site Builder — Zod section config schemas, the section registry, and site-settings shapes shared by the service, REST, dashboard customizer, and storefront (docs/29-sitebuilder-architecture.md §5).",

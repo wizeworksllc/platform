@@ -1,4 +1,4 @@
-import { accountOperationHandlers } from '@wizeworks/auth-client-server';
+import { accountOperationHandlers } from '@wizeworksllc/auth-client-server';
 
 // The Security surface's calls: change password, devices, sign-in methods, and
 // the four two-step steps.

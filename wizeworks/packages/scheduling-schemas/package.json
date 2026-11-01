@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/scheduling-schemas",
+  "name": "@wizeworksllc/scheduling-schemas",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Scheduling — Zod input schemas + shared types for resources, services, availability, bookings, policies, intake, and calendar sync (docs/79-scheduling.md).",

@@ -152,7 +152,7 @@ panel') ] })`. Hide the marker with `list-none [&::-webkit-details-marker]:hidde
 
 ### The behavior runtime (for `comprehensive` composites that genuinely need JS)
 
-A small, CLOSED, platform-authored runtime (`@wizeworks/builder-render` behaviors, Pillar 5)
+A small, CLOSED, platform-authored runtime (`@wizeworksllc/builder-render` behaviors, Pillar 5)
 drives autoplay carousels, a continuous marquee, scroll-adaptive nav, click-open menus,
 single-open accordions, and JS-wired tabs. You author it with `behave`/`part` — NEVER raw
 `data-*` (the element whitelist strips those). The interactive composites live in

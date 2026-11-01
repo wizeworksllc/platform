@@ -11,8 +11,8 @@
 // lines, through the same `createFulfillment` every other way out of the building
 // uses, so the order moves on and `order.fulfilled` sends the email.
 
-import { orderFulfillmentsService } from '@wizeworks/crm';
-import { withTenant } from '@wizeworks/db';
+import { orderFulfillmentsService } from '@wizeworksllc/crm';
+import { withTenant } from '@wizeworksllc/db';
 
 /** The carriers a fulfillment knows by name (crm-schemas `Carrier`). */
 const KNOWN_CARRIERS = ['ups', 'usps', 'fedex', 'dhl'] as const;

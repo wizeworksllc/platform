@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { platformRequest, PlatformRequestError } from '@wizeworks/auth-client-server';
+import { platformRequest, PlatformRequestError } from '@wizeworksllc/auth-client-server';
 import type { PigglesGroup } from '@piggles/brand';
 import { railAppIds } from '@piggles/config';
 import { AddressTakenError } from './business-slug';

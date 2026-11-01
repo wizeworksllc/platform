@@ -14,8 +14,8 @@
 import { jwtVerify } from 'jose';
 import type { FastifyBaseLogger } from 'fastify';
 import type { Server, Socket } from 'socket.io';
-import { prisma } from '@wizeworks/db';
-import { isModuleEnabled } from '@wizeworks/auth';
+import { prisma } from '@wizeworksllc/db';
+import { isModuleEnabled } from '@wizeworksllc/auth';
 
 import { env } from '../env.js';
 import { conversationService } from '../lib/chat/index.js';

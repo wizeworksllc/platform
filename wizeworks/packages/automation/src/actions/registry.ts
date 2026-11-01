@@ -11,7 +11,7 @@
 // package register through this same seam where the engine is wired with those
 // deps (the worker / seed path), keeping this package lean.
 
-import type { ActionType } from '@wizeworks/automation-schemas';
+import type { ActionType } from '@wizeworksllc/automation-schemas';
 
 import type { ActionDescriptor, EffectInput } from '../engine-types';
 

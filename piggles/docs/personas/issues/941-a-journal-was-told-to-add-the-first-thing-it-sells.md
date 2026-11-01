@@ -3,7 +3,7 @@
 **Status:** fixed (act 2)
 **Severity:** major
 **Found by:** P09 · The Marrow Review · act 2, the console as a non-seller sees it
-**Surface:** mypiggles › Home: the checklist, Start something and the all-clear line (Piggles console, api-rest, `@wizeworks/db`)
+**Surface:** mypiggles › Home: the checklist, Start something and the all-clear line (Piggles console, api-rest, `@wizeworksllc/db`)
 **Filed:** 2026-10-06
 **Fixed:** 2026-10-06
 **Confirmed by:** P09 · The Marrow Review · act 2, her Home after the fix

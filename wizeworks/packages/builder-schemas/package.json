@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/builder-schemas",
+  "name": "@wizeworksllc/builder-schemas",
   "version": "0.0.0",
   "private": true,
   "description": "sparx Builder — the canonical node-tree + page Zod schemas and curated starter pages, shared by the service, REST, and the /builder editor. The serializable contract the backend matches (docs/41-builder-page-model.md).",

@@ -1,13 +1,13 @@
-// Bridge between Fastify auth context and @wizeworks/email-platform's
+// Bridge between Fastify auth context and @wizeworksllc/email-platform's
 // ServiceContext. Mirrors crm-context.ts: every email service function takes
 // `(ctx: ServiceContext, args)`; the REST transport derives that ctx and gates
 // on the email module being active for the tenant.
 
 import type { FastifyRequest } from 'fastify';
-import type { ServiceContext } from '@wizeworks/email-platform';
-import { isModuleEnabled } from '@wizeworks/auth';
-import { requireAuth } from '@wizeworks/api-core/auth';
-import { moduleDisabled } from '@wizeworks/api-core/errors';
+import type { ServiceContext } from '@wizeworksllc/email-platform';
+import { isModuleEnabled } from '@wizeworksllc/auth';
+import { requireAuth } from '@wizeworksllc/api-core/auth';
+import { moduleDisabled } from '@wizeworksllc/api-core/errors';
 
 export function toEmailContext(request: FastifyRequest): ServiceContext {
   const auth = requireAuth(request);

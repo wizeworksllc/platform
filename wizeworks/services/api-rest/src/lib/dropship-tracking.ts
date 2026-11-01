@@ -28,8 +28,8 @@ import {
   type Credentials,
   type SupplierAdapter,
   type TrackingInfo,
-} from '@wizeworks/dropship';
-import { prisma, withTenant } from '@wizeworks/db';
+} from '@wizeworksllc/dropship';
+import { prisma, withTenant } from '@wizeworksllc/db';
 
 import { recordDropshipShipment } from './dropship-shipment.js';
 import { publishDomainEvent } from './staff-events.js';

@@ -9,8 +9,8 @@
 // (publish-again, or the Slice 5 scheduled sweep) only re-attempts still-pending
 // targets, so a redelivered message never re-posts a succeeded target.
 
-import { withTenant } from '@wizeworks/db';
-import type { Prisma } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
+import type { Prisma } from '@wizeworksllc/db';
 import {
   getSocialAdapter,
   HttpError,
@@ -20,11 +20,11 @@ import {
   type SocialPlatform,
   type SocialTargetRef,
   type TargetOverride,
-} from '@wizeworks/social';
-import { registerBuiltinSocialAdapters } from '@wizeworks/social/adapters';
-import { isSocialTokenCryptoConfigured } from '@wizeworks/social/crypto';
-import { getSocialSettings } from '@wizeworks/social/service';
-import { createPublisher, publishEvent } from '@wizeworks/events';
+} from '@wizeworksllc/social';
+import { registerBuiltinSocialAdapters } from '@wizeworksllc/social/adapters';
+import { isSocialTokenCryptoConfigured } from '@wizeworksllc/social/crypto';
+import { getSocialSettings } from '@wizeworksllc/social/service';
+import { createPublisher, publishEvent } from '@wizeworksllc/events';
 import type { Logger } from 'pino';
 
 import { resolveSocialAuth } from './auth.js';

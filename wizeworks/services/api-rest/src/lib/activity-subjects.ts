@@ -58,7 +58,7 @@
 // ([[feedback_never_present_absence_as_measurement]]). Those stay unnamed and
 // the console prints the action alone, which is the truth.
 
-import type { withRequestTenant } from '@wizeworks/api-core/db';
+import type { withRequestTenant } from '@wizeworksllc/api-core/db';
 
 type TxClient = Parameters<Parameters<typeof withRequestTenant>[1]>[0];
 

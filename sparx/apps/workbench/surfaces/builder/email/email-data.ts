@@ -14,10 +14,10 @@
 // provisioned defaults, so this list is never genuinely empty — an empty result
 // means a filter matched nothing or the module is off, never "make your first one".
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../../lib/api-error';
 import type { EmailColorDefaults, EmailFrame } from '@wizeworks/silicaui-builder/email';
-import type { PresentationOverlayV2, TenantBrandColumns } from '@wizeworks/site-themes';
+import type { PresentationOverlayV2, TenantBrandColumns } from '@wizeworksllc/site-themes';
 import { api } from '../../../lib/api/client';
 import { emailKeys } from '../../email/broadcasts-data';
 
@@ -51,7 +51,7 @@ export interface EmailDesign {
   updatedAt: string;
 }
 
-/** A single pre-send check (mirrors `@wizeworks/email`'s `EmailCheck` — duplicated because
+/** A single pre-send check (mirrors `@wizeworksllc/email`'s `EmailCheck` — duplicated because
  *  a client component must not import the server email package, the same way
  *  `EMAIL_SEMANTIC_TOKENS` is duplicated). */
 export type EmailCheckLevel = 'pass' | 'warning' | 'error';

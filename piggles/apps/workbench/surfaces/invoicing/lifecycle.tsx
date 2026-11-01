@@ -14,7 +14,7 @@
 // words before anything happens. A stage with no entry effects advances
 // without interruption.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import {
   Badge,
   Button,

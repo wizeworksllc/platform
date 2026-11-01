@@ -11,7 +11,7 @@
 // kill it without rotating SPARX_INTERNAL_JWT_SECRET).
 
 import type { FastifyInstance, FastifyRequest } from 'fastify';
-import { withTenant } from '@wizeworks/db';
+import { withTenant } from '@wizeworksllc/db';
 
 interface PreviewClaims {
   sub: string;

@@ -1,4 +1,4 @@
-// @wizeworks/search — Typesense client wrapper + schemas + indexers + the
+// @wizeworksllc/search — Typesense client wrapper + schemas + indexers + the
 // search API surface the storefront, B2B portal, dashboard ⌘K palette,
 // and MCP tools all consume.
 

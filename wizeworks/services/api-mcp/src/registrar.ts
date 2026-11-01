@@ -6,11 +6,11 @@
 // `RegistrarClient` interface. Re-exports the contract surface (types,
 // RegistrarError, neutral DNS helper) for convenience.
 
-import type { RegistrarClient } from '@wizeworks/registrar';
-import { createGoDaddyRegistrar } from '@wizeworks/godaddy';
+import type { RegistrarClient } from '@wizeworksllc/registrar';
+import { createGoDaddyRegistrar } from '@wizeworksllc/godaddy';
 import { env } from './env.js';
 
-export * from '@wizeworks/registrar';
+export * from '@wizeworksllc/registrar';
 
 let instance: RegistrarClient | undefined;
 

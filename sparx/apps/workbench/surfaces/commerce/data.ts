@@ -25,9 +25,9 @@
 // of those and they had drifted: this console said "Sent by the supplier" where
 // the shopper's own order page said "Drop-ship", and the customer's email said
 // "usps". One list, so a new carrier is named once.
-import { carrierLabel, typedCarrierOf } from '@wizeworks/commerce-schemas';
-import { HELD_FOR_SIGN_OFF_STATUS } from '@wizeworks/crm-schemas';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { carrierLabel, typedCarrierOf } from '@wizeworksllc/commerce-schemas';
+import { HELD_FOR_SIGN_OFF_STATUS } from '@wizeworksllc/crm-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { TAKE_OFF_REASON } from './payment-undo';
 import { channelLabel as sharedChannelLabel } from '../../lib/console/channels';
@@ -578,7 +578,7 @@ export function useSendPackedBox(id: string) {
 }
 
 /** The rate ref checkout writes when a shopper chooses to come and get it.
- *  Mirrors COLLECTION_RATE_REF in @wizeworks/commerce (collection-option.ts);
+ *  Mirrors COLLECTION_RATE_REF in @wizeworksllc/commerce (collection-option.ts);
  *  copied rather than imported because that package is server-side and would
  *  drag Prisma into the browser bundle. */
 const COLLECTION_RATE_REF = 'collection:in-person';
@@ -971,7 +971,7 @@ export function customerName(customer: OrderCustomer | null): string {
 export function amountDue(order: Order): number {
   if (order.status === 'cancelled' || order.status === 'refunded') return 0;
   // Held for sign-off: nothing is owed until it is approved. See
-  // HELD_FOR_SIGN_OFF_STATUS in @wizeworks/crm-schemas.
+  // HELD_FOR_SIGN_OFF_STATUS in @wizeworksllc/crm-schemas.
   if (order.status === HELD_FOR_SIGN_OFF_STATUS) return 0;
   if (order.paymentStatus === 'refunded') return 0;
   return Math.max(0, order.total - order.amountPaid - order.refundTotal);

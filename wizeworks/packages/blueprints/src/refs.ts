@@ -6,7 +6,7 @@
 // `asset`-typed field there can't be a plain `*AssetId` key. It carries a
 // sentinel instead: `{ $asset: '<assetDeclId>' }`, which the installer resolves
 // to a MediaAsset id (the same shape-trick as the `$prop` / `$bind` sentinels in
-// @wizeworks/builder-schemas). Page/email TREE images don't need this — those props
+// @wizeworksllc/builder-schemas). Page/email TREE images don't need this — those props
 // accept a raw URL string and hot-link directly (docs/54 §6).
 //
 // Phase 1 only DECLARES + VALIDATES the convention; the installer (Phase 2)

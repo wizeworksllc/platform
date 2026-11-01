@@ -1,7 +1,7 @@
 // Finance input schemas (docs/148).
 //
-// Exported as the `@wizeworks/finance/schemas` subpath so a browser bundle can
-// validate a form without pulling `@wizeworks/db` in behind it. Nothing here imports
+// Exported as the `@wizeworksllc/finance/schemas` subpath so a browser bundle can
+// validate a form without pulling `@wizeworksllc/db` in behind it. Nothing here imports
 // anything but zod — keep it that way, or the subpath stops being safe to import
 // from the workbench.
 //
@@ -177,7 +177,7 @@ export const listExpensesSchema = z.object({
 // safe to hand `request.query` to directly, because every value there is a
 // string and `z.int()` rejects "50". The route that reads it off a query string
 // re-declares those two fields with `queryInt`/`queryBool` from
-// `@wizeworks/api-core/query`; doing it there rather than here keeps this file's
+// `@wizeworksllc/api-core/query`; doing it there rather than here keeps this file's
 // zod-only, browser-importable promise intact.
 export type ListExpensesInput = z.infer<typeof listExpensesSchema>;
 

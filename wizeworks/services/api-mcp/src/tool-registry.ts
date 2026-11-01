@@ -3,20 +3,20 @@
 // "is this a write tool call?" without pulling in the SDK.
 
 import type { z } from 'zod';
-import { crmMcpTools, invoicingMcpTools } from '@wizeworks/crm';
-import { commerceMcpTools } from '@wizeworks/commerce';
-import { inventoryMcpTools } from '@wizeworks/inventory/mcp';
-import { sitebuilderMcpTools } from '@wizeworks/sitebuilder';
-import { builderMcpTools } from '@wizeworks/builder/mcp';
-import { mediaMcpTools } from '@wizeworks/media/mcp';
-import { emailMcpTools } from '@wizeworks/email-platform';
-import { searchMcpTools } from '@wizeworks/search';
-import { automationMcpTools } from '@wizeworks/automation';
-import { schedulingMcpTools } from '@wizeworks/scheduling';
-import { cmsMcpTools } from '@wizeworks/cms/mcp';
-import { socialMcpTools } from '@wizeworks/social/mcp';
-import { b2bMcpTools } from '@wizeworks/b2b/mcp';
-import { funnelsMcpTools } from '@wizeworks/funnels/mcp';
+import { crmMcpTools, invoicingMcpTools } from '@wizeworksllc/crm';
+import { commerceMcpTools } from '@wizeworksllc/commerce';
+import { inventoryMcpTools } from '@wizeworksllc/inventory/mcp';
+import { sitebuilderMcpTools } from '@wizeworksllc/sitebuilder';
+import { builderMcpTools } from '@wizeworksllc/builder/mcp';
+import { mediaMcpTools } from '@wizeworksllc/media/mcp';
+import { emailMcpTools } from '@wizeworksllc/email-platform';
+import { searchMcpTools } from '@wizeworksllc/search';
+import { automationMcpTools } from '@wizeworksllc/automation';
+import { schedulingMcpTools } from '@wizeworksllc/scheduling';
+import { cmsMcpTools } from '@wizeworksllc/cms/mcp';
+import { socialMcpTools } from '@wizeworksllc/social/mcp';
+import { b2bMcpTools } from '@wizeworksllc/b2b/mcp';
+import { funnelsMcpTools } from '@wizeworksllc/funnels/mcp';
 import { domainMcpTools } from './domain-tools.js';
 import { purchaseOrderMcpTools } from './purchase-order-tools.js';
 import { b2bPriceMcpTools } from './b2b-price-tools.js';
@@ -55,7 +55,7 @@ export const ALL_MCP_TOOLS: AnyMcpTool[] = [
   ...(mediaMcpTools as unknown as AnyMcpTool[]),
   ...(emailMcpTools as unknown as AnyMcpTool[]),
   ...(searchMcpTools as unknown as AnyMcpTool[]),
-  // Index maintenance lives here, not in @wizeworks/search — see search-admin-tools.ts
+  // Index maintenance lives here, not in @wizeworksllc/search — see search-admin-tools.ts
   // for why the one WRITE search tool is kept out of that package.
   ...(searchAdminMcpTools as unknown as AnyMcpTool[]),
   // Automations are a PLATFORM capability (no module slug); the tools are
@@ -75,17 +75,17 @@ export const ALL_MCP_TOOLS: AnyMcpTool[] = [
   ...(schedulingEndingMcpTools as unknown as AnyMcpTool[]),
   // CMS (docs/12) — content types + entries; own read:cms / write:cms scopes,
   // additionally gated on the `cms` module flag in server.ts. Thin wrappers over
-  // the @wizeworks/cms service layer the REST routes drive (one service, many transports).
+  // the @wizeworksllc/cms service layer the REST routes drive (one service, many transports).
   ...(cmsMcpTools as unknown as AnyMcpTool[]),
   // Social (docs/133) — post compose + lifecycle; own read:social / write:social
   // scopes, additionally gated on the `social` module flag in server.ts. Thin
-  // wrappers over @wizeworks/social/service (extracted from api-rest so REST + MCP
+  // wrappers over @wizeworksllc/social/service (extracted from api-rest so REST + MCP
   // share one service — one service, many transports).
   ...(socialMcpTools as unknown as AnyMcpTool[]),
   // B2B / wholesale (docs/10) — pricing tiers + overrides, account trade config +
   // fleet, purchase-approval rules + queue, net-terms AR invoices; own read:b2b /
   // write:b2b scopes, additionally gated on the `b2b` module flag in server.ts.
-  // Thin wrappers over @wizeworks/b2b's service layer (extracted from the api-rest
+  // Thin wrappers over @wizeworksllc/b2b's service layer (extracted from the api-rest
   // routes so REST + MCP share one implementation — one service, many transports).
   ...(b2bMcpTools as unknown as AnyMcpTool[]),
   // What one account pays answers from commerce's price engine, which the b2b

@@ -47,9 +47,9 @@ import {
   consumeSessionHandoff,
   signOutSession,
   type SparxSession,
-} from '@wizeworks/auth';
-import { normalizeBrandKey } from '@wizeworks/brand-core';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
+} from '@wizeworksllc/auth';
+import { normalizeBrandKey } from '@wizeworksllc/brand-core';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
 import { env } from '../../env.js';
 import platformBusinessRoutes from './platform-business.js';
 import platformFlowRoutes from './platform-flows.js';

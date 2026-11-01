@@ -135,7 +135,7 @@ needed it reported success while doing nothing.
   same condition the ledger uses (`available <= reorderPoint`), so the two agree
   about what low means. After the commit, never inside it, per `events.ts`.
 - **The indexer resolves the product from the variant** when the payload names no
-  product, via a new `productIdForVariant` in `@wizeworks/commerce`. The variant
+  product, via a new `productIdForVariant` in `@wizeworksllc/commerce`. The variant
   is the thing that changed; the product is the thing that gets indexed, and
   something has to bridge the two.
 

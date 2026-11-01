@@ -9,7 +9,7 @@
 // the saving of it, exactly like the product editor's category picker.
 
 import { useMemo, useState } from 'react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { Badge, Button, Checkbox, SearchInput, Text } from '@wizeworks/silicaui-react';
 import { Package, X } from 'lucide-react';
 import { api } from '../../lib/api/client';

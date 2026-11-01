@@ -7,7 +7,7 @@
 // without making anything clearer.
 
 import { z } from 'zod';
-import { ConditionGroup } from '@wizeworks/automation-schemas';
+import { ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 import { Uuid } from './common';
 

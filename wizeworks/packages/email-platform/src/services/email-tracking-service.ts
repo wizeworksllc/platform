@@ -9,7 +9,7 @@
 //   · WHICH hosts count as "on-site" (only links to the tenant's own site are tagged
 //     — an off-site carrier / social link can't be measured by the tenant's own
 //     analytics). That's the tenant's verified custom domains PLUS the site's own
-//     public address (`@wizeworks/db/site-origin`), the host every merge-tag link
+//     public address (`@wizeworksllc/db/site-origin`), the host every merge-tag link
 //     (`{{site.url}}`, order/product URLs) already resolves to.
 //   · Under WHICH campaign + source the click reports — the email's own name (or an
 //     author override) and its stable key/slug.
@@ -24,9 +24,9 @@
 // credited to email (sparx persona issue 064). It is now the same resolver the
 // links themselves are built on, so the host tagged is the host they point at.
 
-import { withTenant } from '@wizeworks/db';
-import { resolveSiteOrigin } from '@wizeworks/db/site-origin';
-import type { EmailLinkTracking } from '@wizeworks/email/silica';
+import { withTenant } from '@wizeworksllc/db';
+import { resolveSiteOrigin } from '@wizeworksllc/db/site-origin';
+import type { EmailLinkTracking } from '@wizeworksllc/email/silica';
 
 import type { ServiceContext } from '../errors';
 

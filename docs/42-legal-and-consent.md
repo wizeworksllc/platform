@@ -75,7 +75,7 @@ is left untouched. Shipped in migration `20260619000000_legal_and_consent`.
 ### 3.2 The legal pages registry
 
 A code-first, platform-authored catalog (a new `wizeworks/packages/legal-templates/` package,
-dependency-free — no `@wizeworks/db`, no React — so both api-rest and any worker can
+dependency-free — no `@wizeworksllc/db`, no React — so both api-rest and any worker can
 import it) mirrors the `PAGE_TEMPLATES` pattern
 ([wizeworks/packages/sitebuilder-schemas/src/page-templates.ts](../packages/sitebuilder-schemas/src/page-templates.ts)).
 
@@ -122,7 +122,7 @@ disclaimer set) plus `site_doc_placements` rows. It is idempotent on the
 **Seed as draft, not published.** Nothing unreviewed goes live; the footer simply omits
 unpublished pages (already strictly better than today's 404 links), and the dashboard
 checklist makes publishing one click. Synchronous in-transaction seeding is a stopgap
-only — it couples `@wizeworks/auth` to legal content — and is used solely if the event
+only — it couples `@wizeworksllc/auth` to legal content — and is used solely if the event
 plumbing is not yet available.
 
 ### 3.4 Versioning
@@ -261,7 +261,7 @@ a future checkout terms gate uses `placement='terms_gate'`.
 Real, statically-rendered, indexable pages on the marketing site (`sparx/apps/web`) replace
 the `ComingSoon` stubs at `app/legal/{terms,privacy,dpa,aup}` and `app/security`. A
 single `legal-versions` constant (`sparx/apps/web/lib/legal-versions.ts`, or a tiny
-`@wizeworks/legal` package) is the one source of doc versions, imported by both the pages
+`@wizeworksllc/legal` package) is the one source of doc versions, imported by both the pages
 and the acceptance recorder so the version recorded is exactly the version rendered.
 The CMS-on-a-sparx-tenant option is rejected — it would couple platform legal to tenant
 infra and complicate versioning.
@@ -349,7 +349,7 @@ cookie-policy page (L1) that the consent preference center (L2) links to.
   per tenant — `sparx_owner` is a non-superuser in prod and sees zero rows otherwise.
   This is the single biggest migration-correctness risk.
 - **`tenant.created` event needs Terraform** (topic + subscriber). The synchronous-seed
-  stopgap couples `@wizeworks/auth` to legal content; prefer the event.
+  stopgap couples `@wizeworksllc/auth` to legal content; prefer the event.
 - **No uniform api-rest module gate exists.** The dashboard Legal surface inherits CMS's
   layer-level gating; consent is intentionally always-on. A server-enforced
   `requireModule` plugin is a separate cross-cutting effort if wanted.

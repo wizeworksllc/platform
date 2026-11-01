@@ -4,14 +4,14 @@
 //
 // Service scope: GraphQL only. REST (CRUD, media uploads, sitemap/rss,
 // CRM, webhooks) lives in api-rest. Shared Fastify primitives come from
-// @wizeworks/api-core so the two services can't drift on auth, error envelope,
+// @wizeworksllc/api-core so the two services can't drift on auth, error envelope,
 // or RLS-aware DB helpers.
 
 import { randomUUID } from 'node:crypto';
 import Fastify, { type FastifyInstance, type FastifyServerOptions } from 'fastify';
-import { createAuthPlugin } from '@wizeworks/api-core/auth';
-import { createErrorsPlugin } from '@wizeworks/api-core/errors-plugin';
-import { TRUSTED_PROXIES } from '@wizeworks/client-ip';
+import { createAuthPlugin } from '@wizeworksllc/api-core/auth';
+import { createErrorsPlugin } from '@wizeworksllc/api-core/errors-plugin';
+import { TRUSTED_PROXIES } from '@wizeworksllc/client-ip';
 import { env } from './env.js';
 import { wizelensPlugin } from './wizelens.js';
 import healthRoutes from './routes/health.js';
@@ -46,7 +46,7 @@ export async function createApp(): Promise<FastifyInstance> {
     requestIdLogLabel: 'request_id',
     // X-Forwarded-* — sparx-prod sits behind Cloudflare and Caddy. A list, not
     // `true`, so a caller cannot choose its own `request.ip`; see
-    // @wizeworks/client-ip.
+    // @wizeworksllc/client-ip.
     trustProxy: TRUSTED_PROXIES,
     disableRequestLogging: false,
     // GraphQL bodies can be larger than REST ones (variables + queries

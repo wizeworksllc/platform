@@ -121,7 +121,7 @@ export const LOGO_WORDMARK_OFFSET = { x: 214.03, y: 21.32 } as const;
 // and the destination. This constant IS that value: the art above, serialised.
 // It is exported so the platform's copy is checked against the drawing rather
 // than trusted: `@piggles/config`'s platform-registry test fails if
-// @wizeworks/brand-registry's wordmark.json and this disagree, and
+// @wizeworksllc/brand-registry's wordmark.json and this disagree, and
 // `scripts/check-brand-wordmark.mjs` fails if the deployed value and the
 // registry disagree.
 //

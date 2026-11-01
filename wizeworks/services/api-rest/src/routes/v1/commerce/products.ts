@@ -44,17 +44,17 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { queryBool } from '@wizeworks/api-core/query';
+import { queryBool } from '@wizeworksllc/api-core/query';
 import {
   bulkPriceService,
   productSelectionService,
   productService,
   variantService,
-} from '@wizeworks/commerce';
-import { Sku } from '@wizeworks/commerce-schemas';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
+} from '@wizeworksllc/commerce';
+import { Sku } from '@wizeworksllc/commerce-schemas';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
 import {
   defaultActiveSiteScope,
   requireCommerceModule,

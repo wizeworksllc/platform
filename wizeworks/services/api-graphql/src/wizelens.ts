@@ -7,7 +7,7 @@
 // and `/_wizelens` serves no dashboard or read API. Off in tests.
 //
 // index.ts imports this module FIRST. The Prisma hook below must be on
-// `globalThis` before @wizeworks/db builds its client, and ES modules evaluate
+// `globalThis` before @wizeworksllc/db builds its client, and ES modules evaluate
 // in import order, so a later import would leave every query untraced.
 
 import { createRequire } from 'node:module';
@@ -34,7 +34,7 @@ if (enabled) {
   (globalThis as { __wizelensAuth?: unknown }).__wizelensAuth = onWizeLensAuth;
 }
 
-/** The shared auth plugin (@wizeworks/api-core) calls this after it reads a caller: the signed-in user shows on WizeLens's Users page, and every request carries its tenant as a tag. */
+/** The shared auth plugin (@wizeworksllc/api-core) calls this after it reads a caller: the signed-in user shows on WizeLens's Users page, and every request carries its tenant as a tag. */
 function onWizeLensAuth(caller: {
   actorId: string;
   actorType: string;

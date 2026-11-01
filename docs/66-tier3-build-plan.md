@@ -21,7 +21,7 @@ These are all largely independent of each other and can be built in parallel. Le
 >   both surfaces; the marketplace was re-specced as the data-driven catalog in [docs/60](60-marketplace.md)
 >   v0.3, which supersedes this section's phasing.
 > - **Universal Search (Feature 3): DONE.** Ph1 + Ph2 projectors shipped and the scoped-key 501 is
->   fixed (`generateScopedSearchKey` in `@wizeworks/search`).
+>   fixed (`generateScopedSearchKey` in `@wizeworksllc/search`).
 > - **Product Markup (Feature 4): Ph1, Ph2, and Surcharges (Ph2b) shipped.** Remaining: Ph3
 >   (quote/invoice-line markup) and Ph4 (cost-change recompute worker + MCP tools).
 > - **Legal & Consent (Feature 1): slices 3b–6 shipped** (seed worker, site consent UX,
@@ -161,7 +161,7 @@ The Themes catalog pulls from the tenant's available saved themes + system-provi
 
 Theme catalog adapter for `/marketplace/themes`:
 
-- List: system themes (curated registry in `@wizeworks/ui`) + tenant-saved themes
+- List: system themes (curated registry in `@wizeworksllc/ui`) + tenant-saved themes
 - Facets: Style/mood (minimal, bold, editorial, playful), Color family, Layout density, Industry
 - Detail page: live preview using the Builder's theme preview mechanism, "Apply" CTA
 
@@ -171,7 +171,7 @@ Install count + rating: stub with static data for system themes until telemetry 
 
 ### Phase 2 — Components category
 
-The Components catalog exposes the system/shared component registry (docs/53 — `@wizeworks/blueprints` + system catalog).
+The Components catalog exposes the system/shared component registry (docs/53 — `@wizeworksllc/blueprints` + system catalog).
 
 Component catalog adapter for `/marketplace/components`:
 
@@ -253,7 +253,7 @@ Each new entity type gets a card in the ⌘K result list with an appropriate ico
 
 ### Phase 3 — Scoped-key 501 fix
 
-The Typesense scoped-key generation (per-tenant search isolation) currently returns 501 Not Implemented. Implement `generateScopedSearchKey(tenantId)` in `services/typesense-worker/` or `@wizeworks/search` using the Typesense Node.js client's `generateScopedSearchKey()` method with a filter_by `tenantId:{tenantId}` embedded.
+The Typesense scoped-key generation (per-tenant search isolation) currently returns 501 Not Implemented. Implement `generateScopedSearchKey(tenantId)` in `services/typesense-worker/` or `@wizeworksllc/search` using the Typesense Node.js client's `generateScopedSearchKey()` method with a filter_by `tenantId:{tenantId}` embedded.
 
 The site's public search (`/v1/public/search`) uses this scoped key — fix unblocks site product search from being truly tenant-isolated.
 
@@ -272,7 +272,7 @@ DB migration — new tables (RLS ENABLE + FORCE):
 - `markup_rules` (full schema per docs/48 §7 — all fields except `bands` JSONB for matrix)
 - Add to `product_variants`: `markup_rule_id UUID REFERENCES markup_rules(id)`, `applied_markup JSONB`
 
-`applyMarkupRule(cost, rule)` — pure function in `@wizeworks/commerce` package. Applies method, rounding, floor, ceiling. Returns `{ price, margin, appliedRule }`.
+`applyMarkupRule(cost, rule)` — pure function in `@wizeworksllc/commerce` package. Applies method, rounding, floor, ceiling. Returns `{ price, margin, appliedRule }`.
 
 API:
 

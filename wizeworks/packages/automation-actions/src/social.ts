@@ -28,7 +28,7 @@ import {
   type EffectInput,
   type ResolvedFields,
   type TenantCtx,
-} from '@wizeworks/automation';
+} from '@wizeworksllc/automation';
 import { z } from 'zod';
 
 import { interpolateFields } from './entity.js';

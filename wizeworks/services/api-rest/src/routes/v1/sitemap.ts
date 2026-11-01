@@ -29,9 +29,9 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { prisma, withTenant } from '@wizeworks/db';
-import { authorPath, isRecordAddress, isUtilityPage } from '@wizeworks/silica-catalog';
-import { badRequest, notFound } from '@wizeworks/api-core/errors';
+import { prisma, withTenant } from '@wizeworksllc/db';
+import { authorPath, isRecordAddress, isUtilityPage } from '@wizeworksllc/silica-catalog';
+import { badRequest, notFound } from '@wizeworksllc/api-core/errors';
 import {
   resolvePublicPropertyId,
   productSiteVisibilityWhere,

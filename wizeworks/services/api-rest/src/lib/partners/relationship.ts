@@ -6,7 +6,7 @@
 // via `withSystem` (RLS-escaped, platform scope) and returns only the non-
 // sensitive, client-facing projection — never the partner's commission terms.
 
-import { withSystem } from '@wizeworks/db';
+import { withSystem } from '@wizeworksllc/db';
 
 export interface ReferredByPartner {
   partnerId: string;

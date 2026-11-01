@@ -40,7 +40,7 @@
 // the same export save over each other. `content-disposition` is on the API's
 // exposed-headers list precisely so this side can read it.
 
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 
 import { getTokenState } from './token';
 

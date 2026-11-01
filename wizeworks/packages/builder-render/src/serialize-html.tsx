@@ -1,6 +1,6 @@
 // View HTML — serialize a node/subtree to the CLEAN PUBLISH HTML (docs/98 §3.8 +
 // §4.2). The read-only half of the View-HTML / import pair (import lives in
-// @wizeworks/builder-schemas `html-import.ts`).
+// @wizeworksllc/builder-schemas `html-import.ts`).
 //
 // CONTRACT (load-bearing, from §4.2):
 //   · The source is the CLEAN PUBLISH RENDER, *not* `canvas.innerHTML`. The canvas
@@ -41,7 +41,7 @@ import {
   rawTagOf,
   safeElementAttrs,
   type BuilderNode,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { NavShell } from './atoms';
 
 import { leafWearsClass, renderLeaf, renderLegacyNavLinks } from './render-leaf';

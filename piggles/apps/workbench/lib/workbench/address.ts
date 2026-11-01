@@ -20,7 +20,7 @@
 // address without `?site=` opens the right surface against the wrong data. It is
 // the difference between "here's the order" and "here's an order screen".
 
-import { buildPath, setLinkBrand } from '@wizeworks/links';
+import { buildPath, setLinkBrand } from '@wizeworksllc/links';
 
 // Every link this console resolves is a Piggles link, including the ones whose
 // callers name no brand (the search box's record hits).

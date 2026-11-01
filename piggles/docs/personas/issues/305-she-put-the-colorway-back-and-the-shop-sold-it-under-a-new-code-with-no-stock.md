@@ -108,7 +108,7 @@ longer existed.
 **The coordinate is written down before the cascade takes it, and read back when
 the lattice can hold it again.** New
 [lattice-memory.ts](../../../../wizeworks/packages/commerce/src/services/lattice-memory.ts)
-in `@wizeworks/commerce`, called from inside `setOptions`'s transaction:
+in `@wizeworksllc/commerce`, called from inside `setOptions`'s transaction:
 `rememberCoordinates` stores each variant's position as **text** on `metadata`
 (the platform's own scratch space — `customFields` is the tenant's) before the
 delete; `restoreRememberedCoordinates` puts back every variant, retired ones

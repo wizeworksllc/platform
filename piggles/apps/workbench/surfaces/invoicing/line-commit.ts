@@ -1,7 +1,7 @@
 // What the line editor puts on the invoice draft on Add or Save, testable
 // without a browser. Moved out of use-line-form.ts.
 
-import type { LineMarkupInput } from '@wizeworks/commerce-schemas';
+import type { LineMarkupInput } from '@wizeworksllc/commerce-schemas';
 import { coreChargeField } from './line-form-values';
 import type { ResolvedMarkup } from './line-markup';
 import type { DraftLine } from './totals';

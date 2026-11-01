@@ -56,7 +56,7 @@ data:
   # (distinct from BETTER_AUTH_SECRET) lives in sparx-app-secrets. NOT a secret.
   CUSTOMER_AUTH_URL: https://api.sparx.works
   # The ONE name for the workbench's public origin — every link a service puts in
-  # an email resolves through it (@wizeworks/links/server appOrigin). Four variables
+  # an email resolves through it (@wizeworksllc/links/server appOrigin). Four variables
   # used to mean this and each emitter read a different one with its own fallback,
   # so which host an email pointed at depended on which service sent it. The old
   # names still resolve, in a fixed order, so nothing breaks mid-rollout.
@@ -77,7 +77,7 @@ data:
   PIGGLES_APP_URL: https://mypiggles.com
   PIGGLES_ACCOUNT_URL: https://getpiggles.com
 
-  # Who the platform speaks AS, per brand (@wizeworks/brand-core). Shared code —
+  # Who the platform speaks AS, per brand (@wizeworksllc/brand-core). Shared code —
   # an email worker draining one queue for both brands — cannot import either
   # brand's package, so the identity arrives as configuration keyed by
   # `tenants.platform_brand`.

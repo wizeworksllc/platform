@@ -54,7 +54,7 @@ than a ban because a ban would fail on day one and get disabled.
 Wire into `package.json` scripts, [.githooks/pre-push](../../../.githooks/pre-push)
 and CI alongside `check:events` / `check:routes` / `check:docker`.
 
-**Exit:** `pnpm check:boundaries` green; artificially adding one `@wizeworks/query`
+**Exit:** `pnpm check:boundaries` green; artificially adding one `@wizeworksllc/query`
 import to a Piggles file makes it red.
 
 ---
@@ -70,7 +70,7 @@ Six edits. Three fix live, visible bugs.
 | A1.3 | `surfaces/onboarding/onboarding-layout.tsx` | `<Wordmark aria-label="sparx" />` → `@piggles/brand` `Logo`. Blocks **B3.4**                                                                                                            |
 | A1.4 | `lib/tour/*` (8 files)                      | **Decide: delete or port.** Currently unreachable and carrying sparx marks. Deleting also drops the `driver.js` dependency. Porting means Piggles marks + a mount site. Blocks **B3.1** |
 | A1.5 | `app/globals.css:33-34`                     | `@sparx/brand/{silica-gaps,toast}.css` → move both files to a brand-blind package (`@wizeworks/silica-gaps`, or fold into `brand-core` in A2.3) and re-point. sparx re-points too       |
-| A1.6 | `sparx/apps/workbench/package.json`         | Drop the `@wizeworks/ui` dependency — declared, imported zero times                                                                                                                     |
+| A1.6 | `sparx/apps/workbench/package.json`         | Drop the `@wizeworksllc/ui` dependency — declared, imported zero times                                                                                                                     |
 
 **Exit:** `grep -rE "@sparx/(brand|ui)" piggles/` returns nothing. Console builds.
 Every mascot, mark and wordmark visible in the Piggles console comes from
@@ -108,7 +108,7 @@ carries a `mypiggles.com` accept URL. Add a unit test that asserts it.
 
 ### A2.3 — split `@sparx/brand`
 
-Extract the **contract** into `@wizeworks/brand-core`; leave the **values** in
+Extract the **contract** into `@wizeworksllc/brand-core`; leave the **values** in
 `@sparx/brand`, which moves to `sparx/packages/` in A4.
 
 | Goes to `brand-core`                                                                   | Stays sparx's                        |
@@ -138,7 +138,7 @@ outside a comment.
 ## A3 — The rename
 
 `@sparx/<x>` → `@wizeworks/<x>` for all 31 Class-1 packages. `@sparx/brand` keeps
-its name (it is sparx's); `@wizeworks/ui` keeps its name.
+its name (it is sparx's); `@wizeworksllc/ui` keeps its name.
 
 **Scripted.** `scripts/codemod-scope-rename.mjs`, run and re-run, never hand
 edits. It rewrites: package `name` fields, `dependencies` / `devDependencies`
@@ -158,7 +158,7 @@ scope for the codemod; the `.tmp/` ones can be deleted instead.
 
 **Exit:** `pnpm install && pnpm typecheck && pnpm lint && pnpm test` green.
 `grep -r "@sparx/" --include='*.ts*' . | grep -v node_modules` returns only
-`@sparx/brand` and `@wizeworks/ui`.
+`@sparx/brand` and `@wizeworksllc/ui`.
 
 ---
 

@@ -5,7 +5,7 @@
 // EST-000123 → INV-000123 — which is the §9 invariant.
 
 import { describe, expect, it } from 'vitest';
-import type { BillingDocument, BillingDocumentLine, DocumentStage } from '@wizeworks/db';
+import type { BillingDocument, BillingDocumentLine, DocumentStage } from '@wizeworksllc/db';
 
 import { buildSnapshotPayload } from '../../src/services/billing-snapshot';
 import { formatBillingNumber } from '../../src/services/record-numbers';

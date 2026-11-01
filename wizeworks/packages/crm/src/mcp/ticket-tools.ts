@@ -19,7 +19,7 @@ import {
   CreateTicketInput,
   MoveTicketStageInput,
   UpdateTicketInput,
-} from '@wizeworks/crm-schemas';
+} from '@wizeworksllc/crm-schemas';
 
 import { slaPolicyService, ticketService } from '../services';
 

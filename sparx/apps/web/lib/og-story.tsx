@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { BRAND, MODULE_HEX, type ModuleKey } from '@sparx/brand';
-import type { StoryState } from '@wizeworks/story-schemas';
+import type { StoryState } from '@wizeworksllc/story-schemas';
 import { storyTokens, type Token } from '@/components/marketing/landing/story-tokens';
 import { ModuleStrip } from '@/components/marketing/module-strip';
 import { PAID_MODULES } from '@/components/marketing/modules-catalog';

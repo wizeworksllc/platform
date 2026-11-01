@@ -10,12 +10,12 @@
 
 import crypto from 'node:crypto';
 
-import { prisma, withTenant } from '@wizeworks/db';
+import { prisma, withTenant } from '@wizeworksllc/db';
 import {
   emailTreeToSilica,
   getDefaultEmailTemplate,
   type BuilderNode,
-} from '@wizeworks/builder-schemas';
+} from '@wizeworksllc/builder-schemas';
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 
 import { resolveSilicaEmailData, applyEntitySnapshot } from '../../src/lib/email-data.js';

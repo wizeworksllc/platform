@@ -8,8 +8,8 @@
 // re-reads the products as well as this list. Cores owed is re-read too: its
 // empty state points here while any of these are left.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import type { CoreChoiceCandidate, CoreChoiceConversion } from '@wizeworks/commerce-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import type { CoreChoiceCandidate, CoreChoiceConversion } from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import { CORES_KEY } from './cores-data';
 import { PRODUCTS_KEY } from './products-data';

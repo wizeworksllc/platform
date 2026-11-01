@@ -4,7 +4,7 @@
 // tenant has connected + has a registered adapter.
 
 import type { Logger } from 'pino';
-import type { SparxEvent } from '@wizeworks/events';
+import type { SparxEvent } from '@wizeworksllc/events';
 import {
   handleCatalogSync,
   handleCatalogRemoval,

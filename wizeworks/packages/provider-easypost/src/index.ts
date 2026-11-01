@@ -1,12 +1,12 @@
-// @wizeworks/provider-easypost — EasyPost ShippingProvider with freight
+// @wizeworksllc/provider-easypost — EasyPost ShippingProvider with freight
 // support for oversized / palletized shipments.
 
-import type { RateOption, ShipmentRequest } from '@wizeworks/commerce-schemas';
+import type { RateOption, ShipmentRequest } from '@wizeworksllc/commerce-schemas';
 import {
   ProviderUnsupportedError,
   registerProvider,
   WebhookVerificationError,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 import type {
   ProviderBundle,
   ProviderMetadataDescriptor,
@@ -15,7 +15,7 @@ import type {
   ShippingProvider,
   TrackingStatus,
   WebhookEvent,
-} from '@wizeworks/integration-framework';
+} from '@wizeworksllc/integration-framework';
 
 const EASYPOST_SLUG = 'easypost';
 

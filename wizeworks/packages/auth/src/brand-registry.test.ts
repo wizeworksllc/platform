@@ -4,7 +4,7 @@
 // from inside the other brand's request. No database is reached.
 
 import { afterEach, beforeAll, describe, expect, it } from 'vitest';
-import { runAsBrand } from '@wizeworks/brand-core/request-scope';
+import { runAsBrand } from '@wizeworksllc/brand-core/request-scope';
 
 import { authBrandConfigForBrand } from './brand-config';
 import {

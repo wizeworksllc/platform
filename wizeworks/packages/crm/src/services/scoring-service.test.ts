@@ -6,7 +6,7 @@
 // model lookup) is tested in `test/integration/scoring.test.ts`.
 
 import { describe, expect, it } from 'vitest';
-import type { ConditionGroup } from '@wizeworks/automation-schemas';
+import type { ConditionGroup } from '@wizeworksllc/automation-schemas';
 
 import { computeScore } from './scoring-service';
 

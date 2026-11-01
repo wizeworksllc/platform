@@ -27,7 +27,7 @@
 // carry one invariant would buy a cycle risk for nothing. Both already share one
 // Prisma client, and the pairing is confined to this file.
 
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 
 import { StaffMemberMissingError } from './errors';
 

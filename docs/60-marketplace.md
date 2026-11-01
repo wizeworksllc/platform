@@ -178,7 +178,7 @@ The **catalog is data**; the **runtime that makes a thing _work_ is code**, link
 | Integration catalog entry                     | **Data** (keyed to a provider) | Metadata is data                              |
 | Integration **adapter** (provider impl)       | **Code** (provider package)    | It executes logic                             |
 
-The in-code registries (`@wizeworks/blueprints`, `@wizeworks/site-themes`, the `@sparx/components` primitives,
+The in-code registries (`@wizeworksllc/blueprints`, `@wizeworksllc/site-themes`, the `@sparx/components` primitives,
 the provider registry) become **seeders** for the catalog tables — not the catalog itself. sparx-core
 listings are seeded (idempotently) through the migration pipeline; everything else is authored as data.
 
@@ -250,7 +250,7 @@ from it), it moves to a shared **`@sparx/components`** package with a deliberate
 - **`@sparx/components/catalog`** (server-safe subpath) — **metadata only**: type, label, group, kind,
   module, bindability, surfaces, descriptions. **No React.** For **`api-rest`** (seed the
   `MarketplaceComponent` table; serve the catalog) and any backend reader — keeping React out of the
-  service path (the `@wizeworks/cms-editor/serialize` pattern; see [packages/.../CLAUDE.md] + the
+  service path (the `@wizeworksllc/cms-editor/serialize` pattern; see [packages/.../CLAUDE.md] + the
   Dockerfile-wiring rule).
 
 This extraction is the single largest slice and is sequenced on its own (§11). The dashboard
@@ -403,7 +403,7 @@ on either surface.
 > preset key / provider slug / builder component `type` — with the heavy payload column NULL, resolved
 > by slug), **not** via the `@sparx/components` package extraction (phase 3). The extraction (D8) is
 > still worthwhile to unify the registry across apps, but the catalog did not need it to go live, and
-> the inline seed avoided new `@wizeworks/db` dependencies. The public surface lives at **`/market`** (so
+> the inline seed avoided new `@wizeworksllc/db` dependencies. The public surface lives at **`/market`** (so
 > the `sparx.market` vanity domain lands on it), not `/marketplace`.
 
 1. **Catalog spine.** ✅ SHIPPED. Per-category tables + publisher columns + the §6.3 RLS; a catalog
@@ -416,7 +416,7 @@ on either surface.
    status note above). Fifteen marketplace-worthy system components; "Add to my components" hands off
    to `/builder/components/<type>` (the existing Copy-to-tenant flow, docs/53). The `@sparx/components`
    extraction + `/catalog` subpath remains a worthwhile refactor, but is no longer blocking.
-4. **Themes + Integrations.** ✅ SHIPPED. Themes (six `@wizeworks/site-themes` presets; "Apply" → active
+4. **Themes + Integrations.** ✅ SHIPPED. Themes (six `@wizeworksllc/site-themes` presets; "Apply" → active
    site `themeKey` via `PUT /v1/sitebuilder/config/theme`, D11) and Integrations (six providers;
    "Connect" → `/commerce/providers`). _Follow-up: only Stripe + Shippo are registered in api-rest's
    provider bootstrap; PayPal/EasyPost/TaxJar/Avalara bundles exist but need activating before their

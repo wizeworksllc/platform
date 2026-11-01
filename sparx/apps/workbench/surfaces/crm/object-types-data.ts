@@ -17,14 +17,14 @@
 //   ['crm','objects', key]         one type with its property schema
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 
 /* ── Shapes ─────────────────────────────────────────────────────────────── */
 
-/** One typed field. Mirrors `FieldDef` in @wizeworks/field-schema. */
+/** One typed field. Mirrors `FieldDef` in @wizeworksllc/field-schema. */
 export interface PropertyField {
   key: string;
   label: string;

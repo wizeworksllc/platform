@@ -2,7 +2,7 @@
 // design published again after the send showed the new email as the one that went
 // out (sparx persona issue 161). `publishedAsOf` picks the version live at the send.
 
-import type { BuilderEmail } from '@wizeworks/db';
+import type { BuilderEmail } from '@wizeworksllc/db';
 import { describe, expect, it } from 'vitest';
 
 import { publishedAsOf } from './email-service';

@@ -16,7 +16,7 @@ import {
   projectCustomers,
   projectOrders,
   projectProducts,
-} from '@wizeworks/commerce';
+} from '@wizeworksllc/commerce';
 import {
   bulkUpsertCustomers,
   bulkUpsertEntities,
@@ -30,7 +30,7 @@ import {
   PRODUCTS_COLLECTION,
   type EntityProjector,
   type UniversalSearchDocument,
-} from '@wizeworks/search';
+} from '@wizeworksllc/search';
 import type { Logger as PinoLogger } from 'pino';
 
 import type { CommerceEventEnvelope } from './handler.js';

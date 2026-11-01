@@ -9,8 +9,8 @@
 // this list: a screen that still showed a core as owed after it came back would
 // invite somebody to give the same deposit back twice.
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { coresOutstanding, unitsWaitingForCore } from '@wizeworks/commerce-schemas';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { coresOutstanding, unitsWaitingForCore } from '@wizeworksllc/commerce-schemas';
 import { api } from '../../lib/api/client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { ORDERS_KEY, type OrderItem } from './data';

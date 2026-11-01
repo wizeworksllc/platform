@@ -14,7 +14,7 @@
 // on-screen range label and the figures agree.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { apiErrorMessage } from '../../lib/api-error';
 import { channelLabel } from '../../lib/console/channels';
 import { api } from '../../lib/api/client';

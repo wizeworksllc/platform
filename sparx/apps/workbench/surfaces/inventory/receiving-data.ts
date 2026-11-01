@@ -16,7 +16,7 @@
 // only a list, a read, and the one POST that books a delivery.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { stockKeys, type Tone } from './data';
 // Safe in this direction only: advance-ship-notices-data does NOT import this

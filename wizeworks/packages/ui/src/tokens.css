@@ -1,6 +1,6 @@
 /* ──────────────────────────────────────────────────────────────
    sparx Design Tokens — single source of truth.
-   Imported once per app in the root layout. All @wizeworks/ui components
+   Imported once per app in the root layout. All @wizeworksllc/ui components
    reference these variables. Never hardcode colors in components.
    See docs/23-frontend-component-architecture.md §4.
    ────────────────────────────────────────────────────────────── */
@@ -20,7 +20,7 @@
      A categorical series palette for multi-series charts. Drawn from the
      module hues so charts read as part of the brand. A single "hero" series
      should use var(--color-module) instead, so it adopts the active module's
-     color. Consumed by @wizeworks/ui chart primitives; tenant themes may
+     color. Consumed by @wizeworksllc/ui chart primitives; tenant themes may
      override. */
   --chart-1: #6366f1;
   --chart-2: #14b8a6;

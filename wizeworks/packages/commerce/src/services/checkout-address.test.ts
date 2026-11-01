@@ -10,7 +10,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { SubmitContactInput, SubmitShippingInput } from '@wizeworks/commerce-schemas';
+import { SubmitContactInput, SubmitShippingInput } from '@wizeworksllc/commerce-schemas';
 
 import { COLLECTION_PROVIDER_SLUG, isCollection } from './collection-option';
 

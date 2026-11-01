@@ -46,7 +46,7 @@
 // "Module not found". Extensionless is what every other source-exported package
 // here uses; keep it that way.
 
-import { prisma, withSystem, withTenant } from '@wizeworks/db';
+import { prisma, withSystem, withTenant } from '@wizeworksllc/db';
 
 import { countSeats } from './seats';
 

@@ -7,7 +7,7 @@
 // `attributeSchema.fields` list, and every product of that type fills + validates
 // against it. So this module and surfaces/commerce/product-attributes.tsx share
 // ONE vocabulary of field kinds — the `FieldDef` union below, a mirror of
-// @wizeworks/field-schema (the SAME engine the CMS content types use, validated
+// @wizeworksllc/field-schema (the SAME engine the CMS content types use, validated
 // server-side). This file never invents a field kind the attribute form cannot
 // render; it authors the exact shape that form consumes.
 //
@@ -22,14 +22,14 @@
 // first save; a custom type saves in place.
 // ══════════════════════════════════════════════════════════════════════════
 
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import { ApiError } from '@wizeworks/api-client';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../lib/api-error';
 import { api } from '../../lib/api/client';
 
 /* ── The attribute-field schema ──────────────────────────────────────────────
  *
- * A local mirror of the `FieldDef` union that @wizeworks/field-schema validates on
+ * A local mirror of the `FieldDef` union that @wizeworksllc/field-schema validates on
  * the server. The browser only carries the SHAPE (never the zod schema), so the
  * workbench stays free of a schemas dependency and the two can drift by one
  * release without a crash. */

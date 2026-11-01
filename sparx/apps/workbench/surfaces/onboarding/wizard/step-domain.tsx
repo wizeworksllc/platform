@@ -30,7 +30,7 @@ import {
 } from '@wizeworks/silicaui-react';
 import { Check, Clock, Globe, Lock, X } from 'lucide-react';
 import { api } from '../../../lib/api/client';
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import type { OnboardingActions } from '../../../lib/onboarding/api';
 import type { PendingDomain, RegistrantContact } from '../../../lib/onboarding/types';
 

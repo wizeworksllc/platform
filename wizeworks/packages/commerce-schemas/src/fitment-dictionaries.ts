@@ -14,9 +14,9 @@
 // level (Size); Vehicle is three (Make → Model → Engine) plus a Year range.
 //
 // This file is data-as-code (line-limit exempt) and zod-free / DB-free on
-// purpose: both `@wizeworks/commerce`'s install service AND `@wizeworks/db`'s seed
+// purpose: both `@wizeworksllc/commerce`'s install service AND `@wizeworksllc/db`'s seed
 // import it. Putting it here (commerce-schemas, which neither depends on db nor
-// is in db's runtime graph) keeps the seed from importing `@wizeworks/commerce` and
+// is in db's runtime graph) keeps the seed from importing `@wizeworksllc/commerce` and
 // creating a Turbo dependency cycle.
 //
 // `planFitmentDictionaryRows` is the single stamping codepath: it turns a

@@ -17,10 +17,10 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { billingDocumentService } from '@wizeworks/crm';
-import { csvSafeText } from '@wizeworks/inventory';
-import { requireRole } from '@wizeworks/api-core/auth';
-import { withRequestTenant } from '@wizeworks/api-core/db';
+import { billingDocumentService } from '@wizeworksllc/crm';
+import { csvSafeText } from '@wizeworksllc/inventory';
+import { requireRole } from '@wizeworksllc/api-core/auth';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
 import { requireInvoicingModule, toInvoicingContext } from '../../../lib/invoicing-context.js';
 import { reachableSiteIds } from '../../../lib/property.js';
 import {

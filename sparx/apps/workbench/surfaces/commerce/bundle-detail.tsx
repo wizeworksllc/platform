@@ -30,7 +30,7 @@ import {
 import { MoneyTextInput, moneyCents } from '../../components/money-input';
 import { useConfirm } from '../../lib/confirm';
 import { Blocks, Trash2 } from 'lucide-react';
-import { useQuery } from '@wizeworks/query';
+import { useQuery } from '@wizeworksllc/query';
 import { api } from '../../lib/api/client';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { afterPaneChange } from '../../lib/defer';
@@ -51,7 +51,7 @@ import {
   type BundleInventoryMode,
   type BundlePricingMode,
 } from './bundles-data';
-import { bundlePartsTotalCents, bundleSetPriceCents } from '@wizeworks/commerce-schemas';
+import { bundlePartsTotalCents, bundleSetPriceCents } from '@wizeworksllc/commerce-schemas';
 import { partLineNote, partsNote, setPriceNote } from './bundle-price-words';
 import type { VariantChoice } from './bundles-data';
 import { PaneLoadError } from '../../components/pane-load-error';

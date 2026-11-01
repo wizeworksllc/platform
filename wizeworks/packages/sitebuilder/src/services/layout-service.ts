@@ -2,12 +2,12 @@
 //
 // A layout block points at an existing NavigationMenu by id and carries slot
 // extras in `config`, validated against the slot's schema in
-// @wizeworks/sitebuilder-schemas. Navigation is Site-Builder-owned; the menu rows
+// @wizeworksllc/sitebuilder-schemas. Navigation is Site-Builder-owned; the menu rows
 // are written through the module-neutral /v1/navigation API.
 
-import { UpsertLayoutInput, parseLayoutConfig } from '@wizeworks/sitebuilder-schemas';
-import type { Prisma, SiteLayoutBlock } from '@wizeworks/db';
-import { withTenant } from '@wizeworks/db';
+import { UpsertLayoutInput, parseLayoutConfig } from '@wizeworksllc/sitebuilder-schemas';
+import type { Prisma, SiteLayoutBlock } from '@wizeworksllc/db';
+import { withTenant } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

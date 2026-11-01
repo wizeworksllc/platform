@@ -1,7 +1,7 @@
 // Inventory module — lots, serials, and recalls. Batch/serial traceability is an
 // inventory concern (regulated stock, expiry, recalls), so it lives in the
 // inventory module's own API namespace (requireInventoryModule) — usable by a
-// standalone WMS tenant with no commerce. Writes delegate to @wizeworks/inventory;
+// standalone WMS tenant with no commerce. Writes delegate to @wizeworksllc/inventory;
 // the active-recalls read is a thin Prisma join under RLS.
 //
 //   GET   /v1/inventory/lots               ?variant_id&warehouse_id&recall_status&expiring_before&q
@@ -18,11 +18,11 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
-import { inventoryService } from '@wizeworks/inventory';
-import { SerialUnitStatus } from '@wizeworks/commerce-schemas';
-import { withRequestTenant } from '@wizeworks/api-core/db';
-import { ok, paged } from '@wizeworks/api-core/envelope';
-import { requireRole } from '@wizeworks/api-core/auth';
+import { inventoryService } from '@wizeworksllc/inventory';
+import { SerialUnitStatus } from '@wizeworksllc/commerce-schemas';
+import { withRequestTenant } from '@wizeworksllc/api-core/db';
+import { ok, paged } from '@wizeworksllc/api-core/envelope';
+import { requireRole } from '@wizeworksllc/api-core/auth';
 import { requireInventoryModule, toInventoryContext } from '../../../lib/inventory-context.js';
 
 const ExpiringQuery = z.object({ before: z.string().datetime().optional() });

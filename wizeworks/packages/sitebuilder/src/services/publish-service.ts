@@ -6,9 +6,9 @@
 // into the draft and republishes it as a new version. getPublishedSnapshot is
 // the read the storefront's public endpoint consumes.
 
-import { PublishInput, RollbackInput } from '@wizeworks/sitebuilder-schemas';
-import type { SiteVersion } from '@wizeworks/db';
-import { withTenant, type TxClient } from '@wizeworks/db';
+import { PublishInput, RollbackInput } from '@wizeworksllc/sitebuilder-schemas';
+import type { SiteVersion } from '@wizeworksllc/db';
+import { withTenant, type TxClient } from '@wizeworksllc/db';
 import {
   applyBrandIdentityTokens,
   compileTokens,
@@ -17,7 +17,7 @@ import {
   type CompiledTokens,
   type PresentationOverlayV2,
   type ThemePresetV2,
-} from '@wizeworks/site-themes';
+} from '@wizeworksllc/site-themes';
 
 import { publishSitebuilderEvent } from '../events';
 import type { PropertyContext } from '../errors';

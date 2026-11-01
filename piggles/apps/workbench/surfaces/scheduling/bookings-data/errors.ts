@@ -1,4 +1,4 @@
-import { ApiError } from '@wizeworks/api-client';
+import { ApiError } from '@wizeworksllc/api-client';
 import { apiErrorMessage } from '../../../lib/api-error';
 
 /* ── Errors ─────────────────────────────────────────────────────────────── */

@@ -35,10 +35,10 @@ import {
   CreateAssemblyOrderInput,
   UpdateAssemblyOrderInput,
   requiredForRun,
-} from '@wizeworks/commerce-schemas';
-import type { AssemblyKind, AssemblyStatus } from '@wizeworks/commerce-schemas';
-import { Prisma, withTenant } from '@wizeworks/db';
-import type { TxClient } from '@wizeworks/db';
+} from '@wizeworksllc/commerce-schemas';
+import type { AssemblyKind, AssemblyStatus } from '@wizeworksllc/commerce-schemas';
+import { Prisma, withTenant } from '@wizeworksllc/db';
+import type { TxClient } from '@wizeworksllc/db';
 
 import { writeAuditLog } from '../audit';
 import { VARIANT_LABEL_SELECT, variantLabel } from './variant-label';

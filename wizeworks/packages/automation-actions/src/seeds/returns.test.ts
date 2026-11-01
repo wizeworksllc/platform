@@ -20,7 +20,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { DEFAULT_EMAIL_TEMPLATES } from '@wizeworks/builder-schemas';
+import { DEFAULT_EMAIL_TEMPLATES } from '@wizeworksllc/builder-schemas';
 
 import { SYSTEM_AUTOMATIONS } from './index.js';
 

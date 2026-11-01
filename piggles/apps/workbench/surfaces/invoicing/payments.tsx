@@ -10,7 +10,7 @@
 // balance, status, and AR aging all reflow from the ledger.
 
 import { useState } from 'react';
-import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
+import { useMutation, useQuery, useQueryClient } from '@wizeworksllc/query';
 import {
   Alert,
   Button,
