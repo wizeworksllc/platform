@@ -13,7 +13,10 @@ import { z } from 'zod';
 import type { Booking, BookingSeries } from '@wizeworksllc/db';
 import { ok, paged } from '@wizeworksllc/api-core/envelope';
 import { requireRole } from '@wizeworksllc/api-core/auth';
-import { CancelBookingSeriesInput, CreateBookingSeriesInput } from '@wizeworksllc/scheduling-schemas';
+import {
+  CancelBookingSeriesInput,
+  CreateBookingSeriesInput,
+} from '@wizeworksllc/scheduling-schemas';
 import {
   cancelBookingSeries,
   createBookingSeries,

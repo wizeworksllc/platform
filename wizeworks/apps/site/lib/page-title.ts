@@ -5,4 +5,9 @@
 // (sparx persona issue 134). Kept here so the site's pages import it by the name
 // they always have.
 
-export { metadataTitle, namesTheSite, servedTitle, socialTitle } from '@wizeworksllc/builder-schemas';
+export {
+  metadataTitle,
+  namesTheSite,
+  servedTitle,
+  socialTitle,
+} from '@wizeworksllc/builder-schemas';

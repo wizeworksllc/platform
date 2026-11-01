@@ -50,7 +50,7 @@ find later.
 | `@sparx/brand/theme.css`       | the **values**            | every hex, light + dark; `--radius-box/field/selector`; the 18 module hues                                      |
 | `@wizeworks/silicaui` (plugin) | the **appearance**        | fill, ink, border, radius, hover/focus/active/disabled, loading, `soft`/`outline`/`ghost`/`dash`, sizes, shapes |
 | `@wizeworks/silicaui-react`    | **behavior + a11y**       | Base UI selection state, roving focus, portals, moving indicators                                               |
-| `@wizeworksllc/ui`                | sparx **compositions**    | the shell, `PageHeader`, `ListToolbar`, `Stat`, `statusTone`                                                    |
+| `@wizeworksllc/ui`             | sparx **compositions**    | the shell, `PageHeader`, `ListToolbar`, `Stat`, `statusTone`                                                    |
 | **your feature code**          | the **decision + layout** | which `color × variant × size × shape` — and Tailwind for layout, spacing, sizing, positioning                  |
 
 **Feature code owns no appearance at all.** Its entire color job is picking the right prop, which is

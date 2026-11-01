@@ -32,7 +32,12 @@ import { prisma, withTenant, type TxClient } from '@wizeworksllc/db';
 // value, plus the Update/JSON input shapes are used as types (cf. brand.ts).
 import { Prisma } from '@prisma/client';
 import { ok } from '@wizeworksllc/api-core/envelope';
-import { notFound, conflict, validationError, paymentRequired } from '@wizeworksllc/api-core/errors';
+import {
+  notFound,
+  conflict,
+  validationError,
+  paymentRequired,
+} from '@wizeworksllc/api-core/errors';
 import { requireRole } from '@wizeworksllc/api-core/auth';
 import { isModuleEnabled } from '@wizeworksllc/auth';
 import { ALL_MODULES, type ModuleSlug } from '@wizeworksllc/modules';

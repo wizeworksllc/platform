@@ -21,7 +21,11 @@
 
 import type { Prisma } from '@wizeworksllc/db';
 import { withTenant } from '@wizeworksllc/db';
-import { AddressSnapshot, type RateOption, type TaxBreakdown } from '@wizeworksllc/commerce-schemas';
+import {
+  AddressSnapshot,
+  type RateOption,
+  type TaxBreakdown,
+} from '@wizeworksllc/commerce-schemas';
 
 import type { ServiceContext } from '../errors';
 import { describeRate, isCollection, rateNames } from './collection-option';

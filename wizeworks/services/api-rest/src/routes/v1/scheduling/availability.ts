@@ -13,7 +13,10 @@ import { z } from 'zod';
 import type { AvailabilityException, AvailabilityWindow } from '@wizeworksllc/db';
 import { ok } from '@wizeworksllc/api-core/envelope';
 import { requireRole } from '@wizeworksllc/api-core/auth';
-import { AvailabilityExceptionInput, AvailabilityWindowInput } from '@wizeworksllc/scheduling-schemas';
+import {
+  AvailabilityExceptionInput,
+  AvailabilityWindowInput,
+} from '@wizeworksllc/scheduling-schemas';
 import {
   setAvailabilityWindows,
   listAvailabilityWindows,

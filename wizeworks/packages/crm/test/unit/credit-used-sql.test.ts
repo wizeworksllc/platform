@@ -16,7 +16,10 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
-import { NOT_OWED_STAGE_TYPES, PRICE_OFFER_WORKFLOW_SLUGS } from '@wizeworksllc/crm-schemas/builtins';
+import {
+  NOT_OWED_STAGE_TYPES,
+  PRICE_OFFER_WORKFLOW_SLUGS,
+} from '@wizeworksllc/crm-schemas/builtins';
 
 /** Walks up from this file to the folder holding the migrations. */
 function migrationsDir(): string {

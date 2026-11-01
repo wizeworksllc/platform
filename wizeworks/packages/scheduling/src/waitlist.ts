@@ -16,7 +16,10 @@ import {
   type TxClient,
   type WaitlistEntry,
 } from '@wizeworksllc/db';
-import type { AcceptWaitlistInput, CreateWaitlistEntryInput } from '@wizeworksllc/scheduling-schemas';
+import type {
+  AcceptWaitlistInput,
+  CreateWaitlistEntryInput,
+} from '@wizeworksllc/scheduling-schemas';
 
 import { createBooking } from './booking-service';
 import {

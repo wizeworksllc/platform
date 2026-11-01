@@ -22,7 +22,11 @@
 // it would touch and writes nothing until `--apply` is passed.
 
 import { prisma } from '@wizeworksllc/db';
-import { mirrorTenant, recordSubscriptionChange, type MirrorLogger } from '@wizeworksllc/platform-crm';
+import {
+  mirrorTenant,
+  recordSubscriptionChange,
+  type MirrorLogger,
+} from '@wizeworksllc/platform-crm';
 
 const SENTINEL_TENANT = '00000000-0000-0000-0000-000000000000';
 

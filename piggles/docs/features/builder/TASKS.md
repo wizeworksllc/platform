@@ -444,7 +444,7 @@ keeps producing: **absent behaves like a confident wrong answer.**
 | Check                                                           | Result                          |
 | --------------------------------------------------------------- | ------------------------------- |
 | `@piggles/studio` typecheck · lint · tests                      | clean · clean · **58 passing**  |
-| `@wizeworksllc/builder` typecheck · lint · tests                   | clean · clean · **112 passing** |
+| `@wizeworksllc/builder` typecheck · lint · tests                | clean · clean · **112 passing** |
 | `wizeworks/services/api-rest` typecheck · lint                  | clean                           |
 | `piggles/apps/workbench` typecheck · lint                       | clean                           |
 | `check:routes` · `check:events` · `check:boundaries` · order    | all pass                        |

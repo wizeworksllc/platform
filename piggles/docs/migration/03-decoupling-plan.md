@@ -70,7 +70,7 @@ Six edits. Three fix live, visible bugs.
 | A1.3 | `surfaces/onboarding/onboarding-layout.tsx` | `<Wordmark aria-label="sparx" />` → `@piggles/brand` `Logo`. Blocks **B3.4**                                                                                                            |
 | A1.4 | `lib/tour/*` (8 files)                      | **Decide: delete or port.** Currently unreachable and carrying sparx marks. Deleting also drops the `driver.js` dependency. Porting means Piggles marks + a mount site. Blocks **B3.1** |
 | A1.5 | `app/globals.css:33-34`                     | `@sparx/brand/{silica-gaps,toast}.css` → move both files to a brand-blind package (`@wizeworks/silica-gaps`, or fold into `brand-core` in A2.3) and re-point. sparx re-points too       |
-| A1.6 | `sparx/apps/workbench/package.json`         | Drop the `@wizeworksllc/ui` dependency — declared, imported zero times                                                                                                                     |
+| A1.6 | `sparx/apps/workbench/package.json`         | Drop the `@wizeworksllc/ui` dependency — declared, imported zero times                                                                                                                  |
 
 **Exit:** `grep -rE "@sparx/(brand|ui)" piggles/` returns nothing. Console builds.
 Every mascot, mark and wordmark visible in the Piggles console comes from

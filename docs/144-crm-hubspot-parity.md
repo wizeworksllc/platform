@@ -58,7 +58,7 @@ Listed because nine of the eleven workstreams below are extensions of these, not
 | Pipelines + ordered typed stages     | `Pipeline` / `PipelineStage` (probability, `stage_type`)                            | Gains `objectKey` so tickets reuse it wholesale (§7.2)                  |
 | dnd-kit board patterns               | `automations/flow-canvas`, `invoicing/stage-canvas`, `social/calendar`              | The deal board and ticket board (§4)                                    |
 | BYO-credential provider registry     | `wizeworks/packages/sms` (provider + registry + console fallback)                   | Shape copied for `wizeworks/packages/voice` (§5.6)                      |
-| Tenant secret encryption             | `@wizeworksllc/integration-framework` `secret-crypto`                                  | BYO telephony + BYO mailbox credentials (§5.6)                          |
+| Tenant secret encryption             | `@wizeworksllc/integration-framework` `secret-crypto`                               | BYO telephony + BYO mailbox credentials (§5.6)                          |
 | Report query services                | `wizeworks/packages/crm/src/services/reporting-service.ts` (7 reports)              | Re-expressed as seeded built-in report definitions (§8.4)               |
 
 ## 3. Workstream A — the CRM object registry (custom properties, then custom objects)

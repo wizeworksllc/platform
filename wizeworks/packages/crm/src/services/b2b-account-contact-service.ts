@@ -18,7 +18,10 @@
 // pricing reads. Both directions of that pair now live in `trade-membership.ts`,
 // which the customer editor calls too. Issue 744.
 
-import { CreateB2bAccountContactInput, UpdateB2bAccountContactInput } from '@wizeworksllc/crm-schemas';
+import {
+  CreateB2bAccountContactInput,
+  UpdateB2bAccountContactInput,
+} from '@wizeworksllc/crm-schemas';
 import { withTenant } from '@wizeworksllc/db';
 import type { B2bAccountContact, Customer } from '@wizeworksllc/db';
 import { indexEntity } from '@wizeworksllc/events';

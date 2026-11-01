@@ -61,7 +61,7 @@ first-party `sparx_customer_session` cookie, still completely separate from the 
 
 | Concern          | Staff instance (Layer 1)          | Customer instance (Layer 2)                            |
 | ---------------- | --------------------------------- | ------------------------------------------------------ |
-| Package          | `@wizeworksllc/auth`                 | `@wizeworksllc/customer-auth`                             |
+| Package          | `@wizeworksllc/auth`              | `@wizeworksllc/customer-auth`                          |
 | Secret           | `BETTER_AUTH_SECRET`              | `CUSTOMER_AUTH_SECRET` (distinct)                      |
 | Cookie           | `better-auth.session_token` (app) | `sparx_customer_session` (site origin)                 |
 | Email uniqueness | global (`users.email @unique`)    | **per-tenant** (`(tenant_id, email)` composite)        |

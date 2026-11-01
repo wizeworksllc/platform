@@ -54,15 +54,15 @@ with the check that would settle it.
 Roughly 13,600 lines across five layers, and the architecture is not the problem. The layering is
 clean and the discipline held:
 
-| Layer                                                                 | Owner                      | Where                                                                                                                                          |
-| --------------------------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Layer                                                                 | Owner                         | Where                                                                                                                                          |
+| --------------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Adapter contract, registry, renderer, constraints, crypto, catalog    | `@wizeworksllc/social` — pure | [wizeworks/packages/social/src/](../../packages/social/src/)                                                                                   |
 | 8 platform adapters (pure I/O, no DB)                                 | `@wizeworksllc/social`        | [adapters/](../../packages/social/src/adapters/)                                                                                               |
 | Post + connection services (one service, many transports)             | `@wizeworksllc/social`        | [posts.ts](../../packages/social/src/posts.ts), [connections.ts](../../packages/social/src/connections.ts)                                     |
-| Connect / compose / lifecycle / metrics HTTP, scheduled drain         | api-rest                   | [routes/v1/social/](../../services/api-rest/src/routes/v1/social/), [social-scheduled.ts](../../services/api-rest/src/lib/social-scheduled.ts) |
-| Token resolve → render → publish → per-target result; metrics collect | `social-worker`            | [services/social-worker/src/](../../services/social-worker/src/)                                                                               |
-| Calendar · Posts · Composer · Approvals · Insights · Connections      | workbench                  | [surfaces/social/](../../apps/workbench/surfaces/social/)                                                                                      |
-| `social.post` as a first-class automation step + 2 seeded automations | automation-actions         | [automation-actions/src/social.ts](../../packages/automation-actions/src/social.ts)                                                            |
+| Connect / compose / lifecycle / metrics HTTP, scheduled drain         | api-rest                      | [routes/v1/social/](../../services/api-rest/src/routes/v1/social/), [social-scheduled.ts](../../services/api-rest/src/lib/social-scheduled.ts) |
+| Token resolve → render → publish → per-target result; metrics collect | `social-worker`               | [services/social-worker/src/](../../services/social-worker/src/)                                                                               |
+| Calendar · Posts · Composer · Approvals · Insights · Connections      | workbench                     | [surfaces/social/](../../apps/workbench/surfaces/social/)                                                                                      |
+| `social.post` as a first-class automation step + 2 seeded automations | automation-actions            | [automation-actions/src/social.ts](../../packages/automation-actions/src/social.ts)                                                            |
 
 Adapters never touch the database; the worker owns every write; api-rest only flips state and emits
 an event. Partial failure is a real state (`partially_published`) rather than a rollback. Targets

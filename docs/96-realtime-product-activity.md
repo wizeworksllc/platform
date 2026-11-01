@@ -135,7 +135,7 @@ type ActivityEvent =
 
 Source-event → `ActivityEvent` mapping (owned by the fanout worker):
 
-| Domain event (@wizeworksllc/events)           | Activity   | Notes                                                                                                                             |
+| Domain event (@wizeworksllc/events)        | Activity   | Notes                                                                                                                             |
 | ------------------------------------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `order.paid`                               | `purchase` | Canonical "money received." Resolve order → line items → productIds; one event per distinct product. `qty` bucketed, never exact. |
 | `review.published`                         | `review`   | Reuses the public review shape (author = displayName, excerpt = first ~140 chars).                                                |

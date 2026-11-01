@@ -15,7 +15,11 @@ import crypto from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
 import { prisma } from '@wizeworksllc/db';
 import { invalidateModuleCache, issueApiKey } from '@wizeworksllc/auth';
-import { publishAutomation, updateAutomation, upsertSystemAutomation } from '@wizeworksllc/automation';
+import {
+  publishAutomation,
+  updateAutomation,
+  upsertSystemAutomation,
+} from '@wizeworksllc/automation';
 import { createApp } from '../src/app.js';
 
 interface TestTenant {

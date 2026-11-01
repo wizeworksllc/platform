@@ -12,7 +12,10 @@ import { z } from 'zod';
 import type { BookingPolicy } from '@wizeworksllc/db';
 import { ok, paged } from '@wizeworksllc/api-core/envelope';
 import { requireRole } from '@wizeworksllc/api-core/auth';
-import { CreateBookingPolicyInput, UpdateBookingPolicyInput } from '@wizeworksllc/scheduling-schemas';
+import {
+  CreateBookingPolicyInput,
+  UpdateBookingPolicyInput,
+} from '@wizeworksllc/scheduling-schemas';
 import {
   createBookingPolicy,
   deleteBookingPolicy,

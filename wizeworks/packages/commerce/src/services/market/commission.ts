@@ -7,7 +7,10 @@
 // from env and the tenant override from the merchant profile.
 
 import type { TxClient } from '@wizeworksllc/db';
-import { MARKET_COMMISSION_BPS_DEFAULT, resolveCommissionBps } from '@wizeworksllc/commerce-schemas';
+import {
+  MARKET_COMMISSION_BPS_DEFAULT,
+  resolveCommissionBps,
+} from '@wizeworksllc/commerce-schemas';
 
 /** The platform default commission (bps) from env MARKET_COMMISSION_BPS, clamped to
  *  [0, 3000]; falls back to MARKET_COMMISSION_BPS_DEFAULT (200 = 2%). */

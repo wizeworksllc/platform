@@ -20,7 +20,11 @@ import { randomUUID } from 'node:crypto';
 import { withTenant } from '@wizeworksllc/db';
 import type { Prisma, TxClient } from '@wizeworksllc/db';
 import { inventoryService, type CommittedSale } from '@wizeworksllc/inventory';
-import { customerService, publishPlatformEvent, recomputeCustomerCommerce } from '@wizeworksllc/crm';
+import {
+  customerService,
+  publishPlatformEvent,
+  recomputeCustomerCommerce,
+} from '@wizeworksllc/crm';
 
 import { writeAuditLog } from '../audit';
 import type { ServiceContext } from '../errors';

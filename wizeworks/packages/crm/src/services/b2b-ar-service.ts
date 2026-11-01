@@ -22,7 +22,10 @@
 // `credit_used`, so every AR mutation keeps credit utilisation consistent.
 
 import { poNumberOf, withPaymentTerms, withPoNumber } from '@wizeworksllc/crm-schemas';
-import { NET_TERMS_AR_WORKFLOW, NET_TERMS_AR_WORKFLOW_SLUG } from '@wizeworksllc/crm-schemas/builtins';
+import {
+  NET_TERMS_AR_WORKFLOW,
+  NET_TERMS_AR_WORKFLOW_SLUG,
+} from '@wizeworksllc/crm-schemas/builtins';
 import { withTenant } from '@wizeworksllc/db';
 import type { DocumentStage, Prisma } from '@wizeworksllc/db';
 

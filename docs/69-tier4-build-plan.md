@@ -491,7 +491,7 @@ Entry point has a dropdown split: "Quick add" / "Full profile"
 | A-1   | Chat    | DB schema + REST API                     | None                              |
 | A-2   | Chat    | WebSocket + Redis routing                | A-1                               |
 | A-3   | Chat    | AI handler                               | A-1, A-2                          |
-| A-4   | Chat    | `@wizeworksllc/chat-widget` + site          | A-1, A-2                          |
+| A-4   | Chat    | `@wizeworksllc/chat-widget` + site       | A-1, A-2                          |
 | A-5   | Chat    | Dashboard inbox UI                       | A-1, A-2, A-3                     |
 | A-6   | Chat    | Notifications + sparx.market             | A-5                               |
 | B-1   | Wizards | Product wizard                           | None                              |

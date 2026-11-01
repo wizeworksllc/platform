@@ -12,7 +12,11 @@ import {
   type CompiledThemeV2,
   type CompiledTokens,
 } from '@wizeworksllc/site-themes';
-import { customSlugOf, type SectionField, type TemplateNode } from '@wizeworksllc/sitebuilder-schemas';
+import {
+  customSlugOf,
+  type SectionField,
+  type TemplateNode,
+} from '@wizeworksllc/sitebuilder-schemas';
 
 import type { SnapshotAssignments } from './assignment-service';
 

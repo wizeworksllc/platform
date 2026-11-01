@@ -6,7 +6,10 @@
 // the stable reference a billing line will FK to (Phase 2), so it is immutable
 // once created — retire a type by deactivating it rather than deleting.
 
-import { CreateDocumentLineTypeInput, UpdateDocumentLineTypeInput } from '@wizeworksllc/crm-schemas';
+import {
+  CreateDocumentLineTypeInput,
+  UpdateDocumentLineTypeInput,
+} from '@wizeworksllc/crm-schemas';
 import { DEFAULT_DOCUMENT_LINE_TYPES } from '@wizeworksllc/crm-schemas/builtins';
 import { withTenant } from '@wizeworksllc/db';
 import type { BillingDocumentLineType } from '@wizeworksllc/db';

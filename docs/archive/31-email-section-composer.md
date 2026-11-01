@@ -235,14 +235,14 @@ they share **schemas** with the site, never **renderers**.
 
 ## 8. Packages & boundaries
 
-| Concern                                              | Home                                             | Notes                                                                                |
-| ---------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| Section schemas, registry, `tier`, field descriptors | **`@sparx/email-sections`** (new, zod-only)      | Mirrors `@wizeworksllc/sitebuilder-schemas` structure; no React, importable everywhere. |
-| Section renderers + `renderSections()`               | **`@wizeworksllc/email`**                           | React Email components; brand via context.                                           |
-| Body model types + `normalizeBody()`                 | **`@sparx/email-sections`**                      | Shared by service, REST, dashboard.                                                  |
-| Data resolution (`resolveSectionData`)               | **`@wizeworksllc/email-platform`**                  | Reads Commerce/CMS/CRM via their services.                                           |
-| Render orchestration (path choice, per-recipient)    | **`@wizeworksllc/email-platform`** + `email-worker` | §7.1.                                                                                |
-| Composer UI                                          | **`apps/dashboard`** (`/email/.../design`)       | §9.                                                                                  |
+| Concern                                              | Home                                                | Notes                                                                                   |
+| ---------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Section schemas, registry, `tier`, field descriptors | **`@sparx/email-sections`** (new, zod-only)         | Mirrors `@wizeworksllc/sitebuilder-schemas` structure; no React, importable everywhere. |
+| Section renderers + `renderSections()`               | **`@wizeworksllc/email`**                           | React Email components; brand via context.                                              |
+| Body model types + `normalizeBody()`                 | **`@sparx/email-sections`**                         | Shared by service, REST, dashboard.                                                     |
+| Data resolution (`resolveSectionData`)               | **`@wizeworksllc/email-platform`**                  | Reads Commerce/CMS/CRM via their services.                                              |
+| Render orchestration (path choice, per-recipient)    | **`@wizeworksllc/email-platform`** + `email-worker` | §7.1.                                                                                   |
+| Composer UI                                          | **`apps/dashboard`** (`/email/.../design`)          | §9.                                                                                     |
 
 `@sparx/email-sections` is the only new package. It is deliberately a **structural mirror** of
 `@wizeworksllc/sitebuilder-schemas` (same `SectionField`/registry/`parseSectionConfig` shapes) so the

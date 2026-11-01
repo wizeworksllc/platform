@@ -287,8 +287,8 @@ export default function MigrationGuidePage() {
         <p>
           Nothing about the vendor survives past your request. Reading a{' '}
           <InlineCode>products_export.csv</InlineCode> into canonical rows happens in{' '}
-          <InlineCode>@wizeworksllc/migration</InlineCode>, which runs in a browser, in a worker, or in
-          your own script: the API only ever sees rows. That is why one endpoint serves every
+          <InlineCode>@wizeworksllc/migration</InlineCode>, which runs in a browser, in a worker, or
+          in your own script: the API only ever sees rows. That is why one endpoint serves every
           platform and why your own spreadsheet works exactly as well as a competitor&rsquo;s
           export.
         </p>
@@ -578,8 +578,8 @@ export default function MigrationGuidePage() {
         </DocTable>
         <p>
           The full field list per entity (every optional column, its type and its limit) is{' '}
-          <InlineCode>ENTITY_FIELDS</InlineCode> in <InlineCode>@wizeworksllc/migration</InlineCode>,
-          which is what this table is generated from and what the validator checks against.
+          <InlineCode>ENTITY_FIELDS</InlineCode> in <InlineCode>@wizeworksllc/migration</InlineCode>
+          , which is what this table is generated from and what the validator checks against.
         </p>
         <p>
           For the platform-by-platform view (the exact file, the exact menu, and what does not come

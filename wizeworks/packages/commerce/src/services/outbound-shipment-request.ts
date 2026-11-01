@@ -5,7 +5,11 @@
 // return-label-purchase.ts's buildReturnShipmentRequest.
 
 import { withTenant } from '@wizeworksllc/db';
-import type { AddressSnapshotType, RateOption, ShipmentRequest } from '@wizeworksllc/commerce-schemas';
+import type {
+  AddressSnapshotType,
+  RateOption,
+  ShipmentRequest,
+} from '@wizeworksllc/commerce-schemas';
 
 import { CommerceNotFoundError, CommerceValidationError } from '../errors';
 import type { ServiceContext } from '../errors';

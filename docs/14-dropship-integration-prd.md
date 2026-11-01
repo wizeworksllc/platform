@@ -31,7 +31,7 @@ The dropship stack is **built and live** (docs/64 Ph1–Ph5). The pieces:
 
 | Layer       | Where                                                                 | What                                                                                                      |
 | ----------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Adapters    | [`@wizeworksllc/dropship`](../packages/dropship)                         | `SupplierAdapter` interface + `createAdapter()` registry + `applyPricingRule()` + the `VENDOR_CATALOG`    |
+| Adapters    | [`@wizeworksllc/dropship`](../packages/dropship)                      | `SupplierAdapter` interface + `createAdapter()` registry + `applyPricingRule()` + the `VENDOR_CATALOG`    |
 | Data        | [65-dropship.prisma](../packages/db/prisma/schema/65-dropship.prisma) | `DropshipSupplier`, `DropshipProduct`, `DropshipProductLink`, `DropshipOrder`, `DropshipSupplierProperty` |
 | API         | [v1/dropship](../services/api-rest/src/routes/v1/dropship)            | `suppliers` (connect/configure/sync/catalog/import) + `orders` + `analytics` + `vendors`                  |
 | Operator UI | [workbench dropship surface](../apps/workbench/surfaces/dropship)     | Suppliers, products, analytics; the vendor picker + per-vendor connect form                               |
@@ -255,14 +255,14 @@ Do not block the deferred work: when POD authoring lands, it is additive.
 
 ## 13. Decisions (locked)
 
-| #   | Decision                       | Choice                                                                                             |
-| --- | ------------------------------ | -------------------------------------------------------------------------------------------------- |
+| #   | Decision                       | Choice                                                                                                |
+| --- | ------------------------------ | ----------------------------------------------------------------------------------------------------- |
 | D1  | Dropship abstraction           | Extend the built `@wizeworksllc/dropship` `SupplierAdapter`; the framework `DropshipProvider` is dead |
-| D2  | Which vendors                  | Only self-serve documented APIs: Printify, Printful, DSers, Spocket, CSV                           |
-| D3  | No-API vendors                 | Hidden from the picker (not stubbed): Tapstitch, PODPartner, Zendrop, AutoDS, Faire                |
-| D4  | POD pick (replacing Tapstitch) | Printify + Printful (both real APIs)                                                               |
-| D5  | Connection ↔ site              | Tenant-wide connection, enabled per site; empty scope = all sites                                  |
-| D6  | POD authoring                  | Deferred; catalog + order routing now; seams kept open (§12)                                       |
+| D2  | Which vendors                  | Only self-serve documented APIs: Printify, Printful, DSers, Spocket, CSV                              |
+| D3  | No-API vendors                 | Hidden from the picker (not stubbed): Tapstitch, PODPartner, Zendrop, AutoDS, Faire                   |
+| D4  | POD pick (replacing Tapstitch) | Printify + Printful (both real APIs)                                                                  |
+| D5  | Connection ↔ site              | Tenant-wide connection, enabled per site; empty scope = all sites                                     |
+| D6  | POD authoring                  | Deferred; catalog + order routing now; seams kept open (§12)                                          |
 
 ---
 

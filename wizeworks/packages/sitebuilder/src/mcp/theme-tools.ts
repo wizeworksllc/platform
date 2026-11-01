@@ -9,7 +9,11 @@
 // are code-first starting points; these are the tenant's own reusable themes.
 
 import { z } from 'zod';
-import { CreateSavedThemeInput, UpdateSavedThemeInput, Uuid } from '@wizeworksllc/sitebuilder-schemas';
+import {
+  CreateSavedThemeInput,
+  UpdateSavedThemeInput,
+  Uuid,
+} from '@wizeworksllc/sitebuilder-schemas';
 
 import { savedThemeService } from '../services/index';
 import type { AnyMcpTool } from './registry';

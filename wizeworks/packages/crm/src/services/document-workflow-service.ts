@@ -14,7 +14,10 @@ import {
   UpdateDocumentStageInput,
   UpdateDocumentWorkflowInput,
 } from '@wizeworksllc/crm-schemas';
-import { DEFAULT_DOCUMENT_WORKFLOWS, isSystemWorkflowSlug } from '@wizeworksllc/crm-schemas/builtins';
+import {
+  DEFAULT_DOCUMENT_WORKFLOWS,
+  isSystemWorkflowSlug,
+} from '@wizeworksllc/crm-schemas/builtins';
 import { afterCommit, withTenant } from '@wizeworksllc/db';
 import type { DocumentStage, DocumentWorkflow, Prisma, TxClient } from '@wizeworksllc/db';
 import { indexEntity } from '@wizeworksllc/events';

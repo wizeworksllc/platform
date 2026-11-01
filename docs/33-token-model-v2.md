@@ -79,10 +79,10 @@ Every color slot is a base color the tenant can set (hex). Each has a `-content`
 | Brand   | `secondary` _(new)_         | `secondary-content`     | **brand**    | — (derived from primary if unset)         |
 | Brand   | `accent`                    | `accent-content`        | **brand**    | `colorAccent`                             |
 | UI      | `neutral` _(new)_           | `neutral-content`       | presentation | `--st-text` used as dark fill today       |
-| Status  | `info` _(new themeable)_    | `info-content`          | presentation | @wizeworksllc/ui global                      |
-| Status  | `success` _(new themeable)_ | `success-content`       | presentation | @wizeworksllc/ui global                      |
-| Status  | `warning` _(new themeable)_ | `warning-content`       | presentation | @wizeworksllc/ui global                      |
-| Status  | `danger` _(new themeable)_  | `danger-content`        | presentation | @wizeworksllc/ui global `--color-danger`     |
+| Status  | `info` _(new themeable)_    | `info-content`          | presentation | @wizeworksllc/ui global                   |
+| Status  | `success` _(new themeable)_ | `success-content`       | presentation | @wizeworksllc/ui global                   |
+| Status  | `warning` _(new themeable)_ | `warning-content`       | presentation | @wizeworksllc/ui global                   |
+| Status  | `danger` _(new themeable)_  | `danger-content`        | presentation | @wizeworksllc/ui global `--color-danger`  |
 | Line    | `border`                    | —                       | presentation | `colorBorder`                             |
 
 Naming note: DaisyUI's `error` is our `danger` (consistent with @wizeworksllc/ui's `--color-danger`);

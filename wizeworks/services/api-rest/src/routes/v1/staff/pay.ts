@@ -38,7 +38,11 @@ import {
   setCommissionStatus,
   setRate,
 } from '@wizeworksllc/staff';
-import { commissionSchema, commissionStatusSchema, payRateSchema } from '@wizeworksllc/staff/schemas';
+import {
+  commissionSchema,
+  commissionStatusSchema,
+  payRateSchema,
+} from '@wizeworksllc/staff/schemas';
 import { requirePayAccess, requireStaffModule } from '../../../lib/staff-context.js';
 import { displayName, payRateView } from './views.js';
 

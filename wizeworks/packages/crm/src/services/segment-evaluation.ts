@@ -7,7 +7,11 @@
 
 import { withTenant } from '@wizeworksllc/db';
 import type { Prisma } from '@wizeworksllc/db';
-import { SegmentRuleSchema, evaluateSegmentRule, type SegmentRule } from '@wizeworksllc/crm-schemas';
+import {
+  SegmentRuleSchema,
+  evaluateSegmentRule,
+  type SegmentRule,
+} from '@wizeworksllc/crm-schemas';
 
 import { buildSegmentRuleProjection, countEmailEngagement } from '../consumers/segment-projection';
 import type { ServiceContext } from '../errors';

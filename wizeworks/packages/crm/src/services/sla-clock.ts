@@ -18,7 +18,12 @@
 // missed in real time.
 
 import type { LocalCalendarParts } from '@wizeworksllc/time';
-import { formatLocalDate, localCalendarParts, localWallToUtc, nextLocalDay } from '@wizeworksllc/time';
+import {
+  formatLocalDate,
+  localCalendarParts,
+  localWallToUtc,
+  nextLocalDay,
+} from '@wizeworksllc/time';
 
 const MS_PER_MINUTE = 60_000;
 

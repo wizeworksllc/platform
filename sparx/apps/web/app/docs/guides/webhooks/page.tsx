@@ -380,9 +380,9 @@ export default function WebhooksPage() {
       <DocSection id="catalog" title="Full event catalog">
         <p>
           For reference, here is the platform’s event taxonomy (defined in{' '}
-          <InlineCode>@wizeworksllc/events</InlineCode>), grouped by domain. The subset available for{' '}
-          <DocLink href="#events">webhook subscription</DocLink> is called out above; the rest are
-          consumed internally (by platform workers and MCP) as modules adopt the shared bus.
+          <InlineCode>@wizeworksllc/events</InlineCode>), grouped by domain. The subset available
+          for <DocLink href="#events">webhook subscription</DocLink> is called out above; the rest
+          are consumed internally (by platform workers and MCP) as modules adopt the shared bus.
         </p>
 
         <DocSubsection id="catalog-platform" title="Platform & content">

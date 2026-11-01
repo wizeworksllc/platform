@@ -422,15 +422,15 @@ node it defines). Recorded here for the template side. Three pieces:
 
 ## 9. Build sequence
 
-| Step | Work                                                                                                           | Owner / blocked on                             |
-| ---- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Step | Work                                                                                                              | Owner / blocked on                             |
+| ---- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | 1 ✅ | All 13 trees authored — `DEFAULT_EMAIL_TEMPLATES` in `@wizeworksllc/builder-schemas` (`default-emails.ts` + test) | mine — **done**                                |
-| 2 ✅ | Resolver/`DataSource` reaches the §3 vocabulary (`quote`/`invoice`/`b2bAccount` + every `*Url`)                | automation module — **done**                   |
-| 3 ✅ | The 4 node types render + `{{token}}` interpolation + the `invoicing-overdue` reference (e2e-verified)         | automation module — **done**                   |
-| 4    | `BuilderEmail.property_id` + `key` migration (§6) + partial uniques                                            | mine — **unblocked** (no shared table, see §0) |
-| 5    | `emailService.getPublishedByKey` + per-site authoring scope + "Customize for this site"                        | mine — after step 4                            |
-| 6    | Provision the 13 trees on activation (§7) — the provisional shapes are already FINAL (see below)               | mine — **unblocked** (node JSON delivered)     |
-| 7    | Wire `DEFAULT_AUTOMATIONS` to the provisioned trees by `key` (§7) — send-by-`key` join                         | automation module (engine) + mine (templates)  |
+| 2 ✅ | Resolver/`DataSource` reaches the §3 vocabulary (`quote`/`invoice`/`b2bAccount` + every `*Url`)                   | automation module — **done**                   |
+| 3 ✅ | The 4 node types render + `{{token}}` interpolation + the `invoicing-overdue` reference (e2e-verified)            | automation module — **done**                   |
+| 4    | `BuilderEmail.property_id` + `key` migration (§6) + partial uniques                                               | mine — **unblocked** (no shared table, see §0) |
+| 5    | `emailService.getPublishedByKey` + per-site authoring scope + "Customize for this site"                           | mine — after step 4                            |
+| 6    | Provision the 13 trees on activation (§7) — the provisional shapes are already FINAL (see below)                  | mine — **unblocked** (node JSON delivered)     |
+| 7    | Wire `DEFAULT_AUTOMATIONS` to the provisioned trees by `key` (§7) — send-by-`key` join                            | automation module (engine) + mine (templates)  |
 
 **Steps 2–3 delivered 2026-06-12** (automation module): `renderEmailTree` renders all
 four node types and interpolates `{{ source.path ?? "fallback" }}`; `resolveEmailData`

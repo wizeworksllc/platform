@@ -359,14 +359,14 @@ grep for a token that starts with `--` silently returns clean.
 Not a token problem at heart — a **component** problem. Six `@wizeworksllc/ui` components hand-rolled
 Radix controls that silicaui had since grown natively:
 
-| `@wizeworksllc/ui`   | Consumers outside its own test      | Silica equivalent            |
-| ----------------- | ----------------------------------- | ---------------------------- |
-| `Slider`          | **0**                               | `Slider` / `Range`           |
-| `RadioGroup`      | **0**                               | `RadioGroup` / `RadioOption` |
-| `Card`'s `accent` | **0**                               | `bg-<color> bg-soft`         |
-| `Progress`        | 2 (both inside `sparx/packages/ui`) | `Progress`                   |
-| `Switch`          | 2                                   | `Switch`                     |
-| `Checkbox`        | 3                                   | `Checkbox`                   |
+| `@wizeworksllc/ui` | Consumers outside its own test      | Silica equivalent            |
+| ------------------ | ----------------------------------- | ---------------------------- |
+| `Slider`           | **0**                               | `Slider` / `Range`           |
+| `RadioGroup`       | **0**                               | `RadioGroup` / `RadioOption` |
+| `Card`'s `accent`  | **0**                               | `bg-<color> bg-soft`         |
+| `Progress`         | 2 (both inside `sparx/packages/ui`) | `Progress`                   |
+| `Switch`           | 2                                   | `Switch`                     |
+| `Checkbox`         | 3                                   | `Checkbox`                   |
 
 A Radix control can't take a plugin color class, so each one set a per-instance `--sx-sel` custom
 property from a `colorVars(color)` helper and consumed it through `data-[state=checked]:bg-[var(--sx-sel)]`.

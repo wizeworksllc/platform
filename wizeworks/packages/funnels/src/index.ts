@@ -14,7 +14,13 @@
 // `Prisma` as a VALUE, not a type-only import: `Prisma.DbNull` is a runtime
 // sentinel, and it is the only way to clear a nullable JSON column — writing
 // plain `null` sets the JSON value `null`, which is a different thing.
-import { Prisma, afterCommit, withTenant, type TenantContext, type TxClient } from '@wizeworksllc/db';
+import {
+  Prisma,
+  afterCommit,
+  withTenant,
+  type TenantContext,
+  type TxClient,
+} from '@wizeworksllc/db';
 import { indexEntity } from '@wizeworksllc/events';
 import {
   ConditionGroup,

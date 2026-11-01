@@ -34,13 +34,13 @@ should ship soon after the tree is calm, capture-layer first.
 
 ## 2. Reuse — do NOT rebuild these
 
-| Asset                                                                                        | Where                                                            | Use for L-TEN                                             |
-| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------- |
+| Asset                                                                                        | Where                                                               | Use for L-TEN                                             |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------- |
 | `captureTouch` / `classify` / `resolveFirstTouch` / `resolveLastTouch` / `serializeSnapshot` | `@wizeworksllc/attribution` (`wizeworks/packages/attribution/src/`) | Pure, domain-agnostic — call directly from site capture   |
 | UTM taxonomy + `AttributionSnapshot` / `Channel` / `AttributionModel` types                  | `@wizeworksllc/attribution`                                         | Universal                                                 |
-| `gateTracker({ category, load })`                                                            | `wizeworks/apps/site/lib/consent.ts`                             | Consent-gate the site capture (analytics category)        |
-| `getVisitorId()` (mints/returns `sparx_consent` UUID)                                        | `wizeworks/apps/site/lib/consent.ts`                             | Visitor identity for stitching touches → customer → order |
-| `ConsentRecord.visitorId → customerId` edges                                                 | `wizeworks/packages/db/prisma/schema/53-consent.prisma`          | Back-link anonymous touches once a customer is known      |
+| `gateTracker({ category, load })`                                                            | `wizeworks/apps/site/lib/consent.ts`                                | Consent-gate the site capture (analytics category)        |
+| `getVisitorId()` (mints/returns `sparx_consent` UUID)                                        | `wizeworks/apps/site/lib/consent.ts`                                | Visitor identity for stitching touches → customer → order |
+| `ConsentRecord.visitorId → customerId` edges                                                 | `wizeworks/packages/db/prisma/schema/53-consent.prisma`             | Back-link anonymous touches once a customer is known      |
 
 The L-TEN difference from L-PLAT is only: **tenant-scoped cookies** (not `.sparx.works`), **the
 site visitor id** (`sparx_consent`, not `sparx_attr_vid`), and persistence to an

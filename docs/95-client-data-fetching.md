@@ -47,8 +47,8 @@ server-rendered view gains nothing from `useMutation`; keep it plain.
 One import source. Feature code imports hooks from `@wizeworksllc/query`, never
 `@tanstack/react-query` directly (the barrel re-exports the full surface).
 
-| Entry                       | Use from               | Contents                                                                                                                                             |
-| --------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Entry                          | Use from               | Contents                                                                                                                                             |
+| ------------------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `@wizeworksllc/query`          | anywhere (RSC-safe)    | `useQuery`, `useMutation`, `keepPreviousData`, `QueryClient`, `dehydrate`, `HydrationBoundary`, … + `queryKeys`, `getQueryClient`, `makeQueryClient` |
 | `@wizeworksllc/query/provider` | client root            | `<QueryProvider>` (carries `'use client'`; owns the browser client + devtools)                                                                       |
 | `@wizeworksllc/query/server`   | Server Components only | `getServerQueryClient` (per-request via `cache()`), `dehydrate`, `HydrationBoundary` (`import 'server-only'`)                                        |

@@ -6,7 +6,12 @@
 // prompt. Every write runs inside withTenant (RLS) and audit-logs.
 
 import type { Prisma } from '@wizeworksllc/db';
-import { afterCommit, withTenant, type AiPromptTemplate, type TenantContext } from '@wizeworksllc/db';
+import {
+  afterCommit,
+  withTenant,
+  type AiPromptTemplate,
+  type TenantContext,
+} from '@wizeworksllc/db';
 import { conflict, notFound } from '@wizeworksllc/api-core/errors';
 import { indexEntity } from '@wizeworksllc/events';
 

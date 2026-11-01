@@ -80,7 +80,7 @@ Dockerfile COPY.
 
 ## 3. Component API deltas (`@wizeworksllc/ui` → `silicaui-react`)
 
-| `@wizeworksllc/ui`                     | `silicaui-react`                                                                              | Notes                                                                                                                                                                                                |
+| `@wizeworksllc/ui`                  | `silicaui-react`                                                                              | Notes                                                                                                                                                                                                |
 | ----------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<Button asChild><Link/></Button>`  | `<Button render={<Link/>}>text</Button>`                                                      | Base-UI `render` composition, not Radix `Slot`. Children move onto the Button; the link's own children go away. **Most-repeated edit (~16 sites).**                                                  |
 | conditional `asChild={cond}`        | `{...(cond ? { render: <Link/> } : {})}`                                                      | Spread the `render` prop only when polymorphic; otherwise a plain disabled `<button>`.                                                                                                               |

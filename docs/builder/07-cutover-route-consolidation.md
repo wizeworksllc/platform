@@ -19,17 +19,17 @@ Last Updated: 2026-07-22
 
 ## 1. What gets consolidated
 
-| Today                                                                | After cutover                                             |
-| -------------------------------------------------------------------- | --------------------------------------------------------- |
-| `/builder/brand` (theme-center)                                      | Theme node in the unified editor                          |
-| `/builder/site` (site layout editor)                                 | Site-layout zone of the unified editor                    |
-| `/builder/page` (page editor)                                        | Page (Outlet) zone of the unified editor                  |
-| `/builder/email`                                                     | Email sibling surface (kept)                              |
-| `/builder/components`                                                | kept (catalog + custom editor)                            |
-| `/builder/blueprints`                                                | kept                                                      |
-| `/builder` (surface picker)                                          | the overview home ([06](06-builder-overview-home.md))     |
+| Today                                                                | After cutover                                                |
+| -------------------------------------------------------------------- | ------------------------------------------------------------ |
+| `/builder/brand` (theme-center)                                      | Theme node in the unified editor                             |
+| `/builder/site` (site layout editor)                                 | Site-layout zone of the unified editor                       |
+| `/builder/page` (page editor)                                        | Page (Outlet) zone of the unified editor                     |
+| `/builder/email`                                                     | Email sibling surface (kept)                                 |
+| `/builder/components`                                                | kept (catalog + custom editor)                               |
+| `/builder/blueprints`                                                | kept                                                         |
+| `/builder` (surface picker)                                          | the overview home ([06](06-builder-overview-home.md))        |
 | `registry.tsx` canvas render fns                                     | **deleted** (render lives in `@wizeworksllc/builder-render`) |
-| `canvas.tsx` mock branches (`CanvasCarousel`, commerce/Button mocks) | **deleted**                                               |
+| `canvas.tsx` mock branches (`CanvasCarousel`, commerce/Button mocks) | **deleted**                                                  |
 
 ## 2. Decisions
 

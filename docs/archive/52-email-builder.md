@@ -42,12 +42,12 @@ tree**, closest to `/builder/page`'s catalog model:
 
 ## 2. The two models, and the decision
 
-|           | Website (legacy)                          | Website (current)                                              | Email (legacy)                                    | **Email (this doc)**                                   |
-| --------- | ----------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------ |
-| Model     | `@wizeworksllc/sitebuilder-schemas` sections | `@wizeworksllc/builder-schemas` node tree                         | `@sparx/email-sections` flat section list         | **`@wizeworksllc/builder-schemas` node tree**             |
-| Editor    | `/sitebuilder`                            | `/builder/page` + `/builder/site`                              | `/email/templates`, `/email/broadcasts` composer  | **`/builder/email`**                                   |
-| Renderer  | —                                         | `wizeworks/apps/site` `builder-renderer.tsx` (HTML + `--st-*`) | `@wizeworksllc/email` `renderSections` (React Email) | **`@wizeworksllc/email` `renderEmailTree` (React Email)** |
-| Persisted | `sitebuilder_*`                           | `BuilderPage` / `BuilderLayout`                                | `EmailTemplate.body` / `Broadcast.body` JSON      | **`BuilderEmail` (draft/published tree)**              |
+|           | Website (legacy)                             | Website (current)                                              | Email (legacy)                                       | **Email (this doc)**                                      |
+| --------- | -------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------- |
+| Model     | `@wizeworksllc/sitebuilder-schemas` sections | `@wizeworksllc/builder-schemas` node tree                      | `@sparx/email-sections` flat section list            | **`@wizeworksllc/builder-schemas` node tree**             |
+| Editor    | `/sitebuilder`                               | `/builder/page` + `/builder/site`                              | `/email/templates`, `/email/broadcasts` composer     | **`/builder/email`**                                      |
+| Renderer  | —                                            | `wizeworks/apps/site` `builder-renderer.tsx` (HTML + `--st-*`) | `@wizeworksllc/email` `renderSections` (React Email) | **`@wizeworksllc/email` `renderEmailTree` (React Email)** |
+| Persisted | `sitebuilder_*`                              | `BuilderPage` / `BuilderLayout`                                | `EmailTemplate.body` / `Broadcast.body` JSON         | **`BuilderEmail` (draft/published tree)**                 |
 
 **Decision (locked):** the node tree is THE email authoring model. Broadcasts and
 authored templates move to reference a published `BuilderEmail`; `@sparx/email-sections`

@@ -27,7 +27,12 @@
 // api-mcp). The dashboard transpiles `@wizeworksllc/crm` and writes customers via
 // api-rest, so it must never pull this in.
 
-import { createPublisher, publishRaw, resolveTransport, type Publisher } from '@wizeworksllc/events';
+import {
+  createPublisher,
+  publishRaw,
+  resolveTransport,
+  type Publisher,
+} from '@wizeworksllc/events';
 
 import {
   getPublisher,

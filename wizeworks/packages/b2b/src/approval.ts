@@ -22,7 +22,11 @@ import {
   poNumberOf,
   taskService,
 } from '@wizeworksllc/crm';
-import { inventoryService, type CommittedSale, type OrderStockOutcome } from '@wizeworksllc/inventory';
+import {
+  inventoryService,
+  type CommittedSale,
+  type OrderStockOutcome,
+} from '@wizeworksllc/inventory';
 import type { B2bContext } from './context.js';
 import type { PendingEvent } from './events.js';
 

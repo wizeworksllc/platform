@@ -34,12 +34,12 @@ EditorialSection, Logo, Wordmark, SocialLinks) — both sides render the same
 
 **Diverges** (two code paths):
 
-| Component                                     | Canvas (`registry.tsx`)                              | Live (`builder-renderer.tsx`)               |
-| --------------------------------------------- | ---------------------------------------------------- | ------------------------------------------- |
-| BuyBox / VariantPicker / Quantity / AddToCart | static mock spans (`~1135–1198`)                     | real wired atoms (`~314–320`)               |
-| PriceTag / ImageDisplay                       | `amount={null}` / "N images" badge (`~1041–1085`)    | real bound value (`~342–352`)               |
-| Button                                        | inert `<span>` (`~666–682`)                          | interactive `<a>/<button>` (`~298–308`)     |
-| Carousel                                      | `CanvasCarousel` (no autoplay)                       | `BuilderCarousel` (autoplay/pause)          |
+| Component                                     | Canvas (`registry.tsx`)                              | Live (`builder-renderer.tsx`)                  |
+| --------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------- |
+| BuyBox / VariantPicker / Quantity / AddToCart | static mock spans (`~1135–1198`)                     | real wired atoms (`~314–320`)                  |
+| PriceTag / ImageDisplay                       | `amount={null}` / "N images" badge (`~1041–1085`)    | real bound value (`~342–352`)                  |
+| Button                                        | inert `<span>` (`~666–682`)                          | interactive `<a>/<button>` (`~298–308`)        |
+| Carousel                                      | `CanvasCarousel` (no autoplay)                       | `BuilderCarousel` (autoplay/pause)             |
 | Email leaves                                  | `email-leaf.tsx` at email scale, site-theme fallback | `@wizeworksllc/email` via email-platform brand |
 
 The root cause is **structural**: per-type render lives in two files. Any new
@@ -123,7 +123,7 @@ apps/dashboard/.../_builder/registry.tsx
 
 | Step | Area                                    | Change                                                                                                                                                            |
 | ---- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1    | new `wizeworks/packages/builder-render` | Scaffold the package ([new-workspace-package] skill); server-safe; depends on `@sparx/site-ui`, `@wizeworksllc/builder-schemas`, commerce/email component libs.      |
+| 1    | new `wizeworks/packages/builder-render` | Scaffold the package ([new-workspace-package] skill); server-safe; depends on `@sparx/site-ui`, `@wizeworksllc/builder-schemas`, commerce/email component libs.   |
 | 2    | move render                             | Port each `type → element` mapping out of `registry.tsx` and `builder-renderer.tsx` into `renderNode`, calling the **real** components for every type (no mocks). |
 | 3    | data resolver                           | Define `DataResolver`; live = `DataSources`, edit = `sampleData`. Move/own the sample records; ensure the commerce sample is a realistic multi-variant product.   |
 | 4    | edit mode                               | `EditModeContext`; interactive atoms (Button, AddToCart, Signup, forms, Carousel) honor it (inert internal effects).                                              |

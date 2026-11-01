@@ -480,23 +480,23 @@ ship alongside the menu model, not wait for any of §5.
 
 No new top-level architecture. Every piece attaches to an existing seam.
 
-| Capability                        | Home                                                                                | Shape                                                     |
-| --------------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| Capability                        | Home                                                                                      | Shape                                                     |
+| --------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | Menu model + modifier reuse       | `@wizeworksllc/commerce` + `@wizeworksllc/commerce-schemas`, over `ConfigurationTemplate` | Shared modifier groups + a join; the rest is authoring UX |
-| Menu authoring surface            | `sparx/apps/workbench`                                                              | New panes; menu editor, modifier library                  |
-| Item availability / 86            | `@wizeworksllc/commerce`, event-published                                              | New availability state + a fan-out event                  |
-| Store hours, dayparting, prep     | `@wizeworksllc/scheduling` primitives, consumed by commerce                            | Second consumer of resource-hours + exceptions            |
-| Order throttling                  | `@wizeworksllc/scheduling` capacity windows                                            | Same primitive as booking slots                           |
+| Menu authoring surface            | `sparx/apps/workbench`                                                                    | New panes; menu editor, modifier library                  |
+| Item availability / 86            | `@wizeworksllc/commerce`, event-published                                                 | New availability state + a fan-out event                  |
+| Store hours, dayparting, prep     | `@wizeworksllc/scheduling` primitives, consumed by commerce                               | Second consumer of resource-hours + exceptions            |
+| Order throttling                  | `@wizeworksllc/scheduling` capacity windows                                               | Same primitive as booking slots                           |
 | Tips / gratuity                   | `@wizeworksllc/commerce` + `@wizeworksllc/payments`                                       | New non-revenue order line + settlement handling          |
-| Food order lifecycle              | Order spine, optional lifecycle                                                     | New states; not a fork of `Order`                         |
-| Expo / kitchen screen             | New surface (own app or a dedicated workbench route)                                | Tablet-first, always-on, its own layout rules             |
-| Fulfillment method, pickup, zones | **107 Phase 2** — prerequisite, not built here                                      | `Order.fulfillmentMethod`, pickup locations, zones        |
-| On-demand courier                 | `@wizeworksllc/integration-framework` — **new `DeliveryProvider` kind**                | quote / dispatch / cancel / status + webhooks             |
-| Courier provider implementations  | `packages/provider-*` (matching `provider-shippo`, `provider-easypost`)             | One package per network                                   |
-| Delivery marketplaces             | `@wizeworksllc/channels` — new `ChannelSlug`s + adapters                               | `shape: 'order'` + the §5.2 optional members              |
-| Marketplace sync + order ingest   | `services/channel-sync-worker`                                                      | Existing worker; new job types only                       |
-| Menu structured data              | `wizeworks/apps/site` render path (JSON-LD), checked by `@wizeworksllc/seo-audit`      | Emit from the menu model                                  |
-| Allergens / nutrition             | `@wizeworksllc/commerce` product metadata                                              | Fields + ticket display                                   |
+| Food order lifecycle              | Order spine, optional lifecycle                                                           | New states; not a fork of `Order`                         |
+| Expo / kitchen screen             | New surface (own app or a dedicated workbench route)                                      | Tablet-first, always-on, its own layout rules             |
+| Fulfillment method, pickup, zones | **107 Phase 2** — prerequisite, not built here                                            | `Order.fulfillmentMethod`, pickup locations, zones        |
+| On-demand courier                 | `@wizeworksllc/integration-framework` — **new `DeliveryProvider` kind**                   | quote / dispatch / cancel / status + webhooks             |
+| Courier provider implementations  | `packages/provider-*` (matching `provider-shippo`, `provider-easypost`)                   | One package per network                                   |
+| Delivery marketplaces             | `@wizeworksllc/channels` — new `ChannelSlug`s + adapters                                  | `shape: 'order'` + the §5.2 optional members              |
+| Marketplace sync + order ingest   | `services/channel-sync-worker`                                                            | Existing worker; new job types only                       |
+| Menu structured data              | `wizeworks/apps/site` render path (JSON-LD), checked by `@wizeworksllc/seo-audit`         | Emit from the menu model                                  |
+| Allergens / nutrition             | `@wizeworksllc/commerce` product metadata                                                 | Fields + ticket display                                   |
 | Ordering site surfaces            | `@wizeworksllc/builder-schemas` catalog + `@wizeworksllc/silica-catalog`                  | Menu blocks as composed node trees — never new node types |
 
 ### 6.1 Module strategy — no `food` module

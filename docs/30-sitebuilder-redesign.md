@@ -313,7 +313,7 @@ migration and no site change**.
 
 **Scope of the move**
 
-| Moves → CMS (`/cms`, `@wizeworksllc/cms-editor`)                                                   | Stays → Site Builder                                               | Unchanged (module-neutral)                                        |
+| Moves → CMS (`/cms`, `@wizeworksllc/cms-editor`)                                                | Stays → Site Builder                                               | Unchanged (module-neutral)                                        |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
 | `NavigationMenu` + `NavigationItem` models (schema file → CMS domain, `@@map` unchanged)        | `SiteLayoutBlock` model                                            | Tables `navigation_menus` / `navigation_items` + RLS              |
 | `navigation/[location]/page.tsx`, `menu-editor.tsx`, `menu-detail.tsx`, `menu-actions.ts`, list | `layout-editor.tsx` (slots), `upsertLayout` action + slot MCP tool | `PUT /v1/navigation/menus/:location` (admin)                      |

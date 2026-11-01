@@ -7,10 +7,10 @@
 What the platform knows about each brand it serves, kept where the platform can
 read it. One folder per brand under `brands/`.
 
-| File                | Deployed as                               | Read by                                        |
-| ------------------- | ----------------------------------------- | ---------------------------------------------- |
-| `billing-plan.json` | `BILLING_PLANS` in the prod ConfigMap     | api-rest, through `@wizeworksllc/billing/plans`   |
-| `wordmark.json`     | `<BRAND>_BRAND_WORDMARK` in the ConfigMap | the attribution badge in `wizeworks/apps/site` |
+| File                | Deployed as                               | Read by                                         |
+| ------------------- | ----------------------------------------- | ----------------------------------------------- |
+| `billing-plan.json` | `BILLING_PLANS` in the prod ConfigMap     | api-rest, through `@wizeworksllc/billing/plans` |
+| `wordmark.json`     | `<BRAND>_BRAND_WORDMARK` in the ConfigMap | the attribution badge in `wizeworks/apps/site`  |
 
 ## Why the platform holds a copy
 
