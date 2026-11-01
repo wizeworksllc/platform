@@ -82,7 +82,7 @@
  * scan so Tailwind emits the utility classes its TOOLBAR carries in TSX. The
  * stylesheet is written on tokens this app defines, so it wears Piggles' values. */
 @import '@wizeworks/cms-editor/editor.css';
-@source '../../../../wizeworks/packages/cms-editor/src';
+@source '../node_modules/@wizeworks/cms-editor/src';
 
 /* The silica Email Builder chrome (`builder.email.editor`) emits utility classes
  * as LITERAL strings from its shipped dist, so the two packages must be scanned
@@ -102,11 +102,11 @@
  * Turbopack tries to resolve a module called `x`, and the build fails. So:
  * silica-catalog/src whole, and for builder-schemas only the four
  * vocabulary-bearing sources. */
-@source '../../../../wizeworks/packages/silica-catalog/src';
-@source '../../../../wizeworks/packages/builder-schemas/src/catalog';
-@source '../../../../wizeworks/packages/builder-schemas/src/site-chrome.ts';
-@source '../../../../wizeworks/packages/builder-schemas/src/starters.ts';
-@source '../../../../wizeworks/packages/builder-schemas/src/box-to-class.ts';
+@source '../node_modules/@wizeworks/silica-catalog/src';
+@source '../node_modules/@wizeworks/builder-schemas/src/catalog';
+@source '../node_modules/@wizeworks/builder-schemas/src/site-chrome.ts';
+@source '../node_modules/@wizeworks/builder-schemas/src/starters.ts';
+@source '../node_modules/@wizeworks/builder-schemas/src/box-to-class.ts';
 
 /* The per-document builders (`@piggles/studio`). Its rails and canvas ship className
  * strings — the selection ring, the layer indents, the Inspector's whole control
@@ -120,7 +120,7 @@
  * canvas and the published page cannot disagree about what an author may write.
  * It is the home of the CONTAINER-QUERY set (`@2xl:grid-cols-3`), the sanctioned
  * responsive vocabulary and the only one the device toggle can actually preview. */
-@import '../../../../wizeworks/packages/silica-catalog/src/builder-vocabulary.css';
+@import '@wizeworks/silica-catalog/builder-vocabulary.css';
 
 /* ── The registered color roles ─────────────────────────────────────────────
  *

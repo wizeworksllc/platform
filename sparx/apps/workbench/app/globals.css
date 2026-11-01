@@ -39,7 +39,7 @@
    its TSX (bg-module, ring-primary, h-3.5 …) — without scanning the package,
    those are never generated and the toolbar renders unstyled. */
 @import '@wizeworks/cms-editor/editor.css';
-@source '../../../../wizeworks/packages/cms-editor/src';
+@source '../node_modules/@wizeworks/cms-editor/src';
 
 /* The silica Email Builder chrome (`builder.email.editor`) — its Insert palette,
    canvas and Design inspector emit utility classes as LITERAL strings from the
@@ -68,11 +68,11 @@
    builder-schemas we point ONLY at the vocabulary-bearing sources (`catalog/` +
    the three class-carrying root files), never the `src` root that holds the test.
    Adding a new class-bearing builder-schemas file means adding it here too. */
-@source '../../../../wizeworks/packages/silica-catalog/src';
-@source '../../../../wizeworks/packages/builder-schemas/src/catalog';
-@source '../../../../wizeworks/packages/builder-schemas/src/site-chrome.ts';
-@source '../../../../wizeworks/packages/builder-schemas/src/starters.ts';
-@source '../../../../wizeworks/packages/builder-schemas/src/box-to-class.ts';
+@source '../node_modules/@wizeworks/silica-catalog/src';
+@source '../node_modules/@wizeworks/builder-schemas/src/catalog';
+@source '../node_modules/@wizeworks/builder-schemas/src/site-chrome.ts';
+@source '../node_modules/@wizeworks/builder-schemas/src/starters.ts';
+@source '../node_modules/@wizeworks/builder-schemas/src/box-to-class.ts';
 
 /* THE SHARED AUTHORING VOCABULARY — the same file wizeworks/apps/site imports, so the canvas
    and the published page cannot disagree about what an author may write. It is the
@@ -82,7 +82,7 @@
    Without this import the canvas emitted no CSS for any container variant while the
    storefront rendered it — the studio would have shown a broken version of a page that
    was fine when published, which is the worst direction for that disagreement to run. */
-@import '../../../../wizeworks/packages/silica-catalog/src/builder-vocabulary.css';
+@import '@wizeworks/silica-catalog/builder-vocabulary.css';
 
 /* `module` is the active-module bridge: it generates .btn-module / .badge-module
    / .bg-module / .text-module reading --color-module + --color-module-content,

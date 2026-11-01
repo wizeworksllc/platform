@@ -4,7 +4,7 @@
 // path the site has never had, so the link Doty copied was a Not Found page
 // (sparx persona issue 225).
 
-import { existsSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -13,7 +13,6 @@ import { describe, expect, it } from 'vitest';
 import { pageAddress, type AddressedRecord } from './page-address';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const siteApp = join(here, '../../../../../wizeworks/apps/site/app');
 
 describe('pageAddress', () => {
   it('puts the category under /category/, where the site serves it', () => {
@@ -32,10 +31,10 @@ describe('pageAddress', () => {
     ['commerce.product', 'products'],
     ['commerce.collection', 'collections'],
     ['commerce.category', 'category'],
-  ])('%s: the site has a page at that path', (record, folder) => {
-    const path = pageAddress(null, record, 'x');
-    expect(path).toBe(`/${folder}/x`);
-    expect(existsSync(join(siteApp, folder, '[handle]', 'page.tsx'))).toBe(true);
+  ])('%s: the path the site serves it at', (record, folder) => {
+    // That the site has a page there is the site's own test
+    // (wizeworks/apps/site/app/record-addresses-have-pages.test.ts).
+    expect(pageAddress(null, record, 'x')).toBe(`/${folder}/x`);
   });
 });
 
