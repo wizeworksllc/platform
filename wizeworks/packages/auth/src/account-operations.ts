@@ -21,6 +21,9 @@ export interface AccountOperationResult {
   status: number;
   body: unknown;
   setCookies: string[];
+  /** What was thrown when the failure is not one Better Auth chose to send.
+   *  The body says nothing about it, so the caller logs it or nobody does. */
+  error?: unknown;
 }
 
 type Body = Record<string, unknown>;
@@ -226,7 +229,8 @@ function describe(error: unknown): AccountOperationResult {
   const candidate = error as { statusCode?: unknown; body?: { message?: unknown } } | null;
   const status = typeof candidate?.statusCode === 'number' ? candidate.statusCode : 500;
   const message = typeof candidate?.body?.message === 'string' ? candidate.body.message : '';
-  return { status, body: { error: message || null }, setCookies: [] };
+  const result = { status, body: { error: message || null }, setCookies: [] };
+  return status >= 500 ? { ...result, error } : result;
 }
 
 /**

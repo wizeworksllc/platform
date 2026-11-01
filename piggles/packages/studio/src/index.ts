@@ -1,11 +1,11 @@
-// @wizeworks/studio — the headless half.
+// @piggles/studio — the headless half.
 //
 // Documents, ops, per-document history, the session that holds them, and the
 // theme → layout → page resolution a canvas draws through. No React, so api-rest
 // and the workers can import the document types and the op vocabulary without
 // pulling a framework in behind them.
 //
-// The React builders are at `@wizeworks/studio/react`.
+// The React builders are at `@piggles/studio/react`.
 
 export type {
   ComponentDoc,

@@ -97,7 +97,7 @@ gesture she already tried is what puts that sentence in front of her.
 
 ## Where the fix lives
 
-- `wizeworks/packages/studio/src/react/host.ts` — `describeBinding`
-- `wizeworks/packages/studio/src/react/inspector/settings-tab.tsx` — `BoundWords`
-- `wizeworks/packages/studio/src/react/canvas/use-inline-text.ts` — select, don't ignore
+- `piggles/packages/studio/src/react/host.ts` — `describeBinding`
+- `piggles/packages/studio/src/react/inspector/settings-tab.tsx` — `BoundWords`
+- `piggles/packages/studio/src/react/canvas/use-inline-text.ts` — select, don't ignore
 - `piggles/apps/workbench/lib/studio/host.tsx` — `BINDING_HOMES`, Piggles' words

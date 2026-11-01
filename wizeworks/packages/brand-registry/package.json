@@ -1,0 +1,13 @@
+{
+  "name": "@wizeworks/brand-registry",
+  "version": "0.0.0",
+  "private": true,
+  "description": "What the platform knows about each brand it serves and cannot read from the brand's own code: its billing plan and its drawn wordmark. The prod ConfigMap carries these as BILLING_PLANS and <BRAND>_BRAND_WORDMARK, checked against this package; each brand's own repository checks its art and prices against it in turn.",
+  "type": "module",
+  "exports": {
+    "./*.json": "./brands/*.json"
+  },
+  "files": [
+    "brands"
+  ]
+}

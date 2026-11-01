@@ -74,7 +74,7 @@ export type ProductsSource =
 
 It is stored on the repeat node as `data = { kind: 'collection', ref }`. The
 studio's operation vocabulary already has the op that writes it
-([ops/types.ts](../../../../wizeworks/packages/studio/src/ops/types.ts)):
+([ops/types.ts](../../../packages/studio/src/ops/types.ts)):
 
 ```ts
 | { kind: 'node.setData'; id: string; value: DataBinding | undefined }

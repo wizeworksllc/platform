@@ -247,6 +247,7 @@ const brandAuthRoutes: FastifyPluginAsync = async (app) => {
       const result = await runAsBrand(brand, () =>
         runAccountOperation(request.method, op, requestHeaders(request), jsonBody(request))
       );
+      if (result.error) request.log.error({ err: result.error, op }, 'account operation failed');
       reply.header('cache-control', 'no-store, private');
       // A rotated session's new cookie, for the app to pass to the browser.
       if (result.setCookies.length > 0) reply.header('set-cookie', result.setCookies);

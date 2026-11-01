@@ -119,9 +119,11 @@ export const LOGO_WORDMARK_OFFSET = { x: 214.03, y: 21.32 } as const;
 // So the badge reads the geometry as CONFIGURATION, out of
 // `PIGGLES_BRAND_WORDMARK`, the same way it already reads the name, the accent
 // and the destination. This constant IS that value: the art above, serialised.
-// It is exported so the configured string is produced from the drawing rather
-// than pasted beside it, and `scripts/check-brand-wordmark.mjs` fails the build
-// if what is deployed and what is drawn ever disagree.
+// It is exported so the platform's copy is checked against the drawing rather
+// than trusted: `@piggles/config`'s platform-registry test fails if
+// @wizeworks/brand-registry's wordmark.json and this disagree, and
+// `scripts/check-brand-wordmark.mjs` fails if the deployed value and the
+// registry disagree.
 //
 // Compact on purpose (no pretty-printing): it travels in a ConfigMap entry.
 

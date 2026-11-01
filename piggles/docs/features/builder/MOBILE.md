@@ -161,7 +161,7 @@ and the `max-h-96` stack goes away.
 
 ## Decisions taken
 
-- **The fix lives in `@wizeworks/studio`, not in Piggles.** All seven findings
+- **The fix lives in `@piggles/studio`, not in Piggles.** All seven findings
   are in the platform package, and sparx inherits every one of them when it cuts
   over. Piggles' own `components/mobile/sheet.tsx` cannot be reached from there
   (wizeworks/CLAUDE.md RULE #0) and should not be — silicaui's `Drawer` is the

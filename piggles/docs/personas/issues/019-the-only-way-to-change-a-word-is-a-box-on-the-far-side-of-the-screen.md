@@ -58,7 +58,7 @@ Design/Settings split. Worth filing for three reasons:
 
 ## Where it lives
 
-`wizeworks/packages/studio/src/react/canvas/` — `canvas.tsx`, `hit.ts`,
+`piggles/packages/studio/src/react/canvas/` — `canvas.tsx`, `hit.ts`,
 `render-node.tsx`. There is **no** `contentEditable`, no `dblclick` handler and no
 double-click path anywhere in the canvas: this is a capability that was never built,
 not one that broke. `surfaces/studio/page-settings-panel.tsx` and the node inspector
@@ -123,15 +123,15 @@ remained.
 
 ## Where the fix lives
 
-- `wizeworks/packages/studio/src/tree/walk.ts` — `ownText`, the shared rule for
+- `piggles/packages/studio/src/tree/walk.ts` — `ownText`, the shared rule for
   what can hold words (+ `src/tree/own-text.test.ts`, 8 tests)
-- `wizeworks/packages/studio/src/react/canvas/use-inline-text.ts` — the gesture,
+- `piggles/packages/studio/src/react/canvas/use-inline-text.ts` — the gesture,
   the commit, Enter/Escape, focus
-- `wizeworks/packages/studio/src/react/canvas/text-edit.ts` — the DOM half: caret
+- `piggles/packages/studio/src/react/canvas/text-edit.ts` — the DOM half: caret
   from a point, paste flattening
-- `wizeworks/packages/studio/src/react/canvas/render-node.tsx` — renders the
+- `piggles/packages/studio/src/react/canvas/render-node.tsx` — renders the
   edited node `contentEditable` and stops it being draggable while it is
-- `wizeworks/packages/studio/src/react/inspector/settings-tab.tsx` — its local
+- `piggles/packages/studio/src/react/inspector/settings-tab.tsx` — its local
   copy of the rule deleted, now sharing `ownText`
 
 ## Rating effect

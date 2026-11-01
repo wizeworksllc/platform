@@ -1,8 +1,8 @@
 # Splitting the platform, sparx and Piggles into three repositories
 
-**Version:** 0.3
+**Version:** 0.4
 **Author:** Brandon Korous
-**Last Updated:** 2026-10-30
+**Last Updated:** 2026-10-31
 
 ## Why
 
@@ -131,12 +131,24 @@ verification before it ships. This is the riskiest phase.
 
 ### Phase 2. Each thing on its own side
 
-- `@wizeworks/studio` moves to `piggles/packages/studio`.
-- Piggles' platform config (the billing plan, the wordmark) moves to a platform
-  brand registry that api-rest reads.
-- The three paths that climb out of `piggles/` into `wizeworks/` (the console's
-  `globals.css` `@source`/`@import`, two tests) become package exports. The same
-  audit runs on `sparx/`.
+Done 2026-10-31.
+
+- The studio engine moved to `piggles/packages/studio` and is now
+  `@piggles/studio`. Only the Piggles console used it.
+- Piggles' platform config moved to `@wizeworks/brand-registry`
+  (`brands/piggles/billing-plan.json`, `brands/piggles/wordmark.json`). The
+  ConfigMap is checked against it by `check:billing-plans` and
+  `check:brand-wordmark`, which no longer read `piggles/`. Piggles' own test
+  (`@piggles/config`, `platform-registry.test.ts`) holds its quoted price and
+  its drawn logo equal to the registry. api-rest still reads the same
+  ConfigMap values, so nothing changed at runtime.
+- No app in `piggles/` or `sparx/` reaches into `wizeworks/` by folder path.
+  CSS `@source` lines name the package in `node_modules`, and
+  `builder-vocabulary.css` is a `@wizeworks/silica-catalog` export (the compiled
+  CSS is byte-identical). The condition picker's test imports
+  `RESOLVED_FIELD_PATHS` and `GOAL_FIELD_PATHS` from
+  `@wizeworks/automation-schemas`, whose own test keeps them true to the
+  resolvers. That every record address has a page is now the site app's test.
 
 ### Phase 3. Rename and publish the shared packages (D2)
 

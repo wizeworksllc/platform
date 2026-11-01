@@ -17,7 +17,7 @@
 
 import { faClockRotateLeft, faEye } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import { useDoc, type BuilderAction } from '@wizeworks/studio/react';
+import { useDoc, type BuilderAction } from '@piggles/studio/react';
 import type { SurfaceContext } from '../../lib/surfaces/registry';
 
 /** Earlier versions of this document, alongside it. */

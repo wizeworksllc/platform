@@ -1,11 +1,14 @@
-// BILLING_PLANS in the prod ConfigMap must equal the brand's own plan file.
+// BILLING_PLANS in the prod ConfigMap must equal the brand registry's plan files.
 //
 // ── WHY THIS EXISTS ─────────────────────────────────────────────────────────
 //
 // A billing plan says how a tenant's bill is shaped AND which Stripe ACCOUNT it is
-// raised in. The brand authors it (`<brand>/config/billing-plan.json`); api-rest
+// raised in. It is kept in the platform's brand registry
+// (`wizeworks/packages/brand-registry/brands/<brand>/billing-plan.json`); api-rest
 // reads it as the `BILLING_PLANS` env value, because api-rest is shared platform
-// code and cannot import a brand's tree.
+// code and cannot import a brand's tree. It used to live in the brand's tree
+// (`piggles/config/`), which this check cannot read once a brand has its own
+// repository (docs/153, Phase 2).
 //
 // That is two copies of one fact, and the failure mode is silent in the worst
 // direction: change a price in the JSON, forget the ConfigMap, and the product
@@ -37,19 +40,25 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIGMAP = join(ROOT, 'k8s', 'azure', 'infra', 'app-env-configmap.env');
+const REGISTRY = join(ROOT, 'wizeworks', 'packages', 'brand-registry', 'brands');
 
 const problems = [];
 
-/** Every `<brand>/config/billing-plan.json` among the repo root's top-level dirs. */
+/** Every `brands/<brand>/billing-plan.json` in the brand registry. The registry
+ *  itself is asserted: a moved folder must fail here, not scan nothing. */
 function findPlanFiles() {
+  if (!existsSync(REGISTRY)) {
+    console.error(`\nx Cannot find the brand registry at ${REGISTRY}.`);
+    console.error('  This check scans nothing without it, so it fails rather than passing.\n');
+    process.exit(1);
+  }
   const found = [];
-  for (const entry of readdirSync(ROOT)) {
-    if (entry.startsWith('.') || entry === 'node_modules') continue;
-    const dir = join(ROOT, entry);
+  for (const brand of readdirSync(REGISTRY)) {
+    const dir = join(REGISTRY, brand);
     if (!statSync(dir).isDirectory()) continue;
-    const file = join(dir, 'config', 'billing-plan.json');
+    const file = join(dir, 'billing-plan.json');
     if (existsSync(file)) {
-      found.push({ file, label: `${entry}/config/billing-plan.json` });
+      found.push({ file, label: `brand-registry/brands/${brand}/billing-plan.json` });
     }
   }
   return found;

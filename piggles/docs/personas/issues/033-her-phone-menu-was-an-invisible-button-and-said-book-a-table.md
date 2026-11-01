@@ -74,7 +74,7 @@ starter's header CTA was to delete the button.
 
 `node.setProp` had existed in the ops union the whole time. It was simply never
 offered. **Fixed** in
-[settings-tab.tsx](../../../../wizeworks/packages/studio/src/react/inspector/settings-tab.tsx):
+[settings-tab.tsx](../../../packages/studio/src/react/inspector/settings-tab.tsx):
 a component node now gets Words and Goes to, reading and writing its props. Both
 boxes are keyed on their value like every other field here, so [#027](027-she-typed-new-words-on-the-page-and-the-box-beside-them-put-the-old-ones-back.md)
 cannot recur through them.

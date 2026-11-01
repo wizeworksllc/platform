@@ -11,3 +11,4 @@ export * from './trigger';
 export * from './action';
 export * from './run';
 export * from './automation';
+export * from './resolved-fields';

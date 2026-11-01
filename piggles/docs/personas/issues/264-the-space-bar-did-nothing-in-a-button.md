@@ -56,7 +56,7 @@ button, which is an anchor with a `mailto:`, always typed fine and hid how wide
 this was.
 
 The editor's own key handling
-([use-inline-text.ts](../../../../wizeworks/packages/studio/src/react/canvas/use-inline-text.ts))
+([use-inline-text.ts](../../../packages/studio/src/react/canvas/use-inline-text.ts))
 already knew that a control's keys mean something else while you are typing into
 it — Enter finishes the edit rather than inserting a line break, Escape puts the
 old words back. Space was the case nobody had hit yet.
@@ -71,7 +71,7 @@ keydown "a"             target BUTTON  editing true   → keypress, beforeinput 
 ## The fix
 
 **The editor types the space for the controls that would have eaten it.**
-`swallowsSpace` in [text-edit.ts](../../../../wizeworks/packages/studio/src/react/canvas/text-edit.ts)
+`swallowsSpace` in [text-edit.ts](../../../packages/studio/src/react/canvas/text-edit.ts)
 names them — `<button>`, `<summary>`, and the ARIA roles whose contract is
 activation — and only those. Everywhere else the browser's own space handling is
 left alone, because it knows things we do not.

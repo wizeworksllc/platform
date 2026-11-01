@@ -29,7 +29,7 @@ was conditional, so it read as a statement about her site.
 A node that shows on the live site only sometimes (`data.kind === 'visible'`) is
 drawn with a dashed edge in the console's own color, and says when on hover: "Shows
 on your site only while this list is empty" or "Shows on your site only when it has
-something to show" (`gateNote`, `@wizeworks/studio`). It stays editable. Both consoles
+something to show" (`gateNote`, `@piggles/studio`). It stays editable. Both consoles
 share the editor, so both have it.
 
 ## Proof

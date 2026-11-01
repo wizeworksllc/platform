@@ -51,7 +51,7 @@ for the second line; this issue is the geometry.
 
 ## The fix
 
-**`wizeworks/packages/studio/src/react/palette/palette.tsx`** — the name gets the
+**`piggles/packages/studio/src/react/palette/palette.tsx`** — the name gets the
 whole row. The group moves to the second line, where it **leads** the sentence:
 
 ```
@@ -77,7 +77,7 @@ same problem in a different shape.
 
 ## Both consoles
 
-`@wizeworks/studio` is the shared editor, so piggles and sparx get this together.
+`@piggles/studio` is the shared editor, so piggles and sparx get this together.
 
 ## Proved, on the same screen
 

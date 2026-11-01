@@ -78,4 +78,31 @@ describe('GET sessions', () => {
     expect(result.status).toBe(401);
     expect(listSessionsStore).not.toHaveBeenCalled();
   });
+
+  it('hands back what broke when the failure is not a refusal', async () => {
+    getSession.mockResolvedValue({ user: { id: 'user-1' }, session: { token: 'here' } });
+    const broken = new Error('connection terminated');
+    listSessionsStore.mockRejectedValue(broken);
+
+    const result = await runAccountOperation('GET', 'sessions', new Headers(), {});
+
+    expect(result.status).toBe(500);
+    expect(result.body).toEqual({ error: null });
+    expect(result.error).toBe(broken);
+  });
+
+  it('keeps a refusal to itself, because Better Auth chose to send it', async () => {
+    getSession.mockResolvedValue({ user: { id: 'user-1' }, session: { token: 'here' } });
+    listSessionsStore.mockRejectedValue(
+      Object.assign(new Error('Session is not fresh'), {
+        statusCode: 403,
+        body: { message: 'Session is not fresh' },
+      })
+    );
+
+    const result = await runAccountOperation('GET', 'sessions', new Headers(), {});
+
+    expect(result.status).toBe(403);
+    expect(result).not.toHaveProperty('error');
+  });
 });

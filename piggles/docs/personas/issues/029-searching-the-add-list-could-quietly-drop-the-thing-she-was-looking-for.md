@@ -48,7 +48,7 @@ Every time, before the fix.
 
 ## Where it lives
 
-[wizeworks/packages/studio/src/react/palette/palette.tsx](../../../../wizeworks/packages/studio/src/react/palette/palette.tsx)
+[piggles/packages/studio/src/react/palette/palette.tsx](../../../packages/studio/src/react/palette/palette.tsx)
 
 Rows were keyed on the item's own key:
 
@@ -75,13 +75,13 @@ export function rowKey(group: string | undefined, item: PaletteItem): string {
 <PaletteRow key={rowKey(group, item)} … />
 ```
 
-One change at the point of flattening, in `@wizeworks/studio` — so sparx's
+One change at the point of flattening, in `@piggles/studio` — so sparx's
 workbench gets it too. Deliberately NOT "rename one of the Timelines": both names
 are right for their group, the group chip beside each row already tells them
 apart, and renaming would leave the underlying collision for the next pair.
 
 Four tests in
-[row-key.test.ts](../../../../wizeworks/packages/studio/src/react/palette/row-key.test.ts).
+[row-key.test.ts](../../../packages/studio/src/react/palette/row-key.test.ts).
 Suite: **154 tests / 18 files pass**; typecheck and lint clean.
 
 ## Confirmed by

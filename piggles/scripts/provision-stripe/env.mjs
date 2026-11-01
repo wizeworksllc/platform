@@ -1,13 +1,19 @@
 // Where the provisioner reads its plan and its Stripe key from, plus logging.
 
 import { existsSync, readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..', '..');
 
-export const PLAN_PATH = join(ROOT, 'piggles', 'config', 'billing-plan.json');
+// The plan lives in the platform's brand registry, because api-rest bills from
+// it. Resolved through @piggles/config, which depends on the registry: this
+// folder is not a package, so it has no node_modules of its own to resolve from.
+export const PLAN_PATH = createRequire(
+  join(ROOT, 'piggles', 'packages', 'config', 'package.json')
+).resolve('@wizeworks/brand-registry/piggles/billing-plan.json');
 export const DRY_RUN = process.argv.includes('--dry-run');
 
 // api-rest's `.env` already holds the key for local dev, so it is read from there

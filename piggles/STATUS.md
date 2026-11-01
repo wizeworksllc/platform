@@ -1421,7 +1421,7 @@ The console had ONE editor that owned every document at once: the site's pages, 
 chrome, its look, its saved pieces and its emails, all held in one in-memory `Site`
 and written back through one whole-site save. It has been replaced by **eight panes,
 one document each** — page, header & footer, look, saved piece, email, plus history,
-preview and publish — over a new engine, `wizeworks/packages/studio`.
+preview and publish — over a new engine, `piggles/packages/studio`.
 
 **Why per-document, in one sentence:** two panes can now be open on two documents at
 once and neither is a copy of the other, so a look edits beside the page it repaints,
@@ -1429,7 +1429,7 @@ and a footer typo ships without shipping every half-built page with it.
 
 | Thing                           | Where                                      | State                                                                                                      |
 | ------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| The engine                      | `wizeworks/packages/studio`                | Documents, ops with self-computed inverses, per-doc undo, the theme→layout→page resolution chain. 94 tests |
+| The engine                      | `piggles/packages/studio`                  | Documents, ops with self-computed inverses, per-doc undo, the theme→layout→page resolution chain. 94 tests |
 | Page / layout / piece builders  | `piggles/apps/workbench/surfaces/studio/*` | Canvas, layers, insert, inspector; save + publish per document                                             |
 | Look builder                    | same                                       | Every silica token, live contrast warnings, own + ready-made + marketplace shelves                         |
 | Email builder                   | same                                       | Its own node vocabulary, own session, merge tags resolved against sample data                              |

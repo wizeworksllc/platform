@@ -19,7 +19,7 @@ import {
   ThemeBuilder,
   useDocSnapshot,
   type BuilderAction,
-} from '@wizeworks/studio/react';
+} from '@piggles/studio/react';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { useDirtySource } from '../../lib/workbench/dirty';
 import { useStudioBinding } from '../../lib/studio/provider';

@@ -1,5 +1,5 @@
 {
-  "name": "@wizeworks/studio",
+  "name": "@piggles/studio",
   "version": "0.0.0",
   "private": true,
   "description": "The editing engine behind Piggles' theme / layout / page / component / email builders. Holds documents in memory as the STORE shapes them — a theme, a layout and a page are three documents with three lifecycles, not one site blob — applies semantic ops with their own inverses for per-document undo, and resolves the theme -> layout -> page chain for a canvas. Framework-neutral at the root; the pane-ready React builders live at ./react. Reuses @wizeworks/silicaui-html for the node schema, the projection and the theme math, and never forks it.",

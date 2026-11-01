@@ -21,9 +21,10 @@
 // file therefore holds the vocabulary and one built-in default, and takes every other
 // plan as configuration. The brand owns the definition; the platform owns the engine.
 //
-// `BILLING_PLANS` is a JSON array of BillingPlan objects. Each brand authors its own
-// (piggles/config/billing-plan.json) and ops ships it into the API's environment —
-// the same shape as every other brand value the platform reads by name.
+// `BILLING_PLANS` is a JSON array of BillingPlan objects. Each brand's plan is kept
+// in @wizeworks/brand-registry (brands/<brand>/billing-plan.json) and ships into the
+// API's environment through the ConfigMap — the same shape as every other brand
+// value the platform reads by name.
 
 /** How a plan's subscription is shaped.
  *  - `per_module` — one item per active billable module; the item set IS the plan.

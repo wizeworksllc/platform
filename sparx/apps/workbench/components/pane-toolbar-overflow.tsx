@@ -23,7 +23,7 @@
 //     left to be told apart by guesswork.
 //
 // The trigger is `Menu`, and it is the SAME glyph the builders' overflow wears
-// (@wizeworks/studio's builder-toolbar-overflow.tsx). "The rest of the controls" is
+// (@piggles/studio's builder-toolbar-overflow.tsx). "The rest of the controls" is
 // one idea, so it is one thing to learn rather than two.
 //
 // It was `faSliders`, which this console spends in eleven other places to mean

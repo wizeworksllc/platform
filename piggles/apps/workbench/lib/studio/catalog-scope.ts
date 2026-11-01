@@ -15,8 +15,8 @@
 // shopping cart on their own site at all.
 
 import type { PaletteGroup, PaletteItem } from '@wizeworks/silicaui-builder/react';
-import type { CatalogScope } from '@wizeworks/studio/react';
-import type { DocumentKind } from '@wizeworks/studio';
+import type { CatalogScope } from '@piggles/studio/react';
+import type { DocumentKind } from '@piggles/studio';
 import {
   HOST_COMPONENTS,
   SITE_CATALOG,

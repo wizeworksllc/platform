@@ -5,7 +5,7 @@
 // (`cmsWhere.article.section.field` as "Articles in Field"). Only for a list that
 // shows writing: a product list has its own panel and its own choices.
 
-import type { ListSourceChoice } from '@wizeworks/studio/react';
+import type { ListSourceChoice } from '@piggles/studio/react';
 import type { BindingCatalog } from './site-data';
 
 const isWriting = (ref: string): boolean => ref.startsWith('cms.') || ref.startsWith('cmsWhere.');

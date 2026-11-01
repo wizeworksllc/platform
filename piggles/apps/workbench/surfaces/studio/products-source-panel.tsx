@@ -9,9 +9,9 @@
 
 import { useMemo } from 'react';
 import { Field, FieldDescription, FieldLabel, NativeSelect } from '@wizeworks/silicaui-react';
-import type { AddressableNode, PageDoc } from '@wizeworks/studio';
-import { ancestorsOf, walkTree } from '@wizeworks/studio';
-import { useApply, useDoc } from '@wizeworks/studio/react';
+import type { AddressableNode, PageDoc } from '@piggles/studio';
+import { ancestorsOf, walkTree } from '@piggles/studio';
+import { useApply, useDoc } from '@piggles/studio/react';
 import { useCollectionsPage } from '../commerce/collections-data';
 
 const CATEGORY = 'commerce.category.';

@@ -12,7 +12,7 @@ import { Badge, Button, useToast } from '@wizeworks/silicaui-react';
 import { faColumns, faTrash } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
 import { useStudioBinding } from '../../lib/studio/provider';
-import { useSessionSnapshot } from '@wizeworks/studio/react';
+import { useSessionSnapshot } from '@piggles/studio/react';
 import { useConfirm } from '../../lib/confirm';
 import { fetchPiecePlacements, useDeletePiece } from '../../lib/studio/piece-data';
 import { pieceKeyOf } from '../../lib/studio/saved-pieces';

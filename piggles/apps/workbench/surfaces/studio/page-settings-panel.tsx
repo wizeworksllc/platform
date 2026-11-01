@@ -17,8 +17,8 @@ import {
   Switch,
   Textarea,
 } from '@wizeworks/silicaui-react';
-import { NO_FRAME, type PageDoc, type PageSeo } from '@wizeworks/studio';
-import { useApply, useDoc } from '@wizeworks/studio/react';
+import { NO_FRAME, type PageDoc, type PageSeo } from '@piggles/studio';
+import { useApply, useDoc } from '@piggles/studio/react';
 import { RecordTarget } from './page-record-target';
 
 /** The page's chrome choice, as the three things it can mean. */

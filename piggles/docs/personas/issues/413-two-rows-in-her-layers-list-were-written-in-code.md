@@ -52,7 +52,7 @@ was labelled in a language she does not read.
 
 ## The cause
 
-`rowLabel` in `wizeworks/packages/studio/src/react/navigator/layer-tree.ts` ended
+`rowLabel` in `piggles/packages/studio/src/react/navigator/layer-tree.ts` ended
 with a bare fallback:
 
 ```ts
@@ -86,7 +86,7 @@ failure host cores exist to avoid.
 
 Three things fall out of it for free:
 
-- **Both consoles**, because `@wizeworks/studio` is the shared studio. Piggles was
+- **Both consoles**, because `@piggles/studio` is the shared studio. Piggles was
   the one showing keys; sparx gets the same lookup as a floor under its stamp.
 - **Every already-stored tree**, with no migration and no repair pass. Devi's
   reviews block was placed weeks ago and reads correctly now.

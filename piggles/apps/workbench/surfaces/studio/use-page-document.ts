@@ -9,7 +9,7 @@
 // with its own Save button is two saves wearing one pane.
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { DocumentStore, PageDoc } from '@wizeworks/studio';
+import type { DocumentStore, PageDoc } from '@piggles/studio';
 import { useStudioBinding } from '../../lib/studio/provider';
 import {
   usePage,

@@ -2,7 +2,7 @@
 
 // The builders' own glyphs, drawn in the console's icon set.
 //
-// `@wizeworks/studio` draws silica's baked Lucide, because a package serving two
+// `@piggles/studio` draws silica's baked Lucide, because a package serving two
 // brands cannot pick one brand's icons. On a builder bar that puts Lucide chrome
 // beside a FontAwesome Save, so the app answers `StudioHost.renderIcon` instead.
 //

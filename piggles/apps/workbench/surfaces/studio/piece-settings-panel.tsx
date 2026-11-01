@@ -7,8 +7,8 @@
 // the document like any other: unsaved until Save, undoable with ⌘Z.
 
 import { Field, FieldDescription, FieldLabel, Input } from '@wizeworks/silicaui-react';
-import type { ComponentDoc } from '@wizeworks/studio';
-import { useApply, useDoc } from '@wizeworks/studio/react';
+import type { ComponentDoc } from '@piggles/studio';
+import { useApply, useDoc } from '@piggles/studio/react';
 import { pieceKeyOf } from '../../lib/studio/saved-pieces';
 
 export function PieceSettingsPanel() {

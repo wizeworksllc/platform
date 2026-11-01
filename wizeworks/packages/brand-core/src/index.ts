@@ -86,9 +86,10 @@ export const DEFAULT_GOLDEN_BLUEPRINT = 'sparx';
  *
  * Geometry keyed by brand is the same shape every other value in this file
  * already takes: `<BRAND>_BRAND_WORDMARK`, holding compact JSON. This file
- * still names no brand and holds no brand's value, and the brand's own package
- * remains the single source of the art — `scripts/check-brand-wordmark.mjs`
- * fails the build if the configured value and the drawn paths disagree.
+ * still names no brand and holds no brand's value. The platform's copy of the
+ * art is in @wizeworks/brand-registry: `scripts/check-brand-wordmark.mjs` fails
+ * the build if the configured value and the registry disagree, and the brand's
+ * own test fails if the registry and its drawing disagree.
  *
  * Null when a brand has published none, and the badge then sets the name in type
  * exactly as it did before. That fallback is load-bearing rather than tidy: a

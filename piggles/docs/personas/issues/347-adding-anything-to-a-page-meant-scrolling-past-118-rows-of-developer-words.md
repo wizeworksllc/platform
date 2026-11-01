@@ -85,7 +85,7 @@ the framework's rows up with it. There is a test for exactly that.
 
 ## Confirmed by
 
-`@wizeworks/studio`: **184 tests across 23 files**, five of them new. Proved red by
+`@piggles/studio`: **184 tests across 23 files**, five of them new. Proved red by
 making the hoist a no-op:
 
 ```

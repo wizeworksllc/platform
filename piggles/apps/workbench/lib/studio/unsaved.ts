@@ -13,7 +13,7 @@
 // one outcome this whole per-document design exists to prevent.
 
 import { useEffect } from 'react';
-import type { StudioSession } from '@wizeworks/studio';
+import type { StudioSession } from '@piggles/studio';
 import { useWorkbench } from '../workbench/context';
 
 export function useStudioUnloadGuard(session: StudioSession | null): void {

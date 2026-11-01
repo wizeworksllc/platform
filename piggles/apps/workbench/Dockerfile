@@ -43,6 +43,7 @@ COPY piggles/packages/auth-handoff/package.json piggles/packages/auth-handoff/
 COPY piggles/packages/brand/package.json piggles/packages/brand/
 COPY piggles/packages/config/package.json piggles/packages/config/
 COPY piggles/packages/mascot/package.json piggles/packages/mascot/
+COPY piggles/packages/studio/package.json piggles/packages/studio/
 COPY piggles/packages/ui/package.json piggles/packages/ui/
 
 # The platform libraries the ~450 forked surfaces sit on. Brand-blind by policy:
@@ -74,6 +75,7 @@ COPY wizeworks/packages/auth-client-server/package.json wizeworks/packages/auth-
 COPY wizeworks/packages/brand-core/package.json wizeworks/packages/brand-core/
 COPY wizeworks/packages/automation-schemas/package.json wizeworks/packages/automation-schemas/
 COPY wizeworks/packages/blueprints/package.json wizeworks/packages/blueprints/
+COPY wizeworks/packages/brand-registry/package.json wizeworks/packages/brand-registry/
 COPY wizeworks/packages/builder-schemas/package.json wizeworks/packages/builder-schemas/
 COPY wizeworks/packages/cms-editor/package.json wizeworks/packages/cms-editor/
 COPY wizeworks/packages/cms-schemas/package.json wizeworks/packages/cms-schemas/
@@ -99,7 +101,6 @@ COPY wizeworks/packages/query/package.json wizeworks/packages/query/
 COPY wizeworks/packages/silica-catalog/package.json wizeworks/packages/silica-catalog/
 COPY wizeworks/packages/silica-corrections/package.json wizeworks/packages/silica-corrections/
 COPY wizeworks/packages/site-themes/package.json wizeworks/packages/site-themes/
-COPY wizeworks/packages/studio/package.json wizeworks/packages/studio/
 COPY wizeworks/packages/sitebuilder-schemas/package.json wizeworks/packages/sitebuilder-schemas/
 COPY wizeworks/packages/social/package.json wizeworks/packages/social/
 COPY wizeworks/packages/story-schemas/package.json wizeworks/packages/story-schemas/
@@ -120,6 +121,7 @@ COPY piggles/packages/auth-handoff piggles/packages/auth-handoff
 COPY piggles/packages/brand piggles/packages/brand
 COPY piggles/packages/config piggles/packages/config
 COPY piggles/packages/mascot piggles/packages/mascot
+COPY piggles/packages/studio piggles/packages/studio
 COPY piggles/packages/ui piggles/packages/ui
 COPY wizeworks/packages/api-client wizeworks/packages/api-client
 COPY wizeworks/packages/api-core wizeworks/packages/api-core
@@ -130,6 +132,7 @@ COPY wizeworks/packages/auth-client-server wizeworks/packages/auth-client-server
 COPY wizeworks/packages/brand-core wizeworks/packages/brand-core
 COPY wizeworks/packages/automation-schemas wizeworks/packages/automation-schemas
 COPY wizeworks/packages/blueprints wizeworks/packages/blueprints
+COPY wizeworks/packages/brand-registry wizeworks/packages/brand-registry
 COPY wizeworks/packages/builder-schemas wizeworks/packages/builder-schemas
 COPY wizeworks/packages/cms-editor wizeworks/packages/cms-editor
 COPY wizeworks/packages/cms-schemas wizeworks/packages/cms-schemas
@@ -153,7 +156,6 @@ COPY wizeworks/packages/query wizeworks/packages/query
 COPY wizeworks/packages/silica-catalog wizeworks/packages/silica-catalog
 COPY wizeworks/packages/silica-corrections wizeworks/packages/silica-corrections
 COPY wizeworks/packages/site-themes wizeworks/packages/site-themes
-COPY wizeworks/packages/studio wizeworks/packages/studio
 COPY wizeworks/packages/sitebuilder-schemas wizeworks/packages/sitebuilder-schemas
 COPY wizeworks/packages/social wizeworks/packages/social
 COPY wizeworks/packages/story-schemas wizeworks/packages/story-schemas

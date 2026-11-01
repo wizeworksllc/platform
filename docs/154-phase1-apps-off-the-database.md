@@ -1,8 +1,8 @@
 # Phase 1: the apps stop touching the database
 
-**Version:** 0.2
+**Version:** 0.3
 **Author:** Brandon Korous
-**Last Updated:** 2026-10-30
+**Last Updated:** 2026-10-31
 
 Phase 1 of [153-repo-split.md](153-repo-split.md). Decision D3: no frontend app
 touches the database or runs the Better Auth server. Decision Q2: the staff
@@ -186,26 +186,48 @@ Built on branch `phase1/apps-off-the-database`, committed, not pushed:
   One Tap's public client id comes from api-rest's sign-in options, read off
   the brand's own configuration (`brandSignInOptions`).
 
-Still to do: the test pass on both brands, after the release. No `kubectl`
-or secret change is needed by hand: api-rest already carries both brands'
-auth values, and the release applies the pod files.
+Shipped as v1.261.0 (PR #153) and v1.261.1 (PR #154).
+
+## Test pass (2026-10-31)
+
+Run on localhost with generated test accounts, on both brands. Three defects
+were found and fixed:
+
+| Defect                                                                                                | Fixed in           |
+| ----------------------------------------------------------------------------------------------------- | ------------------ |
+| "Email me a code" and the sign-in link sent nothing (the worker refused an empty tenant id)           | v1.261.2 (PR #155) |
+| Connecting an AI tool showed raw JSON instead of the consent screen (the proxy lost `sec-fetch-mode`) | v1.261.3 (PR #156) |
+| "Authorize" on the consent screen failed (the consent call had no request)                            | v1.261.3 (PR #156) |
+
+What passed:
+
+- **sparx:** sign-up, onboarding, email confirmation, sign-out, password
+  sign-in, code sign-in, link sign-in, password reset, team invitation and
+  acceptance, business switch, two-step setup and sign-in, AI tool connect to
+  an access and refresh token.
+- **Piggles:** sign-up, onboarding, the getpiggles.com to mypiggles.com
+  handoff, Piggles-branded emails, sign-out, password sign-in, link sign-in,
+  password reset, AI tool connect to an access and refresh token.
+
+Not covered: Google sign-in and passkeys, which need a real Google account and
+a real authenticator.
 
 ## Definition of done
 
-- [ ] brand-core request scope and fail-closed shared mode, with tests that
+- [x] brand-core request scope and fail-closed shared mode, with tests that
       prove an unscoped call throws.
-- [ ] `createAuth(brandConfig)`; no environment brand reads inside an
+- [x] `createAuth(brandConfig)`; no environment brand reads inside an
       instance.
-- [ ] api-rest mounts both brands at `/auth/<brand>/*`.
-- [ ] `/auth/<brand>/session` and `@wizeworks/auth-client-server`.
-- [ ] `/auth/<brand>/api-token`; both consoles forward to it.
-- [ ] Endpoints 1 to 11 above, each with its callers switched.
-- [ ] api-rest calls its own auth instance for password reset and partner
+- [x] api-rest mounts both brands at `/auth/<brand>/*`.
+- [x] `/auth/<brand>/session` and `@wizeworks/auth-client-server`.
+- [x] `/auth/<brand>/api-token`; both consoles forward to it.
+- [x] Endpoints 1 to 11 above, each with its callers switched.
+- [x] api-rest calls its own auth instance for password reset and partner
       provisioning; the two app internal routes are deleted.
-- [ ] Pure helpers moved.
-- [ ] Rewrites in all three apps; the apps' `app/api/auth/[...all]` routes
+- [x] Pure helpers moved.
+- [x] Rewrites in all three apps; the apps' `app/api/auth/[...all]` routes
       deleted.
-- [ ] No app imports `@wizeworks/db`, `@prisma/client` or the auth server
+- [x] No app imports `@wizeworks/db`, `@prisma/client` or the auth server
       (enforced by a check, proven red first).
-- [ ] Frontend pods no longer load `sparx-app-secrets`.
-- [ ] The test pass above, on both brands.
+- [x] Frontend pods no longer load `sparx-app-secrets`.
+- [x] The test pass above, on both brands.

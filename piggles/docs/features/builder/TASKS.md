@@ -35,7 +35,7 @@ still unproven is how it FEELS in a browser, which is task 9.4.
 
 ## Phase 1 — the package
 
-- [x] 1.1 `wizeworks/packages/studio` — both exports (`.` and `./react`), in the
+- [x] 1.1 `piggles/packages/studio` — both exports (`.` and `./react`), in the
       workspace glob, typecheck + lint clean, 94 tests. Built by hand rather than
       through the `new-workspace-package` skill, which is why this sat open; the
       package it produced is complete either way
@@ -331,7 +331,7 @@ fork, and the reason this is safe to do at all. Root RULE #0 is the check.
 
 - [x] 9.1 The Piggles console no longer mounts `@wizeworks/silicaui-builder`'s
       EDITOR. What it still imports from that package is the document layer — the
-      email schema, the palette types — which is what `@wizeworks/studio` is built
+      email schema, the palette types — which is what `@piggles/studio` is built
       on and is not chrome. sparx's console goes on mounting the editor; the package
       is not being retired.
 - [x] 9.2 Piggles' copy of the old editor is gone — nine files, 4,810 lines, plus
@@ -363,7 +363,7 @@ fork, and the reason this is safe to do at all. Root RULE #0 is the check.
       three pages, a component, an email — and publish it. Click it, do not
       `fetch` it.
 - [x] 9.5 `piggles/apps/workbench` typechecks and lints clean (`--max-warnings=0`),
-      prettier clean, `@wizeworks/studio` 94 tests green, and `check:routes` (336
+      prettier clean, `@piggles/studio` 94 tests green, and `check:routes` (336
       surfaces) / `check:events` / `check:boundaries` (0 `@sparx/*` under piggles) /
       `check:deletability` all pass. **`check:migration-order` cannot run yet** — it
       reads migrations at git HEAD and the tree move is still uncommitted, so it
@@ -381,7 +381,7 @@ fork, and the reason this is safe to do at all. Root RULE #0 is the check.
 
 Plan and findings: [MOBILE.md](MOBILE.md). Ordered so that verbs land before
 layout — after 10.1–10.3 a phone can already build a page inside today's
-columns, which is not true today. All of it is `@wizeworks/studio`; sparx
+columns, which is not true today. All of it is `@piggles/studio`; sparx
 inherits every fix when it cuts over.
 
 - [ ] 10.1 A **node action bar** in the Inspector header — move up, move down,
@@ -443,7 +443,7 @@ keeps producing: **absent behaves like a confident wrong answer.**
 
 | Check                                                           | Result                          |
 | --------------------------------------------------------------- | ------------------------------- |
-| `@wizeworks/studio` typecheck · lint · tests                    | clean · clean · **58 passing**  |
+| `@piggles/studio` typecheck · lint · tests                      | clean · clean · **58 passing**  |
 | `@wizeworks/builder` typecheck · lint · tests                   | clean · clean · **112 passing** |
 | `wizeworks/services/api-rest` typecheck · lint                  | clean                           |
 | `piggles/apps/workbench` typecheck · lint                       | clean                           |
@@ -464,7 +464,7 @@ share a repo with: `wizeworks/packages/auth/src/server.ts` cannot resolve
 `@wizeworks/silica-corrections`, and `check:docker` wants 14 COPY lines for
 `silica-corrections` / `ui` / `brand`. One knock-on lands in api-rest's own lint:
 `routes/internal/operator-feedback.ts` reports six unsafe-type errors, all from an
-import it can no longer resolve. `wizeworks/packages/studio` is copied correctly in the
+import it can no longer resolve. `piggles/packages/studio` is copied correctly in the
 Piggles console image, and every file in this slice is clean on its own.
 
 Phase 6's full-`src` lint also caught eight `await`s on `toBuilderTenantContext`,
@@ -486,8 +486,8 @@ make.
 
 ## Open questions
 
-- [x] Q1 Package name — ANSWERED 2026-08-16. `@wizeworks/studio` in root
-      `wizeworks/packages/studio`. Piggles takes no new `@sparx/*` dependency; the twenty it
+- [x] Q1 Package name — ANSWERED 2026-08-16. `@piggles/studio` in root
+      `piggles/packages/studio`. Piggles takes no new `@sparx/*` dependency; the twenty it
       already has are unchanged, and the package itself may still import
       `@wizeworks/silica-catalog` + `@wizeworks/site-themes`.
 - [ ] Q2 Does `frameId = 'none'` survive the one-layout-per-site decision?

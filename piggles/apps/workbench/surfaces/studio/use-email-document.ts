@@ -8,7 +8,7 @@
 // email. A settings drawer with its own Save button is two saves wearing one pane.
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { DocumentStore, EmailDoc } from '@wizeworks/studio';
+import type { DocumentStore, EmailDoc } from '@piggles/studio';
 import { useStudioBinding } from '../../lib/studio/provider';
 import {
   useEmail,

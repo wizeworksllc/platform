@@ -15,7 +15,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Alert, Button } from '@wizeworks/silicaui-react';
 import { faArrowsRotate } from '@fortawesome/pro-solid-svg-icons';
 import { Icon } from '@piggles/ui';
-import type { StudioDoc } from '@wizeworks/studio';
+import type { StudioDoc } from '@piggles/studio';
 import { PaneWaiting } from '../../components/pane-waiting';
 import { useActivePropertyId } from '../../lib/api/shell-data';
 import { useRecordSamplePaths, useSiteOrigin } from '../../lib/studio/site-data';

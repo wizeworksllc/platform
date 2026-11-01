@@ -17,7 +17,7 @@
 // happened to be saved — never when the look itself changed.
 
 import { useMutation, useQuery, useQueryClient } from '@wizeworks/query';
-import type { StudioDoc } from '@wizeworks/studio';
+import type { StudioDoc } from '@piggles/studio';
 import { api } from '../api/client';
 import { pieceKeyOf } from './saved-pieces';
 

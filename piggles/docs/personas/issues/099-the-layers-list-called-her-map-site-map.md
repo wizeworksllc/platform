@@ -60,7 +60,7 @@ equivalent for a node's name.
 
 ## The fix
 
-Not made — it is an addition to `@wizeworks/studio`, which both brands' consoles
+Not made — it is an addition to `@piggles/studio`, which both brands' consoles
 render, and that is larger than the surface under test.
 
 The shape that matches what is already there:

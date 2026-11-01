@@ -32,7 +32,7 @@ is the same rule). And an example that fits any business, or none.
    layout row's stored name. Nobody types that name: 43 businesses have "Site
    layout" from the starter, others "Tempo layout" or "Forge layout" from a
    design, and no screen renames it.
-2. `wizeworks/packages/studio/src/react/inspector/settings-tab.tsx`, the shared
+2. `piggles/packages/studio/src/react/inspector/settings-tab.tsx`, the shared
    editor for every business type.
 
 ## The fix

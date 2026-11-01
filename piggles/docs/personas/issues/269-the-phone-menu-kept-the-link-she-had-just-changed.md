@@ -62,7 +62,7 @@ to "Notes", removing a link, adding one.
 ## The fix, and the part of it that is not fixed
 
 **Done: a row an author cannot see on the canvas now says why it is not there.**
-[layer-tree.ts](../../../../wizeworks/packages/studio/src/react/navigator/layer-tree.ts)
+[layer-tree.ts](../../../packages/studio/src/react/navigator/layer-tree.ts)
 reads the node's own responsive classes and names the screens it is for:
 
 ```

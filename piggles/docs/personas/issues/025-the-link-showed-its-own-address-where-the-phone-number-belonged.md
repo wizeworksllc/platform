@@ -79,7 +79,7 @@ other attribute goes through) and then renders the children as normal.
 
 ## Where the fix lives
 
-- `wizeworks/packages/studio/src/react/canvas/render-node.tsx` — `boundText`, `boundAttr`
-- `wizeworks/packages/studio/src/react/canvas/bound-attr.test.ts` — 5 tests over the
+- `piggles/packages/studio/src/react/canvas/render-node.tsx` — `boundText`, `boundAttr`
+- `piggles/packages/studio/src/react/canvas/bound-attr.test.ts` — 5 tests over the
   rule: names an attribute → fills it and leaves the words; names none → replaces
   the words; resolves to nothing → leaves both alone

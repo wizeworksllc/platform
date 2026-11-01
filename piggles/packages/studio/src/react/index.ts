@@ -1,4 +1,4 @@
-// @wizeworks/studio/react — the pane-ready builders.
+// @piggles/studio/react — the pane-ready builders.
 //
 // Each builder is WHOLE: canvas, layers, insert and properties inside one pane,
 // bound to one document. An app mounts `<StudioProvider>` once per site, then a

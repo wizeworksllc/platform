@@ -8,7 +8,7 @@
 // editor needs: Save, Publish, and whether either has happened.
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { DocumentStore, LayoutDoc } from '@wizeworks/studio';
+import type { DocumentStore, LayoutDoc } from '@piggles/studio';
 import { useStudioBinding } from '../../lib/studio/provider';
 import {
   toLayoutDoc,
