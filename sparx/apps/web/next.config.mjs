@@ -36,6 +36,16 @@ const config = {
     '@wizeworksllc/chat-widget',
     '@wizeworksllc/story-schemas',
     '@wizeworks/silicaui-react',
+    // Every platform package this app installs, so it still compiles once they
+    // come from GitHub Packages as TypeScript source (docs/153, Phase 3).
+    '@wizeworksllc/attribution',
+    '@wizeworksllc/brand-core',
+    '@wizeworksllc/builder-schemas',
+    '@wizeworksllc/legal',
+    '@wizeworksllc/migration',
+    '@wizeworksllc/silica-catalog',
+    '@wizeworksllc/silica-corrections',
+    '@wizeworksllc/site-themes',
   ],
   typedRoutes: true,
   // WizeLens patches node:http and reads its own files: load it from node_modules, not a bundle.

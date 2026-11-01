@@ -24,16 +24,24 @@
 //      the tarball holds what its exports point at.
 //   5. Every published package has a `repository`, which is what links it to
 //      this repository on GitHub and lets the release's token publish it.
+//   6. Every Next.js app in sparx and Piggles lists every platform package it
+//      installs in `transpilePackages`. Packages publish as TypeScript source,
+//      and Next.js compiles a dependency in node_modules only when it is listed.
+//      The workspace hides a gap here: a linked package resolves outside
+//      node_modules and compiles anyway, so the build breaks only after the
+//      brand switches to published versions.
 //
 // The closure is asserted non-empty and the counts are printed. A check that
 // scans nothing prints green and protects nothing.
 
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
+  CONSUMER_GROUPS,
   REPO_ROOT,
   consumerClosure,
   isPublishable,
+  packageClosure,
   readWorkspace,
   runtimeWorkspaceDeps,
 } from './lib/published-packages.mjs';
@@ -94,6 +102,23 @@ for (const [name, { dir, json }] of published) {
   }
 }
 
+let apps = 0;
+for (const [name, { dir }] of pkgs) {
+  if (!CONSUMER_GROUPS.some((g) => dir.startsWith(`${g}/`))) continue;
+  const config = join(REPO_ROOT, dir, 'next.config.mjs');
+  if (!existsSync(config)) continue;
+  apps += 1;
+  const source = readFileSync(config, 'utf8').replace(/\/\/.*$/gm, '');
+  const list = source.match(/transpilePackages:\s*\[([^\]]*)\]/);
+  const listed = new Set(list ? [...list[1].matchAll(/['"]([^'"]+)['"]/g)].map((m) => m[1]) : []);
+  for (const dep of packageClosure(pkgs, name)) {
+    if (!listed.has(dep)) {
+      problems.push(`${name} installs ${dep} but ${dir}/next.config.mjs does not transpile it`);
+    }
+  }
+}
+if (apps === 0) problems.push('found no Next.js app in sparx or piggles; the transpile scan saw nothing');
+
 function exportTargets(value) {
   if (typeof value === 'string') return [value];
   if (value && typeof value === 'object') return Object.values(value).flatMap(exportTargets);
@@ -109,5 +134,5 @@ if (problems.length > 0) {
 
 console.log(
   `✓ publishable: sparx and piggles install ${need.size} platform package(s); ` +
-    `${published.length} publish, none carries the database`
+    `${published.length} publish, none carries the database; ${apps} app(s) transpile all of theirs`
 );
