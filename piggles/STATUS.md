@@ -1429,7 +1429,7 @@ and a footer typo ships without shipping every half-built page with it.
 
 | Thing                           | Where                                      | State                                                                                                      |
 | ------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| The engine                      | `piggles/packages/studio`                | Documents, ops with self-computed inverses, per-doc undo, the theme→layout→page resolution chain. 94 tests |
+| The engine                      | `piggles/packages/studio`                  | Documents, ops with self-computed inverses, per-doc undo, the theme→layout→page resolution chain. 94 tests |
 | Page / layout / piece builders  | `piggles/apps/workbench/surfaces/studio/*` | Canvas, layers, insert, inspector; save + publish per document                                             |
 | Look builder                    | same                                       | Every silica token, live contrast warnings, own + ready-made + marketplace shelves                         |
 | Email builder                   | same                                       | Its own node vocabulary, own session, merge tags resolved against sample data                              |

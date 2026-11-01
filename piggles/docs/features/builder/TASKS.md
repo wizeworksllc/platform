@@ -443,7 +443,7 @@ keeps producing: **absent behaves like a confident wrong answer.**
 
 | Check                                                           | Result                          |
 | --------------------------------------------------------------- | ------------------------------- |
-| `@piggles/studio` typecheck · lint · tests                    | clean · clean · **58 passing**  |
+| `@piggles/studio` typecheck · lint · tests                      | clean · clean · **58 passing**  |
 | `@wizeworks/builder` typecheck · lint · tests                   | clean · clean · **112 passing** |
 | `wizeworks/services/api-rest` typecheck · lint                  | clean                           |
 | `piggles/apps/workbench` typecheck · lint                       | clean                           |
