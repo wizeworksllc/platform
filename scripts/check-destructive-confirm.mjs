@@ -30,7 +30,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -43,6 +43,7 @@ const ROOTS = present([
   'sparx/apps/workbench/surfaces',
   'sparx/apps/workbench/components',
 ]);
+skipWhenEmpty(ROOTS, 'check:confirm');
 
 /** A mutation whose name says it takes something away. */
 const DESTRUCTIVE = /\b((?:delete|remove|destroy)[A-Z]\w*)\.mutate(?:Async)?\(/;

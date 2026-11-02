@@ -82,7 +82,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { HAS_PIGGLES, present } from './lib/piggles.mjs';
+import { HAS_PIGGLES, present } from './lib/brand-trees.mjs';
 
 // Resolved from this file, never by counting '..' from the cwd -- a check that
 // guesses its own root is one move away from scanning nothing and printing OK.
@@ -305,7 +305,7 @@ function scanForeign() {
     }
   }
   // Every listed tree is expected: sparx's, and Piggles' when it is checked out
-  // here (scripts/lib/piggles.mjs). One missing means a rename made this pass blind.
+  // here (scripts/lib/brand-trees.mjs). One missing means a rename made this pass blind.
   if (trees < BRAND_TREES.length) {
     console.error('\nBrand check FAILED: found ' + trees + ' of ' + BRAND_TREES.length + ' brand');
     console.error('  trees. A moved or renamed tree makes the foreign-name pass blind.\n');
@@ -394,7 +394,7 @@ const foreignDebt = existsSync(FOREIGN_DEBT_FILE)
 
 const foreignFresh = foreign.found.filter((f) => !foreignDebt.has(f.lit));
 // The known strings name sparx inside Piggles, so they can only be judged gone
-// where Piggles is checked out (scripts/lib/piggles.mjs).
+// where Piggles is checked out (scripts/lib/brand-trees.mjs).
 const foreignFixed = HAS_PIGGLES ? [...foreignDebt].filter((d) => !foreignUnique.includes(d)) : [];
 
 console.log(

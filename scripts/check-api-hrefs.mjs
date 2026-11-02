@@ -47,7 +47,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
 
 import { stripComments } from './lib/strip-comments.mjs';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -55,6 +55,7 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
  *  the file count is printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
 const ROOTS = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
+skipWhenEmpty(ROOTS, 'check:api-hrefs');
 
 /**
  * Hrefs that genuinely may hold an api-rest path, with the reason.

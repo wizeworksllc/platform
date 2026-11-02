@@ -5,7 +5,7 @@ type: rule
 status: active
 sources:
   - wizeworks/packages/module-roster/src/index.ts
-  - sparx/packages/ui/src/providers/module-provider.tsx
+  - wizeworks/packages/ui/src/providers/module-provider.tsx
 ---
 
 Every capability is exactly one of three. The dividing line is **mechanical**, not a judgment call:

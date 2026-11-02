@@ -23,11 +23,13 @@ from them.
 The brands depend on the platform. The platform depends on nothing above it, and
 the brands never see each other.
 
-Piggles now lives in its own repository (docs/153, Phase 4), so rules 2 and 3 are
-mostly kept by the repository line itself. Piggles' CI checks this repository
-out with Piggles at `piggles/` inside it and runs the cross-console checks there,
-which is why many scripts still name `piggles/...` paths. Those checks skip the
-Piggles half when no `piggles/` folder is present (`scripts/lib/piggles.mjs`).
+Piggles and sparx's apps now live in their own repositories (docs/153, Phases 4
+and 5), so rules 2 and 3 are mostly kept by the repository line itself. Each
+brand's CI checks this repository out with its own tree inside it (`piggles/`,
+`sparx/`) and runs the cross-console checks there, which is why many scripts
+still name `piggles/...` and `sparx/...` paths. Those checks drop a brand's half
+when its folder is absent, and a check that reads only brands prints that it
+skipped (`scripts/lib/brand-trees.mjs`).
 
 **Corollaries that are the same rule wearing different clothes:**
 

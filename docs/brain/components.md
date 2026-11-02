@@ -28,7 +28,7 @@ If [[design]] is the *language*, this node is the *library and the layouts*. App
 
 ## Sources of truth
 
-`sparx/packages/ui/` (the components + `sparx/packages/ui/CLAUDE.md`) · `docs/23-frontend-component-architecture.md` (contract) · `docs/35-ui-variant-system.md` (variants) · `docs/86-surface-frame-pattern.md` + the `form-surface` skill (surfaces) · `docs/34-dashboard-working-area-standard.md` (archetypes).
+`wizeworks/packages/ui/` (the components + `wizeworks/packages/ui/CLAUDE.md`) · `docs/23-frontend-component-architecture.md` (contract) · `docs/35-ui-variant-system.md` (variants) · `docs/86-surface-frame-pattern.md` + the `form-surface` skill (surfaces) · `docs/34-dashboard-working-area-standard.md` (archetypes).
 
 ## Migration status
 

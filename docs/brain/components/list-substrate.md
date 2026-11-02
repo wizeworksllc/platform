@@ -5,7 +5,7 @@ type: rule
 status: active
 applies-to: [dashboard]
 sources:
-  - sparx/packages/ui/src/components/data/selection-list.tsx
+  - wizeworks/packages/ui/src/components/data/selection-list.tsx
   - apps/dashboard/app/(dashboard)/_shell/preferences-types.ts
   - apps/dashboard/app/(dashboard)/_components/entity-row-link.tsx
   - apps/dashboard/app/(dashboard)/_components/entity-create-button.tsx

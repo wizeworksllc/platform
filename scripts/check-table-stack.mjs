@@ -15,10 +15,11 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const CONSOLES = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
+skipWhenEmpty(CONSOLES, 'check:table-stack');
 const SCAN = ['surfaces', 'components'];
 const WRAPPER = 'components/table.tsx';
 
@@ -44,7 +45,9 @@ for (const console_ of CONSOLES) {
   for (const sub of SCAN) {
     const dir = join(ROOT, console_, sub);
     if (!existsSync(dir)) {
-      console.error(`check:table-stack: ${console_}/${sub} is missing, so this check would see nothing.`);
+      console.error(
+        `check:table-stack: ${console_}/${sub} is missing, so this check would see nothing.`
+      );
       process.exit(1);
     }
     for (const file of walk(dir)) {
@@ -82,4 +85,6 @@ if (problems.length) {
   console.error(`check:table-stack: ${problems.length} problem(s):\n  ${problems.join('\n  ')}`);
   process.exit(1);
 }
-console.log(`check:table-stack: ${tables} tables in ${files} files, every one through the console's Table.`);
+console.log(
+  `check:table-stack: ${tables} tables in ${files} files, every one through the console's Table.`
+);

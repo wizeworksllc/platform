@@ -40,7 +40,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -61,10 +61,14 @@ const CATALOG = join(ROOT, 'wizeworks/packages/silica-catalog/src/host-nodes.ts'
 const CHROME_CATEGORIES = new Set(['Your site', 'Your media']);
 
 /** Each console's dispatch, which must name every chrome core. */
-const CONSOLES = present([
-  { brand: 'piggles', file: 'piggles/apps/workbench/lib/studio/host-cores.tsx' },
-  { brand: 'sparx', file: 'sparx/apps/workbench/surfaces/builder/studio/host-cores.tsx' },
-], (c) => c.file);
+const CONSOLES = present(
+  [
+    { brand: 'piggles', file: 'piggles/apps/workbench/lib/studio/host-cores.tsx' },
+    { brand: 'sparx', file: 'sparx/apps/workbench/surfaces/builder/studio/host-cores.tsx' },
+  ],
+  (c) => c.file
+);
+skipWhenEmpty(CONSOLES, 'check:host-cores');
 
 // Every path asserted. A check that reads a file which has moved reports zero
 // problems, in green, forever.

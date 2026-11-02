@@ -74,17 +74,8 @@ images:
   - name: us-central1-docker.pkg.dev/sparxworks/sparx/mcp-site
     newName: sparx/mcp-site
     newTag: local
-  - name: us-central1-docker.pkg.dev/sparxworks/sparx/workbench
-    newName: sparx/workbench
-    newTag: local
-  - name: us-central1-docker.pkg.dev/sparxworks/sparx/web
-    newName: sparx/web
-    newTag: local
   - name: us-central1-docker.pkg.dev/sparxworks/sparx/site
     newName: sparx/site
-    newTag: local
-  - name: us-central1-docker.pkg.dev/sparxworks/sparx/market
-    newName: sparx/market
     newTag: local
 
 # The non-secret runtime env. Replaces k8s/sparx-prod/app-env-configmap.yaml
@@ -135,13 +126,7 @@ replicas:
     count: 1
   - name: mcp-site
     count: 1
-  - name: workbench
-    count: 1
-  - name: web
-    count: 1
   - name: site
-    count: 1
-  - name: market
     count: 1
 
 patches:
@@ -353,46 +338,6 @@ patches:
                     memory: '768Mi'
   - target:
       kind: Deployment
-      name: workbench
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: workbench
-      spec:
-        template:
-          spec:
-            containers:
-              - name: workbench
-                imagePullPolicy: Never
-                resources:
-                  requests:
-                    cpu: '25m'
-                    memory: '64Mi'
-                  limits:
-                    memory: '768Mi'
-  - target:
-      kind: Deployment
-      name: web
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: web
-      spec:
-        template:
-          spec:
-            containers:
-              - name: web
-                imagePullPolicy: Never
-                resources:
-                  requests:
-                    cpu: '25m'
-                    memory: '64Mi'
-                  limits:
-                    memory: '768Mi'
-  - target:
-      kind: Deployment
       name: site
     patch: |-
       apiVersion: apps/v1
@@ -404,26 +349,6 @@ patches:
           spec:
             containers:
               - name: site
-                imagePullPolicy: Never
-                resources:
-                  requests:
-                    cpu: '25m'
-                    memory: '64Mi'
-                  limits:
-                    memory: '768Mi'
-  - target:
-      kind: Deployment
-      name: market
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: market
-      spec:
-        template:
-          spec:
-            containers:
-              - name: market
                 imagePullPolicy: Never
                 resources:
                   requests:

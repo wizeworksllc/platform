@@ -19,9 +19,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
+
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SERVER = join(ROOT, 'wizeworks/packages/module-roster/src/index.ts');
-const COPIES = [join(ROOT, 'sparx/apps/workbench/lib/onboarding/modules.ts')];
+const COPIES = present([join(ROOT, 'sparx/apps/workbench/lib/onboarding/modules.ts')]);
+skipWhenEmpty(COPIES, 'check:module-graph');
 
 for (const p of [SERVER, ...COPIES]) {
   if (!existsSync(p)) {
@@ -45,7 +48,9 @@ function readMap(src, name, file) {
     map[m[1]] = [...m[2].matchAll(/'([^']+)'/g)].map((x) => x[1]).sort();
   }
   if (Object.keys(map).length === 0) {
-    console.error(`check:module-graph: read 0 entries from \`${name}\` in ${file}; the parser is blind.`);
+    console.error(
+      `check:module-graph: read 0 entries from \`${name}\` in ${file}; the parser is blind.`
+    );
     process.exit(1);
   }
   return map;
@@ -69,4 +74,6 @@ for (const name of ['BUNDLED_FREE', 'REQUIRES']) {
   }
 }
 if (bad) process.exit(1);
-console.log(`check:module-graph: ${compared} rules across ${COPIES.length} console copy match the server.`);
+console.log(
+  `check:module-graph: ${compared} rules across ${COPIES.length} console copy match the server.`
+);

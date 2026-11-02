@@ -1,13 +1,12 @@
 packages:
   # The shared platform. Brand-blind by construction: nothing under here may
-  # import from `sparx/` (check-boundaries rule 1). Piggles, the sister brand, lives in
+  # name a brand (check-boundaries rule 1). Piggles, the sister brand, lives in
   # its own repository (wizeworksllc/piggles) and installs the published packages.
   - 'wizeworks/packages/*'
   - 'wizeworks/services/*'
   - 'wizeworks/apps/*'
-  # sparx's own — its marks, its compositions, its four surfaces.
-  - 'sparx/packages/*'
-  - 'sparx/apps/*'
+  # sparx's own apps and marks live in their own repository too
+  # (wizeworksllc/sparx, docs/153 Phase 5) and install the published packages.
 
 # Single source of truth for the @wizeworks/silicaui family versions. Consuming
 # apps reference these as "catalog:" in their package.json (e.g.

@@ -44,7 +44,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -53,6 +53,7 @@ const ROOTS = present([
   join(REPO, 'piggles', 'apps', 'workbench', 'surfaces'),
   join(REPO, 'sparx', 'apps', 'workbench', 'surfaces'),
 ]);
+skipWhenEmpty(ROOTS, 'check:pane-load');
 
 // Resolved from the repo root and asserted, never counted in `..`s: a check that
 // scans a directory which has moved reports zero problems in green.

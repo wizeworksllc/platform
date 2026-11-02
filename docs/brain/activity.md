@@ -77,7 +77,7 @@ still does, and retires with `apps/dashboard`
 "what happened" surface reads `/v1/activity`, never a list endpoint.
 
 **Surfaces are workbench-only.** Every UI target below is built in
-`sparx/apps/workbench`; `apps/dashboard` gets no new work. The read-spine stays
+`wizeworksllc/sparx/apps/workbench`; `apps/dashboard` gets no new work. The read-spine stays
 app-agnostic (no route/href in the DTO — the workbench maps `kind` → a surface
 key client-side, like the pulse) so admin/operator reuses it later.
 

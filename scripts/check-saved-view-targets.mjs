@@ -49,7 +49,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { HAS_PIGGLES, present } from './lib/piggles.mjs';
+import { HAS_PIGGLES, present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 /** Resolve the repo root by its marker, never by counting `..` up from here. */
 function repoRoot() {
@@ -69,6 +69,7 @@ const ROOT = repoRoot();
 
 const PRESETS_FILE = 'wizeworks/services/api-rest/src/lib/saved-view-presets.ts';
 const CONSOLES = present(['piggles/apps/workbench/surfaces', 'sparx/apps/workbench/surfaces']);
+skipWhenEmpty(CONSOLES, 'check:saved-view-targets');
 
 /** Every scan root must EXIST. A check that silently scans nothing prints a
  *  green tick over an empty set, which is worse than no check at all. */
@@ -136,7 +137,7 @@ if (registered.size === 0) {
 
 // ── Compare ─────────────────────────────────────────────────────────────────
 // The presets serve every console, and today only Piggles' panes register
-// their targets. Without the Piggles checkout (scripts/lib/piggles.mjs) a target
+// their targets. Without the Piggles checkout (scripts/lib/brand-trees.mjs) a target
 // it registers looks orphaned here, so this half runs where both consoles are:
 // Piggles' CI, which checks this repository out around its own.
 if (!HAS_PIGGLES) {

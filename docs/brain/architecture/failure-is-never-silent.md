@@ -5,16 +5,16 @@ type: rule
 status: active
 applies-to: [workbench]
 sources:
-  - sparx/apps/workbench/components/surface-mount.tsx
-  - sparx/apps/workbench/components/chrome-boundary.tsx
-  - sparx/apps/workbench/components/root-boundary.tsx
-  - sparx/apps/workbench/components/write-failure-reporter.tsx
-  - sparx/apps/workbench/components/crash-listeners.tsx
+  - wizeworksllc/sparx/apps/workbench/components/surface-mount.tsx
+  - wizeworksllc/sparx/apps/workbench/components/chrome-boundary.tsx
+  - wizeworksllc/sparx/apps/workbench/components/root-boundary.tsx
+  - wizeworksllc/sparx/apps/workbench/components/write-failure-reporter.tsx
+  - wizeworksllc/sparx/apps/workbench/components/crash-listeners.tsx
   - wizeworks/packages/query/src/recovery.ts
-  - sparx/apps/workbench/lib/api/write-failure.ts
-  - sparx/apps/workbench/lib/api/write-meta.ts
-  - sparx/apps/workbench/app/error.tsx
-  - sparx/apps/workbench/app/global-error.tsx
+  - wizeworksllc/sparx/apps/workbench/lib/api/write-failure.ts
+  - wizeworksllc/sparx/apps/workbench/lib/api/write-meta.ts
+  - wizeworksllc/sparx/apps/workbench/app/error.tsx
+  - wizeworksllc/sparx/apps/workbench/app/global-error.tsx
   - wizeworks/packages/app-kit/src/chunk-error.ts
 ---
 

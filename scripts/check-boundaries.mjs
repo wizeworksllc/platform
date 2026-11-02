@@ -20,7 +20,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { HAS_PIGGLES } from './lib/piggles.mjs';
+import { HAS_PIGGLES } from './lib/brand-trees.mjs';
 
 const ROOT = process.cwd();
 const SKIP_DIRS = new Set([
@@ -674,12 +674,15 @@ function checkRatchet(counts, update, banned) {
 const update = process.argv.includes('--update-baseline');
 // The Piggles rules read the Piggles tree, which lives in its own repository
 // since docs/153 Phase 4. They run where its CI checks this repository out
-// around its own (scripts/lib/piggles.mjs); alone, sparx has only its own rules.
+// around its own (scripts/lib/brand-trees.mjs); alone, sparx has only its own rules.
 const { counts, banned } = HAS_PIGGLES ? countScopeUsage() : { counts: {}, banned: [] };
 
 let failures = 0;
 if (HAS_PIGGLES) failures += scan('piggles', PIGGLES_TO_SPARX, 'piggles/ reaches into a sparx APP');
-else console.log('- the Piggles rules: skipped, the Piggles console is not checked out at piggles/ here');
+else
+  console.log(
+    '- the Piggles rules: skipped, the Piggles console is not checked out at piggles/ here'
+  );
 failures += scan('sparx', SPARX_TO_PIGGLES, 'sparx/ reaches into piggles/');
 failures += scan(
   'wizeworks',

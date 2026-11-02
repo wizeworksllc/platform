@@ -69,17 +69,8 @@ images:
   - name: us-central1-docker.pkg.dev/sparxworks/sparx/mcp-site
     newName: ghcr.io/wizeworksllc/platform/mcp-site
     newTag: latest
-  - name: us-central1-docker.pkg.dev/sparxworks/sparx/workbench
-    newName: ghcr.io/wizeworksllc/platform/workbench
-    newTag: latest
-  - name: us-central1-docker.pkg.dev/sparxworks/sparx/web
-    newName: ghcr.io/wizeworksllc/platform/web
-    newTag: latest
   - name: us-central1-docker.pkg.dev/sparxworks/sparx/site
     newName: ghcr.io/wizeworksllc/platform/site
-    newTag: latest
-  - name: us-central1-docker.pkg.dev/sparxworks/sparx/market
-    newName: ghcr.io/wizeworksllc/platform/market
     newTag: latest
   # The workers carry `sparx/<name>:local` in the shared base, since that base
   # is written for the workstation case. Rewrite them the same way.
@@ -115,13 +106,7 @@ replicas:
     count: 1
   - name: mcp-site
     count: 1
-  - name: workbench
-    count: 1
-  - name: web
-    count: 1
   - name: site
-    count: 1
-  - name: market
     count: 1
 
 patches:
@@ -349,37 +334,6 @@ patches:
                   # measured 89Mi — already honest, left alone
                   requests: { cpu: '25m', memory: '96Mi' }
                   limits: { memory: '512Mi' }
-  - target: { kind: Deployment, name: workbench }
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: workbench
-      spec:
-        template:
-          spec:
-            containers:
-              - name: workbench
-                resources:
-                  # measured 232Mi
-                  requests: { cpu: '25m', memory: '256Mi' }
-                  limits: { memory: '640Mi' }
-  - target: { kind: Deployment, name: web }
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: web
-      spec:
-        template:
-          spec:
-            containers:
-              - name: web
-                resources:
-                  # measured 419Mi — the marketing site is the second-largest
-                  # process here, not the small one its old 96Mi implied.
-                  requests: { cpu: '25m', memory: '448Mi' }
-                  limits: { memory: '640Mi' }
   - target: { kind: Deployment, name: site }
     patch: |-
       apiVersion: apps/v1
@@ -397,29 +351,16 @@ patches:
                   # many sites are live, so it gets margin the others don't.
                   requests: { cpu: '25m', memory: '160Mi' }
                   limits: { memory: '640Mi' }
-  # --- Piggles -----------------------------------------------------------------
-  # Its three Deployments left this overlay for wizeworksllc/piggles and the
-  # `piggles` namespace (docs/153, Phase 4). They still run on this node, so
-  # their requests (about 75m CPU and 800Mi memory) still count against it; they
-  # are just set in that repository now. If the node cannot take them, the
+  # --- Piggles and sparx's apps --------------------------------------------------
+  # Piggles' three Deployments left this overlay for wizeworksllc/piggles and the
+  # `piggles` namespace (docs/153, Phase 4), and sparx's three (web, workbench,
+  # market) for wizeworksllc/sparx and the `sparx` namespace (Phase 5). They
+  # still run on this node, so their requests (about 75m CPU and 800Mi memory for
+  # Piggles, 75m and 800Mi for sparx) still count against it; they are just set
+  # in those repositories now. If the node cannot take them, the
   # answer is a bigger node or a second one, NOT shaving requests below what the
   # pods use. That trade has already been made once here and it cost twelve
   # hours of downtime.
-  - target: { kind: Deployment, name: market }
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: market
-      spec:
-        template:
-          spec:
-            containers:
-              - name: market
-                resources:
-                  # measured 88Mi — already honest, left alone
-                  requests: { cpu: '25m', memory: '96Mi' }
-                  limits: { memory: '640Mi' }
 
   # --- api-rest ---------------------------------------------------------------
   # Larger ceiling than its siblings: it loads a ~50-package workspace through

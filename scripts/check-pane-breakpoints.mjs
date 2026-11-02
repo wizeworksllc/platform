@@ -11,10 +11,11 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const CONSOLES = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
+skipWhenEmpty(CONSOLES, 'check:pane-breakpoints');
 const SCAN = ['surfaces', 'components'];
 
 /** Full-window places, where the window's width IS the width. */

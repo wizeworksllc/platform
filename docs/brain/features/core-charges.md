@@ -9,7 +9,7 @@ sources:
   - wizeworks/packages/commerce/src/services/core-service.ts
   - wizeworks/packages/commerce/src/services/core-choice-service.ts
   - docs/09-ecommerce-engine-prd.md §5 Core charges
-  - sparx/docs/personas/issues/051, 057
+  - wizeworksllc/sparx/docs/personas/issues/051, 057
 ---
 
 A rebuilt (remanufactured) part is sold with a **core charge**: a refundable deposit

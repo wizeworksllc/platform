@@ -242,4 +242,4 @@ fail the business write or trigger a Pub/Sub retry loop of an already-done job:
 - **Publisher sites** — auth (`wizeworks/packages/auth/src/server.ts` hooks + `email-events.ts`),
   billing (`wizeworks/services/api-rest/.../webhooks/stripe-billing.ts`), team/tenant/feedback
   (`wizeworks/services/api-rest/src/routes/v1/*`), partner (`wizeworks/services/api-rest/src/lib/partners/*`),
-  domains (`wizeworks/packages/domain-worker/*`), workbench (`sparx/apps/workbench/app/accept-invite`).
+  domains (`wizeworks/packages/domain-worker/*`), workbench (`wizeworksllc/sparx/apps/workbench/app/accept-invite`).

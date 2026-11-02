@@ -36,11 +36,12 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..').split('\\').join('/');
 const ROOTS = present([`${ROOT}/piggles/apps/workbench`, `${ROOT}/sparx/apps/workbench`]);
+skipWhenEmpty(ROOTS, 'check:load-error-reason');
 
 for (const path of ROOTS) {
   if (!existsSync(path)) {

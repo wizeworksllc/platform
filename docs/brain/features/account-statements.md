@@ -12,7 +12,7 @@ sources:
   - wizeworks/services/api-rest/src/routes/v1/public/b2b-portal-statement.ts (buyer API)
   - wizeworks/services/api-rest/src/lib/statement-mail.ts (the `account-statement` email)
   - wizeworks/packages/email/src/templates/account-statement.tsx
-  - sparx/apps/workbench/surfaces/b2b/account-statement.tsx (+ piggles twin)
+  - wizeworksllc/sparx/apps/workbench/surfaces/b2b/account-statement.tsx (+ piggles twin)
   - wizeworks/apps/site/app/account/(authed)/b2b/[accountId]/statement/page.tsx
   - docs/10-b2b-wholesale-prd.md §7 Account statements
 ---

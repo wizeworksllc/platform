@@ -84,7 +84,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present } from './lib/brand-trees.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
@@ -147,19 +147,19 @@ const WALL_EXEMPT = new Set(['lib/today.ts', 'lib/wall-clock.ts', 'lib/publish-c
  */
 const WALL_DEBT = new Set(
   present([
-  'piggles/apps/workbench/surfaces/cms/schema-form.tsx',
-  'piggles/apps/workbench/surfaces/commerce/discount-form-limits.tsx',
-  'piggles/apps/workbench/surfaces/commerce/product-attributes.tsx',
-  'piggles/apps/workbench/surfaces/crm/custom-properties-panel.tsx',
-  'piggles/apps/workbench/surfaces/crm/task-detail.tsx',
-  'piggles/apps/workbench/surfaces/partner/bootcamp-detail.tsx',
-  'sparx/apps/workbench/surfaces/cms/schema-form.tsx',
-  'sparx/apps/workbench/surfaces/commerce/discount-detail.tsx',
-  'sparx/apps/workbench/surfaces/commerce/product-attributes.tsx',
-  'sparx/apps/workbench/surfaces/crm/custom-properties-panel.tsx',
-  'sparx/apps/workbench/surfaces/crm/task-detail.tsx',
-  'sparx/apps/workbench/surfaces/partner/bootcamp-detail.tsx',
-])
+    'piggles/apps/workbench/surfaces/cms/schema-form.tsx',
+    'piggles/apps/workbench/surfaces/commerce/discount-form-limits.tsx',
+    'piggles/apps/workbench/surfaces/commerce/product-attributes.tsx',
+    'piggles/apps/workbench/surfaces/crm/custom-properties-panel.tsx',
+    'piggles/apps/workbench/surfaces/crm/task-detail.tsx',
+    'piggles/apps/workbench/surfaces/partner/bootcamp-detail.tsx',
+    'sparx/apps/workbench/surfaces/cms/schema-form.tsx',
+    'sparx/apps/workbench/surfaces/commerce/discount-detail.tsx',
+    'sparx/apps/workbench/surfaces/commerce/product-attributes.tsx',
+    'sparx/apps/workbench/surfaces/crm/custom-properties-panel.tsx',
+    'sparx/apps/workbench/surfaces/crm/task-detail.tsx',
+    'sparx/apps/workbench/surfaces/partner/bootcamp-detail.tsx',
+  ])
 );
 
 /* ── Rule 3: no computer's clock where a booking's time lives ───────────── */
@@ -250,12 +250,23 @@ for (const tree of BOOKING_TREES) {
   }
 }
 
-if (scanned === 0) {
+// Rules 1 and 2 read only the brands' consoles. With no brand checked out here
+// (scripts/lib/brand-trees.mjs) they have nothing to read, and each brand's CI
+// runs them with its tree in place. Rule 3 also reads the platform's site, so
+// it still runs, and its own blindness guard below still applies.
+const brandless = TREES.length === 0;
+if (brandless) {
+  console.log(
+    "check-date-conversions: rules 1 and 2 skipped. They read only the brands' consoles, and none is checked out here."
+  );
+}
+
+if (!brandless && scanned === 0) {
   console.error('check-date-conversions: scanned 0 files. The globs match nothing.');
   process.exit(1);
 }
 
-if (boxes === 0 || bookingScanned === 0) {
+if ((!brandless && boxes === 0) || bookingScanned === 0) {
   console.error('check-date-conversions: rule 2 or 3 found nothing to look at. The scan is blind.');
   process.exit(1);
 }

@@ -6,7 +6,7 @@ status: active
 applies-to: [dashboard]
 sources:
   - docs/23-frontend-component-architecture.md
-  - sparx/packages/ui/CLAUDE.md
+  - wizeworks/packages/ui/CLAUDE.md
 ---
 
 A control's *appearance* lives in the component library — the silicaui primitives (`@wizeworks/silicaui-react`) and the sparx compositions built on them (`@wizeworksllc/ui`). Feature code in `apps/*` uses named variants (`<Button color="primary" variant="soft">`) — it **never re-skins a control**.

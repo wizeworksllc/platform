@@ -50,13 +50,17 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SCAN_ROOTS = present([
-  ['sparx', join(ROOT, 'sparx', 'apps', 'workbench')],
-  ['piggles', join(ROOT, 'piggles', 'apps', 'workbench')],
-], ([, dir]) => dir);
+const SCAN_ROOTS = present(
+  [
+    ['sparx', join(ROOT, 'sparx', 'apps', 'workbench')],
+    ['piggles', join(ROOT, 'piggles', 'apps', 'workbench')],
+  ],
+  ([, dir]) => dir
+);
+skipWhenEmpty(SCAN_ROOTS, 'check:load-failure-words');
 
 /**
  * Places that may still say the sentence outside the two doors, each with its

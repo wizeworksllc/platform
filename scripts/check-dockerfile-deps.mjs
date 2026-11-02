@@ -38,13 +38,7 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
  * If a third brand ever appears, it goes here in the same edit as its first
  * Dockerfile.
  */
-const WORKSPACE_GROUPS = [
-  'wizeworks/apps',
-  'wizeworks/services',
-  'wizeworks/packages',
-  'sparx/apps',
-  'sparx/packages',
-];
+const WORKSPACE_GROUPS = ['wizeworks/apps', 'wizeworks/services', 'wizeworks/packages'];
 
 /** Read every workspace package: name → { dir, workspace deps }. */
 function readWorkspace() {

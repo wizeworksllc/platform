@@ -20,7 +20,7 @@
  */
 
 import { createRequire } from 'node:module';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -43,7 +43,18 @@ try {
 // Parsed rather than imported: marks.ts is TypeScript, and this script must run
 // under a bare `node` with no build step or loader in the way.
 
-const marks = readFileSync(join(ROOT, 'sparx/packages/brand/src/marks.ts'), 'utf8');
+// sparx's apps and brand package live in wizeworksllc/sparx (docs/153, Phase 5).
+// This script writes icons into both repositories, so it runs with a sparx
+// checkout at `sparx/` inside this one: the same layout sparx's CI builds.
+const MARKS = join(ROOT, 'sparx/packages/brand/src/marks.ts');
+if (!existsSync(MARKS)) {
+  console.error(
+    'generate-brand-icons: no sparx checkout at sparx/. The marks live in wizeworksllc/sparx; ' +
+      'put that checkout at sparx/ inside this one (a junction or symlink is fine) and run this again.'
+  );
+  process.exit(1);
+}
+const marks = readFileSync(MARKS, 'utf8');
 
 /** Pull a `export const NAME = '…'` (or a `+`-concatenated string) out of marks.ts. */
 function constant(name) {

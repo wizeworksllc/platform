@@ -33,7 +33,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -41,6 +41,7 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
  *  which is why the counts are printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
 const ROOTS = present(['piggles/apps/workbench', 'sparx/apps/workbench']);
+skipWhenEmpty(ROOTS, 'check:field-names');
 
 const CONTROL =
   /<(Input|Textarea|Select|NativeSelect|MultiSelect|Combobox|Autocomplete|SearchInput|TagInput|MoneyInput|MoneyTextInput|DayInput|DateInput|DateTimeInput|TimeInput|PhoneInput|PasswordInput|NumberField)\b/;

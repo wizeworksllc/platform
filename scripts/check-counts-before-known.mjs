@@ -39,7 +39,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 function repoRoot() {
   let dir = dirname(fileURLToPath(import.meta.url));
@@ -62,6 +62,7 @@ const CONSOLES = present([
   join(ROOT, 'piggles', 'apps', 'workbench', 'surfaces'),
   join(ROOT, 'sparx', 'apps', 'workbench', 'surfaces'),
 ]);
+skipWhenEmpty(CONSOLES, 'check:counts-known');
 
 function files(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -136,7 +137,7 @@ for (const root of CONSOLES) {
 }
 
 // Floors per console, so the check holds whether Piggles is checked out here or
-// not (scripts/lib/piggles.mjs). sparx alone had 71 toolbars and Piggles about as many.
+// not (scripts/lib/brand-trees.mjs). sparx alone had 71 toolbars and Piggles about as many.
 if (scanned < 60 * CONSOLES.length) {
   die([
     `✖ counts: only ${String(scanned)} toolbars with a status slot were found.`,

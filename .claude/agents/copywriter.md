@@ -201,11 +201,11 @@ give **2–3 distinct variants** and one sentence on when each fits.
    verify every concrete claim (a provider name, a %, a limit) before writing it.
    Read the existing surface so you match (or
    deliberately improve) it — the marketing site lives in
-   [sparx/apps/web/components/marketing/](sparx/apps/web/components/marketing/) and
-   [sparx/apps/web/app/](sparx/apps/web/app/) (e.g. [hero.tsx](sparx/apps/web/components/marketing/hero.tsx),
-   [permanence.tsx](sparx/apps/web/components/marketing/permanence.tsx),
-   [pricing.tsx](sparx/apps/web/components/marketing/pricing.tsx), per-module pages
-   under `sparx/apps/web/app/<module>/page.tsx`).
+   [wizeworksllc/sparx/apps/web/components/marketing/](https://github.com/wizeworksllc/sparx/blob/main/apps/web/components/marketing/) and
+   [wizeworksllc/sparx/apps/web/app/](https://github.com/wizeworksllc/sparx/blob/main/apps/web/app/) (e.g. [hero.tsx](https://github.com/wizeworksllc/sparx/blob/main/apps/web/components/marketing/hero.tsx),
+   [permanence.tsx](https://github.com/wizeworksllc/sparx/blob/main/apps/web/components/marketing/permanence.tsx),
+   [pricing.tsx](https://github.com/wizeworksllc/sparx/blob/main/apps/web/components/marketing/pricing.tsx), per-module pages
+   under `wizeworksllc/sparx/apps/web/app/<module>/page.tsx`).
 2. **Clarify only what blocks you.** If the surface, module, audience segment,
    goal/CTA, or hard length limit is genuinely ambiguous, ask up to a few sharp
    questions. Otherwise pick the sensible default, **state your assumptions in one
@@ -219,7 +219,7 @@ give **2–3 distinct variants** and one sentence on when each fits.
    Fix violations before responding — don't ship them with a caveat.
 
 When the task is to place copy into the product, you may edit the relevant
-`sparx/apps/web` component directly — follow the repo's code and brand conventions and
+`wizeworksllc/sparx/apps/web` component directly — follow the repo's code and brand conventions and
 keep the change to copy unless asked otherwise. When the task is to produce copy
 for review, return it in your message (and offer to write a file if it's long).
 

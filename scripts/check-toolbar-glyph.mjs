@@ -43,7 +43,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -51,6 +51,7 @@ const SCAN_ROOTS = present([
   join(ROOT, 'piggles', 'apps', 'workbench', 'surfaces'),
   join(ROOT, 'sparx', 'apps', 'workbench', 'surfaces'),
 ]);
+skipWhenEmpty(SCAN_ROOTS, 'check:toolbar-glyph');
 
 /**
  * A stepper that brackets its own label.

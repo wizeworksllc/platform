@@ -37,7 +37,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { HAS_PIGGLES } from './lib/piggles.mjs';
+import { HAS_PIGGLES, HAS_SPARX } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (rel) => readFileSync(join(repoRoot, rel), 'utf8');
@@ -75,9 +75,16 @@ function catalogSources() {
       found.push({ brand: entry.name, label: file, files: [file] });
     }
   }
-  // One per brand console: two when Piggles is checked out beside sparx (as in
-  // Piggles' CI), one when sparx stands alone (scripts/lib/piggles.mjs).
-  if (found.length < (HAS_PIGGLES ? 2 : 1)) {
+  // One per brand console that is checked out here (scripts/lib/brand-trees.mjs):
+  // both in Piggles' CI, sparx's in sparx's, none in this repository alone, where
+  // the API-against-registry half below still runs.
+  const expected = (HAS_PIGGLES ? 1 : 0) + (HAS_SPARX ? 1 : 0);
+  if (expected === 0) {
+    console.log(
+      'check-webhook-events: no brand console is checked out here, so no picker is compared.'
+    );
+  }
+  if (found.length < expected) {
     throw new Error(
       `check-webhook-events: found ${found.length} event picker(s) under */${CMS_DIR} — expected one per brand console. A moved directory makes this check scan nothing and pass.`
     );
