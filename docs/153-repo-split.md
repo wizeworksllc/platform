@@ -1,6 +1,6 @@
 # Splitting the platform, sparx and Piggles into three repositories
 
-**Version:** 0.7
+**Version:** 0.8
 **Author:** Brandon Korous
 **Last Updated:** 2026-11-01
 
@@ -237,7 +237,8 @@ and all three apps run in namespace `piggles`.
 - **Console parity (D4):** Piggles' CI checks sparx out at `platform/` and
   Piggles at `platform/piggles/`, then runs 42 of sparx's cross-console checks
   unchanged (`scripts/platform-checks.mjs`). In sparx alone, those checks read
-  sparx's console only (`scripts/lib/piggles.mjs`).
+  sparx's console only (then `scripts/lib/piggles.mjs`, now
+  `scripts/lib/brand-trees.mjs`).
 - sparx PR #161 removed `piggles/`, its workspace globs, release entries,
   manifests and Dockerfile entries. Its next release pruned the `sparx-prod`
   copies of the three apps.
@@ -258,13 +259,53 @@ proven on it before sparx follows.
 
 ### Phase 5. sparx moves to its own repository
 
-First, today's repository is renamed `wizeworksllc/platform` (Q1), which frees
-the name. Then the same playbook as Phase 4, for `sparx/apps/*` and
-`sparx/packages/*`:
-history kept, own CI and release, a `sparx` namespace for its frontends,
-cut over one app at a time (web, market, then the workbench). The parity check
-in Piggles' CI then checks out `wizeworksllc/sparx` instead of today's
-repository.
+Done 2026-11-01. sparx's apps live in the public repository `wizeworksllc/sparx`
+(id 1442332718), and web, market and the workbench run in namespace `sparx`.
+
+- **The rename (Q1).** wize-infrastructure #13 trusted
+  `repo:wizeworksllc@350084568/platform@1251494871` first. Then this repository
+  was renamed `wizeworksllc/platform` and every checkout's remote updated.
+  Platform #163 and #164 moved the images to `ghcr.io/wizeworksllc/platform/*`
+  and every published package's repository link. wize-infrastructure #14 moved
+  the plain-form subject and the CI default. The first release under the new
+  name signed in to Azure, built, deployed and published the 28 packages.
+- **The new repository.** Created from the history of `sparx/apps`,
+  `sparx/packages/brand` and `sparx/docs` (now `apps/`, `packages/`, `docs/`),
+  with the platform's version tags dropped. Its platform dependencies are pinned
+  published `@wizeworksllc/*` versions, not `workspace:*`. Public, so its CI gets
+  the large runner and needs no heap cap, and its images are public on first push.
+- **Its own identity, never the platform's.** wize-infrastructure #15 added
+  `gha-sparx-apps-prod` (federated to the new repository's id-qualified
+  subject), the vault `kv-sparxapps-prod-cus` with the six keys the apps read
+  (`next-actions-key-*`, `wizelens-key-*`, copied unchanged from
+  `kv-sparx-prod-cus`), and Caddy upstreams that tried `sparx-<app>.sparx` first
+  and `<app>.sparx-prod` second. The platform's `gha` identity reads every
+  platform secret, so the apps' pipeline never gets it.
+- **Cut over one app at a time** by listing its manifest in the sparx
+  repository's `k8s/kustomization.yaml`: web (#1), market (#3), the workbench
+  (#4). Each was checked live by build: WizeLens `@service.version` is the image
+  commit, so it shows which copy answered (Caddy keeps no access log).
+  wize-infrastructure #17 then removed the `sparx-prod` fallbacks.
+- **This repository's cleanup** removed `sparx/`, its workspace globs, release
+  entries, manifests and Dockerfile entries; its next release pruned the
+  `sparx-prod` copies. The checks that read sparx's code keep their `sparx/...`
+  paths: here they skip that part with a printed note, and in the sparx
+  repository's CI, which checks this repository out at `platform/` and sparx at
+  `platform/sparx`, they read it in full.
+- **Console parity (D4).** Piggles' CI checks out this repository, then
+  `wizeworksllc/sparx` at `platform/sparx`. Its three console-comparing checks
+  find sparx through `$SPARX_DIR` or a sibling checkout named `sparx`.
+
+What Phase 5 taught:
+
+- A NEW Service name can fail to resolve for up to 30 seconds after it exists.
+  Caddy had been asking for `sparx-web.sparx` on every request, so CoreDNS held a
+  cached "no such name", and the first smoke test failed while the pod served.
+  The sparx release's smoke test now retries.
+- The infrastructure release refuses any plan that deletes. Removing the old
+  `sparx@1251494871` trust (dead since the rename) deletes three credentials, so
+  it waits for a run with `allow_infrastructure_destroy` chosen on purpose. Until
+  then the entry stays in `org-move.tf`, marked dead.
 
 ### Phase 6. Today's repository becomes the platform
 
