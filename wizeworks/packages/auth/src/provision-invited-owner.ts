@@ -141,6 +141,7 @@ export async function provisionInvitedOwner(
         await tx.account.create({
           data: {
             userId: user.id,
+            platformBrand,
             providerId: 'credential',
             accountId: user.id,
             password: passwordHash,

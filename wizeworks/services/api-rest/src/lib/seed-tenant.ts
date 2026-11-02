@@ -203,13 +203,14 @@ async function findOrProvisionTenant(spec: SeedTenantSpec): Promise<ProvisionedT
         role: 'owner',
         emailVerified: true,
       },
-      select: { id: true },
+      select: { id: true, platformBrand: true },
     });
     // accounts RLS keys on user_id — set the GUC before the credential insert.
     await tx.$executeRaw`SELECT set_config('app.user_id', ${user.id}::text, true)`;
     await tx.account.create({
       data: {
         userId: user.id,
+        platformBrand: user.platformBrand,
         providerId: 'credential',
         accountId: user.id,
         password: passwordHash,

@@ -3302,7 +3302,8 @@ async function main(): Promise<void> {
 
       await tx.account.upsert({
         where: {
-          providerId_accountId: {
+          platformBrand_providerId_accountId: {
+            platformBrand: owner.platformBrand,
             providerId: 'credential',
             accountId: owner.id,
           },
@@ -3310,6 +3311,7 @@ async function main(): Promise<void> {
         update: { password: passwordHash },
         create: {
           userId: owner.id,
+          platformBrand: owner.platformBrand,
           providerId: 'credential',
           accountId: owner.id,
           password: passwordHash,

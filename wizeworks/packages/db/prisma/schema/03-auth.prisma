@@ -166,7 +166,7 @@ model Session {
   @@map("sessions")
 }
 
-// One row per (provider, userId). For email/password the providerId is
+// One row per (brand, provider, userId). For email/password the providerId is
 // "credential" and `password` carries the Argon2 hash; for OAuth providers
 // it's "google" / "github" / etc. with access/refresh tokens.
 
@@ -175,6 +175,14 @@ model Account {
   userId                String    @map("user_id") @db.Uuid
   providerId            String    @map("provider_id") @db.VarChar(50)
   accountId             String    @map("account_id") @db.VarChar(255)
+  // Which product this sign-in method belongs to: always its user's brand.
+  // Better Auth 1.7 finds the account for a Google sign-in BEFORE it finds a
+  // user, by (provider, account id) alone. Without this column one Google
+  // identity had one row for both products, so signing in on the second brand
+  // found the first brand's row, could not see its user through the brand
+  // filter, and refused with `unable_to_link_account`. No default: every
+  // writer names the brand (brand-scoped-prisma.ts stamps Better Auth's own).
+  platformBrand         String    @map("platform_brand") @db.VarChar(20)
   password              String?   @db.Text
   accessToken           String?   @map("access_token") @db.Text
   refreshToken          String?   @map("refresh_token") @db.Text
@@ -187,7 +195,9 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([providerId, accountId])
+  // One row per identity PER BRAND: the same Google account may sign in to
+  // each product once. Addressed in Prisma as `platformBrand_providerId_accountId`.
+  @@unique([platformBrand, providerId, accountId], map: "accounts_brand_provider_account_unique")
   @@index([userId])
   @@map("accounts")
 }

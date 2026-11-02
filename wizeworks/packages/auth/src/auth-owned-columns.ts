@@ -5,10 +5,10 @@
 // database call. A required column with no default that it does not know about
 // is, to it, a column every insert will leave out, so it refuses to run at all:
 // each request that touches auth throws "Prisma schema mismatch". That took down
-// both Piggles sign-in apps when 1.7 shipped. Two columns trip it:
+// both Piggles sign-in apps when 1.7 shipped. Three columns trip it:
 //
-//   • jwks.platformBrand: brand-scoped-prisma.ts stamps it on every create, so
-//     an insert never leaves it out.
+//   • jwks.platformBrand and account.platformBrand: brand-scoped-prisma.ts
+//     stamps them on every create, so an insert never leaves them out.
 //   • tenant.email: the tenant IS the organization, and sparx creates tenants
 //     itself (signUpMerchant, OAuth provisioning). The organization plugin is
 //     configured never to create one (`allowUserToCreateOrganization: false`).
@@ -34,6 +34,10 @@ export function authOwnedColumns(): BetterAuthPlugin {
     schema: {
       jwks: {
         modelName: 'jwks',
+        fields: { platformBrand: sparxFilled },
+      },
+      account: {
+        modelName: 'account',
         fields: { platformBrand: sparxFilled },
       },
       organization: {

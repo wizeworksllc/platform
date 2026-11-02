@@ -143,6 +143,7 @@ export async function signUpMerchant(input: SignUpMerchantInput): Promise<SignUp
       await tx.account.create({
         data: {
           userId: user.id,
+          platformBrand,
           providerId: 'credential',
           accountId: user.id,
           password: passwordHash,
