@@ -28,5 +28,6 @@ describe('Better Auth schema check', () => {
     expect(tables.organization?.fields.logo?.fieldName).toBe('orgLogo');
     expect(tables.organization?.fields.metadata?.fieldName).toBe('orgMetadata');
     expect(tables.jwks?.modelName).toBe('jwks');
+    expect(tables.account?.modelName).toBe('account');
   });
 });

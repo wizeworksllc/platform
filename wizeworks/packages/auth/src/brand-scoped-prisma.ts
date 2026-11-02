@@ -6,7 +6,8 @@
 // deployment that mounted the instance.
 //
 // This hands Better Auth's stock `prismaAdapter` a PROXY over `authPrisma` that
-// does two things to the `user` model (and to `jwks`, below) and nothing else:
+// does two things to the `user` model (and to `account` and `jwks`, below) and
+// nothing else:
 // it ANDs the deployment's brand into every read, and it stamps that brand onto
 // every create. All of
 // Better Auth's audited where/select/join logic is reused verbatim — the same
@@ -49,17 +50,23 @@ import type { PrismaClient } from '@prisma/client';
 import { currentPlatformBrand } from '@wizeworksllc/brand-core';
 import { authPrisma } from './prisma';
 
-/** The Prisma delegate keys this proxy scopes. Sessions and accounts are keyed
- *  by `user_id` and carry no brand of their own — deliberately untouched. A
- *  session cookie minted under the other brand still dies correctly, because
- *  resolving its user by id returns nothing through this filter.
+/** The Prisma delegate keys this proxy scopes. Sessions are keyed by `user_id`
+ *  and carry no brand of their own — deliberately untouched. A session cookie
+ *  minted under the other brand still dies correctly, because resolving its user
+ *  by id returns nothing through this filter.
+ *
+ *  `account` is scoped because Better Auth 1.7 reads it WITHOUT a user first: a
+ *  Google sign-in finds the account by (provider, account id), then its user.
+ *  Google gives a person one account id for both products, so an unscoped read
+ *  found the other brand's row, its user was invisible through this filter, and
+ *  sign-in refused with `unable_to_link_account`. Each brand now has its own row.
  *
  *  `jwks` is the OAuth signing key set (the jwt() plugin). Each brand encrypts
  *  its private keys with its own BETTER_AUTH_SECRET and signs with the newest
  *  row it can read, so an unscoped set would hand one product the other's key
  *  the moment the other minted one, and every token it signed after that would
  *  fail to decrypt. */
-const SCOPED_MODELS: ReadonlySet<string> = new Set(['user', 'jwks']);
+const SCOPED_MODELS: ReadonlySet<string> = new Set(['user', 'account', 'jwks']);
 
 /** Prisma's generated `where` key for `@@unique([platformBrand, email])`.
  *

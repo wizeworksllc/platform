@@ -142,6 +142,7 @@ describe('an account operation that rotates the session', () => {
     await authPrisma.account.create({
       data: {
         userId,
+        platformBrand: 'piggles',
         providerId: 'credential',
         accountId: userId,
         // The brand's own hasher, the one its sign-in verifies against.
