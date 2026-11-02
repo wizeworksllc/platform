@@ -6,8 +6,8 @@ status: active
 applies-to: [dashboard]
 sources:
   - docs/35-ui-variant-system.md
-  - sparx/packages/ui/CLAUDE.md
-  - sparx/packages/brand/src/theme.css
+  - wizeworks/packages/ui/CLAUDE.md
+  - wizeworksllc/sparx/packages/brand/src/theme.css
 ---
 
 Every color-bearing control is **four orthogonal axes: `color × variant × size × shape`** — never a flat enum.

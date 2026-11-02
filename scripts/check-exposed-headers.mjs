@@ -28,7 +28,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -51,6 +51,7 @@ const SCAN_ROOTS = present([
   'sparx/apps/workbench/surfaces',
   'sparx/apps/workbench/lib',
 ]);
+skipWhenEmpty(SCAN_ROOTS, 'check:exposed-headers');
 
 function must(rel) {
   const abs = join(REPO, rel);

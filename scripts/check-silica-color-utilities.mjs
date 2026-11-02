@@ -35,7 +35,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present } from './lib/brand-trees.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -46,17 +46,20 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
  * tenant site declares its whole palette through silica-catalog's base-theme.css
  * and needs no block of its own.
  */
-const APPS = present([
-  { css: 'piggles/apps/workbench/app/globals.css' },
-  { css: 'piggles/apps/web/app/globals.css' },
-  { css: 'sparx/apps/workbench/app/globals.css' },
-  { css: 'sparx/apps/web/app/globals.css' },
-  { css: 'sparx/apps/market/app/globals.css' },
-  {
-    css: 'wizeworks/apps/site/app/globals.css',
-    imports: ['wizeworks/packages/silica-catalog/src/base-theme.css'],
-  },
-], (a) => a.css);
+const APPS = present(
+  [
+    { css: 'piggles/apps/workbench/app/globals.css' },
+    { css: 'piggles/apps/web/app/globals.css' },
+    { css: 'sparx/apps/workbench/app/globals.css' },
+    { css: 'sparx/apps/web/app/globals.css' },
+    { css: 'sparx/apps/market/app/globals.css' },
+    {
+      css: 'wizeworks/apps/site/app/globals.css',
+      imports: ['wizeworks/packages/silica-catalog/src/base-theme.css'],
+    },
+  ],
+  (a) => a.css
+);
 
 function registeredColors(css) {
   const block = /@plugin\s+['"]@wizeworks\/silicaui['"]\s*\{([\s\S]*?)\}/.exec(css);

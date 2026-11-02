@@ -43,7 +43,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 function die(lines) {
   console.error(lines.join('\n'));
@@ -67,6 +67,7 @@ const CONSOLES = present(['piggles', 'sparx']).map((brand) => ({
   surfaces: join(ROOT, brand, 'apps', 'workbench', 'surfaces'),
   nav: join(ROOT, brand, 'apps', 'workbench', 'lib', 'surfaces', 'nav.ts'),
 }));
+skipWhenEmpty(CONSOLES, 'check:app-names');
 
 /** Every module slug the workbench knows, read from the real union. */
 function moduleSlugs(brand) {

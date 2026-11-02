@@ -32,7 +32,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 // Resolved from THIS file, never by counting `..` from the shell's cwd — a
 // check that resolves its roots by accident scans nothing after a tree move and
@@ -45,6 +45,7 @@ const CONSOLES = present([
   join(ROOT, 'piggles/apps/workbench/surfaces/cms/routable.ts'),
   join(ROOT, 'sparx/apps/workbench/surfaces/cms/routable.ts'),
 ]);
+skipWhenEmpty(CONSOLES, 'check:cms-routes');
 
 let failed = false;
 const fail = (message) => {

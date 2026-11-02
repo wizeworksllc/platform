@@ -8,7 +8,7 @@ sources:
   - wizeworks/packages/crm/src/services/order-fulfillments-service.ts
   - wizeworks/packages/inventory/src/services/pick-lists.ts
   - wizeworks/packages/inventory/src/services/packing.ts
-  - sparx/docs/personas/issues/057, 058
+  - wizeworksllc/sparx/docs/personas/issues/057, 058
 ---
 
 Whether an order, and each line of it, may leave the building is ONE pure rule in

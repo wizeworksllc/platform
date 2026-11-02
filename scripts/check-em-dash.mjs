@@ -18,11 +18,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOTS = [
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
+
+const ROOTS = present([
   'sparx/apps/workbench/surfaces',
   'sparx/apps/workbench/components',
   'sparx/apps/workbench/lib',
-];
+]);
+skipWhenEmpty(ROOTS, 'check:em-dash');
 const SENTENCE_DASH = /[A-Za-z,)] — [A-Za-z(]/;
 
 let files = 0;

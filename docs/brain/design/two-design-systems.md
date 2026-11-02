@@ -6,8 +6,8 @@ status: active
 applies-to: [both]
 sources:
   - DESIGN.md
-  - sparx/packages/brand/src/theme.css
-  - sparx/packages/ui/src/tokens.css
+  - wizeworksllc/sparx/packages/brand/src/theme.css
+  - wizeworks/packages/ui/src/tokens.css
   - docs/33-token-model-v2.md
   - wizeworks/packages/surface-compile/src/theme.ts
 ---
@@ -18,7 +18,7 @@ sparx has **two** design systems. **The axis is whose brand a surface wears — 
 
 |                   | **sparx's own surfaces**                                                                    | **Tenant sites**                        |
 | ----------------- | ------------------------------------------------------------------------------------------- | --------------------------------------- |
-| Apps              | `sparx/apps/workbench`, `sparx/apps/web`, `sparx/apps/market`, `wizeworks/apps/admin`, `sparx/apps/b2b-portal`                | `wizeworks/apps/site`                             |
+| Apps              | `wizeworksllc/sparx/apps/workbench`, `wizeworksllc/sparx/apps/web`, `wizeworksllc/sparx/apps/market`, `wizeworks/apps/admin`, `wizeworksllc/sparx/apps/b2b-portal`                | `wizeworks/apps/site`                             |
 | Whose brand       | **ours**                                                                                    | **the tenant's**                        |
 | Token prefix      | `--color-base-*` / semantic `--color-*` / `--color-module-*` (silica, from `@sparx/brand`)  | `--st-*`                                |
 | Component classes | silicaui plugin classes (`btn-*`, `bg-<color>`, `bg-soft`)                                  | `.st-c-*`                               |
@@ -29,15 +29,15 @@ sparx has **two** design systems. **The axis is whose brand a surface wears — 
 
 ## Correction (2026-07-31): the old split was on the wrong axis
 
-This note previously split **"Dashboard / admin"** vs **"Site"**, which left `sparx/apps/web` and
-`sparx/apps/market` belonging to neither. That gap was not academic — it read as permission to treat
+This note previously split **"Dashboard / admin"** vs **"Site"**, which left `wizeworksllc/sparx/apps/web` and
+`wizeworksllc/sparx/apps/market` belonging to neither. That gap was not academic — it read as permission to treat
 marketing as its own design system with its own rules, and it directly produced a proposal to write
 a second, parallel `DESIGN.md` for the marketing apps.
 
-**Console and marketing are ONE system.** `sparx/apps/workbench`, `sparx/apps/web` and `sparx/apps/market` all import
+**Console and marketing are ONE system.** `wizeworksllc/sparx/apps/workbench`, `wizeworksllc/sparx/apps/web` and `wizeworksllc/sparx/apps/market` all import
 the same `@sparx/brand/theme.css` and register the same palette through the same
 `@plugin '@wizeworks/silicaui'`. The **only** difference anywhere in the platform is a single token
-override — `sparx/apps/web` sets `--radius-box: 1.5rem` against the brand default `0.5rem`.
+override — `wizeworksllc/sparx/apps/web` sets `--radius-box: 1.5rem` against the brand default `0.5rem`.
 
 **That is the sanctioned shape of variance: override a token, never fork the language.** A surface
 that needs to differ changes a value in its own `globals.css`; it does not get its own rules, doc, or

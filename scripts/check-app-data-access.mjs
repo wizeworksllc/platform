@@ -54,14 +54,16 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present } from './lib/brand-trees.mjs';
 
 const ROOT = process.cwd();
 
 const APP_ROOTS = present(['wizeworks/apps', 'sparx/apps', 'piggles/apps']);
 
-/** The workbench and account apps of both brands, and the marketing sites. */
-const FEWEST_APPS = 3;
+/** The fewest apps each root holds: the platform's tenant site, and each
+ *  brand's console and marketing apps when that brand is checked out here. */
+const FEWEST_PER_ROOT = { 'wizeworks/apps': 1, 'sparx/apps': 3, 'piggles/apps': 3 };
+const FEWEST_APPS = APP_ROOTS.reduce((sum, root) => sum + FEWEST_PER_ROOT[root], 0);
 
 /** Entry points of database-using packages that import neither the database
  *  nor the auth server. */

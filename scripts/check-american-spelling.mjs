@@ -90,7 +90,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
 
 import { BRITISH_WORDS } from './british-words.mjs';
-import { present } from './lib/piggles.mjs';
+import { present } from './lib/brand-trees.mjs';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const TREES = present([

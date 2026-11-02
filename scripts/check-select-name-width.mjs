@@ -36,7 +36,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
@@ -44,6 +44,7 @@ const ROOTS = present([
   join(ROOT, 'piggles', 'apps', 'workbench'),
   join(ROOT, 'sparx', 'apps', 'workbench'),
 ]);
+skipWhenEmpty(ROOTS, 'check:select-name-width');
 
 /**
  * A list that is OURS, read through a helper rather than declared inline.

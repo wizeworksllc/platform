@@ -24,7 +24,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
-import { HAS_PIGGLES, present } from './lib/piggles.mjs';
+import { HAS_PIGGLES, present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -39,6 +39,7 @@ const CATALOG_DIRS = present([
   'sparx/apps/workbench/lib/surfaces/catalog',
   'piggles/apps/workbench/lib/surfaces/catalog',
 ]);
+skipWhenEmpty(CATALOG_DIRS, 'check:routes');
 const ROUTES_FILE = 'wizeworks/packages/links/src/routes.ts';
 
 // Registrations that live OUTSIDE the catalog directories. `piggles.home` is one:
@@ -199,7 +200,7 @@ const unaddressed = [...surfaces]
 // The route table serves both consoles, and some routes name a surface only
 // Piggles registers (its studio panes, `piggles.home`). Without the Piggles
 // checkout those read as orphaned here, so this direction runs where both
-// consoles are: Piggles' CI (scripts/lib/piggles.mjs).
+// consoles are: Piggles' CI (scripts/lib/brand-trees.mjs).
 const orphaned = HAS_PIGGLES ? [...routed].filter((key) => !surfaces.has(key)).sort() : [];
 
 if (unaddressed.length > 0) {

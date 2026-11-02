@@ -8,11 +8,11 @@ sources:
   - wizeworks/packages/links/src/routes.ts
   - wizeworks/packages/links/src/resolve.ts
   - wizeworks/packages/links/src/server.ts
-  - sparx/apps/workbench/lib/workbench/deep-link.ts
-  - sparx/apps/workbench/lib/workbench/address.ts
-  - sparx/apps/workbench/components/deep-link-arrival.tsx
-  - sparx/apps/workbench/app/workbench-entry.tsx
-  - sparx/apps/workbench/app/[...path]/page.tsx
+  - wizeworksllc/sparx/apps/workbench/lib/workbench/deep-link.ts
+  - wizeworksllc/sparx/apps/workbench/lib/workbench/address.ts
+  - wizeworksllc/sparx/apps/workbench/components/deep-link-arrival.tsx
+  - wizeworksllc/sparx/apps/workbench/app/workbench-entry.tsx
+  - wizeworksllc/sparx/apps/workbench/app/[...path]/page.tsx
   - scripts/check-surface-routes.mjs
 ---
 

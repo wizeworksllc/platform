@@ -46,13 +46,14 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** Both consoles. A tree added outside this list is invisible here, which is why
  *  the file count is printed rather than a bare tick. */
 const ROOTS = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
+skipWhenEmpty(ROOTS, 'check:action-labels');
 
 /** The component that does it correctly — it explains the pattern in prose, so
  *  its own examples must not be read as call sites. */

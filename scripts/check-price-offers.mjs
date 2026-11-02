@@ -41,7 +41,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, sep } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 

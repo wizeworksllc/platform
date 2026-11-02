@@ -64,7 +64,7 @@ const summary = (
 
 It builds live from form state, holds **no inputs and no primary action**, and uses `strong` on the total row. The frame renders it as the full-height right column when wide and **stacks it as a card** when narrow (drawer) — automatically.
 
-The footer status pill is a **status** signal: color it via `statusTone()` (`draft`→warning, etc.) — **not** the module hue. Module color belongs to the record's own primary/tint; status is its own orthogonal axis (`DESIGN.md` §2). `statusTone` / `statusLabel` are exported from `@wizeworksllc/ui` — note there is **no workbench implementation yet**, so in `sparx/apps/workbench` the tone is being picked by hand at each call site, which is exactly how it drifts to neutral. Never ship a neutral status pill.
+The footer status pill is a **status** signal: color it via `statusTone()` (`draft`→warning, etc.) — **not** the module hue. Module color belongs to the record's own primary/tint; status is its own orthogonal axis (`DESIGN.md` §2). `statusTone` / `statusLabel` are exported from `@wizeworksllc/ui` — note there is **no workbench implementation yet**, so in `wizeworksllc/sparx/apps/workbench` the tone is being picked by hand at each call site, which is exactly how it drifts to neutral. Never ship a neutral status pill.
 
 ## 3. Wire it into the overlay system — THREE places, kept in sync
 

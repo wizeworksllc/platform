@@ -17,16 +17,15 @@ const read = (relative: string) =>
   readFileSync(fileURLToPath(new URL(relative, import.meta.url)), 'utf8');
 
 const ROOT = '../../../../../../../';
-// Piggles lives in its own repository (docs/153, Phase 4). Its console is read
-// only where it is checked out at `piggles/` inside this one, the layout its CI
-// builds; here alone there is only sparx's.
-const HAS_PIGGLES = existsSync(
-  fileURLToPath(new URL(`${ROOT}piggles/apps/workbench`, import.meta.url))
-);
-const CONSOLES = [
-  `${ROOT}sparx/apps/workbench/surfaces/finance/payouts-list.tsx`,
-  ...(HAS_PIGGLES ? [`${ROOT}piggles/apps/workbench/surfaces/finance/payouts-list.tsx`] : []),
-];
+// Both consoles live in their own repositories (docs/153, Phases 4 and 5). Each
+// is read only where it is checked out inside this one (`piggles/`, `sparx/`),
+// the layout that brand's CI builds; here alone neither is, and the brand's CI
+// runs the comparison instead.
+const hasConsole = (brand: string) =>
+  existsSync(fileURLToPath(new URL(`${ROOT}${brand}/apps/workbench`, import.meta.url)));
+const CONSOLES = ['sparx', 'piggles']
+  .filter(hasConsole)
+  .map((brand) => `${ROOT}${brand}/apps/workbench/surfaces/finance/payouts-list.tsx`);
 
 /** The values in a console's PROCESSOR_FILTERS, without "all". */
 function filterValues(source: string): string[] {
@@ -41,7 +40,11 @@ describe('payout sources', () => {
     expect(route).not.toMatch(/const GATEWAY_PROCESSORS\s*=/);
   });
 
-  it.each(CONSOLES)('%s offers every source the route settles', (path) => {
-    expect(filterValues(read(path)).sort()).toEqual([...GATEWAY_PROCESSORS].sort());
-  });
+  if (CONSOLES.length === 0) {
+    it.skip('no console is checked out here; each brand CI compares its own', () => undefined);
+  } else {
+    it.each(CONSOLES)('%s offers every source the route settles', (path) => {
+      expect(filterValues(read(path)).sort()).toEqual([...GATEWAY_PROCESSORS].sort());
+    });
+  }
 });

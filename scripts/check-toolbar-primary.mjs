@@ -44,7 +44,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -63,6 +63,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
  * [[feedback_structural_checks_go_blind]]
  */
 const TREES = present(['piggles/apps/workbench/surfaces', 'sparx/apps/workbench/surfaces']);
+skipWhenEmpty(TREES, 'check:toolbars');
 
 const missingTrees = TREES.filter((t) => !existsSync(join(ROOT, t)));
 if (missingTrees.length > 0) {

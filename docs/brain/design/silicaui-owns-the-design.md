@@ -7,13 +7,13 @@ applies-to: [platform]
 sources:
   - DESIGN.md
   - CLAUDE.md
-  - sparx/packages/brand/src/theme.css
+  - wizeworksllc/sparx/packages/brand/src/theme.css
 ---
 
 **silicaui is the design system. Feature code chooses; it does not paint.**
 
 **The promise:** change `--color-primary` once and every button, badge, tab, link and focus ring
-across `sparx/apps/workbench`, `sparx/apps/web` and `sparx/apps/market` follows. Change `--radius-field` and every
+across `wizeworksllc/sparx/apps/workbench`, `wizeworksllc/sparx/apps/web` and `wizeworksllc/sparx/apps/market` follows. Change `--radius-field` and every
 input re-shapes. Add a hover treatment to `.btn` and the whole platform gets it — no hunting, no
 sweep, no migration PR.
 

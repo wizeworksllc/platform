@@ -18,10 +18,11 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import ts from 'typescript';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const CONSOLES = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
+skipWhenEmpty(CONSOLES, 'check:wrap-rows');
 const SCAN = ['surfaces', 'components'];
 
 /** Piggles files over its 250-line rule, left until each is split (the owner's

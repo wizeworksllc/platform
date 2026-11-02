@@ -61,11 +61,21 @@ function repoRoot() {
 }
 
 const ROOT = repoRoot();
-const TREES = ['wizeworks', 'sparx'];
-// `piggles` is skipped too. Piggles' CI checks its own repository out at
-// `piggles/` inside this one, and its Dockerfiles are written for that
-// repository's layout, not this one's. Its own release checks them.
-const SKIP = new Set(['node_modules', '.git', '.next', '.turbo', 'dist', 'build', 'piggles']);
+const TREES = ['wizeworks'];
+// `piggles` and `sparx` are skipped too. Each brand's CI checks its own
+// repository out inside this one (`piggles/`, `sparx/`), and its Dockerfiles are
+// written for that repository's layout, not this one's. Its own release builds
+// them, which proves every COPY.
+const SKIP = new Set([
+  'node_modules',
+  '.git',
+  '.next',
+  '.turbo',
+  'dist',
+  'build',
+  'piggles',
+  'sparx',
+]);
 
 /** Every Dockerfile in the repo. */
 function dockerfiles() {

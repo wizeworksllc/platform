@@ -45,7 +45,7 @@ Created **boy-scout**, seeded from the row above, as we work each module — a s
 
 ## Finance is the one module with a per-SURFACE gate
 
-Every other module answers "may this account see it?" once, for the whole group. Finance answers it three different ways inside one hue, which is why `SurfaceDefinition.requiresModules` exists (`sparx/apps/workbench/lib/surfaces/registry.ts`):
+Every other module answers "may this account see it?" once, for the whole group. Finance answers it three different ways inside one hue, which is why `SurfaceDefinition.requiresModules` exists (`wizeworksllc/sparx/apps/workbench/lib/surfaces/registry.ts`):
 
 - **Money coming in** (Payments, Payouts, Owed to you, Where money comes from) — free, gated on *any of* `commerce / invoicing / b2b / scheduling`. It is a view of data the tenant already bought; charging for it would tax data they paid for.
 - **Your sparx bill** — `requiresModules: []`, never gated. It is where someone goes to BUY a module.
@@ -57,4 +57,4 @@ The gate is applied by `surfaceIsVisible`, shared by the rail, the mobile drawer
 
 ## Sources of truth
 
-`wizeworks/packages/module-roster/src/index.ts` (the registry) · `apps/dashboard/app/(dashboard)/_shell/registry.ts` (manifests + order) · `sparx/packages/ui/src/providers/module-provider.tsx` (hues) · `wizeworks/packages/auth/src/module-gate.ts` (the gate).
+`wizeworks/packages/module-roster/src/index.ts` (the registry) · `apps/dashboard/app/(dashboard)/_shell/registry.ts` (manifests + order) · `wizeworks/packages/ui/src/providers/module-provider.tsx` (hues) · `wizeworks/packages/auth/src/module-gate.ts` (the gate).

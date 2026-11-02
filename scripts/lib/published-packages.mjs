@@ -1,5 +1,4 @@
-// Which platform packages publish to GitHub Packages, and what sparx needs from
-// them (docs/153, D2 and Phase 3).
+// Which platform packages publish to GitHub Packages (docs/153, D2 and Phase 3).
 //
 // A package publishes when its package.json says so: `publishConfig.registry` is
 // the GitHub Packages npm registry. There is no list here to keep in step. The two
@@ -15,18 +14,7 @@ export const REGISTRY = 'https://npm.pkg.github.com';
 export const SCOPE = '@wizeworksllc/';
 
 /** Every directory pnpm-workspace.yaml globs. A missing one is a moved tree. */
-const WORKSPACE_GROUPS = [
-  'wizeworks/apps',
-  'wizeworks/packages',
-  'wizeworks/services',
-  'sparx/apps',
-  'sparx/packages',
-];
-
-/** The trees that consume published packages once they leave this repository.
- *  Piggles left first (docs/153, Phase 4): its own repository installs the
- *  published versions, and its CI builds every image from them. */
-export const CONSUMER_GROUPS = ['sparx/apps', 'sparx/packages'];
+const WORKSPACE_GROUPS = ['wizeworks/apps', 'wizeworks/packages', 'wizeworks/services'];
 
 /** name → { dir, json } for every workspace package. Throws on a missing group,
  *  so a moved tree fails here rather than scanning less and passing. */
@@ -57,45 +45,6 @@ export function runtimeWorkspaceDeps(json) {
   return Object.entries({ ...json.dependencies, ...json.peerDependencies })
     .filter(([, range]) => String(range).startsWith('workspace:'))
     .map(([name]) => name);
-}
-
-/** The platform packages one consumer installs, directly or through another
- *  package (its own devDependencies count; a dependency's do not). */
-export function packageClosure(pkgs, name) {
-  const seen = new Set();
-  const visit = (dep) => {
-    if (seen.has(dep)) return;
-    seen.add(dep);
-    const pkg = pkgs.get(dep);
-    if (pkg) for (const next of runtimeWorkspaceDeps(pkg.json)) visit(next);
-  };
-  const { json } = pkgs.get(name);
-  const deps = { ...json.dependencies, ...json.devDependencies, ...json.peerDependencies };
-  for (const [dep, range] of Object.entries(deps)) {
-    if (String(range).startsWith('workspace:')) visit(dep);
-  }
-  return [...seen].filter((dep) => dep.startsWith(SCOPE));
-}
-
-/** Every platform package sparx installs, directly or through another
- *  platform package. A consumer's devDependencies count, because the consumer
- *  installs them; a platform package's do not, because they are stripped. */
-export function consumerClosure(pkgs) {
-  const need = new Map(); // name → the package that first pulled it in
-  const visit = (name, from) => {
-    if (!name.startsWith(SCOPE) || need.has(name)) return;
-    need.set(name, from);
-    const pkg = pkgs.get(name);
-    if (pkg) for (const dep of runtimeWorkspaceDeps(pkg.json)) visit(dep, name);
-  };
-  for (const [name, { dir, json }] of pkgs) {
-    if (!CONSUMER_GROUPS.some((g) => dir.startsWith(`${g}/`))) continue;
-    const deps = { ...json.dependencies, ...json.devDependencies, ...json.peerDependencies };
-    for (const [dep, range] of Object.entries(deps)) {
-      if (String(range).startsWith('workspace:')) visit(dep, name);
-    }
-  }
-  return need;
 }
 
 /** The `catalog:` versions from pnpm-workspace.yaml (the default catalog only;

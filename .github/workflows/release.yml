@@ -254,51 +254,31 @@ jobs:
         needs: base
         runs-on: ubuntu-latest
         strategy:
-            # One failing image must not cancel the other 21 — the failure is almost
+            # One failing image must not cancel the others — the failure is almost
             # always specific to one Dockerfile, and seeing all of them fail is worth
             # more than failing fast.
             fail-fast: false
             max-parallel: 6
             matrix:
                 include:
-                    # Apps + APIs (k8s/apps)
+                    # Apps + APIs (k8s/apps). sparx's web, workbench and market build in
+                    # wizeworksllc/sparx now (docs/153, Phase 5).
+                    - { name: api-rest, dockerfile: wizeworks/services/api-rest/Dockerfile }
+                    - { name: api-graphql, dockerfile: wizeworks/services/api-graphql/Dockerfile }
+                    - { name: api-mcp, dockerfile: wizeworks/services/api-mcp/Dockerfile }
+                    - { name: mcp-site, dockerfile: wizeworks/services/mcp-site/Dockerfile }
                     - {
-                          name: api-rest,
-                          dockerfile: wizeworks/services/api-rest/Dockerfile,
+                          name: site,
+                          dockerfile: wizeworks/apps/site/Dockerfile,
+                          actions_key: NEXT_ACTIONS_KEY_SITE,
                       }
-                    - {
-                          name: api-graphql,
-                          dockerfile: wizeworks/services/api-graphql/Dockerfile,
-                      }
-                    - {
-                          name: api-mcp,
-                          dockerfile: wizeworks/services/api-mcp/Dockerfile,
-                      }
-                    - {
-                          name: mcp-site,
-                          dockerfile: wizeworks/services/mcp-site/Dockerfile,
-                      }
-                    - {
-                          name: workbench,
-                          dockerfile: sparx/apps/workbench/Dockerfile,
-                          actions_key: NEXT_ACTIONS_KEY_WORKBENCH,
-                      }
-                    - { name: web, dockerfile: sparx/apps/web/Dockerfile, actions_key: NEXT_ACTIONS_KEY_WEB }
-                    - { name: site, dockerfile: wizeworks/apps/site/Dockerfile, actions_key: NEXT_ACTIONS_KEY_SITE }
-                    - { name: market, dockerfile: sparx/apps/market/Dockerfile, actions_key: NEXT_ACTIONS_KEY_MARKET }
                     # Workers (k8s/self-hosted/workers.yaml). THREE images, not fourteen:
                     # twelve of them were the same container with a different WORKDIR, and
                     # are now handler libraries under packages/*-worker running inside
                     # event-worker. media-worker and import-worker stay separate — see the
                     # header of that manifest for which isolation was worth keeping.
-                    - {
-                          name: event-worker,
-                          dockerfile: wizeworks/services/event-worker/Dockerfile,
-                      }
-                    - {
-                          name: media-worker,
-                          dockerfile: wizeworks/services/media-worker/Dockerfile,
-                      }
+                    - { name: event-worker, dockerfile: wizeworks/services/event-worker/Dockerfile }
+                    - { name: media-worker, dockerfile: wizeworks/services/media-worker/Dockerfile }
                     - {
                           name: import-worker,
                           dockerfile: wizeworks/services/import-worker/Dockerfile,
@@ -332,7 +312,7 @@ jobs:
                   VAULT: ${{ vars.AZURE_KEY_VAULT_NAME }}
               run: |
                   set -euo pipefail
-                  # NEXT_ACTIONS_KEY_WEB -> next-actions-key-web, the same mapping the secret sync reverses.
+                  # NEXT_ACTIONS_KEY_SITE -> next-actions-key-site, the same mapping the secret sync reverses.
                   kv_name=$(printf '%s' "$KEY_NAME" | tr 'A-Z_' 'a-z-')
                   key=$(az keyvault secret show --vault-name "$VAULT" --name "$kv_name" --query value -o tsv)
                   [ -n "$key" ] || { echo "::error::$kv_name is empty in $VAULT"; exit 1; }
@@ -350,8 +330,8 @@ jobs:
                   file: ${{ matrix.dockerfile }}
                   push: true
                   # Every Node service resolves this to the base built from THIS commit.
-                  # The five Next.js apps ignore it: they build standalone bundles, are
-                  # already small (76-121 MB), and share nothing with the service tree.
+                  # The Next.js app (site) ignores it: it builds a standalone bundle, is
+                  # already small (about 100 MB), and shares nothing with the service tree.
                   #
                   # The PostHog key is a build-arg and not a secret ON PURPOSE: it is the
                   # PROJECT key (`phc_…`), which ships inside the browser bundle and can

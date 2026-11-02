@@ -35,7 +35,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative } from 'node:path';
-import { present } from './lib/piggles.mjs';
+import { present, skipWhenEmpty } from './lib/brand-trees.mjs';
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -43,6 +43,7 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
  *  the file count is printed rather than a bare tick.
  *  [[feedback_structural_checks_go_blind]] */
 const ROOTS = present(['sparx/apps/workbench', 'piggles/apps/workbench']);
+skipWhenEmpty(ROOTS, 'check:count-ink');
 
 /**
  * Figures whose color is not an alarm, with the reason.
@@ -104,7 +105,7 @@ for (const root of ROOTS) {
   if (!/count > 0 \? ink : ''/.test(source)) {
     die([
       `✖ ${rel} no longer drops the color at zero.`,
-      '   `count > 0 ? ink : \'\'` is the whole rule. Returning the ink either way',
+      "   `count > 0 ? ink : ''` is the whole rule. Returning the ink either way",
       '   puts every guarded figure back to shouting about nothing, and every',
       '   call site still reads as correct.',
     ]);
@@ -173,7 +174,7 @@ if (offenders.length > 0) {
     '   A zero is not a problem, so it should not be painted like one. Two zeros',
     '   in alarm colors beside a 1 send the eye to the wrong number.',
     '',
-    '     import { countClass } from \'../../lib/count-ink\';',
+    "     import { countClass } from '../../lib/count-ink';",
     "     <Text className={countClass(n, 'text-2xl font-semibold tabular-nums', 'text-danger')}>",
     '',
     '   If the color is a LEGEND rather than an alarm — one slice of a partition,',

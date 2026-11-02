@@ -68,7 +68,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { selfTest, shapesIn } from './lib/interface-shapes.mjs';
-import { HAS_PIGGLES } from './lib/piggles.mjs';
+import { HAS_PIGGLES } from './lib/brand-trees.mjs';
 
 /** Resolve the repo root by its marker, never by counting `..` up from here. */
 function repoRoot() {
