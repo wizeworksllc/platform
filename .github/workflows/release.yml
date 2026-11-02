@@ -1038,7 +1038,7 @@ jobs:
                   # that is not there — so a rename turns this gate from "did the
                   # runtime change" into "no", silently, and the release goes green
                   # having deployed nothing. Every path is named once, here.
-                  ROLL_PATHS='wizeworks sparx k8s pnpm-lock.yaml pnpm-workspace.yaml marketplace-catalog'
+                  ROLL_PATHS='wizeworks k8s pnpm-lock.yaml pnpm-workspace.yaml marketplace-catalog'
                   for p in $ROLL_PATHS; do
                     if [ ! -e "$p" ]; then
                       echo "::error::rollout gate names '$p', which does not exist in this tree." \
@@ -1072,19 +1072,21 @@ jobs:
                       # NOT a build filter — the images were built regardless; this only
                       # decides whether the CLUSTER needs to move.
                       #
-                      # The three product trees, not `apps services packages`, which is
+                      # The product trees, not `apps services packages`, which is
                       # what this read until the tree move deleted all three. `git diff`
                       # accepts a pathspec that matches nothing without complaint, so
                       # the gate would have compared FOUR of its seven paths, found no
                       # change in any release that only touched app code, and skipped
                       # the rollout while reporting success — a stage that succeeds
                       # while the thing it exists to do does not happen. The guard above
-                      # this line is why it cannot come back.
-                      elif git diff --quiet "$DEPLOYED" '${{ github.sha }}' -- \
-                             wizeworks sparx k8s pnpm-lock.yaml pnpm-workspace.yaml \
-                             marketplace-catalog; then
+                      # this line is why it cannot come back. It diffs $ROLL_PATHS, the
+                      # list the guard checked, so the two can never drift apart again
+                      # (they did: sparx/ left in Phase 5 and only the guard noticed).
+                      # Unquoted on purpose: one pathspec per word.
+                      # shellcheck disable=SC2086
+                      elif git diff --quiet "$DEPLOYED" '${{ github.sha }}' -- $ROLL_PATHS; then
                         roll=false
-                        reason="nothing under wizeworks/ sparx/ k8s/ changed since ${DEPLOYED:0:12}"
+                        reason="nothing under $ROLL_PATHS changed since ${DEPLOYED:0:12}"
                       else
                         reason="runtime paths changed since ${DEPLOYED:0:12}"
                       fi ;;
