@@ -40,6 +40,8 @@ export interface BookingConfirmation {
     /** Present when the tenant runs its own Stripe account (`stripe_direct`) — the
      *  intent is on THEIR account, so the browser must load Stripe.js with THEIR key. */
     publishableKey?: string;
+    /** sparx Pay: the merchant's connected account the deposit intent is on. */
+    stripeAccount?: string;
     amountCents: number;
     type: DepositType;
   } | null;

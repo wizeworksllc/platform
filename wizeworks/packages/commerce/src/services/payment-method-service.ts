@@ -45,6 +45,9 @@ export interface BeginSetupResult {
   /** Send the shopper here instead (redirect gateways). */
   redirectUrl: string | null;
   publishableKey?: string;
+  /** The connected account the session was made on (sparx Pay). The browser loads
+   *  Stripe.js for this account, or it cannot confirm the session. */
+  stripeAccount?: string;
   /** Echo back to `completeSetup` once the shopper finishes. */
   setupRef: string;
 }
@@ -120,6 +123,7 @@ export async function beginSetup(
     clientSecret: session.clientSecret,
     redirectUrl: session.redirectUrl,
     ...(session.publishableKey ? { publishableKey: session.publishableKey } : {}),
+    ...(session.stripeAccount ? { stripeAccount: session.stripeAccount } : {}),
     setupRef: session.setupRef,
   };
 }

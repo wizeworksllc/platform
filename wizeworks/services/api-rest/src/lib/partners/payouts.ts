@@ -1,23 +1,26 @@
 // Partner commission payouts via Stripe Connect (docs/114 §B.4). Reuses the same
-// platform Stripe client + Express-account + Account-Link pattern as sparx Pay
-// onboarding (payments-onboarding.ts), but for the OTHER direction: a partner
-// RECEIVES monthly commission transfers from the platform balance.
+// platform Stripe client + Account-Link pattern as sparx Pay onboarding
+// (payments-onboarding.ts), but for the OTHER direction: a partner RECEIVES monthly
+// commission transfers from the platform balance.
 //
-//   • onboarding — mint a partner Express account (partners.stripePayoutAccountId)
-//     + a hosted Account Link; Stripe hosts KYC/bank (Stripe-hosted-first).
+//   • onboarding — mint a partner Accounts v2 RECIPIENT account with the Express
+//     Dashboard (partners.stripePayoutAccountId) + a hosted Account Link; Stripe
+//     hosts KYC/bank (Stripe-hosted-first). The v1 `type: 'express'` create it used
+//     is the one Stripe now refuses (see stripe-connect-accounts.ts).
 //   • the run — group each partner's `approved` commissions ≥ their threshold,
 //     create ONE transfer to their connected account, record a payout_run, and
 //     mark the commissions paid. Idempotent-ish + best-effort per partner.
 
 import { getPlatformStripe } from '@wizeworksllc/payments';
-import { withSystem, withTenant } from '@wizeworksllc/db';
+import { prisma, withSystem, withTenant } from '@wizeworksllc/db';
 import { appOrigin } from '@wizeworksllc/links/server';
 import { PaymentsUnconfiguredError } from '../payments-onboarding.js';
+import { createOnboardingLink, createRecipientAccount } from '../stripe-connect-accounts.js';
 
 import { formatPartnerMoney, publishPartnerEmail, publishPartnerEvent } from './events.js';
 
-/** Ensure the partner has a Stripe Express connected account for payouts, creating
- *  one on first use + persisting its id on the partner row. Idempotent. */
+/** Ensure the partner has a Stripe recipient account for payouts, creating one on
+ *  first use + persisting its id on the partner row. Idempotent. */
 async function ensurePayoutAccount(partnerTenantId: string): Promise<string> {
   const stripe = getPlatformStripe();
   if (!stripe) throw new PaymentsUnconfiguredError();
@@ -30,18 +33,31 @@ async function ensurePayoutAccount(partnerTenantId: string): Promise<string> {
   );
   if (existing?.stripePayoutAccountId) return existing.stripePayoutAccountId;
 
-  const account = await stripe.accounts.create({
-    type: 'express',
-    capabilities: { transfers: { requested: true } },
+  const [tenant, business] = await Promise.all([
+    prisma.tenant.findUnique({
+      where: { id: partnerTenantId },
+      select: { email: true, name: true },
+    }),
+    withTenant({ tenantId: partnerTenantId }, (tx) =>
+      tx.tenantBusiness.findUnique({
+        where: { tenantId: partnerTenantId },
+        select: { country: true },
+      })
+    ),
+  ]);
+  const accountId = await createRecipientAccount(stripe, {
+    email: tenant?.email ?? '',
+    displayName: tenant?.name ?? '',
+    country: business?.country ?? null,
     metadata: { sparx_partner_tenant_id: partnerTenantId },
   });
   await withTenant({ tenantId: partnerTenantId }, (tx) =>
     tx.partner.update({
       where: { tenantId: partnerTenantId },
-      data: { stripePayoutAccountId: account.id },
+      data: { stripePayoutAccountId: accountId },
     })
   );
-  return account.id;
+  return accountId;
 }
 
 /** Start (or resume) hosted payout onboarding for the current partner. */
@@ -53,13 +69,30 @@ export async function startPayoutOnboarding(args: {
   const stripe = getPlatformStripe();
   if (!stripe) throw new PaymentsUnconfiguredError();
   const accountId = await ensurePayoutAccount(args.partnerTenantId);
-  const link = await stripe.accountLinks.create({
-    account: accountId,
-    refresh_url: args.refreshUrl,
-    return_url: args.returnUrl,
-    type: 'account_onboarding',
-  });
-  return { url: link.url, accountId };
+  let url: string;
+  try {
+    url = await createOnboardingLink(stripe, {
+      accountId,
+      configuration: 'recipient',
+      returnUrl: args.returnUrl,
+      refreshUrl: args.refreshUrl,
+    });
+  } catch (v2Error) {
+    // A partner account made with the old v1 `type: 'express'` may not take a v2
+    // link. When the v1 link fails too, the v2 error is the one worth reading.
+    try {
+      const link = await stripe.accountLinks.create({
+        account: accountId,
+        refresh_url: args.refreshUrl,
+        return_url: args.returnUrl,
+        type: 'account_onboarding',
+      });
+      url = link.url;
+    } catch {
+      throw v2Error;
+    }
+  }
+  return { url, accountId };
 }
 
 export interface PayoutRunSummary {

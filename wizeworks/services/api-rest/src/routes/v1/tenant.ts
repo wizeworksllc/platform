@@ -1084,13 +1084,14 @@ const tenantRoutes: FastifyPluginAsync = async (app) => {
     return ok({ state, pageCount, steps, completion });
   });
 
-  // ── sparx Pay onboarding (Stripe Connect EXPRESS) ─────────────────────────
+  // ── sparx Pay onboarding (Stripe Connect, Managed Risk) ───────────────────
   //
   //   POST /v1/tenant/onboarding/payments/onboard  { returnUrl, refreshUrl } → { url, accountId }
   //   POST /v1/tenant/onboarding/payments/refresh   → { connected, status }
   //
-  // Onboarding's "Connect payments" step shares the SAME Stripe Connect EXPRESS
-  // account model as Settings → Payments (docs/94): one connected account per tenant
+  // Onboarding's "Connect payments" step shares the SAME Stripe Connect
+  // account model as Settings → Payments (docs/94; an Accounts v2 merchant account
+  // where Stripe carries the losses, since 2026-11-09): one connected account per tenant
   // on `tenant.stripeAccountId`, one Stripe-hosted Account Link flow, reconciled by
   // the same lib. This REPLACED an older OAuth/Standard "connect an existing account"
   // flow that wrote the SAME `stripeAccountId` column with an incompatible Standard
@@ -1135,7 +1136,7 @@ const tenantRoutes: FastifyPluginAsync = async (app) => {
     // real charge-readiness immediately, without waiting for the account.updated webhook.
     const config = await refreshSparxPayStatus(auth.tenantId);
     return ok({
-      // The Express account exists once onboarding has begun; charge-ability (KYC) may
+      // The connected account exists once onboarding has begun; charge-ability (KYC) may
       // still be pending in Stripe. The step's "done" tracks `isActive` (charges enabled).
       connected: Boolean(config.sparxPay.accountId),
       status: config.sparxPay,

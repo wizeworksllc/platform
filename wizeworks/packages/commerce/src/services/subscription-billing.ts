@@ -18,8 +18,10 @@ import {
   PaymentConfigError,
   StoredMethodsUnsupportedError,
 } from '@wizeworksllc/payments';
+import type { StoredChargeResult } from '@wizeworksllc/payments';
 import { withTenant } from '@wizeworksllc/db';
 import type { Order, Prisma, Subscription } from '@wizeworksllc/db';
+import { resolveSiteOrigin, siteUrl } from '@wizeworksllc/db/site-origin';
 
 import type { ServiceContext } from '../errors';
 import { publishCommerceEvent } from '../events';
@@ -170,6 +172,11 @@ async function collectForOrder(
     return invoiceForOrder(ctx, sub, order, amountCents);
   }
 
+  // A retry supersedes the confirmation the last attempt emailed. Without this a
+  // retry could succeed and the customer could still confirm the old payment,
+  // charging them twice for one renewal.
+  if (attemptNumber > 1) await releaseUnconfirmedAttempts(ctx, subscriptionId, order.createdAt);
+
   const method = sub.paymentMethodId
     ? await withTenant(ctx, (tx) =>
         tx.customerPaymentMethod.findFirst({ where: { id: sub.paymentMethodId ?? '' } })
@@ -249,7 +256,7 @@ async function collectForOrder(
   }
 
   if (result.status === 'requires_action') {
-    return authenticationRequired(ctx, sub, order, result.paymentRef, result.actionSecret);
+    return authenticationRequired(ctx, sub, order, result.paymentRef, result);
   }
 
   return handleFailure(ctx, sub, order, attemptNumber, {
@@ -286,7 +293,7 @@ async function invoiceForOrder(
       currency: order.currency.toLowerCase(),
       invoiceId: order.id,
       description: `Repeat order ${order.orderNumber}`,
-      successUrl: `${storefrontBase()}/orders/${order.id}`,
+      successUrl: await storefrontLink(ctx, sub, `/account/orders/${order.id}`),
     });
   } catch {
     // `manual` and gateways without hosted links land here. The order still
@@ -415,7 +422,13 @@ async function authenticationRequired(
   sub: Subscription,
   order: Order,
   paymentRef: string | null,
-  actionSecret: string | undefined
+  /** What the confirm page needs: the intent's client secret, plus the connected
+   *  account (sparx Pay) or the merchant's own publishable key (stripe_direct)
+   *  that Stripe.js must load to find it. */
+  action: Pick<
+    StoredChargeResult,
+    'actionSecret' | 'actionUrl' | 'stripeAccount' | 'publishableKey'
+  >
 ): Promise<CollectionResult> {
   const policy = await resolveDunningPolicy(ctx, sub);
   const waitHours = policy.retryDelaysHours[0] ?? 24;
@@ -441,9 +454,7 @@ async function authenticationRequired(
       subscriptionId: sub.id,
       orderId: order.id,
       orderNumber: order.orderNumber,
-      confirmUrl: actionSecret
-        ? `${storefrontBase()}/account/confirm-payment?secret=${encodeURIComponent(actionSecret)}`
-        : `${storefrontBase()}/account/subscriptions`,
+      confirmUrl: await confirmLink(ctx, sub, action),
     },
   });
 
@@ -594,9 +605,65 @@ async function recordEvent(
   );
 }
 
-function storefrontBase(): string {
-  return (process.env.SPARX_STOREFRONT_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? '').replace(
-    /\/$/,
-    ''
+/**
+ * An absolute link on the site this subscription was sold on.
+ *
+ * This used to read one platform-wide env var that no deployment set, so every
+ * renewal email linked to a bare path with no host. The shop's address comes from
+ * the resolver every other customer email uses.
+ */
+async function storefrontLink(
+  ctx: ServiceContext,
+  sub: Subscription,
+  path: string
+): Promise<string> {
+  const origin = await withTenant(ctx, (tx) => resolveSiteOrigin(tx, ctx.tenantId, sub.propertyId));
+  return siteUrl(origin, path);
+}
+
+/** Where the customer confirms a renewal their bank wants them to approve. */
+async function confirmLink(
+  ctx: ServiceContext,
+  sub: Subscription,
+  action: Pick<
+    StoredChargeResult,
+    'actionSecret' | 'actionUrl' | 'stripeAccount' | 'publishableKey'
+  >
+): Promise<string> {
+  // The gateway hosts its own confirmation page.
+  if (action.actionUrl) return action.actionUrl;
+  // Nothing to confirm on our page: send them to the repeat order itself.
+  if (!action.actionSecret) return storefrontLink(ctx, sub, '/account/repeat-orders');
+  const query = new URLSearchParams({ secret: action.actionSecret });
+  if (action.stripeAccount) query.set('account', action.stripeAccount);
+  if (action.publishableKey) query.set('pk', action.publishableKey);
+  return storefrontLink(ctx, sub, `/account/confirm-payment?${query.toString()}`);
+}
+
+/**
+ * Cancel the payments earlier attempts left waiting for the customer to confirm,
+ * so only the newest email can take money. Best effort: an intent that already
+ * failed, succeeded or was canceled refuses, and that is the answer we wanted.
+ */
+async function releaseUnconfirmedAttempts(
+  ctx: ServiceContext,
+  subscriptionId: string,
+  since: Date
+): Promise<void> {
+  const attempts = await withTenant(ctx, (tx) =>
+    tx.dunningAttempt.findMany({
+      where: { subscriptionId, outcome: 'retry_scheduled', attemptedAt: { gte: since } },
+      select: { paymentRef: true },
+    })
   );
+  const refs = new Set(
+    attempts.map((a) => a.paymentRef).filter((r): r is string => !!r && r.startsWith('pi_'))
+  );
+  for (const ref of refs) {
+    try {
+      await paymentService.cancelPayment(ctx.tenantId, ref);
+    } catch {
+      // Already settled one way or the other.
+    }
+  }
 }

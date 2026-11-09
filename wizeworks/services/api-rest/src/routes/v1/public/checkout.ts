@@ -288,6 +288,9 @@ const publicCheckoutRoutes: FastifyPluginAsync = async (app) => {
       // Only set for stripe_direct — the merchant's own key, which the browser needs
       // to confirm an intent that lives on the merchant's account (docs/94 §7).
       ...(intent.publishableKey ? { publishableKey: intent.publishableKey } : {}),
+      // Only set for sparx Pay — the merchant's connected account, which the browser
+      // needs to confirm a direct charge made there (docs/94 §6).
+      ...(intent.stripeAccount ? { stripeAccount: intent.stripeAccount } : {}),
       ...(intent.redirectUrl ? { redirectUrl: intent.redirectUrl } : {}),
       amountCents: intent.amountCents,
       currency: intent.currency,

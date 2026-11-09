@@ -1,8 +1,8 @@
 # sparx Platform — Commerce Subscription Billing (recurring charges for a tenant's customers)
 
-**Version:** 1.3
+**Version:** 1.4
 **Author:** Brandon Korous
-**Last Updated:** 2026-08-05
+**Last Updated:** 2026-11-09
 
 > **v1.3 — the vaults are built, not deferred.** v1.2 closed §12.4 by declaring Square and
 > Authorize.net `storedMethods: false` because no sandbox existed to prove them. That was the wrong
@@ -398,6 +398,22 @@ healthy subscriptions. The handling:
 
 The renewal order stays unpaid until the customer confirms, at which point the gateway webhook settles it
 through the path that already exists for interactive payments.
+
+**The confirm page** (added 2026-11-09): `apps/site/app/account/confirm-payment`. The email's link is
+`<the subscription's site>/account/confirm-payment?secret=<client secret>`, plus `account=<acct>` for sparx
+Pay (a direct charge on the connected account) or `pk=<publishable key>` for a `stripe_direct` merchant.
+A gateway that hosts its own approval page (`actionUrl`) keeps its link. The page is public: the client
+secret approves this one payment and nothing else. It waits for a button press before it opens the bank
+step, so a mail scanner that opens links cannot start one.
+
+From 2026-08-04 to 2026-11-09 this link was dead twice over: the page did not exist, and the host came from
+`SPARX_STOREFRONT_URL`, which no deployment set. The links now come from `resolveSiteOrigin`, the resolver
+every other customer email uses. The commit that built §5 shipped the email and the URL, but this section
+named the link, not the page, so the page was never on the list of things to build.
+
+**One open approval at a time.** Before a retry charges again, it cancels the intents earlier attempts left
+waiting (`releaseUnconfirmedAttempts`). Without that, a retry could succeed and the customer could still
+approve the old email's payment, paying twice for one renewal. The old link then says the payment is closed.
 
 ---
 

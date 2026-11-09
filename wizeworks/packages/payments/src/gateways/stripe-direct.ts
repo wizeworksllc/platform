@@ -239,7 +239,12 @@ export class StripeDirectGateway implements PaymentGateway {
   async chargeStoredMethod(params: ChargeStoredMethodParams): Promise<StoredChargeResult> {
     // No on_behalf_of, no application_fee — this IS the merchant's account, same
     // as every other charge on this gateway.
-    return chargeStripeStoredMethod(await this.stripeFor(params.tenantId), params);
+    const result = await chargeStripeStoredMethod(await this.stripeFor(params.tenantId), params);
+    if (result.status !== 'requires_action') return result;
+    // The confirm page loads Stripe.js with the MERCHANT's key: the intent is on
+    // their account, which the platform's key cannot see.
+    const publishableKey = await this.optionalCred(params.tenantId, 'publishable_key');
+    return publishableKey ? { ...result, publishableKey } : result;
   }
 
   // Webhook verification needs the tenant's secret, which the raw body doesn't carry

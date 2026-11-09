@@ -13,7 +13,7 @@ import { fillPlatformName, platformBrandIdentity } from '@wizeworksllc/brand-cor
 
 /** How a tenant turns the gateway on. */
 export type GatewayOnboarding =
-  // Stripe Connect Express — sparx hosts onboarding, nothing to capture (sparx Pay).
+  // Stripe Connect, Stripe-hosted onboarding — nothing to capture (sparx Pay).
   | 'sparx_hosted'
   // The merchant pastes API keys from their processor dashboard (captured + encrypted).
   | 'api_keys'
@@ -127,7 +127,7 @@ const CATALOG_TEMPLATE: readonly GatewayDescriptor[] = [
     name: '{platform} Pay',
     tagline: 'Recommended',
     blurb:
-      'Accept cards in minutes. {platform} handles disputes, settlement, and PCI, and pays out to your bank automatically. Flat 0.5% per transaction: no monthly fee, and better blended rates as you grow.',
+      'Accept cards in minutes. Stripe verifies your business, covers fraud losses, keeps card data safe, and pays out to your bank automatically. You pay Stripe’s standard card fee plus a flat 0.5% to {platform}: no monthly fee.',
     recommended: true,
     onboarding: 'sparx_hosted',
     checkout: 'inline',
@@ -135,7 +135,7 @@ const CATALOG_TEMPLATE: readonly GatewayDescriptor[] = [
     credentialFields: [],
     environments: false,
     sparxFee: true,
-    feeNote: 'Flat 0.5% per transaction. No monthly fee.',
+    feeNote: 'Stripe’s card fee plus a flat 0.5% per transaction. No monthly fee.',
     regions: ['US'],
   },
   {

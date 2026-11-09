@@ -179,7 +179,11 @@ function StripeSetup({
   returnTo: string;
   onSaved: () => void;
 }) {
-  const stripe = useMemo(() => getStripe(publishableKey), [publishableKey]);
+  const stripeAccount = session.stripeAccount;
+  const stripe = useMemo(
+    () => getStripe(publishableKey, stripeAccount),
+    [publishableKey, stripeAccount]
+  );
   return (
     <Elements
       stripe={stripe}

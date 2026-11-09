@@ -7,7 +7,7 @@
 //   POST /v1/commerce/payments/gateway                 { gatewayId }
 //   POST /v1/commerce/payments/sparx-pay/onboard       { returnUrl, refreshUrl } → { url }
 //   GET  /v1/commerce/payments/sparx-pay/status        → live account status (synced)
-//   POST /v1/commerce/payments/sparx-pay/dashboard-link → Express dashboard URL
+//   POST /v1/commerce/payments/sparx-pay/dashboard-link → the merchant's Stripe Dashboard URL
 //   GET  /v1/commerce/payments/sparx-pay/balance       → connected-account balance
 
 import type { FastifyPluginAsync } from 'fastify';
@@ -82,7 +82,8 @@ const paymentsRoutes: FastifyPluginAsync = async (app) => {
     return ok(await refreshSparxPayStatus(ctx.tenantId));
   });
 
-  // Single-use link into the Stripe-hosted Express dashboard.
+  // The merchant's own Stripe Dashboard: Stripe's sign-in for a full-Dashboard
+  // account, a single-use login link for an Express account made before 2026-11-09.
   app.post('/v1/commerce/payments/sparx-pay/dashboard-link', async (request) => {
     requireRole(request, 'admin');
     await requireCommerceModule(request);

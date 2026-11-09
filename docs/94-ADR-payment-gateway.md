@@ -1,10 +1,62 @@
 # ADR — Payment Gateway Architecture & sparx Pay
 
+**Version:** 1.1
+**Author:** Brandon Korous
+**Last Updated:** 2026-11-09
+
 **For:** Claude Code / build agent
 **Date:** 2026-06-12
-**Status:** Decided — do not relitigate.
+**Status:** Decided — do not relitigate. Amended 2026-11-09 (Managed Risk and direct
+charges, below).
 **Context:** Zero users in production. Build the full gateway abstraction
 now. Use Stripe Connect as the sparx Pay implementation.
+
+## Amendment — 2026-11-09: Managed Risk and direct charges
+
+Stripe stopped letting a platform create a connected account with the legacy v1
+`type` field while the platform carries the account's losses. Every sparx Pay
+onboarding failed with a 500 from 2026-10 on (WizeLens: `POST
+/v1/tenant/onboarding/payments/onboard`, Stripe: "You tried to create an Accounts v1
+connected account using the legacy `type` field with your platform as the losses
+collector"). An account where STRIPE carries the losses (Managed Risk) works with
+direct charges only; destination charges with `on_behalf_of` are a private preview.
+
+Brandon chose Managed Risk with direct charges. This supersedes the parts of §6 and §9
+that say otherwise:
+
+- **Account:** an Accounts v2 merchant account. `dashboard: 'full'`,
+  `defaults.responsibilities.fees_collector: 'stripe'`,
+  `defaults.responsibilities.losses_collector: 'stripe'`, `card_payments` requested.
+  No `type`. Created through `rawRequest` (stripe@17 has no typed v2 Accounts):
+  `wizeworks/services/api-rest/src/lib/stripe-connect-accounts.ts`.
+- **Onboarding:** a v2 Account Link for the `merchant` configuration, Stripe-hosted.
+  An account made the old way falls back to a v1 Account Link.
+- **Charges:** DIRECT, on the merchant's account. Every call uses the platform key
+  with `stripeAccount: <acct>`: PaymentIntents, capture, cancel, refunds, invoice
+  Checkout Sessions, Customers, SetupIntents, stored-card charges, lookups. No
+  `on_behalf_of`, no `transfer_data`. `application_fee_amount` still takes the flat
+  0.5% (§8 is unchanged).
+- **Money:** the merchant is the merchant of record and pays Stripe's card fee. Under
+  destination charges sparx paid that fee out of its 0.5%. Refunds come from the
+  merchant's balance; sparx keeps its fee on a refund, as before.
+- **Browser:** the intent and the setup session carry `stripeAccount`. The storefront
+  loads Stripe.js with the platform publishable key AND that account
+  (`apps/site/lib/stripe-loader.ts`), or Stripe.js cannot find the intent.
+- **Disputes:** the merchant answers them in their own Stripe Dashboard. sparx no
+  longer owns the dispute surface.
+- **Dashboard link:** a full-Dashboard merchant signs in at dashboard.stripe.com; a
+  login link opens only an Express Dashboard (accounts made before this change).
+- **Webhooks:** sparx Pay payment events now happen on connected accounts, so the
+  Connect endpoint ("Events on connected accounts") carries `payment_intent.*`,
+  `charge.refunded` and `charge.dispute.*` as well as `account.updated`. The
+  reconciler finds the shop from `event.account`. Runbook: docs/138 §3.
+- **Partner payouts** (docs/114 §B.4): an Accounts v2 RECIPIENT account,
+  Express Dashboard, the platform as fee and loss collector (Stripe cannot carry
+  losses for a transfers-only account). Creating one needs the loss-liability
+  acknowledgement in Stripe Dashboard → Settings → Connect → Platform profile.
+
+Accounts created before 2026-11-09 keep working as they are: a direct charge on an
+Express account is valid, and nothing re-creates them.
 
 ---
 
@@ -268,6 +320,10 @@ export class PaymentService {
 
 ## 6. sparx Pay Implementation (Stripe Connect Destination Charges)
 
+> **Superseded 2026-11-09.** sparx Pay makes DIRECT charges on the merchant's
+> connected account (see the amendment at the top). The sample below is the original
+> destination-charge design, kept for history.
+
 ```typescript
 // wizeworks/packages/payments/src/gateways/sparx-pay.ts
 
@@ -508,10 +564,10 @@ During tenant onboarding, after module activation:
 Step: Connect sparx Pay
 
 Option A: Use sparx Pay (recommended)
-  → Stripe Connect Express onboarding
+  → Stripe-hosted Connect onboarding (Accounts v2, Managed Risk)
   → Merchant provides: business name, bank account, SSN/EIN
-  → sparx handles: disputes, PCI compliance surface,
-    fee collection, settlement
+  → Stripe handles: verification, fraud losses, PCI, settlement
+  → Merchant answers disputes in their own Stripe Dashboard
   → Takes ~5 minutes
 
 Option B: Use your own payment processor
@@ -524,6 +580,10 @@ Option C: Skip for now
   → Store can be built but not take payments
   → Can configure payment processor later from Settings → Payments
 ```
+
+> **Superseded 2026-11-09.** The account is now an Accounts v2 merchant account with
+> the full Stripe Dashboard and Stripe as fee and loss collector (see the amendment at
+> the top). The reasoning below is the original choice, kept for history.
 
 Connect Express (not Custom or Standard) is the right Stripe Connect
 tier for sparx Pay:

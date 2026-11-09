@@ -90,8 +90,9 @@ export async function reconcilePaymentEvent(
   }
 
   if (parsed.type === 'dispute.created' || parsed.type === 'dispute.closed') {
-    // No automated action yet — disputes are handled at the gateway dashboard (sparx
-    // owns the dispute surface for sparx Pay). Recorded above for audit.
+    // No automated action yet — disputes are handled at the gateway dashboard (a
+    // sparx Pay merchant answers them in their own Stripe Dashboard, since the
+    // direct charge is theirs). Recorded above for audit.
     log.info(
       { type: parsed.type, externalId: parsed.externalId },
       'payment webhook: dispute event recorded'
@@ -278,7 +279,11 @@ function eventObject(parsed: ParsedWebhookEvent): Record<string, unknown> {
 }
 
 /** intent events carry metadata.tenantId; charge/account events resolve from the
- *  connected account id on the (non-RLS) tenant root row. */
+ *  connected account id on the (non-RLS) tenant root row. A sparx Pay direct
+ *  charge happens ON the merchant's connected account, so Stripe names that
+ *  account at the top of the event (`event.account`); a dispute carries no
+ *  metadata, so that is the only way to find its shop. `on_behalf_of` is kept for
+ *  the destination charges made before 2026-11-09. */
 async function resolveTenantId(
   parsed: ParsedWebhookEvent,
   fallbackTenantId?: string
@@ -287,10 +292,11 @@ async function resolveTenantId(
   if (fallbackTenantId) return fallbackTenantId;
 
   const object = eventObject(parsed);
+  const eventAccount = (parsed.payload as { account?: unknown } | null)?.account;
   const accountId =
     parsed.type === 'account.updated'
       ? (object.id as string | undefined)
-      : refString(object.on_behalf_of);
+      : (refString(eventAccount) ?? refString(object.on_behalf_of));
   if (!accountId) return null;
 
   const tenant = await prisma.tenant.findUnique({
