@@ -1,8 +1,9 @@
 // Stored payment methods on Stripe, shared by sparx Pay and Stripe Direct
-// (docs/142 §5). Both gateways vault and charge identically — the only
-// differences are WHICH Stripe client (platform vs the merchant's own) and, for
-// sparx Pay, the destination-charge parameters that route the money and collect
-// the platform fee. Both are passed in.
+// (docs/142 §5). Both gateways vault and charge identically. The only
+// differences are WHICH Stripe client (the platform's or the merchant's own),
+// the request options that point the platform client at the merchant's
+// connected account (sparx Pay: `stripeAccount`), and the extra charge fields
+// that collect the platform fee. All three are passed in.
 //
 // The card never touches sparx. `createSetupSession` returns a client secret the
 // browser's Stripe element confirms directly against Stripe; what comes back to
@@ -80,45 +81,60 @@ function isPermanent(err: StripeErrorish): boolean {
  *  caller — it is half of the (customer, method) pair a renewal needs. */
 async function resolveCustomer(
   stripe: Stripe,
-  params: Pick<CreateSetupSessionParams, 'tenantId' | 'customerId' | 'customerRef' | 'metadata'>
+  params: Pick<CreateSetupSessionParams, 'tenantId' | 'customerId' | 'customerRef' | 'metadata'>,
+  opts: Stripe.RequestOptions = {}
 ): Promise<string> {
   if (params.customerRef) return params.customerRef;
-  const created = await stripe.customers.create({
-    metadata: {
-      tenantId: params.tenantId,
-      customerId: params.customerId,
-      ...params.metadata,
+  const created = await stripe.customers.create(
+    {
+      metadata: {
+        tenantId: params.tenantId,
+        customerId: params.customerId,
+        ...params.metadata,
+      },
     },
-  });
+    opts
+  );
   return created.id;
 }
 
+/**
+ * Begin vaulting a card. `opts.stripeAccount`, when set, puts the Customer and
+ * the SetupIntent on that connected account, and it rides back on the session:
+ * the browser can confirm the intent only with Stripe.js loaded for the same
+ * account.
+ */
 export async function createStripeSetupSession(
   stripe: Stripe,
   params: CreateSetupSessionParams,
-  publishableKey?: string | null
+  publishableKey?: string | null,
+  opts: Stripe.RequestOptions = {}
 ): Promise<SetupSession> {
-  const customerRef = await resolveCustomer(stripe, params);
+  const customerRef = await resolveCustomer(stripe, params, opts);
 
-  const setupIntent = await stripe.setupIntents.create({
-    customer: customerRef,
-    // Cards only. `usage: off_session` is what captures the mandate — the
-    // customer's agreement to be charged later without being present. Without
-    // it Stripe treats a later charge as unauthorized and the issuer is far more
-    // likely to decline it.
-    payment_method_types: ['card'],
-    usage: 'off_session',
-    metadata: {
-      tenantId: params.tenantId,
-      customerId: params.customerId,
-      ...params.metadata,
+  const setupIntent = await stripe.setupIntents.create(
+    {
+      customer: customerRef,
+      // Cards only. `usage: off_session` is what captures the mandate — the
+      // customer's agreement to be charged later without being present. Without
+      // it Stripe treats a later charge as unauthorized and the issuer is far more
+      // likely to decline it.
+      payment_method_types: ['card'],
+      usage: 'off_session',
+      metadata: {
+        tenantId: params.tenantId,
+        customerId: params.customerId,
+        ...params.metadata,
+      },
     },
-  });
+    opts
+  );
 
   return {
     clientSecret: setupIntent.client_secret,
     redirectUrl: null,
     ...(publishableKey ? { publishableKey } : {}),
+    ...(opts.stripeAccount ? { stripeAccount: opts.stripeAccount } : {}),
     customerRef,
     setupRef: setupIntent.id,
   };
@@ -137,7 +153,8 @@ export async function createStripeSetupSession(
 export async function stripeSaveForLater(
   stripe: Stripe,
   tenantId: string,
-  save: SaveForLater
+  save: SaveForLater,
+  opts: Stripe.RequestOptions = {}
 ): Promise<{
   customerRef: string;
   params: Pick<
@@ -145,11 +162,15 @@ export async function stripeSaveForLater(
     'customer' | 'setup_future_usage' | 'payment_method_types'
   >;
 }> {
-  const customerRef = await resolveCustomer(stripe, {
-    tenantId,
-    customerId: save.customerId,
-    ...(save.customerRef ? { customerRef: save.customerRef } : {}),
-  });
+  const customerRef = await resolveCustomer(
+    stripe,
+    {
+      tenantId,
+      customerId: save.customerId,
+      ...(save.customerRef ? { customerRef: save.customerRef } : {}),
+    },
+    opts
+  );
   return {
     customerRef,
     params: {
@@ -164,11 +185,14 @@ export async function stripeSaveForLater(
  *  `stripeSaveForLater`. Null when it kept nothing. */
 export async function vaultStripePayment(
   stripe: Stripe,
-  paymentRef: string
+  paymentRef: string,
+  opts: Stripe.RequestOptions = {}
 ): Promise<VaultedMethod | null> {
-  const intent = await stripe.paymentIntents.retrieve(paymentRef, {
-    expand: ['payment_method'],
-  });
+  const intent = await stripe.paymentIntents.retrieve(
+    paymentRef,
+    { expand: ['payment_method'] },
+    opts
+  );
   if (intent.status !== 'succeeded' && intent.status !== 'requires_capture') return null;
   // Asked to keep it, or Stripe did not attach it to a customer: either way
   // there is nothing a renewal could charge.
@@ -189,16 +213,15 @@ export async function vaultStripePayment(
 
 export async function completeStripeVault(
   stripe: Stripe,
-  setupRef: string | undefined
+  setupRef: string | undefined,
+  opts: Stripe.RequestOptions = {}
 ): Promise<VaultedMethod | null> {
   // Stripe's whole flow hangs off the SetupIntent id. Without one there is
   // nothing to look up — which happens if a caller wired a Square-shaped
   // browser token to a Stripe tenant.
   if (!setupRef) return null;
 
-  const intent = await stripe.setupIntents.retrieve(setupRef, {
-    expand: ['payment_method'],
-  });
+  const intent = await stripe.setupIntents.retrieve(setupRef, { expand: ['payment_method'] }, opts);
 
   const pm = intent.payment_method;
   // Not an error: the shopper opened the card form and never finished. The
@@ -229,12 +252,18 @@ export async function completeStripeVault(
  * The `idempotencyKey` is the safety net that makes the whole tick re-runnable:
  * a retried HTTP request, a pod that died mid-call, or a double-fired cron all
  * resolve to the same single charge.
+ *
+ * `opts.stripeAccount` charges on that connected account (sparx Pay), where the
+ * card was vaulted. It rides back on a `requires_action` result, because the
+ * page that confirms the payment must load Stripe.js for the same account.
  */
 export async function chargeStripeStoredMethod(
   stripe: Stripe,
   params: ChargeStoredMethodParams,
-  extra: Partial<Stripe.PaymentIntentCreateParams> = {}
+  extra: Partial<Stripe.PaymentIntentCreateParams> = {},
+  opts: Stripe.RequestOptions = {}
 ): Promise<StoredChargeResult> {
+  const account = opts.stripeAccount ? { stripeAccount: opts.stripeAccount } : {};
   try {
     const intent = await stripe.paymentIntents.create(
       {
@@ -252,7 +281,7 @@ export async function chargeStripeStoredMethod(
         },
         ...extra,
       },
-      { idempotencyKey: params.idempotencyKey }
+      { ...opts, idempotencyKey: params.idempotencyKey }
     );
 
     if (intent.status === 'succeeded' || intent.status === 'processing') {
@@ -267,6 +296,7 @@ export async function chargeStripeStoredMethod(
         status: 'requires_action',
         paymentRef: intent.id,
         ...(intent.client_secret ? { actionSecret: intent.client_secret } : {}),
+        ...account,
       };
     }
 
@@ -289,6 +319,7 @@ export async function chargeStripeStoredMethod(
         status: 'requires_action',
         paymentRef: intent?.id ?? null,
         ...(intent?.client_secret ? { actionSecret: intent.client_secret } : {}),
+        ...account,
         failureCode: 'authentication_required',
         failureReason: 'Your bank needs you to confirm this payment.',
       };

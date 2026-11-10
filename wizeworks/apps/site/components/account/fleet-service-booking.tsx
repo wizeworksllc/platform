@@ -196,6 +196,9 @@ export function FleetServiceBooking({
         {...(pendingDeposit.deposit.publishableKey
           ? { publishableKey: pendingDeposit.deposit.publishableKey }
           : {})}
+        {...(pendingDeposit.deposit.stripeAccount
+          ? { stripeAccount: pendingDeposit.deposit.stripeAccount }
+          : {})}
         amountCents={pendingDeposit.deposit.amountCents}
         type={pendingDeposit.deposit.type}
         serviceName={pendingDeposit.serviceName}

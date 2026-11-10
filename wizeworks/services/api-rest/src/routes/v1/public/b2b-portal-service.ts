@@ -289,6 +289,7 @@ const b2bPortalServiceRoutes: FastifyPluginAsync = async (app) => {
           ? {
               clientSecret: deposit.clientSecret,
               ...(deposit.publishableKey ? { publishableKey: deposit.publishableKey } : {}),
+              ...(deposit.stripeAccount ? { stripeAccount: deposit.stripeAccount } : {}),
               amountCents: deposit.amountCents,
               type: deposit.type,
             }

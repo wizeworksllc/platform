@@ -11,9 +11,11 @@
 
 import { fillPlatformName, platformBrandIdentity } from '@wizeworksllc/brand-core';
 
+import { formatPayFee, PAY_FEE_TOKEN, payFeeBps } from './fee';
+
 /** How a tenant turns the gateway on. */
 export type GatewayOnboarding =
-  // Stripe Connect Express — sparx hosts onboarding, nothing to capture (sparx Pay).
+  // Stripe Connect, Stripe-hosted onboarding — nothing to capture (sparx Pay).
   | 'sparx_hosted'
   // The merchant pastes API keys from their processor dashboard (captured + encrypted).
   | 'api_keys'
@@ -89,9 +91,15 @@ export interface GatewayDescriptor {
   credentialFields: CredentialField[];
   /** Whether the gateway has a sandbox/production toggle. */
   environments: boolean;
-  /** Whether sparx takes a per-transaction fee on this gateway. */
+  /** Whether the platform is in the money flow and can take a per-transaction
+   *  fee on this gateway ({platform} Pay). Whether it DOES is the brand's rate
+   *  (fee.ts): read `feeNote`, which says so in words. */
   sparxFee: boolean;
   feeNote: string;
+  /** The `blurb` and `feeNote` for a brand whose Pay fee is zero. `{payFee}` in
+   *  the normal text has nothing to say then: "plus a flat 0% to {platform}" is a
+   *  fee line for a fee that does not exist. */
+  zeroFee?: { blurb: string; feeNote: string };
   /** ISO country codes the gateway broadly supports (display only). */
   regions: string[];
   docsUrl?: string;
@@ -127,7 +135,7 @@ const CATALOG_TEMPLATE: readonly GatewayDescriptor[] = [
     name: '{platform} Pay',
     tagline: 'Recommended',
     blurb:
-      'Accept cards in minutes. {platform} handles disputes, settlement, and PCI, and pays out to your bank automatically. Flat 0.5% per transaction: no monthly fee, and better blended rates as you grow.',
+      'Accept cards in minutes. Stripe verifies your business, covers fraud losses, keeps card data safe, and pays out to your bank automatically. You pay Stripe’s standard card fee plus a flat {payFee} to {platform}: no monthly fee.',
     recommended: true,
     onboarding: 'sparx_hosted',
     checkout: 'inline',
@@ -135,7 +143,12 @@ const CATALOG_TEMPLATE: readonly GatewayDescriptor[] = [
     credentialFields: [],
     environments: false,
     sparxFee: true,
-    feeNote: 'Flat 0.5% per transaction. No monthly fee.',
+    feeNote: 'Stripe’s card fee plus a flat {payFee} per transaction. No monthly fee.',
+    zeroFee: {
+      blurb:
+        'Accept cards in minutes. Stripe verifies your business, covers fraud losses, keeps card data safe, and pays out to your bank automatically. You pay Stripe’s standard card fee and nothing to {platform}: no monthly fee.',
+      feeNote: 'No {platform} fee. You pay only Stripe’s card fee. No monthly fee.',
+    },
     regions: ['US'],
   },
   {
@@ -454,12 +467,16 @@ const CATALOG_TEMPLATE: readonly GatewayDescriptor[] = [
 const resolvedCatalogs = new Map<string, readonly GatewayDescriptor[]>();
 
 function fillDescriptor(g: GatewayDescriptor, brand: string): GatewayDescriptor {
-  const fill = (text: string) => fillPlatformName(text, brand);
+  const bps = payFeeBps(brand);
+  const fill = (text: string) =>
+    fillPlatformName(text, brand).replaceAll(PAY_FEE_TOKEN, formatPayFee(bps));
+  const text = bps === 0 && g.zeroFee ? g.zeroFee : { blurb: g.blurb, feeNote: g.feeNote };
+  const { zeroFee: _zeroFee, ...rest } = g;
   return {
-    ...g,
+    ...rest,
     name: fill(g.name),
-    blurb: fill(g.blurb),
-    feeNote: fill(g.feeNote),
+    blurb: fill(text.blurb),
+    feeNote: fill(text.feeNote),
     ...(g.processor ? { processor: fill(g.processor) } : {}),
     ...(g.tagline ? { tagline: fill(g.tagline) } : {}),
     credentialFields: g.credentialFields.map((field) => ({
@@ -490,11 +507,12 @@ export function gatewayCatalogTemplate(): readonly GatewayDescriptor[] {
 export function gatewayCatalog(brand?: string | null): readonly GatewayDescriptor[] {
   // Keyed on the resolved NAME rather than the brand key, so two brand keys that
   // resolve to the same name share one build instead of two identical ones.
-  const name = platformBrandIdentity(brand).name;
-  const cached = resolvedCatalogs.get(name);
+  // The fee rate is in the key too: it is the other per-brand value in the text.
+  const key = `${platformBrandIdentity(brand).name}|${payFeeBps(brand)}`;
+  const cached = resolvedCatalogs.get(key);
   if (cached) return cached;
   const built = CATALOG_TEMPLATE.map((g) => fillDescriptor(g, brand ?? ''));
-  resolvedCatalogs.set(name, built);
+  resolvedCatalogs.set(key, built);
   return built;
 }
 

@@ -1,7 +1,7 @@
 // @wizeworksllc/payments — vendor-agnostic payment gateway abstraction (docs/94 ADR).
 // Every payment flow (storefront checkout, invoice payment links, B2B order
 // payments) calls PaymentService and never knows which gateway is behind it.
-// sparx Pay = Stripe Connect destination charges (flat 0.5% via application_fee);
+// sparx Pay = Stripe Connect direct charges (a flat per-brand fee via application_fee);
 // Stripe Direct = the merchant's own account (no platform fee).
 
 export type {
@@ -70,7 +70,14 @@ export {
   StoredMethodsUnsupportedError,
 } from './service';
 
-export { SPARX_PAY_FEE_RATE, sparxPayFeeCents } from './fee';
+export {
+  DEFAULT_PAY_FEE_BPS,
+  SPARX_PAY_FEE_RATE,
+  formatPayFee,
+  payFeeBps,
+  sparxPayFeeCents,
+} from './fee';
+export { tenantPayFeeCents } from './tenant-fee';
 
 export {
   getPlatformStripe,

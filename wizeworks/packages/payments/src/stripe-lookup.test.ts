@@ -61,6 +61,13 @@ describe('lookupStripePayment', () => {
     expect(await lookupStripePayment(stripe, 'seti_123')).toBeNull();
     expect(retrieve).not.toHaveBeenCalled();
     expect((await lookupStripePayment(stripe, 'pi_juniper'))?.status).toBe('succeeded');
-    expect(retrieve).toHaveBeenCalledWith('pi_juniper');
+    expect(retrieve).toHaveBeenCalledWith('pi_juniper', {}, {});
+  });
+
+  it('looks on the connected account it is pointed at', async () => {
+    const retrieve = vi.fn(() => Promise.resolve(intent({ status: 'succeeded' })));
+    const stripe = { paymentIntents: { retrieve } } as unknown as Stripe;
+    await lookupStripePayment(stripe, 'pi_juniper', { stripeAccount: 'acct_merchant' });
+    expect(retrieve).toHaveBeenCalledWith('pi_juniper', {}, { stripeAccount: 'acct_merchant' });
   });
 });

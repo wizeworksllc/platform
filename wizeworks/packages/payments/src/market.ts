@@ -1,7 +1,8 @@
 // sparx.market payments — sparx as MERCHANT OF RECORD (docs/106 §4.7).
 //
-// Unlike every other payment flow (which resolves the TENANT's gateway — sparx Pay
-// destination charge or the merchant's own Stripe), a sparx.market charge is a
+// Unlike every other payment flow (which resolves the TENANT's gateway — a sparx Pay
+// direct charge on the merchant's connected account, or the merchant's own Stripe),
+// a sparx.market charge is a
 // plain DIRECT charge on sparx's OWN platform Stripe account: NO on_behalf_of, NO
 // transfer_data, NO application_fee. The funds stay in sparx's balance, and the
 // seller is paid weekly by ACH (the settlement run) `gross − commission − refunds`.

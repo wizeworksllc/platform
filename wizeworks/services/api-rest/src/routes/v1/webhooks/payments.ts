@@ -4,7 +4,7 @@
 // normalized Pub/Sub events. Public — the gateway signature is the auth (no bearer);
 // the `/v1/public/` prefix bypasses the auth plugin.
 //
-//   POST /v1/public/webhooks/sparx-pay              (platform account, destination charges)
+//   POST /v1/public/webhooks/sparx-pay              (sparx Pay connected accounts + sparx.market)
 //   POST /v1/public/webhooks/stripe-direct/:tenantId (merchant's own account)
 //   POST /v1/public/webhooks/square/:tenantId        (and paypal, authorize-net, custom:
 //                                                     the merchant's own account at each)
@@ -79,8 +79,10 @@ const paymentWebhookRoutes: FastifyPluginAsync = async (app) => {
     }
   );
 
-  // ── sparx Pay — the platform account's single webhook (destination charges). The
-  //    tenant rides in payment_intent.metadata.tenantId / the connected account id.
+  // ── sparx Pay — one URL for the platform's two Stripe endpoints: connected-account
+  //    events (every sparx Pay direct charge, account.updated) and the platform
+  //    account's own (sparx.market). The tenant rides in
+  //    payment_intent.metadata.tenantId, or the connected account the event names.
   app.post('/v1/public/webhooks/sparx-pay', async (request, reply) => {
     const sig = signature(request.headers);
     const rawBody = request.body as Buffer;

@@ -116,14 +116,16 @@ export function lookedUpIntent(intent: Stripe.PaymentIntent): LookedUpPayment {
   }
 }
 
-/** Look a payment up on the account `stripe` is built for. Only an intent id
- *  can be looked up; anything else is a reference this gateway did not mint. */
+/** Look a payment up on the account `stripe` is built for, or on the connected
+ *  account `opts.stripeAccount` names. Only an intent id can be looked up;
+ *  anything else is a reference this gateway did not mint. */
 export async function lookupStripePayment(
   stripe: Stripe,
-  paymentRef: string
+  paymentRef: string,
+  opts: Stripe.RequestOptions = {}
 ): Promise<LookedUpPayment | null> {
   if (!paymentRef.startsWith('pi_')) return null;
-  return lookedUpIntent(await stripe.paymentIntents.retrieve(paymentRef));
+  return lookedUpIntent(await stripe.paymentIntents.retrieve(paymentRef, {}, opts));
 }
 
 function chargeRefundData(charge: Stripe.Charge): NormalizedPaymentData {

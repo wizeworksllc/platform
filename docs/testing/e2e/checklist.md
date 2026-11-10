@@ -1,8 +1,8 @@
 # E2E manual test checklist (dev)
 
-Version: 1.8
+Version: 1.9
 Author: Brandon Korous
-Last Updated: 2026-07-14
+Last Updated: 2026-11-09
 
 Driven manually/by-agent via the `playwright-cli` skill against local dev — not committed as automated `*.spec.ts`. Personas referenced below (`persona-id`) are defined in [personas.ts](personas.ts); look up email/password/tenant there, don't duplicate credentials here.
 
@@ -109,7 +109,7 @@ These are the two provider adapters that actually register at boot today (`wizew
 **⚠ Known architecture discrepancy — test both paths, don't paper over it:**
 
 - Onboarding wizard's Payments step (`step-payments.tsx` → `wizeworks/services/api-rest/src/routes/v1/tenant.ts`) implements Connect **Standard** via `connect.stripe.com/oauth/authorize` + `stripe.oauth.token`.
-- Settings → Payments / `/finance/payments` (`payments-onboarding.ts`) implements Connect **Express** via `stripe.accounts.create({type: 'express'})` + a hosted Account Link.
+- Settings → Payments / `/finance/payments` (`payments-onboarding.ts`) creates an Accounts v2 merchant account (no `type`; Stripe as fee and loss collector; full Stripe Dashboard) via `stripe-connect-accounts.ts` + a hosted v2 Account Link. sparx Pay charges are direct, on that account (docs/94 amendment, 2026-11-09).
 - `docs/94-ADR-payment-gateway.md` specs Express + destination charges as the decided architecture. Both flows write the same `tenant.stripeAccountId` column despite producing different account types — this looks like an undocumented parallel implementation, not an intentional dual-path design.
 - **Test item:** does a tenant connected via the wizard's Standard-OAuth path actually complete a destination-charge checkout correctly, or does it silently produce an account type checkout can't use? If checkout breaks (or behaves differently) depending on which path a tenant connected through, that's a real bug to file — not something to route around in testing.
 - **🐛 CONFIRMED (electronics-hub, 2026-07-12):** connected via classic `/onboarding` wizard's Standard-OAuth Stripe step — wizard shows the Payments step as "Connected" and redirects with `?stripe_connected=1`. But `/finance/payments` (the Express/"sparx Pay" UI) shows the account as **"Not collecting — No online payment method is live yet"**, with the sparx Pay card badged **"Finish setup"** and a "Continue setup" button, not connected. This is exactly the predicted discrepancy: the two connect paths write account state the other doesn't recognize as complete.

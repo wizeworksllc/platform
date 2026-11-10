@@ -141,10 +141,11 @@ const EnvSchema = z
     // STRIPE_WEBHOOK_SECRET   — whsec_... legacy pre-gateway single-account commerce
     //   secret (superseded by the per-gateway secrets below).
     // STRIPE_WEBHOOK_SECRET_SPARX_PAY — whsec_... for the sparx Pay (Connect
-    //   destination-charge) payment webhook POST /v1/public/webhooks/sparx-pay.
+    //   direct-charge) payment webhook POST /v1/public/webhooks/sparx-pay.
     //   COMMA-SEPARATED LIST: that ONE url is fed by TWO Stripe endpoints — the
-    //   account-scoped one (payment_intent.* / charge.*) and the connected-account
-    //   one (account.updated) — and Stripe issues each its own signing secret. A
+    //   account-scoped one (sparx.market payment_intent.* / charge.*) and the
+    //   connected-account one (sparx Pay payment_intent.* / charge.* +
+    //   account.updated) — and Stripe issues each its own signing secret. A
     //   rolled secret overlaps for 24h, which needs the same. Every configured
     //   secret is tried; one value behaves exactly like a plain single secret.
     //   Read by @wizeworksllc/payments' SparxPayGateway; declared here so boot validates it

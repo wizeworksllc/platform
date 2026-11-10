@@ -1698,6 +1698,8 @@ export interface CardSetupSession {
   clientSecret: string | null;
   redirectUrl: string | null;
   publishableKey?: string;
+  /** sparx Pay: the merchant's connected account the session was made on. */
+  stripeAccount?: string;
   setupRef: string;
 }
 

@@ -8,30 +8,18 @@
 //
 // Publishable key: the booking API's own `deposit.publishableKey` when the tenant runs
 // its own Stripe account (`stripe_direct` — the intent lives there, so only that
-// account's key can confirm it), else sparx's build-time platform key, which is the
-// right one for sparx Pay. Same resolution as the checkout payment step.
+// account's key can confirm it), else sparx's build-time platform key. A sparx Pay
+// deposit is a direct charge on the merchant's connected account, so it also
+// carries `stripeAccount`. Same resolution, and the same shared loader, as the
+// checkout payment step.
 
 import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { loadStripe, type Stripe } from '@stripe/stripe-js';
 import { useMemo, useState } from 'react';
 
 import { Alert, Button } from '@wizeworks/silicaui-react';
 
 import type { DepositType } from '../../lib/scheduling-client';
-
-const PLATFORM_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? '';
-
-// loadStripe should run once per account across mounts — keyed so two tenants on
-// different Stripe accounts can't be handed each other's publishable key.
-const stripePromises = new Map<string, Promise<Stripe | null>>();
-function getStripe(publishableKey: string): Promise<Stripe | null> {
-  let promise = stripePromises.get(publishableKey);
-  if (!promise) {
-    promise = loadStripe(publishableKey);
-    stripePromises.set(publishableKey, promise);
-  }
-  return promise;
-}
+import { getStripe, PLATFORM_PUBLISHABLE_KEY } from '../../lib/stripe-loader';
 
 function money(cents: number): string {
   return `$${(cents / 100).toFixed(2)}`;
@@ -48,6 +36,8 @@ export interface BookingDepositStepProps {
   /** The tenant's own Stripe publishable key, when the deposit intent is on their
    *  account rather than sparx's. Falls back to the platform key when absent. */
   publishableKey?: string;
+  /** sparx Pay: the merchant's connected account the deposit intent is on. */
+  stripeAccount?: string;
   amountCents: number;
   type: DepositType;
   serviceName: string;
@@ -57,13 +47,14 @@ export interface BookingDepositStepProps {
 export function BookingDepositStep({
   clientSecret,
   publishableKey,
+  stripeAccount,
   amountCents,
   type,
   serviceName,
   onPaid,
 }: BookingDepositStepProps) {
   const key = publishableKey ?? PLATFORM_PUBLISHABLE_KEY;
-  const stripe = useMemo(() => (key ? getStripe(key) : null), [key]);
+  const stripe = useMemo(() => (key ? getStripe(key, stripeAccount) : null), [key, stripeAccount]);
 
   if (!stripe) {
     return (

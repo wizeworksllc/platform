@@ -5,7 +5,7 @@
 //
 // Two sources, best-first:
 //
-//  1. For sparx Pay (a connected Express account), we read Stripe's REAL `payout`
+//  1. For sparx Pay (the merchant's connected account), we read Stripe's REAL `payout`
 //     objects — the exact amount, arrival date, and status that hit the bank
 //     (stripe-payouts.ts). A Stripe payout is ACCOUNT-LEVEL (one bank, every site at
 //     once), so this path is not site-scoped, and its ids are `po_…`.

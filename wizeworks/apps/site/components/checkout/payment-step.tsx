@@ -423,11 +423,13 @@ function CardPaymentStep({
     <ApprovalNotice session={session} shopName={shopName} accountName={accountName} card={card} />
   );
 
-  // The merchant's own key when the gateway sent one, else sparx's platform key.
+  // The merchant's own key when the gateway sent one, else sparx's platform key,
+  // pointed at the merchant's connected account for a sparx Pay direct charge.
   const publishableKey = intent?.publishableKey ?? PLATFORM_PUBLISHABLE_KEY;
+  const stripeAccount = intent?.stripeAccount;
   const stripe = useMemo(
-    () => (publishableKey ? getStripe(publishableKey) : null),
-    [publishableKey]
+    () => (publishableKey ? getStripe(publishableKey, stripeAccount) : null),
+    [publishableKey, stripeAccount]
   );
 
   if (error) {

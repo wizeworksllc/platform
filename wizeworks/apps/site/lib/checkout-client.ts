@@ -144,6 +144,9 @@ export interface PaymentIntentResult {
    *  account (a `stripe_direct` tenant using their own Stripe). Absent for sparx Pay,
    *  where the build-time platform key is correct. */
   publishableKey?: string;
+  /** sparx Pay: the merchant's connected account the intent was made on. Stripe.js
+   *  loads with the platform key and this account. */
+  stripeAccount?: string;
   /** Hosted-redirect gateways: the vendor page to send the shopper to. When a token
    *  also rides in `clientSecret` (Authorize.net), POST it to this URL instead of GET. */
   redirectUrl?: string;

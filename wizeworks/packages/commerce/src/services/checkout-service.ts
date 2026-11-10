@@ -701,9 +701,13 @@ export interface CreatePaymentIntentResult {
   clientSecret?: string;
   /** The publishable key the browser must load Stripe.js with, when it isn't the
    *  platform's. Present for `stripe_direct` (the intent is on the merchant's own
-   *  account); absent for sparx Pay / sparx.market, where the storefront's build-time
-   *  key is already the right account. */
+   *  account); absent for sparx Pay / sparx.market, which use the storefront's
+   *  build-time platform key. */
   publishableKey?: string;
+  /** The connected account the intent was made on (sparx Pay direct charges). The
+   *  browser loads Stripe.js with the platform key AND this account, or Stripe.js
+   *  cannot find the intent. */
+  stripeAccount?: string;
   /** Hosted-redirect gateways (Square / Authorize.net / 1stPay / custom, docs/111 D4)
    *  — the vendor page the storefront sends the shopper to. When a token also rides in
    *  `clientSecret` (Authorize.net Accept Hosted), the storefront POSTs it. */
@@ -1038,6 +1042,7 @@ export async function createPaymentIntent(
     providerSlug,
     ...(intent.clientSecret ? { clientSecret: intent.clientSecret } : {}),
     ...(intent.publishableKey ? { publishableKey: intent.publishableKey } : {}),
+    ...(intent.stripeAccount ? { stripeAccount: intent.stripeAccount } : {}),
     ...(intent.redirectUrl ? { redirectUrl: intent.redirectUrl } : {}),
     amountCents: chargeCents,
     currency: session.currency,

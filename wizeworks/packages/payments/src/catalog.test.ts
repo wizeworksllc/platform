@@ -13,13 +13,14 @@ import {
   getGatewayDescriptor,
 } from './catalog';
 
-const TOUCHED = ['SPARX_BRAND_NAME', 'PIGGLES_BRAND_NAME'] as const;
+const TOUCHED = ['SPARX_BRAND_NAME', 'PIGGLES_BRAND_NAME', 'PIGGLES_PAY_FEE_BPS'] as const;
 let saved: Record<string, string | undefined>;
 
 beforeEach(() => {
   saved = Object.fromEntries(TOUCHED.map((k) => [k, process.env[k]]));
   process.env.SPARX_BRAND_NAME = 'sparx';
   process.env.PIGGLES_BRAND_NAME = 'Piggles';
+  delete process.env.PIGGLES_PAY_FEE_BPS;
 });
 
 afterEach(() => {
@@ -76,6 +77,38 @@ describe('gatewayCatalog', () => {
 
   it('hands back the same array on a repeat read, so the picker does not rebuild it', () => {
     expect(gatewayCatalog('piggles')).toBe(gatewayCatalog('piggles'));
+  });
+});
+
+// The Pay fee is the brand's (fee.ts). Piggles promises "no fee on your sales"
+// on every page of its marketing, so its Pay takes none, and the provider picker
+// must say so instead of "plus a flat 0.5%" (docs/94 amendment v1.2).
+describe('the Pay fee line', () => {
+  it('names the default 0.5% to a brand that takes it', () => {
+    const pay = getGatewayDescriptor('sparx_pay', 'sparx');
+    expect(pay?.feeNote).toBe(
+      'Stripe’s card fee plus a flat 0.5% per transaction. No monthly fee.'
+    );
+    expect(pay?.blurb).toContain('plus a flat 0.5% to sparx');
+  });
+
+  it('says there is no fee to a brand that takes none', () => {
+    process.env.PIGGLES_PAY_FEE_BPS = '0';
+    const pay = getGatewayDescriptor('sparx_pay', 'piggles');
+    expect(pay?.feeNote).toBe('No Piggles fee. You pay only Stripe’s card fee. No monthly fee.');
+    expect(pay?.blurb).toContain('nothing to Piggles');
+    expect(`${pay?.blurb} ${pay?.feeNote}`).not.toMatch(/\d%/);
+  });
+
+  it('names a brand’s own rate', () => {
+    process.env.PIGGLES_PAY_FEE_BPS = '25';
+    expect(getGatewayDescriptor('sparx_pay', 'piggles')?.feeNote).toContain('a flat 0.25%');
+  });
+
+  it('leaves no fee token on a live screen', () => {
+    expect(readableText('sparx')).not.toContain('{payFee}');
+    process.env.PIGGLES_PAY_FEE_BPS = '0';
+    expect(readableText('piggles')).not.toContain('{payFee}');
   });
 });
 

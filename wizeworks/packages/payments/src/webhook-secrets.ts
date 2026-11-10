@@ -3,10 +3,12 @@
 // One URL legitimately receives events verified by more than one secret, because a
 // Stripe endpoint listens to exactly one scope:
 //
-//   • "Events on your account"    → payment_intent.* / charge.*  (destination charges
-//     are created ON the platform account, so they arrive here)
-//   • "Events on connected accounts" → account.updated  (Connect events — the ONLY way
-//     to learn a merchant finished onboarding or got restricted)
+//   • "Events on your account"    → payment_intent.* / charge.*  (sparx.market charges
+//     are made ON the platform account, so they arrive here)
+//   • "Events on connected accounts" → payment_intent.* / charge.* / account.updated
+//     (sparx Pay direct charges are made ON the merchant's connected account, and
+//     account.updated is the ONLY way to learn a merchant finished onboarding or got
+//     restricted)
 //
 // Both must point at /v1/public/webhooks/sparx-pay, and Stripe issues each endpoint its
 // OWN `whsec_…`. A single-secret reader would 403 every event from the second endpoint.

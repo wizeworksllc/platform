@@ -1,16 +1,24 @@
 // Payments configuration + sparx Pay onboarding (docs/94 ADR §5, §9, §13). Powers the
 // dashboard's Settings → Payments surface and the onboarding redirect.
 //
-// sparx Pay is Stripe Connect EXPRESS: the platform mints a connected account, Stripe
-// HOSTS the onboarding (KYC, bank, ToS) behind an Account Link, and the merchant
-// manages payouts in the Stripe-hosted Express dashboard. No onboarding or account UI
-// is built here — Stripe-hosted-first.
+// sparx Pay is Stripe Connect with Managed Risk (amended 2026-11-09): the platform mints
+// an Accounts v2 merchant account where STRIPE collects its fees and carries the
+// losses, Stripe HOSTS the onboarding (KYC, bank, ToS) behind an Account Link, and the
+// merchant runs payouts and disputes in their own full Stripe Dashboard. Charges are
+// direct, on the merchant's account (packages/payments gateways/sparx-pay.ts). No
+// onboarding or account UI is built here — Stripe-hosted-first.
+//
+// The old v1 `type: 'express'` account had the platform carrying the losses, which
+// Stripe stopped allowing: every onboarding attempt failed with a 500. Accounts made
+// that way before the change keep working; nothing here re-creates them.
 //
 // The connected account id is a non-secret identifier; it lives on the tenant ROOT row
 // (tenant.stripeAccountId, like stripeCustomerId) so the public payment webhook can
 // resolve a tenant from an account id with no tenant context. tenant_payment_configs
 // records the gateway SELECTION + onboarding status (it is FORCE-RLS — only ever read
 // or written with a tenant context).
+
+import type Stripe from 'stripe';
 
 import { getGatewayDescriptor, getPlatformStripe } from '@wizeworksllc/payments';
 import { prisma, withTenant } from '@wizeworksllc/db';
@@ -23,6 +31,11 @@ import {
 
 import { env } from '../env.js';
 import { hasActiveCredentials } from './gateway-credentials.js';
+import {
+  createMerchantAccount,
+  createOnboardingLink,
+  hasExpressDashboard,
+} from './stripe-connect-accounts.js';
 
 // Every catalog gateway is selectable (docs/111). sparx Pay / Stripe Direct keep their
 // existing behavior; the bring-your-own gateways activate once their credentials land.
@@ -345,8 +358,28 @@ export async function activateGatewayIfSelected(
   await announcePaymentSwitch(tenantId, config, { gatewayId, isActive: true });
 }
 
-/** Get the connected account, creating an Express account on first use and persisting
- *  its id on the tenant root row. Idempotent — a second call reuses it. */
+/** Who the account is for: the tenant's contact email and legal name from the root
+ *  row, and its country from the business details (RLS, so inside withTenant).
+ *  Stripe-hosted onboarding confirms or corrects all three. */
+async function accountOwner(
+  tenantId: string
+): Promise<{ email: string; name: string; country: string | null }> {
+  const [tenant, business] = await Promise.all([
+    prisma.tenant.findUnique({ where: { id: tenantId }, select: { email: true, name: true } }),
+    withTenant({ tenantId }, (tx) =>
+      tx.tenantBusiness.findUnique({ where: { tenantId }, select: { country: true } })
+    ),
+  ]);
+  return {
+    email: tenant?.email ?? '',
+    name: tenant?.name ?? '',
+    country: business?.country ?? null,
+  };
+}
+
+/** Get the connected account, creating a Managed Risk merchant account on first use
+ *  and persisting its id on the tenant root row. Idempotent — a second call reuses
+ *  it. */
 async function ensureConnectAccount(tenantId: string): Promise<string> {
   const stripe = getPlatformStripe();
   if (!stripe) throw new PaymentsUnconfiguredError();
@@ -354,18 +387,17 @@ async function ensureConnectAccount(tenantId: string): Promise<string> {
   const existing = await tenantAccountId(tenantId);
   if (existing) return existing;
 
-  const account = await stripe.accounts.create({
-    type: 'express',
-    capabilities: {
-      card_payments: { requested: true },
-      transfers: { requested: true },
-    },
+  const owner = await accountOwner(tenantId);
+  const accountId = await createMerchantAccount(stripe, {
+    email: owner.email,
+    displayName: owner.name,
+    country: owner.country,
     metadata: { sparx_tenant_id: tenantId },
   });
 
   await prisma.tenant.update({
     where: { id: tenantId },
-    data: { stripeAccountId: account.id },
+    data: { stripeAccountId: accountId },
   });
   const before = await ensureConfig(tenantId);
   await withTenant({ tenantId }, (tx) =>
@@ -376,7 +408,33 @@ async function ensureConnectAccount(tenantId: string): Promise<string> {
     isActive: before.isActive,
   });
 
-  return account.id;
+  return accountId;
+}
+
+/** The onboarding link for the account. A v2 Account Link for the merchant
+ *  configuration; an account made with the old v1 `type: 'express'` before
+ *  2026-11-09 may not take one, so it falls back to a v1 Account Link. When both
+ *  fail, the v2 error is the one worth reading. */
+async function onboardingLink(
+  stripe: Stripe,
+  accountId: string,
+  urls: { returnUrl: string; refreshUrl: string }
+): Promise<string> {
+  try {
+    return await createOnboardingLink(stripe, { accountId, configuration: 'merchant', ...urls });
+  } catch (v2Error) {
+    try {
+      const link = await stripe.accountLinks.create({
+        account: accountId,
+        refresh_url: urls.refreshUrl,
+        return_url: urls.returnUrl,
+        type: 'account_onboarding',
+      });
+      return link.url;
+    } catch {
+      throw v2Error;
+    }
+  }
 }
 
 /** Start (or resume) hosted onboarding: ensure the account, then mint a single-use
@@ -390,13 +448,11 @@ export async function startSparxPayOnboarding(args: {
   if (!stripe) throw new PaymentsUnconfiguredError();
 
   const accountId = await ensureConnectAccount(args.tenantId);
-  const link = await stripe.accountLinks.create({
-    account: accountId,
-    refresh_url: args.refreshUrl,
-    return_url: args.returnUrl,
-    type: 'account_onboarding',
+  const url = await onboardingLink(stripe, accountId, {
+    returnUrl: args.returnUrl,
+    refreshUrl: args.refreshUrl,
   });
-  return { url: link.url, accountId };
+  return { url, accountId };
 }
 
 /** Live status from Stripe, synced onto the config (pull model — called when the
@@ -435,8 +491,14 @@ export async function getSparxPayBalance(tenantId: string): Promise<SparxPayBala
   };
 }
 
-/** A single-use link into the Stripe-hosted Express dashboard (payouts, balance,
- *  payment history). Null when onboarding hasn't created an account yet. */
+/** Stripe's own Dashboard, where a full-Dashboard merchant signs in. */
+export const STRIPE_DASHBOARD_URL = 'https://dashboard.stripe.com/';
+
+/** Where the merchant's own Stripe Dashboard opens (payouts, balance, payment
+ *  history, disputes). A Managed Risk merchant has the FULL Stripe Dashboard and
+ *  signs in to it with their own Stripe login, so the address is Stripe's; a login
+ *  link opens only an Express Dashboard, which an account made before 2026-11-09
+ *  has. Null when onboarding hasn't created an account yet. */
 export async function sparxPayDashboardLink(tenantId: string): Promise<string | null> {
   const stripe = getPlatformStripe();
   if (!stripe) throw new PaymentsUnconfiguredError();
@@ -444,6 +506,8 @@ export async function sparxPayDashboardLink(tenantId: string): Promise<string | 
   const accountId = await tenantAccountId(tenantId);
   if (!accountId) return null;
 
+  const account = await stripe.accounts.retrieve(accountId);
+  if (!hasExpressDashboard(account)) return STRIPE_DASHBOARD_URL;
   const link = await stripe.accounts.createLoginLink(accountId);
   return link.url;
 }

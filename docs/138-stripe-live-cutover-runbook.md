@@ -1,8 +1,8 @@
 # Stripe test → live cutover runbook
 
-**Version:** 1.2
+**Version:** 1.3
 **Author:** Brandon Korous
-**Last Updated:** 2026-10-29
+**Last Updated:** 2026-11-09
 
 ---
 
@@ -110,11 +110,16 @@ separate secrets — this is done fresh, not copied):
 1. `https://api.sparx.works/v1/public/webhooks/sparx-pay` — **Events on your account**:
    `payment_intent.succeeded`, `payment_intent.payment_failed`,
    `payment_intent.amount_capturable_updated`, `charge.refunded`,
-   `charge.dispute.created`, `charge.dispute.closed`. The capturable event records a card
-   HELD for a wholesale order waiting for sign-off (sparx persona issue 087); without it the
-   hold still works, but the order's payment reads pending rather than held until approval.
-   A **Stripe Direct** tenant's own endpoint needs the same list.
-2. **Same URL** — **Events on connected accounts**: `account.updated`
+   `charge.dispute.created`, `charge.dispute.closed`. Since 2026-11-09 these carry only
+   sparx.market charges, which are made on the platform account. The capturable event
+   records a card HELD for a wholesale order waiting for sign-off (sparx persona issue
+   087); without it the hold still works, but the order's payment reads pending rather
+   than held until approval. A **Stripe Direct** tenant's own endpoint needs the same list.
+2. **Same URL** — **Events on connected accounts**: `account.updated` AND the same six
+   payment events as (1). sparx Pay makes DIRECT charges on the merchant's connected
+   account since 2026-11-09 (docs/94 amendment), so every sparx Pay payment, refund and
+   dispute arrives on THIS endpoint. Without them a sparx Pay card is charged and the
+   order stays unpaid until the stranded-payment sweep asks Stripe.
 3. Take the **two** live `whsec_…` (one per endpoint above) → **comma-join** into
    `stripe-webhook-secret-sparx-pay` (§1b).
 
@@ -130,7 +135,8 @@ separate secrets — this is done fresh, not copied):
 Because connected `acct_…` are mode-scoped (§0), **every tenant collecting via sparx Pay
 must re-onboard in live mode**:
 
-- The real launch tenant does live Express onboarding in `Selling → Setup → Payment
+- The real launch tenant does live sparx Pay onboarding (an Accounts v2 merchant account,
+  Stripe as loss collector, docs/94 amendment) in `Selling → Setup → Payment
 providers → sparx Pay` (real business identity + bank; Stripe Connect hosted onboarding
   **blocks headless browsers** at identity — use a real visible browser).
 - This mints a **live** `acct_…`, written to `tenant.stripeAccountId` (canonical) + the

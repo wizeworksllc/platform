@@ -7,7 +7,7 @@
 import { withTenant } from '@wizeworksllc/db';
 
 import { getGatewayDescriptor } from './catalog';
-import { sparxPayFeeCents } from './fee';
+import { tenantPayFeeCents } from './tenant-fee';
 import type {
   ChargeStoredMethodParams,
   CompleteVaultParams,
@@ -57,7 +57,8 @@ export class PaymentService {
       : await this.getGatewayForTenant(params.tenantId);
     const intent = await gateway.createPaymentIntent(params);
 
-    const platformFee = gateway.id === SPARX_PAY_ID ? sparxPayFeeCents(params.amount) : 0;
+    const platformFee =
+      gateway.id === SPARX_PAY_ID ? await tenantPayFeeCents(params.tenantId, params.amount) : 0;
 
     await withTenant({ tenantId: params.tenantId }, (tx) =>
       tx.paymentIntent.create({
@@ -225,7 +226,8 @@ export class PaymentService {
     const result = await gateway.chargeStoredMethod(params);
 
     if (result.paymentRef) {
-      const platformFee = gateway.id === SPARX_PAY_ID ? sparxPayFeeCents(params.amount) : 0;
+      const platformFee =
+        gateway.id === SPARX_PAY_ID ? await tenantPayFeeCents(params.tenantId, params.amount) : 0;
       await withTenant({ tenantId: params.tenantId }, (tx) =>
         tx.paymentIntent.upsert({
           where: {

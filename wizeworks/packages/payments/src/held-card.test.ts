@@ -57,6 +57,7 @@ vi.mock('@wizeworksllc/db', () => ({
 
 const { gatewayCatalogTemplate } = await import('./catalog');
 const { setGatewayCredentialReader } = await import('./credentials');
+const { setPaymentSecretReader } = await import('./secrets');
 const { registerBuiltInGateways } = await import('./registry');
 const { normalizeStripeEvent, mapIntentStatus } = await import('./stripe-util');
 const { SparxPayGateway } = await import('./gateways/sparx-pay');
@@ -149,9 +150,11 @@ describe('Stripe Direct captures and releases on the merchant’s own account', 
 });
 
 describe('a released hold counts as released', () => {
-  it('sparx Pay', async () => {
+  it('sparx Pay, on the merchant’s connected account', async () => {
+    setPaymentSecretReader({ read: () => Promise.resolve('acct_t-1') });
     stripeCalls.cancel.mockResolvedValue(intent('canceled'));
-    expect((await new SparxPayGateway().cancelPayment('pi_held')).success).toBe(true);
+    expect((await new SparxPayGateway().cancelPayment('pi_held', 't-1')).success).toBe(true);
+    expect(stripeCalls.cancel).toHaveBeenCalledWith('pi_held', {}, { stripeAccount: 'acct_t-1' });
   });
 });
 

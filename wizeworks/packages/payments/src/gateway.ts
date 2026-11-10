@@ -27,9 +27,14 @@ export interface PaymentIntent {
    *  isn't the platform's own. A `client_secret` is only confirmable by the Stripe.js
    *  instance loaded with the publishable key of the account that ISSUED it — so a
    *  `stripe_direct` tenant (intent on the merchant's own account) has to ship theirs
-   *  per-request. Omitted for sparx Pay + sparx.market, whose intents live on the
-   *  platform account the storefront's build-time key already matches. */
+   *  per-request. Omitted for sparx Pay + sparx.market, which use the platform key
+   *  the storefront is built with. */
   publishableKey?: string;
+  /** The connected account (`acct_…`) the intent was made on, when the platform
+   *  made it there (sparx Pay direct charges). The browser loads Stripe.js with the
+   *  platform key AND this account; without the account, Stripe.js looks for the
+   *  intent on the platform and says "No such payment_intent". */
+  stripeAccount?: string;
   /** Amount in cents. */
   amount: number;
   currency: string;
@@ -236,6 +241,9 @@ export interface SetupSession {
    *  secret is only confirmable by the SDK loaded with the key of the account
    *  that issued it. */
   publishableKey?: string;
+  /** The connected account the session was made on (sparx Pay), for the same
+   *  reason as `PaymentIntent.stripeAccount`. */
+  stripeAccount?: string;
   /** The gateway-side customer this session vaults onto. Persist it: an
    *  off-session charge needs the (customer, method) pair, not the method alone. */
   customerRef: string;
@@ -356,6 +364,12 @@ export interface StoredChargeResult {
    *  secret). The caller composes the customer-facing URL, because the adapter
    *  has no idea what the tenant's storefront is called. */
   actionSecret?: string;
+  /** The connected account `actionSecret` belongs to (sparx Pay). The page that
+   *  confirms it must load Stripe.js for this account. */
+  stripeAccount?: string;
+  /** The publishable key `actionSecret` belongs to, when it is not the
+   *  platform's own (a `stripe_direct` merchant's key). */
+  publishableKey?: string;
   failureCode?: string;
   failureReason?: string;
   /** True when the gateway says the method is PERMANENTLY dead — card closed,

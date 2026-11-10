@@ -1,13 +1,24 @@
-// sparx Pay — Stripe Connect destination charges (docs/94 ADR §6). The charge is
-// created on sparx's PLATFORM account with on_behalf_of + transfer_data.destination →
-// the merchant's connected account; application_fee_amount collects the flat 0.5%
-// platform fee before the remainder settles to the merchant. sparx owns the charge +
-// dispute surface; the merchant never touches Stripe beyond Express onboarding.
+// sparx Pay — Stripe Connect DIRECT charges (docs/94 ADR §6, amended 2026-11-09).
+//
+// Every call is made with the PLATFORM key and `stripeAccount: <merchant acct>`, so
+// the PaymentIntent, the Charge, the Customer and the saved card all live on the
+// merchant's connected account. The merchant is the merchant of record, pays
+// Stripe's processing fee, and handles disputes in their own Stripe Dashboard;
+// `application_fee_amount` takes the brand's flat fee off each charge (0.5% by
+// default, none for a brand that sets `<BRAND>_PAY_FEE_BPS=0`; see fee.ts).
+//
+// Why direct and not destination charges: Stripe stopped letting a platform create
+// connected accounts where the platform carries the losses, and an account where
+// STRIPE carries them (Managed Risk) is compatible only with direct charges. Under
+// destination charges sparx also paid Stripe's card fee out of its 0.5%.
+//
+// The browser must confirm an intent with Stripe.js loaded for the same account,
+// so `stripeAccount` rides back on every intent and setup session.
 
 import type Stripe from 'stripe';
 
 import { getPlatformStripe } from '../client';
-import { sparxPayFeeCents } from '../fee';
+import { tenantPayFeeCents } from '../tenant-fee';
 import type {
   ChargeStoredMethodParams,
   CompleteVaultParams,
@@ -54,6 +65,15 @@ class SparxPayUnconfiguredError extends Error {
   }
 }
 
+/** Capture and cancel reach the merchant's connected account, so they need to
+ *  know whose. `paymentService` always passes it. */
+function noTenant(action: 'capture' | 'cancel'): PaymentResult {
+  return {
+    success: false,
+    errorMessage: `A ${action} needs the tenant to reach the merchant's account`,
+  };
+}
+
 export class SparxPayGateway implements PaymentGateway {
   readonly id = SPARX_PAY_ID;
   readonly name = 'sparx Pay';
@@ -71,52 +91,77 @@ export class SparxPayGateway implements PaymentGateway {
     );
   }
 
+  /** `application_fee_amount` for a charge, or nothing when the tenant's brand
+   *  takes no fee: a zero fee is left off rather than sent as 0. */
+  private async feeFor(
+    tenantId: string,
+    amount: number
+  ): Promise<{ application_fee_amount?: number }> {
+    const fee = await tenantPayFeeCents(tenantId, amount);
+    return fee > 0 ? { application_fee_amount: fee } : {};
+  }
+
+  /** Request options that make a platform-key call on the merchant's account. */
+  private async onMerchant(tenantId: string): Promise<{ stripeAccount: string }> {
+    return { stripeAccount: await this.merchantAccountId(tenantId) };
+  }
+
   async createPaymentIntent(params: CreatePaymentIntentParams): Promise<PaymentIntent> {
     const stripe = this.platform();
-    const destination = await this.merchantAccountId(params.tenantId);
+    const opts = await this.onMerchant(params.tenantId);
     // Keep the card for a repeat order (issue 739). The customer lives on the
-    // platform account, the same place `createSetupSession` vaults to, so a
+    // merchant's account, the same place `createSetupSession` vaults to, so a
     // renewal finds it exactly as it would a card saved from the account page.
     const save = params.saveForLater
-      ? await stripeSaveForLater(stripe, params.tenantId, params.saveForLater)
+      ? await stripeSaveForLater(stripe, params.tenantId, params.saveForLater, opts)
       : null;
 
-    const intent = await stripe.paymentIntents.create({
-      amount: params.amount,
-      currency: params.currency,
-      on_behalf_of: destination,
-      transfer_data: { destination },
-      application_fee_amount: sparxPayFeeCents(params.amount),
-      ...(params.captureMethod === 'manual' ? { capture_method: 'manual' as const } : {}),
-      ...(save ? save.params : { automatic_payment_methods: { enabled: true } }),
-      metadata: {
-        tenantId: params.tenantId,
-        orderId: params.orderId ?? '',
-        invoiceId: params.invoiceId ?? '',
-        customerId: params.customerId ?? '',
-        ...params.metadata,
+    const intent = await stripe.paymentIntents.create(
+      {
+        amount: params.amount,
+        currency: params.currency,
+        ...(await this.feeFor(params.tenantId, params.amount)),
+        ...(params.captureMethod === 'manual' ? { capture_method: 'manual' as const } : {}),
+        ...(save ? save.params : { automatic_payment_methods: { enabled: true } }),
+        metadata: {
+          tenantId: params.tenantId,
+          orderId: params.orderId ?? '',
+          invoiceId: params.invoiceId ?? '',
+          customerId: params.customerId ?? '',
+          ...params.metadata,
+        },
       },
+      opts
+    );
+
+    return {
+      ...toPaymentIntent(intent),
+      stripeAccount: opts.stripeAccount,
+      ...(save ? { customerRef: save.customerRef } : {}),
+    };
+  }
+
+  // Confirming is driven client-side (Stripe.js loaded for the merchant's
+  // account); the intent id alone does not say which account it is on.
+  confirmPayment(intentId: string): Promise<PaymentResult> {
+    void intentId;
+    return Promise.resolve({
+      success: false,
+      errorMessage: 'This payment confirms in the browser',
     });
-
-    return { ...toPaymentIntent(intent), ...(save ? { customerRef: save.customerRef } : {}) };
   }
 
-  async confirmPayment(intentId: string): Promise<PaymentResult> {
-    try {
-      return toPaymentResult(await this.platform().paymentIntents.confirm(intentId));
-    } catch (err) {
-      return {
-        success: false,
-        errorMessage: err instanceof Error ? err.message : 'confirm failed',
-      };
-    }
-  }
-
-  async capturePayment(intentId: string, amount?: number): Promise<PaymentResult> {
+  async capturePayment(
+    intentId: string,
+    amount?: number,
+    tenantId?: string
+  ): Promise<PaymentResult> {
+    if (!tenantId) return noTenant('capture');
     try {
       const intent = await this.platform().paymentIntents.capture(
         intentId,
-        amount !== undefined ? { amount_to_capture: amount } : {}
+        amount !== undefined ? { amount_to_capture: amount } : {},
+        await this.onMerchant(tenantId)
       );
       return toPaymentResult(intent);
     } catch (err) {
@@ -127,9 +172,12 @@ export class SparxPayGateway implements PaymentGateway {
     }
   }
 
-  async cancelPayment(intentId: string): Promise<PaymentResult> {
+  async cancelPayment(intentId: string, tenantId?: string): Promise<PaymentResult> {
+    if (!tenantId) return noTenant('cancel');
     try {
-      return toCancelResult(await this.platform().paymentIntents.cancel(intentId));
+      return toCancelResult(
+        await this.platform().paymentIntents.cancel(intentId, {}, await this.onMerchant(tenantId))
+      );
     } catch (err) {
       return { success: false, errorMessage: err instanceof Error ? err.message : 'cancel failed' };
     }
@@ -137,14 +185,17 @@ export class SparxPayGateway implements PaymentGateway {
 
   async refund(params: RefundParams): Promise<RefundResult> {
     try {
-      const refund = await this.platform().refunds.create({
-        ...(params.chargeId.startsWith('pi_')
-          ? { payment_intent: params.chargeId }
-          : { charge: params.chargeId }),
-        ...(params.amount !== undefined ? { amount: params.amount } : {}),
-        ...(params.reason ? { reason: params.reason } : {}),
-        ...(params.metadata ? { metadata: params.metadata } : {}),
-      });
+      const refund = await this.platform().refunds.create(
+        {
+          ...(params.chargeId.startsWith('pi_')
+            ? { payment_intent: params.chargeId }
+            : { charge: params.chargeId }),
+          ...(params.amount !== undefined ? { amount: params.amount } : {}),
+          ...(params.reason ? { reason: params.reason } : {}),
+          ...(params.metadata ? { metadata: params.metadata } : {}),
+        },
+        await this.onMerchant(params.tenantId)
+      );
       return { success: true, refundId: refund.id, amount: refund.amount };
     } catch (err) {
       return {
@@ -156,78 +207,92 @@ export class SparxPayGateway implements PaymentGateway {
   }
 
   async createPaymentLink(params: CreatePaymentLinkParams): Promise<string | null> {
-    const stripe = this.platform();
-    const destination = await this.merchantAccountId(params.tenantId);
-
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      payment_intent_data: {
-        application_fee_amount: sparxPayFeeCents(params.amount),
-        on_behalf_of: destination,
-        transfer_data: { destination },
-        // Stamp the intent (not just the session) so the payment webhook can resolve
-        // the tenant + invoice from payment_intent.succeeded.
+    const session = await this.platform().checkout.sessions.create(
+      {
+        mode: 'payment',
+        payment_intent_data: {
+          ...(await this.feeFor(params.tenantId, params.amount)),
+          // Stamp the intent (not just the session) so the payment webhook can resolve
+          // the tenant + invoice from payment_intent.succeeded.
+          metadata: { tenantId: params.tenantId, invoiceId: params.invoiceId },
+        },
+        line_items: [
+          {
+            price_data: {
+              currency: params.currency,
+              unit_amount: params.amount,
+              product_data: { name: params.description },
+            },
+            quantity: 1,
+          },
+        ],
+        success_url: params.successUrl,
+        ...(params.expiresAt ? { expires_at: Math.floor(params.expiresAt.getTime() / 1000) } : {}),
         metadata: { tenantId: params.tenantId, invoiceId: params.invoiceId },
       },
-      line_items: [
-        {
-          price_data: {
-            currency: params.currency,
-            unit_amount: params.amount,
-            product_data: { name: params.description },
-          },
-          quantity: 1,
-        },
-      ],
-      success_url: params.successUrl,
-      ...(params.expiresAt ? { expires_at: Math.floor(params.expiresAt.getTime() / 1000) } : {}),
-      metadata: { tenantId: params.tenantId, invoiceId: params.invoiceId },
-    });
+      await this.onMerchant(params.tenantId)
+    );
 
     return session.url;
   }
 
   // ── Stored methods (docs/142 §5) ───────────────────────────────────────────
-  // The Customer and PaymentMethod live on the PLATFORM account, same as the
-  // charge does — sparx Pay is destination charges, so the money is routed at
-  // charge time rather than the card being held by the merchant. The storefront
-  // already loads Stripe.js with the platform publishable key, so no per-request
-  // key is needed here (unlike stripe_direct).
+  // The Customer and PaymentMethod live on the merchant's connected account, the
+  // same place the charge is made. A card saved on one account cannot be charged
+  // on another, so vaulting and charging must always agree on the account.
 
   async createSetupSession(params: CreateSetupSessionParams): Promise<SetupSession> {
-    return createStripeSetupSession(this.platform(), params);
+    return createStripeSetupSession(
+      this.platform(),
+      params,
+      null,
+      await this.onMerchant(params.tenantId)
+    );
   }
 
-  completeVault(params: CompleteVaultParams): Promise<VaultedMethod | null> {
-    return completeStripeVault(this.platform(), params.setupRef);
+  async completeVault(params: CompleteVaultParams): Promise<VaultedMethod | null> {
+    return completeStripeVault(
+      this.platform(),
+      params.setupRef,
+      await this.onMerchant(params.tenantId)
+    );
   }
 
-  vaultFromPayment(params: VaultFromPaymentParams): Promise<VaultedMethod | null> {
-    return vaultStripePayment(this.platform(), params.paymentRef);
+  async vaultFromPayment(params: VaultFromPaymentParams): Promise<VaultedMethod | null> {
+    return vaultStripePayment(
+      this.platform(),
+      params.paymentRef,
+      await this.onMerchant(params.tenantId)
+    );
   }
 
-  /** Destination charges live on the platform account, as the vault does. */
-  lookupPayment(params: LookupPaymentParams): Promise<LookedUpPayment | null> {
-    return lookupStripePayment(this.platform(), params.paymentRef);
+  /** On the merchant's account, which is where the intent was made. */
+  async lookupPayment(params: LookupPaymentParams): Promise<LookedUpPayment | null> {
+    return lookupStripePayment(
+      this.platform(),
+      params.paymentRef,
+      await this.onMerchant(params.tenantId)
+    );
   }
 
   async chargeStoredMethod(params: ChargeStoredMethodParams): Promise<StoredChargeResult> {
-    const destination = await this.merchantAccountId(params.tenantId);
-    // The same destination-charge shape createPaymentIntent uses: the renewal
-    // settles to the merchant and sparx's flat fee comes off it. A subscription
-    // charge is not a different KIND of payment, so it must not earn different
-    // economics by taking a different code path.
-    return chargeStripeStoredMethod(this.platform(), params, {
-      on_behalf_of: destination,
-      transfer_data: { destination },
-      application_fee_amount: sparxPayFeeCents(params.amount),
-    });
+    // The same direct charge createPaymentIntent makes: on the merchant's account,
+    // the brand's flat fee taken off it. A subscription charge is not a different KIND
+    // of payment, so it must not earn different economics by taking a different
+    // code path.
+    return chargeStripeStoredMethod(
+      this.platform(),
+      params,
+      await this.feeFor(params.tenantId, params.amount),
+      await this.onMerchant(params.tenantId)
+    );
   }
 
   /** Every secret configured for this endpoint. Comma-separated because ONE URL takes
-   *  events from two Stripe endpoints (account-scoped payment/charge events + the
-   *  connected-account `account.updated`), each with its own signing secret — and
-   *  because a rolled secret overlaps with its predecessor. See webhook-secrets.ts. */
+   *  events from two Stripe endpoints (the platform account's own events, for
+   *  sparx.market, + connected-account events, which carry every sparx Pay payment),
+   *  each with its own signing secret — and because a rolled secret overlaps with
+   *  its predecessor. See webhook-secrets.ts. */
   private secrets(): string[] {
     return parseWebhookSecrets(process.env.STRIPE_WEBHOOK_SECRET_SPARX_PAY);
   }

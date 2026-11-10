@@ -32,6 +32,9 @@ export interface DepositCreationResult {
   /** The publishable key the widget must load Stripe.js with, when the intent isn't
    *  on sparx's own account (a `stripe_direct` tenant). Absent for sparx Pay. */
   publishableKey?: string;
+  /** The connected account a sparx Pay deposit intent was made on. The widget loads
+   *  Stripe.js with the platform key AND this account. */
+  stripeAccount?: string;
   amountCents?: number;
   type?: DepositType;
 }
@@ -156,6 +159,7 @@ export async function createBookingDeposit(
       required: true,
       clientSecret: intent.clientSecret,
       ...(intent.publishableKey ? { publishableKey: intent.publishableKey } : {}),
+      ...(intent.stripeAccount ? { stripeAccount: intent.stripeAccount } : {}),
       amountCents: plan.amountCents,
       type: plan.type,
     };

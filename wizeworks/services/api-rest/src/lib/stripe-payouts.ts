@@ -3,8 +3,8 @@
 // The Finance → Payouts view is DERIVED for most funding sources (captured payments
 // grouped into capture + 2 days — see routes/v1/finance/payouts.ts). That approximation
 // never matches the bank: it can't see Stripe's real payout batching, its fees, refund
-// clawbacks, or the true arrival date. For sparx Pay we own the connected Express
-// account, so we can read Stripe's ACTUAL `payout` objects — the exact amount, arrival
+// clawbacks, or the true arrival date. For sparx Pay the platform reaches the
+// merchant's connected account, so we can read Stripe's ACTUAL `payout` objects — the exact amount, arrival
 // date, and status that hit the merchant's bank.
 //
 // A Stripe payout is ACCOUNT-LEVEL: one bank per connected account, settling money from
@@ -109,7 +109,8 @@ export async function listConnectedPayouts(
 /** Pull the charge/PaymentIntent references a payout settled, from its balance
  *  transactions. Our captured OrderPayment stores the PaymentIntent id in
  *  `processorRef`, so a charge's `payment_intent` is the join key (with the charge id as
- *  a fallback). Best-effort: destination-charge settlement can surface as different
+ *  a fallback). Best-effort: a direct charge settles as a `charge` on the merchant's
+ *  account, but the destination charges made before 2026-11-09 surface as other
  *  balance-transaction shapes, so anything we can't resolve to a ref is simply skipped —
  *  the payout's own amount/date/status remain the source of truth regardless. */
 function chargeRefsFromTxns(txns: Stripe.BalanceTransaction[]): string[] {
