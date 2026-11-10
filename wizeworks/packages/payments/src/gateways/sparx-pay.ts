@@ -4,7 +4,8 @@
 // the PaymentIntent, the Charge, the Customer and the saved card all live on the
 // merchant's connected account. The merchant is the merchant of record, pays
 // Stripe's processing fee, and handles disputes in their own Stripe Dashboard;
-// `application_fee_amount` takes sparx's flat 0.5% off each charge.
+// `application_fee_amount` takes the brand's flat fee off each charge (0.5% by
+// default, none for a brand that sets `<BRAND>_PAY_FEE_BPS=0`; see fee.ts).
 //
 // Why direct and not destination charges: Stripe stopped letting a platform create
 // connected accounts where the platform carries the losses, and an account where
@@ -17,7 +18,7 @@
 import type Stripe from 'stripe';
 
 import { getPlatformStripe } from '../client';
-import { sparxPayFeeCents } from '../fee';
+import { tenantPayFeeCents } from '../tenant-fee';
 import type {
   ChargeStoredMethodParams,
   CompleteVaultParams,
@@ -90,6 +91,16 @@ export class SparxPayGateway implements PaymentGateway {
     );
   }
 
+  /** `application_fee_amount` for a charge, or nothing when the tenant's brand
+   *  takes no fee: a zero fee is left off rather than sent as 0. */
+  private async feeFor(
+    tenantId: string,
+    amount: number
+  ): Promise<{ application_fee_amount?: number }> {
+    const fee = await tenantPayFeeCents(tenantId, amount);
+    return fee > 0 ? { application_fee_amount: fee } : {};
+  }
+
   /** Request options that make a platform-key call on the merchant's account. */
   private async onMerchant(tenantId: string): Promise<{ stripeAccount: string }> {
     return { stripeAccount: await this.merchantAccountId(tenantId) };
@@ -109,7 +120,7 @@ export class SparxPayGateway implements PaymentGateway {
       {
         amount: params.amount,
         currency: params.currency,
-        application_fee_amount: sparxPayFeeCents(params.amount),
+        ...(await this.feeFor(params.tenantId, params.amount)),
         ...(params.captureMethod === 'manual' ? { capture_method: 'manual' as const } : {}),
         ...(save ? save.params : { automatic_payment_methods: { enabled: true } }),
         metadata: {
@@ -200,7 +211,7 @@ export class SparxPayGateway implements PaymentGateway {
       {
         mode: 'payment',
         payment_intent_data: {
-          application_fee_amount: sparxPayFeeCents(params.amount),
+          ...(await this.feeFor(params.tenantId, params.amount)),
           // Stamp the intent (not just the session) so the payment webhook can resolve
           // the tenant + invoice from payment_intent.succeeded.
           metadata: { tenantId: params.tenantId, invoiceId: params.invoiceId },
@@ -266,13 +277,13 @@ export class SparxPayGateway implements PaymentGateway {
 
   async chargeStoredMethod(params: ChargeStoredMethodParams): Promise<StoredChargeResult> {
     // The same direct charge createPaymentIntent makes: on the merchant's account,
-    // sparx's flat fee taken off it. A subscription charge is not a different KIND
+    // the brand's flat fee taken off it. A subscription charge is not a different KIND
     // of payment, so it must not earn different economics by taking a different
     // code path.
     return chargeStripeStoredMethod(
       this.platform(),
       params,
-      { application_fee_amount: sparxPayFeeCents(params.amount) },
+      await this.feeFor(params.tenantId, params.amount),
       await this.onMerchant(params.tenantId)
     );
   }

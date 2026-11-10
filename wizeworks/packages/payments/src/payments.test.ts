@@ -3,9 +3,9 @@
 // by integration tests; here we lock the parts that decide money + routing.
 
 import type Stripe from 'stripe';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 
-import { SPARX_PAY_FEE_RATE, sparxPayFeeCents } from './fee';
+import { formatPayFee, payFeeBps, SPARX_PAY_FEE_RATE, sparxPayFeeCents } from './fee';
 import { GatewayNotFoundError, gatewayRegistry, registerBuiltInGateways } from './registry';
 import { normalizeStripeEvent } from './stripe-util';
 import { constructEventWithAnySecret, parseWebhookSecrets } from './webhook-secrets';
@@ -18,6 +18,43 @@ describe('fee rule (docs/94 §8)', () => {
     expect(sparxPayFeeCents(100_00)).toBe(50); // $100 → $0.50
     expect(sparxPayFeeCents(0)).toBe(0);
     expect(sparxPayFeeCents(199)).toBe(1); // rounds (0.995 → 1)
+  });
+
+  it('takes a brand’s own rate, in basis points', () => {
+    expect(sparxPayFeeCents(100_00, 0)).toBe(0);
+    expect(sparxPayFeeCents(100_00, 25)).toBe(25);
+  });
+});
+
+describe('a brand’s Pay fee rate', () => {
+  const VAR = 'FEETEST_PAY_FEE_BPS';
+  afterEach(() => {
+    delete process.env[VAR];
+  });
+
+  it('is the default 0.5% when the brand sets none', () => {
+    expect(payFeeBps('feetest')).toBe(50);
+    expect(payFeeBps(null)).toBe(50);
+  });
+
+  it('is the brand’s own setting, zero included', () => {
+    process.env[VAR] = '0';
+    expect(payFeeBps('feetest')).toBe(0);
+    process.env[VAR] = '25';
+    expect(payFeeBps('feetest')).toBe(25);
+  });
+
+  it('refuses a value that is not a whole number of basis points from 0 to 1000', () => {
+    for (const bad of ['0.5', '-1', '1001', 'half']) {
+      process.env[VAR] = bad;
+      expect(() => payFeeBps('feetest')).toThrow(VAR);
+    }
+  });
+
+  it('reads as a percentage', () => {
+    expect(formatPayFee(50)).toBe('0.5%');
+    expect(formatPayFee(25)).toBe('0.25%');
+    expect(formatPayFee(100)).toBe('1%');
   });
 });
 

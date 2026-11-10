@@ -1,13 +1,13 @@
 # ADR — Payment Gateway Architecture & sparx Pay
 
-**Version:** 1.1
+**Version:** 1.2
 **Author:** Brandon Korous
 **Last Updated:** 2026-11-09
 
 **For:** Claude Code / build agent
 **Date:** 2026-06-12
 **Status:** Decided — do not relitigate. Amended 2026-11-09 (Managed Risk and direct
-charges, below).
+charges; the Pay fee is per brand, below).
 **Context:** Zero users in production. Build the full gateway abstraction
 now. Use Stripe Connect as the sparx Pay implementation.
 
@@ -57,6 +57,31 @@ that say otherwise:
 
 Accounts created before 2026-11-09 keep working as they are: a direct charge on an
 Express account is valid, and nothing re-creates them.
+
+## Amendment — 2026-11-09 (v1.2): the Pay fee is per brand
+
+The platform serves two brands, and the Pay product is the same code under each
+name (sparx Pay, Piggles Pay). Piggles' marketing promises "Piggles adds no fee to a
+sale" on its FAQ, compare pages and trade pages. Piggles Pay took 0.5% anyway,
+because §8 had one rate for every brand. Brandon chose to keep the promise: Piggles
+Pay takes no fee, and its shops pay only Stripe's card fee.
+
+- **The rate** is `<BRAND>_PAY_FEE_BPS`, in basis points, read by
+  `wizeworks/packages/payments/src/fee.ts`. Unset is 50 (0.5%), so sparx is
+  unchanged. A value that is not a whole number from 0 to 1000 throws: a typo must
+  stop the charge, not overcharge every shop or give the fee away.
+- **Set in** every app-env ConfigMap (`k8s/azure/infra/app-env-configmap.env`,
+  `k8s/sparx-prod/app-env-configmap.yaml`, `k8s/local/app-env-configmap.env`):
+  `PIGGLES_PAY_FEE_BPS=0`.
+- **The charge** reads the tenant's brand from `tenants.platform_brand`
+  (`tenant-fee.ts`). At zero, `application_fee_amount` is left off every Pay charge:
+  payments, invoice payment links and renewals. `payment_intents.platform_fee`
+  records 0.
+- **The words** follow the rate. The provider picker's blurb and fee line fill
+  `{payFee}` from it, and a zero-fee brand reads "No Piggles fee. You pay only
+  Stripe's card fee." (`catalog.ts`, `zeroFee`).
+- **Tests:** `payments.test.ts` (the rule), `sparx-pay-direct.test.ts` (no fee on
+  any charge path), `catalog.test.ts` (the words).
 
 ---
 
@@ -545,7 +570,8 @@ Manual payments (check, cash, wire, ACH direct):
 ```
 
 No tier-based fee structure. No plan-based fee structure. One rule:
-sparx Pay = 0.5% fee. Everything else = no fee. Simple, honest,
+sparx Pay = 0.5% fee. Everything else = no fee. (Since v1.2 the Pay rate is the
+brand's: sparx 0.5%, Piggles none. See the amendment at the top.) Simple, honest,
 and consistent with the modules-not-plans philosophy.
 
 **Invoicing specifically:**

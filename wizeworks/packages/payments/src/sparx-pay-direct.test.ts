@@ -13,6 +13,8 @@
 //      browser can confirm them only with Stripe.js loaded for that account.
 //   3. Refunds, holds, lookups, saved cards and payment links all reach the same
 //      account. A card saved on one account cannot be charged on another.
+//   4. A brand that takes no fee (`<BRAND>_PAY_FEE_BPS=0`) sends none: every
+//      charge path leaves `application_fee_amount` off.
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -29,6 +31,16 @@ const calls = {
   setupCreate: vi.fn(),
   sessionCreate: vi.fn(),
 };
+
+/** The brand tenant t-1 signed up under, as the tenants row reports it. */
+let tenantBrand: string | null = 'sparx';
+
+vi.mock('@wizeworksllc/db', () => ({
+  withSystem: (fn: () => unknown) => fn(),
+  prisma: {
+    tenant: { findUnique: () => Promise.resolve({ platformBrand: tenantBrand }) },
+  },
+}));
 
 vi.mock('./client', () => ({
   getPlatformStripe: () => ({
@@ -47,6 +59,7 @@ vi.mock('./client', () => ({
 
 const { setPaymentSecretReader } = await import('./secrets');
 const { SparxPayGateway } = await import('./gateways/sparx-pay');
+const { resetTenantBrandCache } = await import('./tenant-fee');
 
 const intent = {
   id: 'pi_1',
@@ -60,6 +73,9 @@ const intent = {
 
 beforeEach(() => {
   for (const fn of Object.values(calls)) fn.mockReset();
+  tenantBrand = 'sparx';
+  resetTenantBrandCache();
+  delete process.env.NOFEE_PAY_FEE_BPS;
   setPaymentSecretReader({
     read: (ref) =>
       ref === 'payments/t-1/sparx_pay/stripe_account_id'
@@ -232,5 +248,53 @@ describe('a saved card', () => {
       actionSecret: 'pi_1_secret',
       stripeAccount: ACCOUNT,
     });
+  });
+});
+
+describe('a brand that takes no fee', () => {
+  beforeEach(() => {
+    tenantBrand = 'nofee';
+    process.env.NOFEE_PAY_FEE_BPS = '0';
+  });
+
+  it('sends no application fee on a payment, a payment link or a renewal', async () => {
+    calls.intentCreate.mockResolvedValue(intent);
+    calls.sessionCreate.mockResolvedValue({ url: 'https://checkout.stripe.com/c/pay/1' });
+    const gateway = new SparxPayGateway();
+
+    await gateway.createPaymentIntent({ tenantId: 't-1', amount: 10_000, currency: 'usd' });
+    await gateway.createPaymentLink({
+      tenantId: 't-1',
+      amount: 10_000,
+      currency: 'usd',
+      invoiceId: 'inv-1',
+      description: 'Invoice 1',
+      successUrl: 'https://shop.example/paid',
+    });
+    await gateway.chargeStoredMethod({
+      tenantId: 't-1',
+      amount: 10_000,
+      currency: 'usd',
+      methodRef: 'pm_1',
+      customerRef: 'cus_1',
+      idempotencyKey: 'sub-1:occ-1:1',
+    });
+
+    const [payment, renewal] = calls.intentCreate.mock.calls.map((c) => c[0] as object);
+    const link = (calls.sessionCreate.mock.calls[0]?.[0] as { payment_intent_data: object })
+      .payment_intent_data;
+    expect(payment).not.toHaveProperty('application_fee_amount');
+    expect(renewal).not.toHaveProperty('application_fee_amount');
+    expect(link).not.toHaveProperty('application_fee_amount');
+  });
+
+  it('still runs on the merchant’s account', async () => {
+    calls.intentCreate.mockResolvedValue(intent);
+    await new SparxPayGateway().createPaymentIntent({
+      tenantId: 't-1',
+      amount: 10_000,
+      currency: 'usd',
+    });
+    expect(calls.intentCreate.mock.calls[0]?.[1]).toEqual(ON_MERCHANT);
   });
 });
